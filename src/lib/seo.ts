@@ -47,7 +47,11 @@ export const serviceH1 = (service: string) => `${service} in Los Angeles and Sou
 export const regionTitle = (region: string) => t(`HVAC Services in ${region}`);
 export const regionH1 = (region: string) => `HVAC Services in ${region}`;
 
-export const cityTitle = (city: string) => t(`HVAC Services in ${city}, CA`);
+// Services hub (/services/): no formula in docs/metadata-rules.md Section 3; modeled on the region hub row.
+export const servicesHubTitle = () => t('HVAC Services in Southern California');
+export const servicesHubH1 = () => 'HVAC Services for Every Home and Business in Southern California';
+
+export const cityTitle =(city: string) => t(`HVAC Services in ${city}, CA`);
 export const cityH1 = (city: string) => `HVAC Services in ${city}, CA`;
 
 // The qualifier (e.g. a confirmed availability claim) is optional and dropped before any truncation.

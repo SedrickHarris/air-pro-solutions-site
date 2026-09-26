@@ -56,4 +56,21 @@ export const faqSchema = (faqs: { q: string; a: string }[]) => ({
   mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 });
 
+// Hub page listing services. Each entry must use the same name/description/url rendered on the page.
+export const collectionPageSchema = (c: { name: string; url: string; items: { name: string; description: string; url: string }[] }) => ({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: c.name,
+  url: c.url,
+  provider: providerRef,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: c.items.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: { '@type': 'Service', name: it.name, description: it.description, url: it.url, provider: providerRef },
+    })),
+  },
+});
+
 export const jsonLd = (data: object) => JSON.stringify(data);

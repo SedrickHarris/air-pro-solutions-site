@@ -152,7 +152,7 @@ section.alt { background: var(--paper-dim); }
   background: radial-gradient(circle at 75% 20%, rgba(240, 121, 31, 0.35), transparent 45%), radial-gradient(circle at 20% 80%, rgba(43, 169, 224, 0.3), transparent 50%), linear-gradient(135deg, var(--navy-900), var(--navy-700)); }
 .photo-tag { position: absolute; top: 10px; right: 10px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(255, 255, 255, 0.14); color: #fff; padding: 3px 8px; border-radius: 4px; }
 .photo-caption { position: absolute; left: 12px; bottom: 12px; font-size: 0.8rem; font-weight: 600; background: rgba(7, 22, 56, 0.6); color: #fff; padding: 6px 10px; border-radius: 6px; backdrop-filter: blur(4px); }
-.hero-photo { aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
+.hero-photo { position: relative; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .trust-strip { background: var(--navy-950); color: #fff; }
@@ -233,3 +233,10 @@ section.alt { background: var(--paper-dim); }
   .decision-grid, .services-grid, .region-grid, .foot-grid { grid-template-columns: 1fr; }
   .header-cta .btn { display: none; }
 }
+
+/* Keyword pills (ui/KeywordPills) */
+.pill-list { list-style: none; padding: 0; margin: 1.25rem 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.pill { display: inline-block; font-size: 0.82rem; font-weight: 600; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--ink-soft); text-decoration: none; transition: border-color 0.15s; }
+.pill-link:hover { border-color: var(--amber-500); }
+.pill-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin: 1.5rem 0 0; }
+.banner-note { font-size: 0.82rem; color: #b9c8db; margin: 1rem auto 0; max-width: 60ch; }

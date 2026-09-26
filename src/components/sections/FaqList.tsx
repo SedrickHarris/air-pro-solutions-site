@@ -1,11 +1,11 @@
 import type { Faq } from '@/content/faq';
 
 // Renders the same array that feeds the FAQPage JSON-LD, so visible text and schema stay identical.
-export function FaqList({ faqs, title = 'Frequently asked questions' }: { faqs: Faq[]; title?: string }) {
+export function FaqList({ faqs, title = 'Frequently asked questions', eyebrow = 'FAQ' }: { faqs: Faq[]; title?: string; eyebrow?: string }) {
   return (
     <section>
       <div className="wrap">
-        <p className="eyebrow">FAQ</p>
+        <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
         <div className="faq-grid">
           {faqs.map((f) => (

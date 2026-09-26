@@ -38,23 +38,23 @@ const card = (slug: string, alt: string): ServiceImage => ({ src: `/images/servi
 // Descriptions are the confirmed homepage card copy; empty ones are still TODO(copy).
 const baseServices: Service[] = [
   // --- Level 1: core services ---
-  core('ac', 'ac-repair', 'AC Repair', 'snowflake', { description: 'Diagnosis and repair for cooling failures, weak airflow, and unusual noises.',
+  core('ac', 'ac-repair', 'AC Repair', 'snowflake', { description: "Diagnosis and repair for air conditioners that aren't cooling, blow warm air, leak, or make unusual noises.",
     image: card('ac-repair', 'Large outdoor AC condenser on a concrete pad beside a stucco wall in warm evening light') }),
-  core('ac', 'ac-installation', 'AC Installation', 'wrench', { description: 'Properly sized systems with a clear, itemized estimate before any work begins.',
+  core('ac', 'ac-installation', 'AC Installation', 'wrench', { description: 'New air conditioner installation and system replacement, sized to your home or business.',
     image: card('ac-installation', 'Outdoor AC condenser on a concrete pad beside a home, with the Los Angeles skyline in the distance') }),
-  core('ac', 'ac-maintenance', 'AC Maintenance', 'calendar-check', { description: 'Twice-yearly tune-ups that extend equipment life and catch problems early.',
+  core('ac', 'ac-maintenance', 'AC Maintenance', 'calendar-check', { description: 'Seasonal tune-ups that check refrigerant levels, electrical components, and airflow before extreme heat arrives.',
     image: card('ac-maintenance', 'Outdoor AC condenser unit beside a home with a service tool resting on the pad') }),
-  core('heating', 'heating-repair', 'Heating Repair', 'flame', { description: "Furnace and heat-pump repair sized for Southern California's mild winters.",
+  core('heating', 'heating-repair', 'Heating Repair', 'flame', { description: "Diagnosis and repair for furnaces, heat pumps, and heating systems that won't turn on or heat unevenly.",
     image: card('heating-repair', 'Gas furnace and ductwork in a home utility closet') }),
-  core('heating', 'furnace-installation', 'Furnace Installation', 'furnace'),
-  core('heat-pump', 'heat-pump-services', 'Heat Pump Services', 'heat-pump', { description: 'Single-system heating and cooling with strong rebate eligibility.',
+  core('heating', 'furnace-installation', 'Furnace Installation', 'furnace', { description: 'Furnace installation and replacement for homes and businesses across Southern California.' }),
+  core('heat-pump', 'heat-pump-services', 'Heat Pump Services', 'heat-pump', { description: 'Installation, repair, and maintenance for heat pump systems that handle both heating and cooling.',
     image: card('heat-pump-services', 'Outdoor heat pump unit mounted on the exterior wall of a home') }),
-  core('ductless', 'ductless-mini-split', 'Ductless Mini-Split', 'mini-split', { description: 'Room-by-room comfort for older homes, ADUs, and additions with no ductwork.',
+  core('ductless', 'ductless-mini-split', 'Ductless Mini-Split', 'mini-split', { description: 'Ductless mini-split installation and service for additions, garages, and homes without central ductwork.',
     image: card('ductless-mini-split', 'Wall-mounted ductless mini-split indoor unit in a bright living space') }),
-  core('ductwork', 'ductwork', 'Ductwork', 'duct'),
-  core('indoor-air-quality', 'indoor-air-quality', 'Indoor Air Quality', 'air'),
+  core('ductwork', 'ductwork', 'Ductwork', 'duct', { description: 'Duct inspection, sealing, repair, and design for uneven airflow, energy loss, and air quality issues.' }),
+  core('indoor-air-quality', 'indoor-air-quality', 'Indoor Air Quality', 'air', { description: 'Air filtration, purification, and humidity solutions that improve the air circulating through your space.' }),
   // TODO(data): the "Emergency" name and slug imply urgent availability; confirm the service is always-on or rename.
-  core('hvac', 'emergency-hvac', 'Emergency HVAC', 'alert', { description: 'Priority scheduling for no-cool and no-heat problems across our service area.',
+  core('hvac', 'emergency-hvac', 'Emergency HVAC', 'alert', { description: "24/7 dispatch for no-cool and no-heat emergencies that can't wait for a scheduled appointment.",
     image: card('emergency-hvac', 'Outdoor AC unit beside a home at dusk') }),
 
   // --- Level 2: second-level service pages ---
