@@ -1,9 +1,16 @@
-import { cities } from '@/content/cities';
+import type { Metadata } from 'next';
+import { cities, getCity } from '@/content/cities';
 
 // Static export: only these params are generated.
 export const dynamicParams = false;
 export function generateStaticParams() {
   return cities.map((c) => ({ city: c.slug }));
+}
+
+// Wave 2 cities build as noindex stubs until they have real local content.
+export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
+  const { city } = await params;
+  return getCity(city)?.wave === 1 ? {} : { robots: { index: false, follow: false } };
 }
 
 export default async function Page({ params }: { params: Promise<{ city: string }> }) {

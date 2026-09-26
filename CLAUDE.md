@@ -99,6 +99,19 @@ every URL. Max 3 path levels. City slugs always end in `-ca`.
 - Core pages (Wave 1 stubs): /about/, /contact/, /reviews/, /financing/, /maintenance-plan/, /faq/, /careers/, /privacy/, /terms/, /accessibility/, /thank-you/ (noindex, not in sitemap) and the 404 (not-found.tsx). Privacy/Terms must carry the TCPA/SMS consent language the forms link to.
 - Reviews, financing and maintenance-plan depend on open client inputs (real reviews, financing partner, license details). Keep them as "content coming" stubs until supplied.
 
+## Service page levels (parent/child tree)
+
+- **Level 1:** parent/hub service pages at `/[slug]/`. **Level 2:** child service pages, also flat at `/[slug]/`
+  (for example `/ac-replacement/`), linked from their parent. **Level 3:** commercial pages at
+  `/commercial-hvac/<slug>/` (16 stubs in `src/content/commercial.ts`; eight are in the latest tree).
+- The tree lives in `serviceTree` in `src/content/services.ts`; each service has `family`, `level`, `parent`
+  and `published`. Level 2 and 3 pages build as **noindex stubs** (`published: false`), stay out of the
+  sitemap and the contact form, and flip to published only when real copy exists.
+- Open decisions (flagged in code): `ac-installation`, `ductwork`, `hvac-*` and `maintenance-plans` are not
+  in the tree; `ductwork` vs `ductwork-services` and `maintenance-plans` vs `/maintenance-plan/` overlap;
+  eight commercial pages built earlier are not in the tree (`inTree: false`) and four overlap the top-level
+  audience pages. Resolve overlaps before publishing so two URLs never target one query.
+
 ## Metadata & H1 rules
 
 Full rules and rationale live in `docs/metadata-rules.md` (binding). How to choose and validate each

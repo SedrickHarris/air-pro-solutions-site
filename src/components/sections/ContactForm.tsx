@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { services } from '@/content/services';
+import { publishedServices } from '@/content/services';
 import { siteConfig } from '@/content/site-config';
 
 // TODO(data): set the real form endpoint (Cloudflare Pages Function, Formspree, CRM webhook).
@@ -48,7 +48,7 @@ export function ContactForm() {
       <label className="field">Service needed
         <select name="service" required defaultValue="">
           <option value="" disabled>Select a service</option>
-          {services.map((s) => (
+          {publishedServices.map((s) => (
             <option key={s.slug} value={s.slug}>{s.name}</option>
           ))}
           <option value="other">Other / not sure</option>

@@ -11,8 +11,4 @@ export const matrixPages: { service: string; city: string }[] = [
   { service: 'ac-repair', city: 'torrance-ca' },
 ];
 
-// /[audience]-hvac/[service]/ (never residential-hvac)
-// TODO(data): PLACEHOLDER pair so the export has one param.
-export const audienceServicePages: { audience: string; service: string }[] = [
-  { audience: 'commercial-hvac', service: 'ac-repair' },
-];
+// Level 3 commercial pages (/commercial-hvac/<slug>/) live in content/commercial.ts.

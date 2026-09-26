@@ -9,14 +9,14 @@ export type Region = {
 
 export const citySlug = (name: string) => `${name.toLowerCase().replace(/\s+/g, '-')}-ca`;
 
-// Tier-1 city lists (6 per region), confirmed in the homepage build brief.
+// Tier-1 city lists, confirmed by the client team (8 per region).
 // South Bay is carved out of LA County so the two hubs never compete for the same cities:
 // "LA County" here means LA County minus South Bay.
 const regionData: { slug: string; name: string; cityNames: string[] }[] = [
-  { slug: 'los-angeles-county', name: 'Los Angeles County', cityNames: ['Los Angeles', 'Long Beach', 'Pasadena', 'Glendale', 'Burbank', 'Santa Monica'] },
-  { slug: 'south-bay', name: 'South Bay', cityNames: ['Torrance', 'Redondo Beach', 'Manhattan Beach', 'Gardena', 'Carson', 'Hawthorne'] },
-  { slug: 'orange-county', name: 'Orange County', cityNames: ['Anaheim', 'Irvine', 'Santa Ana', 'Huntington Beach', 'Costa Mesa', 'Fullerton'] },
-  { slug: 'inland-empire', name: 'Inland Empire', cityNames: ['Riverside', 'Ontario', 'Rancho Cucamonga', 'Fontana', 'Corona', 'San Bernardino'] },
+  { slug: 'los-angeles-county', name: 'Los Angeles County', cityNames: ['Los Angeles', 'Long Beach', 'Pasadena', 'Glendale', 'Burbank', 'Culver City', 'Santa Monica', 'Inglewood'] },
+  { slug: 'south-bay', name: 'South Bay', cityNames: ['Torrance', 'Redondo Beach', 'Manhattan Beach', 'Hermosa Beach', 'El Segundo', 'Gardena', 'Hawthorne', 'Carson'] },
+  { slug: 'orange-county', name: 'Orange County', cityNames: ['Irvine', 'Anaheim', 'Santa Ana', 'Costa Mesa', 'Huntington Beach', 'Newport Beach', 'Fullerton', 'Tustin'] },
+  { slug: 'inland-empire', name: 'Inland Empire', cityNames: ['Riverside', 'Corona', 'Ontario', 'Rancho Cucamonga', 'Chino', 'Fontana', 'Upland', 'Eastvale'] },
 ];
 
 export const regionCityNames = regionData;
