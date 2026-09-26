@@ -1,11 +1,11 @@
 import { PageHeader } from '@/components/ui/PageHeader';
 import { ContactForm } from '@/components/sections/ContactForm';
 import { siteConfig } from '@/content/site-config';
-import { hubMetadata } from '@/lib/seo';
+import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
-  title: 'Contact Air Pro Solutions',
-  description: 'Request HVAC service or a quote from Air Pro Solutions.', // TODO(copy)
+  title: utilityTitle('Contact Us'),
+  description: 'Contact Air Pro Solutions to schedule HVAC service or request an estimate for your home or business in Southern California.', // TODO(copy)
   path: '/contact/',
 });
 

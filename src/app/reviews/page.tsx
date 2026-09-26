@@ -1,10 +1,10 @@
 import { PageHeader } from '@/components/ui/PageHeader';
 import { PendingNote } from '@/components/ui/PendingNote';
-import { hubMetadata } from '@/lib/seo';
+import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
-  title: 'Customer Reviews',
-  description: 'Read what customers say about Air Pro Solutions.', // TODO(copy)
+  title: utilityTitle('Customer Reviews'),
+  description: 'Read customer reviews of Air Pro Solutions and see what homeowners and businesses across Southern California say about our HVAC service.', // TODO(copy)
   path: '/reviews/',
 });
 

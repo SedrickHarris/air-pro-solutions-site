@@ -1,3 +1,5 @@
+import { citySlug, regionCityNames } from './regions';
+
 export type City = {
   slug: string; // always ends in -ca, e.g. torrance-ca
   name: string; // display name without state, e.g. Torrance
@@ -7,10 +9,17 @@ export type City = {
   housingNotes: string;
 };
 
-// TODO(data): PLACEHOLDER entry exists only so the static export has at least one
-// param for city routes. Replace with real, verified local data. Never invent it.
-export const cities: City[] = [
-  { slug: 'placeholder-city-ca', name: 'PLACEHOLDER City', region: 'los-angeles-county', neighborhoods: [], zips: [], housingNotes: '' },
-];
+// TODO(data): neighborhoods, zips and housingNotes are intentionally empty. Fill each with real,
+// verified local data before building that city page or its matrix pages. Never invent it.
+export const cities: City[] = regionCityNames.flatMap((r) =>
+  r.cityNames.map((name) => ({
+    slug: citySlug(name),
+    name,
+    region: r.slug,
+    neighborhoods: [],
+    zips: [],
+    housingNotes: '',
+  })),
+);
 
 export const getCity = (slug: string) => cities.find((c) => c.slug === slug);

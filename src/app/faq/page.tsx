@@ -1,12 +1,12 @@
 import { PageHeader } from '@/components/ui/PageHeader';
 import { generalFaqs } from '@/content/faq';
 import { faqSchema, jsonLd, breadcrumbSchema } from '@/lib/schema';
-import { hubMetadata } from '@/lib/seo';
+import { hubMetadata, utilityTitle } from '@/lib/seo';
 import { siteConfig } from '@/content/site-config';
 
 export const metadata = hubMetadata({
-  title: 'HVAC FAQ',
-  description: 'Straight answers to common heating and cooling questions.', // TODO(copy)
+  title: utilityTitle('HVAC FAQ'),
+  description: 'Straight answers to common HVAC questions from Air Pro Solutions, including repair versus replace, filter changes, AC sizing, and heat pumps.', // TODO(copy)
   path: '/faq/',
 });
 

@@ -1,4 +1,24 @@
-// TODO(sections): implement TrustStrip
+import { siteConfig } from '@/content/site-config';
+
+// Dropped the unconfirmed "30+ years combined field experience" stat.
+const stats = [
+  { num: `${siteConfig.rating}★`, label: `average rating, ${siteConfig.reviewCount} reviews` },
+  { num: 'Licensed', label: '& insured HVAC technicians' },
+  { num: '4', label: 'SoCal regions served' },
+  { num: 'C-20', label: 'California licensed & bonded' },
+];
+
 export function TrustStrip() {
-  return <div data-component="TrustStrip">{/* TODO */}</div>;
+  return (
+    <div className="trust-strip">
+      <div className="wrap trust-inner">
+        {stats.map((s) => (
+          <div className="trust-item" key={s.num + s.label}>
+            <span className="trust-num">{s.num}</span>
+            <span className="trust-label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }

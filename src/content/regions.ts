@@ -4,14 +4,24 @@ export type Region = {
   cities: string[]; // city slugs (end in -ca), keys into cities.ts
 };
 
-// TODO(data): city lists must come from the actual service area given by the client. Do not guess.
+export const citySlug = (name: string) => `${name.toLowerCase().replace(/\s+/g, '-')}-ca`;
+
+// Tier-1 city lists (6 per region), confirmed in the homepage build brief.
 // South Bay is carved out of LA County so the two hubs never compete for the same cities:
 // "LA County" here means LA County minus South Bay.
-export const regions: Region[] = [
-  { slug: 'los-angeles-county', name: 'Los Angeles County', cities: ['placeholder-city-ca'] },
-  { slug: 'south-bay', name: 'South Bay', cities: [] },
-  { slug: 'orange-county', name: 'Orange County', cities: [] },
-  { slug: 'inland-empire', name: 'Inland Empire', cities: [] },
+const regionData: { slug: string; name: string; cityNames: string[] }[] = [
+  { slug: 'los-angeles-county', name: 'Los Angeles County', cityNames: ['Los Angeles', 'Long Beach', 'Pasadena', 'Glendale', 'Burbank', 'Santa Monica'] },
+  { slug: 'south-bay', name: 'South Bay', cityNames: ['Torrance', 'Redondo Beach', 'Manhattan Beach', 'Gardena', 'Carson', 'Hawthorne'] },
+  { slug: 'orange-county', name: 'Orange County', cityNames: ['Anaheim', 'Irvine', 'Santa Ana', 'Huntington Beach', 'Costa Mesa', 'Fullerton'] },
+  { slug: 'inland-empire', name: 'Inland Empire', cityNames: ['Riverside', 'Ontario', 'Rancho Cucamonga', 'Fontana', 'Corona', 'San Bernardino'] },
 ];
+
+export const regionCityNames = regionData;
+
+export const regions: Region[] = regionData.map((r) => ({
+  slug: r.slug,
+  name: r.name,
+  cities: r.cityNames.map(citySlug),
+}));
 
 export const getRegion = (slug: string) => regions.find((r) => r.slug === slug);

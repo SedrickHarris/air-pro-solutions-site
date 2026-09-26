@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { utilityTitle } from '@/lib/seo';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { ThankYouEvent } from '@/components/sections/ThankYouEvent';
 import { siteConfig } from '@/content/site-config';
 
 // Conversion-event page: must stay noindex and out of the sitemap.
 export const metadata: Metadata = {
-  title: 'Thank You',
+  title: utilityTitle('Thank You'),
+  description: 'Thank you for contacting Air Pro Solutions. We received your HVAC service request and will be in touch.',
   robots: { index: false, follow: false },
 };
 

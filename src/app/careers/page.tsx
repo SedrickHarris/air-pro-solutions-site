@@ -1,10 +1,10 @@
 import { PageHeader } from '@/components/ui/PageHeader';
 import { siteConfig } from '@/content/site-config';
-import { hubMetadata } from '@/lib/seo';
+import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
-  title: 'Careers',
-  description: 'Interested in working with Air Pro Solutions? Get in touch.', // TODO(copy)
+  title: utilityTitle('Careers'),
+  description: 'Interested in an HVAC career? Get in touch with Air Pro Solutions to ask about opportunities with our team in Southern California.', // TODO(copy)
   path: '/careers/',
 });
 

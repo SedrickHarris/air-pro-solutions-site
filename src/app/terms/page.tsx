@@ -2,11 +2,11 @@ import Link from 'next/link';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { PendingNote } from '@/components/ui/PendingNote';
 import { siteConfig } from '@/content/site-config';
-import { hubMetadata } from '@/lib/seo';
+import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
-  title: 'Terms of Service',
-  description: 'Terms for using the Air Pro Solutions website.',
+  title: utilityTitle('Terms of Service'),
+  description: 'The terms that apply when you use the Air Pro Solutions website or request HVAC service, including estimates, text messages, and liability limits.',
   path: '/terms/',
 });
 

@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { PendingNote } from '@/components/ui/PendingNote';
-import { hubMetadata } from '@/lib/seo';
+import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
-  title: 'HVAC Financing',
-  description: 'Flexible financing options for HVAC repair and replacement.', // TODO(copy): confirm once partner is set
+  title: utilityTitle('HVAC Financing'),
+  description: 'Learn about HVAC financing options from Air Pro Solutions for qualifying repairs, replacements, and installations. Contact us to discuss what fits.', // TODO(copy): confirm once partner is set
   path: '/financing/',
 });
 

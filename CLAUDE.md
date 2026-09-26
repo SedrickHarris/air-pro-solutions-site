@@ -30,7 +30,7 @@ Stack: Next.js (App Router, static export) + GitHub + Cloudflare Pages.
 - Phone: (323) 776-9047
 - CA contractor license #: 1126691, 50251 (C-20)
 - Google rating: 4.8 stars / 40 reviews
-- Logo: blue/orange swirl mark on navy — `public/images/logo-mark.png`
+- Logo: blue/orange swirl mark on navy — `public/images/logo-mark.webp`
 
 ## Design system
 
@@ -95,11 +95,43 @@ every URL. Max 3 path levels. City slugs always end in `-ca`.
   city (climate/sizing, local utility rebate, permit/Title 24 notes, housing-stock fit, local
   reviews/job photos, neighborhood/response-time detail). Thin pages are held, not shipped. Published
   pairs are listed in src/content/matrix.ts.
-- Title patterns (~60 chars): matrix `AC Repair in Torrance, CA | Same-Day Service | Air Pro Solutions`,
-  city `HVAC Services in Torrance, CA | Air Pro Solutions` (helpers in src/lib/seo.ts).
 
 - Core pages (Wave 1 stubs): /about/, /contact/, /reviews/, /financing/, /maintenance-plan/, /faq/, /careers/, /privacy/, /terms/, /accessibility/, /thank-you/ (noindex, not in sitemap) and the 404 (not-found.tsx). Privacy/Terms must carry the TCPA/SMS consent language the forms link to.
 - Reviews, financing and maintenance-plan depend on open client inputs (real reviews, financing partner, license details). Keep them as "content coming" stubs until supplied.
+
+## Metadata & H1 rules
+
+Full rules and rationale live in `docs/metadata-rules.md` (binding). How to choose and validate each
+page's primary keyword (Track A structural pages vs Track B opportunity pages, SERP and cannibalization
+checks, per-page-type keyword matrix) lives in `docs/primary-keyword-selection.md`.
+Summary: build every page's title/description/H1 from `src/lib/seo.ts`, never hand-write them:
+
+- One primary keyword per URL, present once in title, description, H1, and the opening paragraph.
+  H1 is never identical to the title tag (H1 drops the brand suffix and any qualifier).
+- Title 45-60 chars (soft max 65), description 140-160 chars (soft max 170), H1 25-75 chars.
+- Formulas by page type (builder functions in `src/lib/seo.ts`):
+  - Home: `homeTitle()` / `homeH1()` -> `HVAC Services in Los Angeles, CA | Air Pro Solutions`
+  - Service: `serviceTitle(service)` / `serviceH1(service)` -> `{Service} in Los Angeles | Air Pro Solutions`
+  - Region hub: `regionTitle(region)` / `regionH1(region)` -> `HVAC Services in {Region} | Air Pro Solutions`
+  - City: `cityTitle(city)` / `cityH1(city)` -> `HVAC Services in {City}, CA | Air Pro Solutions`
+  - Matrix (service+city): `matrixTitle(service, city, qualifier?)` / `matrixH1(service, city)` ->
+    `{Service} in {City}, CA | Air Pro Solutions`. Qualifier (e.g. an availability claim) is optional
+    and must pass `assertNoUnapprovedClaims` - drop it before ever truncating service or city.
+  - Audience: `audienceTitle(audience)` / `audienceH1(audience)`
+  - Audience + service: `audienceServiceTitle(service, audience)` / `audienceServiceH1(...)`
+    (commercial-hvac uses `commercialServiceTitle`/`commercialServiceH1` instead)
+  - Blog/resource: `articleTitle(question, includeBrand?)` / `articleH1(question)` - brand suffix optional
+  - Core/utility (About, Contact, FAQ, Careers, Reviews, Financing, Accessibility, Privacy, Terms):
+    `utilityTitle(pagePurpose)` - brand suffix stays on
+- Approved claims in metadata: `licensed`, `4.8-star rated` only (see `ALLOWED_CLAIMS` in `seo.ts`).
+  `same-day`, `24/7`, `emergency`, `insured`, `guaranteed`, `best`, `affordable`, `near me` are
+  blocked until the client confirms them - `assertNoUnapprovedClaims` throws if one slips into a
+  title or description.
+- Matrix pages still need the existing quality gate (3-4 genuinely local elements) on top of
+  correct metadata - a unique title/H1 does not substitute for unique local content.
+- `assertTitle` / `assertDescription` / `assertH1` in `seo.ts` throw at build time if length or
+  claims rules are violated - call them (or rely on `base()`, which already calls the first two)
+  before shipping a new page type.
 
 ## Content data shape
 

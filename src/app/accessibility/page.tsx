@@ -1,10 +1,10 @@
 import { PageHeader } from '@/components/ui/PageHeader';
 import { siteConfig } from '@/content/site-config';
-import { hubMetadata } from '@/lib/seo';
+import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
-  title: 'Accessibility Statement',
-  description: 'Our commitment to an accessible website for everyone.',
+  title: utilityTitle('Accessibility Statement'),
+  description: 'Air Pro Solutions is committed to an accessible website. Read our accessibility statement or contact us to report a problem or request help.',
   path: '/accessibility/',
 });
 

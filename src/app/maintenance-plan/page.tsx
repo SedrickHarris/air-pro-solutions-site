@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { PendingNote } from '@/components/ui/PendingNote';
-import { hubMetadata } from '@/lib/seo';
+import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
-  title: 'HVAC Maintenance Plan',
-  description: 'Learn about HVAC maintenance plans from Air Pro Solutions.', // TODO(copy): confirm once plan is defined
+  title: utilityTitle('HVAC Maintenance Plan'),
+  description: 'Learn how an HVAC maintenance plan from Air Pro Solutions helps keep your cooling and heating equipment efficient and reliable. Ask about plans.', // TODO(copy): confirm once plan is defined
   path: '/maintenance-plan/',
 });
 

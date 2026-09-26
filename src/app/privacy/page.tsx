@@ -1,11 +1,11 @@
 import { PageHeader } from '@/components/ui/PageHeader';
 import { PendingNote } from '@/components/ui/PendingNote';
 import { siteConfig } from '@/content/site-config';
-import { hubMetadata } from '@/lib/seo';
+import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
-  title: 'Privacy Policy',
-  description: 'How Air Pro Solutions collects, uses, and protects your information.',
+  title: utilityTitle('Privacy Policy'),
+  description: 'How Air Pro Solutions collects, uses, and protects your personal information, including our call and text message consent practices.',
   path: '/privacy/',
 });
 

@@ -5,9 +5,10 @@
 // Thin pages are held for a later wave, not shipped.
 
 // /[service]/[city]-ca/
-// TODO(data): PLACEHOLDER pair so the export has one param. Replace with real pairs.
+// TODO(data): PLACEHOLDER pair so the static export has one param. It has NOT passed the quality
+// gate. Remove it from the sitemap/launch until the page has real Torrance content.
 export const matrixPages: { service: string; city: string }[] = [
-  { service: 'ac-repair', city: 'placeholder-city-ca' },
+  { service: 'ac-repair', city: 'torrance-ca' },
 ];
 
 // /[audience]-hvac/[service]/ (never residential-hvac)

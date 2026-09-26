@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { PendingNote } from '@/components/ui/PendingNote';
-import { hubMetadata } from '@/lib/seo';
+import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
-  title: 'About Air Pro Solutions',
-  description: 'Learn about Air Pro Solutions Heating & Cooling and the areas we serve.', // TODO(copy)
+  title: utilityTitle('About Us'),
+  description: 'Learn about Air Pro Solutions, a licensed HVAC contractor serving homes and businesses across LA County, the South Bay, Orange County, and the Inland Empire.', // TODO(copy)
   path: '/about/',
 });
 

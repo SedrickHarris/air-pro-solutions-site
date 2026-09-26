@@ -12,8 +12,14 @@ const manrope = Manrope({ subsets: ['latin'], weight: ['400', '500', '600', '700
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: { default: siteConfig.name, template: `%s | ${siteConfig.name}` }, // TODO(copy)
-  description: '', // TODO(copy)
+  title: siteConfig.name, // page titles are built by src/lib/seo.ts and include the brand suffix
+  description: 'Air Pro Solutions provides HVAC service across Southern California.', // TODO(copy): default for pages without their own
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/images/apple-touch-icon.png',
+  },
+  openGraph: { images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: siteConfig.name }] },
+  twitter: { card: 'summary_large_image', images: [siteConfig.ogImage] },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
