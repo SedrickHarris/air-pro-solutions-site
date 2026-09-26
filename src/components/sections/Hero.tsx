@@ -4,10 +4,10 @@ import { siteConfig } from '@/content/site-config';
 import { Icon } from '@/components/ui/Icon';
 
 const proof = [
-  { label: 'Licensed HVAC contractor', href: undefined },
-  { label: 'Residential & commercial', href: undefined },
-  { label: 'Financing available', href: '/financing/' },
-  { label: 'Serving all of SoCal', href: undefined },
+  { icon: 'shield', label: 'Licensed HVAC contractor', href: undefined },
+  { icon: 'building', label: 'Residential & commercial', href: undefined },
+  { icon: 'dollar', label: 'Financing available', href: '/financing/' },
+  { icon: 'pin', label: 'Serving all of SoCal', href: undefined },
 ];
 
 export function Hero() {
@@ -27,10 +27,10 @@ export function Hero() {
             <Link className="btn btn-primary" href="/contact/">Schedule HVAC Service</Link>
             <a className="btn btn-ghost" href={siteConfig.phoneHref}>Call {siteConfig.phone}</a>
           </div>
-          <ul className="hero-proof">
+          <ul className="hero-proof hero-proof-2x2">
             {proof.map((p) => (
               <li key={p.label}>
-                <Icon name="check" size={16} />
+                <Icon name={p.icon} size={16} />
                 {p.href ? <Link href={p.href}>{p.label}</Link> : p.label}
               </li>
             ))}

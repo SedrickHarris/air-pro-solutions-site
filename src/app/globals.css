@@ -144,6 +144,7 @@ section.alt { background: var(--paper-dim); }
 .hero h1 em { font-style: normal; color: var(--amber-500); }
 .hero-lede { font-size: 1.05rem; line-height: 1.55; max-width: 46ch; color: #cddaea; margin: 0 0 1.25rem; }
 .hero-proof { list-style: none; padding: 0; margin: 1.5rem 0 0; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.9rem; font-weight: 600; }
+.hero-proof-2x2 { display: grid; grid-template-columns: repeat(2, auto); justify-content: start; gap: 12px 28px; }
 .hero-proof li { display: flex; align-items: center; gap: 6px; }
 .hero-proof svg { color: var(--sky-400); }
 .hero-proof a { color: inherit; }

@@ -54,7 +54,12 @@ const commercialPills = to('/commercial-hvac/', ['Commercial HVAC Repair', 'Comm
 const audiencePills = to('/commercial-hvac/', ['Property Managers', 'Apartment Communities', 'Office Buildings', 'Retail Businesses', 'Restaurants', 'Warehouses']);
 
 // TODO(data): "insured", "same-day" and "24/7" below are pending client confirmation (see docs/metadata-rules.md Section 6).
-const heroProof = ['Licensed, bonded & insured', 'Same-day service typical', 'Residential & commercial', `${siteConfig.rating} rating, ${siteConfig.reviewCount} reviews`];
+const heroProof = [
+  { icon: 'shield', label: 'Licensed, bonded & insured' },
+  { icon: 'clock', label: 'Same-day service typical' },
+  { icon: 'building', label: 'Residential & commercial' },
+  { icon: 'star', label: `${siteConfig.rating} rating, ${siteConfig.reviewCount} reviews` },
+];
 
 const trust = [
   { num: '10', label: 'HVAC services under one roof' },
@@ -151,7 +156,7 @@ export default function Page() {
             </div>
             <ul className="hero-proof">
               {heroProof.map((p) => (
-                <li key={p}><Icon name="check" size={16} />{p}</li>
+                <li key={p.label}><Icon name={p.icon} size={16} />{p.label}</li>
               ))}
             </ul>
           </div>
