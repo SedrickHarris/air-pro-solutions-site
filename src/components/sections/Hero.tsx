@@ -4,7 +4,7 @@ import { siteConfig } from '@/content/site-config';
 import { Icon } from '@/components/ui/Icon';
 
 const proof = [
-  { label: 'Licensed & insured', href: undefined },
+  { label: 'Licensed HVAC contractor', href: undefined },
   { label: 'Residential & commercial', href: undefined },
   { label: 'Financing available', href: '/financing/' },
   { label: 'Serving all of SoCal', href: undefined },

@@ -51,7 +51,7 @@ export function Footer() {
               <li><a href={siteConfig.phoneHref}>{siteConfig.phone}</a></li>
               <li><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></li>
               <li>{siteConfig.hours}</li>
-              <li>{siteConfig.emergency}</li>
+              <li>{siteConfig.availabilityNote}</li>
               <li>CA License #{siteConfig.licenses.join(', #')}</li>
             </ul>
           </div>

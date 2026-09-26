@@ -15,7 +15,7 @@ const cards = [
     body: 'Rooftop units, preventative maintenance, tenant comfort, and planning support for property managers and facility teams.',
     href: '/commercial-hvac/',
     cta: 'Commercial HVAC Services',
-    tags: ['Rooftop unit service', 'Maintenance agreements', 'Emergency dispatch', 'Multi-property support'],
+    tags: ['Rooftop unit service', 'Maintenance agreements', 'Priority scheduling', 'Multi-property support'],
   },
 ];
 

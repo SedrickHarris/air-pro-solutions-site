@@ -9,6 +9,7 @@ const order = [
   'ac-repair', 'ac-installation', 'heating-repair', 'heat-pump-services',
   'ductless-mini-split', 'ac-maintenance', 'commercial-hvac', 'emergency-hvac',
 ];
+// TODO(data): the "Emergency" wording is pending client confirmation of always-on availability.
 const labelOverride: Record<string, string> = { 'emergency-hvac': 'Emergency HVAC Repair' };
 
 type Card = { href: string; name: string; description: string; icon: string; image?: ServiceImage };

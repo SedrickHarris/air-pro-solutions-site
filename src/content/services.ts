@@ -38,7 +38,7 @@ const card = (slug: string, alt: string): ServiceImage => ({ src: `/images/servi
 // Descriptions are the confirmed homepage card copy; empty ones are still TODO(copy).
 const baseServices: Service[] = [
   // --- Level 1: core services ---
-  core('ac', 'ac-repair', 'AC Repair', 'snowflake', { description: 'Diagnosis and same-visit fixes for cooling failures, weak airflow, and unusual noises.',
+  core('ac', 'ac-repair', 'AC Repair', 'snowflake', { description: 'Diagnosis and repair for cooling failures, weak airflow, and unusual noises.',
     image: card('ac-repair', 'Large outdoor AC condenser on a concrete pad beside a stucco wall in warm evening light') }),
   core('ac', 'ac-installation', 'AC Installation', 'wrench', { description: 'Properly sized systems with a clear, itemized estimate before any work begins.',
     image: card('ac-installation', 'Outdoor AC condenser on a concrete pad beside a home, with the Los Angeles skyline in the distance') }),
@@ -53,7 +53,8 @@ const baseServices: Service[] = [
     image: card('ductless-mini-split', 'Wall-mounted ductless mini-split indoor unit in a bright living space') }),
   core('ductwork', 'ductwork', 'Ductwork', 'duct'),
   core('indoor-air-quality', 'indoor-air-quality', 'Indoor Air Quality', 'air'),
-  core('hvac', 'emergency-hvac', 'Emergency HVAC', 'alert', { description: 'Same-day dispatch for no-cool and no-heat emergencies across our service area.',
+  // TODO(data): the "Emergency" name and slug imply urgent availability; confirm the service is always-on or rename.
+  core('hvac', 'emergency-hvac', 'Emergency HVAC', 'alert', { description: 'Priority scheduling for no-cool and no-heat problems across our service area.',
     image: card('emergency-hvac', 'Outdoor AC unit beside a home at dusk') }),
 
   // --- Level 2: second-level service pages ---

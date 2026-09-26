@@ -10,7 +10,8 @@ export const siteConfig = {
   reviewCount: 40,
   // Supplied in the homepage build brief.
   hours: 'Mon-Fri 7a-7p · Sat 8a-4p',
-  emergency: '24/7 emergency dispatch',
+  // TODO(data): replace with a confirmed availability claim (for example 24/7 dispatch) once the client approves it.
+  availabilityNote: 'Call for the next available appointment',
   orgId: 'https://airprosolutionsheatingandcooling.com/#organization',
   // Derived from public/images/brand/logos (originals kept there). logo-mark.webp is the transparent 192px WebP icon.
   logo: '/images/logo-mark.webp',

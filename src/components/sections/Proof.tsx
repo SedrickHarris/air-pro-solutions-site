@@ -6,7 +6,7 @@ import { siteConfig } from '@/content/site-config';
 const stats = [
   { num: `${siteConfig.rating}★`, label: 'Google rating' },
   { num: String(siteConfig.reviewCount), label: 'Verified reviews' },
-  { num: '24/7', label: 'Emergency dispatch' },
+  { num: '4', label: 'SoCal regions served' }, // TODO(data): swap for a 24/7 stat only once confirmed
 ];
 
 export function Proof() {

@@ -36,7 +36,7 @@ Stack: Next.js (App Router, static export) + GitHub + Cloudflare Pages.
 
 - **Display font**: Barlow Condensed (weights 600/700/800) — hero
   headlines, H1s, large statistics, short feature-card titles ("AC
-  Repair", "Same-Day Service"), section headings when short.
+  Repair", "Heat Pump Services"), section headings when short.
 - **Body/UI font**: Manrope (weights 400/500/600/700/800) — nav, buttons,
   all body copy, FAQs (questions and answers), form labels, tables,
   footer labels, location-page local content, trust badges/microcopy.

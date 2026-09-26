@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
 
 const cards = [
-  { icon: 'alert', title: "My AC or heat isn't working", body: 'Fast diagnosis for no-cool or no-heat emergencies.', href: '/emergency-hvac/' },
+  { icon: 'alert', title: "My AC or heat isn't working", body: 'Fast diagnosis for no-cool or no-heat problems.', href: '/emergency-hvac/' },
   { icon: 'wrench', title: 'I need a repair', body: "Noises, leaks, weak airflow, or a system that won't turn on.", href: '/ac-repair/' },
   { icon: 'snowflake', title: 'I need a new system', body: 'Replacement or new installation with a free estimate.', href: '/ac-installation/' },
   { icon: 'calendar-check', title: 'I want a tune-up', body: 'Seasonal maintenance to catch problems early.', href: '/maintenance-plan/' },
