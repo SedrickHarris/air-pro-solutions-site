@@ -1,0 +1,126 @@
+/* Token names follow the design system doc. Any new color must be added to all three blocks:
+   bare :root, the prefers-color-scheme override, and [data-theme="dark"]. */
+:root {
+  color-scheme: light;
+  --navy-950: #071638;
+  --navy-900: #0c2456;
+  --navy-800: #123670;
+  --navy-700: #1a478c;
+  --sky-500: #2ba9e0;
+  --sky-400: #5cc4ee;
+  --amber-500: #f0791f;
+  --amber-600: #d1620f;
+  --amber-100: #fdece0;
+  --paper: #f6f7f9;
+  --paper-dim: #eceff3;
+  --ink: #0e1a2b;
+  --ink-soft: #4c5a6c;
+  --line: #dbe0e7;
+  --card-bg: #ffffff;
+  --good: #2f7a4d;
+  --eyebrow: var(--amber-600);
+  --shadow: 0 1px 2px rgba(7, 22, 56, 0.07), 0 8px 24px -12px rgba(7, 22, 56, 0.2);
+
+  --font-display: var(--font-barlow), 'Barlow Condensed', 'Manrope', sans-serif;
+  --font-body: var(--font-manrope), 'Manrope', -apple-system, 'Segoe UI', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --navy-950: #050e22;
+    --amber-100: #2c1a0c;
+    --paper: #081020;
+    --paper-dim: #0b1526;
+    --ink: #eef1f4;
+    --ink-soft: #a7b5c6;
+    --line: #1f2f47;
+    --card-bg: #0e1a30;
+    --eyebrow: var(--amber-500);
+    /* TODO(design): dark shadow value is my equivalent, doc only says "darker rgba". */
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --navy-950: #050e22;
+  --amber-100: #2c1a0c;
+  --paper: #081020;
+  --paper-dim: #0b1526;
+  --ink: #eef1f4;
+  --ink-soft: #a7b5c6;
+  --line: #1f2f47;
+  --card-bg: #0e1a30;
+  --eyebrow: var(--amber-500);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; }
+section { padding-block: 56px; }
+
+.eyebrow {
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--eyebrow);
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.btn-primary { background: var(--amber-500); color: #1a0e02; }
+.btn-primary:hover { background: var(--amber-600); }
+.btn-ghost { color: #fff; border: 1px solid rgba(255, 255, 255, 0.35); }
+.btn-outline { color: var(--navy-700); border: 1px solid var(--navy-700); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .btn-outline { color: var(--ink); border-color: var(--ink-soft); }
+}
+:root[data-theme='dark'] .btn-outline { color: var(--ink); border-color: var(--ink-soft); }
+
+/* Core-page primitives */
+.page-head { background: linear-gradient(135deg, var(--navy-900), var(--navy-800) 55%, var(--navy-700)); color: #fff; padding-block: 48px; }
+.page-head h1 { margin: 0.25rem 0 0; font-size: clamp(1.9rem, 3.4vw, 2.8rem); line-height: 1.08; }
+.page-head .eyebrow { color: var(--sky-400); margin: 0; }
+.page-head .lede { font-size: 1.05rem; line-height: 1.55; max-width: 46ch; color: #cddaea; margin: 0.75rem 0 0; }
+.prose { max-width: 70ch; line-height: 1.65; }
+.prose h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); margin: 2rem 0 0.5rem; }
+.prose a, .link { color: var(--navy-700); font-weight: 600; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.panel { background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 20px; box-shadow: var(--shadow); }
+.panel h3 { margin: 0 0 0.5rem; }
+.pending { background: var(--amber-100); color: var(--ink); border: 1px dashed var(--amber-600); border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; margin: 0.75rem 0; }
+.pending a { color: inherit; }
+.form { display: grid; gap: 14px; }
+.field { display: grid; gap: 6px; font-weight: 600; font-size: 0.9rem; }
+.field input, .field select, .field textarea { font: inherit; padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--card-bg); color: var(--ink); }
+.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 0.85rem; color: var(--ink-soft); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.faq-grid details { background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; }
+.faq-grid summary { font-weight: 700; cursor: pointer; }
+.faq-grid p { line-height: 1.6; color: var(--ink-soft); }
+.map-placeholder { min-height: 220px; display: grid; place-items: center; border: 1px dashed var(--line); border-radius: 10px; color: var(--ink-soft); background: var(--paper-dim); }
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 1rem; }
+@media (max-width: 920px) {
+  .grid-3, .grid-2, .faq-grid { grid-template-columns: 1fr; }
+}
