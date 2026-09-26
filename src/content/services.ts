@@ -23,8 +23,8 @@ const card = (slug: string, alt: string): ServiceImage => ({ src: `/images/servi
 // Served at /[service]/ (top level). Rules: lowercase, hyphens, no stop words.
 // Descriptions are the confirmed homepage card copy; empty ones are still TODO(copy).
 export const services: Service[] = [
-  // TODO(design): no card image supplied for ac-repair yet; it shows the "photo pending" tile.
-  s('ac-repair', 'AC Repair', 'snowflake', 'Diagnosis and same-visit fixes for cooling failures, weak airflow, and unusual noises.'),
+  s('ac-repair', 'AC Repair', 'snowflake', 'Diagnosis and same-visit fixes for cooling failures, weak airflow, and unusual noises.',
+    card('ac-repair', 'Large outdoor AC condenser on a concrete pad beside a stucco wall in warm evening light')),
   s('ac-installation', 'AC Installation', 'wrench', 'Properly sized systems with a clear, itemized estimate before any work begins.',
     card('ac-installation', 'Outdoor AC condenser on a concrete pad beside a home, with the Los Angeles skyline in the distance')),
   s('ac-maintenance', 'AC Maintenance', 'calendar-check', 'Twice-yearly tune-ups that extend equipment life and catch problems early.',
