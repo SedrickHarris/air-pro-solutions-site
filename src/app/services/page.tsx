@@ -157,8 +157,8 @@ export default function Page() {
           </div>
           <div className="hero-photo">
             <Image
-              src="/images/homepage/hero.webp"
-              alt="Outdoor AC condenser beside a stucco home with palm and succulent landscaping"
+              src="/images/services/services-hub/hero.webp"
+              alt="Gas furnace with white PVC venting and galvanized ductwork in a garage utility area beside a water heater"
               width={1200}
               height={900}
               sizes="(max-width: 920px) 100vw, 45vw"
