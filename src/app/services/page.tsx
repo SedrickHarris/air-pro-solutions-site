@@ -316,7 +316,7 @@ export default function Page() {
             </p>
             <Link className="btn btn-primary" href="/reviews/">Read our reviews</Link>
           </div>
-          <div className="proof-stats">
+          <div className="proof-stats proof-stats-2x2">
             {proofStats.map((s) => (
               <div key={s.label}>
                 <span className="trust-num">{s.num}</span>
