@@ -116,6 +116,7 @@ export default function Page() {
         cards={residentialHub.services.items}
         eyebrow={residentialHub.services.eyebrow}
         title={residentialHub.services.heading}
+        columns={3}
       />
 
       <ProcessList

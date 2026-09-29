@@ -29,14 +29,25 @@ function cardFor(slug: string): Card | undefined {
   return { href: `/${svc.slug}/`, name: labelOverride[svc.slug] ?? svc.name, description: svc.description, icon: svc.icon, image: svc.image };
 }
 
-export function ServicesGrid({ cards: cardsProp, eyebrow = 'Services', title = 'HVAC services' }: { cards?: Card[]; eyebrow?: string; title?: string } = {}) {
+export function ServicesGrid({
+  cards: cardsProp,
+  eyebrow = 'Services',
+  title = 'HVAC services',
+  columns,
+}: {
+  cards?: Card[];
+  eyebrow?: string;
+  title?: string;
+  columns?: 2 | 3 | 4;
+} = {}) {
   const cards = cardsProp ?? order.map(cardFor).filter((c): c is Card => Boolean(c));
+  const gridClass = columns === 3 ? 'services-grid services-grid-3' : columns === 2 ? 'services-grid services-grid-2' : 'services-grid';
   return (
     <section>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
-        <div className="services-grid">
+        <div className={gridClass}>
           {cards.map((c) => (
             <Link key={c.href} href={c.href} className="svc-card">
               {c.image ? (
