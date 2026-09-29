@@ -35,13 +35,15 @@ export const organizationSchema = () => ({
 
 export const providerRef = { '@id': siteConfig.orgId };
 
-export const serviceSchema = (s: { name: string; description: string; url: string }) => ({
+export const serviceSchema = (s: { name: string; description: string; url: string; serviceType?: string; areaServed?: { name: string }[] }) => ({
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: s.name,
   description: s.description,
   url: s.url,
   provider: providerRef,
+  ...(s.serviceType ? { serviceType: s.serviceType } : {}),
+  ...(s.areaServed ? { areaServed: s.areaServed.map((a) => ({ '@type': 'AdministrativeArea', name: a.name })) } : {}),
 });
 
 export const breadcrumbSchema = (items: { name: string; url: string }[]) => ({

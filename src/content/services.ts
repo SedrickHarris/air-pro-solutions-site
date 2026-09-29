@@ -1,4 +1,18 @@
+import type { Faq } from '@/content/faq';
+
 export type ServiceImage = { src: string; alt: string };
+
+// Full service-page template content. Only populated for services with real, approved copy;
+// see the "page" field below. Other services stay as noindex stubs until they get this block.
+export type ServicePage = {
+  primaryKeyword: string;
+  // Title/H1 are built from src/lib/seo.ts (serviceTitle/serviceH1) per CLAUDE.md, not hand-written here.
+  metaDescription: string;
+  lede: string; // also the Service JSON-LD description - must stay word-for-word identical to the visible copy
+  answer: { lead: string; body: string };
+  appliesTo: string[];
+  faqs: Faq[];
+};
 
 export type Service = {
   slug: string;
@@ -9,11 +23,12 @@ export type Service = {
   parent?: string; // slug of the hub page this child belongs to, per the page tree below
   published: boolean; // false = builds as a noindex stub, excluded from the sitemap and the contact form
   image?: ServiceImage; // 800x600 card image; falls back to the "photo pending" tile when absent
-  description: string; // TODO(copy) where empty
-  symptoms: string[]; // TODO(copy)
+  description: string; // TODO(copy) where empty - short blurb used on hub/card contexts
+  symptoms: { lead: string; detail: string }[]; // TODO(copy)
   process: { title: string; body: string }[]; // TODO(copy)
-  repairVsReplace: string[]; // TODO(copy)
+  repairVsReplace: { repair: string; replace: string }[]; // TODO(copy)
   related: string[]; // slugs
+  page?: ServicePage; // full template content; only ac-repair has this so far
 };
 
 type Opts = { description?: string; image?: ServiceImage };
@@ -33,13 +48,92 @@ const l2 = make(2, false); // second-level pages: noindex stubs until real copy 
 // public/images/services/service-cards). Alt text describes the picture only; these are not job photos.
 const card = (slug: string, alt: string): ServiceImage => ({ src: `/images/services/cards/${slug}.webp`, alt });
 
+// Full template content for /ac-repair/. Locked copy - see CLAUDE.md "Claims that must not ship"
+// before adding anything here: no pricing, timing, brand-list, or availability claims.
+const acRepairPage: ServicePage = {
+  primaryKeyword: 'ac repair los angeles',
+  metaDescription:
+    'Get AC repair in Los Angeles for homes and businesses. Air Pro Solutions diagnoses cooling, airflow, electrical, and drainage problems. Schedule service.',
+  lede:
+    "No cooling, weak airflow, strange noises, or water leaks? Air Pro Solutions provides residential and commercial AC repair in Los Angeles and across the South Bay, Orange County, and the Inland Empire - with an itemized price before any work begins.",
+  answer: {
+    lead: 'Air conditioning repair',
+    body:
+      ' identifies and fixes problems that prevent an AC system from cooling, operating efficiently, draining correctly, or maintaining reliable airflow. Common repairs include electrical issues, refrigerant leaks, failed capacitors, blower problems, thermostat faults, and drainage clogs - the cause is diagnosed first, then repaired once you approve the price.',
+  },
+  appliesTo: ['Single-family homes', 'Condos and townhomes', 'Apartment communities', 'Office buildings', 'Retail and restaurants', 'Rooftop package units'],
+  faqs: [
+    {
+      q: 'Why is my AC running but not cooling?',
+      a: 'Usually a refrigerant leak, a dirty condenser coil, or a failing capacitor. Each keeps the system running without producing cold air. Air Pro Solutions technicians diagnose the cause and give you a repair cost before any work begins.',
+    },
+    {
+      q: 'How much does AC repair cost in Los Angeles?',
+      a: 'The cost depends on the part, the labor involved, and how accessible the unit is. A technician diagnoses the problem first, then gives you an itemized price before any repair begins.',
+    },
+    {
+      q: 'How quickly can Air Pro Solutions get to my home?',
+      a: "Timing depends on the day's schedule and your location. Call (323) 776-9047 to ask about availability for your city.",
+      links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+    },
+    {
+      q: 'Why is my AC leaking water?',
+      a: "Water leaks usually come from a clogged condensate drain line, a cracked drain pan, or a frozen evaporator coil that's thawing. Left alone, this can damage flooring and drywall, so it's worth having looked at soon even if the AC still cools.",
+    },
+    {
+      // TODO(data): brand list pending client confirmation, same input as the About page manufacturer logos
+      q: 'Do you repair all AC brands?',
+      a: 'Air Pro Solutions repairs residential and commercial air conditioning systems. Contact us with the make and model of your system and we will confirm we can service it.',
+    },
+    {
+      // TODO(data): confirm workmanship warranty terms with the client before stating any
+      q: 'Is AC repair covered by a warranty?',
+      a: 'Warranty coverage depends on the repair and the parts used, and manufacturer parts warranties may apply if your system is still within its coverage window. Ask your technician what is covered before you approve the work.',
+    },
+    {
+      q: 'How long does AC repair take?',
+      a: 'It depends on the problem. A straightforward fix like a capacitor or contactor replacement is usually quicker than tracing a refrigerant leak or an electrical fault. Your technician gives you a time estimate after diagnosis, before any work begins.',
+    },
+    {
+      q: "What's included in an AC repair visit?",
+      a: 'A visit starts with a full system diagnostic. Your technician explains what they found, gives you an itemized repair quote, completes the repair you approve, and tests performance before leaving. They also check refrigerant levels, airflow, and the condensate drain, and flag anything else worth watching.',
+    },
+  ],
+  // TODO(copy): client review of every FAQ answer above before launch.
+};
+
 // Every entry is served at /[service]/ (top level). Rules: lowercase, hyphens, no stop words.
 // To publish a level 2 page, write its copy and switch l2 to core-style published: true for that entry.
 // Descriptions are the confirmed homepage card copy; empty ones are still TODO(copy).
 const baseServices: Service[] = [
   // --- Level 1: core services ---
-  core('ac', 'ac-repair', 'AC Repair', 'snowflake', { description: "Diagnosis and repair for air conditioners that aren't cooling, blow warm air, leak, or make unusual noises.",
-    image: card('ac-repair', 'Large outdoor AC condenser on a concrete pad beside a stucco wall in warm evening light') }),
+  {
+    ...core('ac', 'ac-repair', 'AC Repair', 'snowflake', { description: "Diagnosis and repair for air conditioners that aren't cooling, blow warm air, leak, or make unusual noises.",
+      image: card('ac-repair', 'Large outdoor AC condenser on a concrete pad beside a stucco wall in warm evening light') }),
+    symptoms: [
+      { lead: 'Warm air', detail: 'from vents even when the system is running' },
+      { lead: 'Weak or no airflow', detail: 'from one or more vents' },
+      { lead: 'Unusual noises', detail: '- grinding, clicking, or rattling' },
+      { lead: 'Water pooling', detail: 'near the indoor unit' },
+      { lead: 'Frequent cycling', detail: "on and off, or the system won't stay on" },
+      { lead: 'Rising energy bills', detail: 'with no change in usage' },
+    ],
+    process: [
+      { title: 'Diagnose', body: 'We identify the exact cause of the problem, not just the symptom.' },
+      { title: 'Explain', body: 'You get a plain-language explanation and an itemized price.' },
+      { title: 'Repair', body: 'We complete the approved repair.' },
+      { title: 'Test', body: 'We verify cooling performance and airflow before we leave.' },
+      { title: 'Recommend', body: 'We flag anything worth watching or scheduling next.' },
+    ],
+    repairVsReplace: [
+      { repair: 'System is relatively new', replace: 'Equipment is near or past its expected life' },
+      { repair: 'The issue is isolated and the repair is reasonable', replace: 'Repairs have become frequent or expensive' },
+      { repair: 'Cooling and efficiency are otherwise reliable', replace: 'Energy bills or comfort problems persist' },
+      { repair: 'Parts are still available for the system', replace: 'The system is obsolete or uses a phased-out refrigerant' },
+    ],
+    related: ['ac-installation', 'ac-maintenance', 'emergency-hvac'],
+    page: acRepairPage,
+  },
   core('ac', 'ac-installation', 'AC Installation', 'wrench', { description: 'New air conditioner installation and system replacement, sized to your home or business.',
     image: card('ac-installation', 'Outdoor AC condenser on a concrete pad beside a home, with the Los Angeles skyline in the distance') }),
   core('ac', 'ac-maintenance', 'AC Maintenance', 'calendar-check', { description: 'Seasonal tune-ups that check refrigerant levels, electrical components, and airflow before extreme heat arrives.',

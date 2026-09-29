@@ -194,12 +194,13 @@ section.alt { background: var(--paper-dim); }
 .proof { background: var(--navy-900); color: #fff; }
 .proof p { color: #cddaea; line-height: 1.6; }
 .proof-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
-.proof-stats { display: flex; gap: 32px; }
-.proof-stats > div { display: grid; }
-.proof-stats-2x2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
-.proof-stats-2x2 > div { padding: 16px 20px; border-left: 1px solid rgba(255, 255, 255, 0.14); }
-.proof-stats-2x2 > div:nth-child(2n+1) { border-left: 0; padding-left: 0; }
-.proof-stats-2x2 > div:nth-child(n+3) { border-top: 1px solid rgba(255, 255, 255, 0.14); margin-top: 16px; padding-top: 16px; }
+.proof-stats { display: flex; gap: 0; }
+.proof-stats > div { display: grid; padding: 16px 20px; }
+.proof-stats > div:first-child { padding-left: 0; }
+.proof-stats > div + div { border-left: 1px solid var(--amber-500); }
+.proof-stats-2x2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 20px; }
+.proof-stats-2x2 > div { border-left: 1px solid var(--amber-500); padding-left: 24px; }
+.proof-stats-2x2 > div:first-child { padding-left: 24px; }
 
 .rebate-panel { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; background: var(--amber-100); border: 1px solid var(--amber-600); border-radius: 14px; padding: 28px; color: var(--ink); }
 .rebate-panel h2 { margin: 0 0 0.25rem; }
@@ -218,6 +219,7 @@ section.alt { background: var(--paper-dim); }
 .site-footer a { color: #b9c8db; text-decoration: none; }
 .site-footer a:hover { color: #fff; }
 .foot-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 32px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.14); font-size: 0.82rem; }
+.footer-phone-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; }
 
 .sticky-mobile { display: none; }
 
@@ -225,12 +227,16 @@ section.alt { background: var(--paper-dim); }
   .header-inner { flex-wrap: wrap; gap: 12px; }
   .nav { order: 3; width: 100%; overflow-x: auto; margin: 0; gap: 16px; }
   .hero-grid, .split, .proof-grid { grid-template-columns: 1fr; }
-  .proof-stats { flex-wrap: wrap; gap: 24px; }
+  .proof-stats { flex-wrap: wrap; }
+  .proof-stats > div { padding: 0 16px 12px; }
+  .proof-stats > div + div { border-left: 0; }
   .hero-photo { max-height: 340px; }
   .trust-inner { grid-template-columns: 1fr 1fr; }
   .trust-item:nth-child(3) { border-left: 0; }
   .decision-grid, .services-grid, .region-grid { grid-template-columns: 1fr 1fr; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
+  .symptom-grid, .applies-row { grid-template-columns: 1fr 1fr; }
+  .process-list { grid-template-columns: 1fr 1fr; }
   .sticky-mobile { display: flex; gap: 10px; position: fixed; inset: auto 0 0 0; padding: 10px 12px; background: var(--navy-950); z-index: 50; }
   .sticky-mobile .btn { flex: 1; text-align: center; }
   body { padding-bottom: 66px; }
@@ -238,7 +244,47 @@ section.alt { background: var(--paper-dim); }
 @media (max-width: 520px) {
   .decision-grid, .services-grid, .region-grid, .foot-grid { grid-template-columns: 1fr; }
   .header-cta .btn { display: none; }
+  .symptom-grid, .applies-row, .process-list { grid-template-columns: 1fr; }
+  .compare-table { font-size: 0.85rem; }
 }
+
+/* Breadcrumbs (layout/Breadcrumbs) */
+.breadcrumbs { padding-block: 14px; font-size: 0.85rem; color: var(--ink-soft); }
+.breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0.2rem; padding: 0; margin: 0; }
+.breadcrumbs a { color: var(--ink-soft); text-decoration: none; }
+.breadcrumbs a:hover { color: var(--navy-700); }
+.breadcrumbs span[aria-current] { color: var(--ink); font-weight: 600; }
+
+/* Answer block (sections/AnswerBlock) */
+.answer-block { font-size: 1.1rem; line-height: 1.65; max-width: 70ch; margin-top: 0.5rem; }
+.answer-block strong { color: var(--navy-700); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .answer-block strong { color: var(--sky-400); }
+}
+:root[data-theme='dark'] .answer-block strong { color: var(--sky-400); }
+
+/* Symptom grid (sections/SymptomGrid) */
+.symptom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.25rem; }
+.symptom-card { display: flex; gap: 12px; align-items: flex-start; background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 18px; box-shadow: var(--shadow); }
+.symptom-card svg { color: var(--amber-600); flex-shrink: 0; margin-top: 2px; }
+.symptom-card p { margin: 0; line-height: 1.5; }
+
+/* Process list (sections/ProcessList) */
+.process-list { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.process-list li { display: flex; flex-direction: column; gap: 6px; }
+.process-step-num { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; color: var(--amber-500); }
+.process-list h3 { margin: 0; font-size: 1.1rem; }
+.process-list p { margin: 0; color: var(--ink-soft); font-size: 0.9rem; line-height: 1.5; }
+
+/* Compare table (sections/CompareTable) */
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 1.25rem; background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.compare-table th, .compare-table td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); font-size: 0.92rem; line-height: 1.5; }
+.compare-table th { font-family: var(--font-display); font-weight: 700; background: var(--paper-dim); }
+.compare-table tr:last-child td { border-bottom: 0; }
+
+/* Applies row (sections/AppliesRow) */
+.applies-row { list-style: none; padding: 0; margin: 1.25rem 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.applies-row li { background: var(--paper-dim); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; font-weight: 600; font-size: 0.92rem; text-align: center; }
 
 /* Keyword pills (ui/KeywordPills) */
 .pill-list { list-style: none; padding: 0; margin: 1.25rem 0 0; display: flex; flex-wrap: wrap; gap: 8px; }

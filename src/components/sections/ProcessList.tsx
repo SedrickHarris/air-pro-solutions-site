@@ -1,4 +1,27 @@
-// TODO(sections): implement ProcessList
-export function ProcessList() {
-  return <div data-component="ProcessList">{/* TODO */}</div>;
+export function ProcessList({
+  steps,
+  eyebrow = 'How it works',
+  title,
+}: {
+  steps: { title: string; body: string }[];
+  eyebrow?: string;
+  title: string;
+}) {
+  return (
+    <section>
+      <div className="wrap">
+        <p className="eyebrow">{eyebrow}</p>
+        <h2>{title}</h2>
+        <ol className="process-list">
+          {steps.map((s, i) => (
+            <li key={s.title}>
+              <span className="process-step-num">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
 }

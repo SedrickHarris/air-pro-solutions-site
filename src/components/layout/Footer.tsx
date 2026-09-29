@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
 import { siteConfig } from '@/content/site-config';
 
 const servicesCol = [
@@ -48,7 +49,12 @@ export function Footer() {
           <div>
             <h3>Contact</h3>
             <ul>
-              <li><a href={siteConfig.phoneHref}>{siteConfig.phone}</a></li>
+              <li>
+                <a className="btn btn-ghost footer-phone-btn" href={siteConfig.phoneHref}>
+                  <Icon name="phone" size={16} />
+                  {siteConfig.phone}
+                </a>
+              </li>
               <li><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></li>
               <li>{siteConfig.hours}</li>
               <li>{siteConfig.availabilityNote}</li>

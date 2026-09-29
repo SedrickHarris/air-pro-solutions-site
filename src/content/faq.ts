@@ -1,31 +1,54 @@
 // Generic HVAC FAQs, direct answer first, then detail. City/service-specific FAQs live on their own pages.
 // The same array renders the page AND the FAQPage JSON-LD, so the two can never drift.
+// `links` marks substrings of `a` that render as inline links; the plain `a` text (fed to the schema) stays unchanged.
 // TODO(copy): client review of every answer before launch. No business-specific numbers here.
-export type Faq = { q: string; a: string };
+export type Faq = { q: string; a: string; links?: { text: string; href: string }[] };
 
 export const generalFaqs: Faq[] = [
   {
-    q: 'How often should I have my HVAC system serviced?',
-    a: 'At least once a year. Ideally, have your air conditioning checked before cooling season and your heating checked before heating season. Regular service helps catch small problems early, keeps the system running efficiently, and reduces the chance of a breakdown on the hottest or coldest day.',
+    q: 'How often should I schedule HVAC maintenance for my home?',
+    a: 'Most home HVAC systems benefit from professional maintenance about once a year. If your home uses both heating and air conditioning, ask about seasonal service for each system. Regular maintenance can help identify wear, airflow issues, and other concerns before they lead to a breakdown.',
   },
   {
-    q: 'Should I repair or replace my air conditioner?',
-    a: 'Repair a single, minor failure on a system that has otherwise been reliable. Consider replacement when breakdowns become frequent, a major component such as the compressor fails, or the system is well past its expected lifespan. A technician can compare repair cost against replacement so you can decide with the full picture.',
+    q: 'Why is my air conditioner running but not cooling?',
+    a: 'A dirty air filter, thermostat setting, blocked return vent, or outdoor unit issue can keep an air conditioner from cooling properly. Check that the thermostat is set to cool and that vents are open. If the system still runs without cooling, turn it off and schedule an inspection to identify the cause.',
   },
   {
-    q: 'Why is my AC running but not cooling?',
-    a: 'The most common causes are a dirty air filter, a frozen evaporator coil, low refrigerant from a leak, or a failed electrical part. Check that the thermostat is set to cool and that the filter is clean. If the air is still warm, turn the system off and call a technician, since running it can cause more damage.',
+    q: 'Should I repair or replace my home’s air conditioner?',
+    a: 'The right choice depends on the system’s age, condition, repair needs, and cooling performance. A technician can inspect the equipment, explain what is causing the problem, and discuss repair and replacement options so you can make an informed decision.',
   },
   {
-    q: 'How often should I change my air filter?',
-    a: 'Check it monthly and replace it whenever it looks dirty. Many homes need a new filter every one to three months, depending on the filter type, pets, and air quality. Your filter manufacturer or technician can give the right interval for your system.',
+    q: 'Is a heat pump a good choice for a Southern California home?',
+    a: 'A heat pump may be a practical option for some Southern California homes because it can provide both heating and cooling. Whether it fits your home depends on factors such as its size, insulation, existing equipment, and comfort needs. An HVAC evaluation can help determine which system options are appropriate.',
   },
   {
-    q: 'What size air conditioner does my home need?',
-    a: 'The right size comes from a load calculation, not a rule of thumb based on square footage alone. Insulation, windows, ductwork, sun exposure, and local climate all affect it. An undersized system struggles to cool, and an oversized one cycles on and off and cools unevenly.',
+    q: 'What commercial HVAC services does Air Pro Solutions provide?',
+    a: 'Air Pro Solutions provides commercial HVAC services for businesses and commercial properties. Visit the Commercial HVAC page to learn more about available services and request an evaluation for your property.',
+    links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
   },
   {
-    q: 'Is a heat pump a good choice for Southern California?',
-    a: 'Often, yes. A heat pump both heats and cools using one system, and mild winters suit it well. Whether it fits your home depends on your existing equipment, ductwork, and comfort goals, so it is worth having a technician assess your home before deciding.',
+    q: 'Can you service HVAC systems at commercial properties?',
+    a: 'Air Pro Solutions serves commercial HVAC customers. The equipment and work needed can vary by property, so share your building type, system concerns, and service location when you contact the team. They can help determine whether the requested service is a fit.',
+  },
+  {
+    q: 'How often should a commercial HVAC system be maintained?',
+    a: 'Maintenance frequency depends on the type of equipment, how often it operates, and the needs of the property. Regular professional inspections can help identify developing performance or airflow problems. Ask an HVAC professional to recommend a schedule for your system.',
+  },
+  {
+    q: 'What should I do if my business’s HVAC system stops working?',
+    a: 'Check the thermostat, confirm that the system has power, and make sure air filters and vents are not blocked. If the system still will not operate or the building becomes uncomfortable, contact an HVAC provider and describe the symptoms, equipment type, and property location.',
+  },
+  {
+    q: 'What areas does Air Pro Solutions serve?',
+    a: 'Air Pro Solutions serves customers across Los Angeles County, the South Bay, Orange County, and the Inland Empire. Visit the Service Areas page to explore coverage details or contact the team to ask about a specific location.',
+    links: [{ text: 'Service Areas page', href: '/service-areas/' }],
+  },
+  {
+    q: 'How do I request an HVAC estimate?',
+    a: 'Call Air Pro Solutions at (323) 776-9047 or use the quote request form. Include whether the property is residential or commercial, your service location, the type of system, and what you need help with. The team can follow up to discuss the next steps.',
+    links: [
+      { text: '(323) 776-9047', href: 'tel:+13237769047' },
+      { text: 'quote request form', href: '/contact/' },
+    ],
   },
 ];

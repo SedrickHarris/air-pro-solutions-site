@@ -35,7 +35,7 @@ export default function Page() {
       <RegionGrid />
       <Proof />
       <RebateStrip />
-      <FaqList faqs={generalFaqs} />
+      <FaqList faqs={generalFaqs} title="HVAC Questions for Los Angeles Area Homes and Businesses" />
       <FinalCta />
     </>
   );
