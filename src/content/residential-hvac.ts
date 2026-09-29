@@ -1,4 +1,5 @@
 import { siteConfig } from '@/content/site-config';
+import { getService } from '@/content/services';
 import type { Faq } from '@/content/faq';
 import type { DecisionCard } from '@/components/sections/DecisionGrid';
 import type { Card } from '@/components/sections/ServicesGrid';
@@ -27,8 +28,12 @@ export const residentialHub = {
       { icon: 'dollar', text: 'Financing options available' },
       { icon: 'pin', text: 'Serving four Southern California regions' },
     ],
-    // TODO(data): replace with a real job photo and real caption once supplied.
-    photo: { tag: 'Photo pending', captionTitle: 'Residential job photo', captionBody: 'Real installation photo goes here once supplied' },
+    photo: {
+      src: '/images/services/residential-hub/hero.webp',
+      alt: 'Bright living room with a wall-mounted HVAC thermostat and a view of drought-tolerant landscaping',
+      captionTitle: 'Residential HVAC',
+      captionBody: 'Cooling and heating service for Southern California homes',
+    },
   },
 
   trust: [
@@ -67,12 +72,18 @@ export const residentialHub = {
     eyebrow: 'Core home services',
     heading: 'Everything your home comfort system needs',
     items: [
-      { href: '/ac-repair/', name: 'AC Repair', description: 'Diagnosis and repair for cooling failures, weak airflow, and unusual noises.', icon: 'snowflake' },
-      { href: '/ac-installation/', name: 'AC Installation and Replacement', description: 'Properly sized systems, installed for homes across Southern California.', icon: 'wrench' },
-      { href: '/heating-repair/', name: 'Heating Repair', description: 'Furnace and heating repair for Southern California homes.', icon: 'flame' },
-      { href: '/heat-pump-services/', name: 'Heat Pump Services', description: 'One system for both heating and cooling, well suited to mild winters.', icon: 'wrench' },
-      { href: '/ductless-mini-split/', name: 'Ductless Mini-Splits', description: 'Room-by-room comfort for older homes, ADUs, and additions with no ductwork.', icon: 'snowflake' },
-      { href: '/maintenance-plan/', name: 'HVAC Maintenance Plans', description: 'Seasonal tune-ups that help catch small problems early.', icon: 'calendar-check' },
+      { href: '/ac-repair/', name: 'AC Repair', description: 'Diagnosis and repair for cooling failures, weak airflow, and unusual noises.', icon: 'snowflake', image: getService('ac-repair')?.image },
+      { href: '/ac-installation/', name: 'AC Installation and Replacement', description: 'Properly sized systems, installed for homes across Southern California.', icon: 'wrench', image: getService('ac-installation')?.image },
+      { href: '/heating-repair/', name: 'Heating Repair', description: 'Furnace and heating repair for Southern California homes.', icon: 'flame', image: getService('heating-repair')?.image },
+      { href: '/heat-pump-services/', name: 'Heat Pump Services', description: 'One system for both heating and cooling, well suited to mild winters.', icon: 'wrench', image: getService('heat-pump-services')?.image },
+      { href: '/ductless-mini-split/', name: 'Ductless Mini-Splits', description: 'Room-by-room comfort for older homes, ADUs, and additions with no ductwork.', icon: 'snowflake', image: getService('ductless-mini-split')?.image },
+      {
+        href: '/maintenance-plan/',
+        name: 'HVAC Maintenance Plans',
+        description: 'Seasonal tune-ups that help catch small problems early.',
+        icon: 'calendar-check',
+        image: { src: '/images/services/cards/maintenance-plan.webp', alt: 'Outdoor AC condenser beside a stucco home with desert landscaping' },
+      },
     ] satisfies Card[],
   },
 

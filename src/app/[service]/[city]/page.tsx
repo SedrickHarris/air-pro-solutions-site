@@ -81,22 +81,23 @@ export default async function Page({ params }: { params: Promise<{ service: stri
     // None of these have a matching matrix pair yet, so every card is a plain non-link card.
     const hasMatrixPage = matrixPages.some((m) => m.service === service.slug && m.city === slug);
     return {
-      name: n ? `${n.name} AC repair` : slug,
+      name: n ? `${n.name} ${service.name}` : slug,
       href: hasMatrixPage ? `/${service.slug}/${slug}/` : undefined,
       icon: 'pin',
       image: n?.cardImage,
     };
   });
 
+  // Same related-services logic as /[service]/: the service's own `related` slugs, plus a bonus
+  // Commercial HVAC card, so a matrix page for any future service links to the right siblings.
   const relatedServices = [
-    { slug: 'ac-installation', name: 'AC Installation and Replacement' },
-    { slug: 'ac-maintenance', name: 'HVAC Maintenance' },
-    { slug: 'emergency-hvac', name: 'Emergency HVAC Repair' },
-    { slug: 'commercial-hvac', name: 'Commercial HVAC' },
-  ].map((r) => {
-    const svc = getService(r.slug);
-    return { name: r.name, href: `/${r.slug}/`, icon: svc?.icon ?? 'wrench', image: svc?.image };
-  });
+    ...service.related.map((relSlug) => {
+      const rel = getService(relSlug);
+      if (!rel) throw new Error(`Unknown related service slug on /${service.slug}/${city.slug}/: ${relSlug}`);
+      return { name: rel.name, href: `/${rel.slug}/`, icon: rel.icon, image: rel.image };
+    }),
+    { name: 'Commercial HVAC', href: '/commercial-hvac/', icon: 'building' },
+  ];
 
   const schema = [
     citySchema({
@@ -105,7 +106,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       url,
       cityName: city.name,
       regionName,
-      serviceType: 'Air Conditioning Repair',
+      serviceType: service.page?.serviceType ?? 'HVAC Services',
     }),
     breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url }))),
     faqSchema(content.faqs),
@@ -122,7 +123,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
             <HeroHeading h1={h1} emphasis={city.name} />
             <p className="hero-lede">{content.lede}</p>
             <div className="cta-row">
-              <Link className="btn btn-primary" href="/contact/">Schedule AC Repair in {city.name}</Link>
+              <Link className="btn btn-primary" href="/contact/">Schedule {service.name} in {city.name}</Link>
               <a className="btn btn-ghost" href={siteConfig.phoneHref}>Call {siteConfig.phone}</a>
             </div>
             <ul className="hero-proof hero-proof-2x2">
@@ -136,6 +137,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           </div>
           <div className="photo-pending hero-photo">
             <Icon name={service.icon} size={32} />
+            <span className="photo-tag">Photo pending</span>
             <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">
               <strong>Job photo pending</strong>
             </span>
@@ -152,8 +154,8 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         title={content.local.h2}
         paragraphs={content.local.paragraphs}
         links={[
-          { text: 'See the AC repair overview', href: '/ac-repair/' },
-          { text: 'All HVAC services in Torrance', href: '/service-areas/torrance-ca/' },
+          { text: `See the ${service.name} overview`, href: `/${service.slug}/` },
+          { text: `All HVAC services in ${city.name}`, href: `/service-areas/${city.slug}/` },
         ]}
         neighborhoodsHeading={content.local.areasHeading}
         neighborhoods={city.neighborhoods}
@@ -162,13 +164,13 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       />
       <section className="alt" style={{ paddingTop: 0 }}>
         <div className="wrap">
-          <PendingNote>a Torrance customer review or job photo for this page, pending a real review with permission.</PendingNote>
+          <PendingNote>a {city.name} customer review or job photo for this page, pending a real review with permission.</PendingNote>
         </div>
       </section>
 
-      <SymptomGrid items={service.symptoms} title="Common signs your AC needs repair" alt={false} />
+      <SymptomGrid items={service.symptoms} title={service.page?.symptomsTitle ?? `Common signs you need ${service.name}`} alt={false} />
 
-      <ProcessList steps={service.process} title="Our AC repair process" alt />
+      <ProcessList steps={service.process} title={service.page?.processTitle ?? `Our ${service.name} process`} alt />
 
       {service.repairVsReplace && (
         <CompareTable
@@ -180,13 +182,13 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         />
       )}
 
-      {service.page && <AppliesRow items={service.page.appliesTo} title="Residential and commercial AC repair" alt />}
+      {service.page && <AppliesRow items={service.page.appliesTo} title={service.page.appliesTitle} alt />}
 
       <RelatedRow
         items={nearby}
         eyebrow="Nearby areas"
-        title="AC repair in the rest of the South Bay"
-        intro="Air Pro Solutions also serves the surrounding South Bay cities."
+        title={`${service.name} in the rest of ${region?.name ?? city.region}`}
+        intro={`Air Pro Solutions also serves the surrounding ${region?.name ?? ''} cities.`}
         alt={false}
       />
 
@@ -209,16 +211,16 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       <FaqList
         faqs={content.faqs}
         eyebrow="Direct answers"
-        title="AC repair questions Torrance homeowners ask"
+        title={`${service.name} questions ${city.name} homeowners ask`}
         firstOpen
         boldFirstSentence
         alt
       />
 
       <FinalCta
-        title={`Get AC repair in ${city.name}`}
-        body={`Call or request service online to schedule a visit anywhere in ${city.name} and the South Bay.`}
-        ghostLabel={`Schedule AC Repair in ${city.name}`}
+        title={`Get ${service.name} in ${city.name}`}
+        body={`Call or request service online to schedule a visit anywhere in ${city.name} and ${region?.name ?? 'the surrounding area'}.`}
+        ghostLabel={`Schedule ${service.name} in ${city.name}`}
       />
     </>
   );

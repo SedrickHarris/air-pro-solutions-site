@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
@@ -78,10 +79,16 @@ export default function Page() {
               ))}
             </ul>
           </div>
-          <div className="photo-pending hero-photo">
-            <Icon name="snowflake" size={32} />
-            <span className="photo-tag">{residentialHub.hero.photo.tag}</span>
-            <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">
+          <div className="hero-photo">
+            <Image
+              src={residentialHub.hero.photo.src}
+              alt={residentialHub.hero.photo.alt}
+              width={1200}
+              height={900}
+              sizes="(max-width: 920px) 100vw, 45vw"
+              priority
+            />
+            <span className="photo-caption photo-caption-band photo-caption-silver">
               <span className="cap-title"><strong>{residentialHub.hero.photo.captionTitle}</strong></span>
               {residentialHub.hero.photo.captionBody}
             </span>

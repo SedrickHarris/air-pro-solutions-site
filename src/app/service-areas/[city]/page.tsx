@@ -129,7 +129,10 @@ export default async function Page({ params }: { params: Promise<{ city: string 
             </div>
             <ul className="hero-proof hero-proof-2x2">
               {page.heroProof.map((p) => (
-                <li key={p.label}><Icon name={p.icon} size={16} />{p.label}</li>
+                <li key={p.label}>
+                  <span className="hero-proof-icon"><Icon name={p.icon} size={20} /></span>
+                  {p.label}
+                </li>
               ))}
             </ul>
           </div>

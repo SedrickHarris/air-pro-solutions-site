@@ -10,6 +10,17 @@ export type ServicePage = {
   metaDescription: string;
   lede: string; // also the Service JSON-LD description - must stay word-for-word identical to the visible copy
   heroImage?: ServiceImage; // 1200x900 hero photo; falls back to the "photo pending" tile when absent
+  heroCaption?: string; // shown on the hero photo caption band when heroImage is set
+  serviceType: string; // schema.org Service.serviceType, e.g. "Air Conditioning Repair"
+  ctaLabel: string; // e.g. "Schedule AC Repair" - reused for the hero primary button and final CTA ghost button
+  symptomsTitle: string;
+  processTitle: string;
+  appliesTitle: string;
+  regionTitle: string; // e.g. "AC repair across Southern California"
+  regionLinkVerb: string; // e.g. "AC repair" -> renders as "{verb} in {region name}"
+  faqTitle: string;
+  finalCtaTitle: string;
+  finalCtaBody: string;
   answer: { lead: string; body: string };
   appliesTo: { label: string; icon: string }[];
   faqs: Faq[];
@@ -65,6 +76,17 @@ const acRepairPage: ServicePage = {
     src: '/images/services/ac-repair/hero.webp',
     alt: 'Outdoor AC condenser unit beside a stucco home with palm and succulent landscaping',
   },
+  heroCaption: 'AC repair for homes and businesses across Southern California',
+  serviceType: 'Air Conditioning Repair',
+  ctaLabel: 'Schedule AC Repair',
+  symptomsTitle: 'Common signs your AC needs repair',
+  processTitle: 'Our AC repair process',
+  appliesTitle: 'Residential and commercial AC repair',
+  regionTitle: 'AC repair across Southern California',
+  regionLinkVerb: 'AC repair',
+  faqTitle: 'AC repair questions Southern Californians ask',
+  finalCtaTitle: 'Get your AC repair scheduled',
+  finalCtaBody: 'Call us or request service online.',
   answer: {
     lead: 'Air conditioning repair',
     body:

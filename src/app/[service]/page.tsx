@@ -103,7 +103,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       name: s.name,
       description: page.lede,
       url,
-      serviceType: 'Air Conditioning Repair',
+      serviceType: page.serviceType,
       areaServed: [
         { name: 'Los Angeles County, CA' },
         { name: 'South Bay, CA' },
@@ -126,7 +126,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
             <HeroHeading h1={h1} emphasis="Los Angeles" />
             <p className="hero-lede">{page.lede}</p>
             <div className="cta-row">
-              <Link className="btn btn-primary" href="/contact/">Schedule AC Repair</Link>
+              <Link className="btn btn-primary" href="/contact/">{page.ctaLabel}</Link>
               <a className="btn btn-ghost" href={siteConfig.phoneHref}>Call {siteConfig.phone}</a>
             </div>
             <ul className="hero-proof hero-proof-2x2">
@@ -148,7 +148,9 @@ export default async function Page({ params }: { params: Promise<{ service: stri
                 sizes="(max-width: 920px) 100vw, 45vw"
                 priority
               />
-              <span className="photo-caption photo-caption-band photo-caption-silver">AC repair for homes and businesses across Southern California</span>
+              {page.heroCaption && (
+                <span className="photo-caption photo-caption-band photo-caption-silver">{page.heroCaption}</span>
+              )}
             </div>
           ) : (
             <div className="photo-pending hero-photo">
@@ -170,9 +172,9 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       <AnswerBlock lead={page.answer.lead} body={page.answer.body} />
 
-      <SymptomGrid items={s.symptoms} title="Common signs your AC needs repair" />
+      <SymptomGrid items={s.symptoms} title={page.symptomsTitle} />
 
-      <ProcessList steps={s.process} title="Our AC repair process" />
+      <ProcessList steps={s.process} title={page.processTitle} />
 
       {s.repairVsReplace && (
         <CompareTable
@@ -183,13 +185,13 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         />
       )}
 
-      <AppliesRow items={page.appliesTo} title="Residential and commercial AC repair" />
+      <AppliesRow items={page.appliesTo} title={page.appliesTitle} />
 
       <RegionGrid
         eyebrow="Where we work"
-        title="AC repair across Southern California"
+        title={page.regionTitle}
         intro="Air Pro Solutions serves four regions across Southern California. Don't see your city? Call us and we will confirm coverage."
-        linkLabel={(name) => `AC repair in ${name}`}
+        linkLabel={(name) => `${page.regionLinkVerb} in ${name}`}
       />
 
       <Proof
@@ -208,9 +210,9 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       <RelatedRow items={related} title="Explore related services" alt={false} />
 
-      <FaqList faqs={page.faqs} eyebrow="Direct answers" title="AC repair questions Southern Californians ask" alt />
+      <FaqList faqs={page.faqs} eyebrow="Direct answers" title={page.faqTitle} alt />
 
-      <FinalCta title="Get your AC repair scheduled" body="Call us or request service online." ghostLabel="Schedule AC Repair" />
+      <FinalCta title={page.finalCtaTitle} body={page.finalCtaBody} ghostLabel={page.ctaLabel} />
     </>
   );
 }

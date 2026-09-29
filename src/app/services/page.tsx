@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
 import { KeywordPills, type Pill } from '@/components/ui/KeywordPills';
+import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { FaqList } from '@/components/sections/FaqList';
 import { getService } from '@/content/services';
 import { regions } from '@/content/regions';
@@ -128,18 +129,17 @@ function ServiceCards({ slugs }: { slugs: string[] }) {
 
 export default function Page() {
   const items = allSlugs.map((slug) => ({ name: nameFor(slug), description: getService(slug)!.description, url: `${siteConfig.url}/${slug}/` }));
+  const crumbs = [{ name: 'Home', href: '/' }, { name: 'Services' }];
   // The FAQ list and FAQPage JSON-LD both read servicesFaqs; service entries read the same names/descriptions as the cards.
   const schema = [
     collectionPageSchema({ name: h1, url: `${siteConfig.url}/services/`, items }),
     faqSchema(servicesFaqs),
-    breadcrumbSchema([
-      { name: 'Home', url: `${siteConfig.url}/` },
-      { name: 'Services', url: `${siteConfig.url}/services/` },
-    ]),
+    breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : `${siteConfig.url}/services/` }))),
   ];
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
+      <Breadcrumbs crumbs={crumbs} />
 
       <section className="hero">
         <div className="wrap hero-grid">

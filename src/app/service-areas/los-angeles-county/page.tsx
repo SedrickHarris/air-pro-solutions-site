@@ -1,4 +1,21 @@
-// TODO(copy): los-angeles-county regional hub
+import type { Metadata } from 'next';
+import { PageHeader } from '@/components/ui/PageHeader';
+import { PendingNote } from '@/components/ui/PendingNote';
+import { getRegion } from '@/content/regions';
+
+// TODO(copy): los-angeles-county regional hub - noindex until real content exists.
+export const metadata: Metadata = { robots: { index: false, follow: false } };
+
 export default function Page() {
-  return <div>{/* TODO: los-angeles-county regional hub */}</div>;
+  const region = getRegion('los-angeles-county');
+  return (
+    <>
+      <PageHeader eyebrow="Service Areas" title={region?.name ?? 'Los Angeles County'} />
+      <section>
+        <div className="wrap">
+          <PendingNote>city-by-city HVAC service details for the {region?.name ?? 'Los Angeles County'} region.</PendingNote>
+        </div>
+      </section>
+    </>
+  );
 }

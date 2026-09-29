@@ -10,3 +10,7 @@ export const audiences = [
 ] as const;
 
 export type Audience = (typeof audiences)[number];
+
+// Audiences with a real, indexable page built. The other four are still noindex PendingNote
+// stubs (src/app/<slug>/page.tsx) - keep this list in sync as each one gets built.
+export const builtAudiences: Audience[] = ['residential-hvac', 'commercial-hvac'];

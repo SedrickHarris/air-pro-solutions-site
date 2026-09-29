@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
+import { getService } from '@/content/services';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { TrustStrip } from '@/components/sections/TrustStrip';
 import { DecisionGrid } from '@/components/sections/DecisionGrid';
@@ -53,7 +54,7 @@ export default function Page() {
   const url = `${siteConfig.url}/commercial-hvac/`;
   const crumbs = [{ name: 'Home', href: '/' }, { name: 'Commercial HVAC' }];
 
-  const serviceCards: Card[] = commercialServices.map((s) => ({ href: s.href, name: s.name, description: s.body, icon: s.icon }));
+  const serviceCards: Card[] = commercialServices.map((s) => ({ href: s.href, name: s.name, description: s.body, icon: s.icon, image: getService(s.slug)?.image }));
 
   const schema = [
     serviceSchema({
