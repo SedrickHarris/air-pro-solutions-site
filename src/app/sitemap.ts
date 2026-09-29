@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // region pages and the four unbuilt audience pages are still noindex stubs, so they're deliberately
   // left out until they're built - update this file as each one ships.
   const paths = [
-    '/', '/services/', '/service-areas/',
+    '/', '/services/', '/service-areas/', '/service-areas/los-angeles-county/',
     '/about/', '/contact/', '/reviews/', '/financing/', '/maintenance-plan/', '/faq/', '/careers/', '/privacy/', '/terms/', '/accessibility/', // thank-you is noindex, never list it
     ...builtAudiences.map((a) => `/${a}/`),
     ...publishedServices.filter((s) => s.page).map((s) => `/${s.slug}/`),
