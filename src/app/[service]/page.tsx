@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { getService, services } from '@/content/services';
 import { siteConfig } from '@/content/site-config';
@@ -134,10 +135,24 @@ export default async function Page({ params }: { params: Promise<{ service: stri
               ))}
             </ul>
           </div>
-          <div className="photo-pending hero-photo">
-            <Icon name={s.icon} size={32} />
-            <span className="photo-tag">Photo pending</span>
-          </div>
+          {page.heroImage ? (
+            <div className="hero-photo">
+              <Image
+                src={page.heroImage.src}
+                alt={page.heroImage.alt}
+                width={1200}
+                height={900}
+                sizes="(max-width: 920px) 100vw, 45vw"
+                priority
+              />
+              <span className="photo-caption photo-caption-band">AC repair for homes and businesses across Southern California</span>
+            </div>
+          ) : (
+            <div className="photo-pending hero-photo">
+              <Icon name={s.icon} size={32} />
+              <span className="photo-tag">Photo pending</span>
+            </div>
+          )}
         </div>
       </section>
 
@@ -156,12 +171,14 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       <ProcessList steps={s.process} title="Our AC repair process" />
 
-      <CompareTable
-        rows={s.repairVsReplace}
-        leftHeading="Repair may make sense when"
-        rightHeading="Replacement may make sense when"
-        title="Repair or replace?"
-      />
+      {s.repairVsReplace && (
+        <CompareTable
+          intro={s.repairVsReplace.intro}
+          groups={s.repairVsReplace.groups}
+          note={s.repairVsReplace.note}
+          title="Repair or replace?"
+        />
+      )}
 
       <AppliesRow items={page.appliesTo} title="Residential and commercial AC repair" />
 

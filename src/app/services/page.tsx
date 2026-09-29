@@ -169,7 +169,7 @@ export default function Page() {
               sizes="(max-width: 920px) 100vw, 45vw"
               priority
             />
-            <span className="photo-caption">Full-service HVAC, one call - Cooling, heating, and air quality for every property type</span>
+            <span className="photo-caption photo-caption-band photo-caption-band-left">Full-service HVAC for homes and businesses · Heating, cooling, and indoor air quality</span>
           </div>
         </div>
       </section>

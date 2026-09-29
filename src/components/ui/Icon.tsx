@@ -11,6 +11,8 @@ const paths: Record<string, string> = {
   air: 'M3 9h11a3 3 0 1 0-3-3M3 15h15a3 3 0 1 1-3 3M3 12h8',
   alert: 'M12 3l10 18H2zM12 10v5M12 18h.01',
   building: 'M5 21V4h9v17M14 9h5v12M8 8h3M8 12h3M8 16h3M3 21h18',
+  home: 'M4 11l8-7 8 7M6 10v10h12V10M10 20v-6h4v6',
+  store: 'M4 9l1-5h14l1 5M4 9v11h16V9M4 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0M10 20v-6h4v6',
   dollar: 'M12 3v18M16 7.5c-1-1-2.4-1.5-4-1.5-2.2 0-4 1-4 3s1.8 2.5 4 3 4 1 4 3-1.800 3-4 3c-1.700 0-3.200-.6-4.200-1.700',
   arrow: 'M5 12h14M13 6l6 6-6 6',
   phone: 'M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z',
@@ -19,6 +21,7 @@ const paths: Record<string, string> = {
   shield: 'M12 3l8 3v6c0 4.500-3.400 8-8 9-4.600-1-8-4.500-8-9V6zM9 12l2 2 4-4',
   clock: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3 2',
   star: 'M12 3l2.700 5.600 6.100.9-4.400 4.300 1 6.100L12 17l-5.400 2.900 1-6.100L3.200 9.500l6.100-.9z',
+  refresh: 'M4 4v5h5M20 20v-5h-5M4.5 15a8 8 0 0 0 14.1 3.5M19.5 9a8 8 0 0 0-14.1-3.5',
 };
 
 export function Icon({ name, size = 20 }: { name: string; size?: number }) {

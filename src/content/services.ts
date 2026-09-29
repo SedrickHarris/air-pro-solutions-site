@@ -9,8 +9,9 @@ export type ServicePage = {
   // Title/H1 are built from src/lib/seo.ts (serviceTitle/serviceH1) per CLAUDE.md, not hand-written here.
   metaDescription: string;
   lede: string; // also the Service JSON-LD description - must stay word-for-word identical to the visible copy
+  heroImage?: ServiceImage; // 1200x900 hero photo; falls back to the "photo pending" tile when absent
   answer: { lead: string; body: string };
-  appliesTo: string[];
+  appliesTo: { label: string; icon: string }[];
   faqs: Faq[];
 };
 
@@ -26,7 +27,11 @@ export type Service = {
   description: string; // TODO(copy) where empty - short blurb used on hub/card contexts
   symptoms: { lead: string; detail: string }[]; // TODO(copy)
   process: { title: string; body: string }[]; // TODO(copy)
-  repairVsReplace: { repair: string; replace: string }[]; // TODO(copy)
+  repairVsReplace: {
+    intro: string;
+    note: string;
+    groups: { heading: string; icon: string; items: string[] }[]; // exactly 2: repair, then replace
+  } | null; // TODO(copy)
   related: string[]; // slugs
   page?: ServicePage; // full template content; only ac-repair has this so far
 };
@@ -38,7 +43,7 @@ const make = (level: 1 | 2, published: boolean) =>
     slug, name, icon, family, level, published,
     image: o.image,
     description: o.description ?? '',
-    symptoms: [], process: [], repairVsReplace: [], related: [],
+    symptoms: [], process: [], repairVsReplace: null, related: [],
   });
 
 const core = make(1, true); // core services
@@ -56,47 +61,56 @@ const acRepairPage: ServicePage = {
     'Get AC repair in Los Angeles for homes and businesses. Air Pro Solutions diagnoses cooling, airflow, electrical, and drainage problems. Schedule service.',
   lede:
     "No cooling, weak airflow, strange noises, or water leaks? Air Pro Solutions provides residential and commercial AC repair in Los Angeles and across the South Bay, Orange County, and the Inland Empire - with an itemized price before any work begins.",
+  heroImage: {
+    src: '/images/services/ac-repair/hero.webp',
+    alt: 'Outdoor AC condenser unit beside a stucco home with palm and succulent landscaping',
+  },
   answer: {
     lead: 'Air conditioning repair',
     body:
       ' identifies and fixes problems that prevent an AC system from cooling, operating efficiently, draining correctly, or maintaining reliable airflow. Common repairs include electrical issues, refrigerant leaks, failed capacitors, blower problems, thermostat faults, and drainage clogs - the cause is diagnosed first, then repaired once you approve the price.',
   },
-  appliesTo: ['Single-family homes', 'Condos and townhomes', 'Apartment communities', 'Office buildings', 'Retail and restaurants', 'Rooftop package units'],
+  appliesTo: [
+    { label: 'Single-family homes', icon: 'home' },
+    { label: 'Condos and townhomes', icon: 'home' },
+    { label: 'Apartment communities', icon: 'building' },
+    { label: 'Office buildings', icon: 'building' },
+    { label: 'Retail and restaurants', icon: 'store' },
+    { label: 'Rooftop package units', icon: 'wrench' },
+  ],
   faqs: [
     {
       q: 'Why is my AC running but not cooling?',
-      a: 'Usually a refrigerant leak, a dirty condenser coil, or a failing capacitor. Each keeps the system running without producing cold air. Air Pro Solutions technicians diagnose the cause and give you a repair cost before any work begins.',
+      a: 'An air conditioner can run without cooling properly because of a dirty air filter, an incorrect thermostat setting, restricted airflow, or a problem with the system. Check that the thermostat is set to "Cool," the temperature is set below the room temperature, and the filter and supply vents are not blocked. If the AC still does not cool, turn it off and schedule an inspection so a technician can identify the cause.',
     },
     {
       q: 'How much does AC repair cost in Los Angeles?',
-      a: 'The cost depends on the part, the labor involved, and how accessible the unit is. A technician diagnoses the problem first, then gives you an itemized price before any repair begins.',
+      a: 'The cost of AC repair in Los Angeles depends on what is causing the problem, which parts are needed, and how much work the system requires. A technician needs to evaluate the equipment before providing a repair recommendation. Contact Air Pro Solutions to discuss the issue and request service.',
     },
     {
       q: 'How quickly can Air Pro Solutions get to my home?',
-      a: "Timing depends on the day's schedule and your location. Call (323) 776-9047 to ask about availability for your city.",
+      a: 'Appointment availability depends on the schedule and your location. Call Air Pro Solutions at (323) 776-9047 or request service online to ask about current availability in your area.',
       links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
     },
     {
       q: 'Why is my AC leaking water?',
-      a: "Water leaks usually come from a clogged condensate drain line, a cracked drain pan, or a frozen evaporator coil that's thawing. Left alone, this can damage flooring and drywall, so it's worth having looked at soon even if the AC still cools.",
+      a: 'Water near an indoor air conditioner may be related to a clogged condensate drain or another drainage problem. If water is actively leaking, turn off the system to help limit water damage and contact an HVAC professional. Avoid opening equipment panels or attempting repairs yourself.',
     },
     {
-      // TODO(data): brand list pending client confirmation, same input as the About page manufacturer logos
       q: 'Do you repair all AC brands?',
-      a: 'Air Pro Solutions repairs residential and commercial air conditioning systems. Contact us with the make and model of your system and we will confirm we can service it.',
+      a: "Air Pro Solutions can confirm whether it services your system when you contact the team. Share the equipment's make and model, along with the symptoms you are noticing, so they can help determine the next step.",
     },
     {
-      // TODO(data): confirm workmanship warranty terms with the client before stating any
       q: 'Is AC repair covered by a warranty?',
-      a: 'Warranty coverage depends on the repair and the parts used, and manufacturer parts warranties may apply if your system is still within its coverage window. Ask your technician what is covered before you approve the work.',
+      a: 'Warranty coverage depends on the equipment, the warranty terms, and the specific repair needed. Check your system documents or contact the manufacturer to understand what is covered. Air Pro Solutions can assess the issue and explain the recommended repair.',
     },
     {
       q: 'How long does AC repair take?',
-      a: 'It depends on the problem. A straightforward fix like a capacitor or contactor replacement is usually quicker than tracing a refrigerant leak or an electrical fault. Your technician gives you a time estimate after diagnosis, before any work begins.',
+      a: 'Repair time depends on the cause of the problem, the work required, parts availability, and access to the equipment. After inspecting the system, a technician can explain the recommended work and provide a clearer estimate of the time involved.',
     },
     {
       q: "What's included in an AC repair visit?",
-      a: 'A visit starts with a full system diagnostic. Your technician explains what they found, gives you an itemized repair quote, completes the repair you approve, and tests performance before leaving. They also check refrigerant levels, airflow, and the condensate drain, and flag anything else worth watching.',
+      a: 'An AC repair visit typically begins with a review of the symptoms and an inspection of the system. The technician can explain the findings and discuss recommended next steps. The work needed varies by system and problem, so confirm the scope before authorizing a repair.',
     },
   ],
   // TODO(copy): client review of every FAQ answer above before launch.
@@ -119,18 +133,40 @@ const baseServices: Service[] = [
       { lead: 'Rising energy bills', detail: 'with no change in usage' },
     ],
     process: [
-      { title: 'Diagnose', body: 'We identify the exact cause of the problem, not just the symptom.' },
-      { title: 'Explain', body: 'You get a plain-language explanation and an itemized price.' },
-      { title: 'Repair', body: 'We complete the approved repair.' },
-      { title: 'Test', body: 'We verify cooling performance and airflow before we leave.' },
-      { title: 'Recommend', body: 'We flag anything worth watching or scheduling next.' },
+      { title: 'Diagnose the problem', body: 'We start by reviewing the symptoms you have noticed and inspecting your air conditioning system. This helps us identify the likely cause of the cooling problem rather than focusing only on what you can see or hear.' },
+      { title: 'Explain the findings', body: 'We explain what we found in clear, practical terms and outline the repair options. Before work begins, you can review the recommended work and its cost, then decide how you would like to proceed.' },
+      { title: 'Complete the approved repair', body: 'With your approval, we complete the agreed repair. The work depends on the system and the cause of the problem. If additional work is needed, we will explain it before proceeding.' },
+      { title: 'Test system operation', body: "After the repair, we check the air conditioning system's operation. We look at cooling and airflow to confirm how the system is running after the work." },
+      { title: 'Discuss recommended next steps', body: 'Before we leave, we can point out other concerns observed during the visit and explain whether they may need attention. We will discuss options so you can decide what, if anything, to schedule next.' },
     ],
-    repairVsReplace: [
-      { repair: 'System is relatively new', replace: 'Equipment is near or past its expected life' },
-      { repair: 'The issue is isolated and the repair is reasonable', replace: 'Repairs have become frequent or expensive' },
-      { repair: 'Cooling and efficiency are otherwise reliable', replace: 'Energy bills or comfort problems persist' },
-      { repair: 'Parts are still available for the system', replace: 'The system is obsolete or uses a phased-out refrigerant' },
-    ],
+    repairVsReplace: {
+      intro:
+        "The right choice depends on your air conditioner's condition, repair needs, and comfort performance. These factors can help guide a conversation with an HVAC professional.",
+      groups: [
+        {
+          heading: 'Repair may make sense when',
+          icon: 'wrench',
+          items: [
+            'The system is relatively new and has otherwise operated reliably.',
+            'The inspection finds an isolated problem and the proposed repair fits your needs.',
+            'The air conditioner has generally kept your home comfortable.',
+            'The necessary parts are available for the system.',
+          ],
+        },
+        {
+          heading: 'Replacement may be worth discussing when',
+          icon: 'refresh',
+          items: [
+            'The system is near or past its expected service life.',
+            'The system has needed repeated repairs or the repair needs are increasing.',
+            'Cooling or comfort problems continue and need further evaluation.',
+            'Parts availability or refrigerant requirements may affect future service options.',
+          ],
+        },
+      ],
+      note:
+        'An inspection can help clarify the problem and the options available for your specific system. Ask the technician to explain the findings and proposed work so you can make an informed decision.',
+    },
     related: ['ac-installation', 'ac-maintenance', 'emergency-hvac'],
     page: acRepairPage,
   },
@@ -219,4 +255,4 @@ export const publishedServices = services.filter((x) => x.published);
 export const getService = (slug: string) => services.find((x) => x.slug === slug);
 
 // Commercial HVAC is an audience hub, not a service, so its homepage card image lives here.
-export const commercialCardImage: ServiceImage = card('commercial-hvac', 'Rooftop HVAC units on a commercial building with the Los Angeles skyline behind');
+export const commercialCardImage: ServiceImage = card('commercial-hvac', 'Rooftop package HVAC units and conduit on a commercial building roof, with a business park and hillside in the background');
