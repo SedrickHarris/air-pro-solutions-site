@@ -297,6 +297,7 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
    .rebate-panel CTA banner above. */
 .rebate-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.25rem; }
 .rebate-card { display: flex; flex-direction: column; gap: 8px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; box-shadow: var(--shadow); }
+.verify-tag { align-self: flex-start; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--eyebrow); background: var(--amber-100); padding: 3px 8px; border-radius: 4px; }
 .rebate-card .amt { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; color: var(--eyebrow); }
 .rebate-card .desc { margin: 0; color: var(--ink-soft); font-size: 0.88rem; line-height: 1.5; }
 .rebate-card a { margin-top: auto; color: var(--navy-700); font-weight: 700; font-size: 0.86rem; text-decoration: none; }
@@ -305,9 +306,10 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 }
 :root[data-theme='dark'] .rebate-card a { color: var(--sky-400); }
 
-/* Grouped pill rows inside a .nbhd-card (e.g. cities clustered by climate band): plain rows, no
-   per-row label, spaced apart from each other. */
+/* Grouped pill rows inside a .nbhd-card (e.g. cities clustered by climate band or sub-area): plain
+   rows, spaced apart from each other. .grp-label is an optional small heading above a row. */
 .nbhd-card .grp + .grp { margin-top: 10px; }
+.nbhd-card .grp-label { font-size: 0.72rem; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 4px; }
 
 /* "Coming soon" card footer (used on non-linking cards, e.g. cities without a built page yet). */
 .card-soon { color: var(--ink-soft); font-size: 0.82rem; font-weight: 600; margin-top: auto; }
