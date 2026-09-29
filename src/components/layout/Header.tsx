@@ -3,11 +3,13 @@ import Link from 'next/link';
 import { siteConfig } from '@/content/site-config';
 
 // The kit has no transparent horizontal lockup, so the header pairs the transparent mark with a text wordmark.
+// "Resources" was removed from primary nav; the FAQ page it pointed to (/faq/) is still reachable
+// through in-page links elsewhere on the site.
 const nav = [
   { href: '/services/', label: 'Services' },
+  { href: '/residential-hvac/', label: 'Residential' },
   { href: '/commercial-hvac/', label: 'Commercial' },
   { href: '/service-areas/', label: 'Service Areas' },
-  { href: '/faq/', label: 'Resources' }, // TODO: point to /resources/ or /blog/ once built
   { href: '/about/', label: 'About' },
 ];
 

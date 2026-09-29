@@ -8,6 +8,7 @@ const servicesCol = [
   { href: '/ac-installation/', label: 'AC Installation' },
   { href: '/heating-repair/', label: 'Heating Repair' },
   { href: '/ductless-mini-split/', label: 'Ductless Mini-Split' },
+  { href: '/residential-hvac/', label: 'Residential HVAC' },
   { href: '/commercial-hvac/', label: 'Commercial HVAC' },
 ];
 const company = [
@@ -15,6 +16,7 @@ const company = [
   { href: '/service-areas/', label: 'Service Areas' },
   { href: '/financing/', label: 'Financing' },
   { href: '/reviews/', label: 'Reviews' },
+  { href: '/faq/', label: 'FAQ' },
   { href: '/contact/', label: 'Contact' },
 ];
 
