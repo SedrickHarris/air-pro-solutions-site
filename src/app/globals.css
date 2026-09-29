@@ -424,3 +424,17 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 .pill-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin: 1.5rem 0 0; }
 .banner-note { font-size: 0.82rem; color: #b9c8db; margin: 1rem auto 0; }
 @media (min-width: 921px) { .banner-note { white-space: nowrap; } } /* one line on desktop; wraps on small screens */
+
+/* Amber-bordered chip link, for a single linked item inside an otherwise plain .nbhd-list (e.g.
+   the one live city in a "coming soon" list). */
+.chip-link { font-size: 0.82rem; font-weight: 700; padding: 6px 12px; border: 1px solid var(--amber-500); border-radius: 999px; color: var(--eyebrow); text-decoration: none; transition: background-color 0.15s; }
+.chip-link:hover { background: var(--amber-100); }
+
+/* Card footer note under a grouped index card (e.g. .nbhd-card holding several groups), separated
+   from the groups above it by a rule. */
+.card-footnote { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 0.88rem; color: var(--ink-soft); }
+.card-footnote a { color: var(--navy-700); font-weight: 600; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .card-footnote a { color: var(--sky-400); }
+}
+:root[data-theme='dark'] .card-footnote a { color: var(--sky-400); }
