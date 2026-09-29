@@ -1,14 +1,17 @@
 // Scoped-scroll data table for row/column comparisons (e.g. per-city stats). See .compare-wrap /
 // table.compare in globals.css. Distinct from CompareTable's pros/cons .compare-groups layout.
-export function DataTable({ columns, rows, note }: { columns: string[]; rows: string[][]; note?: string }) {
+// `numericCols` right-aligns those column indices with tabular figures (e.g. a "built before 1970"
+// percentage column).
+export function DataTable({ columns, rows, note, numericCols }: { columns: string[]; rows: string[][]; note?: string; numericCols?: number[] }) {
+  const numeric = (j: number) => numericCols?.includes(j) ?? false;
   return (
     <>
       <div className="compare-wrap">
         <table className="compare">
           <thead>
             <tr>
-              {columns.map((c) => (
-                <th key={c}>{c}</th>
+              {columns.map((c, j) => (
+                <th key={c} style={numeric(j) ? { textAlign: 'right', fontVariantNumeric: 'tabular-nums' } : undefined}>{c}</th>
               ))}
             </tr>
           </thead>
@@ -16,7 +19,7 @@ export function DataTable({ columns, rows, note }: { columns: string[]; rows: st
             {rows.map((row, i) => (
               <tr key={i}>
                 {row.map((cell, j) => (
-                  <td key={j}>{cell}</td>
+                  <td key={j} style={numeric(j) ? { textAlign: 'right', fontVariantNumeric: 'tabular-nums' } : undefined}>{cell}</td>
                 ))}
               </tr>
             ))}

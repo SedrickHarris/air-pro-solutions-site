@@ -55,3 +55,29 @@ this file is the index, not the source of truth.
 - Climate figures come from the NWS Tustin MCAS station summary (single station, not 1991-2020
   normals). Keep the "station and event readings, not city averages" wording.
 - City-tagged Orange County reviews, real photos, and business hours are pending client input.
+
+## /service-areas/inland-empire/ (src/content/inland-empire.ts)
+
+- Rebate programs (Riverside Public Utilities, SCE thermostat credit, TECH Clean California) and
+  their funding status: no dollar amounts were found/verified, so none are shown. Verify before
+  launch and decide whether amounts can be added.
+- Electric utility per city for Ontario, Rancho Cucamonga, Chino, Fontana, Upland, and Eastvale is
+  medium-to-low confidence ("generally SCE"). Verify directly before launch.
+- Like-for-like permit rules for Corona, Ontario, Rancho Cucamonga, Upland, and Eastvale were not
+  confirmed in the sources reviewed (confirmed only for Riverside, Chino, Fontana). Verify with
+  each city, and re-verify current Title 24 code dates.
+- This page does not say "we handle permits" - the research does not support that claim. Do not
+  add it without client sign-off.
+- Real photos, city-tagged reviews, business hours, and the confirmed Inland Empire city list for
+  regions.ts are pending client input (this hub currently reuses the 8-city list already in
+  regions.ts from the homepage build).
+- Housing mix figures are missing for Upland, and later-decade age figures are missing for
+  Ontario - no further claims are made for either. Attic, foundation, ductwork, and home-size data
+  were not found for any of the eight cities.
+- No commercial-property evidence was found for Corona, Upland, or Eastvale - the
+  residential/commercial split section makes no commercial claim for them.
+- Climate figures are from nearby weather stations (Riverside Municipal Airport 1991-2020 normals;
+  Norton AFB 1980-1990 record), not city averages, and not found at all for six of the eight
+  cities. Keep that context, don't strengthen it into a city-level claim.
+- When city pages exist for any of the eight cities, turn its "City page coming soon" card into a
+  link and add the city to sitemap.ts.
