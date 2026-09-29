@@ -51,7 +51,7 @@ export function LocalKnowledge({
             )}
           </div>
           <div className="nbhd-card">
-            <h5>{neighborhoodsHeading}</h5>
+            <h3>{neighborhoodsHeading}</h3>
             <div className="nbhd-list">
               {neighborhoods.map((n) => (
                 <span key={n}>{n}</span>

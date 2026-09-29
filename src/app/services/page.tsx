@@ -97,8 +97,10 @@ const proofStats = [
 ];
 
 function ServiceCards({ slugs }: { slugs: string[] }) {
+  // Avoids an empty trailing column when a row has fewer than 4 cards.
+  const gridClass = slugs.length === 3 ? 'services-grid services-grid-3' : slugs.length === 2 ? 'services-grid services-grid-2' : 'services-grid';
   return (
-    <div className="services-grid">
+    <div className={gridClass}>
       {slugs.map((slug) => {
         const s = getService(slug);
         if (!s) throw new Error(`Unknown service slug on /services/: ${slug}`);

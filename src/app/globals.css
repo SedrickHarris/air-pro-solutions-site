@@ -208,6 +208,12 @@ section.alt { background: var(--paper-dim); }
 .tag-list li { font-size: 0.82rem; font-weight: 600; padding: 4px 10px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 999px; }
 
 .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 1.25rem; }
+/* Modifiers for sections with fewer than 4 cards, so the row doesn't leave an empty trailing
+   column (e.g. /services/ 's cooling/heating rows of 3, air-and-ducts row of 2). Declared here,
+   before the responsive @media blocks below, so those can still override the column count at
+   narrower widths (equal specificity, later source order wins). */
+.services-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.services-grid-2 { grid-template-columns: repeat(2, 1fr); }
 .svc-card, .region-card { display: flex; flex-direction: column; background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); text-decoration: none; color: var(--ink); transition: transform 0.15s, border-color 0.15s; }
 .svc-card:hover, .region-card:hover { transform: translateY(-2px); border-color: var(--amber-500); }
 .svc-card-img { aspect-ratio: 4 / 3; overflow: hidden; }
@@ -351,11 +357,11 @@ section.alt { background: var(--paper-dim); }
 }
 :root[data-theme='dark'] .local-copy p.local-links a { color: var(--sky-400); }
 .nbhd-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; box-shadow: var(--shadow); }
-.nbhd-card h5 { font-family: var(--font-body); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy-800); margin: 0 0 12px; }
+.nbhd-card h3 { font-family: var(--font-body); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy-800); margin: 0 0 12px; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) .nbhd-card h5 { color: var(--sky-400); }
+  :root:not([data-theme='light']) .nbhd-card h3 { color: var(--sky-400); }
 }
-:root[data-theme='dark'] .nbhd-card h5 { color: var(--sky-400); }
+:root[data-theme='dark'] .nbhd-card h3 { color: var(--sky-400); }
 .nbhd-list { display: flex; flex-wrap: wrap; gap: 8px; }
 .nbhd-list span { font-size: 0.82rem; background: var(--paper-dim); border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; color: var(--ink); }
 .nbhd-card .zip { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--ink-soft); }
@@ -371,7 +377,7 @@ section.alt { background: var(--paper-dim); }
 .local-knowledge-dark .local-copy p strong { color: #fff; }
 .local-knowledge-dark .local-copy p.local-links a { color: var(--sky-400); }
 .local-knowledge-dark .nbhd-card { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.16); box-shadow: none; }
-.local-knowledge-dark .nbhd-card h5 { color: var(--sky-400); }
+.local-knowledge-dark .nbhd-card h3 { color: var(--sky-400); }
 .local-knowledge-dark .nbhd-list span { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.22); color: #fff; }
 .local-knowledge-dark .nbhd-card .zip { border-top-color: rgba(255, 255, 255, 0.16); color: #cddaea; }
 .local-knowledge-dark .nbhd-card .zip strong { color: #fff; }
