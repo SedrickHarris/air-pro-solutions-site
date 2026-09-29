@@ -3,9 +3,14 @@ import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
 import { KeywordPills, type Pill } from '@/components/ui/KeywordPills';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { TrustStrip } from '@/components/sections/TrustStrip';
+import { DecisionGrid, type DecisionCard } from '@/components/sections/DecisionGrid';
+import { RegionGrid } from '@/components/sections/RegionGrid';
+import { ResCommSplit } from '@/components/sections/ResCommSplit';
+import { Proof } from '@/components/sections/Proof';
+import { FinalCta } from '@/components/sections/FinalCta';
 import { FaqList } from '@/components/sections/FaqList';
 import { getService } from '@/content/services';
-import { regions } from '@/content/regions';
 import { servicesFaqs } from '@/content/services-faq';
 import { siteConfig } from '@/content/site-config';
 import { breadcrumbSchema, collectionPageSchema, faqSchema, jsonLd } from '@/lib/schema';
@@ -69,25 +74,13 @@ const trust = [
   { num: '24/7', label: 'emergency dispatch' },
 ];
 
-const quickNav = [
-  { icon: 'snowflake', title: 'Cooling', body: 'AC repair, installation, replacement, maintenance, and ductless solutions.', href: '#cooling', cta: 'Explore Cooling Services' },
-  { icon: 'flame', title: 'Heating', body: 'Furnace repair, installation, heat pumps, and seasonal heating maintenance.', href: '#heating', cta: 'Explore Heating Services' },
-  { icon: 'air', title: 'Air Quality & Ductwork', body: 'Duct repair, sealing, filtration, purification, ventilation, and airflow solutions.', href: '#air-and-ducts', cta: 'Explore Air & Duct Services' },
-  { icon: 'building', title: 'Commercial HVAC', body: 'Repair, replacement, maintenance agreements, and property-focused HVAC support.', href: '#commercial', cta: 'Explore Commercial HVAC' },
-  { icon: 'alert', title: 'Emergency HVAC', body: 'Urgent HVAC service for no-cool and no-heat problems, with same-day availability when capacity allows.', href: '#emergency', cta: 'Get Emergency Help' },
+const quickNav: DecisionCard[] = [
+  { icon: 'snowflake', title: 'Cooling', body: 'AC repair, installation, replacement, maintenance, and ductless solutions.', href: '#cooling', ctaLabel: 'Explore Cooling Services' },
+  { icon: 'flame', title: 'Heating', body: 'Furnace repair, installation, heat pumps, and seasonal heating maintenance.', href: '#heating', ctaLabel: 'Explore Heating Services' },
+  { icon: 'air', title: 'Air Quality & Ductwork', body: 'Duct repair, sealing, filtration, purification, ventilation, and airflow solutions.', href: '#air-and-ducts', ctaLabel: 'Explore Air & Duct Services' },
+  { icon: 'building', title: 'Commercial HVAC', body: 'Repair, replacement, maintenance agreements, and property-focused HVAC support.', href: '#commercial', ctaLabel: 'Explore Commercial HVAC' },
+  { icon: 'alert', title: 'Emergency HVAC', body: 'Urgent HVAC service for no-cool and no-heat problems, with same-day availability when capacity allows.', href: '#emergency', ctaLabel: 'Get Emergency Help' },
 ];
-
-const split = [
-  { tag: 'Residential', title: 'HVAC for your home', body: 'Repairs, replacements, and maintenance plans for single-family homes, condos, and apartments.', href: '/residential-hvac/', cta: 'See residential HVAC' },
-  { tag: 'Commercial', title: 'HVAC for your business', body: 'Rooftop unit service, preventive maintenance agreements, and portfolio accounts for property managers.', href: '/commercial-hvac/', cta: 'See commercial HVAC' },
-];
-
-const regionCopy: Record<string, { cities: string; cta: string }> = {
-  'los-angeles-county': { cities: 'Los Angeles · Pasadena · Glendale · Burbank · Santa Monica', cta: 'Explore LA County' },
-  'south-bay': { cities: 'Torrance · Redondo Beach · Manhattan Beach · Gardena · Carson', cta: 'Explore South Bay' },
-  'orange-county': { cities: 'Anaheim · Irvine · Santa Ana · Huntington Beach · Costa Mesa', cta: 'Explore Orange County' },
-  'inland-empire': { cities: 'Riverside · Ontario · Rancho Cucamonga · Fontana · Corona', cta: 'Explore Inland Empire' },
-};
 
 const proofStats = [
   { num: '10', label: 'Services offered' },
@@ -179,34 +172,14 @@ export default function Page() {
         </div>
       </section>
 
-      <div className="trust-strip">
-        <div className="wrap trust-inner">
-          {trust.map((s) => (
-            <div className="trust-item" key={s.num + s.label}>
-              <span className="trust-num">{s.num}</span>
-              <span className="trust-label">{s.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+      <TrustStrip stats={trust} />
 
-      <section>
-        <div className="wrap">
-          <p className="eyebrow">Start here</p>
-          <h2>What&apos;s going on with your system?</h2>
-          <p>Jump straight to the kind of service you need, or browse every service below.</p>
-          <div className="decision-grid">
-            {quickNav.map((c) => (
-              <Link key={c.href} href={c.href} className="decision-card">
-                <span className="icon-chip"><Icon name={c.icon} /></span>
-                <h3>{c.title}</h3>
-                <p>{c.body}</p>
-                <span className="card-arrow">{c.cta} →</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <DecisionGrid
+        cards={quickNav}
+        eyebrow="Start here"
+        title="What's going on with your system?"
+        intro="Jump straight to the kind of service you need, or browse every service below."
+      />
 
       <section id="cooling" className="alt">
         <div className="wrap">
@@ -271,79 +244,31 @@ export default function Page() {
         </div>
       </section>
 
-      <section>
-        <div className="wrap">
-          <p className="eyebrow">Who it&apos;s for</p>
-          <h2>Built for your home or your business</h2>
-        </div>
-        <div className="wrap split">
-          {split.map((c) => (
-            <div key={c.href} className="split-card">
-              <p className="eyebrow">{c.tag}</p>
-              <h3>{c.title}</h3>
-              <p>{c.body}</p>
-              <Link className="btn btn-primary" href={c.href}>{c.cta}</Link>
-            </div>
-          ))}
-        </div>
-      </section>
+      <ResCommSplit />
 
-      <section className="alt">
-        <div className="wrap">
-          <p className="eyebrow">Where we work</p>
-          <h2>Every service, across four Southern California regions</h2>
-          <p>Air Pro Solutions serves homes and businesses in Los Angeles County, the South Bay, Orange County, and the Inland Empire.</p>
-          <div className="region-grid">
-            {regions.map((r) => (
-              <Link key={r.slug} href={`/service-areas/${r.slug}/`} className="region-card">
-                <div className="region-card-img">
-                  <Image src={r.image.src} alt={r.image.alt} width={800} height={416} sizes="(max-width: 520px) 100vw, (max-width: 920px) 50vw, 25vw" />
-                </div>
-                <div className="region-card-body">
-                  <h3>{r.name}</h3>
-                  <p>{regionCopy[r.slug].cities}</p>
-                  <span className="card-arrow">{regionCopy[r.slug].cta} →</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RegionGrid
+        eyebrow="Where we work"
+        title="Every service, across four Southern California regions"
+        intro="Air Pro Solutions serves homes and businesses in Los Angeles County, the South Bay, Orange County, and the Inland Empire."
+        linkLabel={(name) => `Explore ${name}`}
+      />
 
-      <section className="proof">
-        <div className="wrap proof-grid">
-          <div>
-            <p className="eyebrow">Why Air Pro</p>
-            <h3>One HVAC company, every service you&apos;ll ever need</h3>
-            <p>
-              Every technician is background-checked and factory-trained. Every job gets an itemized estimate before any
-              work begins, and a written service record when it&apos;s done.
-            </p>
-            <Link className="btn btn-primary" href="/reviews/">Read our reviews</Link>
-          </div>
-          <div className="proof-stats proof-stats-2x2">
-            {proofStats.map((s) => (
-              <div key={s.label}>
-                <span className="trust-num">{s.num}</span>
-                <span className="trust-label">{s.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Proof
+        eyebrow="Why Air Pro"
+        heading="One HVAC company, every service you'll ever need"
+        body="Every technician is background-checked and factory-trained. Every job gets an itemized estimate before any work begins, and a written service record when it's done."
+        ctaLabel="Read our reviews"
+        ctaHref="/reviews/"
+        stats={proofStats}
+      />
 
       <FaqList faqs={servicesFaqs} title="Questions about our services" eyebrow="Direct answers" />
 
-      <section className="final-cta">
-        <div className="wrap">
-          <h2>Not sure which service you need?</h2>
-          <p>Tell us what&apos;s going on and we&apos;ll match you with the right service - no guesswork required.</p>
-          <div className="cta-row cta-center">
-            <a className="btn btn-primary" href={siteConfig.phoneHref}>Call {siteConfig.phone}</a>
-            <Link className="btn btn-ghost" href="/contact/">Schedule Service</Link>
-          </div>
-        </div>
-      </section>
+      <FinalCta
+        title="Not sure which service you need?"
+        body="Tell us what's going on and we'll match you with the right service - no guesswork required."
+        ghostLabel="Schedule Service"
+      />
     </>
   );
 }

@@ -51,6 +51,11 @@ export const regionH1 = (region: string) => `HVAC Services in ${region}`;
 export const servicesHubTitle = () => t('HVAC Services in Southern California');
 export const servicesHubH1 = () => 'HVAC Services for Every Home and Business in Southern California';
 
+// Service areas hub (/service-areas/): no formula in docs/metadata-rules.md; modeled on the
+// services hub row above, since it's the same "directory of hubs" page shape.
+export const serviceAreasHubTitle = () => t('HVAC Service Areas in Southern California');
+export const serviceAreasHubH1 = () => 'HVAC Service Areas Across Southern California';
+
 export const cityTitle =(city: string) => t(`HVAC Services in ${city}, CA`);
 export const cityH1 = (city: string) => `HVAC Services in ${city}, CA`;
 
