@@ -41,6 +41,9 @@ export const serviceSchema = (s: {
   url: string;
   serviceType?: string;
   areaServed?: { name: string }[];
+  // Region-hub pages list each city as its own areaServed entry (a City, not an AdministrativeArea),
+  // each pointing back at the region via containedInPlace. Takes precedence over `areaServed` above.
+  areaServedCities?: { name: string; containedInPlace: string }[];
   audience?: { type: 'BusinessAudience' | 'PeopleAudience'; audienceType: string };
   offers?: string[]; // becomes one Offer per name, matching the visible service card titles
 }) => ({
@@ -51,7 +54,11 @@ export const serviceSchema = (s: {
   url: s.url,
   provider: providerRef,
   ...(s.serviceType ? { serviceType: s.serviceType } : {}),
-  ...(s.areaServed ? { areaServed: s.areaServed.map((a) => ({ '@type': 'AdministrativeArea', name: a.name })) } : {}),
+  ...(s.areaServedCities
+    ? { areaServed: s.areaServedCities.map((c) => ({ '@type': 'City', name: c.name, containedInPlace: { '@type': 'AdministrativeArea', name: c.containedInPlace } })) }
+    : s.areaServed
+      ? { areaServed: s.areaServed.map((a) => ({ '@type': 'AdministrativeArea', name: a.name })) }
+      : {}),
   ...(s.audience ? { audience: { '@type': s.audience.type, audienceType: s.audience.audienceType } } : {}),
   ...(s.offers ? { makesOffer: s.offers.map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } })) } : {}),
 });

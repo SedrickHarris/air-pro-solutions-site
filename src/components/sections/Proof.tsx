@@ -15,8 +15,8 @@ export function Proof({
   eyebrow,
   heading = 'HVAC service built around clear answers and reliable work',
   body = 'Every technician is background-checked and factory-trained. Every quote is itemized before we touch a tool. Every job includes a walkthrough of exactly what was done and why.',
-  ctaLabel = 'Read our reviews',
-  ctaHref = '/reviews/',
+  ctaLabel,
+  ctaHref,
   stats = defaultStats,
 }: {
   eyebrow?: string;
@@ -33,7 +33,7 @@ export function Proof({
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
           <h2>{heading}</h2>
           <p>{body}</p>
-          <Link className="btn btn-primary" href={ctaHref}>{ctaLabel}</Link>
+          {ctaHref && ctaLabel && <Link className="btn btn-primary" href={ctaHref}>{ctaLabel}</Link>}
         </div>
         <div className="proof-stats">
           {stats.map((s) => (
