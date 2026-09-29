@@ -131,7 +131,10 @@ export default async function Page({ params }: { params: Promise<{ service: stri
             </div>
             <ul className="hero-proof hero-proof-2x2">
               {heroProof.map((p) => (
-                <li key={p.label}><Icon name={p.icon} size={16} />{p.label}</li>
+                <li key={p.label}>
+                  <span className="hero-proof-icon"><Icon name={p.icon} size={20} /></span>
+                  {p.label}
+                </li>
               ))}
             </ul>
           </div>
@@ -145,7 +148,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
                 sizes="(max-width: 920px) 100vw, 45vw"
                 priority
               />
-              <span className="photo-caption photo-caption-band">AC repair for homes and businesses across Southern California</span>
+              <span className="photo-caption photo-caption-band photo-caption-silver">AC repair for homes and businesses across Southern California</span>
             </div>
           ) : (
             <div className="photo-pending hero-photo">

@@ -30,7 +30,7 @@ export function Hero() {
           <ul className="hero-proof hero-proof-2x2">
             {proof.map((p) => (
               <li key={p.label}>
-                <Icon name={p.icon} size={16} />
+                <span className="hero-proof-icon"><Icon name={p.icon} size={20} /></span>
                 {p.href ? <Link href={p.href}>{p.label}</Link> : p.label}
               </li>
             ))}

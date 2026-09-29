@@ -144,7 +144,7 @@ export default async function Page({ params }: { params: Promise<{ city: string 
                 priority
               />
               {page.heroCaption && (
-                <span className="photo-caption photo-caption-band photo-caption-band-left">
+                <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">
                   <strong>{page.heroCaption.title}</strong> {page.heroCaption.text}
                 </span>
               )}
@@ -154,7 +154,7 @@ export default async function Page({ params }: { params: Promise<{ city: string 
               <Icon name="pin" size={32} />
               <span className="photo-tag">Photo pending</span>
               {page.heroCaption && (
-                <span className="photo-caption photo-caption-band photo-caption-band-left">
+                <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">
                   <strong>{page.heroCaption.title}</strong> {page.heroCaption.text}
                 </span>
               )}

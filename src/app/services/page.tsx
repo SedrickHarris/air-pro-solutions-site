@@ -156,7 +156,10 @@ export default function Page() {
             </div>
             <ul className="hero-proof">
               {heroProof.map((p) => (
-                <li key={p.label}><Icon name={p.icon} size={16} />{p.label}</li>
+                <li key={p.label}>
+                  <span className="hero-proof-icon"><Icon name={p.icon} size={20} /></span>
+                  {p.label}
+                </li>
               ))}
             </ul>
           </div>
@@ -169,7 +172,7 @@ export default function Page() {
               sizes="(max-width: 920px) 100vw, 45vw"
               priority
             />
-            <span className="photo-caption photo-caption-band photo-caption-band-left">Full-service HVAC for homes and businesses · Heating, cooling, and indoor air quality</span>
+            <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">Full-service HVAC for homes and businesses · Heating, cooling, and indoor air quality</span>
           </div>
         </div>
       </section>

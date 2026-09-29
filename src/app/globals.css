@@ -143,9 +143,12 @@ section.alt { background: var(--paper-dim); }
 .hero h1 { font-size: clamp(1.9rem, 3.4vw, 2.8rem); line-height: 1.08; margin: 0 0 1rem; }
 .hero h1 em { font-style: normal; color: var(--amber-500); }
 .hero-lede { font-size: 1.05rem; line-height: 1.55; max-width: 46ch; color: #cddaea; margin: 0 0 1.25rem; }
-.hero-proof { list-style: none; padding: 0; margin: 1.5rem 0 0; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.9rem; font-weight: 600; }
-.hero-proof-2x2 { display: grid; grid-template-columns: repeat(2, auto); justify-content: start; gap: 12px 28px; }
-.hero-proof li { display: flex; align-items: center; gap: 6px; }
+/* Hero trust details (proof row). Standardized across every hero: 20px icon in a 24x24 centered
+   wrapper, 15px/1.35 semibold label text, 8px icon-to-text gap, 8-10px row gap, 24-32px column gap. */
+.hero-proof { list-style: none; padding: 0; margin: 1.5rem 0 0; display: flex; flex-wrap: wrap; gap: 9px 28px; font-size: 0.9375rem; line-height: 1.35; font-weight: 600; color: #e3ecf6; }
+.hero-proof-2x2 { display: grid; grid-template-columns: repeat(2, auto); justify-content: start; gap: 9px 28px; }
+.hero-proof li { display: flex; align-items: center; gap: 8px; }
+.hero-proof-icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex-shrink: 0; }
 .hero-proof svg { color: var(--sky-400); }
 .hero-proof a { color: inherit; }
 
@@ -157,14 +160,12 @@ section.alt { background: var(--paper-dim); }
 .photo-caption-band-left { text-align: left; }
 .photo-caption-lg { padding: 14px 22px; }
 .photo-caption-lg .cap-title { display: block; font-size: 0.92rem; margin-bottom: 2px; }
-
-/* Amber, tile-free hero proof row (commercial-hvac hero) */
-.hero-proof-amber svg { color: var(--amber-500); }
-.hero-proof-tight { gap: 10px 12px; }
-.hero-proof-tight li { white-space: nowrap; font-size: 0.84rem; color: #e3ecf6; gap: 10px; }
-@media (max-width: 520px) {
-  .hero-proof-tight li { white-space: normal; }
-}
+/* Silver/gray glass treatment for hero-photo captions (replaces the navy-tinted default).
+   rgba matches --paper-dim's light value; text uses --navy-900's hex so it reads on the light glass
+   regardless of site theme, since the hero photo itself stays dark in both light and dark mode. */
+.photo-caption-silver { background: rgba(236, 239, 243, 0.92); color: #0c2456; backdrop-filter: blur(6px); }
+.photo-caption-silver .cap-title strong,
+.photo-caption-silver strong { color: #0c2456; }
 .hero-photo { position: relative; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 

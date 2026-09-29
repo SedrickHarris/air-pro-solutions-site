@@ -82,16 +82,19 @@ export default function Page() {
               <Link className="btn btn-primary" href={commercialHero.primaryCta.href}>{commercialHero.primaryCta.label}</Link>
               <a className="btn btn-ghost" href={siteConfig.phoneHref}>Call {siteConfig.phone}</a>
             </div>
-            <ul className="hero-proof hero-proof-2x2 hero-proof-amber hero-proof-tight">
+            <ul className="hero-proof hero-proof-2x2">
               {commercialHero.proof.map((p) => (
-                <li key={p.label}><Icon name={p.icon} size={24} />{p.label}</li>
+                <li key={p.label}>
+                  <span className="hero-proof-icon"><Icon name={p.icon} size={20} /></span>
+                  {p.label}
+                </li>
               ))}
             </ul>
           </div>
           <div className="photo-pending hero-photo">
             <Icon name="buildings" size={32} />
             <span className="photo-tag">Photo pending</span>
-            <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-lg">
+            <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-lg photo-caption-silver">
               <span className="cap-title"><strong>{commercialHero.photoCaption.title}</strong></span>
               {commercialHero.photoCaption.detail}
             </span>
