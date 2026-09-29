@@ -155,17 +155,17 @@ section.alt { background: var(--paper-dim); }
 .photo-pending { position: relative; display: grid; place-items: center; color: var(--sky-400); min-height: 120px;
   background: radial-gradient(circle at 75% 20%, rgba(240, 121, 31, 0.35), transparent 45%), radial-gradient(circle at 20% 80%, rgba(43, 169, 224, 0.3), transparent 50%), linear-gradient(135deg, var(--navy-900), var(--navy-700)); }
 .photo-tag { position: absolute; top: 10px; right: 10px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(255, 255, 255, 0.14); color: #fff; padding: 3px 8px; border-radius: 4px; }
-.photo-caption { position: absolute; left: 12px; bottom: 12px; font-size: 0.8rem; font-weight: 600; background: rgba(7, 22, 56, 0.6); color: #fff; padding: 6px 10px; border-radius: 6px; backdrop-filter: blur(4px); }
+.photo-caption { position: absolute; left: 12px; bottom: 12px; font-size: 0.8rem; font-weight: 600; background: rgba(7, 22, 56, 0.6); color: #fff; padding: 8px 16px; border-radius: 6px; backdrop-filter: blur(4px); }
 .photo-caption-band { left: 0; right: 0; bottom: 0; text-align: center; border-radius: 0; }
 .photo-caption-band-left { text-align: left; }
-.photo-caption-lg { padding: 14px 22px; }
-.photo-caption-lg .cap-title { display: block; font-size: 0.92rem; margin-bottom: 2px; }
-/* Silver/gray glass treatment for hero-photo captions (replaces the navy-tinted default).
-   rgba matches --paper-dim's light value; text uses --navy-900's hex so it reads on the light glass
-   regardless of site theme, since the hero photo itself stays dark in both light and dark mode. */
-.photo-caption-silver { background: rgba(236, 239, 243, 0.92); color: #0c2456; backdrop-filter: blur(6px); }
+.photo-caption-lg { padding: 10px 18px; }
+.photo-caption-lg .cap-title { display: block; font-size: 0.88rem; margin-bottom: 2px; }
+/* Cool silver-gray glass treatment for hero-photo captions: translucent so the photo stays faintly
+   visible beneath it, with bold white text. Opacity and shadow are tuned to hold contrast even over
+   a light photo (e.g. the services hub's concrete-floor shot), not just a dark one. */
+.photo-caption-silver { background: rgba(148, 163, 184, 0.55); color: #fff; font-weight: 700; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.65); backdrop-filter: blur(6px); }
 .photo-caption-silver .cap-title strong,
-.photo-caption-silver strong { color: #0c2456; }
+.photo-caption-silver strong { color: #fff; }
 .hero-photo { position: relative; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
