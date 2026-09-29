@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { ReactNode } from 'react';
 
 // Splits a paragraph on **bold** markers and wraps the matched segments in <strong>.
@@ -11,6 +12,7 @@ export function LocalKnowledge({
   eyebrow = 'Local knowledge',
   title,
   paragraphs,
+  links,
   neighborhoodsHeading = 'Neighborhoods we cover',
   neighborhoods,
   zips,
@@ -18,6 +20,7 @@ export function LocalKnowledge({
   eyebrow?: string;
   title: string;
   paragraphs: string[];
+  links?: { text: string; href: string }[];
   neighborhoodsHeading?: string;
   neighborhoods: string[];
   zips: string[];
@@ -32,6 +35,16 @@ export function LocalKnowledge({
             {paragraphs.map((p, i) => (
               <p key={i}>{renderParagraph(p)}</p>
             ))}
+            {links && links.length > 0 && (
+              <p className="local-links">
+                {links.map((l, i) => (
+                  <span key={l.href}>
+                    {i > 0 && ' · '}
+                    <Link href={l.href}>{l.text}</Link>
+                  </span>
+                ))}
+              </p>
+            )}
           </div>
           <div className="nbhd-card">
             <h5>{neighborhoodsHeading}</h5>

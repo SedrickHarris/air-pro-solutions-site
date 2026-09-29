@@ -56,12 +56,12 @@ export const serviceSchema = (s: {
   ...(s.offers ? { makesOffer: s.offers.map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } })) } : {}),
 });
 
-// City page schema: areaServed is a single City (with containedInPlace), and makesOffer names must
-// match the visible service card titles exactly.
-export const citySchema = (s: { name: string; description: string; url: string; cityName: string; regionName: string; offers: string[] }) => ({
+// City and matrix (service+city) page schema: areaServed is a single City (with containedInPlace).
+// makesOffer names, when given, must match the visible service card titles exactly.
+export const citySchema = (s: { name: string; description: string; url: string; cityName: string; regionName: string; serviceType?: string; offers?: string[] }) => ({
   '@context': 'https://schema.org',
   '@type': 'Service',
-  serviceType: 'HVAC Services',
+  serviceType: s.serviceType ?? 'HVAC Services',
   name: s.name,
   description: s.description,
   url: s.url,
@@ -71,7 +71,7 @@ export const citySchema = (s: { name: string; description: string; url: string; 
     name: s.cityName,
     containedInPlace: { '@type': 'AdministrativeArea', name: s.regionName },
   },
-  makesOffer: s.offers.map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } })),
+  ...(s.offers ? { makesOffer: s.offers.map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } })) } : {}),
 });
 
 export const breadcrumbSchema = (items: { name: string; url: string }[]) => ({
