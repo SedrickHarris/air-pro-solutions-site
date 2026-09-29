@@ -155,6 +155,16 @@ section.alt { background: var(--paper-dim); }
 .photo-caption { position: absolute; left: 12px; bottom: 12px; font-size: 0.8rem; font-weight: 600; background: rgba(7, 22, 56, 0.6); color: #fff; padding: 6px 10px; border-radius: 6px; backdrop-filter: blur(4px); }
 .photo-caption-band { left: 0; right: 0; bottom: 0; text-align: center; border-radius: 0; }
 .photo-caption-band-left { text-align: left; }
+.photo-caption-lg { padding: 14px 22px; }
+.photo-caption-lg .cap-title { display: block; font-size: 0.92rem; margin-bottom: 2px; }
+
+/* Amber, tile-free hero proof row (commercial-hvac hero) */
+.hero-proof-amber svg { color: var(--amber-500); }
+.hero-proof-tight { gap: 10px 12px; }
+.hero-proof-tight li { white-space: nowrap; font-size: 0.84rem; color: #e3ecf6; gap: 10px; }
+@media (max-width: 520px) {
+  .hero-proof-tight li { white-space: normal; }
+}
 .hero-photo { position: relative; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
@@ -264,6 +274,25 @@ section.alt { background: var(--paper-dim); }
   :root:not([data-theme='light']) .answer-block strong { color: var(--sky-400); }
 }
 :root[data-theme='dark'] .answer-block strong { color: var(--sky-400); }
+
+/* Local knowledge (sections/LocalKnowledge) */
+.local-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; margin-top: 1.25rem; }
+.local-copy p { font-size: 0.96rem; line-height: 1.65; color: var(--ink-soft); }
+.local-copy p + p { margin-top: 14px; }
+.local-copy p strong { color: var(--ink); }
+.nbhd-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; box-shadow: var(--shadow); }
+.nbhd-card h5 { font-family: var(--font-body); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy-800); margin: 0 0 12px; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .nbhd-card h5 { color: var(--sky-400); }
+}
+:root[data-theme='dark'] .nbhd-card h5 { color: var(--sky-400); }
+.nbhd-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.nbhd-list span { font-size: 0.82rem; background: var(--paper-dim); border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; color: var(--ink); }
+.nbhd-card .zip { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--ink-soft); }
+.nbhd-card .zip strong { color: var(--ink); }
+@media (max-width: 920px) {
+  .local-grid { grid-template-columns: 1fr; }
+}
 
 /* Symptom grid (sections/SymptomGrid) */
 .symptom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.25rem; }

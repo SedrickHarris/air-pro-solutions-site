@@ -12,7 +12,7 @@ const order = [
 // TODO(data): the "Emergency" wording is pending client confirmation of always-on availability.
 const labelOverride: Record<string, string> = { 'emergency-hvac': 'Emergency HVAC Repair' };
 
-type Card = { href: string; name: string; description: string; icon: string; image?: ServiceImage };
+export type Card = { href: string; name: string; description: string; icon: string; image?: ServiceImage };
 
 const commercialCard: Card = {
   href: '/commercial-hvac/',
@@ -29,13 +29,13 @@ function cardFor(slug: string): Card | undefined {
   return { href: `/${svc.slug}/`, name: labelOverride[svc.slug] ?? svc.name, description: svc.description, icon: svc.icon, image: svc.image };
 }
 
-export function ServicesGrid() {
-  const cards = order.map(cardFor).filter((c): c is Card => Boolean(c));
+export function ServicesGrid({ cards: cardsProp, eyebrow = 'Services', title = 'HVAC services' }: { cards?: Card[]; eyebrow?: string; title?: string } = {}) {
+  const cards = cardsProp ?? order.map(cardFor).filter((c): c is Card => Boolean(c));
   return (
     <section>
       <div className="wrap">
-        <p className="eyebrow">Services</p>
-        <h2>HVAC services</h2>
+        <p className="eyebrow">{eyebrow}</p>
+        <h2>{title}</h2>
         <div className="services-grid">
           {cards.map((c) => (
             <Link key={c.href} href={c.href} className="svc-card">

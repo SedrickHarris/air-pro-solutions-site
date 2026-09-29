@@ -21,11 +21,18 @@ const regionData: { slug: string; name: string; cityNames: string[] }[] = [
 
 export const regionCityNames = regionData;
 
+// South Bay's displayed city list is limited to the cities with a real page so far (torrance-ca),
+// so region hub cards never link out to a city that hasn't passed the content quality gate.
+// regionCityNames (used to generate every City entry in cities.ts) stays untouched.
+const displayCityOverrides: Record<string, string[]> = {
+  'south-bay': ['torrance-ca'],
+};
+
 export const regions: Region[] = regionData.map((r) => ({
   slug: r.slug,
   name: r.name,
   image: { src: `/images/locations/cards/${r.slug}.webp`, alt: `Map showing the ${r.name} service area` },
-  cities: r.cityNames.map(citySlug),
+  cities: displayCityOverrides[r.slug] ?? r.cityNames.map(citySlug),
 }));
 
 export const getRegion = (slug: string) => regions.find((r) => r.slug === slug);

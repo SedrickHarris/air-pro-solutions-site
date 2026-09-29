@@ -1,0 +1,956 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>AirPro Torrance</title>
+<style>
+  :root{
+    --navy-950:#071638;
+    --navy-900:#0c2456;
+    --navy-800:#123670;
+    --navy-700:#1a478c;
+    --sky-500:#2ba9e0;
+    --sky-400:#5cc4ee;
+    --amber-500:#f0791f;
+    --amber-600:#d1620f;
+    --amber-100:#fdece0;
+    --paper:#f6f7f9;
+    --paper-dim:#eceff3;
+    --ink:#0e1a2b;
+    --ink-soft:#4c5a6c;
+    --line:#dbe0e7;
+    --card-bg:#ffffff;
+    --good:#2f7a4d;
+    --shadow:0 1px 2px rgba(7,22,56,.07), 0 8px 24px -12px rgba(7,22,56,.2);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#081020;
+      --paper-dim:#0b1526;
+      --ink:#eef1f4;
+      --ink-soft:#a7b5c6;
+      --line:#1f2f47;
+      --card-bg:#0e1a30;
+      --navy-950:#050e22;
+      --amber-100:#2c1a0c;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#081020;
+    --paper-dim:#0b1526;
+    --ink:#eef1f4;
+    --ink-soft:#a7b5c6;
+    --line:#1f2f47;
+    --card-bg:#0e1a30;
+    --navy-950:#050e22;
+    --amber-100:#2c1a0c;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Manrope", -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:"Barlow Condensed", "Manrope", sans-serif;
+    margin:0;
+    text-wrap:balance;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding-inline:20px;}
+  .eyebrow{
+    font-family:"Manrope",sans-serif;
+    font-weight:700;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--amber-600);
+  }
+  :root[data-theme="dark"] .eyebrow{color:var(--amber-500);}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .eyebrow{color:var(--amber-500);}}
+  section{padding-block:56px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:"Manrope",sans-serif;font-weight:700;font-size:.95rem;
+    padding:13px 22px;border-radius:6px;border:1px solid transparent;
+    cursor:pointer;text-decoration:none;white-space:nowrap;
+  }
+  .btn-primary{background:var(--amber-500);color:#1a0e02;}
+  .btn-primary:hover{background:var(--amber-600);}
+  .btn-ghost{background:transparent;border-color:rgba(255,255,255,.4);color:#fff;}
+  .btn-ghost:hover{background:rgba(255,255,255,.08);}
+  .btn-outline{background:transparent;border-color:var(--navy-700);color:var(--navy-800);}
+  :root[data-theme="dark"] .btn-outline{border-color:var(--ink-soft);color:var(--ink);}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-outline{border-color:var(--ink-soft);color:var(--ink);}}
+
+  /* ANNOUNCEMENT BAR */
+  .announce{
+    background:var(--navy-950);color:#dce6f0;
+    font-size:.82rem;text-align:center;padding:8px 20px;
+  }
+  .announce b{color:#fff;}
+
+  /* HEADER */
+  header.site{
+    background:var(--navy-900);
+    color:#fff;
+    padding-block:14px;
+    position:relative;
+  }
+  .header-row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.15rem;color:#fff;text-decoration:none;}
+  .logo img.mark{width:36px;height:36px;object-fit:contain;flex:none;}
+  nav.primary{display:flex;gap:26px;font-size:.92rem;font-weight:600;}
+  nav.primary a{text-decoration:none;color:#cddaea;}
+  nav.primary a:hover{color:#fff;}
+  .header-actions{display:flex;align-items:center;gap:18px;}
+  .phone-link{font-weight:800;font-size:1rem;color:#fff;text-decoration:none;white-space:nowrap;}
+  .phone-link span{display:block;font-weight:600;font-size:.68rem;color:#9fb2c8;letter-spacing:.04em;text-transform:uppercase;}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(160deg, var(--navy-900) 0%, var(--navy-800) 55%, var(--navy-700) 100%);
+    color:#fff;
+    padding-block:64px 0;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;
+  }
+  .hero h1{font-size:clamp(1.9rem, 3.4vw, 2.8rem);line-height:1.08;color:#fff;}
+  .hero h1 em{font-style:normal;color:var(--amber-500);}
+  .hero p.lede{margin-top:16px;font-size:1.05rem;line-height:1.55;color:#cfdcea;max-width:46ch;}
+  .hero-ctas{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;}
+  .hero-proof{
+    display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;
+    margin-top:28px;max-width:38ch;
+  }
+  .hero-proof span{display:flex;align-items:center;gap:9px;font-size:.87rem;color:#cfdcea;}
+  .hero-proof .ic{
+    flex:none;width:22px;height:22px;border-radius:6px;background:rgba(240,121,31,.16);
+    display:flex;align-items:center;justify-content:center;color:var(--amber-500);font-size:.72rem;
+  }
+  .hero-photo{
+    position:relative;border-radius:14px;overflow:hidden;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(232,134,43,.35), transparent 55%),
+      linear-gradient(135deg, #24405f, #0e2038);
+    aspect-ratio:4/3.1;
+    display:flex;align-items:flex-end;padding:22px;
+    box-shadow:var(--shadow);
+  }
+  .hero-photo .cap{
+    background:rgba(10,18,32,.55);backdrop-filter:blur(6px);
+    padding:12px 16px;border-radius:8px;font-size:.82rem;color:#e6edf5;
+  }
+  .hero-photo .cap b{display:block;color:#fff;font-size:.92rem;}
+  .hero-photo svg{position:absolute;inset:0;width:100%;height:100%;opacity:.5;}
+
+  /* TRUST STRIP */
+  .trust-strip{
+    background:var(--navy-950);color:#fff;
+    padding-block:0;
+    margin-top:56px;
+  }
+  .trust-inner{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border-top:1px solid rgba(255,255,255,.1);
+  }
+  .trust-item{
+    padding:20px 18px;border-right:1px solid rgba(255,255,255,.1);
+    text-align:center;
+  }
+  .trust-item:last-child{border-right:none;}
+  .trust-item .num{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.5rem;color:#fff;}
+  .trust-item .lbl{font-size:.76rem;color:#a9bad0;margin-top:2px;}
+
+  /* DECISION MODULE */
+  .section-head{max-width:640px;margin-bottom:32px;}
+  .section-head h2{font-size:clamp(1.5rem,2.4vw,2rem);color:var(--ink);margin-top:8px;}
+  .section-head p{margin-top:10px;color:var(--ink-soft);font-size:1rem;line-height:1.5;}
+
+  .decision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .decision-card{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    padding:20px;display:flex;flex-direction:column;gap:10px;
+    text-decoration:none;color:var(--ink);
+    box-shadow:var(--shadow);
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .decision-card:hover{transform:translateY(-2px);border-color:var(--amber-500);}
+  .decision-card .ic{
+    width:38px;height:38px;border-radius:8px;background:var(--amber-100);
+    display:flex;align-items:center;justify-content:center;color:var(--amber-600);
+  }
+  .decision-card b{font-family:"Barlow Condensed",sans-serif;font-size:1rem;}
+  .decision-card span{font-size:.86rem;color:var(--ink-soft);}
+  .decision-card .arrow{margin-top:auto;font-size:.82rem;font-weight:700;color:var(--amber-600);}
+
+  /* RES/COMM SPLIT */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .split-card{
+    border-radius:14px;overflow:hidden;position:relative;min-height:300px;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:28px;color:#fff;
+  }
+  .split-card.res{background:linear-gradient(160deg,#2c4a6e,#132639);}
+  .split-card.com{background:linear-gradient(160deg,#3a3226,#1d1712);}
+  .split-card .tag{
+    align-self:flex-start;background:rgba(255,255,255,.14);
+    font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:5px 10px;border-radius:5px;margin-bottom:auto;
+  }
+  .split-card h3{color:#fff;font-size:1.4rem;margin-top:14px;}
+  .split-card p{color:#d8e0ea;font-size:.92rem;margin-top:8px;max-width:36ch;}
+  .split-card .btn{margin-top:18px;width:fit-content;}
+  .split-card ul{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
+  .split-card li{font-size:.76rem;background:rgba(255,255,255,.09);padding:4px 9px;border-radius:5px;color:#e4ebf1;}
+
+  /* SERVICE CARDS */
+  .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .svc-card{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;box-shadow:var(--shadow);
+  }
+  .svc-card-img{
+    aspect-ratio:4/3;position:relative;
+    background:linear-gradient(140deg, var(--navy-800), var(--navy-950));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .svc-card-img::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 70% 25%, rgba(240,121,31,.28), transparent 60%);
+  }
+  .svc-card-img .ic{position:relative;font-size:1.3rem;color:rgba(255,255,255,.55);}
+  .svc-card-img .tag{
+    position:absolute;left:9px;bottom:9px;
+    font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    color:rgba(255,255,255,.6);background:rgba(0,0,0,.28);padding:3px 7px;border-radius:4px;
+  }
+  .svc-card-body{padding:16px 18px 18px;}
+  .svc-card h4{font-family:"Barlow Condensed",sans-serif;font-size:1rem;margin-bottom:6px;}
+  .svc-card p{font-size:.85rem;color:var(--ink-soft);line-height:1.45;}
+  .svc-card a{display:inline-block;margin-top:10px;font-size:.83rem;font-weight:700;color:var(--amber-600);text-decoration:none;}
+
+  /* LOCAL CONTEXT MODULE */
+  .local-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;}
+  .local-copy p{font-size:.96rem;line-height:1.65;color:var(--ink-soft);}
+  .local-copy p + p{margin-top:14px;}
+  .local-copy p b{color:var(--ink);}
+  .nbhd-card{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    padding:22px 24px;box-shadow:var(--shadow);
+  }
+  .nbhd-card h5{font-family:"Manrope",sans-serif;font-size:.9rem;text-transform:uppercase;letter-spacing:.06em;color:var(--navy-800);margin-bottom:12px;}
+  :root[data-theme="dark"] .nbhd-card h5{color:var(--sky-400);}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .nbhd-card h5{color:var(--sky-400);}}
+  .nbhd-list{display:flex;flex-wrap:wrap;gap:8px;}
+  .nbhd-list span{
+    font-size:.82rem;background:var(--paper-dim);border:1px solid var(--line);
+    padding:6px 12px;border-radius:999px;color:var(--ink);
+  }
+  .nbhd-card .zip{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);font-size:.82rem;color:var(--ink-soft);}
+  .nbhd-card .zip b{color:var(--ink);}
+
+  /* SERVICE AREAS */
+  .region-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .region-card{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;box-shadow:var(--shadow);
+  }
+  .region-card-img{
+    aspect-ratio:16/9;position:relative;
+    background:linear-gradient(140deg, var(--navy-800), var(--navy-950));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .region-card-img::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 75% 20%, rgba(240,121,31,.28), transparent 60%);
+  }
+  .region-card-img .pin{
+    position:relative;font-size:1.4rem;color:rgba(255,255,255,.55);
+  }
+  .region-card-img .tag{
+    position:absolute;left:10px;bottom:10px;
+    font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:rgba(255,255,255,.6);background:rgba(0,0,0,.28);padding:3px 8px;border-radius:4px;
+  }
+  .region-card-body{padding:16px 20px 20px;}
+  .region-card h4{font-family:"Barlow Condensed",sans-serif;font-size:1.02rem;color:var(--navy-800);}
+  :root[data-theme="dark"] .region-card h4{color:#dce6f0;}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .region-card h4{color:#dce6f0;}}
+  .region-card .cities{font-size:.82rem;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  .region-card a.more{display:inline-block;margin-top:12px;font-size:.82rem;font-weight:700;color:var(--amber-600);text-decoration:none;}
+
+  /* PROOF / STATS */
+  .proof{
+    background:var(--navy-900);color:#fff;border-radius:16px;
+    padding:44px 40px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;
+  }
+  .proof h3{color:#fff;font-size:1.5rem;}
+  .proof p{color:#c6d3e2;font-size:.95rem;margin-top:10px;line-height:1.55;max-width:44ch;}
+  .proof-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .proof-stats .stat{border-left:2px solid var(--amber-500);padding-left:14px;}
+  .proof-stats .stat .n{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.7rem;color:#fff;font-variant-numeric:tabular-nums;}
+  .proof-stats .stat .l{font-size:.78rem;color:#a9bad0;margin-top:2px;}
+
+  /* REBATE MODULE */
+  .rebate-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .rebate-card{
+    background:var(--amber-100);border:1px solid var(--amber-500);border-radius:10px;
+    padding:20px;
+  }
+  :root[data-theme="dark"] .rebate-card{border-color:var(--amber-600);}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rebate-card{border-color:var(--amber-600);}}
+  .rebate-card .amt{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.5rem;color:var(--amber-600);}
+  .rebate-card .desc{font-size:.86rem;color:var(--ink-soft);margin-top:4px;}
+  .rebate-card a{display:inline-block;margin-top:12px;font-size:.82rem;font-weight:700;color:var(--navy-800);text-decoration:none;}
+  :root[data-theme="dark"] .rebate-card a{color:#dce6f0;}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rebate-card a{color:#dce6f0;}}
+
+  /* FAQ */
+  .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start;}
+  .faq-item{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    padding:18px 20px;
+  }
+  .faq-item summary{
+    cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;
+    font-family:"Manrope",sans-serif;font-weight:700;font-size:.98rem;gap:14px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .plus{font-size:1.2rem;color:var(--amber-600);flex:none;font-weight:400;}
+  .faq-item[open] summary .plus{transform:rotate(45deg);}
+  .faq-item p{margin-top:12px;font-size:.92rem;color:var(--ink-soft);line-height:1.6;}
+  .faq-item p b{color:var(--ink);}
+
+  /* FINAL CTA */
+  .final-cta{
+    background:linear-gradient(120deg, var(--navy-950), var(--navy-800));
+    color:#fff;border-radius:16px;padding:44px 36px;text-align:center;
+  }
+  .final-cta h2{color:#fff;font-size:clamp(1.5rem,2.6vw,2.1rem);}
+  .final-cta p{color:#c6d3e2;margin-top:10px;font-size:1rem;}
+  .final-cta .hero-ctas{justify-content:center;margin-top:22px;}
+
+  /* FOOTER */
+  footer{background:var(--navy-950);color:#9fb2c8;padding-block:44px 90px;font-size:.87rem;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;}
+  .foot-grid h5{color:#fff;font-family:"Manrope",sans-serif;font-size:.86rem;margin-bottom:12px;letter-spacing:.02em;}
+  .foot-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .foot-grid a{text-decoration:none;color:#9fb2c8;}
+  .foot-grid a:hover{color:#fff;}
+  .foot-bottom{
+    margin-top:34px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.78rem;color:#7e93ab;
+  }
+
+  /* MOBILE STICKY BAR */
+  .sticky-mobile{
+    position:fixed;left:0;right:0;bottom:0;
+    display:none;
+    background:var(--navy-950);
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));
+    gap:10px;z-index:40;box-shadow:0 -6px 18px rgba(0,0,0,.25);
+  }
+  .sticky-mobile a{flex:1;text-align:center;}
+
+  /* copy note badges (mockup annotation) */
+  .mockup-tag{
+    display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--amber-600);background:var(--amber-100);
+    padding:3px 8px;border-radius:5px;margin-bottom:10px;
+  }
+
+  /* BREADCRUMBS */
+  .breadcrumbs{
+    background:var(--navy-950);padding-block:12px;
+  }
+  .breadcrumbs .wrap{display:flex;gap:8px;align-items:center;font-size:.82rem;color:#9fb2c8;flex-wrap:wrap;}
+  .breadcrumbs a{color:#b9c9db;text-decoration:none;}
+  .breadcrumbs a:hover{color:#fff;}
+  .breadcrumbs .sep{color:#5c7290;}
+  .breadcrumbs .current{color:#fff;font-weight:600;}
+
+  /* DIRECT ANSWER BLOCK */
+  .answer-block{
+    background:var(--card-bg);border:1px solid var(--line);border-left:4px solid var(--amber-500);
+    border-radius:0 10px 10px 0;padding:24px 26px;
+  }
+  .answer-block .label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-600);}
+  .answer-block p{margin-top:10px;font-size:1.02rem;line-height:1.62;color:var(--ink);max-width:70ch;}
+  .answer-block p b{color:var(--navy-800);}
+  :root[data-theme="dark"] .answer-block p b{color:var(--sky-400);}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .answer-block p b{color:var(--sky-400);}}
+
+  /* SYMPTOM GRID */
+  .symptom-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .symptom-card{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    padding:16px 18px;display:flex;gap:12px;align-items:flex-start;box-shadow:var(--shadow);
+  }
+  .symptom-card .flag{
+    flex:none;width:26px;height:26px;border-radius:50%;background:var(--amber-100);
+    color:var(--amber-600);font-weight:800;font-size:.78rem;display:flex;align-items:center;justify-content:center;
+  }
+  .symptom-card p{font-size:.9rem;line-height:1.45;color:var(--ink-soft);}
+  .symptom-card p b{color:var(--ink);}
+
+  /* PROCESS STEPS */
+  .process-list{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:step;}
+  .process-step{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    padding:18px 16px;position:relative;box-shadow:var(--shadow);
+  }
+  .process-step .n{
+    font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.3rem;color:var(--amber-500);
+    font-variant-numeric:tabular-nums;
+  }
+  .process-step h5{font-family:"Barlow Condensed",sans-serif;font-size:.92rem;margin-top:8px;}
+  .process-step p{font-size:.82rem;color:var(--ink-soft);margin-top:6px;line-height:1.45;}
+
+  /* REPAIR VS REPLACE TABLE */
+  .compare-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--line);}
+  table.compare{width:100%;border-collapse:collapse;font-size:.88rem;background:var(--card-bg);}
+  table.compare th{
+    text-align:left;background:var(--navy-900);color:#fff;padding:14px 16px;
+    font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.85rem;
+  }
+  table.compare th:first-child{border-radius:0;}
+  table.compare td{padding:13px 16px;border-top:1px solid var(--line);color:var(--ink-soft);vertical-align:top;}
+  table.compare tr td:first-child{color:var(--ink);font-weight:600;}
+
+  /* APPLICABILITY CHIPS */
+  .applies-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .applies-chip{
+    display:flex;align-items:center;justify-content:center;gap:8px;background:var(--card-bg);border:1px solid var(--line);
+    border-radius:999px;padding:11px 16px;font-size:.86rem;font-weight:600;box-shadow:var(--shadow);
+  }
+  .applies-chip .chk{color:var(--good);font-weight:800;}
+
+  /* RELATED LINKS ROW */
+  .related-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .related-card{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);
+  }
+  .related-card-img{
+    aspect-ratio:4/3;position:relative;
+    background:linear-gradient(140deg, var(--navy-800), var(--navy-950));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .related-card-img::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 70% 25%, rgba(43,169,224,.28), transparent 60%);
+  }
+  .related-card-img .ic{position:relative;font-size:1.2rem;color:rgba(255,255,255,.55);}
+  .related-card-img .tag{
+    position:absolute;left:8px;bottom:8px;
+    font-size:.58rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    color:rgba(255,255,255,.6);background:rgba(0,0,0,.28);padding:2px 7px;border-radius:4px;
+  }
+  .related-card-body{padding:14px 16px 16px;}
+  .related-card b{font-family:"Barlow Condensed",sans-serif;font-size:.92rem;display:block;}
+  .related-card span{font-size:.8rem;color:var(--amber-600);font-weight:700;display:block;margin-top:8px;}
+
+  @media (max-width:920px){
+    .symptom-grid{grid-template-columns:1fr 1fr;}
+    .process-list{grid-template-columns:repeat(2,1fr);}
+    .related-row{grid-template-columns:1fr 1fr;}
+    .applies-row{grid-template-columns:1fr 1fr;}
+    .local-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:520px){
+    .symptom-grid{grid-template-columns:1fr;}
+    .process-list{grid-template-columns:1fr;}
+    .related-row{grid-template-columns:1fr;}
+    .applies-row{grid-template-columns:1fr;}
+  }
+
+  @media (max-width:920px){
+    nav.primary{display:none;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo{aspect-ratio:16/10;}
+    .trust-inner{grid-template-columns:repeat(2,1fr);}
+    .trust-item:nth-child(2){border-right:none;}
+    .decision-grid{grid-template-columns:repeat(2,1fr);}
+    .split{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .region-grid{grid-template-columns:repeat(2,1fr);}
+    .proof{grid-template-columns:1fr;padding:32px 24px;}
+    .proof-stats{grid-template-columns:repeat(2,1fr);}
+    .rebate-strip{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .sticky-mobile{display:flex;}
+    body{padding-bottom:64px;}
+    .faq-list{grid-template-columns:1fr;}
+  }
+  @media (max-width:520px){
+    .decision-grid{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:1fr;}
+    .region-grid{grid-template-columns:1fr;}
+    .trust-inner{grid-template-columns:repeat(2,1fr);}
+    .foot-grid{grid-template-columns:1fr;}
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "HVAC Services",
+  "name": "HVAC Services in Torrance",
+  "description": "AC repair, heating repair, installation, and maintenance for homes and businesses in Torrance, CA, including Old Torrance, North Torrance, West Torrance, and Walteria.",
+  "provider": {
+    "@id": "https://airprosolutionsheatingandcooling.com/#organization"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Torrance",
+    "containedInPlace": { "@type": "AdministrativeArea", "name": "South Bay, CA" }
+  },
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AC Repair" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AC Installation & Replacement" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Heating Repair" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Heat Pump Services" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ductless Mini-Splits" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "HVAC Maintenance" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial HVAC" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Emergency HVAC Repair" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://airprosolutionsheatingandcooling.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://airprosolutionsheatingandcooling.com/service-areas/" },
+    { "@type": "ListItem", "position": 3, "name": "Torrance", "item": "https://airprosolutionsheatingandcooling.com/service-areas/torrance/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Air Pro Solutions service all of Torrance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Air Pro Solutions covers all of Torrance, including Old Torrance, North Torrance, West Torrance, and Walteria. Torrance's coastal air keeps homes near PCH cooler, while inland neighborhoods run several degrees warmer, so we size and service systems for the specific microclimate your home sits in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast can a technician reach my Torrance home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Same-day appointments are typically available for Torrance, since it sits inside our core South Bay coverage area. Call ahead to confirm a same-day window."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do older Torrance homes need different HVAC work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often, yes. Many homes in Old Torrance and North Torrance were built in the 1940s through 1960s with narrow attic space and older ductwork, which can limit airflow or require modified equipment sizing. Air Pro Solutions evaluates the existing ducting and attic access before recommending a repair or replacement approach."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Air Pro Solutions handle HOA and condo HVAC work in Torrance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Air Pro Solutions services condos, townhomes, and HOA-managed properties throughout Torrance, and can coordinate with property managers or HOA boards on scheduling and any required approvals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What HVAC services are available in Torrance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Air Pro Solutions provides AC repair, AC installation and replacement, heating repair, heat pump service, ductless mini-splits, routine maintenance, commercial HVAC, and emergency repair throughout Torrance, for both residential and commercial properties."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is emergency HVAC service available in Torrance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Air Pro Solutions dispatches for no-cool and no-heat emergencies in Torrance with 24/7 availability. Same-day arrival is typical since Torrance sits inside our core South Bay coverage area."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Air Pro Solutions pull permits for HVAC work in Torrance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, when the work requires one. Equipment replacements and new installations in the City of Torrance generally require a permit and inspection. Air Pro Solutions handles the permit application and schedules the inspection as part of the installation, so the job is documented and code-compliant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does HVAC service cost in Torrance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most AC and heating repairs in Torrance run $150 to $600, depending on the part and how accessible the unit is. Installation and replacement cost depends on system size and your home's ductwork, so Air Pro Solutions provides an itemized quote after an on-site evaluation, before any work begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Air Pro Solutions service all HVAC brands in Torrance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Air Pro Solutions technicians service all major residential and commercial HVAC brands, including Trane, Carrier, Lennox, Rheem, Goodman, and Daikin systems, whether the equipment was installed by us or another contractor."
+      }
+    }
+  ]
+}
+</script>
+
+<div class="announce">
+  <b>Same-day HVAC service</b> across LA County, South Bay, Orange County &amp; the Inland Empire &nbsp;&middot;&nbsp; Licensed &amp; insured &middot; LIC #1126691, #50251
+</div>
+
+<header class="site">
+  <div class="wrap header-row">
+    <a class="logo" href="#">
+      <img class="mark" src="logo-mark.png" alt="Air Pro Solutions logo">
+      Air Pro Solutions
+    </a>
+    <nav class="primary">
+      <a href="#services">Services</a>
+      <a href="#commercial">Commercial</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#resources">Resources</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="phone-link" href="#"><span>Call Now</span>(323) 776-9047</a>
+      <a class="btn btn-primary" href="#">Schedule Service</a>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumbs">
+  <div class="wrap">
+    <a href="#">Home</a><span class="sep">/</span>
+    <a href="#">Service Areas</a><span class="sep">/</span>
+    <span class="current">Torrance</span>
+  </div>
+</div>
+
+<main>
+  <section class="hero" style="padding-bottom:44px;">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <h1>HVAC Services in <em>Torrance</em>, CA</h1>
+          <p class="lede">Air Pro Solutions provides AC repair, heating, installation, and maintenance across Torrance - from Old Torrance and North Torrance to Walteria and the Hollywood Riviera border - with an itemized price before any work begins.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#">Schedule Service in Torrance</a>
+            <a class="btn btn-ghost" href="#">Call (323) 776-9047</a>
+          </div>
+          <div class="hero-proof">
+            <span><i class="ic">✓</i>Licensed &amp; insured</span>
+            <span><i class="ic">⚡</i>Same-day service available</span>
+            <span><i class="ic">⌂</i>Residential &amp; commercial</span>
+            <span><i class="ic">$</i>Upfront pricing</span>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <circle cx="330" cy="55" r="130" fill="#f0791f" opacity=".16"/>
+            <circle cx="70" cy="260" r="110" fill="#2ba9e0" opacity=".14"/>
+            <rect x="40" y="120" width="70" height="110" rx="4" fill="#0e2038" opacity=".7"/>
+            <rect x="120" y="150" width="70" height="80" rx="4" fill="#16304f" opacity=".7"/>
+          </svg>
+          <div class="cap"><b>Torrance, CA</b>Local technicians, same-day availability across the South Bay</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-strip">
+    <div class="wrap trust-inner">
+      <div class="trust-item"><div class="num">South Bay</div><div class="lbl">core coverage area, based nearby</div></div>
+      <div class="trust-item"><div class="num">4.8★</div><div class="lbl">average rating, 40 reviews</div></div>
+      <div class="trust-item"><div class="num">Same-day</div><div class="lbl">service available most days</div></div>
+      <div class="trust-item"><div class="num">C-20</div><div class="lbl">California licensed &amp; bonded</div></div>
+    </div>
+  </div>
+
+  <section class="wrap" style="padding-bottom:0;">
+    <div class="answer-block">
+      <div class="label">Quick answer</div>
+      <p><b>Air Pro Solutions is a licensed HVAC contractor serving Torrance</b>, providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day appointments are typically available, and every job comes with an itemized price before any work begins.</p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Local knowledge</span>
+      <h2>HVAC work built around Torrance's housing stock</h2>
+    </div>
+    <div class="local-grid">
+      <div class="local-copy">
+        <p>Torrance sits at the edge of the South Bay's marine layer, which means homes closer to PCH and the coast run several degrees cooler than homes inland near the 110 and 405 interchange. <b>Air Pro Solutions sizes and services systems for the specific microclimate your address sits in</b>, rather than a one-size answer for the whole city.</p>
+        <p>Housing stock varies block to block. <b>Old Torrance and North Torrance</b> have a large share of homes built in the 1940s through 1960s, often with narrow attic space, older ductwork, and single-stage systems that were never sized for today's insulation and window upgrades. Newer construction near <b>Hollywood Riviera and West Torrance</b> typically has more attic clearance and can support higher-efficiency equipment without major duct rework.</p>
+        <p>We also work regularly with Torrance's condo and townhome communities and their HOAs, coordinating scheduling and any building approvals so repairs and installs move without added back-and-forth.</p>
+      </div>
+      <div class="nbhd-card">
+        <h5>Neighborhoods we cover</h5>
+        <div class="nbhd-list">
+          <span>Old Torrance</span>
+          <span>North Torrance</span>
+          <span>West Torrance</span>
+          <span>Walteria</span>
+          <span>Hollywood Riviera</span>
+          <span>Del Amo</span>
+          <span>Torrance Gardens</span>
+          <span>South Torrance</span>
+        </div>
+        <div class="zip"><b>ZIP codes:</b> 90501, 90502, 90503, 90504, 90505</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="services">
+    <div class="section-head">
+      <span class="eyebrow">Services in Torrance</span>
+      <h2>Everything we handle for Torrance homes &amp; businesses</h2>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">❄</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>AC Repair</h4>
+          <p>Diagnosis and same-visit fixes for cooling failures, weak airflow, and unusual noises.</p>
+          <a href="#">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">⊕</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>AC Installation &amp; Replacement</h4>
+          <p>New system sizing and installation matched to your home's layout and attic access.</p>
+          <a href="#">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">🔥</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>Heating Repair</h4>
+          <p>Furnace and heating system diagnosis and repair for reliable winter comfort.</p>
+          <a href="#">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">♨</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>Heat Pump Services</h4>
+          <p>Installation, repair, and maintenance for heat pump heating and cooling systems.</p>
+          <a href="#">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">▦</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>Ductless Mini-Splits</h4>
+          <p>A strong fit for Old Torrance homes with limited duct space - room-by-room comfort control.</p>
+          <a href="#">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">✓</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>HVAC Maintenance</h4>
+          <p>Seasonal tune-ups that catch small issues before they become no-cool or no-heat calls.</p>
+          <a href="#">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">▣</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>Commercial HVAC</h4>
+          <p>Rooftop units, office buildings, and retail spaces across Torrance and the South Bay.</p>
+          <a href="#">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">⚡</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>Emergency HVAC Repair</h4>
+          <p>Same-day dispatch for no-cool and no-heat emergencies in Torrance.</p>
+          <a href="#">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="areas">
+    <div class="section-head">
+      <span class="eyebrow">Nearby areas</span>
+      <h2>Also serving the rest of the South Bay</h2>
+      <p>Based near Torrance, Air Pro Solutions covers the surrounding South Bay cities on the same day-to-day routes.</p>
+    </div>
+    <div class="related-row">
+      <a class="related-card" href="#">
+        <div class="related-card-img"><span class="ic">📍</span><span class="tag">Photo pending</span></div>
+        <div class="related-card-body"><b>Redondo Beach</b><span>View area →</span></div>
+      </a>
+      <a class="related-card" href="#">
+        <div class="related-card-img"><span class="ic">📍</span><span class="tag">Photo pending</span></div>
+        <div class="related-card-body"><b>Manhattan Beach</b><span>View area →</span></div>
+      </a>
+      <a class="related-card" href="#">
+        <div class="related-card-img"><span class="ic">📍</span><span class="tag">Photo pending</span></div>
+        <div class="related-card-body"><b>Gardena</b><span>View area →</span></div>
+      </a>
+      <a class="related-card" href="#">
+        <div class="related-card-img"><span class="ic">📍</span><span class="tag">Photo pending</span></div>
+        <div class="related-card-body"><b>Carson</b><span>View area →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="proof">
+      <div>
+        <span class="eyebrow" style="color:var(--amber-500);">Why Air Pro</span>
+        <h3>Clear pricing and a technician who explains what's actually wrong</h3>
+        <p>Every technician is background-checked and factory-trained. Every quote is itemized before we touch a tool. Every job in Torrance includes a walkthrough of exactly what was done and why.</p>
+        <a class="btn btn-ghost" style="margin-top:16px;" href="#">Read our reviews</a>
+      </div>
+      <div class="proof-stats">
+        <div class="stat"><div class="n">4.8★</div><div class="l">Google rating</div></div>
+        <div class="stat"><div class="n">40</div><div class="l">Verified reviews</div></div>
+        <div class="stat"><div class="n">1-visit</div><div class="l">Typical repair completion</div></div>
+        <div class="stat"><div class="n">24/7</div><div class="l">Emergency dispatch</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="resources">
+    <div class="section-head">
+      <span class="eyebrow">Direct answers</span>
+      <h2>Torrance HVAC questions we hear most</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Does Air Pro Solutions service all of Torrance? <span class="plus">+</span></summary>
+        <p><b>Yes.</b> Air Pro Solutions covers all of Torrance, including Old Torrance, North Torrance, West Torrance, and Walteria. Torrance's coastal air keeps homes near PCH cooler, while inland neighborhoods run several degrees warmer, so we size and service systems for the specific microclimate your home sits in.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How fast can a technician reach my Torrance home? <span class="plus">+</span></summary>
+        <p><b>Same-day appointments are typically available for Torrance</b>, since it sits inside our core South Bay coverage area. Call ahead to confirm a same-day window.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do older Torrance homes need different HVAC work? <span class="plus">+</span></summary>
+        <p><b>Often, yes.</b> Many homes in Old Torrance and North Torrance were built in the 1940s through 1960s with narrow attic space and older ductwork, which can limit airflow or require modified equipment sizing. Air Pro Solutions evaluates the existing ducting and attic access before recommending a repair or replacement approach.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does Air Pro Solutions handle HOA and condo HVAC work in Torrance? <span class="plus">+</span></summary>
+        <p><b>Yes.</b> Air Pro Solutions services condos, townhomes, and HOA-managed properties throughout Torrance, and can coordinate with property managers or HOA boards on scheduling and any required approvals.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What HVAC services are available in Torrance? <span class="plus">+</span></summary>
+        <p><b>Air Pro Solutions provides AC repair, AC installation and replacement, heating repair, heat pump service, ductless mini-splits, routine maintenance, commercial HVAC, and emergency repair</b> throughout Torrance, for both residential and commercial properties.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is emergency HVAC service available in Torrance? <span class="plus">+</span></summary>
+        <p><b>Yes.</b> Air Pro Solutions dispatches for no-cool and no-heat emergencies in Torrance with 24/7 availability. Same-day arrival is typical since Torrance sits inside our core South Bay coverage area.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does Air Pro Solutions pull permits for HVAC work in Torrance? <span class="plus">+</span></summary>
+        <p><b>Yes, when the work requires one.</b> Equipment replacements and new installations in the City of Torrance generally require a permit and inspection. Air Pro Solutions handles the permit application and schedules the inspection as part of the installation, so the job is documented and code-compliant.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How much does HVAC service cost in Torrance? <span class="plus">+</span></summary>
+        <p><b>Most AC and heating repairs in Torrance run $150 to $600</b>, depending on the part and how accessible the unit is. Installation and replacement cost depends on system size and your home's ductwork, so Air Pro Solutions provides an itemized quote after an on-site evaluation, before any work begins.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does Air Pro Solutions service all HVAC brands in Torrance? <span class="plus">+</span></summary>
+        <p><b>Yes.</b> Air Pro Solutions technicians service all major residential and commercial HVAC brands, including Trane, Carrier, Lennox, Rheem, Goodman, and Daikin systems, whether the equipment was installed by us or another contractor.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="final-cta">
+      <h2>Get HVAC service in Torrance, today if possible</h2>
+      <p>Same-day appointments typically available across Torrance and the South Bay.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#">Call (323) 776-9047</a>
+        <a class="btn btn-ghost" href="#">Schedule Service in Torrance</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="logo" style="margin-bottom:12px;"><img class="mark" src="logo-mark.png" alt="Air Pro Solutions logo">Air Pro Solutions</div>
+      <p style="max-width:32ch;color:#8fa2b8;font-size:.85rem;line-height:1.55;">Licensed HVAC contractor serving Los Angeles and Southern California. Honest quotes, clean installs, real rebates.</p>
+    </div>
+    <div>
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#">AC Repair</a></li>
+        <li><a href="#">AC Installation</a></li>
+        <li><a href="#">Heating Repair</a></li>
+        <li><a href="#">Mini-Splits</a></li>
+        <li><a href="#">Commercial HVAC</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Service Areas</a></li>
+        <li><a href="#">Financing</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul>
+        <li>(323) 776-9047</li>
+        <li>contact@airprosolutionsheatingandcooling.com</li>
+        <li>Mon–Fri 7a–7p · Sat 8a–4p</li>
+        <li>24/7 emergency dispatch</li>
+        <li>LIC #1126691 · LIC #50251</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Air Pro Solutions. All rights reserved.</span>
+    <span>Privacy Policy · Terms · Accessibility</span>
+  </div>
+</footer>
+
+<div class="sticky-mobile">
+  <a class="btn btn-primary" href="#">Call Now</a>
+  <a class="btn btn-ghost" href="#" style="border-color:rgba(255,255,255,.5);">Schedule Service</a>
+</div>
+
+</body></html>

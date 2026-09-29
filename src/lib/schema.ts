@@ -35,7 +35,15 @@ export const organizationSchema = () => ({
 
 export const providerRef = { '@id': siteConfig.orgId };
 
-export const serviceSchema = (s: { name: string; description: string; url: string; serviceType?: string; areaServed?: { name: string }[] }) => ({
+export const serviceSchema = (s: {
+  name: string;
+  description: string;
+  url: string;
+  serviceType?: string;
+  areaServed?: { name: string }[];
+  audience?: { type: 'BusinessAudience' | 'PeopleAudience'; audienceType: string };
+  offers?: string[]; // becomes one Offer per name, matching the visible service card titles
+}) => ({
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: s.name,
@@ -44,6 +52,26 @@ export const serviceSchema = (s: { name: string; description: string; url: strin
   provider: providerRef,
   ...(s.serviceType ? { serviceType: s.serviceType } : {}),
   ...(s.areaServed ? { areaServed: s.areaServed.map((a) => ({ '@type': 'AdministrativeArea', name: a.name })) } : {}),
+  ...(s.audience ? { audience: { '@type': s.audience.type, audienceType: s.audience.audienceType } } : {}),
+  ...(s.offers ? { makesOffer: s.offers.map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } })) } : {}),
+});
+
+// City page schema: areaServed is a single City (with containedInPlace), and makesOffer names must
+// match the visible service card titles exactly.
+export const citySchema = (s: { name: string; description: string; url: string; cityName: string; regionName: string; offers: string[] }) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'HVAC Services',
+  name: s.name,
+  description: s.description,
+  url: s.url,
+  provider: providerRef,
+  areaServed: {
+    '@type': 'City',
+    name: s.cityName,
+    containedInPlace: { '@type': 'AdministrativeArea', name: s.regionName },
+  },
+  makesOffer: s.offers.map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } })),
 });
 
 export const breadcrumbSchema = (items: { name: string; url: string }[]) => ({

@@ -72,6 +72,12 @@ export const audienceServiceH1 = (service: string, audience: string) => `${servi
 export const commercialServiceTitle = (service: string) => t(`Commercial ${service} in Los Angeles`);
 export const commercialServiceH1 = (service: string) => `Commercial ${service} in Los Angeles`;
 
+// Commercial HVAC hub (/commercial-hvac/): primary keyword is "commercial hvac los angeles" per
+// docs/primary-keyword-selection.md, which reads as "Commercial ... in Los Angeles" rather than the
+// generic audienceTitle() formula - same exception already carved out for commercialServiceTitle.
+export const commercialHubTitle = () => t('Commercial HVAC Services in Los Angeles');
+export const commercialHubH1 = () => 'Commercial HVAC Services for Southern California Businesses';
+
 export const articleTitle = (question: string, includeBrand = true) => (includeBrand ? t(question) : question);
 export const articleH1 = (question: string) => question;
 

@@ -22,6 +22,11 @@ const paths: Record<string, string> = {
   clock: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3 2',
   star: 'M12 3l2.700 5.600 6.100.9-4.400 4.300 1 6.100L12 17l-5.400 2.900 1-6.100L3.200 9.500l6.100-.9z',
   refresh: 'M4 4v5h5M20 20v-5h-5M4.5 15a8 8 0 0 0 14.1 3.5M19.5 9a8 8 0 0 0-14.1-3.5',
+  'shield-check': 'M12 3l8 3v6c0 4.5-3.2 8.2-8 9-4.8-.8-8-4.5-8-9V6l8-3zM8.5 12l2.5 2.5 4.5-5',
+  bolt: 'M13 2L4 14h7l-1 8 9-12h-7l1-8z',
+  buildings: 'M4 21V9l6-4v16M10 21V3l10 5v13M3 21h18M14 11h2M14 15h2',
+  'doc-check': 'M7 3h7l4 4v14H7zM14 3v4h4M10 13.5l1.7 1.7 3-3.4',
+  user: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0',
 };
 
 export function Icon({ name, size = 20 }: { name: string; size?: number }) {
