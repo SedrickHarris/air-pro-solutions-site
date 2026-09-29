@@ -38,6 +38,7 @@ export type City = {
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
   page?: CityPage; // full template content; only torrance-ca has this so far
+  cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
@@ -68,6 +69,10 @@ const torranceOverrides: Partial<City> = {
       'Air Pro Solutions provides AC repair, heating, installation, and maintenance for Torrance homes and businesses. Licensed HVAC contractor. Schedule service.',
     lede:
       'Air Pro Solutions provides AC repair, heating, installation, and maintenance across Torrance - from Old Torrance and North Torrance to Walteria and the Hollywood Riviera border.',
+    heroImage: {
+      src: '/images/service-location/hvac-services-torrance-ca/hero.webp',
+      alt: 'Outdoor AC condenser beside a Torrance home with drought-tolerant landscaping',
+    },
     heroCaption: { title: 'Torrance, CA', text: 'Heating and cooling service across the South Bay' },
     heroProof: [
       { icon: 'shield', label: 'Licensed contractor' },
@@ -158,7 +163,18 @@ const torranceOverrides: Partial<City> = {
   },
 };
 
-export const cities: City[] = baseCities.map((c) => (c.slug === 'torrance-ca' ? { ...c, ...torranceOverrides } : c));
+// Map-card images for cities that appear in a nearby-areas row before they have their own page.
+const cardImages: Record<string, ServiceImage> = {
+  'redondo-beach-ca': { src: '/images/locations/cards/redondo-beach-ca.webp', alt: 'Map showing the Redondo Beach, CA service area' },
+  'manhattan-beach-ca': { src: '/images/locations/cards/manhattan-beach-ca.webp', alt: 'Map showing the Manhattan Beach, CA service area' },
+  'gardena-ca': { src: '/images/locations/cards/gardena-ca.webp', alt: 'Map showing the Gardena, CA service area' },
+  'carson-ca': { src: '/images/locations/cards/carson-ca.webp', alt: 'Map showing the Carson, CA service area' },
+};
+
+export const cities: City[] = baseCities.map((c) => {
+  const withOverrides = c.slug === 'torrance-ca' ? { ...c, ...torranceOverrides } : c;
+  return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
+});
 
 export const wave1Cities = cities.filter((c) => c.wave === 1);
 

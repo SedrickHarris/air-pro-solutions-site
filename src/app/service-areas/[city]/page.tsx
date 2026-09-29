@@ -95,7 +95,7 @@ export default async function Page({ params }: { params: Promise<{ city: string 
 
   const nearby = page.nearby.map((nSlug) => {
     const n = getCity(nSlug);
-    return { name: n?.name ?? nSlug, href: n ? `/service-areas/${n.slug}/` : undefined, icon: 'pin' };
+    return { name: n?.name ?? nSlug, href: n ? `/service-areas/${n.slug}/` : undefined, icon: 'pin', image: n?.cardImage };
   });
 
   const offers = page.serviceCards.map((sc) => sc.name);
@@ -144,7 +144,7 @@ export default async function Page({ params }: { params: Promise<{ city: string 
                 priority
               />
               {page.heroCaption && (
-                <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">
+                <span className="photo-caption photo-caption-band photo-caption-silver">
                   <strong>{page.heroCaption.title}</strong> {page.heroCaption.text}
                 </span>
               )}
@@ -154,7 +154,7 @@ export default async function Page({ params }: { params: Promise<{ city: string 
               <Icon name="pin" size={32} />
               <span className="photo-tag">Photo pending</span>
               {page.heroCaption && (
-                <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">
+                <span className="photo-caption photo-caption-band photo-caption-silver">
                   <strong>{page.heroCaption.title}</strong> {page.heroCaption.text}
                 </span>
               )}
@@ -165,13 +165,25 @@ export default async function Page({ params }: { params: Promise<{ city: string 
 
       <TrustStrip stats={page.trustStats} />
 
-      <AnswerBlock lead={page.answer.lead} body={page.answer.body} />
+      <AnswerBlock
+        lead={page.answer.lead}
+        body={page.answer.body}
+        dark
+        ctas={{
+          primaryLabel: `Schedule Service in ${city.name}`,
+          primaryHref: '/contact/',
+          phoneLabel: `Call ${siteConfig.phone}`,
+          phoneHref: siteConfig.phoneHref,
+        }}
+        image={getService('ac-repair')?.image}
+      />
 
       <LocalKnowledge
         title={`HVAC work built around ${city.name}'s housing stock`}
         paragraphs={page.localParagraphs}
         neighborhoods={city.neighborhoods}
         zips={city.zips}
+        dark
       />
 
       <ServicesGrid cards={serviceCards} eyebrow={`Services in ${city.name}`} title={`Everything we handle for ${city.name} homes and businesses`} />

@@ -2,13 +2,15 @@ export function ProcessList({
   steps,
   eyebrow = 'How it works',
   title,
+  alt = false,
 }: {
   steps: { title: string; body: string }[];
   eyebrow?: string;
   title: string;
+  alt?: boolean;
 }) {
   return (
-    <section>
+    <section className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

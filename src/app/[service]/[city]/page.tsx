@@ -84,6 +84,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       name: n ? `${n.name} AC repair` : slug,
       href: hasMatrixPage ? `/${service.slug}/${slug}/` : undefined,
       icon: 'pin',
+      image: n?.cardImage,
     };
   });
 
@@ -157,16 +158,17 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         neighborhoodsHeading={content.local.areasHeading}
         neighborhoods={city.neighborhoods}
         zips={city.zips}
+        alt
       />
-      <section style={{ paddingTop: 0 }}>
+      <section className="alt" style={{ paddingTop: 0 }}>
         <div className="wrap">
           <PendingNote>a Torrance customer review or job photo for this page, pending a real review with permission.</PendingNote>
         </div>
       </section>
 
-      <SymptomGrid items={service.symptoms} title="Common signs your AC needs repair" />
+      <SymptomGrid items={service.symptoms} title="Common signs your AC needs repair" alt={false} />
 
-      <ProcessList steps={service.process} title="Our AC repair process" />
+      <ProcessList steps={service.process} title="Our AC repair process" alt />
 
       {service.repairVsReplace && (
         <CompareTable
@@ -174,16 +176,18 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           groups={service.repairVsReplace.groups}
           note={service.repairVsReplace.note}
           title="Repair or replace?"
+          alt={false}
         />
       )}
 
-      {service.page && <AppliesRow items={service.page.appliesTo} title="Residential and commercial AC repair" />}
+      {service.page && <AppliesRow items={service.page.appliesTo} title="Residential and commercial AC repair" alt />}
 
       <RelatedRow
         items={nearby}
         eyebrow="Nearby areas"
         title="AC repair in the rest of the South Bay"
         intro="Air Pro Solutions also serves the surrounding South Bay cities."
+        alt={false}
       />
 
       <Proof
@@ -200,7 +204,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         ]}
       />
 
-      <RelatedRow items={relatedServices} eyebrow="Related" title="Explore related services" />
+      <RelatedRow items={relatedServices} eyebrow="Related" title="Explore related services" alt={false} />
 
       <FaqList
         faqs={content.faqs}
@@ -208,6 +212,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         title="AC repair questions Torrance homeowners ask"
         firstOpen
         boldFirstSentence
+        alt
       />
 
       <FinalCta

@@ -4,13 +4,15 @@ export function SymptomGrid({
   items,
   eyebrow = 'Signs you need this',
   title,
+  alt = true,
 }: {
   items: { lead: string; detail: string }[];
   eyebrow?: string;
   title: string;
+  alt?: boolean;
 }) {
   return (
-    <section className="alt">
+    <section className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

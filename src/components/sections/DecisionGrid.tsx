@@ -18,15 +18,17 @@ export function DecisionGrid({
   title = 'What do you need help with?',
   intro,
   ctaLabel = 'Get started',
+  alt = false,
 }: {
   cards?: DecisionCard[];
   eyebrow?: string;
   title?: string;
   intro?: string;
   ctaLabel?: string;
+  alt?: boolean;
 }) {
   return (
-    <section>
+    <section className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

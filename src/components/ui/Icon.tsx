@@ -27,6 +27,8 @@ const paths: Record<string, string> = {
   buildings: 'M4 21V9l6-4v16M10 21V3l10 5v13M3 21h18M14 11h2M14 15h2',
   'doc-check': 'M7 3h7l4 4v14H7zM14 3v4h4M10 13.5l1.7 1.7 3-3.4',
   user: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0',
+  plus: 'M12 5v14M5 12h14',
+  x: 'M6 6l12 12M18 6L6 18',
 };
 
 export function Icon({ name, size = 20 }: { name: string; size?: number }) {

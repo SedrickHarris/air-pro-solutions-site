@@ -206,7 +206,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="cooling">
+      <section id="cooling" className="alt">
         <div className="wrap">
           <p className="eyebrow">Cooling</p>
           <h2>Air conditioning services</h2>
@@ -215,7 +215,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="heating" className="alt">
+      <section id="heating">
         <div className="wrap">
           <p className="eyebrow">Heating</p>
           <h2>Heating services</h2>
@@ -224,7 +224,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="air-and-ducts">
+      <section id="air-and-ducts" className="alt">
         <div className="wrap">
           <p className="eyebrow">Ductwork &amp; Indoor Air Quality</p>
           <h2>Ductwork and indoor air quality services</h2>
@@ -234,7 +234,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="commercial" className="alt">
+      <section id="commercial">
         <div className="wrap">
           <p className="eyebrow">Commercial HVAC</p>
           <h2>Commercial HVAC Services for Southern California Properties</h2>
@@ -269,7 +269,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="alt">
+      <section>
         <div className="wrap">
           <p className="eyebrow">Who it&apos;s for</p>
           <h2>Built for your home or your business</h2>
@@ -286,7 +286,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section>
+      <section className="alt">
         <div className="wrap">
           <p className="eyebrow">Where we work</p>
           <h2>Every service, across four Southern California regions</h2>

@@ -13,6 +13,7 @@ export function RelatedRow({
   intro,
   ctaLabel = 'View service',
   footerAction,
+  alt = true,
 }: {
   items: Item[];
   eyebrow?: string;
@@ -20,9 +21,10 @@ export function RelatedRow({
   intro?: string;
   ctaLabel?: string;
   footerAction?: { label: string; href: string };
+  alt?: boolean;
 }) {
   return (
-    <section className="alt">
+    <section className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

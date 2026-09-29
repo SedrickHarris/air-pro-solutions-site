@@ -48,15 +48,17 @@ export function FaqList({
   eyebrow = 'FAQ',
   firstOpen = false,
   boldFirstSentence = false,
+  alt = false,
 }: {
   faqs: Faq[];
   title?: string;
   eyebrow?: string;
   firstOpen?: boolean;
   boldFirstSentence?: boolean;
+  alt?: boolean;
 }) {
   return (
-    <section>
+    <section className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

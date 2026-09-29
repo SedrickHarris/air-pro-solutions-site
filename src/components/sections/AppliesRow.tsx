@@ -4,13 +4,15 @@ export function AppliesRow({
   items,
   eyebrow = "Who this is for",
   title,
+  alt = false,
 }: {
   items: { label: string; icon: string }[];
   eyebrow?: string;
   title: string;
+  alt?: boolean;
 }) {
   return (
-    <section>
+    <section className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

@@ -8,15 +8,17 @@ export function CompareTable({
   note,
   eyebrow = 'Not sure which you need?',
   title,
+  alt = true,
 }: {
   intro?: string;
   groups: CompareGroup[];
   note?: string;
   eyebrow?: string;
   title: string;
+  alt?: boolean;
 }) {
   return (
-    <section className="alt">
+    <section className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

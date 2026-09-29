@@ -16,6 +16,8 @@ export function LocalKnowledge({
   neighborhoodsHeading = 'Neighborhoods we cover',
   neighborhoods,
   zips,
+  dark = false,
+  alt = false,
 }: {
   eyebrow?: string;
   title: string;
@@ -24,9 +26,11 @@ export function LocalKnowledge({
   neighborhoodsHeading?: string;
   neighborhoods: string[];
   zips: string[];
+  dark?: boolean;
+  alt?: boolean;
 }) {
   return (
-    <section>
+    <section className={dark ? 'local-knowledge-dark' : alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

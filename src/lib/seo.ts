@@ -78,6 +78,12 @@ export const commercialServiceH1 = (service: string) => `Commercial ${service} i
 export const commercialHubTitle = () => t('Commercial HVAC Services in Los Angeles');
 export const commercialHubH1 = () => 'Commercial HVAC Services for Southern California Businesses';
 
+// Residential HVAC hub (/residential-hvac/): same exception as the commercial hub - primary keyword
+// is "residential hvac los angeles", which reads as "Residential HVAC Services in Los Angeles"
+// rather than the generic audienceTitle() formula.
+export const residentialHubTitle = () => t('Residential HVAC Services in Los Angeles');
+export const residentialHubH1 = () => 'Residential HVAC Services for Southern California Homeowners';
+
 export const articleTitle = (question: string, includeBrand = true) => (includeBrand ? t(question) : question);
 export const articleH1 = (question: string) => question;
 

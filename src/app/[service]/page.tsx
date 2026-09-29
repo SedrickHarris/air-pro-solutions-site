@@ -206,9 +206,9 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         ]}
       />
 
-      <RelatedRow items={related} title="Explore related services" />
+      <RelatedRow items={related} title="Explore related services" alt={false} />
 
-      <FaqList faqs={page.faqs} eyebrow="Direct answers" title="AC repair questions Southern Californians ask" />
+      <FaqList faqs={page.faqs} eyebrow="Direct answers" title="AC repair questions Southern Californians ask" alt />
 
       <FinalCta title="Get your AC repair scheduled" body="Call us or request service online." ghostLabel="Schedule AC Repair" />
     </>

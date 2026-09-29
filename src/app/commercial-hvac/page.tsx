@@ -122,6 +122,7 @@ export default function Page() {
         cards={whyUs}
         eyebrow="Why businesses choose us"
         title="Built for facility teams and property managers"
+        alt
       />
 
       <ServicesGrid
@@ -134,9 +135,10 @@ export default function Page() {
         steps={processSteps}
         eyebrow="How it works"
         title="Getting started with commercial service"
+        alt
       />
 
-      <section className="alt">
+      <section>
         <div className="wrap">
           <p className="eyebrow">Where we work</p>
           <h2>Commercial HVAC service across Southern California</h2>
