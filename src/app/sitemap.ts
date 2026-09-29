@@ -12,10 +12,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Only list routes that are actually indexable (no robots:noindex). A service or city needs a
   // real `page` content block, not just `published`/`wave === 1`, or its own route sets noindex and
   // it would 404-equivalent in Search Console as "submitted but noindex". Of the four /service-areas/
-  // region pages, only los-angeles-county and south-bay are built; orange-county, inland-empire, and
+  // region pages, only los-angeles-county, south-bay, and orange-county are built; inland-empire and
   // the four unbuilt audience pages are still noindex stubs - update this file as each one ships.
   const paths = [
-    '/', '/services/', '/service-areas/', '/service-areas/los-angeles-county/', '/service-areas/south-bay/',
+    '/', '/services/', '/service-areas/', '/service-areas/los-angeles-county/', '/service-areas/south-bay/', '/service-areas/orange-county/',
     '/about/', '/contact/', '/reviews/', '/financing/', '/maintenance-plan/', '/faq/', '/careers/', '/privacy/', '/terms/', '/accessibility/', // thank-you is noindex, never list it
     ...builtAudiences.map((a) => `/${a}/`),
     ...publishedServices.filter((s) => s.page).map((s) => `/${s.slug}/`),

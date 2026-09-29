@@ -31,3 +31,27 @@ this file is the index, not the source of truth.
   Do not add Hermosa Beach or Hawthorne without a source.
 - Housing age, attic/foundation/duct condition, and population figures were intentionally left off
   the South Bay hub. Do not add them without a source.
+
+## /service-areas/orange-county/ (src/content/orange-county.ts)
+
+- Anaheim Public Utilities Home Incentives Program ($200/ton, duct repair, thermostat terms):
+  first-come-first-served, no publication date found. Verify current terms before launch.
+- SoCalGas 2026 furnace rebate tiers and $75 thermostat rebate: through December 31, 2026 or until
+  funds run out. Remove or update in January 2027.
+- SCE Smart Energy Program ($75 enrollment + up to $50/yr): re-verify current credit amount before
+  launch.
+- HEEHRA reservation status: single-family funding fully reserved statewide as of 2026-02-24;
+  multifamily reservation window closed 2025-12-18. Re-verify before launch.
+- 2025 Energy Code (Title 24) effective date: applies to permits submitted on or after 2026-01-01.
+  Re-verify if the compliance date changes.
+- No source URLs were found for any of the three Orange County rebate programs, so the rebate
+  cards carry no link. Add official source URLs once verified (Anaheim Public Utilities Home
+  Incentives Program, SoCalGas 2026 rebates, SCE Smart Energy Program).
+- Housing age figures are missing for Anaheim, Huntington Beach, Fullerton, and Tustin - no age
+  claim is made for them. Do not add without a source.
+- Fullerton ZIP list is unverified (low confidence) and shown as "pending," not a list.
+- Gas utility (SoCalGas) is directly confirmed only for Anaheim and assumed for the other seven
+  cities. Do not strengthen this to a confirmed claim without a source.
+- Climate figures come from the NWS Tustin MCAS station summary (single station, not 1991-2020
+  normals). Keep the "station and event readings, not city averages" wording.
+- City-tagged Orange County reviews, real photos, and business hours are pending client input.
