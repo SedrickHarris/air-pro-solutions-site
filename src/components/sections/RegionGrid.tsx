@@ -16,6 +16,7 @@ export function RegionGrid({
   showCities = true,
   bodyFor,
   footer,
+  id,
 }: {
   eyebrow?: string;
   title?: string;
@@ -24,9 +25,10 @@ export function RegionGrid({
   showCities?: boolean;
   bodyFor?: (regionSlug: string) => string;
   footer?: ReactNode; // e.g. "Don't see your city? Call us..." rendered below the card grid
+  id?: string; // anchor id for internal linking, e.g. /indoor-air-quality/'s "#areas"
 }) {
   return (
-    <section className="alt">
+    <section id={id} className="alt">
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

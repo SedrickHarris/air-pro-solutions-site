@@ -56,6 +56,7 @@ export function FaqList({
   firstOpen = false,
   boldFirstSentence = false,
   alt = false,
+  id,
 }: {
   faqs: Faq[];
   title?: string;
@@ -63,9 +64,10 @@ export function FaqList({
   firstOpen?: boolean;
   boldFirstSentence?: boolean;
   alt?: boolean;
+  id?: string; // anchor id for internal linking, e.g. /indoor-air-quality/'s "#resources"
 }) {
   return (
-    <section className={alt ? 'alt' : undefined}>
+    <section id={id} className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

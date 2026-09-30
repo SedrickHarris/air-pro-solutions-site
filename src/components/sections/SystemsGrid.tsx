@@ -9,15 +9,17 @@ export function SystemsGrid({
   intro,
   items,
   alt = false,
+  id,
 }: {
   title: string;
   eyebrow?: string;
   intro?: string;
   items: { name: string; body: string; icon: string; link?: { label: string; href: string } }[];
   alt?: boolean;
+  id?: string; // anchor id for internal linking, e.g. /indoor-air-quality/'s "#filtration"
 }) {
   return (
-    <section className={alt ? 'alt' : undefined}>
+    <section id={id} className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
