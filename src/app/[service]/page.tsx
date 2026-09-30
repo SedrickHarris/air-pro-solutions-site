@@ -105,7 +105,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
     ...s.related.map((relSlug) => {
       const rel = getService(relSlug);
       if (!rel) throw new Error(`Unknown related service slug on /${s.slug}/: ${relSlug}`);
-      return { name: rel.name, href: `/${rel.slug}/`, icon: relatedIcons[relSlug] ?? rel.icon, image: rel.image };
+      return { name: page.relatedLabels?.[relSlug] ?? rel.name, href: `/${rel.slug}/`, icon: relatedIcons[relSlug] ?? rel.icon, image: rel.image };
     }),
     // Pages that already list 4 related services (e.g. ac-installation) skip the auto-appended
     // Commercial HVAC card - it's still linked from the "More on this topic" row instead.
@@ -244,19 +244,26 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           title={page.symptomsTitle ?? 'Common signs to watch for'}
           intro={page.symptomsIntro}
           note={
-            page.symptomsNote && (
+            page.symptomsNote ? (
               <>
                 {page.symptomsNote.before}
                 <Link className="link" href={page.symptomsNote.linkHref}>{page.symptomsNote.linkLabel}</Link>
                 {page.symptomsNote.after}
               </>
+            ) : (
+              page.symptomsNoteText
             )
           }
         />
       )}
 
       {page.diagnosis && (
-        <DiagnosisTable title="What your AC symptoms can mean" intro={page.diagnosisIntro} rows={page.diagnosis} />
+        <DiagnosisTable
+          title={page.diagnosisTitle ?? 'What your AC symptoms can mean'}
+          eyebrow={page.diagnosisEyebrow}
+          intro={page.diagnosisIntro}
+          rows={page.diagnosis}
+        />
       )}
 
       {/* On most service pages this comparison sits after pricing (see the later render below); a
@@ -307,8 +314,10 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         <RefrigerantNote
           title={page.refrigerant.title}
           body={page.refrigerant.body}
+          boldLead={page.refrigerant.boldLead}
           sourceLabel={page.refrigerant.sourceLabel}
           sourceHref={page.refrigerant.sourceHref}
+          sourceText={page.refrigerant.sourceText}
         />
       )}
 

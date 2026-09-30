@@ -1,6 +1,7 @@
 import type { Faq } from '@/content/faq';
 import { acInstallationPage } from '@/content/ac-installation-page';
 import { acMaintenancePage } from '@/content/ac-maintenance-page';
+import { heatingRepairPage } from '@/content/heating-repair-page';
 import type { DecisionCard } from '@/components/sections/DecisionGrid';
 
 export type ServiceImage = { src: string; alt: string };
@@ -46,7 +47,10 @@ export type ServicePage = {
   systemsTitle?: string;
   systemsIntro?: string;
   systems?: { name: string; body: string; icon: string; link?: { label: string; href: string } }[];
-  refrigerant?: { title: string; body: string; sourceLabel: string; sourceHref: string };
+  // sourceLabel/sourceHref render a linked "Source: ..." line; sourceText (added for /heating-repair/,
+  // which cites two sources with no single URL to link) renders a plain, non-linked line instead when
+  // sourceHref is absent - mirrors the sourceText/boldLead options RefrigerantNote already supports.
+  refrigerant?: { title: string; body: string; boldLead?: string; sourceLabel?: string; sourceHref?: string; sourceText?: string };
   pricingTitle?: string;
   pricingIntro?: string;
   priceFactors?: { item: string; drivers: string }[];
@@ -72,7 +76,15 @@ export type ServicePage = {
   // --- Additional fields used by the /ac-installation/ template. Optional so ac-repair (and every
   // other service) is unaffected. ---
   symptomsIntro?: string; // lead paragraph rendered between the symptoms h2 and the card grid
-  symptomsNote?: { before: string; linkLabel: string; linkHref: string; after?: string }; // line below the symptom grid
+  symptomsNote?: { before: string; linkLabel: string; linkHref: string; after?: string }; // line below the symptom grid, with an inline link
+  // Plain-text alternative to `symptomsNote` for a note with no link (e.g. /heating-repair/'s seasonal
+  // note). Only used when `symptomsNote` is unset.
+  symptomsNoteText?: string;
+  // Title/eyebrow overrides for the "what your symptoms can mean" DiagnosisTable, which otherwise
+  // hardcodes an AC-specific title in src/app/[service]/page.tsx. Optional so ac-repair (the only
+  // other page using `diagnosis`) keeps its existing wording.
+  diagnosisTitle?: string;
+  diagnosisEyebrow?: string;
   visitEyebrow?: string; // overrides VisitScope's default "What to expect" eyebrow
   timeline?: { heading: string; body: string }; // plain callout rendered via RefrigerantNote with no source line
   rulesEyebrow?: string; // overrides RulesNote's default "Good to know" eyebrow
@@ -135,6 +147,12 @@ export type ServicePage = {
   // Overrides the hardcoded "California licensed contractor" trust-strip label (see page.tsx). Optional
   // so ac-repair/ac-installation keep their existing wording.
   trustStripLicenseLabel?: string;
+
+  // --- Additional field used by the /heating-repair/ template. Per-related-card label override
+  // (keyed by the related service's slug), since the related-services renderer otherwise always shows
+  // the target service's real `name` (see the "HVAC Maintenance" -> /ac-maintenance/ TODO(copy) in
+  // heating-repair-page.ts). Optional so every other service page's related row is unaffected.
+  relatedLabels?: Record<string, string>;
 };
 
 export type Service = {
@@ -527,8 +545,54 @@ const baseServices: Service[] = [
     related: ['ac-repair', 'ac-installation', 'emergency-hvac'],
     page: acMaintenancePage,
   },
-  core('heating', 'heating-repair', 'Heating Repair', 'flame', { description: "Diagnosis and repair for furnaces, heat pumps, and heating systems that won't turn on or heat unevenly.",
-    image: card('heating-repair', 'Gas furnace and ductwork in a home utility closet') }),
+  {
+    ...core('heating', 'heating-repair', 'Heating Repair', 'flame', { description: "Diagnosis and repair for furnaces, heat pumps, and heating systems that won't turn on or heat unevenly.",
+      image: card('heating-repair', 'Gas furnace and ductwork in a home utility closet') }),
+    symptoms: [
+      { lead: 'Cold air', detail: 'from vents while the system is running' },
+      { lead: 'Weak or no airflow', detail: 'from one or more vents' },
+      { lead: 'Frequent cycling', detail: 'on and off, or a system that will not stay on' },
+      { lead: 'Clicking, banging, squealing, or grinding', detail: 'when the system starts or runs' },
+      { lead: 'Burning or electrical odor', detail: 'that lingers or comes with smoke' },
+      { lead: 'Uneven temperatures', detail: 'between rooms or floors' },
+    ],
+    process: [
+      { title: 'Triage', body: 'We ask about the symptom, the system type, whether it is gas-fired, and any safety concerns such as gas odor, smoke, or a carbon monoxide alarm.' },
+      { title: 'Inspect', body: 'The technician checks the thermostat, power supply, filter, airflow, fault codes, controls, and accessible equipment.' },
+      { title: 'Safety check', body: 'On gas-fired equipment, the technician may inspect ignition, flame sensing, burners, venting, draft, safety switches, and gas controls.' },
+      { title: 'Diagnose and quote', body: 'You get the cause, the recommended repair, expected parts and labor, whether it is safety-critical, and whether replacement is worth discussing.' },
+      { title: 'Repair', body: 'We complete the repair you approve. Nothing beyond diagnosis is installed until you say yes.' },
+      { title: 'Verify', body: 'We confirm startup, heating operation, airflow, thermostat response, fault-code status, and applicable combustion or safety checks.' },
+    ],
+    repairVsReplace: {
+      groups: [
+        {
+          heading: 'Repair may make sense when',
+          icon: 'wrench',
+          items: [
+            'The issue is isolated and the system is otherwise safe and serviceable',
+            'The repair cost is reasonable for the equipment',
+            'Compatible parts are available',
+            'Breakdowns have been rare',
+            'The current heating approach still fits the property',
+          ],
+        },
+        {
+          heading: 'Replacement may make sense when',
+          icon: 'refresh',
+          items: [
+            'A safety-critical component has failed',
+            'Repair costs are substantial',
+            'Parts are unavailable',
+            'The system has repeated breakdowns',
+            'The property needs a different heating approach',
+          ],
+        },
+      ],
+    },
+    related: ['furnace-installation', 'heat-pump-services', 'ac-maintenance', 'ductwork'],
+    page: heatingRepairPage,
+  },
   core('heating', 'furnace-installation', 'Furnace Installation', 'furnace', { description: 'Furnace installation and replacement for homes and businesses across Southern California.',
     image: card('furnace-installation', 'Modern gas furnace beside an older furnace in a home utility closet with ductwork above') }),
   core('heat-pump', 'heat-pump-services', 'Heat Pump Services', 'heat-pump', { description: 'Installation, repair, and maintenance for heat pump systems that handle both heating and cooling.',
