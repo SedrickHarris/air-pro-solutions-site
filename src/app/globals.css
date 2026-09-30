@@ -506,6 +506,7 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 
 /* Sources list (sections/SourcesList): small government/standards citation list. */
 .sources-list { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 8px; font-size: 0.85rem; }
+.sources-list-2col { grid-template-columns: 1fr 1fr; column-gap: 24px; }
 .sources-list a { color: var(--navy-700); font-weight: 600; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) .sources-list a { color: var(--sky-400); }
@@ -515,6 +516,7 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 @media (max-width: 920px) {
   .visit-scope { grid-template-columns: 1fr; }
   .systems-grid, .rules-grid { grid-template-columns: 1fr 1fr; }
+  .sources-list-2col { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
   .systems-grid, .rules-grid { grid-template-columns: 1fr; }

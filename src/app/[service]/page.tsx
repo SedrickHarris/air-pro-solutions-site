@@ -25,6 +25,7 @@ import { Proof } from '@/components/sections/Proof';
 import { RelatedRow } from '@/components/sections/RelatedRow';
 import { FaqList } from '@/components/sections/FaqList';
 import { SourcesList } from '@/components/sections/SourcesList';
+import { RebateCards } from '@/components/sections/RebateCards';
 import { FinalCta } from '@/components/sections/FinalCta';
 import { breadcrumbSchema, faqSchema, jsonLd, serviceSchema } from '@/lib/schema';
 import { serviceMetadata, serviceTitle, serviceH1, assertH1 } from '@/lib/seo';
@@ -103,7 +104,9 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       if (!rel) throw new Error(`Unknown related service slug on /${s.slug}/: ${relSlug}`);
       return { name: rel.name, href: `/${rel.slug}/`, icon: relatedIcons[relSlug] ?? rel.icon, image: rel.image };
     }),
-    { name: 'Commercial HVAC', href: '/commercial-hvac/', icon: relatedIcons['commercial-hvac'] },
+    // Pages that already list 4 related services (e.g. ac-installation) skip the auto-appended
+    // Commercial HVAC card - it's still linked from the "More on this topic" row instead.
+    ...(s.related.length <= 3 ? [{ name: 'Commercial HVAC', href: '/commercial-hvac/', icon: relatedIcons['commercial-hvac'] }] : []),
   ];
 
   const schema = [
@@ -122,6 +125,28 @@ export default async function Page({ params }: { params: Promise<{ service: stri
     faqSchema(page.faqs),
     breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url }))),
   ];
+
+  // Rendered either right after the symptoms section or after pricing - see `page.compareEarly`.
+  const compareBlock = s.repairVsReplace && (
+    <CompareTable
+      intro={s.repairVsReplace.intro}
+      groups={s.repairVsReplace.groups}
+      note={s.repairVsReplace.note}
+      title="Repair or replace?"
+      afterNote={
+        page.repairReplaceExtra && (
+          <>
+            {page.repairReplaceExtra.paragraphs.map((p) => (
+              <p className="compare-note" key={p}>{p}</p>
+            ))}
+            <p className="compare-note">
+              <Link className="link" href={page.repairReplaceExtra.linkHref}>{page.repairReplaceExtra.linkText}</Link>
+            </p>
+          </>
+        )
+      }
+    />
+  );
 
   return (
     <>
@@ -192,16 +217,34 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         />
       )}
 
-      <SymptomGrid items={s.symptoms} title={page.symptomsTitle} />
+      <SymptomGrid
+        items={s.symptoms}
+        title={page.symptomsTitle}
+        intro={page.symptomsIntro}
+        note={
+          page.symptomsNote && (
+            <>
+              {page.symptomsNote.before}
+              <Link className="link" href={page.symptomsNote.linkHref}>{page.symptomsNote.linkLabel}</Link>
+              {page.symptomsNote.after}
+            </>
+          )
+        }
+      />
 
       {page.diagnosis && (
         <DiagnosisTable title="What your AC symptoms can mean" intro={page.diagnosisIntro} rows={page.diagnosis} />
       )}
 
+      {/* On most service pages this comparison sits after pricing (see the later render below); a
+          page can opt into showing it here instead, right after the symptoms section. */}
+      {page.compareEarly && compareBlock}
+
       <ProcessList steps={s.process} title={page.processTitle} />
 
       {page.visitIncludes && page.visitExtra && (
         <VisitScope
+          eyebrow={page.visitEyebrow ?? 'What to expect'}
           title={page.visitTitle ?? 'What is included and what can cost extra'}
           includesTitle={page.visitIncludesTitle ?? 'What a visit may include'}
           includes={page.visitIncludes}
@@ -209,6 +252,10 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           extra={page.visitExtra}
           extraNote={page.visitExtraNote}
         />
+      )}
+
+      {page.timeline && (
+        <RefrigerantNote title={page.timeline.heading} body={page.timeline.body} />
       )}
 
       {page.systems && (
@@ -228,34 +275,35 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         <PriceFactors
           title={page.pricingTitle ?? 'What affects repair cost'}
           intro={page.pricingIntro}
+          columns={page.pricingColumns}
           rows={page.priceFactors}
           closing={page.pricingClosing}
+          notes={page.pricingNotes}
         />
       )}
 
-      {s.repairVsReplace && (
-        <CompareTable
-          intro={s.repairVsReplace.intro}
-          groups={s.repairVsReplace.groups}
-          note={s.repairVsReplace.note}
-          title="Repair or replace?"
-          afterNote={
-            page.repairReplaceExtra && (
-              <>
-                {page.repairReplaceExtra.paragraphs.map((p) => (
-                  <p className="compare-note" key={p}>{p}</p>
-                ))}
-                <p className="compare-note">
-                  <Link className="link" href={page.repairReplaceExtra.linkHref}>{page.repairReplaceExtra.linkText}</Link>
-                </p>
-              </>
-            )
-          }
-        />
-      )}
+      {!page.compareEarly && compareBlock}
 
       {page.rules && (
-        <RulesNote title={page.rulesTitle ?? 'Licensing, permits, and energy-code basics'} items={page.rules} />
+        <RulesNote eyebrow={page.rulesEyebrow} title={page.rulesTitle ?? 'Licensing, permits, and energy-code basics'} items={page.rules} />
+      )}
+
+      {page.incentives && (
+        <section>
+          <div className="wrap">
+            <p className="eyebrow">{page.incentives.eyebrow}</p>
+            <h2>{page.incentives.heading}</h2>
+            <p className="compare-intro">{page.incentives.lead}</p>
+            <RebateCards
+              cards={page.incentives.items.map((it) => ({
+                amount: it.name,
+                description: it.body,
+                linkLabel: it.link.label,
+                linkHref: it.link.href,
+              }))}
+            />
+          </div>
+        </section>
       )}
 
       <AppliesRow
@@ -298,8 +346,8 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       <Proof
         eyebrow="Why Air Pro"
-        heading="Clear pricing and a technician who explains what's actually wrong"
-        body="Every quote is itemized before we touch a tool. Every repair includes a walkthrough of exactly what was fixed and why."
+        heading={page.proofHeading ?? "Clear pricing and a technician who explains what's actually wrong"}
+        body={page.proofBody ?? 'Every quote is itemized before we touch a tool. Every repair includes a walkthrough of exactly what was fixed and why.'}
         ctaLabel="Read our reviews"
         ctaHref="/reviews/"
         stats={[
@@ -314,7 +362,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       <FaqList faqs={page.faqs} eyebrow="Direct answers" title={page.faqTitle} alt firstOpen boldFirstSentence />
 
-      {page.sources && <SourcesList items={page.sources} />}
+      {page.sources && <SourcesList items={page.sources} columns={page.sourcesColumns} />}
 
       <FinalCta title={page.finalCtaTitle} body={page.finalCtaBody} ghostLabel={page.ctaLabel} />
     </>

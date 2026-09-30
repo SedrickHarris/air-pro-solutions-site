@@ -1,4 +1,6 @@
-// Single-question explainer panel with a cited government source line.
+// Single-question explainer panel with an optional cited government source line. Used for the
+// refrigerant note (source always supplied) and reused as a plain callout (e.g. an installation
+// timeline blurb) when sourceLabel/sourceHref are omitted.
 export function RefrigerantNote({
   title,
   body,
@@ -7,8 +9,8 @@ export function RefrigerantNote({
 }: {
   title: string;
   body: string;
-  sourceLabel: string;
-  sourceHref: string;
+  sourceLabel?: string;
+  sourceHref?: string;
 }) {
   return (
     <section className="alt">
@@ -16,9 +18,11 @@ export function RefrigerantNote({
         <div className="refrigerant-note">
           <h2>{title}</h2>
           <p>{body}</p>
-          <p className="refrigerant-source">
-            Source: <a href={sourceHref} rel="noopener">{sourceLabel}</a>
-          </p>
+          {sourceLabel && sourceHref && (
+            <p className="refrigerant-source">
+              Source: <a href={sourceHref} rel="noopener">{sourceLabel}</a>
+            </p>
+          )}
         </div>
       </div>
     </section>

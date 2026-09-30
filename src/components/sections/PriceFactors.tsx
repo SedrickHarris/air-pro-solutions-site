@@ -7,14 +7,18 @@ export function PriceFactors({
   title,
   eyebrow = 'Pricing',
   intro,
+  columns = ['Repair type', 'What moves the price'],
   rows,
   closing,
+  notes,
 }: {
   title: string;
   eyebrow?: string;
   intro?: string;
+  columns?: [string, string];
   rows: { item: string; drivers: string }[];
   closing?: string;
+  notes?: string[]; // additional closing paragraphs, rendered after `closing`
 }) {
   return (
     <section>
@@ -23,10 +27,13 @@ export function PriceFactors({
         <h2>{title}</h2>
         {intro && <p className="compare-intro">{intro}</p>}
         <DataTable
-          columns={['Repair type', 'What moves the price']}
+          columns={columns}
           rows={rows.map((r) => [r.item, r.drivers])}
         />
         {closing && <p className="table-note">{closing}</p>}
+        {notes?.map((n) => (
+          <p className="table-note" key={n}>{n}</p>
+        ))}
         <MarketRanges />
       </div>
     </section>

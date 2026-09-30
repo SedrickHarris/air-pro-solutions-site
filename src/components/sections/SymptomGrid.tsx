@@ -1,14 +1,19 @@
+import type { ReactNode } from 'react';
 import { Icon } from '@/components/ui/Icon';
 
 export function SymptomGrid({
   items,
   eyebrow = 'Signs you need this',
   title,
+  intro,
+  note,
   alt = true,
 }: {
   items: { lead: string; detail: string }[];
   eyebrow?: string;
   title: string;
+  intro?: string; // optional lead paragraph rendered between the h2 and the card grid
+  note?: ReactNode; // optional line rendered below the card grid (e.g. a link to a related page)
   alt?: boolean;
 }) {
   return (
@@ -16,6 +21,7 @@ export function SymptomGrid({
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
+        {intro && <p className="compare-intro">{intro}</p>}
         <div className="symptom-grid">
           {items.map((s) => (
             <div className="symptom-card" key={s.lead}>
@@ -26,6 +32,7 @@ export function SymptomGrid({
             </div>
           ))}
         </div>
+        {note && <p className="compare-note">{note}</p>}
       </div>
     </section>
   );

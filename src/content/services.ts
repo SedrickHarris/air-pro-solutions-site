@@ -1,4 +1,5 @@
 import type { Faq } from '@/content/faq';
+import { acInstallationPage } from '@/content/ac-installation-page';
 
 export type ServiceImage = { src: string; alt: string };
 
@@ -39,12 +40,14 @@ export type ServicePage = {
   visitExtraNote?: string;
   systemsTitle?: string;
   systemsIntro?: string;
-  systems?: { name: string; body: string; icon: string }[];
+  systems?: { name: string; body: string; icon: string; link?: { label: string; href: string } }[];
   refrigerant?: { title: string; body: string; sourceLabel: string; sourceHref: string };
   pricingTitle?: string;
   pricingIntro?: string;
   priceFactors?: { item: string; drivers: string }[];
   pricingClosing?: string;
+  pricingColumns?: [string, string]; // overrides PriceFactors' default ['Repair type', 'What moves the price']
+  pricingNotes?: string[]; // additional closing paragraphs, rendered after pricingClosing
   // Extra prose rendered after the repair-vs-replace table/note (ENERGY STAR guidance + a link to
   // the replacement comparison page).
   repairReplaceExtra?: { paragraphs: string[]; linkText: string; linkHref: string };
@@ -59,6 +62,26 @@ export type ServicePage = {
   regionClosing?: string;
   moreLinks?: { text: string; href: string }[];
   sources?: { label: string; url: string }[];
+  sourcesColumns?: 1 | 2; // 2 for a longer source list (e.g. ac-installation); defaults to 1 (ac-repair)
+
+  // --- Additional fields used by the /ac-installation/ template. Optional so ac-repair (and every
+  // other service) is unaffected. ---
+  symptomsIntro?: string; // lead paragraph rendered between the symptoms h2 and the card grid
+  symptomsNote?: { before: string; linkLabel: string; linkHref: string; after?: string }; // line below the symptom grid
+  visitEyebrow?: string; // overrides VisitScope's default "What to expect" eyebrow
+  timeline?: { heading: string; body: string }; // plain callout rendered via RefrigerantNote with no source line
+  rulesEyebrow?: string; // overrides RulesNote's default "Good to know" eyebrow
+  incentives?: {
+    eyebrow: string;
+    heading: string;
+    lead: string;
+    items: { name: string; body: string; link: { label: string; href: string; external?: boolean } }[];
+  };
+  proofHeading?: string; // overrides the shared Proof section heading
+  proofBody?: string; // overrides the shared Proof section body
+  // When true, the repair-vs-replace CompareTable renders right after the symptoms section instead
+  // of its default position (after pricing). Defaults to false/undefined so ac-repair is unaffected.
+  compareEarly?: boolean;
 };
 
 export type Service = {
@@ -379,8 +402,54 @@ const baseServices: Service[] = [
     related: ['ac-installation', 'ac-maintenance', 'emergency-hvac'],
     page: acRepairPage,
   },
-  core('ac', 'ac-installation', 'AC Installation', 'wrench', { description: 'New air conditioner installation and system replacement, sized to your home or business.',
-    image: card('ac-installation', 'Outdoor AC condenser on a concrete pad beside a home, with the Los Angeles skyline in the distance') }),
+  {
+    ...core('ac', 'ac-installation', 'AC Installation', 'wrench', { description: 'New air conditioner installation and system replacement, sized to your home or business.',
+      image: card('ac-installation', 'Outdoor AC condenser on a concrete pad beside a home, with the Los Angeles skyline in the distance') }),
+    symptoms: [
+      { lead: 'System over 10 years old', detail: 'particularly with repairs or rising costs' },
+      { lead: 'Repeated breakdowns', detail: 'or expensive repairs on the same equipment' },
+      { lead: 'Rising cooling bills', detail: 'with no change in how you use the system' },
+      { lead: 'Uneven cooling', detail: 'with some rooms staying warmer than others' },
+      { lead: 'Frequent cycling or noise', detail: 'on and off often, or unusually loud' },
+      { lead: 'Dust or weak airflow', detail: 'the home feels dusty or air movement is weak' },
+    ],
+    process: [
+      { title: 'Call and qualify', body: 'We confirm the property type, current equipment, timeline, ducted or ductless layout, and whether this is a repair, replacement, or first-time install.' },
+      { title: 'On-site evaluation', body: 'We inspect the equipment, access, electrical disconnect and panel, drainage, line set routing, ducts, and clearances.' },
+      { title: 'Load calculation', body: 'We calculate cooling and heating loads before selecting equipment. Manual J is the recognized residential method.' },
+      { title: 'Proposal', body: 'You get options compared by system type, efficiency, capacity, controls, ducts, electrical work, permits, and warranty.' },
+      { title: 'Permits and Energy Code', body: 'We identify the mechanical permit and Energy Code documentation your jurisdiction requires.' },
+      { title: 'Remove and install', body: 'Old equipment is removed or isolated. New equipment, refrigerant connections, disconnect, controls, drain, and duct or ductless connections go in.' },
+      { title: 'Startup and commissioning', body: 'We verify refrigerant charge and airflow, because errors in either reduce comfort, efficiency, and equipment life.' },
+      { title: 'Inspection and handoff', body: 'We coordinate required inspections and provide equipment details, operating instructions, and maintenance recommendations.' },
+    ],
+    repairVsReplace: {
+      groups: [
+        {
+          heading: 'Repair may make sense when',
+          icon: 'wrench',
+          items: [
+            'The system is relatively new and has been reliable',
+            'The failure is isolated and the repair cost is reasonable',
+            'Comfort and efficiency are otherwise fine',
+            'Parts are available and the system is repairable',
+          ],
+        },
+        {
+          heading: 'Replacement may make sense when',
+          icon: 'refresh',
+          items: [
+            'Equipment is near or past its expected life',
+            'Repairs have become frequent or expensive',
+            'Energy bills or comfort problems persist',
+            'A major component such as the compressor has failed',
+          ],
+        },
+      ],
+    },
+    related: ['ac-repair', 'ac-maintenance', 'heat-pump-services', 'ductless-mini-split'],
+    page: acInstallationPage,
+  },
   core('ac', 'ac-maintenance', 'AC Maintenance', 'calendar-check', { description: 'Seasonal tune-ups that check refrigerant levels, electrical components, and airflow before extreme heat arrives.',
     image: card('ac-maintenance', 'Outdoor AC condenser unit beside a home with a service tool resting on the pad') }),
   core('heating', 'heating-repair', 'Heating Repair', 'flame', { description: "Diagnosis and repair for furnaces, heat pumps, and heating systems that won't turn on or heat unevenly.",
