@@ -16,6 +16,7 @@ import { DiagnosisTable } from '@/components/sections/DiagnosisTable';
 import { ProcessList } from '@/components/sections/ProcessList';
 import { VisitScope } from '@/components/sections/VisitScope';
 import { DataTable } from '@/components/sections/DataTable';
+import { TableSection } from '@/components/sections/TableSection';
 import { SystemsGrid } from '@/components/sections/SystemsGrid';
 import { RefrigerantNote } from '@/components/sections/RefrigerantNote';
 import { PriceFactors } from '@/components/sections/PriceFactors';
@@ -217,6 +218,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           intro={page.decision.intro}
           cards={page.decision.cards}
           columns={page.decision.columns}
+          outro={page.decision.outro}
           alt
         />
       )}
@@ -266,6 +268,24 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         />
       )}
 
+      {/* "What the signs can mean" (indoor-air-quality): occupies the same slot as DiagnosisTable
+          above, via the generic TableSection component instead, since this page's warning-signs table
+          needs a custom second-column header ("What we look at") and a closing note/link that
+          DiagnosisTable doesn't support. */}
+      {page.signsTable && (
+        <TableSection
+          eyebrow={page.signsTable.eyebrow}
+          title={page.signsTable.title}
+          lead={page.signsTable.lead}
+          headings={page.signsTable.headings}
+          rows={page.signsTable.rows}
+          afterText={page.signsTable.afterText}
+          afterLinkText={page.signsTable.afterLinkText}
+          afterLinkHref={page.signsTable.afterLinkHref}
+          alt
+        />
+      )}
+
       {/* On most service pages this comparison sits after pricing (see the later render below); a
           page can opt into showing it here instead, right after the symptoms section. */}
       {page.compareEarly && compareBlock}
@@ -307,7 +327,13 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       )}
 
       {page.systems && (
-        <SystemsGrid title={page.systemsTitle ?? 'Systems we service'} intro={page.systemsIntro} items={page.systems} alt={page.systemsAlt} />
+        <SystemsGrid
+          title={page.systemsTitle ?? 'Systems we service'}
+          intro={page.systemsIntro}
+          items={page.systems}
+          alt={page.systemsAlt}
+          id={page.systemsSectionId}
+        />
       )}
 
       {page.refrigerant && (
@@ -344,6 +370,69 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         </section>
       )}
 
+      {/* "A Southern California smoke plan" (indoor-air-quality): reuses RulesNote (widened to accept a
+          ReactNode item body) so the "Watch the AQI" bullet can embed a real link, built here from
+          plain data so the content file stays JSX-free. */}
+      {page.smokePlan && (
+        <RulesNote
+          id={page.smokePlan.id}
+          eyebrow={page.smokePlan.eyebrow}
+          title={page.smokePlan.title}
+          intro={page.smokePlan.intro}
+          items={page.smokePlan.items.map((it) => ({
+            title: it.title,
+            body: (
+              <>
+                {it.before}
+                {it.linkText && it.linkHref && (
+                  <a
+                    className="link"
+                    href={it.linkHref}
+                    target={it.linkExternal ? '_blank' : undefined}
+                    rel={it.linkExternal ? 'noopener noreferrer' : undefined}
+                  >
+                    {it.linkText}
+                  </a>
+                )}
+                {it.after}
+              </>
+            ),
+          }))}
+          closing={page.smokePlan.closing}
+        />
+      )}
+
+      {/* "Duct cleaning, sealing, or repair?" and "How your equipment changes the plan"
+          (indoor-air-quality): two more TableSection tables, positioned between the smoke plan and
+          pricing per that page's copy - see the `signsTable` note above for why TableSection exists
+          instead of overloading the `catches` field's fixed position. */}
+      {page.ductTable && (
+        <TableSection
+          eyebrow={page.ductTable.eyebrow}
+          title={page.ductTable.title}
+          lead={page.ductTable.lead}
+          headings={page.ductTable.headings}
+          rows={page.ductTable.rows}
+          afterText={page.ductTable.afterText}
+          afterLinkText={page.ductTable.afterLinkText}
+          afterLinkHref={page.ductTable.afterLinkHref}
+        />
+      )}
+
+      {page.equipmentTable && (
+        <TableSection
+          eyebrow={page.equipmentTable.eyebrow}
+          title={page.equipmentTable.title}
+          lead={page.equipmentTable.lead}
+          headings={page.equipmentTable.headings}
+          rows={page.equipmentTable.rows}
+          afterText={page.equipmentTable.afterText}
+          afterLinkText={page.equipmentTable.afterLinkText}
+          afterLinkHref={page.equipmentTable.afterLinkHref}
+          alt
+        />
+      )}
+
       {page.priceFactors && (
         <PriceFactors
           title={page.pricingTitle ?? 'What affects repair cost'}
@@ -360,6 +449,17 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       {page.rules && (
         <RulesNote eyebrow={page.rulesEyebrow} title={page.rulesTitle ?? 'Licensing, permits, and energy-code basics'} items={page.rules} />
+      )}
+
+      {/* "If an upgrade turns into a replacement" (indoor-air-quality): a single RefrigerantNote-shaped
+          explainer positioned right before the rebates section - distinct from the `refrigerant` and
+          `timeline` fields above because both render at earlier fixed positions than this page needs. */}
+      {page.replacementNote && (
+        <RefrigerantNote
+          title={page.replacementNote.title}
+          body={page.replacementNote.body}
+          sourceText={page.replacementNote.sourceText}
+        />
       )}
 
       {page.incentives && (
@@ -442,6 +542,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           return `${page.regionLinkVerb} in ${name}`;
         }}
         footer={page.regionClosing}
+        id={page.regionSectionId}
       />
 
       <Proof
@@ -460,7 +561,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       <RelatedRow items={related} title="Explore related services" alt={false} moreLinks={page.moreLinks} />
 
-      <FaqList faqs={page.faqs} eyebrow="Direct answers" title={page.faqTitle} alt firstOpen boldFirstSentence />
+      <FaqList faqs={page.faqs} eyebrow="Direct answers" title={page.faqTitle} alt firstOpen boldFirstSentence id={page.faqSectionId} />
 
       {page.sources && <SourcesList items={page.sources} columns={page.sourcesColumns} />}
 
