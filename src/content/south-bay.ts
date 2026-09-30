@@ -15,13 +15,13 @@ export const southBayHub = {
   primaryKeyword: 'hvac services south bay',
   // Title/H1 are built from src/lib/seo.ts (regionTitle/regionH1) per CLAUDE.md, not hand-written here.
   description:
-    'Air Pro Solutions provides HVAC services in the South Bay, from the beach cities to Torrance and Carson. Licensed, 4.8-star rated, residential and commercial.',
+    'AIRPRO SOLUTIONS provides HVAC services in the South Bay, from the beach cities to Torrance and Carson. Licensed, 4.8-star rated, residential and commercial.',
 
   cityNames: ['Torrance', 'Redondo Beach', 'Manhattan Beach', 'Hermosa Beach', 'El Segundo', 'Gardena', 'Hawthorne', 'Carson'],
 
   hero: {
     lede:
-      'Air Pro Solutions provides HVAC services in the South Bay - from the beach cities and El Segundo to Torrance, Gardena, Hawthorne, and Carson - with permits, utilities, and equipment placement matched to each city.', // also the Service schema description source text
+      'AIRPRO SOLUTIONS provides HVAC services in the South Bay - from the beach cities and El Segundo to Torrance, Gardena, Hawthorne, and Carson - with permits, utilities, and equipment placement matched to each city.', // also the Service schema description source text
     photoCaptionTitle: 'South Bay, CA',
     photoCaptionBody: 'Beach cities, LAX edge, and inland South Bay across eight cities',
     proof: [
@@ -40,7 +40,7 @@ export const southBayHub = {
   ],
 
   answer: {
-    lead: 'Air Pro Solutions is a licensed HVAC contractor serving the South Bay',
+    lead: 'AIRPRO SOLUTIONS is a licensed HVAC contractor serving the South Bay',
     body:
       ', including Torrance, Redondo Beach, Manhattan Beach, Hermosa Beach, El Segundo, Gardena, Hawthorne, and Carson, for homes, multifamily buildings, and commercial properties. Permits, utilities, and equipment rules change by city and sometimes by address, so every recommendation starts with the property, not a region-wide assumption.',
   },
@@ -230,7 +230,7 @@ export const southBayHub = {
 
   faqs: [
     {
-      q: 'Which cities does Air Pro Solutions serve in the South Bay?',
+      q: 'Which cities does AIRPRO SOLUTIONS serve in the South Bay?',
       a: 'This page covers Torrance, Redondo Beach, Manhattan Beach, Hermosa Beach, El Segundo, Gardena, Hawthorne, and Carson. These are the South Bay cities we list here, and the South Bay as a term can be defined more broadly. Nearby unincorporated communities such as West Carson are a different jurisdiction from the city next to them, so call us first if your address is outside these eight cities.',
       links: [{ text: 'Torrance', href: '/service-areas/torrance-ca/' }],
     },
@@ -255,7 +255,7 @@ export const southBayHub = {
       a: 'Yes, for single-family homes, condos, townhomes, and apartments. Redondo Beach zones for multiple-family housing and has a mixed-use overlay, and Downtown Torrance includes three residential complexes with 148 condominium units. HOA rules and building-management approvals are set by each property, so we check access, equipment placement, and approvals before installation or replacement.',
     },
     {
-      q: 'Does Air Pro Solutions handle commercial HVAC in the South Bay?',
+      q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in the South Bay?',
       a: 'Yes, for offices, retail, restaurants, and light industrial and warehouse properties. El Segundo includes corporate office, aerospace, high-tech, and airport-related businesses, and Torrance has a 290-acre industrial project area, while Gardena and Carson have industrial and warehouse zones. Business incentives such as SCE Express Solutions or SoCalGas business rebates depend on the equipment and project, so call us before you buy equipment.',
       links: [{ text: 'call us', href: siteConfig.phoneHref }],
     },

@@ -195,7 +195,7 @@ export default async function Page({ params }: { params: Promise<{ city: string 
         items={nearby}
         eyebrow="Nearby areas"
         title="Also serving the rest of the South Bay"
-        intro="Air Pro Solutions also serves the surrounding South Bay cities."
+        intro="AIRPRO SOLUTIONS also serves the surrounding South Bay cities."
         ctaLabel="View area"
         footerAction={{ label: 'View the South Bay service area', href: '/service-areas/south-bay/' }}
       />

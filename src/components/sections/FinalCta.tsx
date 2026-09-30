@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { siteConfig } from '@/content/site-config';
 
 export function FinalCta({
-  title = 'Get Air Pro Solutions on the job today',
+  title = 'Get AIRPRO SOLUTIONS on the job today',
   body = 'Free in-home consultation on new or replacement systems. We answer the phone every day.',
   primaryLabel,
   ghostLabel = 'Request a Quote',

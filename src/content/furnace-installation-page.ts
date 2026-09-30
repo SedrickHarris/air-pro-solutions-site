@@ -2,7 +2,7 @@ import type { ServicePage } from '@/content/services';
 
 // TODO(data): the Southern California market price range ($3,000-$12,000 installed) and the Los
 // Angeles/Orange County/Inland Empire cost-guide figures in FAQ 2 are published third-party market
-// data, not an Air Pro Solutions quote. Client approval needed before this ships - see CLAUDE.md
+// data, not an AIRPRO SOLUTIONS quote. Client approval needed before this ships - see CLAUDE.md
 // "never fabricate business data".
 // TODO(data): LADWP, SoCalGas, and TECH/HEEHRA rebate programs and figures below need to be
 // re-verified the week this page ships - program funding and terms change without notice.
@@ -36,7 +36,7 @@ export const furnaceInstallationPage: ServicePage = {
   metaDescription:
     'Furnace installation in Los Angeles, the South Bay, Orange County, and the Inland Empire. See what affects cost and timing, then request an estimate.',
   lede:
-    'Air Pro Solutions provides furnace installation and replacement in Los Angeles and across the South Bay, Orange County, and the Inland Empire. Here is what the work involves, what affects the price, and what your written proposal should show.',
+    'AIRPRO SOLUTIONS provides furnace installation and replacement in Los Angeles and across the South Bay, Orange County, and the Inland Empire. Here is what the work involves, what affects the price, and what your written proposal should show.',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Furnace replacement for homes' },
@@ -155,7 +155,7 @@ export const furnaceInstallationPage: ServicePage = {
   // TODO(data): the $3,000-$12,000 range is published market data, not an Air Pro quote. Needs client
   // approval before this ships - see the file-level TODO above.
   pricingIntro:
-    'Published Southern California estimates vary widely. Consumer and local contractor sources put many furnace replacement projects at about $3,000 to $12,000 installed. The final price depends on equipment efficiency and size, access, ductwork, venting, gas and electrical changes, permit and verification requirements, and whether the project includes AC or heat pump equipment. These are published market estimates, not an Air Pro Solutions quote. A site-specific written quote is required for an accurate price.',
+    'Published Southern California estimates vary widely. Consumer and local contractor sources put many furnace replacement projects at about $3,000 to $12,000 installed. The final price depends on equipment efficiency and size, access, ductwork, venting, gas and electrical changes, permit and verification requirements, and whether the project includes AC or heat pump equipment. These are published market estimates, not an AIRPRO SOLUTIONS quote. A site-specific written quote is required for an accurate price.',
   priceFactors: [
     { item: 'Equipment size and efficiency', drivers: 'Heating capacity, blower configuration, and AFUE level' },
     { item: 'Access', drivers: 'Attic, crawlspace, closet, roof, or restricted access adds labor' },
@@ -263,7 +263,7 @@ export const furnaceInstallationPage: ServicePage = {
   },
   // TODO(data): confirm the CSLB record for #1126691 and #50251 shows C-20 before launch.
   proofHeading: 'A licensed local contractor with a 4.8 Google rating',
-  proofBody: 'Air Pro Solutions holds California contractor licenses #1126691 and #50251 and serves homes and businesses across four Southern California regions.',
+  proofBody: 'AIRPRO SOLUTIONS holds California contractor licenses #1126691 and #50251 and serves homes and businesses across four Southern California regions.',
   // Icon overrides for the related-service cards below: heat-pump-services and ductwork otherwise
   // render with their own services.ts icons ('heat-pump' and 'duct') rather than this page's chosen
   // 'wrench'/'building' - see the build report for why the shared relatedIcons map in page.tsx was

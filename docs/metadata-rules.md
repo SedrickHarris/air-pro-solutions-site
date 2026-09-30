@@ -1,5 +1,5 @@
 ---
-title: Metadata & H1 Rules - Air Pro Solutions
+title: Metadata & H1 Rules - AIRPRO SOLUTIONS
 description: The project's binding rules for title tags, meta descriptions, and H1s across every page type. Read before building or reviewing any new page.
 ---
 
@@ -18,7 +18,7 @@ Governs `src/lib/seo.ts`, every `metadata` export in `src/app/`, and every `Page
 | H1 ≠ title tag | They reinforce each other but are not identical strings. Title carries the brand suffix and any qualifier; H1 stays on-page voice and normally drops the brand name. |
 | Canonical | Every indexable page self-references its canonical URL. |
 | Primary keyword placement | The page's primary keyword (or a natural close variant, same intent) appears once, naturally, in: title, meta description, H1, and the opening paragraph. Never robotic exact-match stuffing - see Section 4. How the keyword itself gets chosen lives in the companion doc **"Primary Keyword Selection"** (`docs/primary-keyword-selection.md`) - this doc assumes it's already settled. |
-| Brand suffix | `\| Air Pro Solutions` is used selectively (Section 5), not appended to every title by default. |
+| Brand suffix | `\| AIRPRO SOLUTIONS` is used selectively (Section 5), not appended to every title by default. |
 | Geographic wording | City/region modifiers only on pages genuinely about that location. Don't force every region into the homepage title. |
 | Claims | No "24/7," "same-day," "licensed," "best," "affordable," "near me," financing, warranties, or service-area claim unless it is factual and on the approved claims list (Section 6). This extends the existing no-fabrication hard rule to metadata specifically. |
 | Matrix uniqueness | City/service-city pages must not be pure city-name token substitution. Each needs at least one genuinely local, unique content element (this is the existing matrix quality gate - Section 7 ties it to metadata specifically). |
@@ -54,25 +54,25 @@ Mapped to the URL patterns already defined in `CLAUDE.md`.
 
 | Page type | Title | Meta description pattern | H1 |
 |---|---|---|---|
-| Home (`/`) | `HVAC Services in Los Angeles, CA \| Air Pro Solutions` | What we do + the 4-region footprint + trust signal (4.8 stars, license). Don't cram all 4 regions into the *title* - that's what the body/region hub links are for. | `HVAC Repair, Installation & Maintenance in Los Angeles` |
-| Service (`/[service]/`) | `{Service} in Los Angeles \| Air Pro Solutions` | `Get {service, lowercase} for homes and businesses across Los Angeles and Southern California. {Specific problem solved}. {CTA}.` | `{Service} in Los Angeles and Southern California` |
-| Region hub (`/service-areas/[region]/`) | `HVAC Services in {Region} \| Air Pro Solutions` | Residential + commercial scope + region name + "explore cities served." | `HVAC Services in {Region}` |
-| City (`/service-areas/[city]-ca/`) | `HVAC Services in {City}, CA \| Air Pro Solutions` *(already set in seo.ts)* | Residential + commercial scope + city name + CTA. | `HVAC Services in {City}, CA` - city name must also open the first paragraph. |
-| Service + city / matrix (`/[service]/[city]-ca/`) | `{Service} in {City}, CA \| Air Pro Solutions` (qualifier segment, e.g. a confirmed availability claim, only if it survives the claims list and the character budget) | `Need {service, lowercase} in {City}? Air Pro Solutions helps {audience/context} with {problem/outcome}. {CTA}.` | `{Service} in {City}, CA` - most important template to get right; see Section 7 for the anti-duplication requirement. |
-| Audience hub (`/[audience]-hvac/`) | `HVAC Services for {Audience} \| Air Pro Solutions` | Audience pain point + service breadth + CTA. | `HVAC Services for {Audience}` |
-| Audience + service (`/[audience]-hvac/[service]/`) | `{Service} for {Audience} \| Air Pro Solutions` (or `Commercial {Service} in Los Angeles \| Air Pro Solutions` for the commercial-hvac case specifically) | Audience + service + differentiator + CTA. | `{Service} for {Audience}` |
-| Emergency (`/emergency-hvac/`) | `{Factual urgency phrasing} HVAC Repair in Los Angeles \| Air Pro Solutions` - never "24/7" or "Emergency" unless that's a confirmed, always-available service. Default to "Urgent HVAC Repair" or "Fast HVAC Repair" until confirmed. | Same caution - describe what's actually offered. | Matches title. |
-| Blog (`/blog/[topic-slug]/`) | `{Question or Outcome} \| Air Pro Solutions` (brand suffix optional - drop it if the topic benefits from a concise, topic-first title aimed at informational traffic) | Direct-answer-style summary, aimed at the featured-snippet target. | Matches the primary search question, not a cute headline. |
-| Core/utility (About, Contact, FAQ, Careers, Reviews, Financing, Accessibility, Privacy, Terms) | `{Page Purpose} \| Air Pro Solutions` - brand suffix stays on these (navigational/branded intent). | One sentence, purpose-specific, no keyword stuffing. | Plain, human page name - no SEO engineering needed. |
+| Home (`/`) | `HVAC Services in Los Angeles, CA \| AIRPRO SOLUTIONS` | What we do + the 4-region footprint + trust signal (4.8 stars, license). Don't cram all 4 regions into the *title* - that's what the body/region hub links are for. | `HVAC Repair, Installation & Maintenance in Los Angeles` |
+| Service (`/[service]/`) | `{Service} in Los Angeles \| AIRPRO SOLUTIONS` | `Get {service, lowercase} for homes and businesses across Los Angeles and Southern California. {Specific problem solved}. {CTA}.` | `{Service} in Los Angeles and Southern California` |
+| Region hub (`/service-areas/[region]/`) | `HVAC Services in {Region} \| AIRPRO SOLUTIONS` | Residential + commercial scope + region name + "explore cities served." | `HVAC Services in {Region}` |
+| City (`/service-areas/[city]-ca/`) | `HVAC Services in {City}, CA \| AIRPRO SOLUTIONS` *(already set in seo.ts)* | Residential + commercial scope + city name + CTA. | `HVAC Services in {City}, CA` - city name must also open the first paragraph. |
+| Service + city / matrix (`/[service]/[city]-ca/`) | `{Service} in {City}, CA \| AIRPRO SOLUTIONS` (qualifier segment, e.g. a confirmed availability claim, only if it survives the claims list and the character budget) | `Need {service, lowercase} in {City}? AIRPRO SOLUTIONS helps {audience/context} with {problem/outcome}. {CTA}.` | `{Service} in {City}, CA` - most important template to get right; see Section 7 for the anti-duplication requirement. |
+| Audience hub (`/[audience]-hvac/`) | `HVAC Services for {Audience} \| AIRPRO SOLUTIONS` | Audience pain point + service breadth + CTA. | `HVAC Services for {Audience}` |
+| Audience + service (`/[audience]-hvac/[service]/`) | `{Service} for {Audience} \| AIRPRO SOLUTIONS` (or `Commercial {Service} in Los Angeles \| AIRPRO SOLUTIONS` for the commercial-hvac case specifically) | Audience + service + differentiator + CTA. | `{Service} for {Audience}` |
+| Emergency (`/emergency-hvac/`) | `{Factual urgency phrasing} HVAC Repair in Los Angeles \| AIRPRO SOLUTIONS` - never "24/7" or "Emergency" unless that's a confirmed, always-available service. Default to "Urgent HVAC Repair" or "Fast HVAC Repair" until confirmed. | Same caution - describe what's actually offered. | Matches title. |
+| Blog (`/blog/[topic-slug]/`) | `{Question or Outcome} \| AIRPRO SOLUTIONS` (brand suffix optional - drop it if the topic benefits from a concise, topic-first title aimed at informational traffic) | Direct-answer-style summary, aimed at the featured-snippet target. | Matches the primary search question, not a cute headline. |
+| Core/utility (About, Contact, FAQ, Careers, Reviews, Financing, Accessibility, Privacy, Terms) | `{Page Purpose} \| AIRPRO SOLUTIONS` - brand suffix stays on these (navigational/branded intent). | One sentence, purpose-specific, no keyword stuffing. | Plain, human page name - no SEO engineering needed. |
 
 ### Worked example (already the project's reference case)
 
 ```
-Title:   AC Repair in Torrance, CA | Air Pro Solutions
-Meta:    Need AC repair in Torrance? Air Pro Solutions diagnoses cooling, airflow,
+Title:   AC Repair in Torrance, CA | AIRPRO SOLUTIONS
+Meta:    Need AC repair in Torrance? AIRPRO SOLUTIONS diagnoses cooling, airflow,
          electrical, and drainage problems for homes and businesses. Schedule service.
 H1:      AC Repair in Torrance, CA
-Intro:   Air Pro Solutions provides AC repair for Torrance homes, businesses, and
+Intro:   AIRPRO SOLUTIONS provides AC repair for Torrance homes, businesses, and
          managed properties when cooling systems stop working, blow warm air, leak,
          or lose airflow.
 ```
@@ -95,13 +95,13 @@ Close variation is preferred over robotic matching:
 
 | Primary keyword | Title | H1 |
 |---|---|---|
-| `hvac repair south bay` | `HVAC Repair in the South Bay \| Air Pro Solutions` | `HVAC Repair Services Across the South Bay` |
+| `hvac repair south bay` | `HVAC Repair in the South Bay \| AIRPRO SOLUTIONS` | `HVAC Repair Services Across the South Bay` |
 
-This becomes a required field on the content record for every service/city/audience page (Section 9). **How to choose the primary keyword in the first place** - the page-job/intent/SERP/scorecard workflow, plus the page-type keyword matrix and the GSC validation loop - lives in the companion doc **"Primary Keyword Selection - Air Pro Solutions"** (`docs/primary-keyword-selection.md`). Read that before this section on any page that doesn't already have an obvious keyword from its slug.
+This becomes a required field on the content record for every service/city/audience page (Section 9). **How to choose the primary keyword in the first place** - the page-job/intent/SERP/scorecard workflow, plus the page-type keyword matrix and the GSC validation loop - lives in the companion doc **"Primary Keyword Selection - AIRPRO SOLUTIONS"** (`docs/primary-keyword-selection.md`). Read that before this section on any page that doesn't already have an obvious keyword from its slug.
 
 ## 5. Brand-suffix rule
 
-Include `\| Air Pro Solutions` when:
+Include `\| AIRPRO SOLUTIONS` when:
 - The page is a core revenue page (service, service+city, audience, audience+service, city, region, home).
 - It's a branded/navigational page (Contact, About, Reviews).
 - There's room without making the title clumsy.

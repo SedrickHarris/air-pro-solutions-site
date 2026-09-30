@@ -4,7 +4,7 @@ import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
   title: utilityTitle('Customer Reviews'),
-  description: 'Read customer reviews of Air Pro Solutions and see what homeowners and businesses across Southern California say about our HVAC service.', // TODO(copy)
+  description: 'Read customer reviews of AIRPRO SOLUTIONS and see what homeowners and businesses across Southern California say about our HVAC service.', // TODO(copy)
   path: '/reviews/',
 });
 

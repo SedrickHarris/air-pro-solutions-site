@@ -5,7 +5,7 @@ import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
   title: utilityTitle('HVAC Maintenance Plan'),
-  description: 'Learn how an HVAC maintenance plan from Air Pro Solutions helps keep your cooling and heating equipment efficient and reliable. Ask about plans.', // TODO(copy): confirm once plan is defined
+  description: 'Learn how an HVAC maintenance plan from AIRPRO SOLUTIONS helps keep your cooling and heating equipment efficient and reliable. Ask about plans.', // TODO(copy): confirm once plan is defined
   path: '/maintenance-plan/',
 });
 

@@ -16,7 +16,7 @@ export function MarketRanges() {
   return (
     <div className="market-ranges">
       <p className="table-note">
-        Market guidance only, not an Air Pro Solutions quote. Actual pricing depends on diagnosis.
+        Market guidance only, not an AIRPRO SOLUTIONS quote. Actual pricing depends on diagnosis.
       </p>
       <ul>
         {marketRanges.map((m) => (

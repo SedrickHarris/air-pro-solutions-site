@@ -23,7 +23,7 @@ export const orangeCountyHub = {
 
   hero: {
     lede:
-      'Air Pro Solutions provides HVAC services in Orange County - from Anaheim and Fullerton in the north to Irvine, Costa Mesa, and the coast at Newport Beach and Huntington Beach - with permits, utilities, and equipment matched to each city.',
+      'AIRPRO SOLUTIONS provides HVAC services in Orange County - from Anaheim and Fullerton in the north to Irvine, Costa Mesa, and the coast at Newport Beach and Huntington Beach - with permits, utilities, and equipment matched to each city.',
     photoCaptionTitle: 'Orange County, CA',
     photoCaptionBody: 'North county, central county, and coast across eight cities',
     proof: [
@@ -42,7 +42,7 @@ export const orangeCountyHub = {
   ],
 
   answer: {
-    lead: 'Air Pro Solutions is a licensed HVAC contractor serving Orange County',
+    lead: 'AIRPRO SOLUTIONS is a licensed HVAC contractor serving Orange County',
     body:
       ', including Irvine, Anaheim, Santa Ana, Costa Mesa, Huntington Beach, Newport Beach, Fullerton, and Tustin, for homes, multifamily buildings, and commercial properties. Permits, utilities, and equipment rules change by city and sometimes by address, so every recommendation starts with the property, not a county-wide assumption.',
   },
@@ -317,7 +317,7 @@ export const orangeCountyHub = {
 
   faqs: [
     {
-      q: 'Which cities does Air Pro Solutions serve in Orange County?',
+      q: 'Which cities does AIRPRO SOLUTIONS serve in Orange County?',
       a: 'This page covers Irvine, Anaheim, Santa Ana, Costa Mesa, Huntington Beach, Newport Beach, Fullerton, and Tustin. These are the Orange County cities we list here, and the county has more. If your address is in another Orange County city or an unincorporated area, call us first, because permit and code rules differ by jurisdiction.',
     },
     {
@@ -341,7 +341,7 @@ export const orangeCountyHub = {
       a: "Yes, for single-family homes, condos, townhomes, and apartments. Multifamily units are 49.0% of housing in Tustin and 48.0% in Costa Mesa, per 2018 SCAG data. HOA rules are set by each association, and Irvine publishes an HOA map, so check your association's requirements before choosing equipment or placement.",
     },
     {
-      q: 'Does Air Pro Solutions handle commercial HVAC in Orange County?',
+      q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in Orange County?',
       a: "Yes, for offices, retail, restaurants, hotels, and other commercial properties. Examples include the Anaheim Resort area and the Irvine Business Complex and Spectrum. Irvine's permit rules describe a like-for-like rooftop heat pump change-out path for units of 20 tons or less, under 2,000 pounds, on a roof with a slope of 2% or less and no curb change.",
     },
     {

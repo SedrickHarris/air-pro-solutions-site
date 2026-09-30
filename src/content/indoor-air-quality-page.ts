@@ -37,7 +37,7 @@ export const indoorAirQualityPage: ServicePage = {
   metaDescription:
     'Indoor air quality service for homes and businesses in Los Angeles and Southern California. Filtration, ventilation, and humidity reviewed. Schedule service.',
   lede:
-    'Air Pro Solutions provides indoor air quality service for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. A visit starts with diagnosis, looking at filtration, ventilation, humidity, ducts, and equipment fit before anything is recommended.',
+    'AIRPRO SOLUTIONS provides indoor air quality service for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. A visit starts with diagnosis, looking at filtration, ventilation, humidity, ducts, and equipment fit before anything is recommended.',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },

@@ -1,11 +1,11 @@
 ---
-title: Primary Keyword Selection - Air Pro Solutions
-description: How to identify and validate the primary keyword for any Air Pro Solutions page. Read before assigning title/description/H1 copy (see "Metadata & H1 Rules" for the formulas those feed into).
+title: Primary Keyword Selection - AIRPRO SOLUTIONS
+description: How to identify and validate the primary keyword for any AIRPRO SOLUTIONS page. Read before assigning title/description/H1 copy (see "Metadata & H1 Rules" for the formulas those feed into).
 ---
 
 # Primary Keyword Selection
 
-Companion to **"Metadata & H1 Rules - Air Pro Solutions"** (`docs/metadata-rules.md`), which assumes a primary keyword already exists per page. This doc is how that keyword gets chosen and validated in the first place.
+Companion to **"Metadata & H1 Rules - AIRPRO SOLUTIONS"** (`docs/metadata-rules.md`), which assumes a primary keyword already exists per page. This doc is how that keyword gets chosen and validated in the first place.
 
 ## Definition
 

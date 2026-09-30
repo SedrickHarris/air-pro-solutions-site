@@ -19,7 +19,7 @@ export function Hero() {
             HVAC repair, installation &amp; maintenance across <em>Los Angeles</em> and Southern California
           </h1>
           <p className="hero-lede">
-            Air Pro Solutions helps homeowners, property managers, and businesses with reliable air conditioning,
+            AIRPRO SOLUTIONS helps homeowners, property managers, and businesses with reliable air conditioning,
             heating, and commercial HVAC service throughout LA County, the South Bay, Orange County, and the Inland
             Empire.
           </p>

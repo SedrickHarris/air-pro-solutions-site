@@ -8,7 +8,7 @@ import { siteConfig } from '@/content/site-config';
 // Conversion-event page: must stay noindex and out of the sitemap.
 export const metadata: Metadata = {
   title: utilityTitle('Thank You'),
-  description: 'Thank you for contacting Air Pro Solutions. We received your HVAC service request and will be in touch.',
+  description: 'Thank you for contacting AIRPRO SOLUTIONS. We received your HVAC service request and will be in touch.',
   robots: { index: false, follow: false },
 };
 

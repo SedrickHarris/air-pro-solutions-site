@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'Air Pro Solutions',
+  name: 'AIRPRO SOLUTIONS',
   domain: 'airprosolutionsheatingandcooling.com',
   url: 'https://airprosolutionsheatingandcooling.com',
   email: 'contact@airprosolutionsheatingandcooling.com',

@@ -4,7 +4,7 @@ import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
   title: utilityTitle('Careers'),
-  description: 'Interested in an HVAC career? Get in touch with Air Pro Solutions to ask about opportunities with our team in Southern California.', // TODO(copy)
+  description: 'Interested in an HVAC career? Get in touch with AIRPRO SOLUTIONS to ask about opportunities with our team in Southern California.', // TODO(copy)
   path: '/careers/',
 });
 
@@ -16,7 +16,7 @@ export default function Page() {
         <div className="wrap prose">
           {/* TODO(data): confirm which roles are open before listing any */}
           <p>
-            Interested in joining Air Pro Solutions? Send us a note at{' '}
+            Interested in joining AIRPRO SOLUTIONS? Send us a note at{' '}
             <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
           </p>
         </div>

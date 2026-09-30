@@ -34,7 +34,7 @@ export const inlandEmpireHub = {
 
   hero: {
     lede:
-      'Air Pro Solutions provides HVAC services in the Inland Empire - from Corona and Eastvale to Riverside, Ontario, Rancho Cucamonga, Upland, Fontana, and Chino - with permits, utilities, and equipment matched to each city.',
+      'AIRPRO SOLUTIONS provides HVAC services in the Inland Empire - from Corona and Eastvale to Riverside, Ontario, Rancho Cucamonga, Upland, Fontana, and Chino - with permits, utilities, and equipment matched to each city.',
     photoCaptionTitle: 'Inland Empire, CA',
     photoCaptionBody: 'Riverside and San Bernardino counties across eight cities',
     proof: [
@@ -53,7 +53,7 @@ export const inlandEmpireHub = {
   ],
 
   answer: {
-    lead: 'Air Pro Solutions is a licensed HVAC contractor serving the Inland Empire',
+    lead: 'AIRPRO SOLUTIONS is a licensed HVAC contractor serving the Inland Empire',
     body:
       ', including Riverside, Corona, Ontario, Rancho Cucamonga, Chino, Fontana, Upland, and Eastvale, for homes, multifamily buildings, and commercial properties. Heat, housing age, utility territory, and permit rules change by city and sometimes by address, so every recommendation starts with the property, not a region-wide assumption.',
   },
@@ -307,7 +307,7 @@ export const inlandEmpireHub = {
 
   faqs: [
     {
-      q: 'Which cities does Air Pro Solutions serve in the Inland Empire?',
+      q: 'Which cities does AIRPRO SOLUTIONS serve in the Inland Empire?',
       a: 'This page covers Riverside, Corona, Ontario, Rancho Cucamonga, Chino, Fontana, Upland, and Eastvale. These are the Inland Empire cities we list here, and the region has more. If your address is in another city or an unincorporated area, call us first, because permit and code rules differ by jurisdiction.',
     },
     {
@@ -327,7 +327,7 @@ export const inlandEmpireHub = {
       a: 'Yes, the heat is a real design factor. The July normal high at Riverside Municipal Airport is 90.6°F, and on September 6, 2024 Ontario reached 114°F and Riverside reached 115°F. Those are station readings, not city averages, so we size equipment from a load calculation for your specific building.',
     },
     {
-      q: 'Does Air Pro Solutions handle commercial HVAC in the Inland Empire?',
+      q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in the Inland Empire?',
       a: 'Yes, for offices, retail, restaurants, and other commercial properties. The commercial mix includes warehouse and logistics space in Fontana and Chino, industrial and retail areas in Rancho Cucamonga, Downtown Riverside, and airport-adjacent commercial space in Ontario. Rooftop equipment may need screening review in Riverside, Ontario, and Fontana.',
     },
     {

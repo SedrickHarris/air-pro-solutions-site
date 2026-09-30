@@ -52,7 +52,7 @@ export const ductworkPage: ServicePage = {
   metaDescription:
     'Get ductwork repair, sealing, and replacement for homes and businesses across Los Angeles and Southern California. Inspection first. Schedule service.',
   lede:
-    'Air Pro Solutions provides ductwork repair, sealing, and replacement for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. We start with an inspection to find out whether the problem is leakage, damage, sizing, return air, or insulation, then explain your repair, seal, or replace options.',
+    'AIRPRO SOLUTIONS provides ductwork repair, sealing, and replacement for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. We start with an inspection to find out whether the problem is leakage, damage, sizing, return air, or insulation, then explain your repair, seal, or replace options.',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },

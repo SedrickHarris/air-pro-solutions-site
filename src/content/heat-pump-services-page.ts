@@ -46,7 +46,7 @@ export const heatPumpServicesPage: ServicePage = {
   metaDescription:
     'Heat pump services for homes and businesses across Los Angeles and Southern California: repair, replacement, and ductless systems. Schedule service.',
   lede:
-    'Air Pro Solutions provides heat pump services for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. That covers diagnosing a heat pump that will not heat or cool, replacing an aging system, and maintaining one so problems are found early.',
+    'AIRPRO SOLUTIONS provides heat pump services for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. That covers diagnosing a heat pump that will not heat or cool, replacing an aging system, and maintaining one so problems are found early.',
   heroProof: [
     // TODO(data): confirm CSLB record shows C-20 for both license numbers.
     { icon: 'check', label: 'Licensed HVAC contractor' },

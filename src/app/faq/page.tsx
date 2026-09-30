@@ -7,7 +7,7 @@ import { siteConfig } from '@/content/site-config';
 
 export const metadata = hubMetadata({
   title: utilityTitle('HVAC FAQ'),
-  description: 'Straight answers to common HVAC questions from Air Pro Solutions, including repair versus replace, filter changes, AC sizing, and heat pumps.', // TODO(copy)
+  description: 'Straight answers to common HVAC questions from AIRPRO SOLUTIONS, including repair versus replace, filter changes, AC sizing, and heat pumps.', // TODO(copy)
   path: '/faq/',
 });
 

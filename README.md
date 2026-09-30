@@ -1,6 +1,6 @@
-# Air Pro Solutions — Website
+# AIRPRO SOLUTIONS — Website
 
-HVAC company site for Air Pro Solutions (Los Angeles County, South Bay,
+HVAC company site for AIRPRO SOLUTIONS (Los Angeles County, South Bay,
 Orange County, and the Inland Empire, CA). Built by Sirius Systems.
 
 ## Stack

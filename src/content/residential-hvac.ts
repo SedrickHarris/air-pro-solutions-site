@@ -8,7 +8,7 @@ import type { Card } from '@/components/sections/ServicesGrid';
 // Rating and review count are rendered from siteConfig, never hardcoded here.
 
 const intro =
-  'Air Pro Solutions provides residential HVAC service for homeowners across Los Angeles County, the South Bay, Orange County, and the Inland Empire, from AC repair and heating repair to installation and seasonal maintenance.';
+  'AIRPRO SOLUTIONS provides residential HVAC service for homeowners across Los Angeles County, the South Bay, Orange County, and the Inland Empire, from AC repair and heating repair to installation and seasonal maintenance.';
 
 export const residentialHub = {
   path: '/residential-hvac/',
@@ -107,7 +107,7 @@ export const residentialHub = {
   proof: {
     eyebrow: 'Why Air Pro',
     heading: 'Rated by homeowners across Southern California',
-    body: `Homeowners have rated Air Pro Solutions ${siteConfig.rating.toFixed(1)} stars across ${siteConfig.reviewCount} Google reviews.`,
+    body: `Homeowners have rated AIRPRO SOLUTIONS ${siteConfig.rating.toFixed(1)} stars across ${siteConfig.reviewCount} Google reviews.`,
     ctaLabel: 'Read our reviews',
     ctaHref: '/reviews/',
     stats: [
@@ -122,8 +122,8 @@ export const residentialHub = {
   faqHeading: 'Home HVAC questions Southern California homeowners ask',
   faqs: [
     {
-      q: 'Does Air Pro Solutions offer financing for AC or heating replacement?',
-      a: 'Flexible financing is available for qualifying HVAC projects. Contact Air Pro Solutions to talk through your options.',
+      q: 'Does AIRPRO SOLUTIONS offer financing for AC or heating replacement?',
+      a: 'Flexible financing is available for qualifying HVAC projects. Contact AIRPRO SOLUTIONS to talk through your options.',
     },
     {
       q: 'What rebates are available on a new home HVAC system?',
@@ -147,7 +147,7 @@ export const residentialHub = {
     },
     {
       q: 'How long does a home AC installation take?',
-      a: 'Most single-system residential installations take one to two days, depending on the equipment, access, and whether ductwork or electrical work is needed. Air Pro Solutions can give you a timeline with your estimate.',
+      a: 'Most single-system residential installations take one to two days, depending on the equipment, access, and whether ductwork or electrical work is needed. AIRPRO SOLUTIONS can give you a timeline with your estimate.',
     },
     {
       q: 'What should I do if my AC stops working during a heat wave?',

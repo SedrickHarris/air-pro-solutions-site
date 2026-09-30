@@ -19,7 +19,7 @@ export const commercialHero = {
   h1Emphasis: 'Southern California',
   // TODO(claims): "24/7 emergency dispatch" is unconfirmed, see docs/metadata-rules.md section 6.
   lede:
-    'Air Pro Solutions provides commercial HVAC service in Los Angeles and across Southern California, keeping offices, retail centers, multifamily properties, and industrial sites running - rooftop unit service, preventive maintenance agreements, and 24/7 emergency dispatch, with a single point of contact for your whole portfolio.',
+    'AIRPRO SOLUTIONS provides commercial HVAC service in Los Angeles and across Southern California, keeping offices, retail centers, multifamily properties, and industrial sites running - rooftop unit service, preventive maintenance agreements, and 24/7 emergency dispatch, with a single point of contact for your whole portfolio.',
   primaryCta: { label: 'Request a Commercial Quote', href: '/contact/' },
   proof: [
     // TODO(claims): only "licensed" is approved; "bonded" and "insured" are unconfirmed.
@@ -100,31 +100,31 @@ export const proof = {
 // Same array feeds the visible FAQ list and the FAQPage JSON-LD.
 export const commercialFaqs: Faq[] = [
   {
-    q: 'Does Air Pro Solutions offer preventive maintenance agreements for commercial properties?',
-    a: 'Yes. Air Pro Solutions offers scheduled preventive maintenance agreements for office buildings, retail centers, multifamily properties, and industrial sites, sized to a single property or a full portfolio, with priority scheduling for agreement holders.',
+    q: 'Does AIRPRO SOLUTIONS offer preventive maintenance agreements for commercial properties?',
+    a: 'Yes. AIRPRO SOLUTIONS offers scheduled preventive maintenance agreements for office buildings, retail centers, multifamily properties, and industrial sites, sized to a single property or a full portfolio, with priority scheduling for agreement holders.',
   },
   {
     // TODO(claims): after-hours and weekend scheduling is unconfirmed.
-    q: 'Can Air Pro Solutions service rooftop package units after hours?',
-    a: 'Yes. Air Pro Solutions offers after-hours and weekend scheduling for commercial and multifamily properties so repairs and maintenance can happen without disrupting tenants, staff, or business hours.',
+    q: 'Can AIRPRO SOLUTIONS service rooftop package units after hours?',
+    a: 'Yes. AIRPRO SOLUTIONS offers after-hours and weekend scheduling for commercial and multifamily properties so repairs and maintenance can happen without disrupting tenants, staff, or business hours.',
   },
   {
     // TODO(claims): insured and certificate-of-insurance are unconfirmed.
     q: 'Do you provide a certificate of insurance for commercial jobs?',
-    a: 'Yes. Air Pro Solutions is licensed and insured and provides a certificate of insurance for property managers, general contractors, and building management as needed before work begins.',
+    a: 'Yes. AIRPRO SOLUTIONS is licensed and insured and provides a certificate of insurance for property managers, general contractors, and building management as needed before work begins.',
   },
   {
-    q: 'Can Air Pro Solutions manage HVAC service across multiple properties?',
-    a: 'Yes. Air Pro Solutions works with property management companies and multi-site businesses to consolidate HVAC service, scheduling, and invoicing across a portfolio, with a single point of contact rather than separate vendors per site.',
+    q: 'Can AIRPRO SOLUTIONS manage HVAC service across multiple properties?',
+    a: 'Yes. AIRPRO SOLUTIONS works with property management companies and multi-site businesses to consolidate HVAC service, scheduling, and invoicing across a portfolio, with a single point of contact rather than separate vendors per site.',
   },
   {
     // TODO(claims): same-day response and 24/7 dispatch are unconfirmed.
-    q: 'How fast can Air Pro Solutions respond to a commercial HVAC outage?',
+    q: 'How fast can AIRPRO SOLUTIONS respond to a commercial HVAC outage?',
     a: 'Same-day response is typical for commercial no-cool and no-heat calls across our Southern California service area, with 24/7 emergency dispatch for properties on a maintenance agreement.',
   },
   {
     q: 'Do you repair or replace rooftop package units?',
-    a: "Both. Air Pro Solutions diagnoses rooftop package units and gives an itemized repair-versus-replace recommendation based on the unit's age, repair history, and efficiency, so property managers can budget with real numbers rather than guesswork.",
+    a: "Both. AIRPRO SOLUTIONS diagnoses rooftop package units and gives an itemized repair-versus-replace recommendation based on the unit's age, repair history, and efficiency, so property managers can budget with real numbers rather than guesswork.",
   },
   {
     // TODO(claims): plan inclusions are pending client confirmation, same as /maintenance-plan/.
@@ -132,19 +132,19 @@ export const commercialFaqs: Faq[] = [
     a: 'A typical agreement includes scheduled inspections, filter changes, coil cleaning, refrigerant level checks, electrical component testing, and a written report after each visit. Frequency and scope are set per property, and agreement holders get priority scheduling for repairs.',
   },
   {
-    q: 'Does Air Pro Solutions work with general contractors on tenant improvement projects?',
-    a: 'Yes. Air Pro Solutions coordinates directly with general contractors, architects, and property owners on HVAC scope for tenant improvement and build-out projects, including new rooftop unit placement and ductwork for the new layout.',
+    q: 'Does AIRPRO SOLUTIONS work with general contractors on tenant improvement projects?',
+    a: 'Yes. AIRPRO SOLUTIONS coordinates directly with general contractors, architects, and property owners on HVAC scope for tenant improvement and build-out projects, including new rooftop unit placement and ductwork for the new layout.',
   },
   {
     // TODO(claims): billing structure and portfolio pricing are unconfirmed.
     q: 'How much does commercial HVAC maintenance cost?',
-    a: 'Cost depends on the number of units, system type, and visit frequency, so Air Pro Solutions prices maintenance agreements after a property walkthrough rather than a flat rate. Most single-property agreements are billed per visit or per unit per year, with portfolio pricing available for multiple sites.',
+    a: 'Cost depends on the number of units, system type, and visit frequency, so AIRPRO SOLUTIONS prices maintenance agreements after a property walkthrough rather than a flat rate. Most single-property agreements are billed per visit or per unit per year, with portfolio pricing available for multiple sites.',
   },
   {
     // TODO(claims): brand list and "all major brands" - the About page tracks manufacturer
     // authorization as pending.
-    q: 'Does Air Pro Solutions service all commercial HVAC brands?',
-    a: 'Yes. Air Pro Solutions services all major commercial HVAC and rooftop package unit brands, including Trane, Carrier, Lennox, York, Daikin, and Rheem systems, whether or not we installed the original equipment.',
+    q: 'Does AIRPRO SOLUTIONS service all commercial HVAC brands?',
+    a: 'Yes. AIRPRO SOLUTIONS services all major commercial HVAC and rooftop package unit brands, including Trane, Carrier, Lennox, York, Daikin, and Rheem systems, whether or not we installed the original equipment.',
   },
 ];
 

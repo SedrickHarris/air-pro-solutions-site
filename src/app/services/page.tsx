@@ -17,7 +17,7 @@ import { breadcrumbSchema, collectionPageSchema, faqSchema, jsonLd } from '@/lib
 import { hubMetadata, servicesHubH1, servicesHubTitle, assertH1 } from '@/lib/seo';
 
 const description =
-  'Air Pro Solutions offers AC repair, installation, heating, and indoor air quality services for homes and businesses across Southern California. Schedule service.';
+  'AIRPRO SOLUTIONS offers AC repair, installation, heating, and indoor air quality services for homes and businesses across Southern California. Schedule service.';
 const h1 = servicesHubH1();
 assertH1(h1);
 
@@ -141,7 +141,7 @@ export default function Page() {
           <div>
             <h1>HVAC Services for Every <em>Home and Business</em> in Southern California</h1>
             <p className="hero-lede">
-              From a system that won&apos;t turn on to a full replacement, Air Pro Solutions covers cooling, heating, air
+              From a system that won&apos;t turn on to a full replacement, AIRPRO SOLUTIONS covers cooling, heating, air
               quality, and everything in between - for houses, apartments, and commercial buildings across LA County,
               South Bay, Orange County, and the Inland Empire.
             </p>
@@ -214,7 +214,7 @@ export default function Page() {
           <p className="eyebrow">Commercial HVAC</p>
           <h2>Commercial HVAC Services for Southern California Properties</h2>
           <p>
-            Air Pro Solutions provides commercial HVAC repair, installation, replacement, and preventative maintenance for
+            AIRPRO SOLUTIONS provides commercial HVAC repair, installation, replacement, and preventative maintenance for
             businesses and managed properties across Los Angeles County, the South Bay, Orange County, and the Inland Empire.
           </p>
           <p>
@@ -235,7 +235,7 @@ export default function Page() {
       <section id="emergency" className="final-cta">
         <div className="wrap">
           <h2>Need HVAC Help Right Now?</h2>
-          <p>If your AC has stopped cooling or your heating system will not turn on, Air Pro Solutions can help with urgent HVAC service.</p>
+          <p>If your AC has stopped cooling or your heating system will not turn on, AIRPRO SOLUTIONS can help with urgent HVAC service.</p>
           <div className="cta-row cta-center">
             <a className="btn btn-primary" href={siteConfig.phoneHref}>Call for Urgent HVAC Help</a>
             <Link className="btn btn-ghost" href="/contact/">Request Emergency Service</Link>
@@ -249,7 +249,7 @@ export default function Page() {
       <RegionGrid
         eyebrow="Where we work"
         title="Every service, across four Southern California regions"
-        intro="Air Pro Solutions serves homes and businesses in Los Angeles County, the South Bay, Orange County, and the Inland Empire."
+        intro="AIRPRO SOLUTIONS serves homes and businesses in Los Angeles County, the South Bay, Orange County, and the Inland Empire."
         linkLabel={(name) => `Explore ${name}`}
       />
 

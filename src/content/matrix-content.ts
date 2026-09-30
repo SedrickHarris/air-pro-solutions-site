@@ -26,9 +26,9 @@ export type MatrixContent = {
 const acRepairTorrance: MatrixContent = {
   primaryKeyword: 'ac repair torrance',
   metaDescription:
-    'Need AC repair in Torrance? Air Pro Solutions helps homes and businesses with cooling, airflow, electrical, and drainage problems. Schedule service.',
+    'Need AC repair in Torrance? AIRPRO SOLUTIONS helps homes and businesses with cooling, airflow, electrical, and drainage problems. Schedule service.',
   lede:
-    "No cooling, weak airflow, strange noises, or water leaks? Air Pro Solutions provides residential and commercial AC repair across Torrance - from Old Torrance and North Torrance to Walteria and the Hollywood Riviera border - and explains what we find and what your options are before you decide.",
+    "No cooling, weak airflow, strange noises, or water leaks? AIRPRO SOLUTIONS provides residential and commercial AC repair across Torrance - from Old Torrance and North Torrance to Walteria and the Hollywood Riviera border - and explains what we find and what your options are before you decide.",
   heroProof: [
     { icon: 'check', label: 'Licensed contractor' },
     { icon: 'star', label: '4.8-star rated' },
@@ -45,13 +45,13 @@ const acRepairTorrance: MatrixContent = {
     label: 'Quick answer',
     lead: 'AC repair in Torrance',
     body:
-      ' finds and fixes the problems that keep an air conditioning system from cooling, running efficiently, draining correctly, or moving air reliably. Air Pro Solutions diagnoses the cause, explains what we find and your options, and completes the repair for homes and businesses across Torrance. Call or request service online to schedule a visit.',
+      ' finds and fixes the problems that keep an air conditioning system from cooling, running efficiently, draining correctly, or moving air reliably. AIRPRO SOLUTIONS diagnoses the cause, explains what we find and your options, and completes the repair for homes and businesses across Torrance. Call or request service online to schedule a visit.',
   },
   local: {
     eyebrow: 'Local knowledge',
     h2: "AC repair built around Torrance's housing stock",
     paragraphs: [
-      "Torrance sits at the edge of the South Bay's marine layer, so homes near the coast tend to need less cooling than homes farther inland, such as in North Torrance. Systems that run more hours across a season see more wear on parts like capacitors and blower motors. **Air Pro Solutions takes that into account when diagnosing intermittent or seasonal cooling problems**, rather than assuming every system fails the same way.",
+      "Torrance sits at the edge of the South Bay's marine layer, so homes near the coast tend to need less cooling than homes farther inland, such as in North Torrance. Systems that run more hours across a season see more wear on parts like capacitors and blower motors. **AIRPRO SOLUTIONS takes that into account when diagnosing intermittent or seasonal cooling problems**, rather than assuming every system fails the same way.",
       "Housing stock matters too. **Old Torrance and North Torrance** have a large share of homes built in the 1940s through 1960s, often with narrow attic space and original ductwork that can restrict airflow. That is a common reason an AC runs constantly without cooling the house, or freezes up. We look at duct condition and airflow when diagnosing problems in these neighborhoods.",
     ],
     areasHeading: 'Torrance areas we repair AC in',
@@ -69,19 +69,19 @@ const acRepairTorrance: MatrixContent = {
     },
     {
       q: 'Do older Torrance homes have common AC problems?',
-      a: 'Often, yes. Many homes in Old Torrance and North Torrance were built in the 1940s through 1960s with narrow attic space and original ductwork, which can restrict airflow and cause an AC to run inefficiently or freeze up. Air Pro Solutions looks at duct condition and airflow when diagnosing problems in these neighborhoods.',
+      a: 'Often, yes. Many homes in Old Torrance and North Torrance were built in the 1940s through 1960s with narrow attic space and original ductwork, which can restrict airflow and cause an AC to run inefficiently or freeze up. AIRPRO SOLUTIONS looks at duct condition and airflow when diagnosing problems in these neighborhoods.',
     },
     {
       q: 'How much does AC repair cost in Torrance?',
       a: 'Repair cost depends on the part, the age of the system, and how accessible the unit is. The most accurate answer comes from a technician looking at your system, so contact us to talk through your situation.',
     },
     {
-      q: 'Does Air Pro Solutions repair AC systems in Torrance condos and HOAs?',
-      a: 'Yes. Air Pro Solutions repairs AC systems in condos, townhomes, and HOA-managed communities throughout Torrance, and can coordinate with property managers or HOA boards on access and scheduling.',
+      q: 'Does AIRPRO SOLUTIONS repair AC systems in Torrance condos and HOAs?',
+      a: 'Yes. AIRPRO SOLUTIONS repairs AC systems in condos, townhomes, and HOA-managed communities throughout Torrance, and can coordinate with property managers or HOA boards on access and scheduling.',
     },
     {
-      q: 'What AC brands does Air Pro Solutions repair in Torrance?',
-      a: 'Air Pro Solutions services major residential and commercial HVAC brands, whether the equipment was installed by us or another contractor. Call to confirm your specific make and model.',
+      q: 'What AC brands does AIRPRO SOLUTIONS repair in Torrance?',
+      a: 'AIRPRO SOLUTIONS services major residential and commercial HVAC brands, whether the equipment was installed by us or another contractor. Call to confirm your specific make and model.',
     },
     {
       q: 'Should I repair or replace my AC in Torrance?',

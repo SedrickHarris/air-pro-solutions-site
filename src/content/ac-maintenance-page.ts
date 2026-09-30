@@ -29,7 +29,7 @@ export const acMaintenancePage: ServicePage = {
   metaDescription:
     'Get AC maintenance for homes and businesses across Los Angeles and Southern California. Coils, drains, airflow, and controls checked. Schedule service.',
   lede:
-    'Air Pro Solutions provides AC maintenance for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. A pre-season tune-up checks controls, electrical connections, coils, the condensate drain, and airflow so small problems can be found early.',
+    'AIRPRO SOLUTIONS provides AC maintenance for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. A pre-season tune-up checks controls, electrical connections, coils, the condensate drain, and airflow so small problems can be found early.',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },

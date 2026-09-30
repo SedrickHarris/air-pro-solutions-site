@@ -5,7 +5,7 @@ import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
   title: utilityTitle('HVAC Financing'),
-  description: 'Learn about HVAC financing options from Air Pro Solutions for qualifying repairs, replacements, and installations. Contact us to discuss what fits.', // TODO(copy): confirm once partner is set
+  description: 'Learn about HVAC financing options from AIRPRO SOLUTIONS for qualifying repairs, replacements, and installations. Contact us to discuss what fits.', // TODO(copy): confirm once partner is set
   path: '/financing/',
 });
 

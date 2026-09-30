@@ -4,7 +4,7 @@ import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
   title: utilityTitle('Accessibility Statement'),
-  description: 'Air Pro Solutions is committed to an accessible website. Read our accessibility statement or contact us to report a problem or request help.',
+  description: 'AIRPRO SOLUTIONS is committed to an accessible website. Read our accessibility statement or contact us to report a problem or request help.',
   path: '/accessibility/',
 });
 
@@ -16,7 +16,7 @@ export default function Page() {
       <section>
         <div className="wrap prose">
           <p>
-            Air Pro Solutions wants everyone to be able to use this website. We aim to meet the Web Content
+            AIRPRO SOLUTIONS wants everyone to be able to use this website. We aim to meet the Web Content
             Accessibility Guidelines (WCAG) 2.1 Level AA and continue to work on improvements.
           </p>
 

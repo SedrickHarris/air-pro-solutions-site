@@ -5,14 +5,14 @@ import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
   title: utilityTitle('Contact Us'),
-  description: 'Contact Air Pro Solutions to schedule HVAC service or request an estimate for your home or business in Southern California.', // TODO(copy)
+  description: 'Contact AIRPRO SOLUTIONS to schedule HVAC service or request an estimate for your home or business in Southern California.', // TODO(copy)
   path: '/contact/',
 });
 
 export default function Page() {
   return (
     <>
-      <PageHeader eyebrow="Contact" title="Contact Air Pro Solutions" lede="Tell us what you need and we will get back to you." />
+      <PageHeader eyebrow="Contact" title="Contact AIRPRO SOLUTIONS" lede="Tell us what you need and we will get back to you." />
       <section>
         <div className="wrap grid-2">
           <div>

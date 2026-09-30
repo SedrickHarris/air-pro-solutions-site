@@ -12,7 +12,7 @@ const FORM_ENDPOINT = '';
 
 // TODO(data): final SMS/TCPA consent wording must be approved by the client/counsel and match /privacy/.
 const CONSENT_TEXT =
-  'I agree to receive calls and text messages from Air Pro Solutions about my service request. Message and data rates may apply. Consent is not a condition of purchase. See our Privacy Policy.';
+  'I agree to receive calls and text messages from AIRPRO SOLUTIONS about my service request. Message and data rates may apply. Consent is not a condition of purchase. See our Privacy Policy.';
 
 export function ContactForm() {
   const router = useRouter();

@@ -1,6 +1,6 @@
-# Air Pro Solutions — Site Build
+# AIRPRO SOLUTIONS — Site Build
 
-HVAC company site for Air Pro Solutions, serving LA County, South Bay,
+HVAC company site for AIRPRO SOLUTIONS, serving LA County, South Bay,
 Orange County, and the Inland Empire, CA. Built by Sirius Systems.
 Stack: Next.js (App Router, static export) + GitHub + Cloudflare Pages.
 
@@ -123,12 +123,12 @@ Summary: build every page's title/description/H1 from `src/lib/seo.ts`, never ha
   H1 is never identical to the title tag (H1 drops the brand suffix and any qualifier).
 - Title 45-60 chars (soft max 65), description 140-160 chars (soft max 170), H1 25-75 chars.
 - Formulas by page type (builder functions in `src/lib/seo.ts`):
-  - Home: `homeTitle()` / `homeH1()` -> `HVAC Services in Los Angeles, CA | Air Pro Solutions`
-  - Service: `serviceTitle(service)` / `serviceH1(service)` -> `{Service} in Los Angeles | Air Pro Solutions`
-  - Region hub: `regionTitle(region)` / `regionH1(region)` -> `HVAC Services in {Region} | Air Pro Solutions`
-  - City: `cityTitle(city)` / `cityH1(city)` -> `HVAC Services in {City}, CA | Air Pro Solutions`
+  - Home: `homeTitle()` / `homeH1()` -> `HVAC Services in Los Angeles, CA | AIRPRO SOLUTIONS`
+  - Service: `serviceTitle(service)` / `serviceH1(service)` -> `{Service} in Los Angeles | AIRPRO SOLUTIONS`
+  - Region hub: `regionTitle(region)` / `regionH1(region)` -> `HVAC Services in {Region} | AIRPRO SOLUTIONS`
+  - City: `cityTitle(city)` / `cityH1(city)` -> `HVAC Services in {City}, CA | AIRPRO SOLUTIONS`
   - Matrix (service+city): `matrixTitle(service, city, qualifier?)` / `matrixH1(service, city)` ->
-    `{Service} in {City}, CA | Air Pro Solutions`. Qualifier (e.g. an availability claim) is optional
+    `{Service} in {City}, CA | AIRPRO SOLUTIONS`. Qualifier (e.g. an availability claim) is optional
     and must pass `assertNoUnapprovedClaims` - drop it before ever truncating service or city.
   - Audience: `audienceTitle(audience)` / `audienceH1(audience)`
   - Audience + service: `audienceServiceTitle(service, audience)` / `audienceServiceH1(...)`

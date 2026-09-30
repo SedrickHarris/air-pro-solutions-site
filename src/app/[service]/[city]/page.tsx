@@ -188,14 +188,14 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         items={nearby}
         eyebrow="Nearby areas"
         title={`${service.name} in the rest of ${region?.name ?? city.region}`}
-        intro={`Air Pro Solutions also serves the surrounding ${region?.name ?? ''} cities.`}
+        intro={`AIRPRO SOLUTIONS also serves the surrounding ${region?.name ?? ''} cities.`}
         alt={false}
       />
 
       <Proof
         eyebrow="Why Air Pro"
         heading="Licensed technicians and a clear explanation of the work"
-        body="Air Pro Solutions is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide."
+        body="AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide."
         ctaLabel="Read our reviews"
         ctaHref="/reviews/"
         stats={[

@@ -28,7 +28,7 @@ export const acInstallationPage: ServicePage = {
   metaDescription:
     'Central AC installation and replacement for Los Angeles and Southern California properties, sized to your load. Request an installation estimate.',
   lede:
-    'Replacing an aging system or adding cooling for the first time? Air Pro Solutions evaluates your property, sizes the system to its actual load, and gives you a written proposal before installation begins, for homes and businesses across Los Angeles, the South Bay, Orange County, and the Inland Empire.',
+    'Replacing an aging system or adding cooling for the first time? AIRPRO SOLUTIONS evaluates your property, sizes the system to its actual load, and gives you a written proposal before installation begins, for homes and businesses across Los Angeles, the South Bay, Orange County, and the Inland Empire.',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
@@ -131,7 +131,7 @@ export const acInstallationPage: ServicePage = {
   pricingColumns: ['What changes the quote', 'What moves the price'],
   pricingNotes: [
     'Online price averages vary widely because they cover different scopes. Some count equipment only, and others include permits, ductwork, electrical work, or a heat pump conversion. Treat them as context, not a quote.',
-    "Your written proposal should identify the exact equipment model, manufacturer warranty terms, registration requirements, and Air Pro Solutions' labor warranty terms before installation.",
+    "Your written proposal should identify the exact equipment model, manufacturer warranty terms, registration requirements, and AIRPRO SOLUTIONS' labor warranty terms before installation.",
   ],
   rulesEyebrow: 'The rules',
   rulesTitle: 'Licensing, permits, and energy-code basics',
@@ -213,7 +213,7 @@ export const acInstallationPage: ServicePage = {
     },
     {
       q: 'How much does AC installation cost in Los Angeles?',
-      a: 'Cost depends on the system type, required capacity, efficiency rating, duct condition, electrical work, equipment location, permit requirements, and controls. Online price averages vary widely because they cover different scopes. After an on-site evaluation and load calculation, Air Pro Solutions provides a written proposal that separates equipment, installation scope, permit requirements, and recommended upgrades.',
+      a: 'Cost depends on the system type, required capacity, efficiency rating, duct condition, electrical work, equipment location, permit requirements, and controls. Online price averages vary widely because they cover different scopes. After an on-site evaluation and load calculation, AIRPRO SOLUTIONS provides a written proposal that separates equipment, installation scope, permit requirements, and recommended upgrades.',
     },
     {
       q: 'How long does AC installation take?',

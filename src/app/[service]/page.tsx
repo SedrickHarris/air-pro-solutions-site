@@ -678,7 +678,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
               ))}
             </>
           ) : (
-            "Air Pro Solutions serves four regions across Southern California. Don't see your city? Call us and we will confirm coverage."
+            "AIRPRO SOLUTIONS serves four regions across Southern California. Don't see your city? Call us and we will confirm coverage."
           )
         }
         linkLabel={(name) => {

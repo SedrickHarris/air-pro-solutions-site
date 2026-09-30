@@ -5,7 +5,7 @@ import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
   title: utilityTitle('Privacy Policy'),
-  description: 'How Air Pro Solutions collects, uses, and protects your personal information, including our call and text message consent practices.',
+  description: 'How AIRPRO SOLUTIONS collects, uses, and protects your personal information, including our call and text message consent practices.',
   path: '/privacy/',
 });
 

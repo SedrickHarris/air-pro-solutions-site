@@ -5,14 +5,14 @@ import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
   title: utilityTitle('About Us'),
-  description: 'Learn about Air Pro Solutions, a licensed HVAC contractor serving homes and businesses across LA County, the South Bay, Orange County, and the Inland Empire.', // TODO(copy)
+  description: 'Learn about AIRPRO SOLUTIONS, a licensed HVAC contractor serving homes and businesses across LA County, the South Bay, Orange County, and the Inland Empire.', // TODO(copy)
   path: '/about/',
 });
 
 export default function Page() {
   return (
     <>
-      <PageHeader eyebrow="About" title="About Air Pro Solutions" lede="Heating and cooling for homes and businesses across Southern California." />
+      <PageHeader eyebrow="About" title="About AIRPRO SOLUTIONS" lede="Heating and cooling for homes and businesses across Southern California." />
       <section>
         <div className="wrap prose">
           <h2>Our story</h2>
@@ -23,7 +23,7 @@ export default function Page() {
 
           <h2>Where we work</h2>
           <p>
-            Air Pro Solutions serves Los Angeles County, the South Bay, Orange County, and the Inland Empire.{' '}
+            AIRPRO SOLUTIONS serves Los Angeles County, the South Bay, Orange County, and the Inland Empire.{' '}
             <Link href="/service-areas/">See our service areas</Link>.
           </p>
 

@@ -13,7 +13,7 @@ const manrope = Manrope({ subsets: ['latin'], weight: ['400', '500', '600', '700
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: siteConfig.name, // page titles are built by src/lib/seo.ts and include the brand suffix
-  description: 'Air Pro Solutions provides HVAC service across Southern California.', // TODO(copy): default for pages without their own
+  description: 'AIRPRO SOLUTIONS provides HVAC service across Southern California.', // TODO(copy): default for pages without their own
   icons: {
     icon: '/favicon.ico',
     apple: '/images/apple-touch-icon.png',

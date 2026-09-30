@@ -27,13 +27,13 @@ export const generalFaqs: Faq[] = [
     a: 'A heat pump may be a practical option for some Southern California homes because it can provide both heating and cooling. Whether it fits your home depends on factors such as its size, insulation, existing equipment, and comfort needs. An HVAC evaluation can help determine which system options are appropriate.',
   },
   {
-    q: 'What commercial HVAC services does Air Pro Solutions provide?',
-    a: 'Air Pro Solutions provides commercial HVAC services for businesses and commercial properties. Visit the Commercial HVAC page to learn more about available services and request an evaluation for your property.',
+    q: 'What commercial HVAC services does AIRPRO SOLUTIONS provide?',
+    a: 'AIRPRO SOLUTIONS provides commercial HVAC services for businesses and commercial properties. Visit the Commercial HVAC page to learn more about available services and request an evaluation for your property.',
     links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
   },
   {
     q: 'Can you service HVAC systems at commercial properties?',
-    a: 'Air Pro Solutions serves commercial HVAC customers. The equipment and work needed can vary by property, so share your building type, system concerns, and service location when you contact the team. They can help determine whether the requested service is a fit.',
+    a: 'AIRPRO SOLUTIONS serves commercial HVAC customers. The equipment and work needed can vary by property, so share your building type, system concerns, and service location when you contact the team. They can help determine whether the requested service is a fit.',
   },
   {
     q: 'How often should a commercial HVAC system be maintained?',
@@ -44,13 +44,13 @@ export const generalFaqs: Faq[] = [
     a: 'Check the thermostat, confirm that the system has power, and make sure air filters and vents are not blocked. If the system still will not operate or the building becomes uncomfortable, contact an HVAC provider and describe the symptoms, equipment type, and property location.',
   },
   {
-    q: 'What areas does Air Pro Solutions serve?',
-    a: 'Air Pro Solutions serves customers across Los Angeles County, the South Bay, Orange County, and the Inland Empire. Visit the Service Areas page to explore coverage details or contact the team to ask about a specific location.',
+    q: 'What areas does AIRPRO SOLUTIONS serve?',
+    a: 'AIRPRO SOLUTIONS serves customers across Los Angeles County, the South Bay, Orange County, and the Inland Empire. Visit the Service Areas page to explore coverage details or contact the team to ask about a specific location.',
     links: [{ text: 'Service Areas page', href: '/service-areas/' }],
   },
   {
     q: 'How do I request an HVAC estimate?',
-    a: 'Call Air Pro Solutions at (323) 776-9047 or use the quote request form. Include whether the property is residential or commercial, your service location, the type of system, and what you need help with. The team can follow up to discuss the next steps.',
+    a: 'Call AIRPRO SOLUTIONS at (323) 776-9047 or use the quote request form. Include whether the property is residential or commercial, your service location, the type of system, and what you need help with. The team can follow up to discuss the next steps.',
     links: [
       { text: '(323) 776-9047', href: 'tel:+13237769047' },
       { text: 'quote request form', href: '/contact/' },

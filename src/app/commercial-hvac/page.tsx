@@ -59,7 +59,7 @@ export default function Page() {
   const schema = [
     serviceSchema({
       name: 'Commercial HVAC Services',
-      description: 'From a single storefront to a multi-site portfolio, Air Pro Solutions services the buildings your business depends on.',
+      description: 'From a single storefront to a multi-site portfolio, AIRPRO SOLUTIONS services the buildings your business depends on.',
       url,
       audience: { type: 'BusinessAudience', audienceType: 'Property managers, facilities managers, and commercial businesses' },
       areaServed: regions.map((r) => ({ name: `${r.name}, CA` })),
@@ -116,7 +116,7 @@ export default function Page() {
         cards={propertyTypes}
         eyebrow="Who we serve"
         title="Commercial HVAC for every property type"
-        intro="From a single storefront to a multi-site portfolio, Air Pro Solutions services the buildings your business depends on."
+        intro="From a single storefront to a multi-site portfolio, AIRPRO SOLUTIONS services the buildings your business depends on."
       />
 
       <DecisionGrid
@@ -145,7 +145,7 @@ export default function Page() {
           <h2>Commercial HVAC service across Southern California</h2>
           {/* TODO(claims): "we likely still cover it" is an unconfirmed service-area statement. */}
           <p>
-            Air Pro Solutions services commercial and multifamily properties across four regions. Managing a
+            AIRPRO SOLUTIONS services commercial and multifamily properties across four regions. Managing a
             portfolio outside these areas? Call us - we likely still cover it.
           </p>
           <div className="region-grid">

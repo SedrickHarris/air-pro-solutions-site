@@ -22,7 +22,7 @@ export const laCountyHub = {
 
   hero: {
     lede:
-      'Air Pro Solutions provides HVAC services in Los Angeles County - from coastal Santa Monica and Long Beach to Burbank, Glendale, and Pasadena - with equipment, permits, and rebates matched to each city.', // also the Service schema description
+      'AIRPRO SOLUTIONS provides HVAC services in Los Angeles County - from coastal Santa Monica and Long Beach to Burbank, Glendale, and Pasadena - with equipment, permits, and rebates matched to each city.', // also the Service schema description
     photoCaptionTitle: 'Los Angeles County, CA',
     photoCaptionBody: 'Coast, valley, and foothill service across eight cities',
     proof: [
@@ -41,7 +41,7 @@ export const laCountyHub = {
   ],
 
   answer: {
-    lead: 'Air Pro Solutions is a licensed HVAC contractor serving Los Angeles County',
+    lead: 'AIRPRO SOLUTIONS is a licensed HVAC contractor serving Los Angeles County',
     body:
       ', including Los Angeles, Long Beach, Pasadena, Glendale, Burbank, Culver City, Santa Monica, and Inglewood, for homes, multifamily buildings, and commercial properties. Sizing, permits, and rebates change by city and sometimes by address, so every recommendation starts with the property, not a county-wide assumption.',
   },
@@ -167,7 +167,7 @@ export const laCountyHub = {
   rebates: {
     eyebrow: 'Utilities and rebates',
     title: 'Your electric utility decides which rebates to look at',
-    intro: 'Air Pro Solutions works across several electric utilities, and each publishes its own programs.',
+    intro: 'AIRPRO SOLUTIONS works across several electric utilities, and each publishes its own programs.',
     cards: [
       {
         // TODO(data): verify current amount before launch.
@@ -239,7 +239,7 @@ export const laCountyHub = {
 
   faqs: [
     {
-      q: 'Which cities does Air Pro Solutions serve in Los Angeles County?',
+      q: 'Which cities does AIRPRO SOLUTIONS serve in Los Angeles County?',
       a: 'This page covers Los Angeles, Long Beach, Pasadena, Glendale, Burbank, Culver City, Santa Monica, and Inglewood. South Bay cities such as Torrance are covered separately. If your address is in unincorporated county territory, call us first, because permit and code rules differ there.',
       links: [{ text: 'Torrance', href: '/service-areas/torrance-ca/' }],
     },
@@ -272,7 +272,7 @@ export const laCountyHub = {
       a: 'Older housing is common across Southern California. More than half of housing units in the six-county SCAG region were built before 1980. A home’s age does not tell us whether it has attic access, what kind of foundation it has, or whether the ducts are original, so we confirm those at a site visit before recommending repair or replacement.',
     },
     {
-      q: 'Does Air Pro Solutions handle commercial HVAC in Los Angeles County?',
+      q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in Los Angeles County?',
       a: 'Yes, for offices, retail, restaurants, and other commercial properties. LADWP’s BOSS program offers incentives to eligible non-residential customers, and it requires LADWP pre-approval before installation. Call us before you buy equipment so we can check what applies to your building.',
       links: [{ text: 'Call us', href: siteConfig.phoneHref }],
     },

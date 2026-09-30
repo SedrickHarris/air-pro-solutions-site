@@ -6,7 +6,7 @@ import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
   title: utilityTitle('Terms of Service'),
-  description: 'The terms that apply when you use the Air Pro Solutions website or request HVAC service, including estimates, text messages, and liability limits.',
+  description: 'The terms that apply when you use the AIRPRO SOLUTIONS website or request HVAC service, including estimates, text messages, and liability limits.',
   path: '/terms/',
 });
 
@@ -38,13 +38,13 @@ export default function Page() {
 
           <h2>Intellectual property</h2>
           <p>
-            Content on this site, including text, logos, and images, belongs to Air Pro Solutions or its licensors
+            Content on this site, including text, logos, and images, belongs to AIRPRO SOLUTIONS or its licensors
             and may not be reused without permission.
           </p>
 
           <h2>Limitation of liability</h2>
           <p>
-            The site is provided as is. To the extent permitted by law, Air Pro Solutions is not liable for damages
+            The site is provided as is. To the extent permitted by law, AIRPRO SOLUTIONS is not liable for damages
             arising from use of this website.
           </p>
 

@@ -8,7 +8,7 @@ export const hubDescription =
   'Licensed, 4.8-star rated HVAC contractor serving Los Angeles County, the South Bay, Orange County, and the Inland Empire. Find your region and schedule service.';
 
 export const hubHero = {
-  lede: 'Air Pro Solutions provides HVAC services in Los Angeles County, the South Bay, Orange County, and the Inland Empire, with permits, utilities, and equipment matched to each city.',
+  lede: 'AIRPRO SOLUTIONS provides HVAC services in Los Angeles County, the South Bay, Orange County, and the Inland Empire, with permits, utilities, and equipment matched to each city.',
   photoCaptionTitle: 'Southern California',
   photoCaptionBody: 'Four regions, 32 cities across the region pages',
   proof: [
@@ -27,7 +27,7 @@ export const hubTrust = [
 ];
 
 export const hubAnswer = {
-  lead: 'Air Pro Solutions is a licensed HVAC contractor serving four Southern California regions',
+  lead: 'AIRPRO SOLUTIONS is a licensed HVAC contractor serving four Southern California regions',
   rest: ', Los Angeles County, the South Bay, Orange County, and the Inland Empire, for homes, multifamily buildings, and commercial properties. Each region page covers eight cities. Climate, electric utility, and permit rules change by city and sometimes by address, so every recommendation starts with the property, not a region-wide assumption.',
 };
 
@@ -116,8 +116,8 @@ export type HubFaq = { q: string; lead: string; rest: string; links?: Faq['links
 
 export const hubFaqs: HubFaq[] = [
   {
-    q: 'Which regions does Air Pro Solutions serve?',
-    lead: 'Air Pro Solutions serves four regions: Los Angeles County, the South Bay, Orange County, and the Inland Empire.',
+    q: 'Which regions does AIRPRO SOLUTIONS serve?',
+    lead: 'AIRPRO SOLUTIONS serves four regions: Los Angeles County, the South Bay, Orange County, and the Inland Empire.',
     rest: ' Each region has its own page that lists eight cities and explains the local climate, electric utility, and permit rules.',
   },
   {

@@ -38,7 +38,7 @@ export const heatingRepairPage: ServicePage = {
   metaDescription:
     'Heating repair for homes and businesses across Los Angeles, the South Bay, Orange County, and the Inland Empire. Furnaces, heat pumps, and more. Call today.',
   lede:
-    'Furnace not heating, a heat pump blowing cool air, or a system that keeps shutting off? Air Pro Solutions provides residential and commercial heating repair in Los Angeles and across the South Bay, Orange County, and the Inland Empire - with a repair cost explained before any work begins.',
+    'Furnace not heating, a heat pump blowing cool air, or a system that keeps shutting off? AIRPRO SOLUTIONS provides residential and commercial heating repair in Los Angeles and across the South Bay, Orange County, and the Inland Empire - with a repair cost explained before any work begins.',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
@@ -244,7 +244,7 @@ export const heatingRepairPage: ServicePage = {
   faqs: [
     {
       q: 'Why is my furnace blowing cold air?',
-      a: 'Cold air can have several causes, so a technician should diagnose it instead of replacing a part based on the symptom. Possible causes include the thermostat, airflow, ignition, flame sensing, gas supply, controls, and limit switches. Air Pro Solutions gives you a repair cost before any work begins.',
+      a: 'Cold air can have several causes, so a technician should diagnose it instead of replacing a part based on the symptom. Possible causes include the thermostat, airflow, ignition, flame sensing, gas supply, controls, and limit switches. AIRPRO SOLUTIONS gives you a repair cost before any work begins.',
     },
     {
       q: 'What should I do if I smell gas near my furnace?',

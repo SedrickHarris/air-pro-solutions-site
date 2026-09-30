@@ -4,12 +4,12 @@ import type { Faq } from '@/content/faq';
 
 export const servicesFaqs: Faq[] = [
   {
-    q: 'What HVAC services does Air Pro Solutions offer?',
-    a: 'Air Pro Solutions handles AC repair, AC installation, AC maintenance, heating repair, furnace installation, heat pump service, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC dispatch for homes and businesses.',
+    q: 'What HVAC services does AIRPRO SOLUTIONS offer?',
+    a: 'AIRPRO SOLUTIONS handles AC repair, AC installation, AC maintenance, heating repair, furnace installation, heat pump service, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC dispatch for homes and businesses.',
   },
   {
     q: 'Do you work on both residential and commercial systems?',
-    a: 'Yes. Air Pro Solutions services single-family homes, multifamily properties, and commercial buildings, including rooftop package units and portfolio accounts for property managers.',
+    a: 'Yes. AIRPRO SOLUTIONS services single-family homes, multifamily properties, and commercial buildings, including rooftop package units and portfolio accounts for property managers.',
   },
   {
     q: "What's the difference between AC maintenance and AC repair?",
@@ -25,26 +25,26 @@ export const servicesFaqs: Faq[] = [
   },
   {
     q: 'How much does HVAC service cost?',
-    a: 'Cost depends on the service, the equipment involved, and the scope of the job, so Air Pro Solutions provides an itemized estimate after diagnosing the issue or reviewing the work, rather than a flat rate over the phone.',
+    a: 'Cost depends on the service, the equipment involved, and the scope of the job, so AIRPRO SOLUTIONS provides an itemized estimate after diagnosing the issue or reviewing the work, rather than a flat rate over the phone.',
   },
   {
     q: 'Can I get an estimate before work begins?',
-    a: "Yes. Air Pro Solutions provides an itemized estimate before any work begins, whether it's a repair, a new installation, or a maintenance agreement.",
+    a: "Yes. AIRPRO SOLUTIONS provides an itemized estimate before any work begins, whether it's a repair, a new installation, or a maintenance agreement.",
   },
   {
     q: 'How fast can someone come out?',
     a: 'Same-day service is typical for no-cool and no-heat calls across our Southern California service area, and 24/7 dispatch is available for emergencies.',
   },
   {
-    q: 'Which areas does Air Pro Solutions serve?',
-    a: 'Air Pro Solutions serves Los Angeles County, the South Bay, Orange County, and the Inland Empire. Call to confirm coverage for an address outside these regions.',
+    q: 'Which areas does AIRPRO SOLUTIONS serve?',
+    a: 'AIRPRO SOLUTIONS serves Los Angeles County, the South Bay, Orange County, and the Inland Empire. Call to confirm coverage for an address outside these regions.',
   },
   {
-    q: 'Is Air Pro Solutions licensed and insured?',
-    a: 'Yes. Air Pro Solutions is licensed and insured, holding California contractor license numbers 1126691 and 50251.',
+    q: 'Is AIRPRO SOLUTIONS licensed and insured?',
+    a: 'Yes. AIRPRO SOLUTIONS is licensed and insured, holding California contractor license numbers 1126691 and 50251.',
   },
   {
-    q: 'What HVAC brands does Air Pro Solutions work with?',
-    a: 'Air Pro Solutions services all major residential and commercial HVAC brands, including Trane, Carrier, Lennox, York, Daikin, and Rheem, whether or not we installed the original equipment.',
+    q: 'What HVAC brands does AIRPRO SOLUTIONS work with?',
+    a: 'AIRPRO SOLUTIONS services all major residential and commercial HVAC brands, including Trane, Carrier, Lennox, York, Daikin, and Rheem, whether or not we installed the original equipment.',
   },
 ];

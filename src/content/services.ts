@@ -414,10 +414,10 @@ const card = (slug: string, alt: string): ServiceImage => ({ src: `/images/servi
 const acRepairPage: ServicePage = {
   primaryKeyword: 'ac repair los angeles',
   metaDescription:
-    'Get AC repair in Los Angeles for homes and businesses. Air Pro Solutions diagnoses cooling, airflow, electrical, and drainage problems. Schedule service.',
+    'Get AC repair in Los Angeles for homes and businesses. AIRPRO SOLUTIONS diagnoses cooling, airflow, electrical, and drainage problems. Schedule service.',
   lede:
     // TODO(data): confirm with client that written pricing before authorization is real process
-    "No cooling, weak airflow, strange noises, or water leaks? Air Pro Solutions provides residential and commercial AC repair in Los Angeles and across the South Bay, Orange County, and the Inland Empire - with an itemized price before any work begins.",
+    "No cooling, weak airflow, strange noises, or water leaks? AIRPRO SOLUTIONS provides residential and commercial AC repair in Los Angeles and across the South Bay, Orange County, and the Inland Empire - with an itemized price before any work begins.",
   heroImage: {
     src: '/images/services/ac-repair/hero.webp',
     alt: 'Outdoor AC condenser unit beside a stucco home with palm and succulent landscaping',
@@ -595,7 +595,7 @@ const acRepairPage: ServicePage = {
   faqs: [
     {
       q: 'Why is my AC running but not cooling?',
-      a: 'Warm air can result from airflow problems, coil fouling, refrigerant issues, electrical-control faults, or compressor-related problems. A technician should test the system rather than assume one cause from the symptom alone. Air Pro Solutions gives you a repair cost before any work begins.',
+      a: 'Warm air can result from airflow problems, coil fouling, refrigerant issues, electrical-control faults, or compressor-related problems. A technician should test the system rather than assume one cause from the symptom alone. AIRPRO SOLUTIONS gives you a repair cost before any work begins.',
     },
     {
       q: 'Why is my AC blowing weak airflow?',
@@ -744,7 +744,7 @@ const baseServices: Service[] = [
       // homepage grid) - flagged in the build report as a possible follow-up to shorten for card
       // layout consistency, since the spec was explicit about using the lede exactly here.
       description:
-        'Air Pro Solutions provides AC maintenance for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. A pre-season tune-up checks controls, electrical connections, coils, the condensate drain, and airflow so small problems can be found early.',
+        'AIRPRO SOLUTIONS provides AC maintenance for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. A pre-season tune-up checks controls, electrical connections, coils, the condensate drain, and airflow so small problems can be found early.',
       image: card('ac-maintenance', 'Outdoor AC condenser unit beside a home with a service tool resting on the pad'),
     }),
     process: [
