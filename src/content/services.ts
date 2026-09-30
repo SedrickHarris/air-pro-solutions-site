@@ -2,6 +2,7 @@ import type { Faq } from '@/content/faq';
 import { acInstallationPage } from '@/content/ac-installation-page';
 import { acMaintenancePage } from '@/content/ac-maintenance-page';
 import { heatingRepairPage } from '@/content/heating-repair-page';
+import { indoorAirQualityPage } from '@/content/indoor-air-quality-page';
 import type { DecisionCard } from '@/components/sections/DecisionGrid';
 
 export type ServiceImage = { src: string; alt: string };
@@ -105,7 +106,9 @@ export type ServicePage = {
   // added as new optional fields on the existing shape instead of a parallel content system. ---
   // "Maintenance, repair, or replacement?" decision cards, rendered via DecisionGrid right after the
   // quick-answer AnswerBlock.
-  decision?: { eyebrow: string; title: string; intro?: string; cards: DecisionCard[]; columns?: 2 | 3 | 4 };
+  // `outro` (added for /indoor-air-quality/) is a closing line rendered below the card grid; optional
+  // so ac-maintenance's decision block (which has none) is unaffected.
+  decision?: { eyebrow: string; title: string; intro?: string; cards: DecisionCard[]; columns?: 2 | 3 | 4; outro?: string };
   // "When to schedule" rule cards, rendered via RulesNote in the same slot as SymptomGrid on pages
   // that don't have symptom-diagnosis content (see `s.symptoms.length` guard in page.tsx).
   timing?: { eyebrow: string; title: string; cards: { title: string; body: string }[] };
@@ -153,6 +156,51 @@ export type ServicePage = {
   // the target service's real `name` (see the "HVAC Maintenance" -> /ac-maintenance/ TODO(copy) in
   // heating-repair-page.ts). Optional so every other service page's related row is unaffected.
   relatedLabels?: Record<string, string>;
+
+  // --- Additional fields used by the /indoor-air-quality/ template. All optional so every other
+  // service page (which does not set these) is unaffected. See the Indoor Air Quality build report
+  // for why these were added as new optional fields/props on the existing shape instead of a parallel
+  // content system, and for why this page's section order doesn't line up with several of the
+  // above fields' fixed render positions in src/app/[service]/page.tsx. ---
+  // Generic "eyebrow + h2 + lead + two-column table + closing note/link" section content, rendered via
+  // the new TableSection component (src/components/sections/TableSection.tsx) - a thin DataTable
+  // wrapper, same shape as DiagnosisTable/the `catches` block, reused three times on this page for
+  // tables that don't share DiagnosisTable's or `catches`' fixed position in page.tsx.
+  signsTable?: TableSectionContent; // "What the signs can mean" (warning-signs table)
+  ductTable?: TableSectionContent; // "Duct cleaning, sealing, or repair?"
+  equipmentTable?: TableSectionContent; // "How your equipment changes the plan"
+  // "A Southern California smoke plan" - rendered via RulesNote (widened to accept a ReactNode item
+  // body so one bullet can embed a link), composed from plain data here and built into JSX in page.tsx
+  // so this content file stays JSX-free like every other content file in src/content/.
+  smokePlan?: {
+    eyebrow: string;
+    title: string;
+    id?: string;
+    intro?: string;
+    items: { title: string; before: string; linkText?: string; linkHref?: string; linkExternal?: boolean; after?: string }[];
+    closing?: string;
+  };
+  // "If an upgrade turns into a replacement" - a single RefrigerantNote-shaped explainer, distinct
+  // from the `refrigerant` and `timeline` fields above because both of those are bound to earlier
+  // fixed positions in page.tsx than this page needs (right before the `rebatesNote` incentives
+  // section, not right after SystemsGrid or VisitScope).
+  replacementNote?: { title: string; body: string; sourceText?: string };
+  // Anchor-id overrides for internal linking (e.g. this page's "#filtration"/"#areas"/"#resources").
+  // Unset by default so every other service page's SystemsGrid/RegionGrid/FaqList is unaffected.
+  systemsSectionId?: string;
+  regionSectionId?: string;
+  faqSectionId?: string;
+};
+
+type TableSectionContent = {
+  eyebrow: string;
+  title: string;
+  lead?: string;
+  headings: [string, string];
+  rows: [string, string][];
+  afterText?: string;
+  afterLinkText?: string;
+  afterLinkHref?: string;
 };
 
 export type Service = {
@@ -601,8 +649,20 @@ const baseServices: Service[] = [
     image: card('ductless-mini-split', 'Wall-mounted ductless mini-split indoor unit in a bright living space') }),
   core('ductwork', 'ductwork', 'Ductwork', 'duct', { description: 'Duct inspection, sealing, repair, and design for uneven airflow, energy loss, and air quality issues.',
     image: card('ductwork', 'Insulated flexible ducts and a galvanized duct plenum in a residential attic') }),
-  core('indoor-air-quality', 'indoor-air-quality', 'Indoor Air Quality', 'air', { description: 'Air filtration, purification, and humidity solutions that improve the air circulating through your space.',
-    image: card('indoor-air-quality', 'Air purifier, return vent grille, and a clean pleated filter in a bright living room') }),
+  {
+    ...core('indoor-air-quality', 'indoor-air-quality', 'Indoor Air Quality', 'air', { description: 'Air filtration, purification, and humidity solutions that improve the air circulating through your space.',
+      image: card('indoor-air-quality', 'Air purifier, return vent grille, and a clean pleated filter in a bright living room') }),
+    process: [
+      { title: 'Book', body: 'We ask about the complaint, the property, occupancy, pets, recent remodeling, and whether anyone has respiratory sensitivity.' },
+      { title: 'Identify', body: 'The technician confirms what you have: ducted split, heat pump, packaged unit, ducted or ductless mini-split, or commercial rooftop equipment.' },
+      { title: 'Inspect', body: 'Accessible filters, the filter rack, air handler, returns, registers, ducts, condensate drain, outdoor-air dampers, exhaust fans, and controls are checked.' },
+      { title: 'Options', body: 'You get written options that separate required fixes, recommended upgrades, and optional maintenance.' },
+      { title: 'Install or repair', body: 'Mounting, duct or plenum changes, electrical connection, drain adjustments, controls, and startup, as the scope requires.' },
+      { title: 'Hand off', body: 'Operation and airflow are confirmed, and you get the filter size, replacement interval, and any permit steps.' },
+    ],
+    related: ['ac-maintenance', 'ductwork', 'heat-pump-services'],
+    page: indoorAirQualityPage,
+  },
   // TODO(data): the "Emergency" name and slug imply urgent availability; confirm the service is always-on or rename.
   core('hvac', 'emergency-hvac', 'Emergency HVAC', 'alert', { description: "24/7 dispatch for no-cool and no-heat emergencies that can't wait for a scheduled appointment.",
     image: card('emergency-hvac', 'Outdoor AC unit beside a home at dusk') }),
