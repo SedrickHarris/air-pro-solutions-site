@@ -7,7 +7,9 @@ import { furnaceInstallationPage } from '@/content/furnace-installation-page';
 import { heatPumpServicesPage } from '@/content/heat-pump-services-page';
 import { ductworkPage } from '@/content/ductwork-page';
 import { indoorAirQualityPage } from '@/content/indoor-air-quality-page';
+import { emergencyHvacPage } from '@/content/emergency-hvac-page';
 import type { DecisionCard } from '@/components/sections/DecisionGrid';
+import type { TriageCard } from '@/components/sections/TriageGrid';
 
 export type ServiceImage = { src: string; alt: string };
 
@@ -358,6 +360,49 @@ export type ServicePage = {
   systemsSectionId?: string;
   regionSectionId?: string;
   faqSectionId?: string;
+
+  // --- Additional fields used by the /emergency-hvac/ template. All optional so every other service
+  // page (which does not set these) is unaffected. See the Emergency HVAC build report for why these
+  // were added as new optional fields/a new component on the existing shape instead of a parallel
+  // content system. ---
+  // "Which situation is this?" three-tier triage grid (life safety / emergency repair / can be
+  // scheduled) - this page's key differentiator. No existing component has three visually distinct
+  // card variants plus an optional per-card CTA, so it renders via the new, generic, reusable
+  // TriageGrid component (src/components/sections/TriageGrid.tsx), positioned right after the
+  // decision-grid slot and before the urgency-box slot in src/app/[service]/page.tsx.
+  triage?: { eyebrow: string; title: string; cards: TriageCard[]; closing?: string };
+  // "How fast can someone come out?" - a plain paragraph followed by a PendingNote, positioned right
+  // after the timeline slot (i.e. after VisitScope, before the systems/equipment grid). Distinct from
+  // `timeline` above (a single RefrigerantNote-shaped callout with no PendingNote) because this page
+  // needs the actual PendingNote component's "Coming soon:" treatment, not just callout body text.
+  availability?: { eyebrow: string; title: string; body: string; pendingNote: string };
+  // Lead paragraph rendered above ProcessList's numbered steps (see the `intro` prop added there).
+  // Distinct from the existing `processNote` field, which renders BELOW the steps - this page's
+  // approved copy needs a lead-in sentence before the six numbered steps instead. Optional so every
+  // other ProcessList caller (ac-repair, ac-installation, etc., none of which have a lead-in) is
+  // unaffected.
+  processIntro?: string;
+  // "Repair or replace after a breakdown?" - a plain 2-column DataTable-backed section (not the
+  // bullet-list CompareTable, since this page's approved copy is a paired-row table) with a plain
+  // closing note and a second note containing one link. Rendered inline in page.tsx in the same slot
+  // as `compareBlock` (right after PriceFactors, before `rules`) - the same "compose directly" pattern
+  // already used for `catches`/`optionsTable`/`equipmentTable`/`comparisonTable`.
+  repairReplaceTable?: {
+    eyebrow: string;
+    title: string;
+    columns: [string, string];
+    rows: [string, string][];
+    note: string; // plain first closing paragraph, no link
+    noteBefore: string; // second closing paragraph's lead-in text, before the inline link
+    noteLinkText: string;
+    noteLinkHref: string;
+  };
+  // When true, swaps the hero's two buttons so the primary (filled) button is the phone call and the
+  // ghost button is the "request service" link to /contact/ - the reverse of every other service
+  // page's hero (primary = page.ctaLabel/contact, ghost = call). Approved specifically for this page,
+  // whose hero copy calls out the phone number as the lead action. Defaults to false/undefined so
+  // every other service page's hero is unchanged.
+  heroCallPrimary?: boolean;
 };
 
 type TableSectionContent = {
@@ -948,9 +993,27 @@ const baseServices: Service[] = [
     related: ['ac-maintenance', 'ductwork', 'heat-pump-services'],
     page: indoorAirQualityPage,
   },
-  // TODO(data): the "Emergency" name and slug imply urgent availability; confirm the service is always-on or rename.
-  core('hvac', 'emergency-hvac', 'Emergency HVAC', 'alert', { description: "24/7 dispatch for no-cool and no-heat emergencies that can't wait for a scheduled appointment.",
-    image: card('emergency-hvac', 'Outdoor AC unit beside a home at dusk') }),
+  // TODO(data): the "Emergency" name and slug imply urgent availability; confirm the service is
+  // always-on or rename. This card description still says "24/7 dispatch," which is an unconfirmed
+  // availability claim carried over from before this page had approved copy - it is used only on hub/
+  // card contexts outside /emergency-hvac/ itself (homepage grid, /services/, ServicesGrid), which are
+  // out of scope for this build (see CLAUDE.md doorway-page/claims rules and the build report). Do not
+  // copy this "24/7" wording onto the actual page - /emergency-hvac/'s own copy in
+  // emergency-hvac-page.ts makes no 24/7 or same-day claim anywhere.
+  {
+    ...core('hvac', 'emergency-hvac', 'Emergency HVAC', 'alert', { description: "24/7 dispatch for no-cool and no-heat emergencies that can't wait for a scheduled appointment.",
+      image: card('emergency-hvac', 'Outdoor AC unit beside a home at dusk') }),
+    process: [
+      { title: 'Safety screening', body: 'The call starts with questions about smoke, fire, gas odor, carbon monoxide alarms, and water near electrical parts. Life-safety situations go to 911 or the gas utility first.' },
+      { title: 'Symptom intake', body: 'You describe the property type, the system, thermostat behavior, whether there is cooling or heat, any water, noises, odors, or breaker trips, and the make and model if you know it.' },
+      { title: 'Inspect and diagnose', body: 'A technician checks thermostat settings, filter, power, controls, airflow, condensate drainage, and the indoor and outdoor equipment, plus combustion safety items on gas appliances. The system may be kept off if running it could cause more damage.' },
+      { title: 'Repair options', body: 'You are given the diagnosed issue, the scope of work, parts needed, price, warranty terms, and whether a temporary safe restoration is possible.' },
+      { title: 'Repair or stabilize', body: 'Common same-visit work includes capacitors, contactors, thermostats, drains, blowers, igniters, flame sensors, and control repairs. Refrigerant work includes finding the leak, not just adding refrigerant.' },
+      { title: 'Test and next steps', body: 'Before leaving, the technician verifies operating sequence, airflow, temperature response, electrical behavior, drainage, and safety controls as they apply.' },
+    ],
+    related: ['ac-repair', 'heating-repair', 'ac-installation'],
+    page: emergencyHvacPage,
+  },
 
   // --- Level 2: second-level service pages ---
   // AC and heating

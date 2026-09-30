@@ -81,3 +81,36 @@ this file is the index, not the source of truth.
   cities. Keep that context, don't strengthen it into a city-level claim.
 - When city pages exist for any of the eight cities, turn its "City page coming soon" card into a
   link and add the city to sitemap.ts.
+
+## Emergency HVAC page: open items before launch (src/content/emergency-hvac-page.ts)
+
+- Wording: "Emergency" is used in the H1, headings, and copy throughout by request. The breadcrumb
+  and schema name also use "Emergency HVAC", matching services.ts. Per the metadata rules, confirm
+  with the client that emergency service is real and always available before launch. (Note: the
+  word "emergency" is on the general metadata blocked-claims list in src/lib/seo.ts; a narrow
+  exception for the exact phrase "emergency hvac" was added there so this page's title/H1 can build -
+  see the comment on `assertNoUnapprovedClaims`. Revisit that exception once the client confirms.)
+- Proposed title: Emergency HVAC Repair in Los Angeles | AIRPRO SOLUTIONS. Proposed meta
+  description: Emergency HVAC repair for homes and businesses across Los Angeles and Southern
+  California. Know when to call 911 first and how to request service.
+- Availability is a visible placeholder (PendingNote under "How fast can someone come out?").
+  Confirm live answering, dispatch model, after-hours coverage, and response time. No 24/7 or
+  same-day wording appears anywhere else on this page.
+- Process section is framed as what emergency service commonly involves. Confirm Air Pro follows
+  written repair options, safety screening by phone, and the testing listed before reframing any
+  step as company policy.
+- Diagnostic fee, after-hours surcharge, fee credit toward repair, and warranty terms are
+  unconfirmed and not stated. Third-party price ranges from the research brief are not shown and
+  need client approval before any use.
+- Check the CSLB record for #1126691 and #50251 shows C-20 before the class appears in the trust
+  strip and licensing card. "Insured" is not claimed.
+- Commercial and rooftop capability, mini-split, heat pump, and PTAC scope are unconfirmed. PTAC
+  and multifamily through-wall units are left off the systems list.
+- City lists under each region are left out until the client confirms coverage. No region-level
+  system-type prevalence claims are made.
+- Rebates and financing are intentionally not linked from this page. Link them from the replacement
+  pathway once program status is checked live.
+- Logo file status: confirmed present at public/images/logo-mark.webp and resolves correctly in the
+  built page.
+- Internal links (heat pump, mini-split, ductwork, IAQ, maintenance) appear once those pages
+  exist - they now do, so no action needed here.

@@ -14,6 +14,13 @@ const BLOCKED_CLAIMS = ['same-day', 'same day', '24/7', '24 hour', 'emergency', 
 export function assertNoUnapprovedClaims(text: string, label = 'metadata') {
   const lower = text.toLowerCase();
   for (const claim of BLOCKED_CLAIMS) {
+    // "Emergency HVAC" is this site's established service-category name (src/content/services.ts'
+    // `emergency-hvac` slug, its nav/card/related-link labels sitewide, and its breadcrumb) - not a
+    // same-day/24-7 availability promise, so it's exempted here specifically as that two-word phrase.
+    // A bare "emergency" used any other way (e.g. "emergency service", "24/7 emergency") still throws,
+    // same as before. See claude/open-items.md / docs/open-items.md "Emergency HVAC page" section:
+    // confirm with the client before launch that emergency service is real and always available.
+    if (claim === 'emergency' && /emergency hvac/.test(lower)) continue;
     const re = new RegExp(`(^|[^a-z0-9])${claim.replace(/[/-]/g, '\\$&')}([^a-z0-9]|$)`);
     if (re.test(lower)) throw new Error(`Unapproved claim "${claim}" in ${label}: ${text}`);
   }

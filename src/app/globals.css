@@ -502,6 +502,35 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 .rules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.25rem; }
 .rules-card p { margin: 0.5rem 0 0; color: var(--ink-soft); font-size: 0.9rem; line-height: 1.55; }
 
+/* Triage grid (sections/TriageGrid, built for /emergency-hvac/): three-tier "Life safety / Emergency
+   repair / Can be scheduled" card row. Each variant reuses existing tokens only - no new colors. */
+.triage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.25rem; }
+.triage-card { display: flex; flex-direction: column; gap: 10px; padding: 28px 24px; border-radius: 14px; }
+.triage-card h3 { margin: 0; font-size: 1.25rem; }
+.triage-card > p { margin: 0; font-size: 0.92rem; line-height: 1.5; }
+.triage-tier { text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em; font-weight: 700; margin: 0; }
+.triage-card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.triage-card li { position: relative; padding-left: 18px; line-height: 1.5; font-size: 0.92rem; }
+.triage-card li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.6; }
+.triage-icon-chip { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; }
+.triage-card .cta-row { margin-top: 4px; }
+
+.triage-stop { background: linear-gradient(135deg, var(--navy-900), var(--navy-700)); color: #fff; border: 1px solid var(--navy-950); }
+.triage-stop .triage-tier { color: var(--sky-400); }
+.triage-stop > p, .triage-stop li { color: #cddaea; }
+.triage-stop .triage-icon-chip { background: rgba(255, 255, 255, 0.14); color: #fff; }
+
+.triage-emergency { background: var(--amber-100); border: 1px solid var(--amber-600); color: var(--ink); }
+.triage-emergency .triage-tier { color: var(--eyebrow); }
+.triage-emergency > p, .triage-emergency li { color: var(--ink); }
+.triage-emergency .triage-icon-chip { background: var(--amber-500); color: #1a0e02; }
+
+.triage-later { background: var(--card-bg); border: 1px solid var(--line); box-shadow: var(--shadow); color: var(--ink); }
+.triage-later .triage-tier { color: var(--eyebrow); }
+.triage-later > p { color: var(--ink-soft); }
+.triage-later li { color: var(--ink-soft); }
+.triage-later .triage-icon-chip { background: var(--amber-100); color: var(--eyebrow); }
+
 /* Applies-row footnote paragraph (AppliesRow `paragraph` prop). */
 .applies-row-note { max-width: 70ch; margin-top: 1.25rem; line-height: 1.6; color: var(--ink-soft); }
 .applies-row-note a { color: var(--navy-700); font-weight: 600; }
@@ -538,6 +567,7 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
   .systems-grid, .rules-grid { grid-template-columns: 1fr 1fr; }
   .sources-list-2col { grid-template-columns: 1fr; }
   .callouts-grid { grid-template-columns: 1fr; gap: 24px; }
+  .triage-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
   .systems-grid, .rules-grid { grid-template-columns: 1fr; }

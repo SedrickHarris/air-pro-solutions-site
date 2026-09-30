@@ -11,6 +11,7 @@ import { TrustStrip } from '@/components/sections/TrustStrip';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
 import { UrgencyBox } from '@/components/sections/UrgencyBox';
 import { DecisionGrid } from '@/components/sections/DecisionGrid';
+import { TriageGrid } from '@/components/sections/TriageGrid';
 import { SymptomGrid } from '@/components/sections/SymptomGrid';
 import { DiagnosisTable } from '@/components/sections/DiagnosisTable';
 import { ProcessList } from '@/components/sections/ProcessList';
@@ -202,9 +203,21 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           <div>
             <HeroHeading h1={h1} emphasis="Los Angeles" />
             <p className="hero-lede">{page.lede}</p>
+            {/* Hero button order/style is reversed on pages with `heroCallPrimary` set (currently only
+                /emergency-hvac/), whose approved copy calls out the phone number as the lead action -
+                every other service page keeps the original primary=contact/ghost=call order. */}
             <div className="cta-row">
-              <Link className="btn btn-primary" href="/contact/">{page.ctaLabel}</Link>
-              <a className="btn btn-ghost" href={siteConfig.phoneHref}>Call {siteConfig.phone}</a>
+              {page.heroCallPrimary ? (
+                <>
+                  <a className="btn btn-primary" href={siteConfig.phoneHref}>Call {siteConfig.phone}</a>
+                  <Link className="btn btn-ghost" href="/contact/">{page.ctaLabel}</Link>
+                </>
+              ) : (
+                <>
+                  <Link className="btn btn-primary" href="/contact/">{page.ctaLabel}</Link>
+                  <a className="btn btn-ghost" href={siteConfig.phoneHref}>Call {siteConfig.phone}</a>
+                </>
+              )}
             </div>
             <ul className="hero-proof hero-proof-2x2">
               {(page.heroProof ?? defaultHeroProof).map((p) => (
@@ -261,6 +274,14 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           outro={page.decision.outro}
           alt
         />
+      )}
+
+      {/* "Which situation is this?" three-tier triage grid (/emergency-hvac/'s key differentiator):
+          life safety / emergency repair / can-be-scheduled. Rendered in the same slot as the other
+          "start here" decision content, right after the decision grid and before the urgency box -
+          this page uses neither of those, so no ordering conflict. */}
+      {page.triage && (
+        <TriageGrid eyebrow={page.triage.eyebrow} title={page.triage.title} cards={page.triage.cards} closing={page.triage.closing} />
       )}
 
       {page.urgency && (
@@ -354,7 +375,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       {page.systemsEarly && systemsBlock}
 
-      <ProcessList steps={s.process} title={page.processTitle} note={page.processNote} columns={page.processColumns} />
+      <ProcessList steps={s.process} title={page.processTitle} intro={page.processIntro} note={page.processNote} columns={page.processColumns} />
 
       {/* "Repair, seal, replace, or redesign?" (ductwork): a 3-column DataTable-backed section with
           a closing note/link, composed directly here the same way `catches` is below - the existing
@@ -388,6 +409,20 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       {page.timeline && (
         <RefrigerantNote title={page.timeline.heading} body={page.timeline.body} />
+      )}
+
+      {/* "How fast can someone come out?" (/emergency-hvac/): a plain paragraph plus the shared
+          PendingNote component's "Coming soon:" treatment - distinct from `timeline` above, which is a
+          single-paragraph RefrigerantNote callout with no PendingNote. */}
+      {page.availability && (
+        <section>
+          <div className="wrap">
+            <p className="eyebrow">{page.availability.eyebrow}</p>
+            <h2>{page.availability.title}</h2>
+            <p className="compare-intro">{page.availability.body}</p>
+            <PendingNote>{page.availability.pendingNote}</PendingNote>
+          </div>
+        </section>
       )}
 
       {/* "Single-zone, multi-zone, or concealed ducted?" layout table (ductless-mini-split), composed
@@ -570,6 +605,27 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       )}
 
       {!page.compareEarly && compareBlock}
+
+      {/* "Repair or replace after a breakdown?" (/emergency-hvac/): a plain 2-column DataTable-backed
+          section, composed directly here the same "compose inline" pattern already used for
+          `catches`/`optionsTable`/`equipmentTable`/`comparisonTable` above - distinct from
+          `compareBlock`, whose CompareTable renders bullet-list pros/cons groups (this page's approved
+          copy is a paired-row table instead, and this service's `repairVsReplace` is left null - see
+          services.ts - so `compareBlock` renders nothing here). */}
+      {page.repairReplaceTable && (
+        <section className="alt">
+          <div className="wrap">
+            <p className="eyebrow">{page.repairReplaceTable.eyebrow}</p>
+            <h2>{page.repairReplaceTable.title}</h2>
+            <DataTable columns={page.repairReplaceTable.columns} rows={page.repairReplaceTable.rows} />
+            <p className="compare-note">{page.repairReplaceTable.note}</p>
+            <p className="compare-note">
+              {page.repairReplaceTable.noteBefore}
+              <Link className="link" href={page.repairReplaceTable.noteLinkHref}>{page.repairReplaceTable.noteLinkText}</Link>
+            </p>
+          </div>
+        </section>
+      )}
 
       {page.rules && (
         <RulesNote eyebrow={page.rulesEyebrow} title={page.rulesTitle ?? 'Licensing, permits, and energy-code basics'} items={page.rules} />
