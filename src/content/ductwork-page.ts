@@ -252,6 +252,9 @@ export const ductworkPage: ServicePage = {
   ],
   pricingColumns: ['Factor', 'How it affects the job'],
   pricingClosing: 'We inspect the system first and provide a written scope before work begins. Timing depends on the scope: a small accessible repair is different from a full replacement with permits or verification, so ask for the expected schedule with your written scope.',
+  // Visual-rhythm pass (matching the AC Maintenance build): alternates the paper/paper-dim background
+  // so the callouts/pricing/rules run doesn't sit as three same-background plain sections in a row.
+  pricingAlt: true,
   rulesEyebrow: 'The rules',
   rulesTitle: 'Licensing, permits, and energy-code basics',
   rules: [
