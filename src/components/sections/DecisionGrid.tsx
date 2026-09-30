@@ -22,6 +22,10 @@ export function DecisionGrid({
   // Card count on this page's grid isn't always a multiple of 3 (e.g. ac-maintenance's 4 decision
   // cards); defaults to the original 3-column layout so every existing caller is unaffected.
   columns = 3,
+  // Optional closing line rendered below the card grid (e.g. /indoor-air-quality/'s "Most filter and
+  // purifier questions are routine appointments..." line). Unset by default so every other caller
+  // (which has no such closing line) is unaffected.
+  outro,
 }: {
   cards?: DecisionCard[];
   eyebrow?: string;
@@ -30,6 +34,7 @@ export function DecisionGrid({
   ctaLabel?: string;
   alt?: boolean;
   columns?: 2 | 3 | 4;
+  outro?: string;
 }) {
   return (
     <section className={alt ? 'alt' : undefined}>
@@ -54,6 +59,7 @@ export function DecisionGrid({
             );
           })}
         </div>
+        {outro && <p className="table-note">{outro}</p>}
       </div>
     </section>
   );

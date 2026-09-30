@@ -56,8 +56,9 @@ export function FaqList({
   firstOpen = false,
   boldFirstSentence = false,
   alt = false,
-  // Defaults to "resources" so another section (e.g. a sources/reference link) can jump to
-  // "#resources" without every caller having to opt in; every page renders exactly one FaqList.
+  // Defaults to "resources" so another section (e.g. a sources/reference link, or
+  // /indoor-air-quality/'s decision cards) can jump to "#resources" without every caller having to
+  // opt in; every page renders exactly one FaqList.
   id = 'resources',
 }: {
   faqs: Faq[];

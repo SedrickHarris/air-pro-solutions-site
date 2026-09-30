@@ -13,7 +13,8 @@ export function SystemsGrid({
   // Anchor id and a trailing note line, added for /ductless-mini-split/, which reuses this component
   // for two card grids ("Where it fits" and "Systems we service") - the latter needs both an in-page
   // jump target (`href="#systems"` from the DecisionGrid) and a closing note with a link to the
-  // commercial-hvac page for rooftop/packaged equipment. Optional so every other caller is unaffected.
+  // commercial-hvac page for rooftop/packaged equipment. Also used by /indoor-air-quality/'s
+  // "#filtration" anchor. Optional so every other caller is unaffected.
   id,
   note,
 }: {
