@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Icon } from '@/components/ui/Icon';
 
 export function AppliesRow({
@@ -5,11 +6,13 @@ export function AppliesRow({
   eyebrow = "Who this is for",
   title,
   alt = false,
+  paragraph,
 }: {
   items: { label: string; icon: string }[];
   eyebrow?: string;
   title: string;
   alt?: boolean;
+  paragraph?: ReactNode; // optional copy (and links) rendered below the chip row
 }) {
   return (
     <section className={alt ? 'alt' : undefined}>
@@ -24,6 +27,7 @@ export function AppliesRow({
             </li>
           ))}
         </ul>
+        {paragraph && <p className="applies-row-note">{paragraph}</p>}
       </div>
     </section>
   );

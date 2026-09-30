@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Icon } from '@/components/ui/Icon';
 
 export type CompareGroup = { heading: string; icon: string; items: string[] };
@@ -6,6 +7,7 @@ export function CompareTable({
   intro,
   groups,
   note,
+  afterNote,
   eyebrow = 'Not sure which you need?',
   title,
   alt = true,
@@ -13,6 +15,7 @@ export function CompareTable({
   intro?: string;
   groups: CompareGroup[];
   note?: string;
+  afterNote?: ReactNode; // extra content rendered after `note` (e.g. a link to a related page)
   eyebrow?: string;
   title: string;
   alt?: boolean;
@@ -39,6 +42,7 @@ export function CompareTable({
           ))}
         </div>
         {note && <p className="compare-note">{note}</p>}
+        {afterNote}
       </div>
     </section>
   );

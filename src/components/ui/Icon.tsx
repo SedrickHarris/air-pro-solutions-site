@@ -29,6 +29,8 @@ const paths: Record<string, string> = {
   user: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0',
   plus: 'M12 5v14M5 12h14',
   x: 'M6 6l12 12M18 6L6 18',
+  thermometer: 'M12 3a2 2 0 0 0-2 2v9.5a4 4 0 1 0 4 0V5a2 2 0 0 0-2-2zM10 8h3',
+  droplet: 'M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z',
 };
 
 export function Icon({ name, size = 20 }: { name: string; size?: number }) {

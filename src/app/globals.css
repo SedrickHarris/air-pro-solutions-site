@@ -438,3 +438,85 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
   :root:not([data-theme='light']) .card-footnote a { color: var(--sky-400); }
 }
 :root[data-theme='dark'] .card-footnote a { color: var(--sky-400); }
+
+/* Urgency box (sections/UrgencyBox): amber-bordered callout, deliberately makes no response-time
+   or dispatch-hours promise - copy only, see CLAUDE.md. */
+.urgency-box { background: var(--amber-100); border: 1px solid var(--amber-600); border-radius: 14px; padding: 28px 32px; }
+.urgency-box-head { display: flex; align-items: center; gap: 12px; }
+.urgency-box-head svg { color: var(--eyebrow); flex-shrink: 0; }
+.urgency-box-head h2 { margin: 0; }
+.urgency-intro { font-weight: 700; margin: 1rem 0 0.5rem; }
+.urgency-box ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.urgency-box li { position: relative; padding-left: 18px; line-height: 1.5; color: var(--ink); }
+.urgency-box li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: var(--eyebrow); }
+.urgency-closing { margin: 1rem 0 0; font-size: 0.92rem; color: var(--ink-soft); }
+.urgency-box .cta-row { margin-top: 1.25rem; }
+
+/* Visit scope (sections/VisitScope): two-column included/extra-cost lists. No dollar figures. */
+.visit-scope { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 1.25rem; }
+.visit-scope-col { background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; box-shadow: var(--shadow); }
+.visit-scope-col h3 { margin: 0 0 0.9rem; font-size: 1.1rem; }
+.visit-scope-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.visit-scope-list li { display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; font-size: 0.92rem; color: var(--ink-soft); }
+.visit-scope-list svg { color: var(--eyebrow); flex-shrink: 0; margin-top: 2px; }
+.visit-scope-note { margin: 1rem 0 0; font-size: 0.85rem; color: var(--ink-soft); }
+
+/* Systems grid (sections/SystemsGrid): equipment-capability cards. */
+.systems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.25rem; }
+.systems-card { display: flex; flex-direction: column; gap: 10px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 20px; box-shadow: var(--shadow); }
+.systems-card h3 { margin: 0; font-size: 1.15rem; }
+.systems-card p { margin: 0; color: var(--ink-soft); font-size: 0.9rem; line-height: 1.5; }
+
+/* Refrigerant note (sections/RefrigerantNote): single-question explainer with a cited source. */
+.refrigerant-note { max-width: 75ch; }
+.refrigerant-note h2 { margin: 0 0 0.75rem; }
+.refrigerant-note p { line-height: 1.65; color: var(--ink-soft); }
+.refrigerant-source { margin-top: 1rem; font-size: 0.85rem; }
+.refrigerant-source a { color: var(--navy-700); font-weight: 600; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .refrigerant-source a { color: var(--sky-400); }
+}
+:root[data-theme='dark'] .refrigerant-source a { color: var(--sky-400); }
+
+/* Rules note (sections/RulesNote): three short licensing/permit/energy-code cards. */
+.rules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.25rem; }
+.rules-card p { margin: 0.5rem 0 0; color: var(--ink-soft); font-size: 0.9rem; line-height: 1.55; }
+
+/* Applies-row footnote paragraph (AppliesRow `paragraph` prop). */
+.applies-row-note { max-width: 70ch; margin-top: 1.25rem; line-height: 1.6; color: var(--ink-soft); }
+.applies-row-note a { color: var(--navy-700); font-weight: 600; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .applies-row-note a { color: var(--sky-400); }
+}
+:root[data-theme='dark'] .applies-row-note a { color: var(--sky-400); }
+
+/* Region-grid intro/closing copy (RegionGrid `intro`/`footer` props, used with conditional per-region
+   body copy instead of a repeated city list - see CLAUDE.md doorway-page rule). */
+.region-grid-intro p { max-width: 75ch; line-height: 1.65; color: var(--ink-soft); }
+.region-grid-intro p + p { margin-top: 0.75rem; }
+.region-grid-closing { margin-top: 1.5rem; font-size: 0.92rem; color: var(--ink-soft); }
+
+/* More-on-this-topic text-link row under RelatedRow's cards. */
+.more-links { margin-top: 1.5rem; font-size: 0.9rem; color: var(--ink-soft); }
+.more-links a { color: var(--navy-700); font-weight: 600; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .more-links a { color: var(--sky-400); }
+}
+:root[data-theme='dark'] .more-links a { color: var(--sky-400); }
+
+/* Sources list (sections/SourcesList): small government/standards citation list. */
+.sources-list { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 8px; font-size: 0.85rem; }
+.sources-list a { color: var(--navy-700); font-weight: 600; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .sources-list a { color: var(--sky-400); }
+}
+:root[data-theme='dark'] .sources-list a { color: var(--sky-400); }
+
+@media (max-width: 920px) {
+  .visit-scope { grid-template-columns: 1fr; }
+  .systems-grid, .rules-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .systems-grid, .rules-grid { grid-template-columns: 1fr; }
+  .urgency-box { padding: 22px 20px; }
+}

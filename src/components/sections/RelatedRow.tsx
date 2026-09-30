@@ -13,6 +13,7 @@ export function RelatedRow({
   intro,
   ctaLabel = 'View service',
   footerAction,
+  moreLinks,
   alt = true,
 }: {
   items: Item[];
@@ -21,6 +22,7 @@ export function RelatedRow({
   intro?: string;
   ctaLabel?: string;
   footerAction?: { label: string; href: string };
+  moreLinks?: { text: string; href: string }[]; // "More on this topic" text-link row; only include entries whose route already exists
   alt?: boolean;
 }) {
   return (
@@ -68,6 +70,17 @@ export function RelatedRow({
           <div className="cta-row cta-center">
             <Link className="btn btn-outline" href={footerAction.href}>{footerAction.label}</Link>
           </div>
+        )}
+        {moreLinks && moreLinks.length > 0 && (
+          <p className="more-links">
+            More on this topic:{' '}
+            {moreLinks.map((l, i) => (
+              <span key={l.text}>
+                <Link href={l.href}>{l.text}</Link>
+                {i < moreLinks.length - 1 ? ' · ' : ''}
+              </span>
+            ))}
+          </p>
         )}
       </div>
     </section>

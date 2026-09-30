@@ -9,14 +9,22 @@ import { Icon } from '@/components/ui/Icon';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { TrustStrip } from '@/components/sections/TrustStrip';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
+import { UrgencyBox } from '@/components/sections/UrgencyBox';
 import { SymptomGrid } from '@/components/sections/SymptomGrid';
+import { DiagnosisTable } from '@/components/sections/DiagnosisTable';
 import { ProcessList } from '@/components/sections/ProcessList';
+import { VisitScope } from '@/components/sections/VisitScope';
+import { SystemsGrid } from '@/components/sections/SystemsGrid';
+import { RefrigerantNote } from '@/components/sections/RefrigerantNote';
+import { PriceFactors } from '@/components/sections/PriceFactors';
 import { CompareTable } from '@/components/sections/CompareTable';
+import { RulesNote } from '@/components/sections/RulesNote';
 import { AppliesRow } from '@/components/sections/AppliesRow';
 import { RegionGrid } from '@/components/sections/RegionGrid';
 import { Proof } from '@/components/sections/Proof';
 import { RelatedRow } from '@/components/sections/RelatedRow';
 import { FaqList } from '@/components/sections/FaqList';
+import { SourcesList } from '@/components/sections/SourcesList';
 import { FinalCta } from '@/components/sections/FinalCta';
 import { breadcrumbSchema, faqSchema, jsonLd, serviceSchema } from '@/lib/schema';
 import { serviceMetadata, serviceTitle, serviceH1, assertH1 } from '@/lib/seo';
@@ -49,7 +57,7 @@ function HeroHeading({ h1, emphasis }: { h1: string; emphasis: string }) {
   );
 }
 
-const heroProof = [
+const defaultHeroProof = [
   { icon: 'shield', label: 'Licensed C-20 contractor' },
   { icon: 'building', label: 'Residential and commercial' },
   { icon: 'dollar', label: 'Upfront itemized pricing' },
@@ -130,7 +138,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
               <a className="btn btn-ghost" href={siteConfig.phoneHref}>Call {siteConfig.phone}</a>
             </div>
             <ul className="hero-proof hero-proof-2x2">
-              {heroProof.map((p) => (
+              {(page.heroProof ?? defaultHeroProof).map((p) => (
                 <li key={p.label}>
                   <span className="hero-proof-icon"><Icon name={p.icon} size={20} /></span>
                   {p.label}
@@ -161,6 +169,8 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         </div>
       </section>
 
+      {/* TODO(data): confirm the C-20 classification against the live CSLB record for #1126691 and
+          #50251 before launch. If it does not match, replace this cell with the classification on file. */}
       <TrustStrip
         stats={[
           { num: `${siteConfig.rating}★`, label: 'Google rating' },
@@ -172,9 +182,56 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       <AnswerBlock lead={page.answer.lead} body={page.answer.body} />
 
+      {page.urgency && (
+        <UrgencyBox
+          title={page.urgency.title}
+          intro={page.urgency.intro}
+          items={page.urgency.items}
+          closing={page.urgency.closing}
+          ctaLabel={page.ctaLabel}
+        />
+      )}
+
       <SymptomGrid items={s.symptoms} title={page.symptomsTitle} />
 
+      {page.diagnosis && (
+        <DiagnosisTable title="What your AC symptoms can mean" intro={page.diagnosisIntro} rows={page.diagnosis} />
+      )}
+
       <ProcessList steps={s.process} title={page.processTitle} />
+
+      {page.visitIncludes && page.visitExtra && (
+        <VisitScope
+          title={page.visitTitle ?? 'What is included and what can cost extra'}
+          includesTitle={page.visitIncludesTitle ?? 'What a visit may include'}
+          includes={page.visitIncludes}
+          extraTitle={page.visitExtraTitle ?? 'What can add to the cost'}
+          extra={page.visitExtra}
+          extraNote={page.visitExtraNote}
+        />
+      )}
+
+      {page.systems && (
+        <SystemsGrid title={page.systemsTitle ?? 'Systems we service'} intro={page.systemsIntro} items={page.systems} />
+      )}
+
+      {page.refrigerant && (
+        <RefrigerantNote
+          title={page.refrigerant.title}
+          body={page.refrigerant.body}
+          sourceLabel={page.refrigerant.sourceLabel}
+          sourceHref={page.refrigerant.sourceHref}
+        />
+      )}
+
+      {page.priceFactors && (
+        <PriceFactors
+          title={page.pricingTitle ?? 'What affects repair cost'}
+          intro={page.pricingIntro}
+          rows={page.priceFactors}
+          closing={page.pricingClosing}
+        />
+      )}
 
       {s.repairVsReplace && (
         <CompareTable
@@ -182,16 +239,61 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           groups={s.repairVsReplace.groups}
           note={s.repairVsReplace.note}
           title="Repair or replace?"
+          afterNote={
+            page.repairReplaceExtra && (
+              <>
+                {page.repairReplaceExtra.paragraphs.map((p) => (
+                  <p className="compare-note" key={p}>{p}</p>
+                ))}
+                <p className="compare-note">
+                  <Link className="link" href={page.repairReplaceExtra.linkHref}>{page.repairReplaceExtra.linkText}</Link>
+                </p>
+              </>
+            )
+          }
         />
       )}
 
-      <AppliesRow items={page.appliesTo} title={page.appliesTitle} />
+      {page.rules && (
+        <RulesNote title={page.rulesTitle ?? 'Licensing, permits, and energy-code basics'} items={page.rules} />
+      )}
+
+      <AppliesRow
+        items={page.appliesTo}
+        title={page.appliesTitle}
+        paragraph={
+          page.appliesParagraph && (
+            <>
+              {page.appliesParagraph}{' '}
+              {page.appliesLinks?.map((l, i) => (
+                <span key={l.href}>
+                  <Link className="link" href={l.href}>{l.label}</Link>
+                  {i < (page.appliesLinks?.length ?? 0) - 1 ? ' · ' : ''}
+                </span>
+              ))}
+            </>
+          )
+        }
+      />
 
       <RegionGrid
         eyebrow="Where we work"
         title={page.regionTitle}
-        intro="Air Pro Solutions serves four regions across Southern California. Don't see your city? Call us and we will confirm coverage."
+        showCities={!page.regionConditions}
+        bodyFor={page.regionConditions ? (slug) => page.regionConditions?.find((c) => c.regionSlug === slug)?.body ?? '' : undefined}
+        intro={
+          page.regionIntro ? (
+            <>
+              {page.regionIntro.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </>
+          ) : (
+            "Air Pro Solutions serves four regions across Southern California. Don't see your city? Call us and we will confirm coverage."
+          )
+        }
         linkLabel={(name) => `${page.regionLinkVerb} in ${name}`}
+        footer={page.regionClosing}
       />
 
       <Proof
@@ -208,9 +310,11 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         ]}
       />
 
-      <RelatedRow items={related} title="Explore related services" alt={false} />
+      <RelatedRow items={related} title="Explore related services" alt={false} moreLinks={page.moreLinks} />
 
-      <FaqList faqs={page.faqs} eyebrow="Direct answers" title={page.faqTitle} alt />
+      <FaqList faqs={page.faqs} eyebrow="Direct answers" title={page.faqTitle} alt firstOpen boldFirstSentence />
+
+      {page.sources && <SourcesList items={page.sources} />}
 
       <FinalCta title={page.finalCtaTitle} body={page.finalCtaBody} ghostLabel={page.ctaLabel} />
     </>
