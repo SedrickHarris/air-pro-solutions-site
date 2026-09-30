@@ -30,10 +30,17 @@ function linkify(text: string, links?: Faq['links']): ReactNode[] {
   return parts as ReactNode[];
 }
 
-// Optionally bolds the first sentence (split on the first ". "), still linkifying through both
-// halves so a link inside the first sentence (e.g. a phone number) still renders as a link.
-function renderAnswer(a: string, links: Faq['links'] | undefined, boldFirstSentence: boolean): ReactNode[] {
+// Optionally bolds a lead phrase, still linkifying through both halves so a link inside the lead
+// (e.g. a phone number) still renders as a link. `explicitBoldLead`, when given, is used verbatim as
+// the split point (needed when the approved bold lead spans more than one sentence, e.g. "No. The EPA
+// says ..." - the default heuristic below would stop at the first period). Otherwise falls back to
+// splitting on the first ". ".
+function renderAnswer(a: string, links: Faq['links'] | undefined, boldFirstSentence: boolean, explicitBoldLead?: string): ReactNode[] {
   if (!boldFirstSentence) return linkify(a, links);
+  if (explicitBoldLead && a.startsWith(explicitBoldLead)) {
+    const rest = a.slice(explicitBoldLead.length);
+    return [<strong key="bold-lead">{linkify(explicitBoldLead, links)}</strong>, ...linkify(rest, links)];
+  }
   const idx = a.indexOf('. ');
   if (idx === -1) return linkify(a, links);
   const boldPart = a.slice(0, idx + 1);
@@ -66,7 +73,7 @@ export function FaqList({
           {faqs.map((f, i) => (
             <details key={f.q} open={firstOpen && i === 0}>
               <summary>{f.q}</summary>
-              <p>{renderAnswer(f.a, f.links, boldFirstSentence)}</p>
+              <p>{renderAnswer(f.a, f.links, boldFirstSentence, f.boldLead)}</p>
             </details>
           ))}
         </div>

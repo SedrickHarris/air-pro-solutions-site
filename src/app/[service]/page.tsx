@@ -10,10 +10,12 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { TrustStrip } from '@/components/sections/TrustStrip';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
 import { UrgencyBox } from '@/components/sections/UrgencyBox';
+import { DecisionGrid } from '@/components/sections/DecisionGrid';
 import { SymptomGrid } from '@/components/sections/SymptomGrid';
 import { DiagnosisTable } from '@/components/sections/DiagnosisTable';
 import { ProcessList } from '@/components/sections/ProcessList';
 import { VisitScope } from '@/components/sections/VisitScope';
+import { DataTable } from '@/components/sections/DataTable';
 import { SystemsGrid } from '@/components/sections/SystemsGrid';
 import { RefrigerantNote } from '@/components/sections/RefrigerantNote';
 import { PriceFactors } from '@/components/sections/PriceFactors';
@@ -29,6 +31,7 @@ import { RebateCards } from '@/components/sections/RebateCards';
 import { FinalCta } from '@/components/sections/FinalCta';
 import { breadcrumbSchema, faqSchema, jsonLd, serviceSchema } from '@/lib/schema';
 import { serviceMetadata, serviceTitle, serviceH1, assertH1 } from '@/lib/seo';
+import { regions } from '@/content/regions';
 
 // Static export: only these params are generated.
 export const dynamicParams = false;
@@ -200,12 +203,23 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         stats={[
           { num: `${siteConfig.rating}★`, label: 'Google rating' },
           { num: String(siteConfig.reviewCount), label: 'Google reviews' },
-          { num: 'C-20', label: 'California licensed contractor' },
+          { num: 'C-20', label: page.trustStripLicenseLabel ?? 'California licensed contractor' },
           { num: '4', label: 'Southern California regions served' },
         ]}
       />
 
       <AnswerBlock lead={page.answer.lead} body={page.answer.body} />
+
+      {page.decision && (
+        <DecisionGrid
+          eyebrow={page.decision.eyebrow}
+          title={page.decision.title}
+          intro={page.decision.intro}
+          cards={page.decision.cards}
+          columns={page.decision.columns}
+          alt
+        />
+      )}
 
       {page.urgency && (
         <UrgencyBox
@@ -217,20 +231,29 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         />
       )}
 
-      <SymptomGrid
-        items={s.symptoms}
-        title={page.symptomsTitle}
-        intro={page.symptomsIntro}
-        note={
-          page.symptomsNote && (
-            <>
-              {page.symptomsNote.before}
-              <Link className="link" href={page.symptomsNote.linkHref}>{page.symptomsNote.linkLabel}</Link>
-              {page.symptomsNote.after}
-            </>
-          )
-        }
-      />
+      {/* "When to schedule" rule cards (e.g. ac-maintenance): occupies this slot instead of the
+          symptom grid on pages with no symptom-diagnosis content - see the `s.symptoms.length` guard
+          on SymptomGrid just below. */}
+      {page.timing && (
+        <RulesNote eyebrow={page.timing.eyebrow} title={page.timing.title} items={page.timing.cards} alt />
+      )}
+
+      {s.symptoms.length > 0 && (
+        <SymptomGrid
+          items={s.symptoms}
+          title={page.symptomsTitle ?? 'Common signs to watch for'}
+          intro={page.symptomsIntro}
+          note={
+            page.symptomsNote && (
+              <>
+                {page.symptomsNote.before}
+                <Link className="link" href={page.symptomsNote.linkHref}>{page.symptomsNote.linkLabel}</Link>
+                {page.symptomsNote.after}
+              </>
+            )
+          }
+        />
+      )}
 
       {page.diagnosis && (
         <DiagnosisTable title="What your AC symptoms can mean" intro={page.diagnosisIntro} rows={page.diagnosis} />
@@ -258,8 +281,26 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         <RefrigerantNote title={page.timeline.heading} body={page.timeline.body} />
       )}
 
+      {/* "Problems a routine visit can find early" (ac-maintenance): a DataTable-backed section with
+          a closing note/link, matching the incentives block's pattern below of composing a section
+          directly here rather than adding a whole new component for a single caller. */}
+      {page.catches && (
+        <section>
+          <div className="wrap">
+            <p className="eyebrow">{page.catches.eyebrow}</p>
+            <h2>{page.catches.title}</h2>
+            <p className="compare-intro">{page.catches.lead}</p>
+            <DataTable columns={page.catches.headings} rows={page.catches.rows} />
+            <p className="table-note">
+              {page.catches.afterText}
+              <Link className="link" href={page.catches.afterLinkHref}>{page.catches.afterLinkText}</Link>
+            </p>
+          </div>
+        </section>
+      )}
+
       {page.systems && (
-        <SystemsGrid title={page.systemsTitle ?? 'Systems we service'} intro={page.systemsIntro} items={page.systems} />
+        <SystemsGrid title={page.systemsTitle ?? 'Systems we service'} intro={page.systemsIntro} items={page.systems} alt={page.systemsAlt} />
       )}
 
       {page.refrigerant && (
@@ -271,6 +312,29 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         />
       )}
 
+      {/* Two-up explainer callouts (e.g. efficiency + R-410A on ac-maintenance), composed from two
+          "bare" RefrigerantNote panels inside one shared section/grid wrapper. Plain (not "alt")
+          background so it doesn't sit next to another alt-background section when `systemsAlt` is on. */}
+      {page.callouts && (
+        <section>
+          <div className="wrap">
+            <div className="callouts-grid">
+              {page.callouts.map((c) => (
+                <RefrigerantNote
+                  key={c.id}
+                  bare
+                  accent={c.accent}
+                  title={c.title}
+                  body={c.body}
+                  boldLead={c.boldLead}
+                  sourceText={c.sourceText}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {page.priceFactors && (
         <PriceFactors
           title={page.pricingTitle ?? 'What affects repair cost'}
@@ -279,6 +343,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           rows={page.priceFactors}
           closing={page.pricingClosing}
           notes={page.pricingNotes}
+          alt={page.pricingAlt}
         />
       )}
 
@@ -302,6 +367,25 @@ export default async function Page({ params }: { params: Promise<{ service: stri
                 linkHref: it.link.href,
               }))}
             />
+          </div>
+        </section>
+      )}
+
+      {/* Plain rebates callout (ac-maintenance): a single body paragraph plus a short external-link
+          list, distinct from the three-card `incentives` block above (used by ac-installation). */}
+      {page.rebatesNote && (
+        <section className="alt">
+          <div className="wrap">
+            <h2>{page.rebatesNote.title}</h2>
+            <p className="compare-intro">{page.rebatesNote.body}</p>
+            <p className="table-note">
+              {page.rebatesNote.links.map((l, i) => (
+                <span key={l.href}>
+                  <a className="link" href={l.href} target="_blank" rel="noopener noreferrer">{l.text}</a>
+                  {i < page.rebatesNote!.links.length - 1 ? ' · ' : ''}
+                </span>
+              ))}
+            </p>
           </div>
         </section>
       )}
@@ -340,7 +424,14 @@ export default async function Page({ params }: { params: Promise<{ service: stri
             "Air Pro Solutions serves four regions across Southern California. Don't see your city? Call us and we will confirm coverage."
           )
         }
-        linkLabel={(name) => `${page.regionLinkVerb} in ${name}`}
+        linkLabel={(name) => {
+          if (page.regionLinkLabels) {
+            const slug = regions.find((r) => r.name === name)?.slug;
+            const override = slug && page.regionLinkLabels[slug];
+            if (override) return override;
+          }
+          return `${page.regionLinkVerb} in ${name}`;
+        }}
         footer={page.regionClosing}
       />
 

@@ -11,6 +11,7 @@ export function PriceFactors({
   rows,
   closing,
   notes,
+  alt = false,
 }: {
   title: string;
   eyebrow?: string;
@@ -19,9 +20,10 @@ export function PriceFactors({
   rows: { item: string; drivers: string }[];
   closing?: string;
   notes?: string[]; // additional closing paragraphs, rendered after `closing`
+  alt?: boolean;
 }) {
   return (
-    <section>
+    <section className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

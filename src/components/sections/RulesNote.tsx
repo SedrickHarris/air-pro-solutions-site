@@ -4,13 +4,15 @@ export function RulesNote({
   title,
   eyebrow = 'Good to know',
   items,
+  alt = false,
 }: {
   title: string;
   eyebrow?: string;
   items: { title: string; body: string }[];
+  alt?: boolean;
 }) {
   return (
-    <section>
+    <section className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

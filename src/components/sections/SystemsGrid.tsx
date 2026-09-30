@@ -8,14 +8,16 @@ export function SystemsGrid({
   eyebrow = 'Equipment',
   intro,
   items,
+  alt = false,
 }: {
   title: string;
   eyebrow?: string;
   intro?: string;
   items: { name: string; body: string; icon: string; link?: { label: string; href: string } }[];
+  alt?: boolean;
 }) {
   return (
-    <section>
+    <section className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

@@ -19,6 +19,9 @@ export function DecisionGrid({
   intro,
   ctaLabel = 'Get started',
   alt = false,
+  // Card count on this page's grid isn't always a multiple of 3 (e.g. ac-maintenance's 4 decision
+  // cards); defaults to the original 3-column layout so every existing caller is unaffected.
+  columns = 3,
 }: {
   cards?: DecisionCard[];
   eyebrow?: string;
@@ -26,6 +29,7 @@ export function DecisionGrid({
   intro?: string;
   ctaLabel?: string;
   alt?: boolean;
+  columns?: 2 | 3 | 4;
 }) {
   return (
     <section className={alt ? 'alt' : undefined}>
@@ -33,7 +37,7 @@ export function DecisionGrid({
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
         {intro && <p>{intro}</p>}
-        <div className="decision-grid">
+        <div className={columns === 4 ? 'decision-grid decision-grid-4' : columns === 2 ? 'decision-grid decision-grid-2' : 'decision-grid'}>
           {cards.map((c) => {
             const body = (
               <>

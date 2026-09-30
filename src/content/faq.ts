@@ -1,8 +1,13 @@
 // Generic HVAC FAQs, direct answer first, then detail. City/service-specific FAQs live on their own pages.
 // The same array renders the page AND the FAQPage JSON-LD, so the two can never drift.
 // `links` marks substrings of `a` that render as inline links; the plain `a` text (fed to the schema) stays unchanged.
+// `boldLead`, when set, is the exact substring of `a` to render bold (see FaqList's `boldFirstSentence`
+// prop) instead of relying on the default "everything up to the first '. '" heuristic - needed when an
+// approved bold lead spans more than one sentence (e.g. "No. The EPA says ..."), where the heuristic
+// would stop bolding after the first period. Falls back to the heuristic when omitted, so every
+// existing Faq entry (ac-repair, ac-installation, /faq/) is unaffected.
 // TODO(copy): client review of every answer before launch. No business-specific numbers here.
-export type Faq = { q: string; a: string; links?: { text: string; href: string }[] };
+export type Faq = { q: string; a: string; links?: { text: string; href: string }[]; boldLead?: string };
 
 export const generalFaqs: Faq[] = [
   {

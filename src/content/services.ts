@@ -1,5 +1,7 @@
 import type { Faq } from '@/content/faq';
 import { acInstallationPage } from '@/content/ac-installation-page';
+import { acMaintenancePage } from '@/content/ac-maintenance-page';
+import type { DecisionCard } from '@/components/sections/DecisionGrid';
 
 export type ServiceImage = { src: string; alt: string };
 
@@ -15,7 +17,10 @@ export type ServicePage = {
   heroProof: { icon: string; label: string }[];
   serviceType: string; // schema.org Service.serviceType, e.g. "Air Conditioning Repair"
   ctaLabel: string; // e.g. "Schedule AC Repair" - reused for the hero primary button and final CTA ghost button
-  symptomsTitle: string;
+  // Optional because a page with no symptom-diagnosis content (e.g. ac-maintenance, which uses
+  // `decision` cards instead) skips SymptomGrid entirely - see the `s.symptoms.length` guard in
+  // src/app/[service]/page.tsx.
+  symptomsTitle?: string;
   processTitle: string;
   appliesTitle: string;
   regionTitle: string; // e.g. "AC repair across Southern California"
@@ -82,6 +87,54 @@ export type ServicePage = {
   // When true, the repair-vs-replace CompareTable renders right after the symptoms section instead
   // of its default position (after pricing). Defaults to false/undefined so ac-repair is unaffected.
   compareEarly?: boolean;
+
+  // --- Additional fields used by the /ac-maintenance/ template. Optional so every other service page
+  // (which does not set these) is unaffected. See the AC Maintenance build report for why these were
+  // added as new optional fields on the existing shape instead of a parallel content system. ---
+  // "Maintenance, repair, or replacement?" decision cards, rendered via DecisionGrid right after the
+  // quick-answer AnswerBlock.
+  decision?: { eyebrow: string; title: string; intro?: string; cards: DecisionCard[]; columns?: 2 | 3 | 4 };
+  // "When to schedule" rule cards, rendered via RulesNote in the same slot as SymptomGrid on pages
+  // that don't have symptom-diagnosis content (see `s.symptoms.length` guard in page.tsx).
+  timing?: { eyebrow: string; title: string; cards: { title: string; body: string }[] };
+  // Visual-rhythm overrides (Part 2 refinement pass): alternate the paper/paper-dim background on the
+  // systems and pricing sections so a long page doesn't run many same-background sections in a row.
+  // Optional and false by default so ac-repair/ac-installation's existing look is unchanged.
+  systemsAlt?: boolean;
+  pricingAlt?: boolean;
+  // "Problems a routine visit can find early" - a DataTable-backed section with a closing note/link,
+  // rendered right after VisitScope and before SystemsGrid.
+  catches?: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    headings: [string, string];
+    rows: [string, string][];
+    afterText: string;
+    afterLinkText: string;
+    afterLinkHref: string;
+  };
+  // A pair of RefrigerantNote-style explainer callouts (e.g. efficiency + R-410A), rendered side by
+  // side in one section right after the single `refrigerant` callout slot.
+  callouts?: {
+    id: string;
+    accent: 'sky' | 'amber';
+    title: string;
+    body: string;
+    boldLead?: string;
+    sourceText?: string;
+  }[];
+  // Plain rebates/incentives callout: one body paragraph plus a short list of external links.
+  // Distinct from `incentives` (three RebateCards with dollar-free per-program summaries), because
+  // this page's approved copy is a single paragraph with two links, not three cards.
+  rebatesNote?: { title: string; body: string; links: { text: string; href: string }[] };
+  // Per-region link label overrides for RegionGrid, keyed by region slug (from src/content/regions.ts).
+  // Falls back to the default "{regionLinkVerb} in {region name}" formula when unset, so every other
+  // service page is unaffected.
+  regionLinkLabels?: Record<string, string>;
+  // Overrides the hardcoded "California licensed contractor" trust-strip label (see page.tsx). Optional
+  // so ac-repair/ac-installation keep their existing wording.
+  trustStripLicenseLabel?: string;
 };
 
 export type Service = {
@@ -450,8 +503,30 @@ const baseServices: Service[] = [
     related: ['ac-repair', 'ac-maintenance', 'heat-pump-services', 'ductless-mini-split'],
     page: acInstallationPage,
   },
-  core('ac', 'ac-maintenance', 'AC Maintenance', 'calendar-check', { description: 'Seasonal tune-ups that check refrigerant levels, electrical components, and airflow before extreme heat arrives.',
-    image: card('ac-maintenance', 'Outdoor AC condenser unit beside a home with a service tool resting on the pad') }),
+  {
+    ...core('ac', 'ac-maintenance', 'AC Maintenance', 'calendar-check', {
+      // Per the AC Maintenance build spec, this card blurb is the hero lede verbatim. Note this is
+      // noticeably longer than every sibling card's one-sentence description (see /services/ and the
+      // homepage grid) - flagged in the build report as a possible follow-up to shorten for card
+      // layout consistency, since the spec was explicit about using the lede exactly here.
+      description:
+        'Air Pro Solutions provides AC maintenance for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. A pre-season tune-up checks controls, electrical connections, coils, the condensate drain, and airflow so small problems can be found early.',
+      image: card('ac-maintenance', 'Outdoor AC condenser unit beside a home with a service tool resting on the pad'),
+    }),
+    process: [
+      { title: 'Book', body: 'We ask about the property, the equipment and where it sits, any access limits, and whether cooling is working today.' },
+      { title: 'Identify', body: 'The technician confirms what you have: split system, heat pump, packaged unit, ductless, or commercial equipment.' },
+      { title: 'Inspect and test', body: 'Thermostat and controls, electrical connections, motors and moving parts, filter, and airflow are checked for safe operation.' },
+      { title: 'Cooling side', body: 'Indoor and outdoor coils, the condensate drain, and refrigerant level are inspected, and coils are cleaned where accessible.' },
+      // TODO(data): "explained and quoted separately" and approved before work begins - same
+      // unconfirmed-process status as the AC Repair page. See ac-maintenance-page.ts for the matching
+      // flags on the quick answer, FAQ, and cost note.
+      { title: 'Findings', body: 'Anything that needs repair is explained and quoted separately, and you approve it before work begins.' },
+      { title: 'Close out', body: 'We summarize what was checked and completed, give filter guidance, and talk through timing for the next visit.' },
+    ],
+    related: ['ac-repair', 'ac-installation', 'emergency-hvac'],
+    page: acMaintenancePage,
+  },
   core('heating', 'heating-repair', 'Heating Repair', 'flame', { description: "Diagnosis and repair for furnaces, heat pumps, and heating systems that won't turn on or heat unevenly.",
     image: card('heating-repair', 'Gas furnace and ductwork in a home utility closet') }),
   core('heating', 'furnace-installation', 'Furnace Installation', 'furnace', { description: 'Furnace installation and replacement for homes and businesses across Southern California.',

@@ -194,6 +194,8 @@ section.alt { background: var(--paper-dim); }
 .icon-chip { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 8px; background: var(--amber-100); color: var(--eyebrow); }
 .card-arrow { display: inline-flex; align-items: center; gap: 6px; color: var(--eyebrow); font-weight: 700; font-size: 0.9rem; margin-top: auto; }
 .decision-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.25rem; }
+.decision-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.decision-grid-2 { grid-template-columns: repeat(2, 1fr); }
 .decision-card { display: flex; flex-direction: column; gap: 10px; padding: 20px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); text-decoration: none; color: var(--ink); transition: transform 0.15s, border-color 0.15s; }
 .decision-card:hover { transform: translateY(-2px); border-color: var(--amber-500); }
 .decision-card h3 { margin: 0; font-size: 1.35rem; }
@@ -478,6 +480,13 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 }
 :root[data-theme='dark'] .refrigerant-source a { color: var(--sky-400); }
 
+/* Two-up callout grid (RefrigerantNote `bare`/`accent` props, e.g. ac-maintenance's efficiency + */
+/* R-410A callouts side by side). Each accent adds a colored left rule using existing tokens only. */
+.callouts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+.callouts-grid .refrigerant-note { max-width: none; }
+.refrigerant-note-sky { border-left: 3px solid var(--sky-500); padding-left: 20px; }
+.refrigerant-note-amber { border-left: 3px solid var(--amber-500); padding-left: 20px; }
+
 /* Rules note (sections/RulesNote): three short licensing/permit/energy-code cards. */
 .rules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.25rem; }
 .rules-card p { margin: 0.5rem 0 0; color: var(--ink-soft); font-size: 0.9rem; line-height: 1.55; }
@@ -517,6 +526,7 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
   .visit-scope { grid-template-columns: 1fr; }
   .systems-grid, .rules-grid { grid-template-columns: 1fr 1fr; }
   .sources-list-2col { grid-template-columns: 1fr; }
+  .callouts-grid { grid-template-columns: 1fr; gap: 24px; }
 }
 @media (max-width: 520px) {
   .systems-grid, .rules-grid { grid-template-columns: 1fr; }
