@@ -7,19 +7,24 @@ export function ProcessList({
   // "a straightforward replacement may be completed in a day..." timing note). Undefined for every
   // other caller, so ac-repair/ac-installation/ac-maintenance/heating-repair are unaffected.
   note,
+  // Optional desktop column-count override (e.g. AC Maintenance's 6-step process shown as 2x3
+  // instead of the default 5-wide grid, which would wrap unevenly for a 6-item list). Undefined for
+  // every other caller, so their layout is unchanged.
+  columns,
 }: {
   steps: { title: string; body: string }[];
   eyebrow?: string;
   title: string;
   alt?: boolean;
   note?: string;
+  columns?: 2 | 3 | 5;
 }) {
   return (
     <section className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
-        <ol className="process-list">
+        <ol className={columns ? `process-list process-list-${columns}` : 'process-list'}>
           {steps.map((s, i) => (
             <li key={s.title}>
               <span className="process-step-num">{String(i + 1).padStart(2, '0')}</span>

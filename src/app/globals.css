@@ -276,6 +276,10 @@ section.alt { background: var(--paper-dim); }
 
 /* Process list (sections/ProcessList) */
 .process-list { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+/* Optional column-count overrides (ProcessList `columns` prop) for step counts that don't fit the
+   default 5-wide grid evenly, e.g. AC Maintenance's 6-step process shown as 2x3. */
+.process-list-2 { grid-template-columns: repeat(2, 1fr); }
+.process-list-3 { grid-template-columns: repeat(3, 1fr); }
 .process-list li { display: flex; flex-direction: column; gap: 6px; }
 .process-step-num { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; color: var(--eyebrow); }
 .process-list h3 { margin: 0; font-size: 1.1rem; }

@@ -207,6 +207,10 @@ export type ServicePage = {
   };
   // Closing paragraph rendered below ProcessList's numbered steps (see the `note` prop added there).
   processNote?: string;
+  // Desktop column-count override for ProcessList (see the `columns` prop added there). Unset for
+  // every page except AC Maintenance, whose 6-step process renders 2x3 instead of the default 5-wide
+  // grid, which would wrap unevenly for a 6-item list.
+  processColumns?: 2 | 3 | 5;
   // A second VisitScope-shaped block rendered after the incentives/rebatesNote section (e.g.
   // furnace-installation's "Before you sign" proposal checklist) - distinct from the
   // visitIncludes/visitExtra pair above, which renders right after the process steps.

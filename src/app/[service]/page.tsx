@@ -354,7 +354,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       {page.systemsEarly && systemsBlock}
 
-      <ProcessList steps={s.process} title={page.processTitle} note={page.processNote} />
+      <ProcessList steps={s.process} title={page.processTitle} note={page.processNote} columns={page.processColumns} />
 
       {/* "Repair, seal, replace, or redesign?" (ductwork): a 3-column DataTable-backed section with
           a closing note/link, composed directly here the same way `catches` is below - the existing
