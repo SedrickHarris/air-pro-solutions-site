@@ -45,7 +45,9 @@ export async function generateMetadata({ params }: { params: Promise<{ service: 
   const { service } = await params;
   const s = getService(service);
   if (!s?.published || !s.page) return { robots: { index: false, follow: false } };
-  return serviceMetadata({ title: serviceTitle(s.name), description: s.page.metaDescription, path: `/${s.slug}/` });
+  // `metaServiceName` (e.g. /ductwork/'s "Ductwork Services") overrides the display string the
+  // title/H1 formulas build from; falls back to the real service name for every other page.
+  return serviceMetadata({ title: serviceTitle(s.page.metaServiceName ?? s.name), description: s.page.metaDescription, path: `/${s.slug}/` });
 }
 
 // Renders "{h1 text}" with the emphasis substring wrapped in the amber <em> hero treatment.
@@ -91,7 +93,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
   }
 
   const { page } = s;
-  const h1 = serviceH1(s.name);
+  const h1 = serviceH1(page.metaServiceName ?? s.name);
   assertH1(h1);
 
   const url = `${siteConfig.url}/${s.slug}/`;
@@ -105,7 +107,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
     ...s.related.map((relSlug) => {
       const rel = getService(relSlug);
       if (!rel) throw new Error(`Unknown related service slug on /${s.slug}/: ${relSlug}`);
-      return { name: page.relatedLabels?.[relSlug] ?? rel.name, href: `/${rel.slug}/`, icon: page.relatedIconOverrides?.[relSlug] ?? relatedIcons[relSlug] ?? rel.icon, image: rel.image };
+      return { name: page.relatedLabels?.[relSlug] ?? rel.name, href: `/${rel.slug}/`, icon: page.relatedIconOverrides?.[relSlug] ?? page.relatedIcons?.[relSlug] ?? relatedIcons[relSlug] ?? rel.icon, image: rel.image };
     }),
     // Pages that already list 4 related services (e.g. ac-installation) skip the auto-appended
     // Commercial HVAC card - it's still linked from the "More on this topic" row instead.
@@ -170,6 +172,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       {page.systems && (
         <SystemsGrid
           id={page.systemsId}
+          eyebrow={page.systemsEyebrow}
           title={page.systemsTitle ?? 'Systems we service'}
           intro={page.systemsIntro}
           items={page.systems}
@@ -333,6 +336,24 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       <ProcessList steps={s.process} title={page.processTitle} note={page.processNote} />
 
+      {/* "Repair, seal, replace, or redesign?" (ductwork): a 3-column DataTable-backed section with
+          a closing note/link, composed directly here the same way `catches` is below - the existing
+          CompareTable component's pros/cons layout doesn't fit a 4-row, 3-column decision table. */}
+      {page.optionsTable && (
+        <section id="options">
+          <div className="wrap">
+            <p className="eyebrow">{page.optionsTable.eyebrow}</p>
+            <h2>{page.optionsTable.title}</h2>
+            <p className="compare-intro">{page.optionsTable.lead}</p>
+            <DataTable columns={page.optionsTable.columns} rows={page.optionsTable.rows} />
+            <p className="table-note">
+              {page.optionsTable.noteBefore}
+              <Link className="link" href={page.optionsTable.noteLinkHref}>{page.optionsTable.noteLinkText}</Link>
+            </p>
+          </div>
+        </section>
+      )}
+
       {page.visitIncludes && page.visitExtra && (
         <VisitScope
           eyebrow={page.visitEyebrow ?? 'What to expect'}
@@ -380,6 +401,27 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       )}
 
       {!page.systemsEarly && systemsBlock}
+
+      {/* "Systems that use ductwork" (ductwork): a 2-column DataTable-backed section with a closing
+          link row, composed directly here the same way `optionsTable` is above and `catches` is
+          elsewhere on this page. */}
+      {page.equipmentTable && (
+        <section className={page.systemsAlt ? undefined : 'alt'}>
+          <div className="wrap">
+            <p className="eyebrow">{page.equipmentTable.eyebrow}</p>
+            <h2>{page.equipmentTable.title}</h2>
+            <DataTable columns={page.equipmentTable.columns} rows={page.equipmentTable.rows} />
+            <p className="more-links">
+              {page.equipmentTable.links.map((l, i) => (
+                <span key={l.href}>
+                  <Link href={l.href}>{l.text}</Link>
+                  {i < page.equipmentTable!.links.length - 1 ? ' · ' : ''}
+                </span>
+              ))}
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Generic 3+ column comparison table (e.g. furnace-installation's "Gas furnace or heat pump"),
           composed directly from the shared DataTable - the same "compose inline, don't add a

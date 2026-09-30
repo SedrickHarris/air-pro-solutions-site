@@ -5,6 +5,7 @@ import { heatingRepairPage } from '@/content/heating-repair-page';
 import { ductlessMiniSplitPage } from '@/content/ductless-mini-split-page';
 import { furnaceInstallationPage } from '@/content/furnace-installation-page';
 import { heatPumpServicesPage } from '@/content/heat-pump-services-page';
+import { ductworkPage } from '@/content/ductwork-page';
 import type { DecisionCard } from '@/components/sections/DecisionGrid';
 
 export type ServiceImage = { src: string; alt: string };
@@ -182,6 +183,8 @@ export type ServicePage = {
   // Overrides SymptomGrid's default "Signs you need this" eyebrow (page.tsx never passed an eyebrow
   // before this page, so every existing service page keeps that default).
   symptomsEyebrow?: string;
+  // Overrides SystemsGrid's default "Equipment" eyebrow (used for /ductwork/'s "Parts" grid).
+  systemsEyebrow?: string;
   // Overrides DiagnosisTable's second column header (see the causesHeading prop added there).
   diagnosisColumns?: [string, string];
   // A generic 3+ column comparison table (e.g. "Gas furnace or heat pump"), composed inline in
@@ -273,6 +276,45 @@ export type ServicePage = {
   // Single-paragraph warranty callout, rendered via RefrigerantNote (plain, no accent/source) right
   // after the licensing/permits `rules` section and before `incentives`.
   warranty?: { heading: string; body: string };
+
+  // --- Additional fields used by the /ductwork/ template. Optional so every other service page
+  // (which does not set these) is unaffected - see the Ductwork build report for why these were
+  // added as new optional fields on the existing shape instead of a parallel content system. ---
+  // Overrides the display name that serviceTitle()/serviceH1() (src/lib/seo.ts) build the page's
+  // title/H1 from. Falls back to the service's real `name` (used everywhere else: breadcrumbs, nav,
+  // related-service card default labels) when unset, so every other service page is unaffected. Added
+  // because Ductwork's approved title/H1 keyword is "Ductwork Services in Los Angeles ...", one word
+  // longer than the site's actual service name "Ductwork" (which the breadcrumb and other pages'
+  // related-link text must keep using unchanged).
+  metaServiceName?: string;
+  // Per-related-card icon override, keyed by the related service's slug. Falls back to
+  // `relatedIconOverrides` above, then the page-level `relatedIcons` map in
+  // src/app/[service]/page.tsx, then the related service's own `icon`, so every other service page's
+  // related row is unaffected.
+  relatedIcons?: Record<string, string>;
+  // "Repair, seal, replace, or redesign?" 3-column comparison table, rendered right after the process
+  // steps and before the included/extra scope section, via a DataTable-backed block composed
+  // directly in src/app/[service]/page.tsx (matching the existing `catches` composition pattern).
+  optionsTable?: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    columns: [string, string, string];
+    rows: [string, string, string][];
+    noteBefore: string;
+    noteLinkText: string;
+    noteLinkHref: string;
+  };
+  // "Systems that use ductwork" 2-column comparison table with a closing link row, rendered right
+  // after the parts grid (the `systems` field) and before the `refrigerant`/`callouts` slot, via the
+  // same DataTable composition pattern as `optionsTable`.
+  equipmentTable?: {
+    eyebrow: string;
+    title: string;
+    columns: [string, string];
+    rows: [string, string][];
+    links: { text: string; href: string }[];
+  };
 };
 
 export type Service = {
@@ -816,8 +858,28 @@ const baseServices: Service[] = [
     related: ['ac-installation', 'ac-repair', 'ac-maintenance', 'heat-pump-services'],
     page: ductlessMiniSplitPage,
   },
-  core('ductwork', 'ductwork', 'Ductwork', 'duct', { description: 'Duct inspection, sealing, repair, and design for uneven airflow, energy loss, and air quality issues.',
-    image: card('ductwork', 'Insulated flexible ducts and a galvanized duct plenum in a residential attic') }),
+  {
+    ...core('ductwork', 'ductwork', 'Ductwork', 'duct', { description: 'Duct inspection, sealing, repair, and design for uneven airflow, energy loss, and air quality issues.',
+      image: card('ductwork', 'Insulated flexible ducts and a galvanized duct plenum in a residential attic') }),
+    symptoms: [
+      { lead: 'A room stays hot or cold.', detail: 'A restricted, disconnected, undersized, leaking, or poorly routed supply or return path can be the cause. So can the equipment, so it needs an inspection.' },
+      { lead: 'Weak airflow from the vents.', detail: 'Collapsed or kinked flex duct, a blockage, an undersized duct, or leakage can be behind it. A dirty filter or an equipment issue can look the same.' },
+      { lead: 'High cooling or heating bills.', detail: 'Duct leakage, poor insulation, and ducts in unconditioned space can waste conditioned air. Equipment condition and the building envelope also matter.' },
+      { lead: 'Stuffy or dusty rooms.', detail: 'Too little supply or return air, or leaks that pull air from an attic or crawlspace, can contribute. We do not diagnose air-quality causes without testing.' },
+      { lead: 'Whistling, rattling, or banging.', detail: 'Excess pressure, a restrictive grille, a loose duct, or a poor transition can make noise. Damaged duct can too.' },
+      { lead: 'Sagging, crushed, torn, or disconnected duct.', detail: 'This is physical duct failure. The affected runs are repaired or replaced, with a wider look if it keeps happening.' },
+    ],
+    process: [
+      { title: 'Book', body: 'We ask about the symptoms, the property, where the ducts run, and any recent equipment or remodel work.' },
+      { title: 'Inspect', body: 'The technician inspects accessible supply and return ducts, plenums, boots, registers, insulation, connections, and flex-duct routing, including attic or crawlspace conditions.' },
+      { title: 'Diagnose', body: 'Damage, leakage, sizing, return air, insulation, and equipment are separated so the right problem gets fixed. Concealed ducts may need more investigation.' },
+      { title: 'Recommend', body: 'You get a repair, seal, replace, or redesign recommendation, with what is included, what is optional, and what may need a permit.' },
+      { title: 'Do the work', body: 'Reconnect or replace runs, correct kinks, seal connections, replace insulation, plenums, or returns, or install new runs.' },
+      { title: 'Close out', body: 'Connections are checked visually, system operation is confirmed, and you get a summary of the work and any compliance steps.' },
+    ],
+    related: ['ac-repair', 'ac-installation', 'heating-repair', 'ductless-mini-split'],
+    page: ductworkPage,
+  },
   core('indoor-air-quality', 'indoor-air-quality', 'Indoor Air Quality', 'air', { description: 'Air filtration, purification, and humidity solutions that improve the air circulating through your space.',
     image: card('indoor-air-quality', 'Air purifier, return vent grille, and a clean pleated filter in a bright living room') }),
   // TODO(data): the "Emergency" name and slug imply urgent availability; confirm the service is always-on or rename.

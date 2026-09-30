@@ -56,6 +56,9 @@ export function FaqList({
   firstOpen = false,
   boldFirstSentence = false,
   alt = false,
+  // Defaults to "resources" so another section (e.g. a sources/reference link) can jump to
+  // "#resources" without every caller having to opt in; every page renders exactly one FaqList.
+  id = 'resources',
 }: {
   faqs: Faq[];
   title?: string;
@@ -63,9 +66,10 @@ export function FaqList({
   firstOpen?: boolean;
   boldFirstSentence?: boolean;
   alt?: boolean;
+  id?: string;
 }) {
   return (
-    <section className={alt ? 'alt' : undefined}>
+    <section id={id} className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

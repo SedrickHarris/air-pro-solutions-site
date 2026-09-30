@@ -16,6 +16,9 @@ export function RegionGrid({
   showCities = true,
   bodyFor,
   footer,
+  // Defaults to "areas" so a decision-grid or nav link elsewhere on the same page can jump to
+  // "#areas" without every caller having to opt in; every page renders exactly one RegionGrid.
+  id = 'areas',
 }: {
   eyebrow?: string;
   title?: string;
@@ -24,9 +27,10 @@ export function RegionGrid({
   showCities?: boolean;
   bodyFor?: (regionSlug: string) => string;
   footer?: ReactNode; // e.g. "Don't see your city? Call us..." rendered below the card grid
+  id?: string;
 }) {
   return (
-    <section className="alt">
+    <section id={id} className="alt">
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

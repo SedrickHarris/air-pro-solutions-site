@@ -32,6 +32,9 @@ const paths: Record<string, string> = {
   thermometer: 'M12 3a2 2 0 0 0-2 2v9.5a4 4 0 1 0 4 0V5a2 2 0 0 0-2-2zM10 8h3',
   droplet: 'M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z',
   doc: 'M7 3h9l4 4v14H7zM16 3v4h4M9 12h6M9 16h6',
+  // Added for the /ductwork/ related-services row (Furnace Repair card) - see build report.
+  flag: 'M5 21V4M5 4h13l-3 4 3 4H5',
+  gauge: 'M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18zM12 12l4-4M8 16l.01.01',
 };
 
 export function Icon({ name, size = 20 }: { name: string; size?: number }) {
