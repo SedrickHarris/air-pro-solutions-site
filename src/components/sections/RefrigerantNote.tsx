@@ -14,8 +14,16 @@
 //   can place two of these inside one shared section/grid wrapper.
 export function RefrigerantNote({
   title,
+  // Optional lead paragraph rendered BEFORE the boldLead+body paragraph (e.g. /heat-pump-services/'s
+  // R-410A callout, whose approved copy states the new-install rule first, then bolds "Existing
+  // R-410A systems are not banned." as its own sentence, then continues). Undefined for every other
+  // caller, whose boldLead already opens the panel.
+  introBody,
   body,
   boldLead,
+  // Optional second paragraph (e.g. /furnace-installation/'s "Furnace only, or the whole system?"
+  // callout, which needs two paragraphs before the source line). Undefined for every other caller.
+  body2,
   sourceLabel,
   sourceHref,
   sourceText,
@@ -23,8 +31,10 @@ export function RefrigerantNote({
   bare = false,
 }: {
   title: string;
+  introBody?: string;
   body: string;
   boldLead?: string;
+  body2?: string;
   sourceLabel?: string;
   sourceHref?: string;
   sourceText?: string;
@@ -34,7 +44,9 @@ export function RefrigerantNote({
   const panel = (
     <div className={`refrigerant-note${accent ? ` refrigerant-note-${accent}` : ''}`}>
       <h2>{title}</h2>
+      {introBody && <p>{introBody}</p>}
       <p>{boldLead ? <><strong>{boldLead}</strong>{body}</> : body}</p>
+      {body2 && <p>{body2}</p>}
       {sourceLabel && sourceHref && (
         <p className="refrigerant-source">
           Source: <a href={sourceHref} rel="noopener">{sourceLabel}</a>

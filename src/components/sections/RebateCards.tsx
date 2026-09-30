@@ -1,5 +1,10 @@
 export type RebateCard = {
   amount: string;
+  // Small caption above `amount`, added for /furnace-installation/, whose incentives have both a
+  // program name (SoCalGas, LADWP, TECH Clean California) and a real dollar headline - `amount`
+  // holds the headline and `label` holds the program name. Omitted everywhere else, where `amount`
+  // is the program name itself (no confirmed dollar figure to show).
+  label?: string;
   description: string;
   // Omitted when no official source URL has been verified yet (see docs/open-items.md); the card
   // then renders with no link rather than pointing at an unverified page.
@@ -18,6 +23,7 @@ export function RebateCards({ cards }: { cards: RebateCard[] }) {
       {cards.map((c) => (
         <div className="rebate-card" key={c.amount}>
           {c.verifyTag && <span className="verify-tag">{c.verifyTag}</span>}
+          {c.label && <p className="label">{c.label}</p>}
           <p className="amt">{c.amount}</p>
           <p className="desc">{c.description}</p>
           {c.linkHref && c.linkLabel && (

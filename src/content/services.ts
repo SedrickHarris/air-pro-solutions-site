@@ -2,6 +2,9 @@ import type { Faq } from '@/content/faq';
 import { acInstallationPage } from '@/content/ac-installation-page';
 import { acMaintenancePage } from '@/content/ac-maintenance-page';
 import { heatingRepairPage } from '@/content/heating-repair-page';
+import { ductlessMiniSplitPage } from '@/content/ductless-mini-split-page';
+import { furnaceInstallationPage } from '@/content/furnace-installation-page';
+import { heatPumpServicesPage } from '@/content/heat-pump-services-page';
 import type { DecisionCard } from '@/components/sections/DecisionGrid';
 
 export type ServiceImage = { src: string; alt: string };
@@ -35,7 +38,10 @@ export type ServicePage = {
 
   // --- Expanded /ac-repair/ template fields below. All optional so the other nine core services
   // (which still only carry the fields above, or none of them) keep building as noindex stubs. ---
-  urgency?: { title: string; intro: string; items: string[]; closing: string };
+  // ctaLabel added for /heat-pump-services/, whose approved "Request a Diagnosis" urgency-box button
+  // reads differently from the page's primary "Schedule Heat Pump Service" CTA. Optional so every
+  // other caller (whose urgency box already reuses `page.ctaLabel`) is unaffected.
+  urgency?: { title: string; intro: string; items: string[]; closing: string; ctaLabel?: string };
   diagnosisIntro?: string;
   diagnosis?: { notices: string; causes: string }[];
   visitTitle?: string;
@@ -50,7 +56,14 @@ export type ServicePage = {
   // sourceLabel/sourceHref render a linked "Source: ..." line; sourceText (added for /heating-repair/,
   // which cites two sources with no single URL to link) renders a plain, non-linked line instead when
   // sourceHref is absent - mirrors the sourceText/boldLead options RefrigerantNote already supports.
-  refrigerant?: { title: string; body: string; boldLead?: string; sourceLabel?: string; sourceHref?: string; sourceText?: string };
+  // accent/body2 added for /furnace-installation/'s "Furnace only, or the whole system?" callout
+  // (sky-accented panel, two paragraphs before the source line). Optional so every other caller
+  // (a plain, unaccented, single-paragraph panel) is unaffected.
+  // introBody added for /heat-pump-services/'s R-410A callout, whose approved copy states the
+  // new-install rule first, then bolds "Existing R-410A systems are not banned." as its own leading
+  // sentence, then continues - one paragraph more than boldLead+body alone can express. Optional so
+  // every other caller (whose boldLead already opens the panel) is unaffected.
+  refrigerant?: { title: string; introBody?: string; body: string; boldLead?: string; body2?: string; sourceLabel?: string; sourceHref?: string; sourceText?: string; accent?: 'sky' | 'amber' };
   pricingTitle?: string;
   pricingIntro?: string;
   priceFactors?: { item: string; drivers: string }[];
@@ -91,8 +104,16 @@ export type ServicePage = {
   incentives?: {
     eyebrow: string;
     heading: string;
-    lead: string;
-    items: { name: string; body: string; link: { label: string; href: string; external?: boolean } }[];
+    // Made optional for /furnace-installation/, whose approved copy has no intro sentence between
+    // the heading and the cards - every existing caller still supplies one.
+    lead?: string;
+    // headline/closingNote added for /furnace-installation/: `headline` is a confirmed dollar figure
+    // shown as the card's big number (RebateCards' `amount`), with the program `name` demoted to a
+    // small label above it, and `closingNote` is a paragraph rendered below the whole card row.
+    // Both optional so ac-installation/heating-repair (which show the program name as the big
+    // number and have no closing paragraph) are unaffected.
+    items: { name: string; headline?: string; body: string; link: { label: string; href: string; external?: boolean } }[];
+    closingNote?: string;
   };
   proofHeading?: string; // overrides the shared Proof section heading
   proofBody?: string; // overrides the shared Proof section body
@@ -153,6 +174,105 @@ export type ServicePage = {
   // the target service's real `name` (see the "HVAC Maintenance" -> /ac-maintenance/ TODO(copy) in
   // heating-repair-page.ts). Optional so every other service page's related row is unaffected.
   relatedLabels?: Record<string, string>;
+
+  // --- Additional fields used by the /furnace-installation/ template. All optional so ac-repair,
+  // ac-installation, ac-maintenance, and heating-repair (none of which set these) are unaffected. See
+  // the Furnace Installation build report for why these were added as new optional fields on the
+  // existing shape instead of a parallel content system. ---
+  // Overrides SymptomGrid's default "Signs you need this" eyebrow (page.tsx never passed an eyebrow
+  // before this page, so every existing service page keeps that default).
+  symptomsEyebrow?: string;
+  // Overrides DiagnosisTable's second column header (see the causesHeading prop added there).
+  diagnosisColumns?: [string, string];
+  // A generic 3+ column comparison table (e.g. "Gas furnace or heat pump"), composed inline in
+  // page.tsx from the shared DataTable component - the same "compose directly, don't add a
+  // single-purpose section component" pattern already used for `catches` below.
+  comparisonTable?: {
+    // Anchor id added for /heat-pump-services/'s "Repair or replace your heat pump" table, which a
+    // DecisionGrid card jumps to via `href="#repair-replace"`. Optional so every other caller (with
+    // no in-page jump link to this section) is unaffected.
+    id?: string;
+    eyebrow: string;
+    title: string;
+    intro?: string;
+    columns: string[];
+    rows: string[][];
+    note?: string;
+  };
+  // Closing paragraph rendered below ProcessList's numbered steps (see the `note` prop added there).
+  processNote?: string;
+  // A second VisitScope-shaped block rendered after the incentives/rebatesNote section (e.g.
+  // furnace-installation's "Before you sign" proposal checklist) - distinct from the
+  // visitIncludes/visitExtra pair above, which renders right after the process steps.
+  checklist?: {
+    eyebrow: string;
+    title: string;
+    includesTitle: string;
+    includes: string[];
+    includesIcon?: string;
+    extraTitle: string;
+    extra: string[];
+    extraIcon?: string;
+  };
+  // Overrides AppliesRow's default "Who this is for" eyebrow (page.tsx never passed an eyebrow
+  // before this page, so every existing service page keeps that default).
+  appliesEyebrow?: string;
+  // Overrides SourcesList's default (no eyebrow above "Sources").
+  sourcesEyebrow?: string;
+  // Per-related-card icon override (keyed by the related service's slug), analogous to
+  // `relatedLabels` above but for the icon instead of the name - needed because the shared
+  // `relatedIcons` map in page.tsx is used by every service page's related row and can't be changed
+  // per page without affecting ac-installation's and heating-repair's already-shipped related cards.
+  relatedIconOverrides?: Record<string, string>;
+
+  // --- Additional fields used by the /ductless-mini-split/ template. All optional so every other
+  // service page (none of which set these) is unaffected. See the Ductless Mini-Split build report
+  // for why these were added as new optional fields on the existing shape instead of a parallel
+  // content system. ---
+  // Anchor id for the SymptomGrid section, needed so this page's "Start here" DecisionGrid can jump
+  // to `#signs`. Optional so every other caller (with no in-page jump links) is unaffected.
+  symptomsId?: string;
+  // "Where it fits" card grid, rendered via SystemsGrid alongside (and normally right before) the
+  // main `systems` grid below. Kept as a separate field because this page needs two distinct
+  // SystemsGrid-shaped sections rather than one.
+  fitGrid?: { id?: string; eyebrow: string; title: string; intro?: string; items: { name: string; body: string; icon: string; link?: { label: string; href: string } }[] };
+  // Anchor id and a trailing note-with-link for the main `systems` SystemsGrid, needed so this page's
+  // "Start here" DecisionGrid can jump to `#systems` and so the section can point readers to
+  // /commercial-hvac/ for rooftop/packaged equipment. Optional so every other caller is unaffected.
+  systemsId?: string;
+  systemsNote?: { before: string; linkLabel: string; linkHref: string; after?: string };
+  // When true, renders `fitGrid` and `systems` right after the diagnosis table and before the process
+  // steps, instead of their default position (after the visit-scope section, before the refrigerant
+  // callout) - matching this page's approved content order. Defaults to false/undefined so every
+  // other service page's section order is unaffected.
+  systemsEarly?: boolean;
+  // A simple 3-column layout-comparison table (Option / Often fits / Plan for), composed inline from
+  // the shared DataTable - the same "compose directly, don't add a single-purpose component" pattern
+  // already used for `catches` and `comparisonTable`. Distinct from `comparisonTable` only in that it
+  // has a single closing note instead of an intro + optional note, matching this page's approved copy.
+  layoutTable?: { eyebrow: string; title: string; note?: string; columns: string[]; rows: string[][] };
+  // Overrides the shared CompareTable's default eyebrow ("Not sure which you need?") and the
+  // hardcoded "Repair or replace?" title in page.tsx. Optional so every other service page keeps its
+  // existing generic heading.
+  compareEyebrow?: string;
+  compareTitle?: string;
+
+  // --- Additional fields used by the /heat-pump-services/ template. All optional so every other
+  // service page (none of which set these) is unaffected. See the Heat Pump Services build report for
+  // why these were added as new optional fields on the existing shape instead of a parallel content
+  // system. ---
+  // "How a heat pump heats, cools, and defrosts" - three short explainer cards, rendered via RulesNote
+  // right after the urgency box and before the symptoms/diagnosis section. Distinct from `timing`
+  // (which occupies the SymptomGrid slot) and `rules` (licensing/permits, rendered after pricing).
+  basics?: { eyebrow: string; heading: string; cards: { title: string; body: string }[] };
+  // Closing line rendered below the DiagnosisTable (e.g. a link to AC repair/heating repair for
+  // single-mode-only symptoms). Two links, unlike the single-link `symptomsNote`/`systemsNote` shape,
+  // so it gets its own small dedicated shape rather than a generic rich-text array. Optional so every
+  // other DiagnosisTable caller (ac-repair, heating-repair, furnace-installation) is unaffected.
+  diagnosisNote?: { before: string; linkLabel: string; linkHref: string; middle: string; linkLabel2: string; linkHref2: string; after?: string };
+  // Single-paragraph warranty callout, rendered via RefrigerantNote (plain, no accent/source) right
+  // after the licensing/permits `rules` section and before `incentives`.
+  warranty?: { heading: string; body: string };
 };
 
 export type Service = {
@@ -593,12 +713,109 @@ const baseServices: Service[] = [
     related: ['furnace-installation', 'heat-pump-services', 'ac-maintenance', 'ductwork'],
     page: heatingRepairPage,
   },
-  core('heating', 'furnace-installation', 'Furnace Installation', 'furnace', { description: 'Furnace installation and replacement for homes and businesses across Southern California.',
-    image: card('furnace-installation', 'Modern gas furnace beside an older furnace in a home utility closet with ductwork above') }),
-  core('heat-pump', 'heat-pump-services', 'Heat Pump Services', 'heat-pump', { description: 'Installation, repair, and maintenance for heat pump systems that handle both heating and cooling.',
-    image: card('heat-pump-services', 'Outdoor heat pump unit mounted on the exterior wall of a home') }),
-  core('ductless', 'ductless-mini-split', 'Ductless Mini-Split', 'mini-split', { description: 'Ductless mini-split installation and service for additions, garages, and homes without central ductwork.',
-    image: card('ductless-mini-split', 'Wall-mounted ductless mini-split indoor unit in a bright living space') }),
+  {
+    ...core('heating', 'furnace-installation', 'Furnace Installation', 'furnace', { description: 'Furnace installation and replacement for homes and businesses across Southern California.',
+      image: card('furnace-installation', 'Modern gas furnace beside an older furnace in a home utility closet with ductwork above') }),
+    symptoms: [
+      { lead: 'Repeated no-heat events', detail: 'or a furnace that fails to start' },
+      { lead: 'Uneven heating', detail: 'from room to room' },
+      { lead: 'Excess noise, vibration, or blower cycling', detail: 'that repeats' },
+      { lead: 'A furnace that runs constantly', detail: 'without reaching the thermostat setting' },
+      { lead: 'Repairs getting more frequent', detail: 'or a repair quote that is large for the age and condition of the unit' },
+      { lead: 'A planned AC or heat pump change', detail: 'that affects which furnace or air handler you can keep' },
+    ],
+    process: [
+      { title: 'Intake', body: 'The contractor asks whether this is a no-heat problem, a safety concern, or a planned replacement, plus equipment age, fuel type, and whether the home has central ducts.' },
+      { title: 'Assess on site', body: 'The technician inspects the furnace, airflow path, filter cabinet, controls, gas connection, venting, electrical disconnect, and access.' },
+      { title: 'Size and select', body: 'Capacity and compatibility come from the home and its ducts, not only from the old furnace nameplate.' },
+      { title: 'Written proposal', body: 'Model or tier, AFUE, compatible equipment, permit handling, disposal, duct or venting changes, controls, and exclusions are spelled out.' },
+      { title: 'Remove and install', body: 'The old unit comes out and the new one is set, then connected to ducts, gas, electrical, venting, drainage where needed, and controls.' },
+      { title: 'Start up and close out', body: 'The installer commissions the equipment, checks airflow and heating operation, explains filters, and completes required inspection or verification.' },
+    ],
+    related: ['heating-repair', 'heat-pump-services', 'ac-installation', 'ductwork'],
+    page: furnaceInstallationPage,
+  },
+  {
+    ...core('heat-pump', 'heat-pump-services', 'Heat Pump Services', 'heat-pump', { description: 'Installation, repair, and maintenance for heat pump systems that handle both heating and cooling.',
+      image: card('heat-pump-services', 'Outdoor heat pump unit mounted on the exterior wall of a home') }),
+    // TODO(data): the build spec gave 8 short symptom lines as flat strings ("Runs but does not heat
+    // or cool enough", etc.), but Service.symptoms needs {lead, detail} pairs (see ac-repair for the
+    // shape), and this page's locked section order (Hero -> ... -> Basics -> Symptoms table ->
+    // Process -> ...) specifies only one combined symptoms section - the two-column DiagnosisTable
+    // below, not a separate SymptomGrid card grid. Splitting each string into an invented lead/detail
+    // pair would fabricate a division not in the brief, and populating this array would also render an
+    // unspecified extra SymptomGrid section. Left empty; the same 8 lines appear verbatim as the "What
+    // you notice" column of the DiagnosisTable in heat-pump-services-page.ts instead. See the build
+    // report for this reconciliation.
+    symptoms: [],
+    process: [
+      { title: 'Book', body: 'We ask about the property, the equipment and where it sits, any access limits, and what the system is doing today.' },
+      { title: 'Identify', body: 'The technician confirms the system type, equipment model, refrigerant labeling, and whether the outdoor unit is running.' },
+      { title: 'Airflow and electrical', body: 'Filter, blower, coils, ducts, contactors, capacitors, wiring, sensors, and thermostat communication are checked.' },
+      { title: 'Heating and cooling test', body: 'Operation is tested in the relevant mode and, where safe, changeover between heating and cooling is confirmed.' },
+      { title: 'Findings', body: 'The fault, the repair options, and the condition of the equipment are explained. Repairs are quoted and approved before work begins.' },
+      { title: 'Close out', body: 'Approved work is completed and tested, and any permit, compliance, and warranty paperwork that applies is passed on to you.' },
+    ],
+    // TODO(data): the build spec's repairVsReplace copy is a flat array of single-sentence rows (e.g.
+    // "What failed: a single isolated part favors repair, while a failed major component such as the
+    // compressor favors a replacement quote"), which does not fit the {heading, icon, items}x2 groups
+    // shape CompareTable/Service.repairVsReplace expects (see ac-repair/ac-installation for that
+    // shape). The fuller, more presentable version of the same content - a 5-row, 3-column
+    // Question/Repair/Replace table - is rendered on the page instead, via the page content module's
+    // `repairReplace` field (composed inline through the shared DataTable, the same pattern already
+    // used for furnace-installation's `comparisonTable`). Left null here since no matrix or hub page
+    // currently reads this service's repairVsReplace. See the build report for this reconciliation.
+    repairVsReplace: null,
+    related: ['ac-repair', 'heating-repair', 'ductless-mini-split', 'ac-maintenance'],
+    page: heatPumpServicesPage,
+  },
+  {
+    ...core('ductless', 'ductless-mini-split', 'Ductless Mini-Split', 'mini-split', { description: 'Ductless mini-split installation and service for additions, garages, and homes without central ductwork.',
+      image: card('ductless-mini-split', 'Wall-mounted ductless mini-split indoor unit in a bright living space') }),
+    symptoms: [
+      { lead: 'Weak or warm air', detail: 'from the indoor head, even when the system is running' },
+      { lead: 'One zone behaving differently', detail: 'from another on a multi-zone system' },
+      { lead: 'Water dripping', detail: 'from the indoor unit or the wall around it' },
+      { lead: 'An error code, unexpected stops,', detail: 'or repeated restarts' },
+      { lead: 'Unusual noise', detail: 'or an outdoor unit that does not run' },
+      { lead: 'A breaker that trips', detail: 'when the system starts, or odors or moisture around the indoor head' },
+    ],
+    process: [
+      { title: 'Request', body: 'You describe the room, the comfort problem, the existing HVAC, and whether this is new, replacement, or repair.' },
+      { title: 'Assess', body: 'A technician looks at room size, insulation, glazing, sun exposure, head and outdoor-unit locations, condensate routing, line-set path, and electrical capacity.' },
+      { title: 'Design and size', body: "The system type and capacity follow the property's load, not a square-footage rule of thumb." },
+      { title: 'Scope and permit', body: 'A written scope lists the equipment, zones, electrical work, condensate, penetrations, permit responsibility, and exclusions.' },
+      { title: 'Install', body: 'Indoor heads and the outdoor unit are mounted, insulated lines and controls routed, drainage and power connected, then the system is tested, evacuated, and charged per the manufacturer.' },
+      { title: 'Commission and hand off', body: 'Heating, cooling, airflow, drainage, and controls are verified, and you get a walkthrough of filters, controls, and maintenance. Any required inspection follows.' },
+    ],
+    repairVsReplace: {
+      note: 'There is no fixed threshold. The decision depends on the diagnosis, equipment age, repair scope, refrigerant, and warranty status. We diagnose first, then explain the repair and replacement options.',
+      groups: [
+        {
+          heading: 'Repair may make sense when',
+          icon: 'wrench',
+          items: [
+            'The fault is isolated and has been diagnosed',
+            'The equipment is relatively new or under warranty',
+            'Parts and refrigerant service are available for the system',
+            'The layout still serves the rooms you use',
+          ],
+        },
+        {
+          heading: 'Replacement may make sense when',
+          icon: 'refresh',
+          items: [
+            'The system needs repeated or major repairs',
+            'The equipment is near or past its expected life',
+            'Parts or service support are hard to find',
+            'The rooms or zones have changed and the layout needs a redesign',
+          ],
+        },
+      ],
+    },
+    related: ['ac-installation', 'ac-repair', 'ac-maintenance', 'heat-pump-services'],
+    page: ductlessMiniSplitPage,
+  },
   core('ductwork', 'ductwork', 'Ductwork', 'duct', { description: 'Duct inspection, sealing, repair, and design for uneven airflow, energy loss, and air quality issues.',
     image: card('ductwork', 'Insulated flexible ducts and a galvanized duct plenum in a residential attic') }),
   core('indoor-air-quality', 'indoor-air-quality', 'Indoor Air Quality', 'air', { description: 'Air filtration, purification, and humidity solutions that improve the air circulating through your space.',

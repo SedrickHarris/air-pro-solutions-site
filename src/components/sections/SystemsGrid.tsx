@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import { Icon } from '@/components/ui/Icon';
 
 // Equipment-capability card grid. Intentionally conservative: no brand names, no "all makes and
@@ -9,15 +10,23 @@ export function SystemsGrid({
   intro,
   items,
   alt = false,
+  // Anchor id and a trailing note line, added for /ductless-mini-split/, which reuses this component
+  // for two card grids ("Where it fits" and "Systems we service") - the latter needs both an in-page
+  // jump target (`href="#systems"` from the DecisionGrid) and a closing note with a link to the
+  // commercial-hvac page for rooftop/packaged equipment. Optional so every other caller is unaffected.
+  id,
+  note,
 }: {
   title: string;
   eyebrow?: string;
   intro?: string;
   items: { name: string; body: string; icon: string; link?: { label: string; href: string } }[];
   alt?: boolean;
+  id?: string;
+  note?: ReactNode;
 }) {
   return (
-    <section className={alt ? 'alt' : undefined}>
+    <section id={id} className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
@@ -32,6 +41,7 @@ export function SystemsGrid({
             </div>
           ))}
         </div>
+        {note && <p className="compare-note">{note}</p>}
       </div>
     </section>
   );

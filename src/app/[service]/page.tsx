@@ -105,7 +105,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
     ...s.related.map((relSlug) => {
       const rel = getService(relSlug);
       if (!rel) throw new Error(`Unknown related service slug on /${s.slug}/: ${relSlug}`);
-      return { name: page.relatedLabels?.[relSlug] ?? rel.name, href: `/${rel.slug}/`, icon: relatedIcons[relSlug] ?? rel.icon, image: rel.image };
+      return { name: page.relatedLabels?.[relSlug] ?? rel.name, href: `/${rel.slug}/`, icon: page.relatedIconOverrides?.[relSlug] ?? relatedIcons[relSlug] ?? rel.icon, image: rel.image };
     }),
     // Pages that already list 4 related services (e.g. ac-installation) skip the auto-appended
     // Commercial HVAC card - it's still linked from the "More on this topic" row instead.
@@ -135,7 +135,8 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       intro={s.repairVsReplace.intro}
       groups={s.repairVsReplace.groups}
       note={s.repairVsReplace.note}
-      title="Repair or replace?"
+      eyebrow={page.compareEyebrow}
+      title={page.compareTitle ?? 'Repair or replace?'}
       afterNote={
         page.repairReplaceExtra && (
           <>
@@ -149,6 +150,42 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         )
       }
     />
+  );
+
+  // "Where it fits" + "Systems we service" card grids (ductless-mini-split). Normally rendered in the
+  // same slot as every other page's `systems` grid (after the visit-scope section, before the
+  // refrigerant callout); `page.systemsEarly` moves both right after the diagnosis table instead, to
+  // match this page's approved content order. See `page.fitGrid`/`page.systemsId`/`page.systemsNote`.
+  const systemsBlock = (
+    <>
+      {page.fitGrid && (
+        <SystemsGrid
+          id={page.fitGrid.id}
+          eyebrow={page.fitGrid.eyebrow}
+          title={page.fitGrid.title}
+          intro={page.fitGrid.intro}
+          items={page.fitGrid.items}
+        />
+      )}
+      {page.systems && (
+        <SystemsGrid
+          id={page.systemsId}
+          title={page.systemsTitle ?? 'Systems we service'}
+          intro={page.systemsIntro}
+          items={page.systems}
+          alt={page.systemsAlt}
+          note={
+            page.systemsNote && (
+              <>
+                {page.systemsNote.before}
+                <Link className="link" href={page.systemsNote.linkHref}>{page.systemsNote.linkLabel}</Link>
+                {page.systemsNote.after}
+              </>
+            )
+          }
+        />
+      )}
+    </>
   );
 
   return (
@@ -227,8 +264,16 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           intro={page.urgency.intro}
           items={page.urgency.items}
           closing={page.urgency.closing}
-          ctaLabel={page.ctaLabel}
+          ctaLabel={page.urgency.ctaLabel ?? page.ctaLabel}
         />
+      )}
+
+      {/* "How a heat pump heats, cools, and defrosts" (heat-pump-services): three short explainer
+          cards, rendered via RulesNote right after the urgency box and before the symptoms/diagnosis
+          section. Distinct from `timing` below (occupies the SymptomGrid slot) and `rules` (licensing/
+          permits, rendered after pricing). */}
+      {page.basics && (
+        <RulesNote eyebrow={page.basics.eyebrow} title={page.basics.heading} items={page.basics.cards} />
       )}
 
       {/* "When to schedule" rule cards (e.g. ac-maintenance): occupies this slot instead of the
@@ -241,6 +286,8 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       {s.symptoms.length > 0 && (
         <SymptomGrid
           items={s.symptoms}
+          eyebrow={page.symptomsEyebrow}
+          id={page.symptomsId}
           title={page.symptomsTitle ?? 'Common signs to watch for'}
           intro={page.symptomsIntro}
           note={
@@ -263,6 +310,18 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           eyebrow={page.diagnosisEyebrow}
           intro={page.diagnosisIntro}
           rows={page.diagnosis}
+          causesHeading={page.diagnosisColumns?.[1]}
+          note={
+            page.diagnosisNote && (
+              <>
+                {page.diagnosisNote.before}
+                <Link className="link" href={page.diagnosisNote.linkHref}>{page.diagnosisNote.linkLabel}</Link>
+                {page.diagnosisNote.middle}
+                <Link className="link" href={page.diagnosisNote.linkHref2}>{page.diagnosisNote.linkLabel2}</Link>
+                {page.diagnosisNote.after}
+              </>
+            )
+          }
         />
       )}
 
@@ -270,7 +329,9 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           page can opt into showing it here instead, right after the symptoms section. */}
       {page.compareEarly && compareBlock}
 
-      <ProcessList steps={s.process} title={page.processTitle} />
+      {page.systemsEarly && systemsBlock}
+
+      <ProcessList steps={s.process} title={page.processTitle} note={page.processNote} />
 
       {page.visitIncludes && page.visitExtra && (
         <VisitScope
@@ -286,6 +347,18 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       {page.timeline && (
         <RefrigerantNote title={page.timeline.heading} body={page.timeline.body} />
+      )}
+
+      {/* "Single-zone, multi-zone, or concealed ducted?" layout table (ductless-mini-split), composed
+          inline from the shared DataTable - the same pattern as `catches`/`comparisonTable` below. */}
+      {page.layoutTable && (
+        <section>
+          <div className="wrap">
+            <p className="eyebrow">{page.layoutTable.eyebrow}</p>
+            <h2>{page.layoutTable.title}</h2>
+            <DataTable columns={page.layoutTable.columns} rows={page.layoutTable.rows} note={page.layoutTable.note} />
+          </div>
+        </section>
       )}
 
       {/* "Problems a routine visit can find early" (ac-maintenance): a DataTable-backed section with
@@ -306,18 +379,33 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         </section>
       )}
 
-      {page.systems && (
-        <SystemsGrid title={page.systemsTitle ?? 'Systems we service'} intro={page.systemsIntro} items={page.systems} alt={page.systemsAlt} />
+      {!page.systemsEarly && systemsBlock}
+
+      {/* Generic 3+ column comparison table (e.g. furnace-installation's "Gas furnace or heat pump"),
+          composed directly from the shared DataTable - the same "compose inline, don't add a
+          single-purpose component" pattern already used for `catches` above. */}
+      {page.comparisonTable && (
+        <section id={page.comparisonTable.id}>
+          <div className="wrap">
+            <p className="eyebrow">{page.comparisonTable.eyebrow}</p>
+            <h2>{page.comparisonTable.title}</h2>
+            {page.comparisonTable.intro && <p className="compare-intro">{page.comparisonTable.intro}</p>}
+            <DataTable columns={page.comparisonTable.columns} rows={page.comparisonTable.rows} note={page.comparisonTable.note} />
+          </div>
+        </section>
       )}
 
       {page.refrigerant && (
         <RefrigerantNote
           title={page.refrigerant.title}
+          introBody={page.refrigerant.introBody}
           body={page.refrigerant.body}
           boldLead={page.refrigerant.boldLead}
+          body2={page.refrigerant.body2}
           sourceLabel={page.refrigerant.sourceLabel}
           sourceHref={page.refrigerant.sourceHref}
           sourceText={page.refrigerant.sourceText}
+          accent={page.refrigerant.accent}
         />
       )}
 
@@ -362,22 +450,45 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         <RulesNote eyebrow={page.rulesEyebrow} title={page.rulesTitle ?? 'Licensing, permits, and energy-code basics'} items={page.rules} />
       )}
 
+      {/* Single-paragraph warranty callout (heat-pump-services), rendered as a plain (no accent, no
+          source) RefrigerantNote panel between licensing/permits and rebates. */}
+      {page.warranty && (
+        <RefrigerantNote title={page.warranty.heading} body={page.warranty.body} />
+      )}
+
       {page.incentives && (
         <section>
           <div className="wrap">
             <p className="eyebrow">{page.incentives.eyebrow}</p>
             <h2>{page.incentives.heading}</h2>
-            <p className="compare-intro">{page.incentives.lead}</p>
+            {page.incentives.lead && <p className="compare-intro">{page.incentives.lead}</p>}
             <RebateCards
               cards={page.incentives.items.map((it) => ({
-                amount: it.name,
+                amount: it.headline ?? it.name,
+                label: it.headline ? it.name : undefined,
                 description: it.body,
                 linkLabel: it.link.label,
                 linkHref: it.link.href,
               }))}
             />
+            {page.incentives.closingNote && <p className="table-note">{page.incentives.closingNote}</p>}
           </div>
         </section>
+      )}
+
+      {/* Second VisitScope-shaped block (e.g. furnace-installation's "Before you sign" proposal
+          checklist), distinct from the visitIncludes/visitExtra pair rendered earlier. */}
+      {page.checklist && (
+        <VisitScope
+          eyebrow={page.checklist.eyebrow}
+          title={page.checklist.title}
+          includesTitle={page.checklist.includesTitle}
+          includes={page.checklist.includes}
+          includesIcon={page.checklist.includesIcon}
+          extraTitle={page.checklist.extraTitle}
+          extra={page.checklist.extra}
+          extraIcon={page.checklist.extraIcon}
+        />
       )}
 
       {/* Plain rebates callout (ac-maintenance): a single body paragraph plus a short external-link
@@ -401,6 +512,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       <AppliesRow
         items={page.appliesTo}
+        eyebrow={page.appliesEyebrow}
         title={page.appliesTitle}
         paragraph={
           page.appliesParagraph && (
@@ -462,7 +574,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       <FaqList faqs={page.faqs} eyebrow="Direct answers" title={page.faqTitle} alt firstOpen boldFirstSentence />
 
-      {page.sources && <SourcesList items={page.sources} columns={page.sourcesColumns} />}
+      {page.sources && <SourcesList items={page.sources} columns={page.sourcesColumns} eyebrow={page.sourcesEyebrow} />}
 
       <FinalCta title={page.finalCtaTitle} body={page.finalCtaBody} ghostLabel={page.ctaLabel} />
     </>

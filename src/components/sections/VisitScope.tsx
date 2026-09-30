@@ -10,6 +10,12 @@ export function VisitScope({
   extraTitle,
   extra,
   extraNote,
+  // Icon overrides for each column, added so /furnace-installation/ can reuse this component for its
+  // "Before you sign" proposal checklist (a put-in-writing / questions-to-ask pair, not an
+  // includes/cost-extras pair). Default to the original check/dollar icons so every existing caller
+  // (ac-repair, ac-installation, ac-maintenance, heating-repair) is unaffected.
+  includesIcon = 'check',
+  extraIcon = 'dollar',
 }: {
   title: string;
   eyebrow?: string;
@@ -18,6 +24,8 @@ export function VisitScope({
   extraTitle: string;
   extra: string[];
   extraNote?: string;
+  includesIcon?: string;
+  extraIcon?: string;
 }) {
   return (
     <section className="alt">
@@ -30,7 +38,7 @@ export function VisitScope({
             <ul className="visit-scope-list">
               {includes.map((item) => (
                 <li key={item}>
-                  <Icon name="check" size={16} />
+                  <Icon name={includesIcon} size={16} />
                   {item}
                 </li>
               ))}
@@ -41,7 +49,7 @@ export function VisitScope({
             <ul className="visit-scope-list">
               {extra.map((item) => (
                 <li key={item}>
-                  <Icon name="dollar" size={16} />
+                  <Icon name={extraIcon} size={16} />
                   {item}
                 </li>
               ))}

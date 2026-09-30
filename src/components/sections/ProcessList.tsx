@@ -3,11 +3,16 @@ export function ProcessList({
   eyebrow = 'How it works',
   title,
   alt = false,
+  // Optional closing paragraph rendered below the numbered list (e.g. /furnace-installation/'s
+  // "a straightforward replacement may be completed in a day..." timing note). Undefined for every
+  // other caller, so ac-repair/ac-installation/ac-maintenance/heating-repair are unaffected.
+  note,
 }: {
   steps: { title: string; body: string }[];
   eyebrow?: string;
   title: string;
   alt?: boolean;
+  note?: string;
 }) {
   return (
     <section className={alt ? 'alt' : undefined}>
@@ -23,6 +28,7 @@ export function ProcessList({
             </li>
           ))}
         </ol>
+        {note && <p className="table-note">{note}</p>}
       </div>
     </section>
   );

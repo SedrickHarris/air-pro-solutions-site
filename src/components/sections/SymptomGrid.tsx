@@ -8,6 +8,10 @@ export function SymptomGrid({
   intro,
   note,
   alt = true,
+  // Anchor id, added for /ductless-mini-split/'s "Start here" DecisionGrid, which jumps to this
+  // section via `href="#signs"`. Optional so every other caller (which has no in-page jump links) is
+  // unaffected.
+  id,
 }: {
   items: { lead: string; detail: string }[];
   eyebrow?: string;
@@ -15,9 +19,10 @@ export function SymptomGrid({
   intro?: string; // optional lead paragraph rendered between the h2 and the card grid
   note?: ReactNode; // optional line rendered below the card grid (e.g. a link to a related page)
   alt?: boolean;
+  id?: string;
 }) {
   return (
-    <section className={alt ? 'alt' : undefined}>
+    <section id={id} className={alt ? 'alt' : undefined}>
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
