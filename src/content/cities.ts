@@ -163,13 +163,22 @@ const torranceOverrides: Partial<City> = {
   },
 };
 
-// Map-card images for cities that appear in a nearby-areas row before they have their own page.
-const cardImages: Record<string, ServiceImage> = {
-  'redondo-beach-ca': { src: '/images/locations/cards/redondo-beach-ca.webp', alt: 'Map showing the Redondo Beach, CA service area' },
-  'manhattan-beach-ca': { src: '/images/locations/cards/manhattan-beach-ca.webp', alt: 'Map showing the Manhattan Beach, CA service area' },
-  'gardena-ca': { src: '/images/locations/cards/gardena-ca.webp', alt: 'Map showing the Gardena, CA service area' },
-  'carson-ca': { src: '/images/locations/cards/carson-ca.webp', alt: 'Map showing the Carson, CA service area' },
-};
+// Map-card image for every city, used in nearby-areas rows (and city-page heroes once a city has
+// real content). Source files (1300x676) live in public/images/locations/<region-slug>/.
+const cardImages: Record<string, ServiceImage> = Object.fromEntries(
+  regionCityNames.flatMap((r) =>
+    r.cityNames.map((name) => {
+      const slug = citySlug(name);
+      return [
+        slug,
+        {
+          src: `/images/locations/${r.slug}/air-pro-solutions-hvac-service-area-map-${slug}.webp`,
+          alt: `Map showing the ${name}, CA service area`,
+        },
+      ];
+    }),
+  ),
+);
 
 export const cities: City[] = baseCities.map((c) => {
   const withOverrides = c.slug === 'torrance-ca' ? { ...c, ...torranceOverrides } : c;

@@ -3,7 +3,7 @@ export type RegionImage = { src: string; alt: string };
 export type Region = {
   slug: string;
   name: string;
-  image: RegionImage; // 800x416 map card; originals (2600x1352) live in public/images/locations/<slug>/
+  image: RegionImage; // 800x416 map card; source files (1300x676) live in public/images/locations/<slug>/
   cities: string[]; // city slugs (end in -ca), keys into cities.ts
 };
 
@@ -24,7 +24,10 @@ export const regionCityNames = regionData;
 export const regions: Region[] = regionData.map((r) => ({
   slug: r.slug,
   name: r.name,
-  image: { src: `/images/locations/cards/${r.slug}.webp`, alt: `Map showing the ${r.name} service area` },
+  image: {
+    src: `/images/locations/${r.slug}/air-pro-solutions-hvac-service-area-map-${r.slug}-ca.webp`,
+    alt: `Map showing the ${r.name} service area`,
+  },
   cities: r.cityNames.map(citySlug),
 }));
 

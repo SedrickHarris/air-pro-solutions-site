@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { siteConfig } from '@/content/site-config';
 import { southBayHub, southBayServiceCards } from '@/content/south-bay';
+import { getRegion, citySlug } from '@/content/regions';
+import { getCity } from '@/content/cities';
 import { renderBold } from '@/lib/markdown';
 import { Icon } from '@/components/ui/Icon';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
@@ -49,6 +52,7 @@ export default function Page() {
 
   const serviceCards = southBayServiceCards();
   const offers = serviceCards.slice(0, 5).map((c) => c.name);
+  const heroImage = getRegion('south-bay')?.image;
 
   const schema = [
     serviceSchema({
@@ -86,13 +90,22 @@ export default function Page() {
               ))}
             </ul>
           </div>
-          <div className="photo-pending hero-photo">
-            <Icon name="pin" size={32} />
-            <span className="photo-tag">Photo pending</span>
-            <span className="photo-caption photo-caption-band photo-caption-silver">
-              <strong>{southBayHub.hero.photoCaptionTitle}</strong> {southBayHub.hero.photoCaptionBody}
-            </span>
-          </div>
+          {heroImage ? (
+            <div className="hero-photo">
+              <Image src={heroImage.src} alt={heroImage.alt} width={1200} height={900} sizes="(max-width: 920px) 100vw, 45vw" priority />
+              <span className="photo-caption photo-caption-band photo-caption-silver">
+                <strong>{southBayHub.hero.photoCaptionTitle}</strong> {southBayHub.hero.photoCaptionBody}
+              </span>
+            </div>
+          ) : (
+            <div className="photo-pending hero-photo">
+              <Icon name="pin" size={32} />
+              <span className="photo-tag">Photo pending</span>
+              <span className="photo-caption photo-caption-band photo-caption-silver">
+                <strong>{southBayHub.hero.photoCaptionTitle}</strong> {southBayHub.hero.photoCaptionBody}
+              </span>
+            </div>
+          )}
         </div>
       </section>
 
@@ -219,12 +232,19 @@ export default function Page() {
           </p>
           <div className="services-grid">
             {southBayHub.cities.items.map((c) => {
+              const image = getCity(citySlug(c.name))?.cardImage;
               const body = (
                 <>
-                  <div className="photo-pending svc-card-img">
-                    <Icon name="pin" size={28} />
-                    <span className="photo-tag">Photo pending</span>
-                  </div>
+                  {image ? (
+                    <div className="svc-card-img">
+                      <Image src={image.src} alt={image.alt} width={800} height={600} sizes="(max-width: 520px) 100vw, (max-width: 920px) 50vw, 25vw" />
+                    </div>
+                  ) : (
+                    <div className="photo-pending svc-card-img">
+                      <Icon name="pin" size={28} />
+                      <span className="photo-tag">Photo pending</span>
+                    </div>
+                  )}
                   <div className="svc-card-body">
                     <h3>{c.name}</h3>
                     <p>{c.note}</p>

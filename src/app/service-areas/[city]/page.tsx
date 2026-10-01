@@ -60,6 +60,15 @@ export default async function Page({ params }: { params: Promise<{ city: string 
     return (
       <>
         <PageHeader eyebrow="Service area" title={city.name} />
+        {city.cardImage && (
+          <section>
+            <div className="wrap">
+              <div className="hero-photo" style={{ maxWidth: 640 }}>
+                <Image src={city.cardImage.src} alt={city.cardImage.alt} width={1200} height={900} sizes="(max-width: 640px) 100vw, 640px" />
+              </div>
+            </div>
+          </section>
+        )}
         <section>
           <div className="wrap">
             <PendingNote>full local details for {city.name} are in progress.</PendingNote>

@@ -1,9 +1,11 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { siteConfig } from '@/content/site-config';
 import {
   hubDescription, hubHero, hubTrust, hubAnswer, hubRegions, hubTableRows, hubTableNote,
   hubCityIndexNote, hubProof, hubFaqs, hubFinalCta,
 } from '@/content/service-area-hub';
+import { getRegion } from '@/content/regions';
 import { Icon } from '@/components/ui/Icon';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { TrustStrip } from '@/components/sections/TrustStrip';
@@ -96,12 +98,20 @@ export default function Page() {
           <h2>Four regions, each with its own climate, utility, and permit rules</h2>
           <p>Pick the region that includes your city. Each page lists the cities we cover there and what changes from one to the next.</p>
           <div className="region-grid">
-            {hubRegions.map((r) => (
+            {hubRegions.map((r) => {
+              const image = getRegion(r.slug)?.image;
+              return (
               <div className="region-card" key={r.slug}>
-                <div className="photo-pending region-card-img">
-                  <Icon name="pin" size={28} />
-                  <span className="photo-tag">Photo pending</span>
-                </div>
+                {image ? (
+                  <div className="region-card-img">
+                    <Image src={image.src} alt={image.alt} width={800} height={416} sizes="(max-width: 920px) 100vw, 25vw" />
+                  </div>
+                ) : (
+                  <div className="photo-pending region-card-img">
+                    <Icon name="pin" size={28} />
+                    <span className="photo-tag">Photo pending</span>
+                  </div>
+                )}
                 <div className="region-card-body">
                   <h3>{r.name}</h3>
                   <p>{r.description}</p>
@@ -115,7 +125,8 @@ export default function Page() {
                   </Link>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
