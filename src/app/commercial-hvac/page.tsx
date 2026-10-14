@@ -54,7 +54,7 @@ export default function Page() {
   const url = `${siteConfig.url}/commercial-hvac/`;
   const crumbs = [{ name: 'Home', href: '/' }, { name: 'Commercial HVAC' }];
 
-  const serviceCards: Card[] = commercialServices.map((s) => ({ href: s.href, name: s.name, description: s.body, icon: s.icon, image: getService(s.slug)?.image }));
+  const serviceCards: Card[] = commercialServices.map((s) => ({ href: s.href, name: s.name, description: s.body, icon: s.icon, image: s.image ?? getService(s.slug)?.image }));
 
   const schema = [
     serviceSchema({
@@ -94,9 +94,8 @@ export default function Page() {
           </div>
           <div className="hero-photo">
             <Image src={commercialHero.image.src} alt={commercialHero.image.alt} width={1200} height={900} sizes="(max-width: 920px) 100vw, 45vw" priority />
-            <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-lg photo-caption-silver">
-              <span className="cap-title"><strong>{commercialHero.photoCaption.title}</strong></span>
-              {commercialHero.photoCaption.detail}
+            <span className="photo-caption photo-caption-band photo-caption-oneline photo-caption-silver">
+              <strong>{commercialHero.photoCaption.title}</strong> {commercialHero.photoCaption.detail}
             </span>
           </div>
         </div>
@@ -129,6 +128,7 @@ export default function Page() {
         cards={serviceCards}
         eyebrow="Core commercial services"
         title="Everything your properties need, one call away"
+        columns={3}
       />
 
       <ProcessList
@@ -161,9 +161,6 @@ export default function Page() {
               </Link>
             ))}
           </div>
-          <p className="pending" data-pending="phase-0">
-            <strong>Note:</strong> confirmed city list per region, pending client service-area confirmation.
-          </p>
         </div>
       </section>
 

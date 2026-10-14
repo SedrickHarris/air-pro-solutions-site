@@ -186,6 +186,7 @@ export default function Page() {
         eyebrow="Start here"
         title="What's going on with your system?"
         intro="Jump straight to the kind of service you need, or browse every service below."
+        columns={5}
       />
 
       <section id="cooling" className="alt">

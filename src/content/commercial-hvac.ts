@@ -65,13 +65,14 @@ export const whyUs: DecisionCard[] = [
   { icon: 'doc-check', title: 'Documentation on request', body: 'Certificate of insurance, licensing, and service history available for property management and ownership records.' },
 ];
 
-export const commercialServices: { slug: string; name: string; body: string; icon: string; href: string }[] = [
+export const commercialServices: { slug: string; name: string; body: string; icon: string; href: string; image?: { src: string; alt: string } }[] = [
   { slug: 'ac-repair', name: 'Rooftop Package Unit Service', body: 'Diagnosis, repair, and replacement of rooftop package units for offices, retail, and industrial buildings.', icon: 'snowflake', href: '/services/ac-repair/' },
   { slug: 'ac-maintenance', name: 'Preventive Maintenance Agreements', body: 'Scheduled tune-ups and inspections that extend equipment life and reduce emergency calls.', icon: 'calendar-check', href: '/services/ac-maintenance/' },
   { slug: 'ac-installation', name: 'Commercial Installation & Replacement', body: 'Properly sized commercial systems with an itemized estimate before any work begins.', icon: 'wrench', href: '/services/ac-installation/' },
   // TODO(claims): 24/7 is unconfirmed.
   { slug: 'emergency-hvac', name: 'Emergency HVAC Repair', body: '24/7 dispatch for no-cool and no-heat outages that threaten business operations.', icon: 'alert', href: '/services/emergency-hvac/' },
-  { slug: 'contact', name: 'Multi-Site & Portfolio Service', body: 'Consolidated scheduling, service history, and invoicing across every property you manage.', icon: 'buildings', href: '/contact/' },
+  { slug: 'contact', name: 'Multi-Site & Portfolio Service', body: 'Consolidated scheduling, service history, and invoicing across every property you manage.', icon: 'buildings', href: '/contact/',
+    image: { src: '/images/services/cards/multi-site-commercial.webp', alt: 'Aerial view of a commercial business park with office buildings, retail, apartments, and rooftop HVAC units' } },
   { slug: 'heat-pump-services', name: 'Heat Pump & VRF Systems', body: 'Efficient heating and cooling for office buildings and multifamily common areas.', icon: 'heat-pump', href: '/services/heat-pump-services/' },
 ];
 

@@ -36,7 +36,7 @@ export function Hero() {
             ))}
           </ul>
         </div>
-        {/* 1200x900 WebP made from public/images/homepage/hero/ (2896x2172 original). Not a job photo: no job caption. */}
+        {/* 1200x900 WebP made from public/images/homepage/hero/ (2896x2172 original). Not a job photo: the caption is descriptive, not a job claim. */}
         <div className="hero-photo">
           <Image
             src="/images/homepage/hero.webp"
@@ -46,6 +46,7 @@ export function Hero() {
             sizes="(max-width: 920px) 100vw, 45vw"
             priority
           />
+          <span className="photo-caption photo-caption-band photo-caption-silver">AC repair for homes and businesses across Southern California</span>
         </div>
       </div>
     </section>

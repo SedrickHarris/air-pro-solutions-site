@@ -33,7 +33,7 @@ export function DecisionGrid({
   intro?: string;
   ctaLabel?: string;
   alt?: boolean;
-  columns?: 2 | 3 | 4;
+  columns?: 2 | 3 | 4 | 5;
   outro?: string;
 }) {
   return (
@@ -42,7 +42,7 @@ export function DecisionGrid({
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
         {intro && <p>{intro}</p>}
-        <div className={columns === 4 ? 'decision-grid decision-grid-4' : columns === 2 ? 'decision-grid decision-grid-2' : 'decision-grid'}>
+        <div className={columns === 5 ? 'decision-grid decision-grid-5' : columns === 4 ? 'decision-grid decision-grid-4' : columns === 2 ? 'decision-grid decision-grid-2' : 'decision-grid'}>
           {cards.map((c) => {
             const body = (
               <>
