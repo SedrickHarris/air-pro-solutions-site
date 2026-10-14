@@ -1,4 +1,5 @@
 import type { Faq } from '@/content/faq';
+import type { ServiceImage } from '@/content/services';
 
 // Matrix (service+city) page content, keyed by "${service}/${city}". Title/H1 are built from
 // src/lib/seo.ts (matrixTitle/matrixH1) per CLAUDE.md, not hand-written here. Symptoms, process,
@@ -7,6 +8,8 @@ import type { Faq } from '@/content/faq';
 export type MatrixContent = {
   primaryKeyword: string;
   metaDescription: string;
+  heroCaption?: string; // caption band under heroImage
+  heroImage?: ServiceImage; // 1200x900 hero photo; falls back to the "photo pending" tile when absent
   lede: string; // hero opening paragraph AND the Service schema description - must match exactly
   heroProof: { icon: string; label: string }[];
   trust: { num: string; label: string }[];
@@ -24,6 +27,11 @@ export type MatrixContent = {
 // Locked copy for /ac-repair/torrance-ca/. See CLAUDE.md "Claims that must not ship": no pricing,
 // same-day/24-7 timing, brand-list, or unconfirmed licensing claims.
 const acRepairTorrance: MatrixContent = {
+  heroImage: {
+    src: '/images/service-location/hvac-services-torrance-ca/hero/air-pro-solutions-torrance-ca-hvac-service-area-home-condenser-4x3.webp',
+    alt: 'Outdoor AC condenser on a concrete pad beside a stucco home with a tree and drought-tolerant landscaping in Torrance, CA',
+  },
+  heroCaption: 'Residential AC repair service in Torrance, CA',
   primaryKeyword: 'ac repair torrance',
   metaDescription:
     'Need AC repair in Torrance? AIRPRO SOLUTIONS helps homes and businesses with cooling, airflow, electrical, and drainage problems. Schedule service.',

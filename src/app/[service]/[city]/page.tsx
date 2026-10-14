@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { matrixPages } from '@/content/matrix';
@@ -135,13 +136,22 @@ export default async function Page({ params }: { params: Promise<{ service: stri
               ))}
             </ul>
           </div>
-          <div className="photo-pending hero-photo">
-            <Icon name={service.icon} size={32} />
-            <span className="photo-tag">Photo pending</span>
-            <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">
-              <strong>Job photo pending</strong>
-            </span>
-          </div>
+          {content.heroImage ? (
+            <div className="hero-photo">
+              <Image src={content.heroImage.src} alt={content.heroImage.alt} width={1200} height={900} sizes="(max-width: 920px) 100vw, 45vw" priority />
+              <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">
+                <strong>{content.heroCaption ?? `${city.name}, CA`}</strong>
+              </span>
+            </div>
+          ) : (
+            <div className="photo-pending hero-photo">
+              <Icon name={service.icon} size={32} />
+              <span className="photo-tag">Photo pending</span>
+              <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">
+                <strong>Job photo pending</strong>
+              </span>
+            </div>
+          )}
         </div>
       </section>
 

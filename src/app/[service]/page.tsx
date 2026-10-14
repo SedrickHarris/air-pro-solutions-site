@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getService, services } from '@/content/services';
+import { getService, services, commercialCardImage } from '@/content/services';
 import { siteConfig } from '@/content/site-config';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { PendingNote } from '@/components/ui/PendingNote';
@@ -113,7 +113,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
     }),
     // Pages that already list 4 related services (e.g. ac-installation) skip the auto-appended
     // Commercial HVAC card - it's still linked from the "More on this topic" row instead.
-    ...(s.related.length <= 3 ? [{ name: 'Commercial HVAC', href: '/commercial-hvac/', icon: relatedIcons['commercial-hvac'] }] : []),
+    ...(s.related.length <= 3 ? [{ name: 'Commercial HVAC', href: '/commercial-hvac/', icon: relatedIcons['commercial-hvac'], image: commercialCardImage }] : []),
   ];
 
   const schema = [

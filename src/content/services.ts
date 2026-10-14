@@ -478,6 +478,7 @@ const acRepairPage: ServicePage = {
   ctaLabel: 'Schedule AC Repair',
   symptomsTitle: 'Common signs your AC needs repair',
   processTitle: 'Our AC repair process',
+  processColumns: 3, // 6 steps shown as 2 rows of 3 instead of the default 5-wide grid
   appliesTitle: 'Residential and commercial AC repair',
   regionTitle: 'AC repair across Southern California',
   regionLinkVerb: 'AC repair',
@@ -1081,3 +1082,5 @@ export const getService = (slug: string) => services.find((x) => x.slug === slug
 
 // Commercial HVAC is an audience hub, not a service, so its homepage card image lives here.
 export const commercialCardImage: ServiceImage = card('commercial-hvac', 'Rooftop package HVAC units and conduit on a commercial building roof, with a business park and hillside in the background');
+export const residentialCardImage: ServiceImage = card('residential-hvac', 'Outdoor AC condenser beside a stucco home with a tile roof and drought-tolerant landscaping');
+export const servicesHubCardImage: ServiceImage = card('services-hub', 'Outdoor AC condenser and an open utility closet with a furnace beside a tile-roofed home');

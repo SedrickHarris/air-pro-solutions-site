@@ -30,10 +30,14 @@ export const commercialHero = {
     // TODO(claims): certificate-of-insurance-on-request is unconfirmed.
     { icon: 'doc-check', label: 'COI provided on request' },
   ],
-  // TODO(data): the artifact's real caption ("Rooftop unit service, Torrance CA / Commercial
-  // condenser replacement, completed same week") describes an undocumented job. Use a pending
-  // placeholder until a real photo and verified caption exist.
-  photoCaption: { title: 'Job photo pending', detail: 'Real project photo and caption to come' },
+  // The hero image is a generic rooftop-unit scene, not a documented job, so the caption stays
+  // descriptive and makes no job-specific claim. TODO(data): swap in a real project photo and
+  // verified caption when one exists.
+  image: {
+    src: '/images/services/commercial-hub/hero/air-pro-solutions-commercial-hvac-services-southern-california-4x3.webp',
+    alt: 'Two-story commercial office building with rooftop package HVAC units, a parking lot, and landscaping in Southern California',
+  },
+  photoCaption: { title: 'Southern California', detail: 'Four regions, 32 cities across the region pages' },
 };
 
 // TODO(claims): "emergency dispatch for commercial accounts" and "bonded" are unconfirmed.

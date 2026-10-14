@@ -9,6 +9,10 @@ export const hubDescription =
 
 export const hubHero = {
   lede: 'AIRPRO SOLUTIONS provides HVAC services in Los Angeles County, the South Bay, Orange County, and the Inland Empire, with permits, utilities, and equipment matched to each city.',
+  image: {
+    src: '/images/locations/locations-hub/hero/air-pro-solutions-southern-california-hvac-service-areas-hub-4x3.webp',
+    alt: 'Outdoor AC condenser beside a stucco home with a tile roof and drought-tolerant landscaping, with hills in the distance',
+  },
   photoCaptionTitle: 'Southern California',
   photoCaptionBody: 'Four regions, 32 cities across the region pages',
   proof: [

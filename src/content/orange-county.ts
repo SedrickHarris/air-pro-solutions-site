@@ -1,5 +1,5 @@
 import { siteConfig } from '@/content/site-config';
-import { getService, commercialCardImage } from '@/content/services';
+import { getService, commercialCardImage, residentialCardImage, servicesHubCardImage } from '@/content/services';
 import type { Faq } from '@/content/faq';
 import type { Card } from '@/components/sections/ServicesGrid';
 import type { RebateCard } from '@/components/sections/RebateCards';
@@ -363,10 +363,10 @@ export function orangeCountyServiceCards(): Card[] {
       return { href: '/commercial-hvac/', name: sc.name!, description: sc.body, icon: sc.icon!, image: commercialCardImage };
     }
     if (sc.slug === 'services') {
-      return { href: '/services/', name: sc.name!, description: sc.body, icon: sc.icon! };
+      return { href: '/services/', name: sc.name!, description: sc.body, icon: sc.icon!, image: servicesHubCardImage };
     }
     if (sc.slug === 'residential-hvac') {
-      return { href: '/residential-hvac/', name: sc.name!, description: sc.body, icon: sc.icon! };
+      return { href: '/residential-hvac/', name: sc.name!, description: sc.body, icon: sc.icon!, image: residentialCardImage };
     }
     const svc = getService(sc.slug);
     if (!svc) throw new Error(`Unknown service slug on ${orangeCountyHub.path}: ${sc.slug}`);

@@ -78,9 +78,8 @@ export default function Page() {
               ))}
             </ul>
           </div>
-          <div className="photo-pending hero-photo">
-            <Icon name="pin" size={32} />
-            <span className="photo-tag">Photo pending</span>
+          <div className="hero-photo">
+            <Image src={hubHero.image.src} alt={hubHero.image.alt} width={1200} height={900} sizes="(max-width: 920px) 100vw, 45vw" priority />
             <span className="photo-caption photo-caption-band photo-caption-silver">
               <strong>{hubHero.photoCaptionTitle}</strong> {hubHero.photoCaptionBody}
             </span>
