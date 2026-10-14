@@ -6,20 +6,53 @@ import { siteConfig } from '@/content/site-config';
 const BRAND = siteConfig.name;
 
 // --- Claims ---------------------------------------------------------------------------------
-// Only these may appear in title/description/H1 copy. Extend only on client confirmation.
-export const ALLOWED_CLAIMS = ['licensed', '4.8-star rated'];
-// Blocked until the client confirms them.
-const BLOCKED_CLAIMS = ['same-day', 'same day', '24/7', '24 hour', 'emergency', 'insured', 'guaranteed', 'best', 'affordable', 'near me'];
+// Client-approved claims (CLAUDE.md "Approved claims"), and where each may appear. Extend only on client
+// confirmation. Titles, H1s and the matrix qualifier stay strict: none of the gated claims may appear there.
+export const ALLOWED_CLAIMS = [
+  { claim: 'licensed', where: 'title, description, H1' },
+  { claim: '4.8-star rated', where: 'title, description, H1' },
+  { claim: 'licensed, bonded & insured', where: 'description, any page' },
+  { claim: '24/7 emergency dispatch', where: 'description, only on the homepage (/), /services/ and /services/emergency-hvac/ (exact phrase)' },
+  { claim: '24/7', where: 'description, only on the homepage (/), /services/ and /services/emergency-hvac/' },
+  { claim: 'same-day', where: 'description, only with "when capacity allows" or "typical" in the same description' },
+];
+// Blocked unless allowed by the rules above.
+const BLOCKED_CLAIMS = ['same-day', 'same day', '24/7', '24 hour', 'emergency', 'insured', 'bonded', 'guaranteed', 'best', 'affordable', 'near me'];
 
-export function assertNoUnapprovedClaims(text: string, label = 'metadata') {
-  const lower = text.toLowerCase();
+// Pages whose description may say "24/7".
+const DESCRIPTION_24_7_PATHS = ['/', '/services/', '/services/emergency-hvac/'];
+// "same-day" in a description needs one of these qualifiers in the same description.
+const SAME_DAY_QUALIFIER = /when capacity allows|\btypical\b/;
+// Approved exact phrase, description-only, on the same three pages as `24/7`.
+const EMERGENCY_DISPATCH_PHRASE = /24\/7 emergency dispatch/g;
+const LICENSED_BONDED_INSURED = /licensed, bonded & insured/g;
+
+// `label` is 'title', 'description', 'h1' or 'matrix qualifier'. Only 'description' gets the approved-claim
+// allowances; everything else uses the strict blocklist. `path` is the page's path (descriptions only).
+export function assertNoUnapprovedClaims(text: string, label = 'metadata', path?: string) {
+  let lower = text.toLowerCase();
+  const isDescription = label === 'description';
+  const allowed = new Set<string>();
+  if (isDescription) {
+    // "licensed, bonded & insured" is approved as one phrase; "insured" or "bonded" alone stays blocked.
+    lower = lower.replace(LICENSED_BONDED_INSURED, ' ');
+    if (path && DESCRIPTION_24_7_PATHS.includes(path)) {
+      allowed.add('24/7');
+      // The exact phrase is approved as a unit on these pages; a bare "emergency" elsewhere still throws.
+      lower = lower.replace(EMERGENCY_DISPATCH_PHRASE, ' ');
+    }
+    if (SAME_DAY_QUALIFIER.test(lower)) {
+      allowed.add('same-day');
+      allowed.add('same day');
+    }
+  }
   for (const claim of BLOCKED_CLAIMS) {
+    if (allowed.has(claim)) continue;
     // "Emergency HVAC" is this site's established service-category name (src/content/services.ts'
     // `emergency-hvac` slug, its nav/card/related-link labels sitewide, and its breadcrumb) - not a
     // same-day/24-7 availability promise, so it's exempted here specifically as that two-word phrase.
     // A bare "emergency" used any other way (e.g. "emergency service", "24/7 emergency") still throws,
-    // same as before. See claude/open-items.md / docs/open-items.md "Emergency HVAC page" section:
-    // confirm with the client before launch that emergency service is real and always available.
+    // same as before. See docs/open-items.md "Emergency HVAC page" section.
     if (claim === 'emergency' && /emergency hvac/.test(lower)) continue;
     const re = new RegExp(`(^|[^a-z0-9])${claim.replace(/[/-]/g, '\\$&')}([^a-z0-9]|$)`);
     if (re.test(lower)) throw new Error(`Unapproved claim "${claim}" in ${label}: ${text}`);
@@ -31,11 +64,11 @@ export function assertTitle(title: string) {
   if (title.length < 20 || title.length > 70) throw new Error(`Title must be 20-70 chars (got ${title.length}): ${title}`);
   assertNoUnapprovedClaims(title, 'title');
 }
-export function assertDescription(description: string) {
+export function assertDescription(description: string, path?: string) {
   if (description.length < 70 || description.length > 180) {
     throw new Error(`Description must be 70-180 chars (got ${description.length}): ${description}`);
   }
-  assertNoUnapprovedClaims(description, 'description');
+  assertNoUnapprovedClaims(description, 'description', path);
 }
 export function assertH1(h1: string) {
   if (h1.length < 10 || h1.length > 100) throw new Error(`H1 must be 10-100 chars (got ${h1.length}): ${h1}`);
@@ -108,7 +141,7 @@ type Input = { title: string; description: string; path: string };
 // title must already be a full title (use the builders above); the layout adds no template.
 function base({ title, description, path }: Input): Metadata {
   assertTitle(title);
-  assertDescription(description);
+  assertDescription(description, path);
   const url = `${siteConfig.url}${path}`;
   return {
     title,

@@ -160,7 +160,7 @@ export default function Page() {
                   <div className="nbhd-list">
                     {r.cities.map((c) =>
                       c === 'Torrance' ? (
-                        <Link key={c} href="/service-areas/torrance-ca/" className="chip-link">Torrance</Link>
+                        <Link key={c} href="/service-areas/torrance/" className="chip-link">Torrance</Link>
                       ) : (
                         <span key={c}>{c}</span>
                       ),

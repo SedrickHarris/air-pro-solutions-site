@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { services, commercialCardImage, type ServiceImage } from '@/content/services';
+import { services, serviceHref, commercialCardImage, type ServiceImage } from '@/content/services';
 import { Icon } from '@/components/ui/Icon';
 
 // Homepage curation and order. ductwork, indoor-air-quality and furnace-installation are intentionally
@@ -26,7 +26,7 @@ function cardFor(slug: string): Card | undefined {
   if (slug === 'commercial-hvac') return commercialCard;
   const svc = services.find((s) => s.slug === slug);
   if (!svc) return undefined;
-  return { href: `/${svc.slug}/`, name: labelOverride[svc.slug] ?? svc.name, description: svc.description, icon: svc.icon, image: svc.image };
+  return { href: serviceHref(svc.slug), name: labelOverride[svc.slug] ?? svc.name, description: svc.description, icon: svc.icon, image: svc.image };
 }
 
 export function ServicesGrid({

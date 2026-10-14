@@ -1,5 +1,5 @@
 import { siteConfig } from '@/content/site-config';
-import { getService, commercialCardImage, residentialCardImage, servicesHubCardImage } from '@/content/services';
+import { getService, serviceHref, commercialCardImage, residentialCardImage, servicesHubCardImage } from '@/content/services';
 import type { Faq } from '@/content/faq';
 import type { Card } from '@/components/sections/ServicesGrid';
 import type { RebateCard } from '@/components/sections/RebateCards';
@@ -205,7 +205,7 @@ export const southBayHub = {
     eyebrow: 'Cities served',
     title: 'The eight cities on this page',
     items: [
-      { name: 'Torrance', note: 'Office, retail, industrial, and condo settings, with a 290-acre industrial project area. Property-line noise and equipment screening rules apply.', href: '/service-areas/torrance-ca/' },
+      { name: 'Torrance', note: 'Office, retail, industrial, and condo settings, with a 290-acre industrial project area. Property-line noise and equipment screening rules apply.', href: '/service-areas/torrance/' },
       { name: 'Redondo Beach', note: 'Multiple-family zoning and a mixed-use overlay. Noise limits depend on the neighboring use. Clean Power Alliance supplies generation.' },
       { name: 'Manhattan Beach', note: 'Beach city with Clean Power Alliance generation. Mechanical work needs a permit, and exterior equipment placement is confirmed with the city.' },
       { name: 'Hermosa Beach', note: 'Beach city with separate mechanical applications, and online-only submittals beginning October 1, 2026.' },
@@ -232,7 +232,7 @@ export const southBayHub = {
     {
       q: 'Which cities does AIRPRO SOLUTIONS serve in the South Bay?',
       a: 'This page covers Torrance, Redondo Beach, Manhattan Beach, Hermosa Beach, El Segundo, Gardena, Hawthorne, and Carson. These are the South Bay cities we list here, and the South Bay as a term can be defined more broadly. Nearby unincorporated communities such as West Carson are a different jurisdiction from the city next to them, so call us first if your address is outside these eight cities.',
-      links: [{ text: 'Torrance', href: '/service-areas/torrance-ca/' }],
+      links: [{ text: 'Torrance', href: '/service-areas/torrance/' }],
     },
     {
       q: 'Do I need a permit to replace my AC in the South Bay?',
@@ -285,6 +285,6 @@ export function southBayServiceCards(): Card[] {
     }
     const svc = getService(sc.slug);
     if (!svc) throw new Error(`Unknown service slug on ${southBayHub.path}: ${sc.slug}`);
-    return { href: `/${svc.slug}/`, name: svc.name, description: sc.body, icon: svc.icon, image: svc.image };
+    return { href: serviceHref(svc.slug), name: svc.name, description: sc.body, icon: svc.icon, image: svc.image };
   });
 }

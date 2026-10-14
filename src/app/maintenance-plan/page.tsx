@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import { PageHeader } from '@/components/ui/PageHeader';
+import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { jsonLd, breadcrumbSchema, webPageSchema } from '@/lib/schema';
+import { siteConfig } from '@/content/site-config';
 import { PendingNote } from '@/components/ui/PendingNote';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 
@@ -18,8 +21,13 @@ const generalInclusions = [
 ];
 
 export default function Page() {
+  const crumbs = [{ name: 'Home', href: '/' }, { name: 'Maintenance Plan' }];
+  const url = `${siteConfig.url}/maintenance-plan/`;
+  const schema = [webPageSchema({ type: 'WebPage', name: 'HVAC Maintenance Plan', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
+      <Breadcrumbs crumbs={crumbs} />
       <PageHeader eyebrow="Maintenance" title="HVAC Maintenance Plan" lede="Regular service keeps your system efficient and reliable." />
       <section>
         <div className="wrap prose">

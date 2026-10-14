@@ -11,7 +11,7 @@ export function RegionGrid({
   intro,
   linkLabel = () => 'View region',
   // When false, renders `bodyFor(slug)` copy instead of the region's city list. Used by pages (e.g.
-  // /ac-repair/) that need genuinely different, conditional per-region copy rather than a repeated
+  // /services/ac-repair/) that need genuinely different, conditional per-region copy rather than a repeated
   // city roll call - see CLAUDE.md's doorway-page rule.
   showCities = true,
   bodyFor,

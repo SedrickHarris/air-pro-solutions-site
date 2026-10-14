@@ -1,7 +1,7 @@
 import type { ServicePage } from '@/content/services';
 import { siteConfig } from '@/content/site-config';
 
-// Full template content for /emergency-hvac/. Reuses the same ServicePage shape and shared section
+// Full template content for /services/emergency-hvac/. Reuses the same ServicePage shape and shared section
 // components as every other core service page (see the Emergency HVAC build report for the full
 // reconciliation notes: which fields are new, why, and the deliberate routing/metadata deviations).
 //
@@ -34,7 +34,7 @@ export const emergencyHvacPage: ServicePage = {
   // the built title/H1 match the approved copy exactly: "Emergency HVAC Repair in Los Angeles |
   // AIRPRO SOLUTIONS" / "Emergency HVAC Repair in Los Angeles and Southern California". The real
   // service name ("Emergency HVAC") keeps rendering everywhere else (breadcrumb, nav, related links,
-  // schema `name`) - see the /ductwork/ page for the same metaServiceName pattern.
+  // schema `name`) - see the /services/ductwork/ page for the same metaServiceName pattern.
   metaServiceName: 'Emergency HVAC Repair',
   metaDescription:
     'Emergency HVAC repair for homes and businesses across Los Angeles and Southern California. Know when to call 911 first and how to request service.',
@@ -198,7 +198,7 @@ export const emergencyHvacPage: ServicePage = {
     note: 'There is no single age at which a system should be replaced. A technician looks at the failed component, repair cost, parts availability, refrigerant and system compatibility, equipment condition, efficiency goals, permit and code scope, and your budget, then presents options before you decide.',
     noteBefore: 'If a replacement is on the table, ',
     noteLinkText: 'see AC installation and replacement',
-    noteLinkHref: '/ac-installation/',
+    noteLinkHref: '/services/ac-installation/',
   },
   rulesEyebrow: 'The rules',
   rulesTitle: 'Licensing, permits, and energy-code basics',
@@ -244,7 +244,7 @@ export const emergencyHvacPage: ServicePage = {
   proofHeading: 'Clear answers when your system fails',
   proofBody: 'Tell us what is happening and we will help you sort out what is an emergency, what is safe to wait, and what to do next.',
   // Icon overrides for this page's related-service row: AC Repair (wrench) and Heating Repair (bolt)
-  // have no default in the shared `relatedIcons` map in src/app/[service]/page.tsx (they'd otherwise
+  // have no default in the shared `relatedIcons` map in src/app/services/[service]/page.tsx (they'd otherwise
   // fall back to their own service icons, snowflake and flame), and AC Installation's approved icon
   // here (check) differs from that same map's existing 'ac-installation': 'wrench' default.
   relatedIcons: {
@@ -253,11 +253,11 @@ export const emergencyHvacPage: ServicePage = {
     'ac-installation': 'check',
   },
   moreLinks: [
-    { text: 'Heat pump services', href: '/heat-pump-services/' },
-    { text: 'Ductless mini-split repair', href: '/ductless-mini-split/' },
-    { text: 'Ductwork and airflow problems', href: '/ductwork/' },
-    { text: 'Indoor air quality', href: '/indoor-air-quality/' },
-    { text: 'HVAC maintenance after a repair', href: '/ac-maintenance/' },
+    { text: 'Heat pump services', href: '/services/heat-pump-services/' },
+    { text: 'Ductless mini-split repair', href: '/services/ductless-mini-split/' },
+    { text: 'Ductwork and airflow problems', href: '/services/ductwork/' },
+    { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
+    { text: 'HVAC maintenance after a repair', href: '/services/ac-maintenance/' },
   ],
   sourcesEyebrow: 'References',
   sourcesColumns: 2,

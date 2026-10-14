@@ -27,7 +27,7 @@ export type ServicePage = {
   ctaLabel: string; // e.g. "Schedule AC Repair" - reused for the hero primary button and final CTA ghost button
   // Optional because a page with no symptom-diagnosis content (e.g. ac-maintenance, which uses
   // `decision` cards instead) skips SymptomGrid entirely - see the `s.symptoms.length` guard in
-  // src/app/[service]/page.tsx.
+  // src/app/services/[service]/page.tsx.
   symptomsTitle?: string;
   processTitle: string;
   appliesTitle: string;
@@ -40,9 +40,9 @@ export type ServicePage = {
   appliesTo: { label: string; icon: string }[];
   faqs: Faq[];
 
-  // --- Expanded /ac-repair/ template fields below. All optional so the other nine core services
+  // --- Expanded /services/ac-repair/ template fields below. All optional so the other nine core services
   // (which still only carry the fields above, or none of them) keep building as noindex stubs. ---
-  // ctaLabel added for /heat-pump-services/, whose approved "Request a Diagnosis" urgency-box button
+  // ctaLabel added for /services/heat-pump-services/, whose approved "Request a Diagnosis" urgency-box button
   // reads differently from the page's primary "Schedule Heat Pump Service" CTA. Optional so every
   // other caller (whose urgency box already reuses `page.ctaLabel`) is unaffected.
   urgency?: { title: string; intro: string; items: string[]; closing: string; ctaLabel?: string };
@@ -57,13 +57,13 @@ export type ServicePage = {
   systemsTitle?: string;
   systemsIntro?: string;
   systems?: { name: string; body: string; icon: string; link?: { label: string; href: string } }[];
-  // sourceLabel/sourceHref render a linked "Source: ..." line; sourceText (added for /heating-repair/,
+  // sourceLabel/sourceHref render a linked "Source: ..." line; sourceText (added for /services/heating-repair/,
   // which cites two sources with no single URL to link) renders a plain, non-linked line instead when
   // sourceHref is absent - mirrors the sourceText/boldLead options RefrigerantNote already supports.
-  // accent/body2 added for /furnace-installation/'s "Furnace only, or the whole system?" callout
+  // accent/body2 added for /services/furnace-installation/'s "Furnace only, or the whole system?" callout
   // (sky-accented panel, two paragraphs before the source line). Optional so every other caller
   // (a plain, unaccented, single-paragraph panel) is unaffected.
-  // introBody added for /heat-pump-services/'s R-410A callout, whose approved copy states the
+  // introBody added for /services/heat-pump-services/'s R-410A callout, whose approved copy states the
   // new-install rule first, then bolds "Existing R-410A systems are not banned." as its own leading
   // sentence, then continues - one paragraph more than boldLead+body alone can express. Optional so
   // every other caller (whose boldLead already opens the panel) is unaffected.
@@ -90,15 +90,15 @@ export type ServicePage = {
   sources?: { label: string; url: string }[];
   sourcesColumns?: 1 | 2; // 2 for a longer source list (e.g. ac-installation); defaults to 1 (ac-repair)
 
-  // --- Additional fields used by the /ac-installation/ template. Optional so ac-repair (and every
+  // --- Additional fields used by the /services/ac-installation/ template. Optional so ac-repair (and every
   // other service) is unaffected. ---
   symptomsIntro?: string; // lead paragraph rendered between the symptoms h2 and the card grid
   symptomsNote?: { before: string; linkLabel: string; linkHref: string; after?: string }; // line below the symptom grid, with an inline link
-  // Plain-text alternative to `symptomsNote` for a note with no link (e.g. /heating-repair/'s seasonal
+  // Plain-text alternative to `symptomsNote` for a note with no link (e.g. /services/heating-repair/'s seasonal
   // note). Only used when `symptomsNote` is unset.
   symptomsNoteText?: string;
   // Title/eyebrow overrides for the "what your symptoms can mean" DiagnosisTable, which otherwise
-  // hardcodes an AC-specific title in src/app/[service]/page.tsx. Optional so ac-repair (the only
+  // hardcodes an AC-specific title in src/app/services/[service]/page.tsx. Optional so ac-repair (the only
   // other page using `diagnosis`) keeps its existing wording.
   diagnosisTitle?: string;
   diagnosisEyebrow?: string;
@@ -108,10 +108,10 @@ export type ServicePage = {
   incentives?: {
     eyebrow: string;
     heading: string;
-    // Made optional for /furnace-installation/, whose approved copy has no intro sentence between
+    // Made optional for /services/furnace-installation/, whose approved copy has no intro sentence between
     // the heading and the cards - every existing caller still supplies one.
     lead?: string;
-    // headline/closingNote added for /furnace-installation/: `headline` is a confirmed dollar figure
+    // headline/closingNote added for /services/furnace-installation/: `headline` is a confirmed dollar figure
     // shown as the card's big number (RebateCards' `amount`), with the program `name` demoted to a
     // small label above it, and `closingNote` is a paragraph rendered below the whole card row.
     // Both optional so ac-installation/heating-repair (which show the program name as the big
@@ -125,12 +125,12 @@ export type ServicePage = {
   // of its default position (after pricing). Defaults to false/undefined so ac-repair is unaffected.
   compareEarly?: boolean;
 
-  // --- Additional fields used by the /ac-maintenance/ template. Optional so every other service page
+  // --- Additional fields used by the /services/ac-maintenance/ template. Optional so every other service page
   // (which does not set these) is unaffected. See the AC Maintenance build report for why these were
   // added as new optional fields on the existing shape instead of a parallel content system. ---
   // "Maintenance, repair, or replacement?" decision cards, rendered via DecisionGrid right after the
   // quick-answer AnswerBlock.
-  // `outro` (added for /indoor-air-quality/) is a closing line rendered below the card grid; optional
+  // `outro` (added for /services/indoor-air-quality/) is a closing line rendered below the card grid; optional
   // so ac-maintenance's decision block (which has none) is unaffected.
   decision?: { eyebrow: string; title: string; intro?: string; cards: DecisionCard[]; columns?: 2 | 3 | 4; outro?: string };
   // "When to schedule" rule cards, rendered via RulesNote in the same slot as SymptomGrid on pages
@@ -175,20 +175,20 @@ export type ServicePage = {
   // so ac-repair/ac-installation keep their existing wording.
   trustStripLicenseLabel?: string;
 
-  // --- Additional field used by the /heating-repair/ template. Per-related-card label override
+  // --- Additional field used by the /services/heating-repair/ template. Per-related-card label override
   // (keyed by the related service's slug), since the related-services renderer otherwise always shows
-  // the target service's real `name` (see the "HVAC Maintenance" -> /ac-maintenance/ TODO(copy) in
+  // the target service's real `name` (see the "HVAC Maintenance" -> /services/ac-maintenance/ TODO(copy) in
   // heating-repair-page.ts). Optional so every other service page's related row is unaffected.
   relatedLabels?: Record<string, string>;
 
-  // --- Additional fields used by the /furnace-installation/ template. All optional so ac-repair,
+  // --- Additional fields used by the /services/furnace-installation/ template. All optional so ac-repair,
   // ac-installation, ac-maintenance, and heating-repair (none of which set these) are unaffected. See
   // the Furnace Installation build report for why these were added as new optional fields on the
   // existing shape instead of a parallel content system. ---
   // Overrides SymptomGrid's default "Signs you need this" eyebrow (page.tsx never passed an eyebrow
   // before this page, so every existing service page keeps that default).
   symptomsEyebrow?: string;
-  // Overrides SystemsGrid's default "Equipment" eyebrow (used for /ductwork/'s "Parts" grid).
+  // Overrides SystemsGrid's default "Equipment" eyebrow (used for /services/ductwork/'s "Parts" grid).
   systemsEyebrow?: string;
   // Overrides DiagnosisTable's second column header (see the causesHeading prop added there).
   diagnosisColumns?: [string, string];
@@ -196,7 +196,7 @@ export type ServicePage = {
   // page.tsx from the shared DataTable component - the same "compose directly, don't add a
   // single-purpose section component" pattern already used for `catches` below.
   comparisonTable?: {
-    // Anchor id added for /heat-pump-services/'s "Repair or replace your heat pump" table, which a
+    // Anchor id added for /services/heat-pump-services/'s "Repair or replace your heat pump" table, which a
     // DecisionGrid card jumps to via `href="#repair-replace"`. Optional so every other caller (with
     // no in-page jump link to this section) is unaffected.
     id?: string;
@@ -237,7 +237,7 @@ export type ServicePage = {
   // per page without affecting ac-installation's and heating-repair's already-shipped related cards.
   relatedIconOverrides?: Record<string, string>;
 
-  // --- Additional fields used by the /ductless-mini-split/ template. All optional so every other
+  // --- Additional fields used by the /services/ductless-mini-split/ template. All optional so every other
   // service page (none of which set these) is unaffected. See the Ductless Mini-Split build report
   // for why these were added as new optional fields on the existing shape instead of a parallel
   // content system. ---
@@ -269,7 +269,7 @@ export type ServicePage = {
   compareEyebrow?: string;
   compareTitle?: string;
 
-  // --- Additional fields used by the /heat-pump-services/ template. All optional so every other
+  // --- Additional fields used by the /services/heat-pump-services/ template. All optional so every other
   // service page (none of which set these) is unaffected. See the Heat Pump Services build report for
   // why these were added as new optional fields on the existing shape instead of a parallel content
   // system. ---
@@ -286,7 +286,7 @@ export type ServicePage = {
   // after the licensing/permits `rules` section and before `incentives`.
   warranty?: { heading: string; body: string };
 
-  // --- Additional fields used by the /ductwork/ template. Optional so every other service page
+  // --- Additional fields used by the /services/ductwork/ template. Optional so every other service page
   // (which does not set these) is unaffected - see the Ductwork build report for why these were
   // added as new optional fields on the existing shape instead of a parallel content system. ---
   // Overrides the display name that serviceTitle()/serviceH1() (src/lib/seo.ts) build the page's
@@ -298,12 +298,12 @@ export type ServicePage = {
   metaServiceName?: string;
   // Per-related-card icon override, keyed by the related service's slug. Falls back to
   // `relatedIconOverrides` above, then the page-level `relatedIcons` map in
-  // src/app/[service]/page.tsx, then the related service's own `icon`, so every other service page's
+  // src/app/services/[service]/page.tsx, then the related service's own `icon`, so every other service page's
   // related row is unaffected.
   relatedIcons?: Record<string, string>;
   // "Repair, seal, replace, or redesign?" 3-column comparison table, rendered right after the process
   // steps and before the included/extra scope section, via a DataTable-backed block composed
-  // directly in src/app/[service]/page.tsx (matching the existing `catches` composition pattern).
+  // directly in src/app/services/[service]/page.tsx (matching the existing `catches` composition pattern).
   optionsTable?: {
     eyebrow: string;
     title: string;
@@ -325,11 +325,11 @@ export type ServicePage = {
     links: { text: string; href: string }[];
   };
 
-  // --- Additional fields used by the /indoor-air-quality/ template. All optional so every other
+  // --- Additional fields used by the /services/indoor-air-quality/ template. All optional so every other
   // service page (which does not set these) is unaffected. See the Indoor Air Quality build report
   // for why these were added as new optional fields/props on the existing shape instead of a parallel
   // content system, and for why this page's section order doesn't line up with several of the
-  // above fields' fixed render positions in src/app/[service]/page.tsx. ---
+  // above fields' fixed render positions in src/app/services/[service]/page.tsx. ---
   // Generic "eyebrow + h2 + lead + two-column table + closing note/link" section content, rendered via
   // the new TableSection component (src/components/sections/TableSection.tsx) - a thin DataTable
   // wrapper, same shape as DiagnosisTable/the `catches` block, reused three times on this page for
@@ -361,7 +361,7 @@ export type ServicePage = {
   regionSectionId?: string;
   faqSectionId?: string;
 
-  // --- Additional fields used by the /emergency-hvac/ template. All optional so every other service
+  // --- Additional fields used by the /services/emergency-hvac/ template. All optional so every other service
   // page (which does not set these) is unaffected. See the Emergency HVAC build report for why these
   // were added as new optional fields/a new component on the existing shape instead of a parallel
   // content system. ---
@@ -369,7 +369,7 @@ export type ServicePage = {
   // scheduled) - this page's key differentiator. No existing component has three visually distinct
   // card variants plus an optional per-card CTA, so it renders via the new, generic, reusable
   // TriageGrid component (src/components/sections/TriageGrid.tsx), positioned right after the
-  // decision-grid slot and before the urgency-box slot in src/app/[service]/page.tsx.
+  // decision-grid slot and before the urgency-box slot in src/app/services/[service]/page.tsx.
   triage?: { eyebrow: string; title: string; cards: TriageCard[]; closing?: string };
   // "How fast can someone come out?" - a plain paragraph followed by a PendingNote, positioned right
   // after the timeline slot (i.e. after VisitScope, before the systems/equipment grid). Distinct from
@@ -454,7 +454,7 @@ const l2 = make(2, false); // second-level pages: noindex stubs until real copy 
 // public/images/services/service-cards). Alt text describes the picture only; these are not job photos.
 const card = (slug: string, alt: string): ServiceImage => ({ src: `/images/services/cards/${slug}.webp`, alt });
 
-// Full template content for /ac-repair/. Locked copy - see CLAUDE.md "Claims that must not ship"
+// Full template content for /services/ac-repair/. Locked copy - see CLAUDE.md "Claims that must not ship"
 // before adding anything here: no pricing, timing, brand-list, or availability claims.
 const acRepairPage: ServicePage = {
   primaryKeyword: 'ac repair los angeles',
@@ -579,7 +579,7 @@ const acRepairPage: ServicePage = {
       'If the repair is major or the system has a history of breakdowns, we can provide a repair option and a replacement comparison so you can decide with the actual numbers.',
     ],
     linkText: 'Compare AC repair and replacement options',
-    linkHref: '/ac-installation/',
+    linkHref: '/services/ac-installation/',
   },
   rulesTitle: 'Licensing, permits, and energy-code basics',
   rules: [
@@ -618,10 +618,11 @@ const acRepairPage: ServicePage = {
   // service exists in services.ts); omitted here rather than linked as a dead or placeholder page.
   // "Financing" is omitted until the client confirms a financing offer exists.
   moreLinks: [
-    { text: 'Heat pump not cooling?', href: '/heat-pump-repair/' },
-    { text: 'Ductless mini-split repair', href: '/ductless-mini-split-repair/' },
-    { text: 'Air filtration and indoor air quality options', href: '/indoor-air-quality/' },
-    { text: 'Address airflow and duct problems', href: '/duct-repair/' },
+    { text: 'AC repair in Torrance', href: '/services/ac-repair/torrance/' },
+    { text: 'Heat pump not cooling?', href: '/services/heat-pump-repair/' },
+    { text: 'Ductless mini-split repair', href: '/services/ductless-mini-split-repair/' },
+    { text: 'Air filtration and indoor air quality options', href: '/services/indoor-air-quality/' },
+    { text: 'Address airflow and duct problems', href: '/services/duct-repair/' },
   ],
   sources: [
     { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/climate-hfcs-reduction/frequent-questions-phasedown-hydrofluorocarbons' },
@@ -684,7 +685,7 @@ const acRepairPage: ServicePage = {
   // TODO(copy): client review of every FAQ answer above before launch.
 };
 
-// Every entry is served at /[service]/ (top level). Rules: lowercase, hyphens, no stop words.
+// Every entry is served at /services/[service]/ (see serviceHref). Rules: lowercase, hyphens, no stop words.
 // To publish a level 2 page, write its copy and switch l2 to core-style published: true for that entry.
 // Descriptions are the confirmed homepage card copy; empty ones are still TODO(copy).
 const baseServices: Service[] = [
@@ -997,9 +998,9 @@ const baseServices: Service[] = [
   // TODO(data): the "Emergency" name and slug imply urgent availability; confirm the service is
   // always-on or rename. This card description still says "24/7 dispatch," which is an unconfirmed
   // availability claim carried over from before this page had approved copy - it is used only on hub/
-  // card contexts outside /emergency-hvac/ itself (homepage grid, /services/, ServicesGrid), which are
+  // card contexts outside /services/emergency-hvac/ itself (homepage grid, /services/, ServicesGrid), which are
   // out of scope for this build (see CLAUDE.md doorway-page/claims rules and the build report). Do not
-  // copy this "24/7" wording onto the actual page - /emergency-hvac/'s own copy in
+  // copy this "24/7" wording onto the actual page - /services/emergency-hvac/'s own copy in
   // emergency-hvac-page.ts makes no 24/7 or same-day claim anywhere.
   {
     ...core('hvac', 'emergency-hvac', 'Emergency HVAC', 'alert', { description: "24/7 dispatch for no-cool and no-heat emergencies that can't wait for a scheduled appointment.",
@@ -1079,6 +1080,12 @@ export const childrenOf = (slug: string) => services.filter((x) => x.parent === 
 export const publishedServices = services.filter((x) => x.published);
 
 export const getService = (slug: string) => services.find((x) => x.slug === slug);
+
+// Services are served at /services/<slug>/. Build every service href through here. topLevelServices is
+// the escape hatch for a service that must keep a top-level URL; it is empty today (every service,
+// emergency-hvac included, lives under /services/).
+export const topLevelServices: string[] = [];
+export const serviceHref = (slug: string) => (topLevelServices.includes(slug) ? `/${slug}/` : `/services/${slug}/`);
 
 // Commercial HVAC is an audience hub, not a service, so its homepage card image lives here.
 export const commercialCardImage: ServiceImage = card('commercial-hvac', 'Rooftop package HVAC units and conduit on a commercial building roof, with a business park and hillside in the background');

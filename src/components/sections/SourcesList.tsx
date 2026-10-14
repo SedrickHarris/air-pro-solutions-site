@@ -5,7 +5,7 @@
 export function SourcesList({
   items,
   columns = 1,
-  // Optional eyebrow above the "Sources" heading (e.g. /furnace-installation/'s "References").
+  // Optional eyebrow above the "Sources" heading (e.g. /services/furnace-installation/'s "References").
   // Undefined for every other caller, so their layout is unchanged.
   eyebrow,
 }: {

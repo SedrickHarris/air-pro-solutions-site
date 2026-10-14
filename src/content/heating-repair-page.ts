@@ -16,9 +16,9 @@ import type { ServicePage } from '@/content/services';
 // for this service area).
 // TODO(data): city lists per region stay out of the "Where we work" section until the client confirms
 // coverage (see CLAUDE.md doorway-page rule).
-// TODO(copy): confirm "/ac-maintenance/" is the right link target for the "HVAC Maintenance" related-
+// TODO(copy): confirm "/services/ac-maintenance/" is the right link target for the "HVAC Maintenance" related-
 // service card label, and that its content actually covers heating maintenance.
-// TODO(data): do not link to /emergency-hvac/ from this page until the client confirms real
+// TODO(data): do not link to /services/emergency-hvac/ from this page until the client confirms real
 // always-on availability.
 // TODO(copy): client review of every FAQ answer below before launch.
 //
@@ -26,8 +26,8 @@ import type { ServicePage } from '@/content/services';
 // emergency-availability wording appear anywhere on this page - none are confirmed. See CLAUDE.md
 // "Claims that must not ship".
 
-// Full template content for /heating-repair/. Reuses the same ServicePage shape and shared section
-// components already built out for /ac-repair/, /ac-installation/, and /ac-maintenance/ - see the
+// Full template content for /services/heating-repair/. Reuses the same ServicePage shape and shared section
+// components already built out for /services/ac-repair/, /services/ac-installation/, and /services/ac-maintenance/ - see the
 // build report for why a second, parallel content shape (src/content/service-pages/) was not
 // introduced. A handful of new optional ServicePage fields (symptomsNoteText, diagnosisTitle,
 // diagnosisEyebrow, refrigerant.boldLead/sourceText, relatedLabels) were added for pieces of this page
@@ -150,7 +150,7 @@ export const heatingRepairPage: ServicePage = {
       'If the repair is major or the system has a history of breakdowns, we can provide a repair option and a replacement comparison so you can decide with the actual numbers.',
     ],
     linkText: 'Compare heating repair and replacement options',
-    linkHref: '/furnace-installation/',
+    linkHref: '/services/furnace-installation/',
   },
   rulesEyebrow: 'The rules',
   rulesTitle: 'Licensing, permits, and energy-code basics',
@@ -215,16 +215,16 @@ export const heatingRepairPage: ServicePage = {
   // lede, hero chip, process steps 4 and 5, proof block, FAQ 1, pricing lead).
   proofHeading: 'A technician who explains what is actually wrong',
   proofBody: 'You get the diagnosis and the repair option explained before you approve any work, and a walkthrough of what was fixed and why.',
-  // TODO(copy): confirm "/ac-maintenance/" is the right target for the "HVAC Maintenance" label and
+  // TODO(copy): confirm "/services/ac-maintenance/" is the right target for the "HVAC Maintenance" label and
   // that its content covers heating.
   relatedLabels: {
     'ac-maintenance': 'HVAC Maintenance',
   },
-  // TODO(data): do not link to /emergency-hvac/ from this page until the client confirms real
+  // TODO(data): do not link to /services/emergency-hvac/ from this page until the client confirms real
   // availability.
   moreLinks: [
-    { text: 'Ductless mini-split', href: '/ductless-mini-split/' },
-    { text: 'Indoor air quality', href: '/indoor-air-quality/' },
+    { text: 'Ductless mini-split', href: '/services/ductless-mini-split/' },
+    { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
     { text: 'Commercial HVAC', href: '/commercial-hvac/' },
     { text: 'Service areas', href: '/service-areas/' },
   ],

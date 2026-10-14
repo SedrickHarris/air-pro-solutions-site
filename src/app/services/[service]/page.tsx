@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getService, services, commercialCardImage } from '@/content/services';
+import { getService, services, serviceHref, commercialCardImage } from '@/content/services';
 import { siteConfig } from '@/content/site-config';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { PendingNote } from '@/components/ui/PendingNote';
@@ -47,9 +47,9 @@ export async function generateMetadata({ params }: { params: Promise<{ service: 
   const { service } = await params;
   const s = getService(service);
   if (!s?.published || !s.page) return { robots: { index: false, follow: false } };
-  // `metaServiceName` (e.g. /ductwork/'s "Ductwork Services") overrides the display string the
+  // `metaServiceName` (e.g. /services/ductwork/'s "Ductwork Services") overrides the display string the
   // title/H1 formulas build from; falls back to the real service name for every other page.
-  return serviceMetadata({ title: serviceTitle(s.page.metaServiceName ?? s.name), description: s.page.metaDescription, path: `/${s.slug}/` });
+  return serviceMetadata({ title: serviceTitle(s.page.metaServiceName ?? s.name), description: s.page.metaDescription, path: serviceHref(s.slug) });
 }
 
 // Renders "{h1 text}" with the emphasis substring wrapped in the amber <em> hero treatment.
@@ -98,7 +98,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
   const h1 = serviceH1(page.metaServiceName ?? s.name);
   assertH1(h1);
 
-  const url = `${siteConfig.url}/${s.slug}/`;
+  const url = `${siteConfig.url}${serviceHref(s.slug)}`;
   const crumbs = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services/' },
@@ -108,8 +108,8 @@ export default async function Page({ params }: { params: Promise<{ service: stri
   const related = [
     ...s.related.map((relSlug) => {
       const rel = getService(relSlug);
-      if (!rel) throw new Error(`Unknown related service slug on /${s.slug}/: ${relSlug}`);
-      return { name: page.relatedLabels?.[relSlug] ?? rel.name, href: `/${rel.slug}/`, icon: page.relatedIconOverrides?.[relSlug] ?? page.relatedIcons?.[relSlug] ?? relatedIcons[relSlug] ?? rel.icon, image: rel.image };
+      if (!rel) throw new Error(`Unknown related service slug on ${serviceHref(s.slug)}: ${relSlug}`);
+      return { name: page.relatedLabels?.[relSlug] ?? rel.name, href: serviceHref(rel.slug), icon: page.relatedIconOverrides?.[relSlug] ?? page.relatedIcons?.[relSlug] ?? relatedIcons[relSlug] ?? rel.icon, image: rel.image };
     }),
     // Pages that already list 4 related services (e.g. ac-installation) skip the auto-appended
     // Commercial HVAC card - it's still linked from the "More on this topic" row instead.
@@ -204,7 +204,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
             <HeroHeading h1={h1} emphasis="Los Angeles" />
             <p className="hero-lede">{page.lede}</p>
             {/* Hero button order/style is reversed on pages with `heroCallPrimary` set (currently only
-                /emergency-hvac/), whose approved copy calls out the phone number as the lead action -
+                /services/emergency-hvac/), whose approved copy calls out the phone number as the lead action -
                 every other service page keeps the original primary=contact/ghost=call order. */}
             <div className="cta-row">
               {page.heroCallPrimary ? (
@@ -276,7 +276,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         />
       )}
 
-      {/* "Which situation is this?" three-tier triage grid (/emergency-hvac/'s key differentiator):
+      {/* "Which situation is this?" three-tier triage grid (/services/emergency-hvac/'s key differentiator):
           life safety / emergency repair / can-be-scheduled. Rendered in the same slot as the other
           "start here" decision content, right after the decision grid and before the urgency box -
           this page uses neither of those, so no ordering conflict. */}
@@ -411,7 +411,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         <RefrigerantNote title={page.timeline.heading} body={page.timeline.body} />
       )}
 
-      {/* "How fast can someone come out?" (/emergency-hvac/): a plain paragraph plus the shared
+      {/* "How fast can someone come out?" (/services/emergency-hvac/): a plain paragraph plus the shared
           PendingNote component's "Coming soon:" treatment - distinct from `timeline` above, which is a
           single-paragraph RefrigerantNote callout with no PendingNote. */}
       {page.availability && (
@@ -606,7 +606,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       {!page.compareEarly && compareBlock}
 
-      {/* "Repair or replace after a breakdown?" (/emergency-hvac/): a plain 2-column DataTable-backed
+      {/* "Repair or replace after a breakdown?" (/services/emergency-hvac/): a plain 2-column DataTable-backed
           section, composed directly here the same "compose inline" pattern already used for
           `catches`/`optionsTable`/`equipmentTable`/`comparisonTable` above - distinct from
           `compareBlock`, whose CompareTable renders bullet-list pros/cons groups (this page's approved

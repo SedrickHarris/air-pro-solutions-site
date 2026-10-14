@@ -86,10 +86,13 @@ this file is the index, not the source of truth.
 
 - Wording: "Emergency" is used in the H1, headings, and copy throughout by request. The breadcrumb
   and schema name also use "Emergency HVAC", matching services.ts. Per the metadata rules, confirm
-  with the client that emergency service is real and always available before launch. (Note: the
-  word "emergency" is on the general metadata blocked-claims list in src/lib/seo.ts; a narrow
-  exception for the exact phrase "emergency hvac" was added there so this page's title/H1 can build -
-  see the comment on `assertNoUnapprovedClaims`. Revisit that exception once the client confirms.)
+  with the client that emergency service is real and always available before launch.
+  RESOLVED - client approved 2026-10-14 ("24/7 emergency dispatch" is on the CLAUDE.md "Approved
+  claims" list).
+  Current metadata rule: the two-word label "Emergency HVAC" is exempt from the blocked-claims list.
+  The exact phrase "24/7 emergency dispatch" is allowed in descriptions only on /, /services/, and
+  /services/emergency-hvac/. A bare "emergency" stays blocked everywhere else. Titles and H1s still
+  block the phrase. Source of truth: src/lib/seo.ts and docs/metadata-rules.md (Section 6).
 - Proposed title: Emergency HVAC Repair in Los Angeles | AIRPRO SOLUTIONS. Proposed meta
   description: Emergency HVAC repair for homes and businesses across Los Angeles and Southern
   California. Know when to call 911 first and how to request service.
@@ -104,6 +107,9 @@ this file is the index, not the source of truth.
   need client approval before any use.
 - Check the CSLB record for #1126691 and #50251 shows C-20 before the class appears in the trust
   strip and licensing card. "Insured" is not claimed.
+  PARTLY RESOLVED 2026-10-14: "licensed, bonded & insured" (CA license #1126691 and #50251) is now
+  client-approved (CLAUDE.md "Approved claims"); this page's copy was not changed. The CSLB C-20
+  check above is still open.
 - Commercial and rooftop capability, mini-split, heat pump, and PTAC scope are unconfirmed. PTAC
   and multifamily through-wall units are left off the systems list.
 - City lists under each region are left out until the client confirms coverage. No region-level

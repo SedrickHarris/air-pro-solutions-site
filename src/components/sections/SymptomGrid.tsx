@@ -8,9 +8,9 @@ export function SymptomGrid({
   intro,
   note,
   alt = true,
-  // Defaults to "symptoms" so a decision-grid card elsewhere on the same page (e.g. /ductwork/) can
+  // Defaults to "symptoms" so a decision-grid card elsewhere on the same page (e.g. /services/ductwork/) can
   // link to "#symptoms" without every caller having to opt in. Pages that need a different anchor
-  // (e.g. /ductless-mini-split/'s "#signs") pass their own id explicitly.
+  // (e.g. /services/ductless-mini-split/'s "#signs") pass their own id explicitly.
   id = 'symptoms',
 }: {
   items: { lead: string; detail: string }[];

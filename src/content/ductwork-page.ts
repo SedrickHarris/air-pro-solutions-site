@@ -37,9 +37,9 @@ import { siteConfig } from '@/content/site-config';
 // cards).
 // TODO(copy): client review of every FAQ answer below before launch.
 
-// Full template content for /ductwork/. Reuses the same ServicePage shape and shared section
-// components already built out for /ac-repair/, /ac-installation/, /ac-maintenance/, and
-// /heating-repair/ - see the build report for why a second, parallel content shape
+// Full template content for /services/ductwork/. Reuses the same ServicePage shape and shared section
+// components already built out for /services/ac-repair/, /services/ac-installation/, /services/ac-maintenance/, and
+// /services/heating-repair/ - see the build report for why a second, parallel content shape
 // (src/content/service-pages/) was not introduced. Four new optional ServicePage fields
 // (metaServiceName, relatedIcons, optionsTable, equipmentTable, sourcesEyebrow) were added for
 // pieces of this page the existing fields couldn't already express; every one of them is optional
@@ -83,7 +83,7 @@ export const ductworkPage: ServicePage = {
     cards: [
       { icon: 'air', title: 'Rooms that never get comfortable', body: 'One room hot or cold, weak airflow, or high bills can point to the ducts or to the equipment. Start with an inspection.', ctaLabel: 'See the symptoms', href: '#symptoms' },
       { icon: 'wrench', title: 'Visible duct damage', body: 'Sagging, crushed, torn, or disconnected duct. A localized failure may be repairable. Widespread damage may not be.', ctaLabel: 'Repair or replace?', href: '#options' },
-      { icon: 'doc', title: 'Replacing your AC, furnace, or heat pump', body: 'The ducts have to deliver the airflow the new equipment needs, so review them as part of the project.', ctaLabel: 'See AC installation', href: '/ac-installation/' },
+      { icon: 'doc', title: 'Replacing your AC, furnace, or heat pump', body: 'The ducts have to deliver the airflow the new equipment needs, so review them as part of the project.', ctaLabel: 'See AC installation', href: '/services/ac-installation/' },
       { icon: 'alert', title: 'No cooling or heating in extreme weather', body: 'A collapsed or disconnected duct can leave rooms without air. Call and describe what you see.', ctaLabel: `Call ${siteConfig.phone}`, href: siteConfig.phoneHref },
     ],
   },
@@ -171,7 +171,7 @@ export const ductworkPage: ServicePage = {
   visitExtraNote: 'Ask your technician which of these apply to your job before you approve the work.',
   // "Repair, seal, replace, or redesign?" comparison table - new content, rendered right after the
   // process steps and before the "what's included" scope section, via a DataTable-backed block
-  // composed directly in src/app/[service]/page.tsx (matching the `catches` composition pattern
+  // composed directly in src/app/services/[service]/page.tsx (matching the `catches` composition pattern
   // already used for the AC Maintenance page).
   optionsTable: {
     eyebrow: 'The decision',
@@ -186,7 +186,7 @@ export const ductworkPage: ServicePage = {
     ],
     noteBefore: 'Weak airflow or warm air can also come from the cooling equipment. ',
     noteLinkText: 'See AC repair',
-    noteLinkHref: '/ac-repair/',
+    noteLinkHref: '/services/ac-repair/',
   },
   systemsTitle: 'What ductwork service covers',
   systemsIntro: 'A duct system is more than the visible runs. Repair or replacement can involve any of these parts.',
@@ -215,9 +215,9 @@ export const ductworkPage: ServicePage = {
       ['Commercial rooftop unit', 'Typically uses supply and return duct systems, curbs, plenums, and diffusers, and sometimes zoning or outside-air components.'],
     ],
     links: [
-      { text: 'Ductless mini-split service', href: '/ductless-mini-split/' },
-      { text: 'Heat pump services', href: '/heat-pump-services/' },
-      { text: 'Furnace installation', href: '/furnace-installation/' },
+      { text: 'Ductless mini-split service', href: '/services/ductless-mini-split/' },
+      { text: 'Heat pump services', href: '/services/heat-pump-services/' },
+      { text: 'Furnace installation', href: '/services/furnace-installation/' },
     ],
   },
   callouts: [
@@ -321,11 +321,11 @@ export const ductworkPage: ServicePage = {
     'ductless-mini-split': 'Ductless Mini-Split Options for Problem Rooms',
   },
   moreLinks: [
-    { text: 'Furnace replacement and airflow evaluation', href: '/furnace-installation/' },
-    { text: 'Heat pump installation with ductwork evaluation', href: '/heat-pump-services/' },
-    { text: 'Indoor air quality and filtration options', href: '/indoor-air-quality/' },
-    { text: 'HVAC maintenance and seasonal system checks', href: '/ac-maintenance/' },
-    { text: 'Emergency HVAC service', href: '/emergency-hvac/' },
+    { text: 'Furnace replacement and airflow evaluation', href: '/services/furnace-installation/' },
+    { text: 'Heat pump installation with ductwork evaluation', href: '/services/heat-pump-services/' },
+    { text: 'Indoor air quality and filtration options', href: '/services/indoor-air-quality/' },
+    { text: 'HVAC maintenance and seasonal system checks', href: '/services/ac-maintenance/' },
+    { text: 'Emergency HVAC service', href: '/services/emergency-hvac/' },
     { text: 'Commercial HVAC and ductwork services', href: '/commercial-hvac/' },
   ],
   sourcesColumns: 2,

@@ -1,7 +1,7 @@
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { generalFaqs } from '@/content/faq';
-import { faqSchema, jsonLd, breadcrumbSchema } from '@/lib/schema';
+import { faqSchema, jsonLd, breadcrumbSchema, providerRef } from '@/lib/schema';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 import { siteConfig } from '@/content/site-config';
 
@@ -15,7 +15,7 @@ export default function Page() {
   const crumbs = [{ name: 'Home', href: '/' }, { name: 'FAQ' }];
   // Same generalFaqs array feeds the visible list and the JSON-LD, so they always match.
   const schema = [
-    faqSchema(generalFaqs),
+    { ...faqSchema(generalFaqs), publisher: providerRef },
     breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : `${siteConfig.url}/faq/` }))),
   ];
   return (

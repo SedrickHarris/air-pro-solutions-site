@@ -52,9 +52,9 @@ export const propertyTypes: DecisionCard[] = [
   { icon: 'home', title: 'Multifamily & HOA', body: 'Coordinated scheduling with property managers and boards.', href: '/multifamily-hvac/', ctaLabel: 'See multifamily HVAC' },
   // TODO(data): no industrial/warehouse audience page exists yet; repoint to one if it's added.
   { icon: 'buildings', title: 'Industrial & warehouse', body: 'Rooftop package units and large-space heating and cooling.', href: '/contact/', ctaLabel: 'See industrial HVAC' },
-  { icon: 'calendar-check', title: 'Preventive maintenance', body: 'Scheduled agreements that catch problems before they become outages.', href: '/ac-maintenance/', ctaLabel: 'See maintenance plans' },
+  { icon: 'calendar-check', title: 'Preventive maintenance', body: 'Scheduled agreements that catch problems before they become outages.', href: '/services/ac-maintenance/', ctaLabel: 'See maintenance plans' },
   // TODO(claims): 24/7 is unconfirmed.
-  { icon: 'bolt', title: 'Emergency outage', body: '24/7 dispatch when a system goes down during business hours.', href: '/emergency-hvac/', ctaLabel: 'Get emergency help' },
+  { icon: 'bolt', title: 'Emergency outage', body: '24/7 dispatch when a system goes down during business hours.', href: '/services/emergency-hvac/', ctaLabel: 'Get emergency help' },
 ];
 
 export const whyUs: DecisionCard[] = [
@@ -66,13 +66,13 @@ export const whyUs: DecisionCard[] = [
 ];
 
 export const commercialServices: { slug: string; name: string; body: string; icon: string; href: string }[] = [
-  { slug: 'ac-repair', name: 'Rooftop Package Unit Service', body: 'Diagnosis, repair, and replacement of rooftop package units for offices, retail, and industrial buildings.', icon: 'snowflake', href: '/ac-repair/' },
-  { slug: 'ac-maintenance', name: 'Preventive Maintenance Agreements', body: 'Scheduled tune-ups and inspections that extend equipment life and reduce emergency calls.', icon: 'calendar-check', href: '/ac-maintenance/' },
-  { slug: 'ac-installation', name: 'Commercial Installation & Replacement', body: 'Properly sized commercial systems with an itemized estimate before any work begins.', icon: 'wrench', href: '/ac-installation/' },
+  { slug: 'ac-repair', name: 'Rooftop Package Unit Service', body: 'Diagnosis, repair, and replacement of rooftop package units for offices, retail, and industrial buildings.', icon: 'snowflake', href: '/services/ac-repair/' },
+  { slug: 'ac-maintenance', name: 'Preventive Maintenance Agreements', body: 'Scheduled tune-ups and inspections that extend equipment life and reduce emergency calls.', icon: 'calendar-check', href: '/services/ac-maintenance/' },
+  { slug: 'ac-installation', name: 'Commercial Installation & Replacement', body: 'Properly sized commercial systems with an itemized estimate before any work begins.', icon: 'wrench', href: '/services/ac-installation/' },
   // TODO(claims): 24/7 is unconfirmed.
-  { slug: 'emergency-hvac', name: 'Emergency HVAC Repair', body: '24/7 dispatch for no-cool and no-heat outages that threaten business operations.', icon: 'alert', href: '/emergency-hvac/' },
+  { slug: 'emergency-hvac', name: 'Emergency HVAC Repair', body: '24/7 dispatch for no-cool and no-heat outages that threaten business operations.', icon: 'alert', href: '/services/emergency-hvac/' },
   { slug: 'contact', name: 'Multi-Site & Portfolio Service', body: 'Consolidated scheduling, service history, and invoicing across every property you manage.', icon: 'buildings', href: '/contact/' },
-  { slug: 'heat-pump-services', name: 'Heat Pump & VRF Systems', body: 'Efficient heating and cooling for office buildings and multifamily common areas.', icon: 'heat-pump', href: '/heat-pump-services/' },
+  { slug: 'heat-pump-services', name: 'Heat Pump & VRF Systems', body: 'Efficient heating and cooling for office buildings and multifamily common areas.', icon: 'heat-pump', href: '/services/heat-pump-services/' },
 ];
 
 export const processSteps: { title: string; body: string }[] = [

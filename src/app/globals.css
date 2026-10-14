@@ -71,7 +71,7 @@ h1, h2, h3 {
   text-wrap: balance;
 }
 
-/* Sitewide keyboard-focus indicator - was missing entirely; added while building /ductwork/, whose
+/* Sitewide keyboard-focus indicator - was missing entirely; added while building /services/ductwork/, whose
    build brief calls out a visible :focus-visible outline as a global page requirement. Purely
    additive (no prior focus styling existed to override) and applies to every page, not just this
    one, since accessible focus indication isn't something that should be page-specific. */
@@ -502,7 +502,7 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 .rules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.25rem; }
 .rules-card p { margin: 0.5rem 0 0; color: var(--ink-soft); font-size: 0.9rem; line-height: 1.55; }
 
-/* Triage grid (sections/TriageGrid, built for /emergency-hvac/): three-tier "Life safety / Emergency
+/* Triage grid (sections/TriageGrid, built for /services/emergency-hvac/): three-tier "Life safety / Emergency
    repair / Can be scheduled" card row. Each variant reuses existing tokens only - no new colors. */
 .triage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.25rem; }
 .triage-card { display: flex; flex-direction: column; gap: 10px; padding: 28px 24px; border-radius: 14px; }

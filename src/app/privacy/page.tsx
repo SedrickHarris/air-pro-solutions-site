@@ -1,4 +1,6 @@
 import { PageHeader } from '@/components/ui/PageHeader';
+import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { jsonLd, breadcrumbSchema, webPageSchema } from '@/lib/schema';
 import { PendingNote } from '@/components/ui/PendingNote';
 import { siteConfig } from '@/content/site-config';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
@@ -12,8 +14,13 @@ export const metadata = hubMetadata({
 // TODO(legal): standard boilerplate draft. Have the client or counsel review before launch,
 // especially the SMS/TCPA section, which must match the consent text in ContactForm.tsx.
 export default function Page() {
+  const crumbs = [{ name: 'Home', href: '/' }, { name: 'Privacy Policy' }];
+  const url = `${siteConfig.url}/privacy/`;
+  const schema = [webPageSchema({ type: 'WebPage', name: 'Privacy Policy', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
+      <Breadcrumbs crumbs={crumbs} />
       <PageHeader eyebrow="Legal" title="Privacy Policy" />
       <section>
         <div className="wrap prose">

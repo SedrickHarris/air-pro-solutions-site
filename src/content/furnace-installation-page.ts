@@ -23,9 +23,9 @@ import type { ServicePage } from '@/content/services';
 // emergency-availability wording appear anywhere on this page - none are confirmed. See CLAUDE.md
 // "Claims that must not ship".
 
-// Full template content for /furnace-installation/. Reuses the same ServicePage shape and shared
-// section components already built out for /ac-repair/, /ac-installation/, /ac-maintenance/, and
-// /heating-repair/ - see the build report for why a second, parallel content shape
+// Full template content for /services/furnace-installation/. Reuses the same ServicePage shape and shared
+// section components already built out for /services/ac-repair/, /services/ac-installation/, /services/ac-maintenance/, and
+// /services/heating-repair/ - see the build report for why a second, parallel content shape
 // (src/content/service-pages/) was not introduced. A handful of new optional ServicePage/component
 // fields (symptomsEyebrow, diagnosisColumns, comparisonTable, processNote, checklist, appliesEyebrow,
 // sourcesEyebrow, relatedIconOverrides, refrigerant.accent/body2, incentives.items[].headline,
@@ -274,10 +274,10 @@ export const furnaceInstallationPage: ServicePage = {
     ductwork: 'building',
   },
   moreLinks: [
-    { text: 'Ductless mini-split', href: '/ductless-mini-split/' },
-    { text: 'Indoor air quality and filtration', href: '/indoor-air-quality/' },
-    { text: 'AC repair', href: '/ac-repair/' },
-    { text: 'AC maintenance', href: '/ac-maintenance/' },
+    { text: 'Ductless mini-split', href: '/services/ductless-mini-split/' },
+    { text: 'Indoor air quality and filtration', href: '/services/indoor-air-quality/' },
+    { text: 'AC repair', href: '/services/ac-repair/' },
+    { text: 'AC maintenance', href: '/services/ac-maintenance/' },
   ],
   sourcesColumns: 2,
   sources: [

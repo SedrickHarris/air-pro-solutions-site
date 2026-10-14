@@ -20,7 +20,7 @@ Governs `src/lib/seo.ts`, every `metadata` export in `src/app/`, and every `Page
 | Primary keyword placement | The page's primary keyword (or a natural close variant, same intent) appears once, naturally, in: title, meta description, H1, and the opening paragraph. Never robotic exact-match stuffing - see Section 4. How the keyword itself gets chosen lives in the companion doc **"Primary Keyword Selection"** (`docs/primary-keyword-selection.md`) - this doc assumes it's already settled. |
 | Brand suffix | `\| AIRPRO SOLUTIONS` is used selectively (Section 5), not appended to every title by default. |
 | Geographic wording | City/region modifiers only on pages genuinely about that location. Don't force every region into the homepage title. |
-| Claims | No "24/7," "same-day," "licensed," "best," "affordable," "near me," financing, warranties, or service-area claim unless it is factual and on the approved claims list (Section 6). This extends the existing no-fabrication hard rule to metadata specifically. |
+| Claims | No claim in a title, description, or H1 unless it is on the approved claims list (Section 6), and only where Section 6 allows it. `24/7`, `same-day`, `insured`, and `bonded` are never allowed in titles or H1s. This extends the existing no-fabrication hard rule to metadata specifically. |
 | Matrix uniqueness | City/service-city pages must not be pure city-name token substitution. Each needs at least one genuinely local, unique content element (this is the existing matrix quality gate - Section 7 ties it to metadata specifically). |
 | Publication gate | A page is not indexed until title, description, H1, canonical, schema, and the content-quality fields below pass validation (Section 8). |
 
@@ -55,13 +55,13 @@ Mapped to the URL patterns already defined in `CLAUDE.md`.
 | Page type | Title | Meta description pattern | H1 |
 |---|---|---|---|
 | Home (`/`) | `HVAC Services in Los Angeles, CA \| AIRPRO SOLUTIONS` | What we do + the 4-region footprint + trust signal (4.8 stars, license). Don't cram all 4 regions into the *title* - that's what the body/region hub links are for. | `HVAC Repair, Installation & Maintenance in Los Angeles` |
-| Service (`/[service]/`) | `{Service} in Los Angeles \| AIRPRO SOLUTIONS` | `Get {service, lowercase} for homes and businesses across Los Angeles and Southern California. {Specific problem solved}. {CTA}.` | `{Service} in Los Angeles and Southern California` |
+| Service (`/services/[service]/`) | `{Service} in Los Angeles \| AIRPRO SOLUTIONS` | `Get {service, lowercase} for homes and businesses across Los Angeles and Southern California. {Specific problem solved}. {CTA}.` | `{Service} in Los Angeles and Southern California` |
 | Region hub (`/service-areas/[region]/`) | `HVAC Services in {Region} \| AIRPRO SOLUTIONS` | Residential + commercial scope + region name + "explore cities served." | `HVAC Services in {Region}` |
-| City (`/service-areas/[city]-ca/`) | `HVAC Services in {City}, CA \| AIRPRO SOLUTIONS` *(already set in seo.ts)* | Residential + commercial scope + city name + CTA. | `HVAC Services in {City}, CA` - city name must also open the first paragraph. |
-| Service + city / matrix (`/[service]/[city]-ca/`) | `{Service} in {City}, CA \| AIRPRO SOLUTIONS` (qualifier segment, e.g. a confirmed availability claim, only if it survives the claims list and the character budget) | `Need {service, lowercase} in {City}? AIRPRO SOLUTIONS helps {audience/context} with {problem/outcome}. {CTA}.` | `{Service} in {City}, CA` - most important template to get right; see Section 7 for the anti-duplication requirement. |
+| City (`/service-areas/[city]/`) | `HVAC Services in {City}, CA \| AIRPRO SOLUTIONS` *(already set in seo.ts)* | Residential + commercial scope + city name + CTA. | `HVAC Services in {City}, CA` - city name must also open the first paragraph. |
+| Service + city / matrix (`/services/[service]/[city]/`) | `{Service} in {City}, CA \| AIRPRO SOLUTIONS` (optional qualifier segment, only if it passes the title claim rules in Section 6 and the character budget) | `Need {service, lowercase} in {City}? AIRPRO SOLUTIONS helps {audience/context} with {problem/outcome}. {CTA}.` | `{Service} in {City}, CA` - most important template to get right; see Section 7 for the anti-duplication requirement. |
 | Audience hub (`/[audience]-hvac/`) | `HVAC Services for {Audience} \| AIRPRO SOLUTIONS` | Audience pain point + service breadth + CTA. | `HVAC Services for {Audience}` |
 | Audience + service (`/[audience]-hvac/[service]/`) | `{Service} for {Audience} \| AIRPRO SOLUTIONS` (or `Commercial {Service} in Los Angeles \| AIRPRO SOLUTIONS` for the commercial-hvac case specifically) | Audience + service + differentiator + CTA. | `{Service} for {Audience}` |
-| Emergency (`/emergency-hvac/`) | `{Factual urgency phrasing} HVAC Repair in Los Angeles \| AIRPRO SOLUTIONS` - never "24/7" or "Emergency" unless that's a confirmed, always-available service. Default to "Urgent HVAC Repair" or "Fast HVAC Repair" until confirmed. | Same caution - describe what's actually offered. | Matches title. |
+| Emergency (`/services/emergency-hvac/`) | `{Factual urgency phrasing} HVAC Repair in Los Angeles \| AIRPRO SOLUTIONS` - title uses factual urgency phrasing such as "Urgent HVAC Repair"; never "24/7", "same-day", or a bare "Emergency" in the title (the service name "Emergency HVAC" is exempt). | May use the exact phrase "24/7 emergency dispatch" and "24/7" (Section 6); "same-day" only with "when capacity allows" or "typical". Describe what's actually offered. | Matches title. |
 | Blog (`/blog/[topic-slug]/`) | `{Question or Outcome} \| AIRPRO SOLUTIONS` (brand suffix optional - drop it if the topic benefits from a concise, topic-first title aimed at informational traffic) | Direct-answer-style summary, aimed at the featured-snippet target. | Matches the primary search question, not a cute headline. |
 | Core/utility (About, Contact, FAQ, Careers, Reviews, Financing, Accessibility, Privacy, Terms) | `{Page Purpose} \| AIRPRO SOLUTIONS` - brand suffix stays on these (navigational/branded intent). | One sentence, purpose-specific, no keyword stuffing. | Plain, human page name - no SEO engineering needed. |
 
@@ -113,18 +113,18 @@ Consider dropping it when:
 
 ## 6. Approved claims list
 
-Only these may appear in title/description/H1 copy without a fresh client confirmation, per the project's existing no-fabrication hard rule:
+Client-approved claims (CLAUDE.md "Approved claims", 2026-10-14): 24/7 emergency dispatch; same-day service (typical, subject to capacity); licensed, bonded & insured (CA license #1126691 and #50251); 4.8 stars / 40 Google reviews. Where each may appear in metadata is enforced by `assertNoUnapprovedClaims` in `src/lib/seo.ts` (it throws at build time) and is exactly this:
 
-- `licensed` - real (CA license #s 1126691, 50251 on file)
-- `4.8-star rated` / rating-based phrasing - real (4.8 stars / 40 reviews on file)
-- Named regions/cities actually in `src/content/regions.ts` / `cities.ts`
+- **Titles, H1s, and the matrix qualifier:** only `licensed` and `4.8-star rated`, plus named regions/cities actually in `src/content/regions.ts` / `cities.ts`. `24/7`, `24/7 emergency dispatch`, `same-day`, `same day`, `insured`, and `bonded` are always blocked.
+- **Descriptions:**
+  - The exact phrase `licensed, bonded & insured` is allowed on any page. `insured` or `bonded` on their own stay blocked.
+  - `24/7` is allowed only on the homepage (`/`), `/services/`, and `/services/emergency-hvac/`.
+  - The exact phrase `24/7 emergency dispatch` is allowed only on those same three pages. A bare `emergency` stays blocked everywhere, including on those three pages when it is not part of that exact phrase. The two-word service name `Emergency HVAC` is exempt.
+  - `same-day` (or `same day`) is allowed only when the same description also contains `when capacity allows` or `typical`.
+- **Blocked everywhere:** `24 hour`, a bare `emergency`, `guaranteed`, `best`, `affordable`, `near me`, and any claim not on the approved list. Anything not on the list must be flagged as a placeholder and not asserted.
+- Only `assertDescription(description, path)` knows the page path (the metadata builders pass it). Calling it without a path blocks `24/7` and the phrase `24/7 emergency dispatch`.
 
-**Not yet approved** (must stay out of metadata until the client confirms, consistent with the existing stub-page TODOs on financing/reviews):
-- `same-day service` - currently a TODO(data) flag on the matrix title helper; do not ship it in any title/description until confirmed
-- `24/7` / `emergency` availability wording, unless the emergency-hvac service is confirmed always-on
-- `insured`, `guaranteed`, `best`, `affordable`, `near me` - unverifiable or not on file
-
-Maintain this as an `allowedClaims` array the build can check against (Section 8).
+The build checks this through `ALLOWED_CLAIMS` and `assertNoUnapprovedClaims` in `src/lib/seo.ts` (Section 8).
 
 ## 7. Matrix (service + city) uniqueness requirement
 
@@ -150,7 +150,7 @@ Before a page is marked `index`, it must pass:
 - `noindex` pages excluded from the sitemap; `index` pages not blocked by robots
 
 ```ts
-const allowedClaims = ["licensed", "4.8-star rated"]; // extend only on client confirmation
+// Claim rules and per-page allowances live in Section 6 and src/lib/seo.ts; extend only on client confirmation.
 
 function validateSeoPage(page: SeoPage) {
   assert(page.title.length >= 20 && page.title.length <= 70);
@@ -167,8 +167,8 @@ function validateSeoPage(page: SeoPage) {
     assert(page.localContext);
     assert(page.relatedLinks.length >= 3);
   }
-  assertNoUnapprovedClaims(page.title, allowedClaims);
-  assertNoUnapprovedClaims(page.description, allowedClaims);
+  assertNoUnapprovedClaims(page.title, 'title');
+  assertNoUnapprovedClaims(page.description, 'description', page.path); // path drives the 24/7 page allowance
 }
 ```
 

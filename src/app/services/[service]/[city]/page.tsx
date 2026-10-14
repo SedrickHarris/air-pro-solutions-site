@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { matrixPages } from '@/content/matrix';
 import { getMatrixContent } from '@/content/matrix-content';
-import { getService } from '@/content/services';
+import { getService, serviceHref } from '@/content/services';
 import { getCity } from '@/content/cities';
 import { getRegion } from '@/content/regions';
 import { siteConfig } from '@/content/site-config';
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ service: 
   return serviceLocationMetadata({
     title: matrixTitle(s.name, c.name),
     description: content.metaDescription,
-    path: `/${s.slug}/${c.slug}/`,
+    path: `${serviceHref(s.slug)}${c.slug}/`,
   });
 }
 
@@ -66,14 +66,14 @@ export default async function Page({ params }: { params: Promise<{ service: stri
   const h1 = matrixH1(service.name, city.name);
   assertH1(h1);
 
-  const url = `${siteConfig.url}/${service.slug}/${city.slug}/`;
+  const url = `${siteConfig.url}${serviceHref(service.slug)}${city.slug}/`;
   const region = getRegion(city.region);
   const regionName = `${region?.name ?? city.region}, CA`;
 
   const crumbs = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services/' },
-    { name: service.name, href: `/${service.slug}/` },
+    { name: service.name, href: serviceHref(service.slug) },
     { name: city.name },
   ];
 
@@ -83,19 +83,19 @@ export default async function Page({ params }: { params: Promise<{ service: stri
     const hasMatrixPage = matrixPages.some((m) => m.service === service.slug && m.city === slug);
     return {
       name: n ? `${n.name} ${service.name}` : slug,
-      href: hasMatrixPage ? `/${service.slug}/${slug}/` : undefined,
+      href: hasMatrixPage ? `${serviceHref(service.slug)}${slug}/` : undefined,
       icon: 'pin',
       image: n?.cardImage,
     };
   });
 
-  // Same related-services logic as /[service]/: the service's own `related` slugs, plus a bonus
+  // Same related-services logic as /services/[service]/: the service's own `related` slugs, plus a bonus
   // Commercial HVAC card, so a matrix page for any future service links to the right siblings.
   const relatedServices = [
     ...service.related.map((relSlug) => {
       const rel = getService(relSlug);
-      if (!rel) throw new Error(`Unknown related service slug on /${service.slug}/${city.slug}/: ${relSlug}`);
-      return { name: rel.name, href: `/${rel.slug}/`, icon: rel.icon, image: rel.image };
+      if (!rel) throw new Error(`Unknown related service slug on ${serviceHref(service.slug)}${city.slug}/: ${relSlug}`);
+      return { name: rel.name, href: serviceHref(rel.slug), icon: rel.icon, image: rel.image };
     }),
     { name: 'Commercial HVAC', href: '/commercial-hvac/', icon: 'building' },
   ];
@@ -164,7 +164,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         title={content.local.h2}
         paragraphs={content.local.paragraphs}
         links={[
-          { text: `See the ${service.name} overview`, href: `/${service.slug}/` },
+          { text: `See the ${service.name} overview`, href: serviceHref(service.slug) },
           { text: `All HVAC services in ${city.name}`, href: `/service-areas/${city.slug}/` },
         ]}
         neighborhoodsHeading={content.local.areasHeading}

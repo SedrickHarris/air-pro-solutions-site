@@ -3,8 +3,8 @@
 // timeline blurb) when sourceLabel/sourceHref are omitted.
 //
 // Extended (AC Maintenance build) with three backward-compatible optional props so a pair of these
-// can be composed side by side as the "callouts" section on /ac-maintenance/, without touching the
-// single-callout usage on /ac-repair/ or /ac-installation/:
+// can be composed side by side as the "callouts" section on /services/ac-maintenance/, without touching the
+// single-callout usage on /services/ac-repair/ or /services/ac-installation/:
 // - `boldLead`: bolds a short lead phrase before `body` (e.g. "No." before the R-410A answer).
 // - `sourceText`: a plain, non-linked "Source: ..." line (e.g. "listed under Sources below"),
 //   used instead of the sourceLabel/sourceHref anchor when there is no direct URL to link to.
@@ -14,14 +14,14 @@
 //   can place two of these inside one shared section/grid wrapper.
 export function RefrigerantNote({
   title,
-  // Optional lead paragraph rendered BEFORE the boldLead+body paragraph (e.g. /heat-pump-services/'s
+  // Optional lead paragraph rendered BEFORE the boldLead+body paragraph (e.g. /services/heat-pump-services/'s
   // R-410A callout, whose approved copy states the new-install rule first, then bolds "Existing
   // R-410A systems are not banned." as its own sentence, then continues). Undefined for every other
   // caller, whose boldLead already opens the panel.
   introBody,
   body,
   boldLead,
-  // Optional second paragraph (e.g. /furnace-installation/'s "Furnace only, or the whole system?"
+  // Optional second paragraph (e.g. /services/furnace-installation/'s "Furnace only, or the whole system?"
   // callout, which needs two paragraphs before the source line). Undefined for every other caller.
   body2,
   sourceLabel,

@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import { PageHeader } from '@/components/ui/PageHeader';
+import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { jsonLd, breadcrumbSchema, webPageSchema } from '@/lib/schema';
+import { siteConfig } from '@/content/site-config';
 import { PendingNote } from '@/components/ui/PendingNote';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 
@@ -10,8 +13,13 @@ export const metadata = hubMetadata({
 });
 
 export default function Page() {
+  const crumbs = [{ name: 'Home', href: '/' }, { name: 'About Us' }];
+  const url = `${siteConfig.url}/about/`;
+  const schema = [webPageSchema({ type: 'AboutPage', name: 'About AIRPRO SOLUTIONS', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
+      <Breadcrumbs crumbs={crumbs} />
       <PageHeader eyebrow="About" title="About AIRPRO SOLUTIONS" lede="Heating and cooling for homes and businesses across Southern California." />
       <section>
         <div className="wrap prose">

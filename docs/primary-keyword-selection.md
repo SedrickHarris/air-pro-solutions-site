@@ -113,13 +113,13 @@ Using the project's actual URL patterns and content (`src/content/services.ts`, 
 | Page | Example URL | Primary keyword |
 |---|---|---|
 | Home | `/` | `hvac services los angeles` (avoid stuffing every region into it - that's what region hubs are for) |
-| Service | `/ac-repair/` | `ac repair los angeles` |
+| Service | `/services/ac-repair/` | `ac repair los angeles` |
 | Service | `/heat-pump-services/` | `heat pump repair los angeles` |
 | Region hub | `/service-areas/south-bay/` | `hvac services south bay` |
 | Region hub | `/service-areas/orange-county/` | `hvac services orange county` |
-| City | `/service-areas/torrance-ca/` | `hvac services torrance` |
-| Service + city | `/ac-repair/torrance-ca/` | `ac repair torrance` |
-| Service + city | `/heating-repair/irvine-ca/` | `heating repair irvine` |
+| City | `/service-areas/torrance/` | `hvac services torrance` |
+| Service + city | `/services/ac-repair/torrance/` | `ac repair torrance` |
+| Service + city | `/services/heating-repair/irvine/` | `heating repair irvine` |
 | Audience hub | `/commercial-hvac/` | `commercial hvac los angeles` |
 | Audience + service | `/commercial-hvac/ac-repair/` | `commercial ac repair los angeles` |
 | Blog/resource | `/blog/ac-not-cooling/` | `why is my ac running but not cooling` |
@@ -148,7 +148,7 @@ Once a page has meaningful impressions, GSC becomes the primary validation sourc
 4. Compare the actual query cluster against the intended primary keyword
 5. Recheck after any title/H1/content revision
 
-Example decision, `/ac-repair/torrance-ca/` (illustrative numbers only, not real data):
+Example decision, `/services/ac-repair/torrance/` (illustrative numbers only, not real data):
 
 | Query cluster | Impressions | CTR | Avg. position | Decision |
 |---|---:|---:|---:|---|

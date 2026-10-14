@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 // Three short licensing/permit/energy-code cards. Plain text only - no "we pull permits" or
 // SEER2-minimum claims; see CLAUDE.md "Claims that must not ship".
 //
-// Extended for /indoor-air-quality/: `items[].body` widened from `string` to `ReactNode` (every
+// Extended for /services/indoor-air-quality/: `items[].body` widened from `string` to `ReactNode` (every
 // existing string caller still satisfies ReactNode, so ac-repair/ac-installation/ac-maintenance/
 // heating-repair are unaffected) so the "smoke plan" section can embed one inline link inside a
 // bullet's body. `intro`/`closing`/`id` are new optional slots (lead paragraph before the cards, a

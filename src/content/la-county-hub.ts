@@ -1,5 +1,5 @@
 import { siteConfig } from '@/content/site-config';
-import { getService, commercialCardImage, residentialCardImage, servicesHubCardImage } from '@/content/services';
+import { getService, serviceHref, commercialCardImage, residentialCardImage, servicesHubCardImage } from '@/content/services';
 import type { Faq } from '@/content/faq';
 import type { Card } from '@/components/sections/ServicesGrid';
 import type { RebateCard } from '@/components/sections/RebateCards';
@@ -241,7 +241,7 @@ export const laCountyHub = {
     {
       q: 'Which cities does AIRPRO SOLUTIONS serve in Los Angeles County?',
       a: 'This page covers Los Angeles, Long Beach, Pasadena, Glendale, Burbank, Culver City, Santa Monica, and Inglewood. South Bay cities such as Torrance are covered separately. If your address is in unincorporated county territory, call us first, because permit and code rules differ there.',
-      links: [{ text: 'Torrance', href: '/service-areas/torrance-ca/' }],
+      links: [{ text: 'Torrance', href: '/service-areas/torrance/' }],
     },
     {
       q: 'Does HVAC sizing change between the coast and inland Los Angeles County?',
@@ -298,6 +298,6 @@ export function laCountyServiceCards(): Card[] {
     }
     const svc = getService(sc.slug);
     if (!svc) throw new Error(`Unknown service slug on ${laCountyHub.path}: ${sc.slug}`);
-    return { href: `/${svc.slug}/`, name: svc.name, description: sc.body, icon: svc.icon, image: svc.image };
+    return { href: serviceHref(svc.slug), name: svc.name, description: sc.body, icon: svc.icon, image: svc.image };
   });
 }

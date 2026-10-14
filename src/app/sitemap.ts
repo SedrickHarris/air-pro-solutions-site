@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/content/site-config';
-import { publishedServices } from '@/content/services';
+import { publishedServices, serviceHref } from '@/content/services';
 import { wave1Cities } from '@/content/cities';
 import { builtAudiences } from '@/content/audiences';
 import { matrixPages } from '@/content/matrix';
@@ -17,9 +17,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/', '/services/', '/service-areas/', '/service-areas/los-angeles-county/', '/service-areas/south-bay/', '/service-areas/orange-county/', '/service-areas/inland-empire/',
     '/about/', '/contact/', '/reviews/', '/financing/', '/maintenance-plan/', '/faq/', '/careers/', '/privacy/', '/terms/', '/accessibility/', // thank-you is noindex, never list it
     ...builtAudiences.map((a) => `/${a}/`),
-    ...publishedServices.filter((s) => s.page).map((s) => `/${s.slug}/`),
+    ...publishedServices.filter((s) => s.page).map((s) => serviceHref(s.slug)),
     ...wave1Cities.filter((c) => c.page).map((c) => `/service-areas/${c.slug}/`),
-    ...matrixPages.map((m) => `/${m.service}/${m.city}/`),
+    ...matrixPages.map((m) => `${serviceHref(m.service)}${m.city}/`),
     ...publishedCommercialPages.map((p) => `/commercial-hvac/${p.slug}/`),
   ];
   return paths.map((p) => ({ url: `${siteConfig.url}${p}` }));

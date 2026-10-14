@@ -24,7 +24,7 @@ export type MatrixContent = {
   faqs: Faq[];
 };
 
-// Locked copy for /ac-repair/torrance-ca/. See CLAUDE.md "Claims that must not ship": no pricing,
+// Locked copy for /services/ac-repair/torrance/. See CLAUDE.md "Claims that must not ship": no pricing,
 // same-day/24-7 timing, brand-list, or unconfirmed licensing claims.
 const acRepairTorrance: MatrixContent = {
   heroImage: {
@@ -64,7 +64,7 @@ const acRepairTorrance: MatrixContent = {
     ],
     areasHeading: 'Torrance areas we repair AC in',
   },
-  nearby: ['redondo-beach-ca', 'manhattan-beach-ca', 'gardena-ca', 'carson-ca'],
+  nearby: ['redondo-beach', 'manhattan-beach', 'gardena', 'carson'],
   faqs: [
     {
       q: 'How fast can I get AC repair in Torrance?',
@@ -100,7 +100,7 @@ const acRepairTorrance: MatrixContent = {
 };
 
 export const matrixContent: Record<string, MatrixContent> = {
-  'ac-repair/torrance-ca': acRepairTorrance,
+  'ac-repair/torrance': acRepairTorrance,
 };
 
 export const getMatrixContent = (service: string, city: string) => matrixContent[`${service}/${city}`];

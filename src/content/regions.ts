@@ -4,10 +4,10 @@ export type Region = {
   slug: string;
   name: string;
   image: RegionImage; // 800x416 map card; source files (1300x676) live in public/images/locations/<slug>/
-  cities: string[]; // city slugs (end in -ca), keys into cities.ts
+  cities: string[]; // city slugs (no -ca suffix), keys into cities.ts
 };
 
-export const citySlug = (name: string) => `${name.toLowerCase().replace(/\s+/g, '-')}-ca`;
+export const citySlug = (name: string) => name.toLowerCase().replace(/\s+/g, '-');
 
 // Tier-1 city lists, confirmed by the client team (8 per region).
 // South Bay is carved out of LA County so the two hubs never compete for the same cities:

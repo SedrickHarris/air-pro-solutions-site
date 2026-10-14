@@ -1,6 +1,6 @@
 export type RebateCard = {
   amount: string;
-  // Small caption above `amount`, added for /furnace-installation/, whose incentives have both a
+  // Small caption above `amount`, added for /services/furnace-installation/, whose incentives have both a
   // program name (SoCalGas, LADWP, TECH Clean California) and a real dollar headline - `amount`
   // holds the headline and `label` holds the program name. Omitted everywhere else, where `amount`
   // is the program name itself (no confirmed dollar figure to show).

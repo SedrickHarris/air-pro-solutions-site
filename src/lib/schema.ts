@@ -87,6 +87,17 @@ export const breadcrumbSchema = (items: { name: string; url: string }[]) => ({
   itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.name, item: it.url })),
 });
 
+// Generic page schema for core/utility pages. `name` must be the page's visible H1; no description is emitted
+// because these pages have no visible summary sentence to mirror. The organization is referenced by @id only.
+export const webPageSchema = (p: { type?: 'WebPage' | 'AboutPage' | 'ContactPage'; name: string; url: string }) => ({
+  '@context': 'https://schema.org',
+  '@type': p.type ?? 'WebPage',
+  name: p.name,
+  url: p.url,
+  publisher: providerRef,
+  ...(p.type === 'AboutPage' ? { about: providerRef } : {}),
+});
+
 export const faqSchema = (faqs: { q: string; a: string }[]) => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -94,7 +105,7 @@ export const faqSchema = (faqs: { q: string; a: string }[]) => ({
 });
 
 // Hub page listing services. Each entry must use the same name/description/url rendered on the page.
-export const collectionPageSchema = (c: { name: string; url: string; items: { name: string; description: string; url: string }[] }) => ({
+export const collectionPageSchema = (c: { name: string; url: string; items: { name: string; description?: string; url: string }[] }) => ({
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: c.name,

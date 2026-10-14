@@ -20,8 +20,8 @@ import type { ServicePage } from '@/content/services';
 // (see CLAUDE.md doorway-page rule).
 // TODO(copy): client review of every FAQ answer below before launch.
 
-// Full template content for /ac-installation/. Reuses the same ServicePage shape and shared section
-// components already built out for /ac-repair/ - see the build report for why a second, parallel
+// Full template content for /services/ac-installation/. Reuses the same ServicePage shape and shared section
+// components already built out for /services/ac-repair/ - see the build report for why a second, parallel
 // content shape (src/content/service-pages/) was not introduced.
 export const acInstallationPage: ServicePage = {
   primaryKeyword: 'ac installation los angeles',
@@ -55,11 +55,11 @@ export const acInstallationPage: ServicePage = {
   symptomsNote: {
     before: 'Cooling out right now? ',
     linkLabel: 'See AC repair',
-    linkHref: '/ac-repair/',
+    linkHref: '/services/ac-repair/',
     after: ' for symptoms and what a technician checks.',
   },
   // Repair-vs-replace renders right after the symptoms section on this page (see CompareTable in
-  // src/app/[service]/page.tsx), ahead of the process steps, instead of the ac-repair template's
+  // src/app/services/[service]/page.tsx), ahead of the process steps, instead of the ac-repair template's
   // default position after pricing.
   compareEarly: true,
   repairReplaceExtra: {
@@ -68,7 +68,7 @@ export const acInstallationPage: ServicePage = {
       'If the repair is major or the system keeps breaking down, we can lay out a repair option beside a replacement option so you decide with the actual numbers.',
     ],
     linkText: 'Not sure whether to repair or replace your AC?',
-    linkHref: '/ac-repair/',
+    linkHref: '/services/ac-repair/',
   },
   visitEyebrow: 'The project',
   visitTitle: 'What is included and what can cost extra',
@@ -103,9 +103,9 @@ export const acInstallationPage: ServicePage = {
     'We recommend a system after the evaluation and load calculation, not before. These are the common options.',
   systems: [
     { name: 'Split central AC', icon: 'wrench', body: 'An outdoor condensing unit connected to an indoor coil and blower or air handler, usually with ducts. A fit for properties with a suitable duct system.' },
-    { name: 'Split heat pump', icon: 'wrench', body: 'Similar equipment that provides both cooling and heating. Worth comparing with a cooling-only replacement, subject to load, electrical, incentive, and property review.', link: { label: 'Heat pump services', href: '/heat-pump-services/' } },
+    { name: 'Split heat pump', icon: 'wrench', body: 'Similar equipment that provides both cooling and heating. Worth comparing with a cooling-only replacement, subject to load, electrical, incentive, and property review.', link: { label: 'Heat pump services', href: '/services/heat-pump-services/' } },
     { name: 'Packaged units', icon: 'building', body: 'Cooling or heat pump components in one outdoor cabinet, ground or roof mounted. Used at some homes and many commercial properties.' },
-    { name: 'Ductless mini-splits', icon: 'home', body: 'An outdoor unit connected to one or more indoor units without central ductwork. Suited to additions, targeted zones, and homes without ducts, once the layout is reviewed.', link: { label: 'Ductless mini-split options', href: '/ductless-mini-split/' } },
+    { name: 'Ductless mini-splits', icon: 'home', body: 'An outdoor unit connected to one or more indoor units without central ductwork. Suited to additions, targeted zones, and homes without ducts, once the layout is reviewed.', link: { label: 'Ductless mini-split options', href: '/services/ductless-mini-split/' } },
     { name: 'Ducted mini-splits', icon: 'home', body: 'A compact ducted indoor unit serving short duct runs or concealed zones. A design option where conventional ducts are impractical, confirmed at a site review.' },
     { name: 'Rooftop units', icon: 'building', body: 'Commercial packaged equipment on a roof. Roof access, curb, crane, controls, and municipal requirements can change scope and price.' },
   ],
@@ -183,10 +183,10 @@ export const acInstallationPage: ServicePage = {
   proofHeading: 'A written proposal and plain answers before you commit',
   proofBody: 'You get the reasoning behind the recommended system, what is included, and what could change the price.',
   moreLinks: [
-    { text: 'Duct inspection and replacement options', href: '/ductwork/' },
-    { text: 'Indoor air quality and filtration options', href: '/indoor-air-quality/' },
+    { text: 'Duct inspection and replacement options', href: '/services/ductwork/' },
+    { text: 'Indoor air quality and filtration options', href: '/services/indoor-air-quality/' },
     { text: 'Commercial HVAC', href: '/commercial-hvac/' },
-    { text: 'Compare a heat pump with a central AC replacement', href: '/heat-pump-services/' },
+    { text: 'Compare a heat pump with a central AC replacement', href: '/services/heat-pump-services/' },
   ],
   sourcesColumns: 2,
   sources: [

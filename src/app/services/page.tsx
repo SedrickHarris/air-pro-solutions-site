@@ -10,7 +10,7 @@ import { ResCommSplit } from '@/components/sections/ResCommSplit';
 import { Proof } from '@/components/sections/Proof';
 import { FinalCta } from '@/components/sections/FinalCta';
 import { FaqList } from '@/components/sections/FaqList';
-import { getService } from '@/content/services';
+import { getService, serviceHref } from '@/content/services';
 import { servicesFaqs } from '@/content/services-faq';
 import { siteConfig } from '@/content/site-config';
 import { breadcrumbSchema, collectionPageSchema, faqSchema, jsonLd } from '@/lib/schema';
@@ -28,6 +28,8 @@ const cooling = ['ac-repair', 'ac-installation', 'ac-maintenance'];
 const heating = ['heating-repair', 'furnace-installation', 'heat-pump-services'];
 const ductAir = ['ductwork', 'indoor-air-quality'];
 // The CollectionPage lists all ten services. Ductless mini-split and emergency HVAC have no card: they surface as pills / the banner.
+// Visible urgent-help copy in the #emergency banner; the emergency Service schema description reads this same string.
+const emergencyLede = 'If your AC has stopped cooling or your heating system will not turn on, AIRPRO SOLUTIONS can help with urgent HVAC service.';
 const allSlugs = [...cooling, ...heating, ...ductAir, 'ductless-mini-split', 'emergency-hvac'];
 
 // TODO(data): hub-only heading variants. services.ts names differ ("AC Installation", "Furnace Installation", "Ductwork");
@@ -39,23 +41,28 @@ const hubName: Record<string, string> = {
 };
 const nameFor = (slug: string) => hubName[slug] ?? getService(slug)!.name;
 
+// Schema descriptions must mirror visible text. Emergency uses the visible banner sentence. Ductless mini-split has
+// no card and no descriptive sentence on this page (pills only), so it carries no description.
+const schemaDescription = (slug: string): string | undefined =>
+  slug === 'emergency-hvac' ? emergencyLede : slug === 'ductless-mini-split' ? undefined : getService(slug)!.description;
+
 const to = (href: string, labels: string[]): Pill[] => labels.map((label) => ({ label, href }));
 
 // Pills without an href have no matching page yet: they render as plain text.
 const coolingPills: Pill[] = [
-  { label: 'AC Replacement', href: '/ac-installation/' },
+  { label: 'AC Replacement', href: '/services/ac-installation/' },
   { label: 'HVAC Repair' }, { label: 'HVAC Installation' }, { label: 'HVAC Replacement' },
-  ...to('/ductless-mini-split/', ['Ductless Mini-Split Systems', 'Ductless Mini-Split Installation', 'Ductless Mini-Split Repair']),
-  ...to('/heat-pump-services/', ['Heat Pump Repair', 'Heat Pump Installation', 'Heat Pump Replacement']),
+  ...to('/services/ductless-mini-split/', ['Ductless Mini-Split Systems', 'Ductless Mini-Split Installation', 'Ductless Mini-Split Repair']),
+  ...to('/services/heat-pump-services/', ['Heat Pump Repair', 'Heat Pump Installation', 'Heat Pump Replacement']),
 ];
 const heatingPills: Pill[] = [
-  { label: 'Furnace Repair', href: '/heating-repair/' },
-  { label: 'Furnace Replacement', href: '/furnace-installation/' },
+  { label: 'Furnace Repair', href: '/services/heating-repair/' },
+  { label: 'Furnace Replacement', href: '/services/furnace-installation/' },
   { label: 'Heating Maintenance' }, { label: 'HVAC Maintenance' },
-  ...to('/heat-pump-services/', ['Heat Pump Repair', 'Heat Pump Installation', 'Heat Pump Replacement', 'Heat Pump Maintenance']),
+  ...to('/services/heat-pump-services/', ['Heat Pump Repair', 'Heat Pump Installation', 'Heat Pump Replacement', 'Heat Pump Maintenance']),
 ];
-const ductPills = to('/ductwork/', ['Duct Repair', 'Duct Sealing', 'Duct Replacement', 'Duct Installation', 'Ductwork Modification', 'Air Balancing', 'Duct Insulation']);
-const iaqPills = to('/indoor-air-quality/', ['Air Filtration Systems', 'Whole-Home Air Purification', 'Air Purifier Installation', 'Media Air Cleaners', 'Ventilation Services', 'Humidity Control', 'HVAC Filter Upgrades']);
+const ductPills = to('/services/ductwork/', ['Duct Repair', 'Duct Sealing', 'Duct Replacement', 'Duct Installation', 'Ductwork Modification', 'Air Balancing', 'Duct Insulation']);
+const iaqPills = to('/services/indoor-air-quality/', ['Air Filtration Systems', 'Whole-Home Air Purification', 'Air Purifier Installation', 'Media Air Cleaners', 'Ventilation Services', 'Humidity Control', 'HVAC Filter Upgrades']);
 const commercialPills = to('/commercial-hvac/', ['Commercial HVAC Repair', 'Commercial HVAC Installation', 'Commercial HVAC Replacement', 'Commercial HVAC Maintenance', 'Maintenance Agreements', 'Rooftop Unit Service']);
 const audiencePills = to('/commercial-hvac/', ['Property Managers', 'Apartment Communities', 'Office Buildings', 'Retail Businesses', 'Restaurants', 'Warehouses']);
 
@@ -98,7 +105,7 @@ function ServiceCards({ slugs }: { slugs: string[] }) {
         const s = getService(slug);
         if (!s) throw new Error(`Unknown service slug on /services/: ${slug}`);
         return (
-          <Link key={slug} href={`/${slug}/`} className="svc-card">
+          <Link key={slug} href={serviceHref(slug)} className="svc-card">
             {s.image ? (
               <div className="svc-card-img">
                 <Image src={s.image.src} alt={s.image.alt} width={800} height={600} sizes="(max-width: 520px) 100vw, (max-width: 920px) 50vw, 25vw" />
@@ -123,7 +130,7 @@ function ServiceCards({ slugs }: { slugs: string[] }) {
 }
 
 export default function Page() {
-  const items = allSlugs.map((slug) => ({ name: nameFor(slug), description: getService(slug)!.description, url: `${siteConfig.url}/${slug}/` }));
+  const items = allSlugs.map((slug) => ({ name: nameFor(slug), description: schemaDescription(slug), url: `${siteConfig.url}${serviceHref(slug)}` }));
   const crumbs = [{ name: 'Home', href: '/' }, { name: 'Services' }];
   // The FAQ list and FAQPage JSON-LD both read servicesFaqs; service entries read the same names/descriptions as the cards.
   const schema = [
@@ -235,10 +242,11 @@ export default function Page() {
       <section id="emergency" className="final-cta">
         <div className="wrap">
           <h2>Need HVAC Help Right Now?</h2>
-          <p>If your AC has stopped cooling or your heating system will not turn on, AIRPRO SOLUTIONS can help with urgent HVAC service.</p>
+          <p>{emergencyLede}</p>
           <div className="cta-row cta-center">
             <a className="btn btn-primary" href={siteConfig.phoneHref}>Call for Urgent HVAC Help</a>
             <Link className="btn btn-ghost" href="/contact/">Request Emergency Service</Link>
+            <Link className="btn btn-ghost" href={serviceHref('emergency-hvac')}>Emergency HVAC Details</Link>
           </div>
           <p className="banner-note">Same-day availability is subject to technician availability, call time, system type, and service-area conditions.</p>
         </div>

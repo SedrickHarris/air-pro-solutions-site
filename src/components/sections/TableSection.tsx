@@ -2,9 +2,9 @@ import Link from 'next/link';
 import { DataTable } from '@/components/sections/DataTable';
 
 // Generic "eyebrow + h2 + lead + two-column table + closing note/link" section. Same shape as the
-// inline "catches" block in src/app/[service]/page.tsx (introduced for /ac-maintenance/), pulled out
+// inline "catches" block in src/app/services/[service]/page.tsx (introduced for /services/ac-maintenance/), pulled out
 // into its own small component - like DiagnosisTable, just a thin wrapper around DataTable - because
-// /indoor-air-quality/ needs three separate tables of this shape (warning signs, duct work, equipment
+// /services/indoor-air-quality/ needs three separate tables of this shape (warning signs, duct work, equipment
 // fit by system type) at three different points in the page, and `catches` is bound to one fixed
 // position in page.tsx. Optional `id` supports the page's internal "#areas"-style anchor links.
 export function TableSection({

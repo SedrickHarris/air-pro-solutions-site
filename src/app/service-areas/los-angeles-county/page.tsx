@@ -228,7 +228,7 @@ export default function Page() {
           <h2>{laCountyHub.cities.title}</h2>
           <p>
             Individual city pages are coming. For the South Bay, see our{' '}
-            <Link href="/service-areas/torrance-ca/">Torrance page</Link>, or browse{' '}
+            <Link href="/service-areas/torrance/">Torrance page</Link>, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">

@@ -13,9 +13,9 @@ import type { ServicePage } from '@/content/services';
 // program names already stated in each card's body/link text, not new data - added only because the
 // RebateCards component requires a caption label alongside the dollar-amount headline.
 
-// Full template content for /ductless-mini-split/. Reuses the same ServicePage shape and shared
-// section components already built out for /ac-repair/, /ac-installation/, /ac-maintenance/,
-// /heating-repair/, and /furnace-installation/ - see the build report for why a second, parallel
+// Full template content for /services/ductless-mini-split/. Reuses the same ServicePage shape and shared
+// section components already built out for /services/ac-repair/, /services/ac-installation/, /services/ac-maintenance/,
+// /services/heating-repair/, and /services/furnace-installation/ - see the build report for why a second, parallel
 // content shape (src/content/pages/) was not introduced. This page reuses several fields the
 // furnace-installation build already added (relatedIconOverrides, the `headline` field on incentives
 // items, symptomsEyebrow, diagnosisColumns) and adds a small number of new optional ServicePage
@@ -65,7 +65,7 @@ export const ductlessMiniSplitPage: ServicePage = {
       { icon: 'home', title: 'Add cooling and heating to one room', body: 'A room, ADU, garage conversion, or addition with no usable ductwork.', href: '#fit', ctaLabel: 'See where mini-splits fit' },
       { icon: 'doc', title: 'Serve several rooms', body: 'Compare single-zone, multi-zone, and concealed ducted layouts.', href: '#systems', ctaLabel: 'Compare system types' },
       { icon: 'wrench', title: 'My mini-split has a problem', body: 'Weak cooling, water leaks, error codes, or noise point to a fault that needs diagnosis.', href: '#signs', ctaLabel: 'See warning signs' },
-      { icon: 'building', title: 'Compare with central AC or a furnace', body: 'Decide whether ductless, ducted, or a mix fits how you use the building.', href: '/ac-installation/', ctaLabel: 'See AC installation' },
+      { icon: 'building', title: 'Compare with central AC or a furnace', body: 'Decide whether ductless, ducted, or a mix fits how you use the building.', href: '/services/ac-installation/', ctaLabel: 'See AC installation' },
     ],
   },
   urgency: {
@@ -195,7 +195,7 @@ export const ductlessMiniSplitPage: ServicePage = {
   repairReplaceExtra: {
     paragraphs: [],
     linkText: 'Compare AC repair and replacement options',
-    linkHref: '/ac-installation/',
+    linkHref: '/services/ac-installation/',
   },
   rulesEyebrow: 'The rules',
   rulesTitle: 'Licensing, permits, and energy-code basics',
@@ -263,7 +263,7 @@ export const ductlessMiniSplitPage: ServicePage = {
   proofBody: 'Ask any contractor how the system will be sized, who pulls the permit, and what the written scope includes. You should have clear answers before you approve work.',
   // Icon overrides for this page's related-service cards, since the approved copy specifies icons
   // that differ from both each service's own default icon and the shared relatedIcons fallback map
-  // in src/app/[service]/page.tsx. Reuses the `relatedIconOverrides` field the furnace-installation
+  // in src/app/services/[service]/page.tsx. Reuses the `relatedIconOverrides` field the furnace-installation
   // build already added to ServicePage (no type change needed here).
   relatedIconOverrides: {
     'ac-repair': 'check',
@@ -271,16 +271,16 @@ export const ductlessMiniSplitPage: ServicePage = {
     'heat-pump-services': 'bolt',
   },
   moreLinks: [
-    { text: 'Heating repair', href: '/heating-repair/' },
-    { text: 'Furnace installation', href: '/furnace-installation/' },
-    { text: 'Ductwork options', href: '/ductwork/' },
-    { text: 'Indoor air quality', href: '/indoor-air-quality/' },
+    { text: 'Heating repair', href: '/services/heating-repair/' },
+    { text: 'Furnace installation', href: '/services/furnace-installation/' },
+    { text: 'Ductwork options', href: '/services/ductwork/' },
+    { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
     { text: 'Commercial HVAC', href: '/commercial-hvac/' },
   ],
   // TODO(data): Sources list for ductless-mini-split never arrived from the client-side prompt; add
   // once provided. Do not invent citations. `sources` is intentionally left unset below, so the
   // SourcesList section does not render (see the `{page.sources && <SourcesList .../>}` guard in
-  // src/app/[service]/page.tsx).
+  // src/app/services/[service]/page.tsx).
   faqs: [
     {
       q: 'What is a ductless mini-split?',

@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import { PageHeader } from '@/components/ui/PageHeader';
+import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { jsonLd, breadcrumbSchema, webPageSchema } from '@/lib/schema';
+import { siteConfig } from '@/content/site-config';
 import { PendingNote } from '@/components/ui/PendingNote';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 
@@ -10,8 +13,13 @@ export const metadata = hubMetadata({
 });
 
 export default function Page() {
+  const crumbs = [{ name: 'Home', href: '/' }, { name: 'Financing' }];
+  const url = `${siteConfig.url}/financing/`;
+  const schema = [webPageSchema({ type: 'WebPage', name: 'HVAC Financing', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
+      <Breadcrumbs crumbs={crumbs} />
       <PageHeader eyebrow="Financing" title="HVAC Financing" lede="Flexible financing available." />
       <section>
         <div className="wrap prose">

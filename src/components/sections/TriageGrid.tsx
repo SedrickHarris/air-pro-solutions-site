@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
 
 // Three-tier triage card grid: "Life safety" (leave and call 911), "Emergency repair" (turn the
-// system off and call), and "Can be scheduled" (book a normal visit). Built for /emergency-hvac/,
+// system off and call), and "Can be scheduled" (book a normal visit). Built for /services/emergency-hvac/,
 // which is the first page whose approved copy needs this life-safety/emergency/routine split - no
 // existing section component (DecisionGrid, UrgencyBox, RulesNote) has three visually distinct card
 // variants or an optional per-card CTA with two different button styles, so this is a new, generic,

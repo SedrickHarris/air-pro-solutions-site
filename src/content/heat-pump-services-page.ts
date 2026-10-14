@@ -16,7 +16,7 @@ import { siteConfig } from '@/content/site-config';
 // TODO(data): no Air Pro price, diagnostic fee, visit length, financing term, plan tier, or labor
 // warranty is stated anywhere on this page. Third-party price ranges were intentionally left out.
 // TODO(data): response time, after-hours, and emergency availability are not stated. Do not link to
-// /emergency-hvac/ from this page until the client confirms real always-on availability.
+// /services/emergency-hvac/ from this page until the client confirms real always-on availability.
 // TODO(data): commercial rooftop, ductless, and packaged capability (systems grid, audience chips) is
 // unconfirmed. A2L technician training and manufacturer credentials are not claimed anywhere.
 // TODO(data): re-check the LADWP rebate amount and the TECH Clean California reservation date at
@@ -31,9 +31,9 @@ import { siteConfig } from '@/content/site-config';
 // emergency-availability wording appear anywhere on this page - none are confirmed. See CLAUDE.md
 // "Claims that must not ship".
 
-// Full template content for /heat-pump-services/. Reuses the same ServicePage shape and shared
-// section components already built out for /ac-repair/, /ac-installation/, /ac-maintenance/,
-// /heating-repair/, /furnace-installation/, and /ductless-mini-split/ - see the build report for why a
+// Full template content for /services/heat-pump-services/. Reuses the same ServicePage shape and shared
+// section components already built out for /services/ac-repair/, /services/ac-installation/, /services/ac-maintenance/,
+// /services/heating-repair/, /services/furnace-installation/, and /services/ductless-mini-split/ - see the build report for why a
 // second, parallel content shape (src/content/pages/heat-pump-services.ts, as the original spec
 // proposed) was not introduced. A handful of new optional ServicePage/component fields (basics,
 // diagnosisNote + DiagnosisTable's `note` prop, warranty, urgency.ctaLabel, refrigerant.introBody,
@@ -77,7 +77,7 @@ export const heatPumpServicesPage: ServicePage = {
     columns: 4,
     // Trailing "->" arrows from the approved copy are dropped from each ctaLabel: DecisionGrid already
     // renders its own arrow icon after the label, so keeping the glyph too would show two arrows (see
-    // the same call already made on /ac-maintenance/'s decision cards).
+    // the same call already made on /services/ac-maintenance/'s decision cards).
     cards: [
       { icon: 'check', title: 'Heating and cooling normally', body: 'The system runs and switches modes as it should. Schedule a check before the next season.', ctaLabel: 'Schedule maintenance', href: '/contact/' },
       { icon: 'wrench', title: 'Not heating, not cooling, icing, or leaking', body: 'Weak output, a stuck mode, ice that does not clear, water, or new noises point to a fault.', ctaLabel: 'Request a diagnosis', href: '/contact/' },
@@ -128,10 +128,10 @@ export const heatPumpServicesPage: ServicePage = {
   diagnosisNote: {
     before: 'If the problem is only cooling or only heating on a standard system, see ',
     linkLabel: 'AC repair',
-    linkHref: '/ac-repair/',
+    linkHref: '/services/ac-repair/',
     middle: ' or ',
     linkLabel2: 'heating repair',
-    linkHref2: '/heating-repair/',
+    linkHref2: '/services/heating-repair/',
     after: '.',
   },
   visitEyebrow: 'The visit',
@@ -175,11 +175,11 @@ export const heatPumpServicesPage: ServicePage = {
   systemsNote: {
     before: 'Setting up a home without ducts, or an addition? See ',
     linkLabel: 'ductless mini-split service',
-    linkHref: '/ductless-mini-split/',
+    linkHref: '/services/ductless-mini-split/',
   },
   // "Repair or replace your heat pump" - a 3-column Question/Repair/Replace table, composed inline via
   // the shared DataTable in the `comparisonTable` slot (the same pattern already used for
-  // /furnace-installation/'s "Gas furnace or heat pump" comparison). See the build report for why this
+  // /services/furnace-installation/'s "Gas furnace or heat pump" comparison). See the build report for why this
   // renders the full table instead of Service.repairVsReplace's two-group bullet shape.
   comparisonTable: {
     id: 'repair-replace',
@@ -270,7 +270,7 @@ export const heatPumpServicesPage: ServicePage = {
   regionClosing: 'Do not see your city? Call us and we will confirm coverage.',
   // Shorthand region-card link labels from the approved copy (trailing "->" arrows dropped - RegionGrid
   // already renders its own arrow icon after the label), matching the same shorthand-labels pattern
-  // already used on /heating-repair/ and /furnace-installation/.
+  // already used on /services/heating-repair/ and /services/furnace-installation/.
   regionLinkLabels: {
     'los-angeles-county': 'Heat pump service in LA County',
     'south-bay': 'Heat pump service in South Bay',
@@ -279,15 +279,15 @@ export const heatPumpServicesPage: ServicePage = {
   },
   proofHeading: 'A technician who explains what they found',
   proofBody: 'You get a plain-language summary of what was checked, what the cause looks like, and what your options are, so you can decide what to do next.',
-  // TODO(data): do not promote /emergency-hvac/ from this row until the client confirms real
+  // TODO(data): do not promote /services/emergency-hvac/ from this row until the client confirms real
   // always-on availability (see the file-level TODO above). /maintenance-plan/ is still a "content
   // coming" stub.
   moreLinks: [
-    { text: 'AC maintenance', href: '/ac-maintenance/' },
-    { text: 'AC installation', href: '/ac-installation/' },
-    { text: 'Ductwork and airflow', href: '/ductwork/' },
-    { text: 'Indoor air quality', href: '/indoor-air-quality/' },
-    { text: 'Emergency HVAC', href: '/emergency-hvac/' },
+    { text: 'AC maintenance', href: '/services/ac-maintenance/' },
+    { text: 'AC installation', href: '/services/ac-installation/' },
+    { text: 'Ductwork and airflow', href: '/services/ductwork/' },
+    { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
+    { text: 'Emergency HVAC', href: '/services/emergency-hvac/' },
     { text: 'Maintenance plan options', href: '/maintenance-plan/' },
   ],
   sourcesColumns: 2,

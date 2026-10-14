@@ -49,10 +49,10 @@ export const residentialHub = {
     heading: 'How can we help with your home today?',
     lede: 'Tell us what is going on and we will point you to the right service.',
     cards: [
-      { icon: 'x', title: 'My AC or heat is not working', body: 'Tell us what is happening and we will get a technician on the schedule.', href: '/emergency-hvac/', ctaLabel: 'Get urgent help' },
-      { icon: 'refresh', title: 'I need a repair', body: 'Noises, leaks, weak airflow, or a system that will not turn on.', href: '/ac-repair/', ctaLabel: 'See AC repair' },
-      { icon: 'plus', title: 'I need a new system', body: 'Replacement or new installation with an in-home estimate.', href: '/ac-installation/', ctaLabel: 'See AC installation' },
-      { icon: 'calendar-check', title: 'I want a tune-up', body: 'Seasonal maintenance to catch small problems early.', href: '/ac-maintenance/', ctaLabel: 'See AC maintenance' },
+      { icon: 'x', title: 'My AC or heat is not working', body: 'Tell us what is happening and we will get a technician on the schedule.', href: '/services/emergency-hvac/', ctaLabel: 'Get urgent help' },
+      { icon: 'refresh', title: 'I need a repair', body: 'Noises, leaks, weak airflow, or a system that will not turn on.', href: '/services/ac-repair/', ctaLabel: 'See AC repair' },
+      { icon: 'plus', title: 'I need a new system', body: 'Replacement or new installation with an in-home estimate.', href: '/services/ac-installation/', ctaLabel: 'See AC installation' },
+      { icon: 'calendar-check', title: 'I want a tune-up', body: 'Seasonal maintenance to catch small problems early.', href: '/services/ac-maintenance/', ctaLabel: 'See AC maintenance' },
       { icon: 'building', title: 'I live in a condo or HOA', body: 'Tell us about your building and access needs when you contact us.', href: '/contact/', ctaLabel: 'Contact us' },
       { icon: 'dollar', title: 'I want to ask about financing', body: 'Flexible financing is available for qualifying HVAC projects.', href: '/financing/', ctaLabel: 'See financing' },
     ] satisfies DecisionCard[],
@@ -72,11 +72,16 @@ export const residentialHub = {
     eyebrow: 'Core home services',
     heading: 'Everything your home comfort system needs',
     items: [
-      { href: '/ac-repair/', name: 'AC Repair', description: 'Diagnosis and repair for cooling failures, weak airflow, and unusual noises.', icon: 'snowflake', image: getService('ac-repair')?.image },
-      { href: '/ac-installation/', name: 'AC Installation and Replacement', description: 'Properly sized systems, installed for homes across Southern California.', icon: 'wrench', image: getService('ac-installation')?.image },
-      { href: '/heating-repair/', name: 'Heating Repair', description: 'Furnace and heating repair for Southern California homes.', icon: 'flame', image: getService('heating-repair')?.image },
-      { href: '/heat-pump-services/', name: 'Heat Pump Services', description: 'One system for both heating and cooling, well suited to mild winters.', icon: 'wrench', image: getService('heat-pump-services')?.image },
-      { href: '/ductless-mini-split/', name: 'Ductless Mini-Splits', description: 'Room-by-room comfort for older homes, ADUs, and additions with no ductwork.', icon: 'snowflake', image: getService('ductless-mini-split')?.image },
+      { href: '/services/ac-repair/', name: 'AC Repair', description: 'Diagnosis and repair for cooling failures, weak airflow, and unusual noises.', icon: 'snowflake', image: getService('ac-repair')?.image },
+      { href: '/services/ac-installation/', name: 'AC Installation and Replacement', description: 'Properly sized systems, installed for homes across Southern California.', icon: 'wrench', image: getService('ac-installation')?.image },
+      { href: '/services/heating-repair/', name: 'Heating Repair', description: 'Furnace and heating repair for Southern California homes.', icon: 'flame', image: getService('heating-repair')?.image },
+      { href: '/services/heat-pump-services/', name: 'Heat Pump Services', description: 'One system for both heating and cooling, well suited to mild winters.', icon: 'wrench', image: getService('heat-pump-services')?.image },
+      { href: '/services/ductless-mini-split/', name: 'Ductless Mini-Splits', description: 'Room-by-room comfort for older homes, ADUs, and additions with no ductwork.', icon: 'snowflake', image: getService('ductless-mini-split')?.image },
+      // Card copy and image come from services.ts so they stay in sync with the service pages.
+      ...(['furnace-installation', 'ductwork', 'indoor-air-quality'] as const).map((slug) => {
+        const s = getService(slug)!;
+        return { href: `/services/${slug}/`, name: s.name, description: s.description, icon: s.icon, image: s.image };
+      }),
       {
         href: '/maintenance-plan/',
         name: 'HVAC Maintenance Plans',

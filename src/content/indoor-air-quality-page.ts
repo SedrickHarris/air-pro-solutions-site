@@ -22,14 +22,14 @@ import type { ServicePage } from '@/content/services';
 // claims, or same-day/24-7/emergency-availability wording appear anywhere on this page - none are
 // confirmed. See CLAUDE.md "Claims that must not ship".
 
-// Full template content for /indoor-air-quality/. Reuses the same ServicePage shape and shared
-// section components already built out for /ac-repair/, /ac-installation/, /ac-maintenance/, and
-// /heating-repair/ - a second, parallel content shape (src/content/service-pages/) was deliberately
+// Full template content for /services/indoor-air-quality/. Reuses the same ServicePage shape and shared
+// section components already built out for /services/ac-repair/, /services/ac-installation/, /services/ac-maintenance/, and
+// /services/heating-repair/ - a second, parallel content shape (src/content/service-pages/) was deliberately
 // not introduced, for the same reason recorded in every prior page's build report: one content system
 // for one job. See the build report for the full list of new optional ServicePage fields added for
 // this page (signsTable/ductTable/equipmentFitTable/smokePlan/replacementNote/systemsSectionId/
 // regionSectionId/faqSectionId/decision.outro) and why several of them exist as new fields with new
-// render positions in src/app/[service]/page.tsx rather than reusing an existing field's fixed slot -
+// render positions in src/app/services/[service]/page.tsx rather than reusing an existing field's fixed slot -
 // this page's approved section order doesn't line up with the position several existing optional
 // fields (`catches`, `refrigerant`, `timeline`) are hardcoded to render at.
 export const indoorAirQualityPage: ServicePage = {
@@ -72,7 +72,7 @@ export const indoorAirQualityPage: ServicePage = {
       { icon: 'air', title: 'Dust and filter loading', body: 'Dust returns fast or filters clog early. Start with filter fit, return leaks, and duct condition.', ctaLabel: 'See filtration options', href: '#filtration' },
       { icon: 'droplet', title: 'Stale, damp, or musty rooms', body: 'Stuffy air, condensation, or a musty smell when the AC starts. Start with ventilation, drainage, and humidity.', ctaLabel: 'See ventilation and humidity', href: '#filtration' },
       { icon: 'flame', title: 'Smoke and poor AQI days', body: 'Smoke odor or haze indoors. Start with a smoke plan and the most efficient filter your system can hold.', ctaLabel: 'See the smoke plan', href: '#smoke' },
-      { icon: 'wrench', title: 'Weak airflow or a failed part', body: 'Hot and cold rooms, or a purifier, UV lamp, or humidifier that stopped working. Airflow and repairs come before accessories.', ctaLabel: 'See AC repair', href: '/ac-repair/' },
+      { icon: 'wrench', title: 'Weak airflow or a failed part', body: 'Hot and cold rooms, or a purifier, UV lamp, or humidifier that stopped working. Airflow and repairs come before accessories.', ctaLabel: 'See AC repair', href: '/services/ac-repair/' },
     ],
     outro: 'Most filter and purifier questions are routine appointments: filter maintenance, a purifier consultation, a seasonal system check, mild dust, or getting ready before smoke season.',
   },
@@ -92,7 +92,7 @@ export const indoorAirQualityPage: ServicePage = {
   },
   // "What fits which problem" (the EPA's three-strategy framework) - reuses the `timing` field/slot,
   // which sits in exactly the right position (right after the urgency box, before the symptoms/
-  // diagnosis section) even though its name comes from /ac-maintenance/'s "when to schedule" cards.
+  // diagnosis section) even though its name comes from /services/ac-maintenance/'s "when to schedule" cards.
   // RulesNote itself is generic (eyebrow/title/three cards), so no new field was needed here.
   timing: {
     eyebrow: 'The approach',
@@ -123,7 +123,7 @@ export const indoorAirQualityPage: ServicePage = {
     ],
     afterText: 'We do not diagnose mold, allergies, or health conditions from an odor or a symptom. If cooling itself is failing, see ',
     afterLinkText: 'AC repair',
-    afterLinkHref: '/ac-repair/',
+    afterLinkHref: '/services/ac-repair/',
   },
   visitEyebrow: 'The visit',
   visitTitle: 'What is included and what can cost extra',
@@ -164,7 +164,7 @@ export const indoorAirQualityPage: ServicePage = {
     { name: 'Ducts, returns, and filter access', icon: 'duct', body: 'Return grilles, registers, dampers, filter racks, plenums, and duct insulation. Inspection, sealing, repair, and redesign are separate from cleaning.' },
   ],
   // Two RefrigerantNote-style explainer callouts (MERV 13 fit, UV limits) - same `callouts` field/slot
-  // /ac-maintenance/ introduced, rendered right after SystemsGrid since the single `refrigerant` field
+  // /services/ac-maintenance/ introduced, rendered right after SystemsGrid since the single `refrigerant` field
   // is intentionally left unset on this page.
   callouts: [
     {
@@ -224,7 +224,7 @@ export const indoorAirQualityPage: ServicePage = {
     ],
     afterText: 'For duct work and airflow problems, see ',
     afterLinkText: 'ductwork services',
-    afterLinkHref: '/ductwork/',
+    afterLinkHref: '/services/ductwork/',
   },
   // "How your equipment changes the plan" - new field, rendered via the new TableSection component.
   equipmentFitTable: {
@@ -269,7 +269,7 @@ export const indoorAirQualityPage: ServicePage = {
     body: "If replacement is recommended, we identify your system's refrigerant, explain whether repair components are available for the existing equipment, and give you options that meet current requirements. Under EPA rules, a new split system installed after January 1, 2026 must use a refrigerant with a global warming potential below 700, and existing R-410A equipment can still be serviced.",
     sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ (listed under Sources below).',
   },
-  // "Rebates and incentives" - plain rebates callout, same shape /ac-maintenance/ introduced.
+  // "Rebates and incentives" - plain rebates callout, same shape /services/ac-maintenance/ introduced.
   rebatesNote: {
     title: 'Rebates and incentives',
     body: "Most utility programs focus on qualifying equipment such as heat-pump HVAC, not standalone purifiers. LADWP lists rebates for eligible residential heat-pump HVAC systems, and Southern California Edison's income-qualified Energy Savings Assistance Program may cover HVAC filters for eligible households. Eligibility depends on your address, utility account, equipment, and funding status, and programs change. Check the program page before you buy or schedule.",
@@ -316,10 +316,10 @@ export const indoorAirQualityPage: ServicePage = {
   // that page's own always-on/24-7 availability wording is unconfirmed (see its own TODO in
   // services.ts) - linking to it here states no claim of our own, but flag before launch.
   moreLinks: [
-    { text: 'AC repair', href: '/ac-repair/' },
-    { text: 'AC installation', href: '/ac-installation/' },
-    { text: 'Ductless mini-split', href: '/ductless-mini-split/' },
-    { text: 'Emergency HVAC', href: '/emergency-hvac/' },
+    { text: 'AC repair', href: '/services/ac-repair/' },
+    { text: 'AC installation', href: '/services/ac-installation/' },
+    { text: 'Ductless mini-split', href: '/services/ductless-mini-split/' },
+    { text: 'Emergency HVAC', href: '/services/emergency-hvac/' },
     { text: 'Maintenance plan options', href: '/maintenance-plan/' },
   ],
   // "#resources" anchor for internal linking, per the build spec's anchor list.

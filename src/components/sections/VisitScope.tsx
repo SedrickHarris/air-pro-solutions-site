@@ -10,7 +10,7 @@ export function VisitScope({
   extraTitle,
   extra,
   extraNote,
-  // Icon overrides for each column, added so /furnace-installation/ can reuse this component for its
+  // Icon overrides for each column, added so /services/furnace-installation/ can reuse this component for its
   // "Before you sign" proposal checklist (a put-in-writing / questions-to-ask pair, not an
   // includes/cost-extras pair). Default to the original check/dollar icons so every existing caller
   // (ac-repair, ac-installation, ac-maintenance, heating-repair) is unaffected.

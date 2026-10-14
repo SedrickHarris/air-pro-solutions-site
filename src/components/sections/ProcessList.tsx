@@ -3,12 +3,12 @@ export function ProcessList({
   eyebrow = 'How it works',
   title,
   alt = false,
-  // Optional lead paragraph rendered ABOVE the numbered list (e.g. /emergency-hvac/'s "This is the
+  // Optional lead paragraph rendered ABOVE the numbered list (e.g. /services/emergency-hvac/'s "This is the
   // general sequence for an emergency call, not a promise about one specific visit" line). Distinct
   // from `note` below, which renders after the list. Undefined for every other caller, so ac-repair/
   // ac-installation/ac-maintenance/heating-repair/furnace-installation are unaffected.
   intro,
-  // Optional closing paragraph rendered below the numbered list (e.g. /furnace-installation/'s
+  // Optional closing paragraph rendered below the numbered list (e.g. /services/furnace-installation/'s
   // "a straightforward replacement may be completed in a day..." timing note). Undefined for every
   // other caller, so ac-repair/ac-installation/ac-maintenance/heating-repair are unaffected.
   note,

@@ -1,4 +1,6 @@
 import { PageHeader } from '@/components/ui/PageHeader';
+import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { jsonLd, breadcrumbSchema, webPageSchema } from '@/lib/schema';
 import { ContactForm } from '@/components/sections/ContactForm';
 import { siteConfig } from '@/content/site-config';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
@@ -10,8 +12,13 @@ export const metadata = hubMetadata({
 });
 
 export default function Page() {
+  const crumbs = [{ name: 'Home', href: '/' }, { name: 'Contact' }];
+  const url = `${siteConfig.url}/contact/`;
+  const schema = [webPageSchema({ type: 'ContactPage', name: 'Contact AIRPRO SOLUTIONS', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
+      <Breadcrumbs crumbs={crumbs} />
       <PageHeader eyebrow="Contact" title="Contact AIRPRO SOLUTIONS" lede="Tell us what you need and we will get back to you." />
       <section>
         <div className="wrap grid-2">

@@ -9,10 +9,10 @@ export function DiagnosisTable({
   intro,
   rows,
   // Overrides the second column header (defaults to the ac-repair/heating-repair wording). Added
-  // for /furnace-installation/, whose approved copy uses "What may be behind it" instead - optional
+  // for /services/furnace-installation/, whose approved copy uses "What may be behind it" instead - optional
   // so every existing caller is unaffected.
   causesHeading = 'What a technician checks',
-  // Closing line rendered below the table (e.g. /heat-pump-services/'s link to AC repair/heating
+  // Closing line rendered below the table (e.g. /services/heat-pump-services/'s link to AC repair/heating
   // repair for single-mode-only symptoms). Optional so every existing caller is unaffected.
   note,
 }: {

@@ -3,7 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { cities, getCity } from '@/content/cities';
-import { getService, commercialCardImage } from '@/content/services';
+import { matrixPages } from '@/content/matrix';
+import { getService, serviceHref, commercialCardImage } from '@/content/services';
 import { getRegion } from '@/content/regions';
 import { siteConfig } from '@/content/site-config';
 import { PageHeader } from '@/components/ui/PageHeader';
@@ -54,7 +55,7 @@ export default async function Page({ params }: { params: Promise<{ city: string 
   const city = getCity(slug);
   if (!city) notFound();
 
-  // TODO(data): every city besides torrance-ca still needs this page's local content before it can
+  // TODO(data): every city besides torrance still needs this page's local content before it can
   // publish; it renders as a noindex stub in the meantime. Never crash on the empty arrays.
   if (!city.page) {
     return (
@@ -99,8 +100,11 @@ export default async function Page({ params }: { params: Promise<{ city: string 
     }
     const svc = getService(sc.slug);
     if (!svc) throw new Error(`Unknown service slug on /service-areas/${city.slug}/: ${sc.slug}`);
-    return { href: `/${svc.slug}/`, name: sc.name, description: sc.body, icon: svc.icon, image: svc.image };
+    return { href: serviceHref(svc.slug), name: sc.name, description: sc.body, icon: svc.icon, image: svc.image };
   });
+
+  // Service+city pages that exist for this city, linked down from the city page.
+  const localServicePages = matrixPages.filter((m) => m.city === city.slug);
 
   const nearby = page.nearby.map((nSlug) => {
     const n = getCity(nSlug);
@@ -199,6 +203,23 @@ export default async function Page({ params }: { params: Promise<{ city: string 
       />
 
       <ServicesGrid cards={serviceCards} eyebrow={`Services in ${city.name}`} title={`Everything we handle for ${city.name} homes and businesses`} />
+
+      {localServicePages.length > 0 && (
+        <section>
+          <div className="wrap">
+            <p>
+              For a closer look at one service in {city.name}, see{' '}
+              {localServicePages.map((m, i) => (
+                <span key={m.service}>
+                  {i > 0 && (i === localServicePages.length - 1 ? ' and ' : ', ')}
+                  <Link href={serviceHref(m.service) + m.city + '/'}>{getService(m.service)?.name.toLowerCase().replace(/^ac /, 'AC ')} in {city.name}</Link>
+                </span>
+              ))}
+              .
+            </p>
+          </div>
+        </section>
+      )}
 
       <RelatedRow
         items={nearby}

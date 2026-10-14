@@ -30,14 +30,14 @@ export type CityPage = {
 };
 
 export type City = {
-  slug: string; // always ends in -ca, e.g. torrance-ca
+  slug: string; // lowercase hyphenated city name with no -ca suffix, e.g. torrance
   name: string; // display name without state, e.g. Torrance
   region: string; // region slug; city URLs stay flat so reassigning a region never breaks them
   neighborhoods: string[];
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; only torrance-ca has this so far
+  page?: CityPage; // full template content; only torrance has this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -56,7 +56,7 @@ const baseCities: City[] = regionCityNames.flatMap((r) =>
   })),
 );
 
-// Locked copy for /service-areas/torrance-ca/. See CLAUDE.md "Claims that must not ship" pattern:
+// Locked copy for /service-areas/torrance/. See CLAUDE.md "Claims that must not ship" pattern:
 // no pricing, timing/same-day, brand-list, or unconfirmed licensing claims.
 const torranceOverrides: Partial<City> = {
   neighborhoods: ['Old Torrance', 'North Torrance', 'West Torrance', 'Walteria', 'Hollywood Riviera', 'Del Amo', 'Torrance Gardens', 'South Torrance'],
@@ -106,7 +106,7 @@ const torranceOverrides: Partial<City> = {
       { slug: 'commercial-hvac', name: 'Commercial HVAC', body: 'Rooftop units, office buildings, and retail spaces across Torrance and the South Bay.' },
       { slug: 'emergency-hvac', name: 'Emergency HVAC Repair', body: 'Call about urgent no-cool and no-heat problems in Torrance.' },
     ],
-    nearby: ['redondo-beach-ca', 'manhattan-beach-ca', 'gardena-ca', 'carson-ca'],
+    nearby: ['redondo-beach', 'manhattan-beach', 'gardena', 'carson'],
     proof: {
       heading: "Licensed technicians and a clear explanation of the work",
       body:
@@ -172,7 +172,7 @@ const cardImages: Record<string, ServiceImage> = Object.fromEntries(
       return [
         slug,
         {
-          src: `/images/locations/${r.slug}/air-pro-solutions-hvac-service-area-map-${slug}.webp`,
+          src: `/images/locations/${r.slug}/air-pro-solutions-hvac-service-area-map-${slug}-ca.webp`,
           alt: `Map showing the ${name}, CA service area`,
         },
       ];
@@ -181,7 +181,7 @@ const cardImages: Record<string, ServiceImage> = Object.fromEntries(
 );
 
 export const cities: City[] = baseCities.map((c) => {
-  const withOverrides = c.slug === 'torrance-ca' ? { ...c, ...torranceOverrides } : c;
+  const withOverrides = c.slug === 'torrance' ? { ...c, ...torranceOverrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
 });
 

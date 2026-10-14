@@ -18,8 +18,8 @@ import { siteConfig } from '@/content/site-config';
 // wording, warranty terms, technician certifications, or a commercial maintenance program appear
 // anywhere on this page - none are confirmed. See CLAUDE.md "Claims that must not ship".
 
-// Full template content for /ac-maintenance/. Reuses the same ServicePage shape and shared section
-// components already built out for /ac-repair/ and /ac-installation/ - see the build report for why a
+// Full template content for /services/ac-maintenance/. Reuses the same ServicePage shape and shared section
+// components already built out for /services/ac-repair/ and /services/ac-installation/ - see the build report for why a
 // second, parallel content shape (src/content/service-pages/) was not introduced. A handful of new
 // optional ServicePage fields (decision, timing, catches, callouts, rebatesNote, regionLinkLabels,
 // trustStripLicenseLabel) were added for sections that don't exist on the other two service pages;
@@ -61,8 +61,8 @@ export const acMaintenancePage: ServicePage = {
     columns: 4,
     cards: [
       { icon: 'check', title: 'Cooling normally', body: 'The system runs and cools as it always has. Schedule preventive maintenance before hot weather.', ctaLabel: 'Schedule maintenance', href: '/contact/' },
-      { icon: 'wrench', title: 'Cooling poorly, noisy, or leaking', body: 'Weak airflow, warm air, water near the indoor unit, or new noises point to a fault, not a tune-up.', ctaLabel: 'See AC repair', href: '/ac-repair/' },
-      { icon: 'doc', title: 'Repeated repairs or an aging system', body: 'If breakdowns keep coming back, compare the repair with replacement using real numbers.', ctaLabel: 'See AC installation', href: '/ac-installation/' },
+      { icon: 'wrench', title: 'Cooling poorly, noisy, or leaking', body: 'Weak airflow, warm air, water near the indoor unit, or new noises point to a fault, not a tune-up.', ctaLabel: 'See AC repair', href: '/services/ac-repair/' },
+      { icon: 'doc', title: 'Repeated repairs or an aging system', body: 'If breakdowns keep coming back, compare the repair with replacement using real numbers.', ctaLabel: 'See AC installation', href: '/services/ac-installation/' },
       { icon: 'alert', title: 'No cooling in dangerous heat', body: 'Burning odor, a tripping breaker, or a serious leak calls for prompt help.', ctaLabel: `Call ${siteConfig.phone}`, href: siteConfig.phoneHref },
     ],
   },
@@ -134,7 +134,7 @@ export const acMaintenancePage: ServicePage = {
     ],
     afterText: 'Already noticing warm air, weak airflow, water near the indoor unit, or unusual noises? Those point to a fault. ',
     afterLinkText: 'See AC repair',
-    afterLinkHref: '/ac-repair/',
+    afterLinkHref: '/services/ac-repair/',
   },
   systemsTitle: 'Systems we maintain',
   systemsIntro: 'Tell us what you have and we will confirm we can service it.',
@@ -188,7 +188,7 @@ export const acMaintenancePage: ServicePage = {
     { title: 'Energy code', body: 'The 2025 California Energy Code applies to permit applications filed on or after January 1, 2026. Efficiency requirements apply mainly when equipment is installed or replaced, not simply because you schedule a maintenance visit.' },
   ],
   // Plain rebates callout - new content, distinct from the three-card `incentives` field used by
-  // /ac-installation/, because this page's approved copy is one paragraph plus two links.
+  // /services/ac-installation/, because this page's approved copy is one paragraph plus two links.
   rebatesNote: {
     title: 'Rebates and incentives',
     body: "Most utility programs focus on qualifying equipment upgrades, not standard tune-ups. LADWP lists rebates for eligible HVAC equipment for its residential customers, and Southern California Edison's income-qualified Energy Savings Assistance Program may cover items such as HVAC filters for eligible households. Eligibility depends on your address, utility account, equipment, and funding status, and programs change. Check the utility's page before you buy or schedule.",
@@ -237,10 +237,10 @@ export const acMaintenancePage: ServicePage = {
   proofHeading: 'A technician who explains what they found',
   proofBody: 'You get a plain-language summary of what was checked, what was cleaned, and what needs attention, so you can decide what to do next.',
   moreLinks: [
-    { text: 'Heat pump services', href: '/heat-pump-services/' },
-    { text: 'Ductless mini-split service', href: '/ductless-mini-split/' },
-    { text: 'Ductwork and airflow', href: '/ductwork/' },
-    { text: 'Indoor air quality', href: '/indoor-air-quality/' },
+    { text: 'Heat pump services', href: '/services/heat-pump-services/' },
+    { text: 'Ductless mini-split service', href: '/services/ductless-mini-split/' },
+    { text: 'Ductwork and airflow', href: '/services/ductwork/' },
+    { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
     { text: 'Maintenance plan options', href: '/maintenance-plan/' },
   ],
   sourcesColumns: 2,

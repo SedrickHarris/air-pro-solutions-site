@@ -1,4 +1,6 @@
 import { PageHeader } from '@/components/ui/PageHeader';
+import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { jsonLd, breadcrumbSchema, webPageSchema } from '@/lib/schema';
 import { siteConfig } from '@/content/site-config';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 
@@ -10,8 +12,13 @@ export const metadata = hubMetadata({
 
 // TODO(legal): standard statement. The WCAG target is a goal; do not claim conformance until audited.
 export default function Page() {
+  const crumbs = [{ name: 'Home', href: '/' }, { name: 'Accessibility' }];
+  const url = `${siteConfig.url}/accessibility/`;
+  const schema = [webPageSchema({ type: 'WebPage', name: 'Accessibility Statement', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
+      <Breadcrumbs crumbs={crumbs} />
       <PageHeader eyebrow="Accessibility" title="Accessibility Statement" />
       <section>
         <div className="wrap prose">
