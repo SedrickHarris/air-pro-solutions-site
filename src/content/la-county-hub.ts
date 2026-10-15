@@ -212,10 +212,10 @@ export const laCountyHub = {
   cities: {
     eyebrow: 'Cities served',
     title: 'The eight cities on this page',
-    intro: 'Our Los Angeles page is live and the other city pages are coming. For the South Bay, see our Torrance page, or browse all service areas.',
+    intro: 'Our Los Angeles and Long Beach pages are live and the other city pages are coming. For the South Bay, see our Torrance page, or browse all service areas.',
     items: [
       { name: 'Los Angeles', note: 'Spans coast, basin, valley, and foothill conditions. Electric service from LADWP.', href: '/service-areas/los-angeles/' },
-      { name: 'Long Beach', note: 'Coastal, with the Port of Long Beach anchoring commercial demand. Electric service from SCE.' },
+      { name: 'Long Beach', note: 'Coastal, with the Port of Long Beach anchoring commercial demand. Electric service from SCE.', href: '/service-areas/long-beach/' },
       { name: 'Pasadena', note: 'Inland foothill setting. New exterior equipment must be screened from public view.' },
       { name: 'Glendale', note: 'Inland basin and foothill setting, with 60.9% multifamily housing (2018).' },
       { name: 'Burbank', note: 'Valley-edge climate. Rooftop and rear-of-property replacements need an energy report.' },
@@ -257,7 +257,7 @@ export const laCountyHub = {
     },
     {
       q: 'Which utility serves my home, and are there HVAC rebates?',
-      a: 'It depends on the city and sometimes the address. Los Angeles is served by LADWP, Pasadena by Pasadena Water and Power, Burbank by Burbank Water and Power, Glendale by Glendale Water & Power, and Long Beach and Inglewood by SCE. Culver City is split between LADWP and SCE, and Santa Monica should be confirmed by address. SoCalGas is the natural-gas utility across the region. Rebate amounts and funding change, so confirm current eligibility with your utility before installation.',
+      a: 'It depends on the city and sometimes the address. Los Angeles is served by LADWP, Pasadena by Pasadena Water and Power, Burbank by Burbank Water and Power, Glendale by Glendale Water & Power, and Long Beach and Inglewood by SCE. Culver City is split between LADWP and SCE, and Santa Monica should be confirmed by address. SoCalGas is the natural-gas utility across most of the region, but Long Beach has its own municipal gas utility, Long Beach Utilities. Rebate amounts and funding change, so confirm current eligibility with your utility before installation.',
     },
     {
       q: 'Do you work on apartments, condos, and HOA properties?',

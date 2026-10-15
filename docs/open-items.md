@@ -15,6 +15,22 @@ this file is the index, not the source of truth.
 - Claim wording follows the approved list (24/7 emergency dispatch, same-day service typical and subject to capacity, licensed, bonded & insured, 4.8 stars / 40 reviews). Do not strengthen it.
 - Reference artifact: claude/reference/los-angeles-location.html.
 
+## /service-areas/long-beach/ (longBeachOverrides in src/content/cities.ts)
+
+- Title: `cityTitle('Long Beach')` does not collide with another page's title ("HVAC Services in Long Beach, CA | AIRPRO SOLUTIONS"), so no `distinctTitle` is needed. Only Los Angeles collides.
+- ZIPs: the card shows the 12 High-confidence ZIPs from the City ZIP-code map (90801-90808, 90810, 90813, 90814, 90815), grouped by area. Held out until confirmed against USPS/City GIS: 90744 and 90831 (Medium confidence), the institutional and PO-box ZIPs (90822, 90840, 90847, 90848, 90853, 90899), and 90809, 90745, 90746, 90749 and 90755 (third-party list only). The area group names come from the research's "General area" column.
+- Verified-fact gaps (NOT FOUND, not published): NOAA station climate normals, median year built, single-family vs multifamily split for the city, exact noise-ordinance decibel limits, major employers and the port, and the competitor/SERP table. Add verified local detail before treating this as a full page.
+- Electric service from SCE is High confidence in the research but no Long Beach-specific SCE territory page was found. Reconfirm.
+- SCE rebate and credit terms (Golden State Rebates coupons, $75 smart-thermostat credit, Energy Savings Assistance) show no update date. Reconfirm before launch. The coupons are listed for participating retailers; confirm which equipment qualifies before implying a contractor install does.
+- Long Beach Utilities gas: "nearly 150,000 accounts" covers Long Beach, Signal Hill and parts of nearby communities, so the glance card uses the pipeline-mileage figure with the Long Beach Utilities attribution rather than a Long Beach-only claim.
+- "AIRPRO SOLUTIONS can walk you through what your project needs" (permits) is a practice claim carried from the Torrance pattern; client to confirm.
+- Nearby row: Torrance, Los Angeles, Carson, Redondo Beach. Carson and Redondo Beach link to their noindex stub pages until real pages exist.
+- Hub card on /service-areas/los-angeles-county/ still says "Port of Long Beach anchoring commercial demand". The hub carries its own sourced port figure, but the Long Beach research did not confirm it, so the claim is not repeated on the city page. The hub FAQ now notes that Long Beach has its own gas utility (SoCalGas serves most of the region).
+- Service card names with "& Replacement" and the emergency card wording are pending client confirmation, as on Torrance and Los Angeles.
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list (24/7 emergency dispatch, same-day service typical and subject to capacity, licensed, bonded & insured, 4.8 stars / 40 reviews). Do not strengthen it.
+- Reference artifact: claude/reference/long-beach-location.html.
+
 ## /service-areas/los-angeles-county/ (src/content/la-county-hub.ts)
 
 - LADWP heat pump rebate amount ("Up to $2,500 per ton"): sourced from an undated utility page.

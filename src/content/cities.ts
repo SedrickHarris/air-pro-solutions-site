@@ -1,4 +1,5 @@
 import { citySlug, regionCityNames } from './regions';
+import { serviceHref } from './services';
 import type { ServiceImage } from './services';
 import type { Faq } from './faq';
 import type { RebateCard } from '@/components/sections/RebateCards';
@@ -41,6 +42,7 @@ export type CityPage = {
   zipsLabel?: string;
   // "Know before you start" official-source cards (permits, rebates, air quality).
   resources?: { eyebrow: string; title: string; intro: string; cards: RebateCard[] };
+  localTitle?: string; // overrides the default local-knowledge H2 ("HVAC work built around {City}'s housing stock")
   servicesTitle?: string;
   finalCtaBody?: string;
 };
@@ -53,7 +55,7 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance and los-angeles have this so far
+  page?: CityPage; // full template content; torrance, los-angeles and long-beach have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -346,6 +348,185 @@ const losAngelesOverrides: Partial<City> = {
   },
 };
 
+// Copy for /service-areas/long-beach/. Facts come only from the verified Long Beach research (U.S. Census
+// Bureau, City of Long Beach Permit Center, Noise Control Program, zoning and ZIP maps, Long Beach
+// Utilities and SCE pages). Climate, median build year, housing-type split, exact noise limits, major
+// employers and the port were NOT FOUND in that research, so none of it appears here. On-page claims use
+// the client-approved wording from CLAUDE.md "Approved claims" and nothing stronger.
+const longBeachOverrides: Partial<City> = {
+  // TODO(data): add verified neighborhood, housing-age and climate detail before treating this as a full local page.
+  neighborhoods: [], // named communities (Belmont Shore, Bixby Knolls, Los Cerritos, Lakewood Village) appear in the lede; the card shows the City ZIP listing only
+  // ZIPs below are the High-confidence entries from the City ZIP-code map (grouped by area in page.zipGroups).
+  // TODO(data): 90744 and 90831 (Medium confidence) and the institutional/PO-box ZIPs are held out until confirmed against USPS/City GIS.
+  zips: ['90801', '90802', '90803', '90804', '90805', '90806', '90807', '90808', '90810', '90813', '90814', '90815'],
+  page: {
+    metaDescription:
+      'Residential and commercial HVAC in Long Beach, from Belmont Shore to Bixby Knolls. Know the City permit steps and SCE rebates. Schedule service.',
+    lede:
+      'AIRPRO SOLUTIONS provides HVAC services across Long Beach, including AC repair, heating repair, installation, and maintenance for homes and businesses - from Belmont Shore and Bixby Knolls to Los Cerritos and Lakewood Village.',
+    heroProof: [
+      { icon: 'shield', label: 'Licensed, bonded & insured' },
+      { icon: 'star', label: '4.8-star rated' },
+      { icon: 'bolt', label: '24/7 emergency dispatch' },
+      { icon: 'building', label: 'Residential and commercial' },
+    ],
+    trustStats: [
+      { num: '4.8★', label: 'Google rating, 40 reviews' },
+      { num: 'C-20', label: 'California licensed' },
+      { num: '24/7', label: 'emergency dispatch' },
+      { num: 'Same-day', label: 'service typical' },
+    ],
+    answer: {
+      lead: 'AIRPRO SOLUTIONS is a licensed HVAC contractor serving Long Beach',
+      body:
+        ', providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.',
+    },
+    glance: {
+      title: 'Long Beach at a glance',
+      stats: [
+        { num: '181,216', label: 'housing units, 2024 ACS 1-Year estimate' },
+        { num: '40.9%', label: 'owner-occupied housing units, 2019-2023' },
+        { num: '1,900+', label: 'miles of gas pipeline run by Long Beach Utilities' },
+      ],
+      source: 'Sources: U.S. Census Bureau (ACS, QuickFacts) and Long Beach Utilities.',
+    },
+    localTitle: 'Long Beach has its own permits, gas utility, and zoning map',
+    localParagraphs: [
+      'Long Beach has **its own municipal gas utility**. Long Beach Utilities provides natural gas in Long Beach and Signal Hill and to parts of nearby communities, while **Southern California Edison** provides electricity. Gas and electric programs come from different places, so **AIRPRO SOLUTIONS can help you sort out which ones apply** before you choose equipment.',
+      // TODO(data): "can walk you through" is a practice claim carried over from the Torrance page; client to confirm the permit process.
+      'Permits run through the City itself. **Long Beach issues building, electrical, plumbing, and mechanical permits through its Permit Center** at 411 West Ocean Blvd., 3rd Floor, and permits and plans for mechanical construction on private property are issued and processed there, separate from LADBS in the City of Los Angeles. AIRPRO SOLUTIONS can walk you through what your project needs.',
+      "Two more local items are worth knowing. The City's **Noise Control Program** enforces Municipal Code Chapter 8.80 and names air conditioners among equipment that can exceed noise standards, so it helps to plan where new equipment will sit. The City's **zoning and land-use map** shows a property's zoning, historic-district status, coastal-zone status, and parking-impacted areas. Official links are below and in the section that follows.",
+    ],
+    neighborhoodsHeading: 'Long Beach ZIP codes by area',
+    zipsLabel: 'From the City of Long Beach ZIP-code map',
+    zipGroups: [
+      { label: 'Downtown & Central', zips: ['90801', '90802', '90806', '90813'] },
+      { label: 'Belmont Shore & Belmont Heights', zips: ['90803', '90814'] },
+      { label: 'Eastside & East Long Beach', zips: ['90804', '90808', '90815'] },
+      { label: 'North Long Beach & Bixby Knolls', zips: ['90805', '90807'] },
+      { label: 'West Long Beach', zips: ['90810'] },
+    ],
+    localLinks: [
+      { text: 'Long Beach Utilities gas service', href: 'https://www.lbutilities.org/Gas' },
+      { text: 'City zoning and land-use map', href: 'https://www.longbeach.gov/lbcd/planning/current/maps/' },
+      { text: 'City ZIP-code map', href: 'https://maps.longbeach.gov/datasets/zip-codes/about' },
+    ],
+    servicesTitle: 'Everything we handle for Long Beach homes and businesses',
+    serviceCards: [
+      { slug: 'ac-repair', name: 'AC Repair', body: 'Diagnosis and repair for cooling failures, weak airflow, and unusual noises.' },
+      { slug: 'ac-installation', name: 'AC Installation & Replacement', body: 'New system sizing and installation, including the City of Long Beach permit steps that apply to your project.' },
+      { slug: 'ac-maintenance', name: 'AC Maintenance', body: 'Seasonal AC tune-ups that catch small issues early.' },
+      { slug: 'heating-repair', name: 'Heating Repair', body: 'Furnace and heating system diagnosis and repair.' },
+      { slug: 'furnace-installation', name: 'Furnace Installation & Replacement', body: 'New furnace sizing and installation, including the City of Long Beach permit steps that apply to your project.' },
+      { slug: 'heat-pump-services', name: 'Heat Pump Services', body: 'Installation, repair, and maintenance for heat pumps.' },
+      { slug: 'ductless-mini-split', name: 'Ductless Mini-Split', body: 'Room-by-room comfort control for spaces where ductwork is not an option.' },
+      { slug: 'ductwork', name: 'Ductwork Services', body: 'Duct repair, sealing, replacement, and installation.' },
+      { slug: 'indoor-air-quality', name: 'Indoor Air Quality', body: 'Air filtration, whole-home purification, and ventilation options.' },
+      { slug: 'emergency-hvac', name: 'Emergency HVAC', body: 'Dispatch for no-cool and no-heat emergencies in Long Beach.' },
+    ],
+    resources: {
+      eyebrow: 'Know before you start',
+      title: 'Long Beach permits, rebates, and noise rules',
+      intro: 'Official sources for three local items worth checking before a Long Beach HVAC project.',
+      cards: [
+        {
+          amount: 'City permit',
+          description: 'Building, electrical, plumbing, and mechanical construction permits are handled at the City of Long Beach Permit Center, 411 West Ocean Blvd., 3rd Floor.',
+          linkLabel: 'Long Beach Permit Center',
+          linkHref: 'https://www.longbeach.gov/lbcd/building/permit-center/',
+        },
+        {
+          amount: 'SCE rebates',
+          description: 'SCE lists Golden State Rebates instant coupons for air conditioners and smart thermostats at participating retailers, plus a $75 bill credit through eligible smart-thermostat demand-response programs. Confirm current terms with SCE before you buy.',
+          linkLabel: 'SCE rebate details',
+          linkHref: 'https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace',
+          // TODO(data): the SCE rebate pages show no update date; reconfirm the coupon and credit terms before launch.
+        },
+        {
+          amount: 'Noise code',
+          description: "Long Beach's Noise Control Program enforces Municipal Code Chapter 8.80 and names air conditioners among equipment that can exceed noise standards.",
+          linkLabel: 'Noise Control Program',
+          linkHref: 'https://www.longbeach.gov/health/inspections-and-reporting/reporting/noise-monitoring/',
+        },
+      ],
+    },
+    // TODO(data): Carson and Redondo Beach have no city pages yet, so their cards render without a link; Torrance and Los Angeles link.
+    nearby: ['torrance', 'los-angeles', 'carson', 'redondo-beach'],
+    proof: {
+      heading: 'Licensed, reviewed, and ready across Long Beach',
+      body: 'AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.',
+      stats: [
+        { num: '4.8★', label: 'Google rating' },
+        { num: '40', label: 'Google reviews' },
+        { num: 'C-20', label: 'California license class' },
+        { num: '24/7', label: 'Emergency dispatch' },
+      ],
+    },
+    finalCtaBody: 'Call or request service online to schedule a visit anywhere in Long Beach. Same-day service is typical.',
+    faqs: [
+      {
+        q: 'Does AIRPRO SOLUTIONS service all of Long Beach?',
+        a: 'Yes. AIRPRO SOLUTIONS serves homes and businesses across Long Beach as part of our LA County coverage. Long Beach runs its own permit office and its own municipal gas utility, so we plan each visit around your specific address.',
+        links: [{ text: 'LA County coverage', href: '/service-areas/los-angeles-county/' }],
+      },
+      {
+        q: 'How fast can a technician reach my Long Beach home?',
+        a: 'Same-day service is typical in Long Beach, subject to capacity. Call (323) 776-9047 to confirm a window for your address.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'Where do I get an HVAC permit in Long Beach?',
+        a: 'Through the City of Long Beach Permit Center. The City issues and processes mechanical construction permits for private property at its Permit Center, 411 West Ocean Blvd., 3rd Floor, alongside building, electrical, and plumbing permits. Ask the Permit Center what your specific project requires. AIRPRO SOLUTIONS can walk you through the steps.',
+      },
+      {
+        q: 'Does Long Beach regulate air conditioner noise?',
+        a: "The City's Noise Control Program covers air conditioners. The program enforces Municipal Code Chapter 8.80 and names air conditioners and other equipment among sources that can exceed noise standards. Enforcement follows a written sworn complaint from a resident or property owner in the affected noise district. Check the current code text for exact limits before you decide where new equipment will go.",
+      },
+      {
+        q: 'Who supplies gas and electricity in Long Beach?',
+        a: 'Natural gas comes from Long Beach Utilities, and electricity comes from Southern California Edison (SCE). Long Beach Utilities provides gas in Long Beach and Signal Hill and to parts of nearby communities, and operates more than 1,900 miles of gas pipeline. Because the two services come from different utilities, gas and electric programs are separate, so check each one before you buy.',
+      },
+      {
+        q: 'Is there a rebate for AC or a smart thermostat in Long Beach?',
+        a: 'SCE lists Golden State Rebates instant coupons for air conditioners and smart thermostats at participating retailers. SCE also lists a $75 bill credit through eligible demand-response programs when it temporarily adjusts an eligible smart thermostat by up to four degrees, and free upgrades for eligible households through its Energy Savings Assistance Program. Long Beach Utilities lists natural-gas efficiency programs as well. Terms and eligibility can change, so confirm current details with SCE and Long Beach Utilities before you buy.',
+      },
+      {
+        q: 'What HVAC services are available in Long Beach?',
+        a: 'AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Long Beach, for both residential and commercial properties.',
+        boldLead: 'AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC',
+        links: [
+          { text: 'AC repair', href: serviceHref('ac-repair') },
+          { text: 'AC installation and replacement', href: serviceHref('ac-installation') },
+          { text: 'AC maintenance', href: serviceHref('ac-maintenance') },
+          { text: 'heating repair', href: serviceHref('heating-repair') },
+          { text: 'furnace installation and replacement', href: serviceHref('furnace-installation') },
+          { text: 'heat pump services', href: serviceHref('heat-pump-services') },
+          { text: 'ductless mini-splits', href: serviceHref('ductless-mini-split') },
+          { text: 'ductwork', href: serviceHref('ductwork') },
+          { text: 'indoor air quality', href: serviceHref('indoor-air-quality') },
+          { text: 'emergency HVAC', href: serviceHref('emergency-hvac') },
+        ],
+      },
+      {
+        q: 'Is emergency HVAC service available in Long Beach?',
+        a: 'Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Long Beach. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'How much does HVAC service cost in Long Beach?',
+        a: 'Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in Long Beach?',
+        a: 'Yes. AIRPRO SOLUTIONS services commercial properties in Long Beach, including rooftop units, office buildings, and retail spaces. See our Commercial HVAC page for the full scope.',
+        links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
+      },
+    ],
+    // TODO(copy): client review of every FAQ answer above before launch.
+  },
+};
+
 // Map-card image for every city, used in nearby-areas rows (and city-page heroes once a city has
 // real content). Source files (1300x676) live in public/images/locations/<region-slug>/.
 const cardImages: Record<string, ServiceImage> = Object.fromEntries(
@@ -364,7 +545,11 @@ const cardImages: Record<string, ServiceImage> = Object.fromEntries(
 );
 
 export const cities: City[] = baseCities.map((c) => {
-  const overrides = c.slug === 'torrance' ? torranceOverrides : c.slug === 'los-angeles' ? losAngelesOverrides : undefined;
+  const overrides =
+    c.slug === 'torrance' ? torranceOverrides
+    : c.slug === 'los-angeles' ? losAngelesOverrides
+    : c.slug === 'long-beach' ? longBeachOverrides
+    : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
 });

@@ -69,7 +69,7 @@ export function LocalKnowledge({
                 {zipGroups.map((g) => (
                   <details className="zip-group" key={g.label}>
                     <summary>
-                      {g.label} <em>({g.zips.length} ZIPs)</em>
+                      {g.label} <em>({g.zips.length}{g.zips.length === 1 ? ' ZIP)' : ' ZIPs)'}</em>
                     </summary>
                     <div className="nbhd-list">
                       {g.zips.map((z) => (

@@ -159,7 +159,7 @@ export default function Page() {
                   <h3><Link href={`/service-areas/${r.slug}/`}>{r.name}</Link></h3>
                   <div className="nbhd-list">
                     {r.cities.map((c) =>
-                      c === 'Torrance' || c === 'Los Angeles' ? (
+                      c === 'Torrance' || c === 'Los Angeles' || c === 'Long Beach' ? (
                         <Link key={c} href={`/service-areas/${citySlug(c)}/`} className="chip-link">{c}</Link>
                       ) : (
                         <span key={c}>{c}</span>

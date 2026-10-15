@@ -215,7 +215,7 @@ export default async function Page({ params }: { params: Promise<{ city: string 
       />
 
       <LocalKnowledge
-        title={`HVAC work built around ${city.name}'s housing stock`}
+        title={page.localTitle ?? `HVAC work built around ${city.name}'s housing stock`}
         paragraphs={page.localParagraphs}
         neighborhoods={city.neighborhoods}
         zips={city.zips}
