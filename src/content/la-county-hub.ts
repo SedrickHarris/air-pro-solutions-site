@@ -212,9 +212,9 @@ export const laCountyHub = {
   cities: {
     eyebrow: 'Cities served',
     title: 'The eight cities on this page',
-    intro: 'Individual city pages are coming. For the South Bay, see our Torrance page, or browse all service areas.',
+    intro: 'Our Los Angeles page is live and the other city pages are coming. For the South Bay, see our Torrance page, or browse all service areas.',
     items: [
-      { name: 'Los Angeles', note: 'Spans coast, basin, valley, and foothill conditions. Electric service from LADWP.' },
+      { name: 'Los Angeles', note: 'Spans coast, basin, valley, and foothill conditions. Electric service from LADWP.', href: '/service-areas/los-angeles/' },
       { name: 'Long Beach', note: 'Coastal, with the Port of Long Beach anchoring commercial demand. Electric service from SCE.' },
       { name: 'Pasadena', note: 'Inland foothill setting. New exterior equipment must be screened from public view.' },
       { name: 'Glendale', note: 'Inland basin and foothill setting, with 60.9% multifamily housing (2018).' },

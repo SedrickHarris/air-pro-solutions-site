@@ -5,7 +5,7 @@ import {
   hubDescription, hubHero, hubTrust, hubAnswer, hubRegions, hubTableRows, hubTableNote,
   hubCityIndexNote, hubProof, hubFaqs, hubFinalCta,
 } from '@/content/service-area-hub';
-import { getRegion } from '@/content/regions';
+import { getRegion, citySlug } from '@/content/regions';
 import { Icon } from '@/components/ui/Icon';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { TrustStrip } from '@/components/sections/TrustStrip';
@@ -159,8 +159,8 @@ export default function Page() {
                   <h3><Link href={`/service-areas/${r.slug}/`}>{r.name}</Link></h3>
                   <div className="nbhd-list">
                     {r.cities.map((c) =>
-                      c === 'Torrance' ? (
-                        <Link key={c} href="/service-areas/torrance/" className="chip-link">Torrance</Link>
+                      c === 'Torrance' || c === 'Los Angeles' ? (
+                        <Link key={c} href={`/service-areas/${citySlug(c)}/`} className="chip-link">{c}</Link>
                       ) : (
                         <span key={c}>{c}</span>
                       ),

@@ -227,31 +227,40 @@ export default function Page() {
           <p className="eyebrow">{laCountyHub.cities.eyebrow}</p>
           <h2>{laCountyHub.cities.title}</h2>
           <p>
-            Individual city pages are coming. For the South Bay, see our{' '}
+            See our <Link href="/service-areas/los-angeles/">Los Angeles page</Link>. The other city pages are coming. For the South Bay, see our{' '}
             <Link href="/service-areas/torrance/">Torrance page</Link>, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">
             {laCountyHub.cities.items.map((c) => {
               const image = getCity(citySlug(c.name))?.cardImage;
-              return (
-              <div className="svc-card" key={c.name}>
-                {image ? (
-                  <div className="svc-card-img">
-                    <Image src={image.src} alt={image.alt} width={800} height={600} sizes="(max-width: 520px) 100vw, (max-width: 920px) 50vw, 25vw" />
+              const body = (
+                <>
+                  {image ? (
+                    <div className="svc-card-img">
+                      <Image src={image.src} alt={image.alt} width={800} height={600} sizes="(max-width: 520px) 100vw, (max-width: 920px) 50vw, 25vw" />
+                    </div>
+                  ) : (
+                    <div className="photo-pending svc-card-img">
+                      <Icon name="pin" size={28} />
+                      <span className="photo-tag">Photo pending</span>
+                    </div>
+                  )}
+                  <div className="svc-card-body">
+                    <h3>{c.name}</h3>
+                    <p>{c.note}</p>
+                    {c.href ? (
+                      <span className="card-arrow">View area <Icon name="arrow" size={16} /></span>
+                    ) : (
+                      <span className="card-soon">City page coming soon</span>
+                    )}
                   </div>
-                ) : (
-                  <div className="photo-pending svc-card-img">
-                    <Icon name="pin" size={28} />
-                    <span className="photo-tag">Photo pending</span>
-                  </div>
-                )}
-                <div className="svc-card-body">
-                  <h3>{c.name}</h3>
-                  <p>{c.note}</p>
-                  <span className="card-soon">City page coming soon</span>
-                </div>
-              </div>
+                </>
+              );
+              return c.href ? (
+                <Link key={c.name} href={c.href} className="svc-card">{body}</Link>
+              ) : (
+                <div key={c.name} className="svc-card">{body}</div>
               );
             })}
           </div>

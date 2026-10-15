@@ -102,7 +102,7 @@ export const hubTableRows: TableRow[] = [
 
 export const hubTableNote = 'Climate and housing figures come from the individual region pages, which cite their sources. City placement is general, not a climate-zone or permit boundary.';
 
-export const hubCityIndexNote = 'Individual city pages are coming. Torrance is live today, and each region page covers the rest.';
+export const hubCityIndexNote = 'Individual city pages are coming. Torrance and Los Angeles are live today, and each region page covers the rest.';
 
 export const hubProof = {
   eyebrow: 'Why Air Pro',
