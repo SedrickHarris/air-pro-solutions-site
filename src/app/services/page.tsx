@@ -24,13 +24,13 @@ assertH1(h1);
 export const metadata = hubMetadata({ title: servicesHubTitle(), description, path: '/services/' });
 
 // Section groupings. Card copy (description, image) is read from src/content/services.ts.
-const cooling = ['ac-repair', 'ac-installation', 'ac-maintenance'];
+const cooling = ['ac-repair', 'ac-installation', 'ac-maintenance', 'ductless-mini-split'];
 const heating = ['heating-repair', 'furnace-installation', 'heat-pump-services'];
 const ductAir = ['ductwork', 'indoor-air-quality'];
-// The CollectionPage lists all ten services. Ductless mini-split and emergency HVAC have no card: they surface as pills / the banner.
+// The CollectionPage lists all ten services. Emergency HVAC has no card: it surfaces as the quick-nav card and the banner.
 // Visible urgent-help copy in the #emergency banner; the emergency Service schema description reads this same string.
 const emergencyLede = 'If your AC has stopped cooling or your heating system will not turn on, AIRPRO SOLUTIONS can help with urgent HVAC service.';
-const allSlugs = [...cooling, ...heating, ...ductAir, 'ductless-mini-split', 'emergency-hvac'];
+const allSlugs = [...cooling, ...heating, ...ductAir, 'emergency-hvac'];
 
 // TODO(data): hub-only heading variants. services.ts names differ ("AC Installation", "Furnace Installation", "Ductwork");
 // pending the client's answer on whether the rename propagates to the service pages. Used for cards AND schema so they match.
@@ -41,10 +41,9 @@ const hubName: Record<string, string> = {
 };
 const nameFor = (slug: string) => hubName[slug] ?? getService(slug)!.name;
 
-// Schema descriptions must mirror visible text. Emergency uses the visible banner sentence. Ductless mini-split has
-// no card and no descriptive sentence on this page (pills only), so it carries no description.
-const schemaDescription = (slug: string): string | undefined =>
-  slug === 'emergency-hvac' ? emergencyLede : slug === 'ductless-mini-split' ? undefined : getService(slug)!.description;
+// Schema descriptions must mirror visible text. Emergency uses the visible banner sentence (it has no card); every other
+// service uses the same description its card shows.
+const schemaDescription = (slug: string): string => (slug === 'emergency-hvac' ? emergencyLede : getService(slug)!.description);
 
 const to = (href: string, labels: string[]): Pill[] => labels.map((label) => ({ label, href }));
 
