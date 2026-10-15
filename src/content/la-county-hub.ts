@@ -190,7 +190,7 @@ export const laCountyHub = {
     ] satisfies RebateCard[],
     copy: [
       '**Region-wide programs.** The CPUC Energy Savings Assistance Program offers no-cost weatherization to income-qualified SCE and SoCalGas households.',
-      '**Long Beach and Inglewood** are served by SCE, and SCE publishes its current rebate offerings on its rebate center. **Culver City** is split between LADWP and SCE by address. **Glendale and Santa Monica:** confirm current electric-utility incentives by address before relying on any rebate.',
+      '**Long Beach and Inglewood** are served by SCE, and SCE publishes its current rebate offerings on its rebate center. **Culver City, Glendale, and Santa Monica:** confirm current electric-utility incentives by address before relying on any rebate.',
       'Rebates and eligibility vary by service address, utility account, equipment efficiency, income qualifications, and available funding. We can help identify potential programs, but confirm final eligibility, amount, and application requirements with your utility before installation.',
     ],
     utilityCardTitle: 'Electric utility by city',
@@ -203,7 +203,7 @@ export const laCountyHub = {
       'Glendale: Glendale Water & Power',
       'Long Beach: SCE',
       'Inglewood: SCE',
-      'Culver City: LADWP or SCE',
+      'Culver City: confirm by address',
       'Santa Monica: confirm by address',
     ],
     gasNote: '**Natural gas:** SoCalGas serves the region, subject to address confirmation.',
@@ -219,7 +219,7 @@ export const laCountyHub = {
       { name: 'Pasadena', note: 'Has its own Permit Center. A site plan can apply to equipment placed outside.', href: '/service-areas/pasadena/' },
       { name: 'Glendale', note: 'Inland basin and foothill setting, with 60.9% multifamily housing (2018).' },
       { name: 'Burbank', note: 'Valley-edge climate. Rooftop and rear-of-property replacements need an energy report.' },
-      { name: 'Culver City', note: 'Near-coastal, with a near-even single-family and multifamily mix. Utility varies by address.', href: '/service-areas/culver-city/' },
+      { name: 'Culver City', note: 'Near-even single-family and multifamily mix. Has its own Building Safety Division for permits.', href: '/service-areas/culver-city/' },
       { name: 'Santa Monica', note: 'Coastal, and the most multifamily city here at 77.5% of housing units (2018).' },
       { name: 'Inglewood', note: 'Near-coastal, with 55.3% multifamily housing (2018). Electric service from SCE.' },
     ],
@@ -257,7 +257,7 @@ export const laCountyHub = {
     },
     {
       q: 'Which utility serves my home, and are there HVAC rebates?',
-      a: 'It depends on the city and sometimes the address. Los Angeles is served by LADWP, Pasadena by Pasadena Water and Power, Burbank by Burbank Water and Power, Glendale by Glendale Water & Power, and Long Beach and Inglewood by SCE. Culver City is split between LADWP and SCE, and Santa Monica should be confirmed by address. SoCalGas is the natural-gas utility across most of the region, but Long Beach has its own municipal gas utility, Long Beach Utilities. Rebate amounts and funding change, so confirm current eligibility with your utility before installation.',
+      a: 'It depends on the city and sometimes the address. Los Angeles is served by LADWP, Pasadena by Pasadena Water and Power, Burbank by Burbank Water and Power, Glendale by Glendale Water & Power, and Long Beach and Inglewood by SCE. Culver City, Glendale, and Santa Monica should be confirmed by address. SoCalGas is the natural-gas utility across most of the region, but Long Beach has its own municipal gas utility, Long Beach Utilities. Rebate amounts and funding change, so confirm current eligibility with your utility before installation.',
     },
     {
       q: 'Do you work on apartments, condos, and HOA properties?',

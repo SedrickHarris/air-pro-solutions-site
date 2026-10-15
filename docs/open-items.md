@@ -61,7 +61,7 @@ this file is the index, not the source of truth.
 - The Mechanical permit list comes from an undated City PDF on culvercity.org that calls itself a partial list, so the page says "ask Building Safety what your specific project needs".
 - Hayden Tract Specific Plan: the 30-day public review ended 2026-09-27 and adoption hearings are expected November to January. The page only says the City has published a public review draft. Update the wording once the plan is adopted.
 - Glance stats: 5 residential zoning districts (R1, R2, RLD, RMD, RHD), Mechanical permit scope, Municipal Code Chapter 9.07 (noise). The page does not state a decibel limit.
-- Existing hub copy still says Culver City is "split between LADWP and SCE by address" and "near-coastal". Neither is confirmed by the Culver City research, and neither was changed here. Reverify before launch.
+- Hub copy corrected: the LA County hub no longer says Culver City is "split between LADWP and SCE by address" or "near-coastal". Utility wording is now "confirm by address" (card note, utility paragraph, bullet, FAQ). Restore a specific utility statement only if the client or a source confirms one.
 - "AIRPRO SOLUTIONS can walk you through the steps" (permits) is a practice claim carried from the Torrance pattern; client to confirm.
 - Nearby row: Los Angeles, Long Beach, Pasadena, Torrance. All four have real pages. The research has no neighbor list, so adjacency is not claimed.
 - Service card names with "& Replacement" and the emergency card wording are pending client confirmation, as on the other city pages.
