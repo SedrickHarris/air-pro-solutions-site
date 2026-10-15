@@ -1,6 +1,7 @@
 import { citySlug, regionCityNames } from './regions';
 import type { ServiceImage } from './services';
 import type { Faq } from './faq';
+import type { RebateCard } from '@/components/sections/RebateCards';
 
 // Highest-priority city launch pages (4 per region), confirmed by the client team.
 const wave1 = new Set([
@@ -27,6 +28,21 @@ export type CityPage = {
   nearby: string[]; // city slugs
   proof: { heading: string; body: string; stats: { num: string; label: string }[] };
   faqs: Faq[];
+  // --- Optional fields. Torrance sets none of them, so its page renders exactly as before. ---
+  // Use the "Across" title variant (seoTitle.cityTitleAcross) when cityTitle() would collide with homeTitle().
+  distinctTitle?: boolean;
+  // Card shown beside the quick answer in place of the photo (verified city facts only).
+  glance?: { title: string; stats: { num: string; label: string }[]; source: string };
+  // LocalKnowledge extras: external lookup links, a partial-list note and a ZIP label.
+  localLinks?: { text: string; href: string }[];
+  neighborhoodsHeading?: string;
+  neighborhoodsNote?: string;
+  zipGroups?: { label: string; zips: string[] }[]; // grouped ZIP pills, replaces the flat ZIP line
+  zipsLabel?: string;
+  // "Know before you start" official-source cards (permits, rebates, air quality).
+  resources?: { eyebrow: string; title: string; intro: string; cards: RebateCard[] };
+  servicesTitle?: string;
+  finalCtaBody?: string;
 };
 
 export type City = {
@@ -37,7 +53,7 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; only torrance has this so far
+  page?: CityPage; // full template content; torrance and los-angeles have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -163,6 +179,175 @@ const torranceOverrides: Partial<City> = {
   },
 };
 
+// Copy for /service-areas/los-angeles/. Facts come only from the verified Los Angeles research (City of Los
+// Angeles, LADBS, LADWP and South Coast AQMD pages). Climate, housing age, terrain, noise and HOA detail were
+// NOT FOUND in that research, so none of it appears here. On-page claims use the client-approved wording
+// from CLAUDE.md "Approved claims" and nothing stronger.
+const losAngelesOverrides: Partial<City> = {
+  // Partial sample: the four communities in the City's ZIP-code listing that the research verified.
+  // TODO(data): extend with more verified communities and ZIPs before treating this as a full list.
+  neighborhoods: ['Arleta', 'Athens', 'Atwater', 'Baldwin Hills'],
+  // ZIPs below are the City's own listing (grouped by area in page.zipGroups); the four communities above are still a partial sample.
+  zips: ['90001', '90002', '90003', '90004', '90005', '90006', '90007', '90008', '90010', '90011', '90012', '90013', '90014', '90015', '90017', '90018', '90019', '90020', '90021', '90024', '90025', '90026', '90027', '90028', '90029', '90031', '90032', '90033', '90034', '90035', '90036', '90037', '90038', '90039', '90041', '90042', '90043', '90044', '90045', '90046', '90047', '90048', '90049', '90056', '90057', '90058', '90059', '90061', '90062', '90063', '90064', '90065', '90066', '90067', '90068', '90071', '90074', '90077', '90078', '90079', '90089', '90094', '90095', '90272', '90291', '90292', '90293', '90710', '90731', '90732', '90733', '90734', '90744', '90748', '91040', '91041', '91042', '91043', '91302', '91303', '91304', '91306', '91307', '91308', '91311', '91312', '91313', '91316', '91324', '91325', '91326', '91330', '91331', '91333', '91334', '91335', '91337', '91340', '91342', '91343', '91344', '91345', '91346', '91352', '91353', '91356', '91357', '91364', '91365', '91367', '91371', '91372', '91399', '91401', '91402', '91403', '91406', '91407', '91408', '91409', '91410', '91411', '91412', '91413', '91416', '91423', '91426', '91436', '91601', '91602', '91604', '91606', '91607', '91608', '91610', '91614', '91615', '91616', '91617', '91618'],
+  page: {
+    distinctTitle: true,
+    metaDescription:
+      'Residential and commercial HVAC in the City of Los Angeles, from Arleta to Baldwin Hills. Know the LADBS permit steps and LADWP rebate. Schedule service.',
+    lede:
+      'AIRPRO SOLUTIONS provides HVAC services across the City of Los Angeles, including AC repair, heating repair, installation, and maintenance for homes and businesses - from Arleta and Atwater to Athens and Baldwin Hills.',
+    heroProof: [
+      { icon: 'shield', label: 'Licensed, bonded & insured' },
+      { icon: 'star', label: '4.8-star rated' },
+      { icon: 'bolt', label: '24/7 emergency dispatch' },
+      { icon: 'building', label: 'Residential and commercial' },
+    ],
+    trustStats: [
+      { num: '4.8★', label: 'Google rating, 40 reviews' },
+      { num: 'C-20', label: 'California licensed' },
+      { num: '24/7', label: 'emergency dispatch' },
+      { num: 'Same-day', label: 'service typical' },
+    ],
+    answer: {
+      lead: 'AIRPRO SOLUTIONS is a licensed HVAC contractor serving the City of Los Angeles',
+      body:
+        ', providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.',
+    },
+    glance: {
+      title: 'Los Angeles at a glance',
+      stats: [
+        { num: '99', label: 'Neighborhood Councils' },
+        { num: '34', label: 'Community Plans in the General Plan' },
+        { num: 'LADBS', label: 'issues HVAC permits inside city limits' },
+      ],
+      source: 'Source: City of Los Angeles Neighborhood Councils, Planning, and LADBS pages.',
+    },
+    localParagraphs: [
+      'The City of Los Angeles is organized into **99 Neighborhood Councils**, and its General Plan is built from **34 Community Plans**. A call in one community can look very different from a call in another, so **AIRPRO SOLUTIONS plans each visit around your specific address** instead of treating the whole city as a single market.',
+      // TODO(data): "can walk you through" is a practice claim carried over from the Torrance page; client to confirm the permit process.
+      'Permits also work differently here than in a smaller suburb. Heating and cooling work inside city limits goes through **LADBS, the Los Angeles Department of Building and Safety**. LADBS requires a mechanical permit to install or modify a heating or cooling system, and covered work needs HVAC plan check approval before the permit is issued. Qualifying small projects can be filed online through PermitLA, and projects that need plan review go through ePlanLA. AIRPRO SOLUTIONS can walk you through what your project needs.',
+      'Two more local resources are worth knowing. **LADWP** lists a heat-pump HVAC rebate of up to $2,500 per ton/unit through its Home Electrification Savings program, and **South Coast AQMD** publishes current air quality readings at the neighborhood level. Details and links are in the section below.',
+    ],
+    neighborhoodsHeading: "Communities in the City's ZIP listing",
+    neighborhoodsNote: "These four come from the City's official ZIP-code listing and are a partial sample.",
+    zipsLabel: 'ZIP codes in the City of Los Angeles listing',
+    zipGroups: [
+      { label: 'Central / Downtown', zips: ['90012', '90013', '90014', '90015', '90017', '90021', '90057', '90071', '90074', '90079'] },
+      { label: 'Eastside / Northeast', zips: ['90031', '90032', '90033', '90039', '90041', '90042', '90063', '90065'] },
+      { label: 'Hollywood / Mid-City', zips: ['90004', '90005', '90006', '90010', '90018', '90019', '90020', '90026', '90027', '90028', '90029', '90035', '90036', '90038', '90046', '90048', '90057', '90068', '90078'] },
+      { label: 'Westside', zips: ['90024', '90025', '90034', '90043', '90045', '90049', '90056', '90064', '90066', '90067', '90077', '90089', '90094', '90095', '90272', '90291', '90292', '90293'] },
+      { label: 'South LA / Harbor', zips: ['90001', '90002', '90003', '90007', '90008', '90011', '90037', '90043', '90044', '90047', '90058', '90059', '90061', '90062', '90710', '90731', '90732', '90733', '90734', '90744', '90748'] },
+      { label: 'San Fernando Valley', zips: ['91040', '91041', '91042', '91043', '91302', '91303', '91304', '91306', '91307', '91308', '91311', '91312', '91313', '91316', '91324', '91325', '91326', '91330', '91331', '91333', '91334', '91335', '91337', '91340', '91342', '91343', '91344', '91345', '91346', '91352', '91353', '91356', '91357', '91364', '91365', '91367', '91371', '91372', '91399', '91401', '91402', '91403', '91406', '91407', '91408', '91409', '91410', '91411', '91412', '91413', '91416', '91423', '91426', '91436', '91601', '91602', '91604', '91606', '91607', '91608', '91610', '91614', '91615', '91616', '91617', '91618'] },
+    ],
+    localLinks: [
+      { text: 'City neighborhood lookup', href: 'https://neighborhoodinfo.lacity.org/' },
+      { text: 'ZIMAS zoning lookup', href: 'https://planning.lacity.gov/zoning/zoning-search' },
+    ],
+    servicesTitle: 'Everything we handle for Los Angeles homes and businesses',
+    serviceCards: [
+      { slug: 'ac-repair', name: 'AC Repair', body: 'Diagnosis and repair for cooling failures, weak airflow, and unusual noises.' },
+      // TODO(copy): "& Replacement" card names pending client confirmation, same as the Torrance cards.
+      { slug: 'ac-installation', name: 'AC Installation & Replacement', body: 'New system sizing and installation, including the LADBS permit steps that apply to your project.' },
+      { slug: 'ac-maintenance', name: 'AC Maintenance', body: 'Seasonal AC tune-ups that catch small issues early.' },
+      { slug: 'heating-repair', name: 'Heating Repair', body: 'Furnace and heating system diagnosis and repair.' },
+      { slug: 'furnace-installation', name: 'Furnace Installation & Replacement', body: 'New furnace sizing and installation, including the LADBS permit steps that apply to your project.' },
+      { slug: 'heat-pump-services', name: 'Heat Pump Services', body: 'Installation, repair, and maintenance for heat pumps, which may qualify for an LADWP rebate.' },
+      { slug: 'ductless-mini-split', name: 'Ductless Mini-Split', body: 'Room-by-room comfort control for spaces where ductwork is not an option.' },
+      { slug: 'ductwork', name: 'Ductwork Services', body: 'Duct repair, sealing, replacement, and installation.' },
+      { slug: 'indoor-air-quality', name: 'Indoor Air Quality', body: 'Air filtration, whole-home purification, and ventilation options.' },
+      { slug: 'emergency-hvac', name: 'Emergency HVAC', body: 'Dispatch for no-cool and no-heat emergencies in Los Angeles.' },
+    ],
+    resources: {
+      eyebrow: 'Know before you start',
+      title: 'Los Angeles permits, rebates, and air quality',
+      intro: 'Official sources for the three local items that come up most on Los Angeles HVAC projects.',
+      cards: [
+        {
+          amount: 'Up to $2,500',
+          description: 'per ton/unit, LADWP heat-pump HVAC rebate through Home Electrification Savings. Listed May 22, 2026. Confirm current terms with LADWP before you buy.',
+          linkLabel: 'LADWP rebate details',
+          linkHref: 'https://www.ladwp.com/pt-pt/node/10406',
+          // TODO(data): the research source for this figure is undated; reconfirm the amount and terms before launch.
+        },
+        {
+          amount: 'LADBS permit',
+          description: 'Mechanical HVAC permits and plan check apply when installing or modifying heating and cooling systems in the City of Los Angeles.',
+          linkLabel: 'LADBS HVAC permit page',
+          linkHref: 'http://dbs.lacity.gov/services/plan-review-permitting/mechanical-hvac-permits',
+        },
+        {
+          amount: 'AQMD air quality',
+          description: 'South Coast AQMD publishes current AQI data, forecasts, and health recommendations at the neighborhood level.',
+          linkLabel: 'Current air quality data',
+          linkHref: 'https://www.aqmd.gov/home/air-quality/current-air-quality-data',
+        },
+      ],
+    },
+    nearby: ['torrance', 'long-beach', 'pasadena', 'culver-city'],
+    proof: {
+      heading: 'Licensed, reviewed, and ready across the City of Los Angeles',
+      body: 'AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.',
+      stats: [
+        { num: '4.8★', label: 'Google rating' },
+        { num: '40', label: 'Google reviews' },
+        { num: 'C-20', label: 'California license class' },
+        { num: '24/7', label: 'Emergency dispatch' },
+      ],
+    },
+    finalCtaBody: 'Call or request service online to schedule a visit anywhere in Los Angeles. Same-day service is typical.',
+    faqs: [
+      {
+        q: 'Does AIRPRO SOLUTIONS service all of Los Angeles?',
+        a: 'Yes. AIRPRO SOLUTIONS serves homes and businesses across the City of Los Angeles as part of our LA County coverage. The city has 99 Neighborhood Councils and 34 Community Plans, so we plan each visit around your specific address instead of treating the whole city as one market.',
+      },
+      {
+        q: 'How fast can a technician reach my Los Angeles home?',
+        a: 'Same-day service is typical in Los Angeles, subject to capacity. Call (323) 776-9047 to confirm a window for your address.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'Do I need a permit for HVAC work in Los Angeles?',
+        a: 'Usually, yes. The Los Angeles Department of Building and Safety (LADBS) requires a mechanical permit to install or modify a heating or cooling system, and covered work needs HVAC plan check approval before the permit is issued. Smaller qualifying projects can be filed online through PermitLA, while projects that need plan review go through ePlanLA. AIRPRO SOLUTIONS can walk you through what your project needs.',
+      },
+      {
+        q: 'How do I look up my Los Angeles neighborhood or zoning?',
+        a: "The City publishes free lookup tools. The City's neighborhood lookup tool identifies neighborhood information from an address, and ZIMAS is the City's property-level zoning and land-use lookup. Both are useful to have on hand before a larger HVAC project.",
+        links: [
+          { text: "City's neighborhood lookup tool", href: 'https://neighborhoodinfo.lacity.org/' },
+          { text: 'ZIMAS', href: 'https://planning.lacity.gov/zoning/zoning-search' },
+        ],
+      },
+      {
+        q: 'Is there a rebate for a heat pump in Los Angeles?',
+        a: 'LADWP lists a heat-pump HVAC rebate of up to $2,500 per ton/unit. It is offered through the LADWP Home Electrification Savings program and was listed on May 22, 2026. Terms and eligibility can change, so confirm the current details with LADWP before you buy.',
+      },
+      {
+        q: 'Where can I check air quality before I decide on filtration or ventilation?',
+        a: 'South Coast AQMD publishes current air quality data. Its readings, AQI categories, forecasts, and health recommendations are available at the neighborhood level across its jurisdiction, which includes major portions of Los Angeles County. If indoor air quality is a concern, AIRPRO SOLUTIONS can talk through your options.',
+      },
+      {
+        q: 'What HVAC services are available in Los Angeles?',
+        a: 'AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Los Angeles, for both residential and commercial properties.',
+      },
+      {
+        q: 'Is emergency HVAC service available in Los Angeles?',
+        a: 'Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Los Angeles. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'How much does HVAC service cost in Los Angeles?',
+        a: 'Cost depends on the problem, the equipment, and how accessible the system is. Because Los Angeles covers many different home and building types, we do not publish one flat price for the whole city. Call (323) 776-9047 or request service and we will quote your specific system.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in Los Angeles?',
+        a: 'Yes. AIRPRO SOLUTIONS services commercial properties in Los Angeles, including rooftop units, office buildings, and retail spaces. See our Commercial HVAC page for the full scope.',
+        links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
+      },
+    ],
+    // TODO(copy): client review of every FAQ answer above before launch.
+  },
+};
+
 // Map-card image for every city, used in nearby-areas rows (and city-page heroes once a city has
 // real content). Source files (1300x676) live in public/images/locations/<region-slug>/.
 const cardImages: Record<string, ServiceImage> = Object.fromEntries(
@@ -181,7 +366,8 @@ const cardImages: Record<string, ServiceImage> = Object.fromEntries(
 );
 
 export const cities: City[] = baseCities.map((c) => {
-  const withOverrides = c.slug === 'torrance' ? { ...c, ...torranceOverrides } : c;
+  const overrides = c.slug === 'torrance' ? torranceOverrides : c.slug === 'los-angeles' ? losAngelesOverrides : undefined;
+  const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
 });
 

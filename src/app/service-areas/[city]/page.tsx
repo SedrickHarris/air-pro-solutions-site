@@ -15,12 +15,13 @@ import { TrustStrip } from '@/components/sections/TrustStrip';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
 import { LocalKnowledge } from '@/components/sections/LocalKnowledge';
 import { ServicesGrid, type Card } from '@/components/sections/ServicesGrid';
+import { RebateCards } from '@/components/sections/RebateCards';
 import { RelatedRow } from '@/components/sections/RelatedRow';
 import { Proof } from '@/components/sections/Proof';
 import { FaqList } from '@/components/sections/FaqList';
 import { FinalCta } from '@/components/sections/FinalCta';
 import { breadcrumbSchema, citySchema, faqSchema, jsonLd } from '@/lib/schema';
-import { cityMetadata, cityTitle, cityH1, assertH1 } from '@/lib/seo';
+import { cityMetadata, cityTitle, cityTitleAcross, cityH1, assertH1 } from '@/lib/seo';
 
 // Static export: only these params are generated.
 export const dynamicParams = false;
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   const { city } = await params;
   const c = getCity(city);
   if (!c?.page) return { robots: { index: false, follow: false } };
-  return cityMetadata({ title: cityTitle(c.name), description: c.page.metaDescription, path: `/service-areas/${c.slug}/` });
+  return cityMetadata({ title: c.page.distinctTitle ? cityTitleAcross(c.name) : cityTitle(c.name), description: c.page.metaDescription, path: `/service-areas/${c.slug}/` });
 }
 
 // Renders "{h1 text}" with the city name substring wrapped in the amber <em> hero treatment.
@@ -55,7 +56,7 @@ export default async function Page({ params }: { params: Promise<{ city: string 
   const city = getCity(slug);
   if (!city) notFound();
 
-  // TODO(data): every city besides torrance still needs this page's local content before it can
+  // TODO(data): every city without a `page` block still needs this page's local content before it can
   // publish; it renders as a noindex stub in the meantime. Never crash on the empty arrays.
   if (!city.page) {
     return (
@@ -86,6 +87,9 @@ export default async function Page({ params }: { params: Promise<{ city: string 
   const url = `${siteConfig.url}/service-areas/${city.slug}/`;
   const region = getRegion(city.region);
   const regionName = `${region?.name ?? city.region}, CA`;
+  // Region wording for the nearby row and final CTA. South Bay keeps its established "the South Bay" phrasing.
+  const regionPhrase = city.region === 'south-bay' ? 'the South Bay' : region?.name ?? city.region;
+  const regionLabel = region?.name ?? city.region;
 
   const crumbs = [
     { name: 'Home', href: '/' },
@@ -191,7 +195,23 @@ export default async function Page({ params }: { params: Promise<{ city: string 
           phoneLabel: `Call ${siteConfig.phone}`,
           phoneHref: siteConfig.phoneHref,
         }}
-        image={getService('ac-repair')?.image}
+        image={page.glance ? undefined : getService('ac-repair')?.image}
+        aside={
+          page.glance && (
+            <aside className="glance" aria-label={page.glance.title}>
+              <h3>{page.glance.title}</h3>
+              <div className="glance-stats">
+                {page.glance.stats.map((st) => (
+                  <div key={st.num}>
+                    <span className="glance-num">{st.num}</span>
+                    <span className="glance-label">{st.label}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="glance-src">{page.glance.source}</p>
+            </aside>
+          )
+        }
       />
 
       <LocalKnowledge
@@ -199,10 +219,31 @@ export default async function Page({ params }: { params: Promise<{ city: string 
         paragraphs={page.localParagraphs}
         neighborhoods={city.neighborhoods}
         zips={city.zips}
+        zipGroups={page.zipGroups}
+        zipsLabel={page.zipsLabel ? `${page.zipsLabel}:` : undefined}
+        neighborhoodsHeading={page.neighborhoodsHeading}
+        neighborhoodsNote={page.neighborhoodsNote}
+        links={page.localLinks}
         dark
       />
 
-      <ServicesGrid cards={serviceCards} eyebrow={`Services in ${city.name}`} title={`Everything we handle for ${city.name} homes and businesses`} />
+      <ServicesGrid
+        cards={serviceCards}
+        eyebrow={`Services in ${city.name}`}
+        title={page.servicesTitle ?? `Everything we handle for ${city.name} homes and businesses`}
+        columns={serviceCards.length === 10 ? 5 : undefined}
+      />
+
+      {page.resources && (
+        <section className="alt">
+          <div className="wrap">
+            <p className="eyebrow">{page.resources.eyebrow}</p>
+            <h2>{page.resources.title}</h2>
+            <p>{page.resources.intro}</p>
+            <RebateCards cards={page.resources.cards} />
+          </div>
+        </section>
+      )}
 
       {localServicePages.length > 0 && (
         <section>
@@ -224,10 +265,10 @@ export default async function Page({ params }: { params: Promise<{ city: string 
       <RelatedRow
         items={nearby}
         eyebrow="Nearby areas"
-        title="Also serving the rest of the South Bay"
-        intro="AIRPRO SOLUTIONS also serves the surrounding South Bay cities."
+        title={`Also serving the rest of ${regionPhrase}`}
+        intro={`AIRPRO SOLUTIONS also serves the surrounding ${regionLabel} cities.`}
         ctaLabel="View area"
-        footerAction={{ label: 'View the South Bay service area', href: '/service-areas/south-bay/' }}
+        footerAction={{ label: `View the ${regionLabel} service area`, href: `/service-areas/${city.region}/` }}
       />
 
       <Proof
@@ -249,7 +290,7 @@ export default async function Page({ params }: { params: Promise<{ city: string 
 
       <FinalCta
         title={`Get HVAC service in ${city.name}`}
-        body={`Call or request service online to schedule a visit anywhere in ${city.name} and the South Bay.`}
+        body={page.finalCtaBody ?? `Call or request service online to schedule a visit anywhere in ${city.name} and ${regionPhrase}.`}
         ghostLabel={`Schedule Service in ${city.name}`}
       />
     </>

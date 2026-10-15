@@ -38,10 +38,10 @@ export function ServicesGrid({
   cards?: Card[];
   eyebrow?: string;
   title?: string;
-  columns?: 2 | 3 | 4;
+  columns?: 2 | 3 | 4 | 5;
 } = {}) {
   const cards = cardsProp ?? order.map(cardFor).filter((c): c is Card => Boolean(c));
-  const gridClass = columns === 3 ? 'services-grid services-grid-3' : columns === 2 ? 'services-grid services-grid-2' : 'services-grid';
+  const gridClass = columns === 5 ? 'services-grid services-grid-5' : columns === 3 ? 'services-grid services-grid-3' : columns === 2 ? 'services-grid services-grid-2' : 'services-grid';
   return (
     <section>
       <div className="wrap">
