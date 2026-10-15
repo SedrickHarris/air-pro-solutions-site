@@ -11,6 +11,7 @@ export function LocalKnowledge({
   zips,
   zipsLabel = 'ZIP codes:',
   neighborhoodsNote,
+  zipGroups,
   dark = false,
   alt = false,
 }: {
@@ -22,6 +23,7 @@ export function LocalKnowledge({
   neighborhoods: string[];
   zips: string[];
   zipsLabel?: string; // defaults to "ZIP codes:"; use e.g. "ZIP codes (partial):" when the list is a sample
+  zipGroups?: { label: string; zips: string[] }[]; // when set, ZIPs render as labeled pill groups instead of one line
   neighborhoodsNote?: string; // small note under the pills, e.g. that the list is a partial sample
   dark?: boolean;
   alt?: boolean;
@@ -59,9 +61,25 @@ export function LocalKnowledge({
               ))}
             </div>
             {neighborhoodsNote && <div className="zip">{neighborhoodsNote}</div>}
-            <div className="zip">
-              <strong>{zipsLabel}</strong> {zips.join(', ')}
-            </div>
+            {zipGroups ? (
+              <div className="zip">
+                <strong>{zipsLabel}</strong>
+                {zipGroups.map((g) => (
+                  <div className="grp" key={g.label}>
+                    <p className="grp-label">{g.label}</p>
+                    <div className="nbhd-list">
+                      {g.zips.map((z) => (
+                        <span key={z}>{z}</span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="zip">
+                <strong>{zipsLabel}</strong> {zips.join(', ')}
+              </div>
+            )}
           </div>
         </div>
       </div>
