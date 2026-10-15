@@ -108,11 +108,11 @@ export default async function Page({ params }: { params: Promise<{ service: stri
     ...s.related.map((relSlug) => {
       const rel = getService(relSlug);
       if (!rel) throw new Error(`Unknown related service slug on ${serviceHref(s.slug)}: ${relSlug}`);
-      return { name: page.relatedLabels?.[relSlug] ?? rel.name, href: serviceHref(rel.slug), icon: page.relatedIconOverrides?.[relSlug] ?? page.relatedIcons?.[relSlug] ?? relatedIcons[relSlug] ?? rel.icon, image: rel.image, description: page.relatedDescriptions ? rel.description : undefined };
+      return { name: page.relatedLabels?.[relSlug] ?? rel.name, href: serviceHref(rel.slug), icon: page.relatedIconOverrides?.[relSlug] ?? page.relatedIcons?.[relSlug] ?? relatedIcons[relSlug] ?? rel.icon, image: rel.image, description: rel.description };
     }),
     // Pages that already list 4 related services (e.g. ac-installation) skip the auto-appended
     // Commercial HVAC card - it's still linked from the "More on this topic" row instead.
-    ...(s.related.length <= 3 ? [{ name: 'Commercial HVAC', href: '/commercial-hvac/', icon: relatedIcons['commercial-hvac'], image: commercialCardImage, description: page.relatedDescriptions ? commercialCardDescription : undefined }] : []),
+    ...(s.related.length <= 3 ? [{ name: 'Commercial HVAC', href: '/commercial-hvac/', icon: relatedIcons['commercial-hvac'], image: commercialCardImage, description: commercialCardDescription }] : []),
   ];
 
   const schema = [

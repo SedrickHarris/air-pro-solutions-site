@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { matrixPages } from '@/content/matrix';
 import { getMatrixContent } from '@/content/matrix-content';
-import { getService, serviceHref } from '@/content/services';
+import { getService, serviceHref, commercialCardImage, commercialCardDescription } from '@/content/services';
 import { getCity } from '@/content/cities';
 import { getRegion } from '@/content/regions';
 import { siteConfig } from '@/content/site-config';
@@ -95,9 +95,9 @@ export default async function Page({ params }: { params: Promise<{ service: stri
     ...service.related.map((relSlug) => {
       const rel = getService(relSlug);
       if (!rel) throw new Error(`Unknown related service slug on ${serviceHref(service.slug)}${city.slug}/: ${relSlug}`);
-      return { name: rel.name, href: serviceHref(rel.slug), icon: rel.icon, image: rel.image };
+      return { name: rel.name, href: serviceHref(rel.slug), icon: rel.icon, image: rel.image, description: rel.description };
     }),
-    { name: 'Commercial HVAC', href: '/commercial-hvac/', icon: 'building' },
+    { name: 'Commercial HVAC', href: '/commercial-hvac/', icon: 'building', image: commercialCardImage, description: commercialCardDescription },
   ];
 
   const schema = [

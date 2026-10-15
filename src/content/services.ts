@@ -23,7 +23,6 @@ export type ServicePage = {
   heroImage?: ServiceImage; // 1200x900 hero photo; falls back to the "photo pending" tile when absent
   heroCaption?: string; // shown on the hero photo caption band when heroImage is set
   heroCaptionAlign?: 'left'; // caption text alignment; centered when unset
-  relatedDescriptions?: boolean; // show each related service's hub card description in the "Explore related services" cards
   heroProof: { icon: string; label: string }[];
   serviceType: string; // schema.org Service.serviceType, e.g. "Air Conditioning Repair"
   ctaLabel: string; // e.g. "Schedule AC Repair" - reused for the hero primary button and final CTA ghost button

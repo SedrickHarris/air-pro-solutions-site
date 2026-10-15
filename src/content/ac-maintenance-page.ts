@@ -34,7 +34,6 @@ export const acMaintenancePage: ServicePage = {
     src: '/images/services/ac-maintenance/hero.webp',
     alt: 'Technician with gloved hands brushing the coil of an air handler in a home utility closet during a system inspection',
   },
-  relatedDescriptions: true, // related cards show the same descriptions as the /services/ hub
   heroCaption: 'Pre-season AC tune-ups across Southern California.',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
