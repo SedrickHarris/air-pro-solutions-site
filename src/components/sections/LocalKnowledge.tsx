@@ -65,14 +65,16 @@ export function LocalKnowledge({
               <div className="zip">
                 <strong>{zipsLabel}</strong>
                 {zipGroups.map((g) => (
-                  <div className="grp" key={g.label}>
-                    <p className="grp-label">{g.label}</p>
+                  <details className="zip-group" key={g.label}>
+                    <summary>
+                      {g.label} <em>({g.zips.length} ZIPs)</em>
+                    </summary>
                     <div className="nbhd-list">
                       {g.zips.map((z) => (
                         <span key={z}>{z}</span>
                       ))}
                     </div>
-                  </div>
+                  </details>
                 ))}
               </div>
             ) : (

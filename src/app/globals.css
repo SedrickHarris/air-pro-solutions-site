@@ -592,3 +592,16 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 @media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .glance h3 { color: var(--sky-400); } }
 :root[data-theme='dark'] .glance h3 { color: var(--sky-400); }
 @media (max-width: 520px) { .glance-stats { grid-template-columns: 1fr; } }
+
+/* Collapsible ZIP groups inside a .nbhd-card (LocalKnowledge zipGroups). */
+.zip-group { margin-top: 8px; border-top: 1px solid var(--line); padding-top: 8px; }
+.zip-group summary { cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; color: var(--ink); list-style: none; }
+.zip-group summary::-webkit-details-marker { display: none; }
+.zip-group summary::before { content: '+'; color: var(--amber-500); font-weight: 800; width: 12px; }
+.zip-group[open] summary::before { content: '\2212'; }
+.zip-group summary em { font-style: normal; font-weight: 500; color: var(--ink-soft); font-size: 0.76rem; }
+.zip-group .nbhd-list { margin-top: 8px; }
+.zip-group .nbhd-list span { font-size: 0.74rem; padding: 3px 8px; }
+.local-knowledge-dark .zip-group { border-top-color: rgba(255, 255, 255, 0.16); }
+.local-knowledge-dark .zip-group summary { color: #fff; }
+.local-knowledge-dark .zip-group summary em { color: #cddaea; }
