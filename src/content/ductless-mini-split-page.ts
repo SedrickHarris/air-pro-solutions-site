@@ -33,7 +33,7 @@ export const ductlessMiniSplitPage: ServicePage = {
     src: '/images/services/ductless-mini-split/hero.webp',
     alt: 'Wall-mounted ductless mini-split indoor unit in a converted garage living space with large windows onto a drought-tolerant garden',
   },
-  heroCaption: 'Ductless comfort for ADUs, garage conversions, and homes without ductwork.',
+  heroCaption: 'Ductless comfort for ADUs and homes without ducts.',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
