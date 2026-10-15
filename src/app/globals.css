@@ -605,9 +605,3 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 .local-knowledge-dark .zip-group { border-top-color: rgba(255, 255, 255, 0.16); }
 .local-knowledge-dark .zip-group summary { color: #fff; }
 .local-knowledge-dark .zip-group summary em { color: #cddaea; }
-/* Official-source link list inside a .nbhd-card (LocalKnowledge officialResources). */
-.nbhd-card ul.res { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 10px; }
-.nbhd-card ul.res li { font-size: 0.82rem; line-height: 1.45; color: var(--ink-soft); }
-.nbhd-card ul.res a { display: block; font-weight: 700; }
-.local-knowledge-dark .nbhd-card ul.res li { color: #cddaea; }
-.local-knowledge-dark .nbhd-card ul.res a { color: var(--sky-400); }

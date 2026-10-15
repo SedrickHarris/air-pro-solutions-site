@@ -40,8 +40,6 @@ export type CityPage = {
   neighborhoodsNote?: string;
   zipGroups?: { label: string; zips: string[] }[]; // grouped ZIP pills, replaces the flat ZIP line
   zipsLabel?: string;
-  // Replaces the ZIP card with a list of official-source links when a verified ZIP list is not available (Pasadena).
-  officialResources?: { label: string; items: { text: string; href: string; note: string }[] };
   // "Know before you start" official-source cards (permits, rebates, air quality).
   resources?: { eyebrow: string; title: string; intro: string; cards: RebateCard[] };
   localTitle?: string; // overrides the default local-knowledge H2 ("HVAC work built around {City}'s housing stock")
@@ -533,13 +531,13 @@ const longBeachOverrides: Partial<City> = {
 };
 
 // Pasadena (location page, built from the Long Beach template). Facts come from City of Pasadena pages and NOAA station
-// metadata only. The research's ZIP list was NOT supported by its cited USPS bulletin, the electric provider and rebates
-// are not published here, and noise-standard adoption is unconfirmed - see docs/open-items.md "/service-areas/pasadena/".
+// metadata and the USPS Postal Bulletin ZIP list. The electric provider and rebates are not published here,
+// and noise-standard adoption is unconfirmed - see docs/open-items.md "/service-areas/pasadena/".
 const pasadenaOverrides: Partial<City> = {
   // TODO(data): add verified housing-age and climate detail before treating this as a full local page.
   neighborhoods: [], // named areas (San Rafael Heights, Linda Vista, Victory Rose, Upper Hastings Ranch) appear in the lede
-  // TODO(data): ZIPs and area labels held out until sourced to an official City or USPS listing.
-  zips: [],
+  // ZIPs below are the six Pasadena ZIPs from the research (USPS Postal Bulletin), grouped by area in page.zipGroups.
+  zips: ['91101', '91103', '91104', '91105', '91106', '91107'],
   page: {
     metaDescription:
       'Residential and commercial HVAC in Pasadena, from San Rafael Heights to Upper Hastings Ranch. Know the City permit steps and site-plan rules. Schedule service.',
@@ -566,11 +564,11 @@ const pasadenaOverrides: Partial<City> = {
     glance: {
       title: 'Pasadena at a glance',
       stats: [
+        { num: '6', label: 'ZIP codes listed for Pasadena in the USPS Postal Bulletin' },
         { num: '180 days', label: 'a Pasadena building permit is valid from issuance' },
-        { num: '263.3 m', label: "elevation of NOAA's Pasadena, CA weather station" },
-        { num: '1893', label: 'year records begin at that NOAA station' },
+        { num: '1893', label: "year the record begins at NOAA's Pasadena, CA weather station" },
       ],
-      source: 'Sources: City of Pasadena Permit Center and NOAA NCEI.',
+      source: 'Sources: USPS Postal Bulletin, City of Pasadena Permit Center, and NOAA NCEI.',
     },
     localTitle: 'Pasadena handles HVAC permits through its own Permit Center',
     localParagraphs: [
@@ -578,21 +576,21 @@ const pasadenaOverrides: Partial<City> = {
       'Filing and timing matter too. The City accepts electronic subtrade permit and plan submissions through its **Citizen Self Service portal**, and some project types must be submitted online. The City states that building permits are valid for 180 days from issuance and that regular inspections keep a permit valid. Its **site-plan requirement can apply to equipment placed outside**, so it helps to know where a new outdoor unit will sit before you apply.',
       "Two more local items are worth knowing. Pasadena's online **Zoning Code** defines zoning districts, land-use classifications, development standards, and environmental performance standards, and the City has documented work on **revised exterior noise standards**, covered in the section that follows. Official links are below.",
     ],
-    neighborhoodsHeading: 'Official Pasadena resources',
-    officialResources: {
-      label: 'From the City of Pasadena and NOAA:',
-      items: [
-        { text: 'City Permit Center and Zoning Code', href: 'https://www.cityofpasadena.net/planning/permit-center/', note: 'Permitting, permit search, case status, and inspection scheduling.' },
-        { text: 'Permit application guide', href: 'https://www.cityofpasadena.net/planning/permit-center/apply-for-permit/', note: 'HVAC replacement is listed among plan and submittal items.' },
-        { text: 'Neighborhood associations by council district', href: 'https://www.cityofpasadena.net/district4/neighborhood-associations/', note: 'Includes Victory Rose and Upper Hastings Ranch.' },
-        { text: 'History of Pasadena', href: 'https://www.cityofpasadena.net/about-pasadena/history-of-pasadena/', note: 'Names San Rafael Heights and Linda Vista among its areas.' },
-        { text: 'NOAA Pasadena weather station', href: 'https://www.ncdc.noaa.gov/cdo-web/datasets/GHCND/stations/GHCND:USC00046719/detail', note: 'Daily weather records back to 1893.' },
-      ],
-    },
+    neighborhoodsHeading: 'Pasadena ZIP codes by area',
+    zipsLabel: 'From the USPS Postal Bulletin ZIP-code list',
+    zipGroups: [
+      { label: 'Downtown Pasadena / Plaza Pasadena area', zips: ['91101'] },
+      { label: 'Northwest Pasadena', zips: ['91103'] },
+      { label: 'North-central Pasadena / Jackie Robinson Post Office area', zips: ['91104'] },
+      { label: 'Southwest Pasadena / Orangewood Post Office area', zips: ['91105'] },
+      { label: 'East-central Pasadena / Catalina Post Office area', zips: ['91106'] },
+      { label: 'East Pasadena / East Pasadena Post Office area', zips: ['91107'] },
+    ],
     localLinks: [
       { text: 'City permit application guide', href: 'https://www.cityofpasadena.net/planning/permit-center/apply-for-permit/' },
       { text: 'City Permit Center and Zoning Code', href: 'https://www.cityofpasadena.net/planning/permit-center/' },
       { text: 'City neighborhood associations', href: 'https://www.cityofpasadena.net/district4/neighborhood-associations/' },
+      { text: 'USPS Postal Bulletin ZIP-code list', href: 'https://about.usps.com/postal-bulletin/2023/pb22633/html/info_001.htm' },
     ],
     servicesTitle: 'Everything we handle for Pasadena homes and businesses',
     serviceCards: [

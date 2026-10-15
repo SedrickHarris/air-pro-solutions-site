@@ -38,8 +38,8 @@ this file is the index, not the source of truth.
 ## /service-areas/pasadena/ (pasadenaOverrides in src/content/cities.ts)
 
 - Title: `cityTitle('Pasadena')` ("HVAC Services in Pasadena, CA | AIRPRO SOLUTIONS") does not collide with another page, so no `distinctTitle` is needed. The meta description is the hand-written `page.metaDescription` (159 characters, validated by `assertDescription`).
-- ZIPs and area labels are NOT published. The research listed 91101 and 91103-91107 with area labels, but the cited USPS Postal Bulletin did not support them. The right-hand card is "Official Pasadena resources" (new optional `officialResources` field rendered by `LocalKnowledge`) instead. To restore a ZIP card, source the list to an official City or USPS page and add `zipGroups`.
-- Glance stats are station and permit facts only (180-day permit validity, NOAA station elevation, records start 1893). NOAA climate normals could not be retrieved (robots disallowed) and are not published.
+- ZIPs: the card shows the six ZIPs from the research (91101, 91103-91107) with its area labels, sourced to the USPS Postal Bulletin (about.usps.com/postal-bulletin/2023/pb22633/html/info_001.htm). The bulletin itself lists the ZIPs only, so confirm the area labels against a City or USPS listing before launch.
+- Glance stats: 6 ZIP codes, 180-day permit validity, NOAA record starts 1893. NOAA climate normals could not be retrieved (robots disallowed) and are not published.
 - Noise standards: the City agenda document (October 2024) describes revised exterior standards but does not confirm adoption. The page says so and sends visitors to the City. Reconfirm adoption, then replace the card and FAQ with the adopted rule.
 - Electric provider is Pasadena Water and Power (City FY2025 budget page), confirmed, but it is not named on the city page and no PWP rebate is published. Add both only with a current PWP source.
 - Verified-fact gaps (not published): housing-age and housing-mix figures, climate detail, major employers, outdoor-unit screening or setback rules.
