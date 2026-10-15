@@ -41,7 +41,7 @@ export const indoorAirQualityPage: ServicePage = {
     src: '/images/services/indoor-air-quality/hero.webp',
     alt: 'Pleated air filter leaning against a wall beside a return air grille in a bright hallway, with a small air quality monitor on a shelf',
   },
-  heroCaption: 'Indoor air quality assessment for Southern California homes and businesses',
+  heroCaption: 'Indoor air quality assessment for homes and businesses.',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },

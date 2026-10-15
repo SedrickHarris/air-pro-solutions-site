@@ -57,7 +57,7 @@ export const ductworkPage: ServicePage = {
     src: '/images/services/ductwork/hero.webp',
     alt: 'Insulated flexible ducts and a galvanized plenum suspended by straps in a residential attic over blown-in insulation',
   },
-  heroCaption: 'An inspection helps identify duct leaks, damage, airflow restrictions, and insulation concerns.',
+  heroCaption: 'Ductwork inspection for leaks, airflow, and damage.',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },

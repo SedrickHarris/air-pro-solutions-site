@@ -51,7 +51,7 @@ export const heatPumpServicesPage: ServicePage = {
     src: '/images/services/heat-pump/hero.webp',
     alt: 'Wall-mounted indoor heat pump unit in a bright living room, with the outdoor unit visible through a sliding glass door',
   },
-  heroCaption: 'Heat pump service for year-round heating and cooling in Southern California.',
+  heroCaption: 'Heat pump service for year-round comfort.',
   heroProof: [
     // TODO(data): confirm CSLB record shows C-20 for both license numbers.
     { icon: 'check', label: 'Licensed HVAC contractor' },

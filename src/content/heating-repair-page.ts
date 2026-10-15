@@ -43,7 +43,7 @@ export const heatingRepairPage: ServicePage = {
     src: '/images/services/heating-repair/hero.webp',
     alt: 'Gas furnace in a home utility closet with the access panel removed and a multimeter resting nearby during a diagnostic check',
   },
-  heroCaption: 'Heating system diagnostics help identify the cause of furnace and heat pump problems',
+  heroCaption: 'Heating system diagnostics identify the source of heating problems',
   heroCaptionAlign: 'left',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },

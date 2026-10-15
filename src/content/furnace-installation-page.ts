@@ -41,7 +41,7 @@ export const furnaceInstallationPage: ServicePage = {
     src: '/images/services/furnace-installation/hero.webp',
     alt: 'Gas furnace installed in a home utility closet with finished vent, gas, and condensate connections and ductwork above',
   },
-  heroCaption: 'A properly installed furnace with neatly finished duct and utility connections',
+  heroCaption: 'Clean, professional furnace installation',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Furnace replacement for homes' },
