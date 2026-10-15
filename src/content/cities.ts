@@ -440,7 +440,7 @@ const longBeachOverrides: Partial<City> = {
           description: 'SCE lists Golden State Rebates instant coupons for air conditioners and smart thermostats at participating retailers, plus a $75 bill credit through eligible smart-thermostat demand-response programs. Confirm current terms with SCE before you buy.',
           linkLabel: 'SCE rebate details',
           linkHref: 'https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace',
-          // TODO(data): the SCE rebate pages show no update date; reconfirm the coupon and credit terms before launch.
+          // TODO(data): PRE-LAUNCH LIVE CHECK. The SCE pages show no update date. Reconfirm the Golden State Rebates coupons (air conditioners, smart thermostats, participating retailers), the $75 demand-response credit (up to four degrees) and Energy Savings Assistance. Wording to verify is listed in docs/open-items.md. Keep this card and the matching FAQ in step.
         },
         {
           amount: 'Noise code',
@@ -487,6 +487,7 @@ const longBeachOverrides: Partial<City> = {
         a: 'Natural gas comes from Long Beach Utilities, and electricity comes from Southern California Edison (SCE). Long Beach Utilities provides gas in Long Beach and Signal Hill and to parts of nearby communities, and operates more than 1,900 miles of gas pipeline. Because the two services come from different utilities, gas and electric programs are separate, so check each one before you buy.',
       },
       {
+        // TODO(data): PRE-LAUNCH LIVE CHECK of every SCE program named in this answer (see docs/open-items.md).
         q: 'Is there a rebate for AC or a smart thermostat in Long Beach?',
         a: 'SCE lists Golden State Rebates instant coupons for air conditioners and smart thermostats at participating retailers. SCE also lists a $75 bill credit through eligible demand-response programs when it temporarily adjusts an eligible smart thermostat by up to four degrees, and free upgrades for eligible households through its Energy Savings Assistance Program. Long Beach Utilities lists natural-gas efficiency programs as well. Terms and eligibility can change, so confirm current details with SCE and Long Beach Utilities before you buy.',
       },
