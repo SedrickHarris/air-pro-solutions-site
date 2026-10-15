@@ -107,8 +107,9 @@ export const laCountyHub = {
   },
 
   // Source: City of Los Angeles planning documents (employment centers - Downtown, Century City,
-  // Warner Center, LAX area; described generally). City of Long Beach: Port of Long Beach supports
-  // 51,000 local jobs. No commercial-sector claims for the other six cities.
+  // Warner Center, LAX area; described generally). No commercial-sector claims for the other seven cities.
+  // Removed 2026-10-15: the Port of Long Beach "51,000 local jobs" line. It traces to a Port-commissioned
+  // economic impact study (EDR Group, 2017 data), not a City of Long Beach report, so the attribution was wrong.
   split: {
     eyebrow: 'Residential and commercial',
     title: 'Homes, multifamily buildings, and commercial properties',
@@ -123,8 +124,8 @@ export const laCountyHub = {
     commercial: {
       tag: 'Commercial',
       title: 'Commercial properties',
-      body: 'The City of Los Angeles identifies Downtown, Century City, Warner Center, and the LAX area as primary employment centers, and the City of Long Beach reports that the Port of Long Beach supports 51,000 local jobs.',
-      chips: ['Offices', 'Retail and restaurants', 'Rooftop units', 'Port and logistics'],
+      body: 'The City of Los Angeles identifies Downtown, Century City, Warner Center, and the LAX area as primary employment centers.',
+      chips: ['Offices', 'Retail and restaurants', 'Rooftop units'],
       ctaLabel: 'Commercial HVAC',
       href: '/commercial-hvac/',
     },
@@ -215,7 +216,7 @@ export const laCountyHub = {
     intro: 'Our Los Angeles and Long Beach pages are live and the other city pages are coming. For the South Bay, see our Torrance page, or browse all service areas.',
     items: [
       { name: 'Los Angeles', note: 'Spans coast, basin, valley, and foothill conditions. Electric service from LADWP.', href: '/service-areas/los-angeles/' },
-      { name: 'Long Beach', note: 'Coastal, with the Port of Long Beach anchoring commercial demand. Electric service from SCE.', href: '/service-areas/long-beach/' },
+      { name: 'Long Beach', note: 'Coastal. Electric service from SCE.', href: '/service-areas/long-beach/' },
       { name: 'Pasadena', note: 'Inland foothill setting. New exterior equipment must be screened from public view.' },
       { name: 'Glendale', note: 'Inland basin and foothill setting, with 60.9% multifamily housing (2018).' },
       { name: 'Burbank', note: 'Valley-edge climate. Rooftop and rear-of-property replacements need an energy report.' },
