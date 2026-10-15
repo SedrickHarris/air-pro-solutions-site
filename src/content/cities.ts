@@ -196,6 +196,7 @@ const losAngelesOverrides: Partial<City> = {
       'Residential and commercial HVAC in the City of Los Angeles, from Arleta to Baldwin Hills. Know the LADBS permit steps and LADWP rebate. Schedule service.',
     lede:
       'AIRPRO SOLUTIONS provides HVAC services across the City of Los Angeles, including AC repair, heating repair, installation, and maintenance for homes and businesses - from Arleta and Atwater to Athens and Baldwin Hills.',
+    heroCaption: { title: 'Los Angeles, CA', text: 'Local HVAC service across the City of Los Angeles' },
     heroProof: [
       { icon: 'shield', label: 'Licensed, bonded & insured' },
       { icon: 'star', label: '4.8-star rated' },
