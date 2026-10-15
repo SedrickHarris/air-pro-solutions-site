@@ -364,6 +364,7 @@ const longBeachOverrides: Partial<City> = {
       'Residential and commercial HVAC in Long Beach, from Belmont Shore to Bixby Knolls. Know the City permit steps and SCE rebates. Schedule service.',
     lede:
       'AIRPRO SOLUTIONS provides HVAC services across Long Beach, including AC repair, heating repair, installation, and maintenance for homes and businesses - from Belmont Shore and Bixby Knolls to Los Cerritos and Lakewood Village.',
+    heroCaption: { title: 'Long Beach, CA', text: 'Local HVAC service across Long Beach' },
     heroProof: [
       { icon: 'shield', label: 'Licensed, bonded & insured' },
       { icon: 'star', label: '4.8-star rated' },
