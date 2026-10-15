@@ -7,7 +7,7 @@ this file is the index, not the source of truth.
 ## /service-areas/los-angeles/ (losAngelesOverrides in src/content/cities.ts)
 
 - Title collision: `cityTitle('Los Angeles')` equals `homeTitle()`, so this page uses `cityTitleAcross()` ("HVAC Services Across Los Angeles, CA"). Decide whether to keep that or retarget the homepage.
-- Neighborhoods and ZIPs are a PARTIAL sample (Arleta 91331, Athens 90044, Atwater 90039, Baldwin Hills 90008/90056) from the City ZIP listing, and the page says so. Climate, housing age, terrain, noise, HOA and competitor/SERP detail were NOT FOUND in the research and are not published. Add verified local detail before treating this as a full page.
+- The neighborhood card shows only the City's ZIP listing, grouped by area in collapsed rows (no neighborhood pills). Arleta, Athens, Atwater and Baldwin Hills appear in the lede only. Climate, housing age, terrain, noise, HOA and competitor/SERP detail were NOT FOUND in the research and are not published. Add verified local detail before treating this as a full page.
 - LADWP heat-pump rebate ("up to $2,500 per ton/unit", listed 2026-05-22): the research source is undated and the amount is also an open item on the LA County hub. Reconfirm amount and terms before launch.
 - "AIRPRO SOLUTIONS can walk you through what your project needs" (permits) is a practice claim carried from the Torrance pattern; client to confirm.
 - Service card names with "& Replacement" and the emergency card wording are pending client confirmation, as on Torrance.

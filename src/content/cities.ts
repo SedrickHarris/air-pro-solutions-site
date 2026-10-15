@@ -184,10 +184,9 @@ const torranceOverrides: Partial<City> = {
 // NOT FOUND in that research, so none of it appears here. On-page claims use the client-approved wording
 // from CLAUDE.md "Approved claims" and nothing stronger.
 const losAngelesOverrides: Partial<City> = {
-  // Partial sample: the four communities in the City's ZIP-code listing that the research verified.
-  // TODO(data): extend with more verified communities and ZIPs before treating this as a full list.
-  neighborhoods: ['Arleta', 'Athens', 'Atwater', 'Baldwin Hills'],
-  // ZIPs below are the City's own listing (grouped by area in page.zipGroups); the four communities above are still a partial sample.
+  // TODO(data): add verified neighborhood detail (climate, housing, terrain) before treating this as a full local page.
+  neighborhoods: [], // named communities (Arleta, Athens, Atwater, Baldwin Hills) appear in the lede; the card shows the City ZIP listing only
+  // ZIPs below are the City's own listing (grouped by area in page.zipGroups).
   zips: ['90001', '90002', '90003', '90004', '90005', '90006', '90007', '90008', '90010', '90011', '90012', '90013', '90014', '90015', '90017', '90018', '90019', '90020', '90021', '90024', '90025', '90026', '90027', '90028', '90029', '90031', '90032', '90033', '90034', '90035', '90036', '90037', '90038', '90039', '90041', '90042', '90043', '90044', '90045', '90046', '90047', '90048', '90049', '90056', '90057', '90058', '90059', '90061', '90062', '90063', '90064', '90065', '90066', '90067', '90068', '90071', '90074', '90077', '90078', '90079', '90089', '90094', '90095', '90272', '90291', '90292', '90293', '90710', '90731', '90732', '90733', '90734', '90744', '90748', '91040', '91041', '91042', '91043', '91302', '91303', '91304', '91306', '91307', '91308', '91311', '91312', '91313', '91316', '91324', '91325', '91326', '91330', '91331', '91333', '91334', '91335', '91337', '91340', '91342', '91343', '91344', '91345', '91346', '91352', '91353', '91356', '91357', '91364', '91365', '91367', '91371', '91372', '91399', '91401', '91402', '91403', '91406', '91407', '91408', '91409', '91410', '91411', '91412', '91413', '91416', '91423', '91426', '91436', '91601', '91602', '91604', '91606', '91607', '91608', '91610', '91614', '91615', '91616', '91617', '91618'],
   page: {
     distinctTitle: true,
@@ -227,9 +226,8 @@ const losAngelesOverrides: Partial<City> = {
       'Permits also work differently here than in a smaller suburb. Heating and cooling work inside city limits goes through **LADBS, the Los Angeles Department of Building and Safety**. LADBS requires a mechanical permit to install or modify a heating or cooling system, and covered work needs HVAC plan check approval before the permit is issued. Qualifying small projects can be filed online through PermitLA, and projects that need plan review go through ePlanLA. AIRPRO SOLUTIONS can walk you through what your project needs.',
       'Two more local resources are worth knowing. **LADWP** lists a heat-pump HVAC rebate of up to $2,500 per ton/unit through its Home Electrification Savings program, and **South Coast AQMD** publishes current air quality readings at the neighborhood level. Details and links are in the section below.',
     ],
-    neighborhoodsHeading: "Communities in the City's ZIP listing",
-    neighborhoodsNote: "These four come from the City's official ZIP-code listing and are a partial sample.",
-    zipsLabel: 'ZIP codes in the City of Los Angeles listing',
+    neighborhoodsHeading: 'Los Angeles ZIP codes by area',
+    zipsLabel: "From the City of Los Angeles ZIP-code listing",
     zipGroups: [
       { label: 'Central / Downtown', zips: ['90012', '90013', '90014', '90015', '90017', '90021', '90057', '90071', '90074', '90079'] },
       { label: 'Eastside / Northeast', zips: ['90031', '90032', '90033', '90039', '90041', '90042', '90063', '90065'] },

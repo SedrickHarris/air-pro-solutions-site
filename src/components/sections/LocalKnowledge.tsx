@@ -55,11 +55,13 @@ export function LocalKnowledge({
           </div>
           <div className="nbhd-card">
             <h3>{neighborhoodsHeading}</h3>
-            <div className="nbhd-list">
-              {neighborhoods.map((n) => (
-                <span key={n}>{n}</span>
-              ))}
-            </div>
+            {neighborhoods.length > 0 && (
+              <div className="nbhd-list">
+                {neighborhoods.map((n) => (
+                  <span key={n}>{n}</span>
+                ))}
+              </div>
+            )}
             {neighborhoodsNote && <div className="zip">{neighborhoodsNote}</div>}
             {zipGroups ? (
               <div className="zip">
