@@ -40,6 +40,8 @@ export type CityPage = {
   neighborhoodsNote?: string;
   zipGroups?: { label: string; zips: string[] }[]; // grouped ZIP pills, replaces the flat ZIP line
   zipsLabel?: string;
+  // Official-link list shown on the right-hand card instead of ZIPs (set when no verified ZIP list exists).
+  officialResources?: { text: string; href: string; note: string }[];
   // "Know before you start" official-source cards (permits, rebates, air quality).
   resources?: { eyebrow: string; title: string; intro: string; cards: RebateCard[] };
   localTitle?: string; // overrides the default local-knowledge H2 ("HVAC work built around {City}'s housing stock")
@@ -707,6 +709,189 @@ const pasadenaOverrides: Partial<City> = {
   },
 };
 
+// Culver City (location page, built from the Pasadena template). Facts come from Culver City pages (Building Safety,
+// Mechanical Permit Application, City Maps, Parks, Hayden Tract Specific Plan) and the City's Zoning Code and Municipal
+// Code on amlegal. The electric and gas providers, rebates, climate, housing figures and ZIP list are not published here -
+// see docs/open-items.md "/service-areas/culver-city/".
+const culverCityOverrides: Partial<City> = {
+  // TODO(data): add verified housing-age, climate and utility detail before treating this as a full local page.
+  neighborhoods: [], // named areas (Fox Hills, Hayden Tract) appear in the lede; the right-hand card lists official City links, not ZIPs
+  zips: [], // no verified citywide ZIP list: the research ZIPs were Medium confidence and the USPS record links could not be read
+  page: {
+    metaDescription:
+      'Residential and commercial HVAC in Culver City, from Fox Hills to Hayden Tract. Know the City permit steps. Licensed, 4.8-star rated. Schedule service.',
+    lede:
+      'AIRPRO SOLUTIONS provides HVAC services across Culver City, including AC repair, heating repair, installation, and maintenance for homes and businesses - from Fox Hills to Hayden Tract.',
+    heroCaption: { title: 'Culver City, CA', text: 'Local HVAC service across Culver City' },
+    heroProof: [
+      { icon: 'shield', label: 'Licensed, bonded & insured' },
+      { icon: 'star', label: '4.8-star rated' },
+      { icon: 'bolt', label: '24/7 emergency dispatch' },
+      { icon: 'building', label: 'Residential and commercial' },
+    ],
+    trustStats: [
+      { num: '4.8★', label: 'Google rating, 40 reviews' },
+      { num: 'C-20', label: 'California licensed' },
+      { num: '24/7', label: 'emergency dispatch' },
+      { num: 'Same-day', label: 'service typical' },
+    ],
+    answer: {
+      lead: 'AIRPRO SOLUTIONS is a licensed HVAC contractor serving Culver City',
+      body:
+        ', providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.',
+    },
+    glance: {
+      title: 'Culver City at a glance',
+      stats: [
+        { num: '5', label: 'residential zoning districts in the City Zoning Code' },
+        { num: 'Mechanical', label: 'permit covers AC, heating units, duct changes, and ventilation' },
+        { num: 'Ch. 9.07', label: 'Municipal Code chapter on noise regulations' },
+      ],
+      source: 'Sources: Culver City Zoning Code, City list of required building permits, and Municipal Code Chapter 9.07.',
+    },
+    localTitle: 'Culver City handles HVAC permits through its own Building Safety Division',
+    localParagraphs: [
+      "Culver City runs **its own Building Safety Division** at City Hall, 9770 Culver Blvd. The City's list of items that require a permit from Building Safety includes a Mechanical Permits category covering air conditioning, heating units, duct system extension or relocation, and ventilation systems. Applications go through the **Culver City Permit Portal**: choose the Building tab, then Create an Application, then Mechanical. **AIRPRO SOLUTIONS plans each job around your address** and walks you through what your project needs.",
+      "Equipment that sits outside can need extra paperwork. The City's Mechanical permit page lists required documents for any exterior mechanical or utility equipment, when applicable, so it helps to know where a new outdoor unit will go before you apply. Culver City's noise regulations are in **Municipal Code Chapter 9.07**, so ask the City how they apply to outdoor equipment before you choose a spot.",
+      'Commercial and mixed-use work looks different in **Hayden Tract**, a former industrial area with an artistic community, located between two Metro E Line stations and near the Ballona Creek Bike Path. The City has published a public review draft of a Hayden Tract Specific Plan, and its Zoning Code separates residential districts (R1, R2, RLD, RMD, and RHD) from mixed-use districts. Official links are in the card beside this text.',
+    ],
+    neighborhoodsHeading: 'Official Culver City resources',
+    officialResources: [
+      {
+        text: 'Mechanical permit application',
+        href: 'https://www.culvercity.gov/Services/Building-Development/11-Mechanical-Permit-Application',
+        note: 'How to apply through the Culver City Permit Portal.',
+      },
+      {
+        text: 'Building Safety Division',
+        href: 'https://www.culvercity.gov/City-Hall/City-Departments/Planning-Development-Department/Building-Safety',
+        note: 'City Hall, 9770 Culver Blvd., 2nd floor, Culver City, CA 90232.',
+      },
+      {
+        text: 'City maps',
+        href: 'https://www.culvercity.gov/Explore/City-Maps',
+        note: "Includes the City's published neighborhoods map (PDF).",
+      },
+      {
+        text: 'Hayden Tract Specific Plan',
+        href: 'https://www.culvercity.gov/City-Hall/City-Departments/Planning-Development-Department/Advance-Planning-Division/B.-Hayden-Tract-Specific-Plan',
+        note: "The City's page on the plan and its public review draft.",
+      },
+    ],
+    servicesTitle: 'Everything we handle for Culver City homes and businesses',
+    serviceCards: [
+      { slug: 'ac-repair', name: 'AC Repair', body: 'Diagnosis and repair for cooling failures, weak airflow, and unusual noises.' },
+      { slug: 'ac-installation', name: 'AC Installation & Replacement', body: 'New system sizing and installation, including the Culver City permit steps that apply to your project.' },
+      { slug: 'ac-maintenance', name: 'AC Maintenance', body: 'Seasonal AC tune-ups that catch small issues early.' },
+      { slug: 'heating-repair', name: 'Heating Repair', body: 'Furnace and heating system diagnosis and repair.' },
+      { slug: 'furnace-installation', name: 'Furnace Installation & Replacement', body: 'New furnace sizing and installation, including the Culver City permit steps that apply to your project.' },
+      { slug: 'heat-pump-services', name: 'Heat Pump Services', body: 'Installation, repair, and maintenance for heat pumps.' },
+      { slug: 'ductless-mini-split', name: 'Ductless Mini-Split', body: 'Room-by-room comfort control for spaces where ductwork is not an option.' },
+      { slug: 'ductwork', name: 'Ductwork Services', body: 'Duct repair, sealing, replacement, and installation.' },
+      { slug: 'indoor-air-quality', name: 'Indoor Air Quality', body: 'Air filtration, whole-home purification, and ventilation options.' },
+      { slug: 'emergency-hvac', name: 'Emergency HVAC', body: 'Dispatch for no-cool and no-heat emergencies in Culver City.' },
+    ],
+    resources: {
+      eyebrow: 'Know before you start',
+      title: 'Culver City permits, zoning, and noise rules',
+      intro: 'Official sources for three local items worth checking before a Culver City HVAC project.',
+      cards: [
+        {
+          amount: 'Mechanical permit',
+          description: 'Culver City requires a Mechanical permit for air conditioning, heating units, duct system extension or relocation, and ventilation systems. Apply through the Culver City Permit Portal.',
+          linkLabel: 'Mechanical permit page',
+          linkHref: 'https://www.culvercity.gov/Services/Building-Development/11-Mechanical-Permit-Application',
+        },
+        {
+          amount: 'Zoning Code',
+          description: "The City's Zoning Code establishes residential districts (R1, R2, RLD, RMD, RHD) and mixed-use districts, and refers to an official Zoning Map.",
+          linkLabel: 'Culver City Zoning Code',
+          linkHref: 'https://codelibrary.amlegal.com/codes/culvercity/latest/culvercity_ca/0-0-0-17892',
+        },
+        {
+          amount: 'Noise rules',
+          description: "Culver City's noise regulations are in Municipal Code Chapter 9.07. Confirm with the City how they apply to outdoor equipment before you choose a location.",
+          linkLabel: 'Chapter 9.07',
+          linkHref: 'https://codelibrary.amlegal.com/codes/culvercity/latest/culvercity_ca/0-0-0-6230',
+        },
+      ],
+    },
+    nearby: ['los-angeles', 'long-beach', 'pasadena', 'torrance'],
+    proof: {
+      heading: 'Licensed, reviewed, and ready across Culver City',
+      body: 'AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.',
+      stats: [
+        { num: '4.8★', label: 'Google rating' },
+        { num: '40', label: 'Google reviews' },
+        { num: 'C-20', label: 'California license class' },
+        { num: '24/7', label: 'Emergency dispatch' },
+      ],
+    },
+    finalCtaBody: 'Call or request service online to schedule a visit anywhere in Culver City. Same-day service is typical.',
+    faqs: [
+      {
+        q: 'Does AIRPRO SOLUTIONS service all of Culver City?',
+        a: 'Yes. AIRPRO SOLUTIONS serves homes and businesses across Culver City as part of our LA County coverage. Culver City has its own Building Safety Division, so we plan each visit around your specific address.',
+        links: [{ text: 'LA County coverage', href: '/service-areas/los-angeles-county/' }],
+      },
+      {
+        q: 'How fast can a technician reach my Culver City home?',
+        a: 'Same-day service is typical in Culver City, subject to capacity. Call (323) 776-9047 to confirm a window for your address.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'Do I need a permit for HVAC work in Culver City?',
+        a: 'Usually, yes. Culver City requires a Mechanical permit for air conditioning, heating units, duct system extension or relocation, and ventilation systems. The City describes its permit list as a partial list, so ask Building Safety what your specific project needs. AIRPRO SOLUTIONS can walk you through the steps.',
+      },
+      {
+        q: 'How do I apply for a Mechanical permit in Culver City?',
+        a: "Through the Culver City Permit Portal. Choose the Building tab, then Create an Application, then Mechanical. You can also submit in person at Building Safety, 9770 Culver Blvd., 2nd floor. Check the City's website for current hours before you visit.",
+      },
+      {
+        q: 'Do I need extra documents for outdoor HVAC equipment in Culver City?',
+        a: "Possibly. The City's Mechanical permit page lists required documents for any exterior mechanical or utility equipment, when applicable. Decide where a new outdoor unit will sit before you apply, and ask Building Safety which documents apply to your project.",
+      },
+      {
+        q: 'What should I know about Culver City noise rules before installing outdoor equipment?',
+        a: "Start with Municipal Code Chapter 9.07. Culver City's noise regulations are in Chapter 9.07 of the Municipal Code. This page does not state a decibel limit for outdoor HVAC equipment, so ask the City how the chapter applies before you decide where a unit will go.",
+      },
+      {
+        q: 'What HVAC services are available in Culver City?',
+        a: 'AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Culver City, for both residential and commercial properties.',
+        boldLead: 'AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC',
+        links: [
+          { text: 'AC repair', href: serviceHref('ac-repair') },
+          { text: 'AC installation and replacement', href: serviceHref('ac-installation') },
+          { text: 'AC maintenance', href: serviceHref('ac-maintenance') },
+          { text: 'heating repair', href: serviceHref('heating-repair') },
+          { text: 'furnace installation and replacement', href: serviceHref('furnace-installation') },
+          { text: 'heat pump services', href: serviceHref('heat-pump-services') },
+          { text: 'ductless mini-splits', href: serviceHref('ductless-mini-split') },
+          { text: 'ductwork', href: serviceHref('ductwork') },
+          { text: 'indoor air quality', href: serviceHref('indoor-air-quality') },
+          { text: 'emergency HVAC', href: serviceHref('emergency-hvac') },
+        ],
+      },
+      {
+        q: 'Is emergency HVAC service available in Culver City?',
+        a: 'Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Culver City. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'How much does HVAC service cost in Culver City?',
+        a: 'Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in Culver City?',
+        a: 'Yes. AIRPRO SOLUTIONS services commercial properties in Culver City, including rooftop units, office buildings, and retail spaces. See our Commercial HVAC page for the full scope.',
+        links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
+      },
+    ],
+    // TODO(copy): client review of every FAQ answer above before launch.
+  },
+};
+
 // Map-card image for every city, used in nearby-areas rows (and city-page heroes once a city has
 // real content). Source files (1300x676) live in public/images/locations/<region-slug>/.
 const cardImages: Record<string, ServiceImage> = Object.fromEntries(
@@ -730,6 +915,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'los-angeles' ? losAngelesOverrides
     : c.slug === 'long-beach' ? longBeachOverrides
     : c.slug === 'pasadena' ? pasadenaOverrides
+    : c.slug === 'culver-city' ? culverCityOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
