@@ -35,6 +35,22 @@ this file is the index, not the source of truth.
 - Claim wording follows the approved list (24/7 emergency dispatch, same-day service typical and subject to capacity, licensed, bonded & insured, 4.8 stars / 40 reviews). Do not strengthen it.
 - Reference artifact: claude/reference/long-beach-location.html.
 
+## /service-areas/pasadena/ (pasadenaOverrides in src/content/cities.ts)
+
+- Title: `cityTitle('Pasadena')` ("HVAC Services in Pasadena, CA | AIRPRO SOLUTIONS") does not collide with another page, so no `distinctTitle` is needed. The meta description is the hand-written `page.metaDescription` (159 characters, validated by `assertDescription`).
+- ZIPs and area labels are NOT published. The research listed 91101 and 91103-91107 with area labels, but the cited USPS Postal Bulletin did not support them. The right-hand card is "Official Pasadena resources" (new optional `officialResources` field rendered by `LocalKnowledge`) instead. To restore a ZIP card, source the list to an official City or USPS page and add `zipGroups`.
+- Glance stats are station and permit facts only (180-day permit validity, NOAA station elevation, records start 1893). NOAA climate normals could not be retrieved (robots disallowed) and are not published.
+- Noise standards: the City agenda document (October 2024) describes revised exterior standards but does not confirm adoption. The page says so and sends visitors to the City. Reconfirm adoption, then replace the card and FAQ with the adopted rule.
+- Electric provider is Pasadena Water and Power (City FY2025 budget page), confirmed, but it is not named on the city page and no PWP rebate is published. Add both only with a current PWP source.
+- Verified-fact gaps (not published): housing-age and housing-mix figures, climate detail, major employers, outdoor-unit screening or setback rules.
+- "AIRPRO SOLUTIONS can walk you through the steps" (permits) is a practice claim carried from the Torrance pattern; client to confirm.
+- Nearby row: Los Angeles, Long Beach, Glendale, Burbank. Glendale and Burbank link to their noindex stub pages until real pages exist. South Pasadena is not routed.
+- Service card names with "& Replacement" and the emergency card wording are pending client confirmation, as on the other city pages.
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list. Do not strengthen it.
+- Go-live wiring done: Pasadena card href on the LA County hub, chip link on /service-areas/, hub intro wording, LA County page sentence, hubCityIndexNote. The South Bay, Orange County and Inland Empire hubs have no Pasadena content, so their "coming soon" text stays.
+- Reference artifact: claude/reference/pasadena-location.html.
+
 ## /service-areas/los-angeles-county/ (src/content/la-county-hub.ts)
 
 - LADWP heat pump rebate amount ("Up to $2,500 per ton"): sourced from an undated utility page.

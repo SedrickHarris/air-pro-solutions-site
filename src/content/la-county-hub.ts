@@ -212,11 +212,11 @@ export const laCountyHub = {
   cities: {
     eyebrow: 'Cities served',
     title: 'The eight cities on this page',
-    intro: 'Our Los Angeles and Long Beach pages are live and the other city pages are coming. For the South Bay, see our Torrance page, or browse all service areas.',
+    intro: 'Our Los Angeles, Long Beach, and Pasadena pages are live and the other city pages are coming. For the South Bay, see our Torrance page, or browse all service areas.',
     items: [
       { name: 'Los Angeles', note: 'Spans coast, basin, valley, and foothill conditions. Electric service from LADWP.', href: '/service-areas/los-angeles/' },
       { name: 'Long Beach', note: 'Coastal. Electric service from SCE.', href: '/service-areas/long-beach/' },
-      { name: 'Pasadena', note: 'Has its own Permit Center. A site plan can apply to equipment placed outside.' },
+      { name: 'Pasadena', note: 'Has its own Permit Center. A site plan can apply to equipment placed outside.', href: '/service-areas/pasadena/' },
       { name: 'Glendale', note: 'Inland basin and foothill setting, with 60.9% multifamily housing (2018).' },
       { name: 'Burbank', note: 'Valley-edge climate. Rooftop and rear-of-property replacements need an energy report.' },
       { name: 'Culver City', note: 'Near-coastal, with a near-even single-family and multifamily mix. Utility varies by address.' },

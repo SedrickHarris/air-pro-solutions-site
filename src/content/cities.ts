@@ -40,6 +40,8 @@ export type CityPage = {
   neighborhoodsNote?: string;
   zipGroups?: { label: string; zips: string[] }[]; // grouped ZIP pills, replaces the flat ZIP line
   zipsLabel?: string;
+  // Replaces the ZIP card with a list of official-source links when a verified ZIP list is not available (Pasadena).
+  officialResources?: { label: string; items: { text: string; href: string; note: string }[] };
   // "Know before you start" official-source cards (permits, rebates, air quality).
   resources?: { eyebrow: string; title: string; intro: string; cards: RebateCard[] };
   localTitle?: string; // overrides the default local-knowledge H2 ("HVAC work built around {City}'s housing stock")
@@ -530,6 +532,183 @@ const longBeachOverrides: Partial<City> = {
   },
 };
 
+// Pasadena (location page, built from the Long Beach template). Facts come from City of Pasadena pages and NOAA station
+// metadata only. The research's ZIP list was NOT supported by its cited USPS bulletin, the electric provider and rebates
+// are not published here, and noise-standard adoption is unconfirmed - see docs/open-items.md "/service-areas/pasadena/".
+const pasadenaOverrides: Partial<City> = {
+  // TODO(data): add verified housing-age and climate detail before treating this as a full local page.
+  neighborhoods: [], // named areas (San Rafael Heights, Linda Vista, Victory Rose, Upper Hastings Ranch) appear in the lede
+  // TODO(data): ZIPs and area labels held out until sourced to an official City or USPS listing.
+  zips: [],
+  page: {
+    metaDescription:
+      'Residential and commercial HVAC in Pasadena, from San Rafael Heights to Upper Hastings Ranch. Know the City permit steps and site-plan rules. Schedule service.',
+    lede:
+      'AIRPRO SOLUTIONS provides HVAC services across Pasadena, including AC repair, heating repair, installation, and maintenance for homes and businesses - from San Rafael Heights and Linda Vista to Victory Rose and Upper Hastings Ranch.',
+    heroCaption: { title: 'Pasadena, CA', text: 'Local HVAC service across Pasadena' },
+    heroProof: [
+      { icon: 'shield', label: 'Licensed, bonded & insured' },
+      { icon: 'star', label: '4.8-star rated' },
+      { icon: 'bolt', label: '24/7 emergency dispatch' },
+      { icon: 'building', label: 'Residential and commercial' },
+    ],
+    trustStats: [
+      { num: '4.8★', label: 'Google rating, 40 reviews' },
+      { num: 'C-20', label: 'California licensed' },
+      { num: '24/7', label: 'emergency dispatch' },
+      { num: 'Same-day', label: 'service typical' },
+    ],
+    answer: {
+      lead: 'AIRPRO SOLUTIONS is a licensed HVAC contractor serving Pasadena',
+      body:
+        ', providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.',
+    },
+    glance: {
+      title: 'Pasadena at a glance',
+      stats: [
+        { num: '180 days', label: 'a Pasadena building permit is valid from issuance' },
+        { num: '263.3 m', label: "elevation of NOAA's Pasadena, CA weather station" },
+        { num: '1893', label: 'year records begin at that NOAA station' },
+      ],
+      source: 'Sources: City of Pasadena Permit Center and NOAA NCEI.',
+    },
+    localTitle: 'Pasadena handles HVAC permits through its own Permit Center',
+    localParagraphs: [
+      'Pasadena runs **its own City Permit Center** at 175 North Garfield Ave. The City lists heating, ventilating and air conditioning work for installing or replacing heating and cooling units among its plan and submittal items, and the Permit Center is a one-stop location for permitting, permit search, case status, and inspection scheduling. Neighboring South Pasadena has its own Building Division and permit process, so **AIRPRO SOLUTIONS plans each job around your address** and walks you through what your project needs.',
+      'Filing and timing matter too. The City accepts electronic subtrade permit and plan submissions through its **Citizen Self Service portal**, and some project types must be submitted online. The City states that building permits are valid for 180 days from issuance and that regular inspections keep a permit valid. Its **site-plan requirement can apply to equipment placed outside**, so it helps to know where a new outdoor unit will sit before you apply.',
+      "Two more local items are worth knowing. Pasadena's online **Zoning Code** defines zoning districts, land-use classifications, development standards, and environmental performance standards, and the City has documented work on **revised exterior noise standards**, covered in the section that follows. Official links are below.",
+    ],
+    neighborhoodsHeading: 'Official Pasadena resources',
+    officialResources: {
+      label: 'From the City of Pasadena and NOAA:',
+      items: [
+        { text: 'City Permit Center and Zoning Code', href: 'https://www.cityofpasadena.net/planning/permit-center/', note: 'Permitting, permit search, case status, and inspection scheduling.' },
+        { text: 'Permit application guide', href: 'https://www.cityofpasadena.net/planning/permit-center/apply-for-permit/', note: 'HVAC replacement is listed among plan and submittal items.' },
+        { text: 'Neighborhood associations by council district', href: 'https://www.cityofpasadena.net/district4/neighborhood-associations/', note: 'Includes Victory Rose and Upper Hastings Ranch.' },
+        { text: 'History of Pasadena', href: 'https://www.cityofpasadena.net/about-pasadena/history-of-pasadena/', note: 'Names San Rafael Heights and Linda Vista among its areas.' },
+        { text: 'NOAA Pasadena weather station', href: 'https://www.ncdc.noaa.gov/cdo-web/datasets/GHCND/stations/GHCND:USC00046719/detail', note: 'Daily weather records back to 1893.' },
+      ],
+    },
+    localLinks: [
+      { text: 'City permit application guide', href: 'https://www.cityofpasadena.net/planning/permit-center/apply-for-permit/' },
+      { text: 'City Permit Center and Zoning Code', href: 'https://www.cityofpasadena.net/planning/permit-center/' },
+      { text: 'City neighborhood associations', href: 'https://www.cityofpasadena.net/district4/neighborhood-associations/' },
+    ],
+    servicesTitle: 'Everything we handle for Pasadena homes and businesses',
+    serviceCards: [
+      { slug: 'ac-repair', name: 'AC Repair', body: 'Diagnosis and repair for cooling failures, weak airflow, and unusual noises.' },
+      { slug: 'ac-installation', name: 'AC Installation & Replacement', body: 'New system sizing and installation, including the City of Pasadena permit steps that apply to your project.' },
+      { slug: 'ac-maintenance', name: 'AC Maintenance', body: 'Seasonal AC tune-ups that catch small issues early.' },
+      { slug: 'heating-repair', name: 'Heating Repair', body: 'Furnace and heating system diagnosis and repair.' },
+      { slug: 'furnace-installation', name: 'Furnace Installation & Replacement', body: 'New furnace sizing and installation, including the City of Pasadena permit steps that apply to your project.' },
+      { slug: 'heat-pump-services', name: 'Heat Pump Services', body: 'Installation, repair, and maintenance for heat pumps.' },
+      { slug: 'ductless-mini-split', name: 'Ductless Mini-Split', body: 'Room-by-room comfort control for spaces where ductwork is not an option.' },
+      { slug: 'ductwork', name: 'Ductwork Services', body: 'Duct repair, sealing, replacement, and installation.' },
+      { slug: 'indoor-air-quality', name: 'Indoor Air Quality', body: 'Air filtration, whole-home purification, and ventilation options.' },
+      { slug: 'emergency-hvac', name: 'Emergency HVAC', body: 'Dispatch for no-cool and no-heat emergencies in Pasadena.' },
+    ],
+    resources: {
+      eyebrow: 'Know before you start',
+      title: 'Pasadena permits, site plans, and noise standards',
+      intro: 'Official sources for three local items worth checking before a Pasadena HVAC project.',
+      cards: [
+        {
+          amount: 'City permit',
+          description: 'The City of Pasadena Permit Center, 175 North Garfield Ave., handles HVAC permits and lists installing or replacing heating and cooling units among its plan and submittal items.',
+          linkLabel: 'Pasadena permit guide',
+          linkHref: 'https://www.cityofpasadena.net/planning/permit-center/apply-for-permit/',
+        },
+        {
+          amount: 'Site plan',
+          description: "The City's site-plan requirement can apply to equipment placed outside, and a building permit is valid for 180 days from issuance as long as regular inspections continue.",
+          linkLabel: 'Permit application details',
+          linkHref: 'https://www.cityofpasadena.net/planning/permit-center/apply-for-permit/',
+        },
+        {
+          amount: 'Noise standards',
+          description: 'A City of Pasadena agenda document from October 2024 describes revised exterior noise standards that would vary by land use and time of day. Confirm the current standards with the City before you choose a location.',
+          linkLabel: 'City noise standards document',
+          linkHref: 'https://ww2.cityofpasadena.net/2024%20Agendas/Oct_28_24/AR%2027.pdf',
+        },
+      ],
+    },
+    // TODO(data): Glendale and Burbank are noindex stubs, so their cards render without a link; Los Angeles and Long Beach link.
+    nearby: ['los-angeles', 'long-beach', 'glendale', 'burbank'],
+    proof: {
+      heading: 'Licensed, reviewed, and ready across Pasadena',
+      body: 'AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.',
+      stats: [
+        { num: '4.8★', label: 'Google rating' },
+        { num: '40', label: 'Google reviews' },
+        { num: 'C-20', label: 'California license class' },
+        { num: '24/7', label: 'Emergency dispatch' },
+      ],
+    },
+    finalCtaBody: 'Call or request service online to schedule a visit anywhere in Pasadena. Same-day service is typical.',
+    faqs: [
+      {
+        q: 'Does AIRPRO SOLUTIONS service all of Pasadena?',
+        a: 'Yes. AIRPRO SOLUTIONS serves homes and businesses across Pasadena as part of our LA County coverage. Pasadena runs its own Permit Center, separate from the Building Division in neighboring South Pasadena, so we plan each visit around your specific address.',
+        links: [{ text: 'LA County coverage', href: '/service-areas/los-angeles-county/' }],
+      },
+      {
+        q: 'How fast can a technician reach my Pasadena home?',
+        a: 'Same-day service is typical in Pasadena, subject to capacity. Call (323) 776-9047 to confirm a window for your address.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'Where do I get an HVAC permit in Pasadena?',
+        a: 'Through the City of Pasadena Permit Center. The Permit Center is at 175 North Garfield Ave., and the City lists heating, ventilating and air conditioning work for installing or replacing heating and cooling units among its plan and submittal items. The City accepts electronic subtrade permit and plan submissions through its Citizen Self Service portal, and some project types must be submitted online. Ask the Permit Center what your specific project requires. AIRPRO SOLUTIONS can walk you through the steps.',
+      },
+      {
+        q: 'How long is a Pasadena building permit valid?',
+        a: 'A Pasadena building permit is valid for 180 days from issuance. According to the City, regular inspections keep the permit valid. Ask the Permit Center how this applies to your project.',
+      },
+      {
+        q: 'Does Pasadena require a site plan for outdoor HVAC equipment?',
+        a: "It can. The City's permit guidance says its site-plan requirement can apply to equipment placed outside. Decide where a new outdoor unit will sit before you apply, and ask the Permit Center whether a site plan applies to your project.",
+      },
+      {
+        q: 'What should I know about Pasadena noise standards before installing outdoor equipment?',
+        a: 'Check the current City code first. A City of Pasadena agenda document from October 2024 describes revised exterior noise standards that would vary by land use and time of day. The document does not confirm they have been adopted, so confirm the current standards with the City before you decide where outdoor equipment will go.',
+      },
+      {
+        q: 'What HVAC services are available in Pasadena?',
+        a: 'AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Pasadena, for both residential and commercial properties.',
+        boldLead: 'AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC',
+        links: [
+          { text: 'AC repair', href: serviceHref('ac-repair') },
+          { text: 'AC installation and replacement', href: serviceHref('ac-installation') },
+          { text: 'AC maintenance', href: serviceHref('ac-maintenance') },
+          { text: 'heating repair', href: serviceHref('heating-repair') },
+          { text: 'furnace installation and replacement', href: serviceHref('furnace-installation') },
+          { text: 'heat pump services', href: serviceHref('heat-pump-services') },
+          { text: 'ductless mini-splits', href: serviceHref('ductless-mini-split') },
+          { text: 'ductwork', href: serviceHref('ductwork') },
+          { text: 'indoor air quality', href: serviceHref('indoor-air-quality') },
+          { text: 'emergency HVAC', href: serviceHref('emergency-hvac') },
+        ],
+      },
+      {
+        q: 'Is emergency HVAC service available in Pasadena?',
+        a: 'Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Pasadena. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'How much does HVAC service cost in Pasadena?',
+        a: 'Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in Pasadena?',
+        a: 'Yes. AIRPRO SOLUTIONS services commercial properties in Pasadena, including rooftop units, office buildings, and retail spaces. See our Commercial HVAC page for the full scope.',
+        links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
+      },
+    ],
+    // TODO(copy): client review of every FAQ answer above before launch.
+  },
+};
+
 // Map-card image for every city, used in nearby-areas rows (and city-page heroes once a city has
 // real content). Source files (1300x676) live in public/images/locations/<region-slug>/.
 const cardImages: Record<string, ServiceImage> = Object.fromEntries(
@@ -552,6 +731,7 @@ export const cities: City[] = baseCities.map((c) => {
     c.slug === 'torrance' ? torranceOverrides
     : c.slug === 'los-angeles' ? losAngelesOverrides
     : c.slug === 'long-beach' ? longBeachOverrides
+    : c.slug === 'pasadena' ? pasadenaOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
