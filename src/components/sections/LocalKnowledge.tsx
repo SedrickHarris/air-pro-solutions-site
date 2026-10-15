@@ -9,6 +9,8 @@ export function LocalKnowledge({
   neighborhoodsHeading = 'Neighborhoods we cover',
   neighborhoods,
   zips,
+  zipsLabel = 'ZIP codes:',
+  neighborhoodsNote,
   dark = false,
   alt = false,
 }: {
@@ -19,6 +21,8 @@ export function LocalKnowledge({
   neighborhoodsHeading?: string;
   neighborhoods: string[];
   zips: string[];
+  zipsLabel?: string; // defaults to "ZIP codes:"; use e.g. "ZIP codes (partial):" when the list is a sample
+  neighborhoodsNote?: string; // small note under the pills, e.g. that the list is a partial sample
   dark?: boolean;
   alt?: boolean;
 }) {
@@ -37,7 +41,11 @@ export function LocalKnowledge({
                 {links.map((l, i) => (
                   <span key={l.href}>
                     {i > 0 && ' · '}
-                    <Link href={l.href}>{l.text}</Link>
+                    {/^https?:/.test(l.href) ? (
+                      <a href={l.href} target="_blank" rel="noopener noreferrer">{l.text}</a>
+                    ) : (
+                      <Link href={l.href}>{l.text}</Link>
+                    )}
                   </span>
                 ))}
               </p>
@@ -50,8 +58,9 @@ export function LocalKnowledge({
                 <span key={n}>{n}</span>
               ))}
             </div>
+            {neighborhoodsNote && <div className="zip">{neighborhoodsNote}</div>}
             <div className="zip">
-              <strong>ZIP codes:</strong> {zips.join(', ')}
+              <strong>{zipsLabel}</strong> {zips.join(', ')}
             </div>
           </div>
         </div>

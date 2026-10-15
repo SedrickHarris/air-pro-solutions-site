@@ -97,6 +97,8 @@ export const serviceAreasHubTitle = () => t('HVAC Service Areas in Southern Cali
 export const serviceAreasHubH1 = () => 'HVAC Service Areas Across Southern California';
 
 export const cityTitle =(city: string) => t(`HVAC Services in ${city}, CA`);
+// For a city whose cityTitle() would equal another page's title (Los Angeles collides with homeTitle()).
+export const cityTitleAcross = (city: string) => t(`HVAC Services Across ${city}, CA`);
 export const cityH1 = (city: string) => `HVAC Services in ${city}, CA`;
 
 // The qualifier (e.g. a confirmed availability claim) is optional and dropped before any truncation.

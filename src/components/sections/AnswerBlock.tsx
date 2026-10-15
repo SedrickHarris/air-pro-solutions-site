@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import type { ServiceImage } from '@/content/services';
 
 export type AnswerBlockCtas = {
@@ -19,6 +20,7 @@ export function AnswerBlock({
   dark = false,
   ctas,
   image,
+  aside,
 }: {
   lead: string;
   body: string;
@@ -26,6 +28,7 @@ export function AnswerBlock({
   dark?: boolean;
   ctas?: AnswerBlockCtas;
   image?: ServiceImage;
+  aside?: ReactNode; // shown in the right column instead of the image (e.g. a city "at a glance" card)
 }) {
   const copy = (
     <>
@@ -43,7 +46,7 @@ export function AnswerBlock({
     </>
   );
 
-  if (!image) {
+  if (!image && !aside) {
     return (
       <section className={dark ? 'answer-block-dark' : undefined}>
         <div className="wrap">{copy}</div>
@@ -55,9 +58,11 @@ export function AnswerBlock({
     <section className={dark ? 'answer-block-dark' : undefined}>
       <div className="wrap answer-grid">
         <div>{copy}</div>
-        <div className="answer-block-img">
-          <Image src={image.src} alt={image.alt} width={800} height={600} sizes="(max-width: 920px) 100vw, 40vw" />
-        </div>
+        {aside ?? (image && (
+          <div className="answer-block-img">
+            <Image src={image.src} alt={image.alt} width={800} height={600} sizes="(max-width: 920px) 100vw, 40vw" />
+          </div>
+        ))}
       </div>
     </section>
   );
