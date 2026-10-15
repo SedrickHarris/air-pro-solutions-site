@@ -55,7 +55,7 @@ export const laCountyHub = {
     eyebrow: 'Local knowledge',
     title: 'One county, several climates: what that means for your system',
     paragraphs: [
-      'The California Energy Commission describes the Los Angeles region as a Mediterranean climate with hot, dry summers and cool, wet winters. Within the county, **the ocean buffers the coast while inland areas run hotter**, so a system that suits Santa Monica is not automatically the right one for Burbank or Pasadena.',
+      'The California Energy Commission describes the Los Angeles region as a Mediterranean climate with hot, dry summers and cool, wet winters. Within the county, **the ocean buffers the coast while inland areas run hotter**, so a system that suits Santa Monica is not automatically the right one for Burbank.',
       'LAX, a coastal reference station rather than a city reading, historically records fewer than 15 days a year at or above 90°F, and low marine clouds make up more than 80 percent of coastal clouds from June through September. Inland valleys and foothill areas see the largest extreme-heat changes in the region. Winters are cool and wet, so there is a real heating season, and Santa Ana winds bring very dry offshore air from October through April.',
       'That is why **we size equipment from a load calculation for your specific property** rather than a county-wide temperature assumption. Hotter outdoor conditions mean a system runs more often or longer to hold the same indoor setpoint, which is why the address matters.',
     ],
@@ -194,6 +194,8 @@ export const laCountyHub = {
       'Rebates and eligibility vary by service address, utility account, equipment efficiency, income qualifications, and available funding. We can help identify potential programs, but confirm final eligibility, amount, and application requirements with your utility before installation.',
     ],
     utilityCardTitle: 'Electric utility by city',
+    // Pasadena Water and Power supplies electricity to Pasadena: City of Pasadena FY2025 adopted budget, Water and Power
+    // program description (stories.opengov.com/pasadenaca/published/SKF76k9R_OQ).
     utilities: [
       'Los Angeles: LADWP',
       'Pasadena: Pasadena Water and Power',
@@ -243,7 +245,7 @@ export const laCountyHub = {
     },
     {
       q: 'Does HVAC sizing change between the coast and inland Los Angeles County?',
-      a: 'Yes, the conditions do. The coast is buffered by the ocean and summer marine low clouds, while inland areas such as Burbank, Glendale, and Pasadena are more exposed to heat. Equipment should be sized from a load calculation for your property, not from a county-wide temperature assumption.',
+      a: 'Yes, the conditions do. The coast is buffered by the ocean and summer marine low clouds, while inland areas such as Burbank and Glendale are more exposed to heat. Equipment should be sized from a load calculation for your property, not from a county-wide temperature assumption.',
     },
     {
       q: 'Do I need a permit to replace my AC in Los Angeles County?',

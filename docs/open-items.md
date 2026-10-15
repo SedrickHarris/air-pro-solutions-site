@@ -44,10 +44,12 @@ this file is the index, not the source of truth.
   heat pump rebate card ("$170 per ton"), and the Pasadena row in the SCAG housing table (49.3%
   single-family, 50.5% multifamily). Re-add only with a dated official source. The $75 SoCalGas
   thermostat card now fills the third rebate slot and has no link until an official URL is verified.
-- Still unconfirmed for Pasadena after that research: "Pasadena Water and Power" as the electric
-  utility (hub utility list, utility FAQ, utilities FAQ in service-area-hub.ts; the research listed SCE
-  at Medium confidence only) and Pasadena in the "inland areas more exposed to heat" climate
-  placement. Confirm the electric provider from an official source before the Pasadena page goes live.
+- Pasadena electric utility confirmed 2026-10-15: the City of Pasadena FY2025 adopted budget says
+  Pasadena Water and Power supplies water and electricity to Pasadena. The earlier research listing SCE
+  (Medium confidence) was wrong. The "$170 per ton" rebate stays removed until a dated official source is found.
+- Pasadena was dropped from the "inland areas more exposed to heat" FAQ sentence and the climate intro
+  because no official coastal or inland classification was found. It still appears in the "Where each
+  city sits" group card.
 
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
