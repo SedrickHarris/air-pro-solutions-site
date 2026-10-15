@@ -29,6 +29,11 @@ export const ductlessMiniSplitPage: ServicePage = {
     'Ductless mini-split service for homes and businesses across Los Angeles and Southern California, from ADUs to older homes. Schedule with AIRPRO SOLUTIONS.',
   lede:
     'Need heating and cooling for a room, ADU, garage conversion, or older home without ductwork? AIRPRO SOLUTIONS provides residential and commercial ductless mini-split service in Los Angeles and across the South Bay, Orange County, and the Inland Empire.',
+  heroImage: {
+    src: '/images/services/ductless-mini-split/hero.webp',
+    alt: 'Wall-mounted ductless mini-split indoor unit in a converted garage living space with large windows onto a drought-tolerant garden',
+  },
+  heroCaption: 'Ductless comfort for ADUs, garage conversions, and homes without ductwork.',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },

@@ -792,7 +792,7 @@ const baseServices: Service[] = [
       // homepage grid) - flagged in the build report as a possible follow-up to shorten for card
       // layout consistency, since the spec was explicit about using the lede exactly here.
       description:
-        'AIRPRO SOLUTIONS provides AC maintenance for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. A pre-season tune-up checks controls, electrical connections, coils, the condensate drain, and airflow so small problems can be found early.',
+        'A pre-season tune-up checks controls, electrical connections, coils, the condensate drain, and airflow so small problems can be found early.',
       image: card('ac-maintenance', 'Outdoor AC condenser unit beside a home with a service tool resting on the pad'),
     }),
     process: [
