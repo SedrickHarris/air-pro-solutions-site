@@ -135,6 +135,7 @@ export default function Page() {
         steps={processSteps}
         eyebrow="How it works"
         title="Getting started with commercial service"
+        columns={4}
         alt
       />
 

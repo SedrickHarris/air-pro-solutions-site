@@ -56,6 +56,7 @@ export const heatingRepairPage: ServicePage = {
   trustStripLicenseLabel: 'California license class',
   symptomsTitle: 'Common signs your heating needs repair',
   processTitle: 'Our heating repair process',
+  processColumns: 3, // 6 steps shown as 2 rows of 3 instead of the default 5-wide grid
   appliesTitle: 'Residential and commercial heating repair',
   regionTitle: 'Heating repair across Southern California',
   regionLinkVerb: 'Heating repair',

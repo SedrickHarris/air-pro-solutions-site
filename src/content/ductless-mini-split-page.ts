@@ -46,6 +46,7 @@ export const ductlessMiniSplitPage: ServicePage = {
   symptomsTitle: 'Common signs your mini-split needs service',
   symptomsId: 'signs',
   processTitle: 'How a mini-split project works',
+  processColumns: 3, // 6 steps shown as 2 rows of 3 instead of the default 5-wide grid
   appliesTitle: 'Residential and commercial mini-split service',
   regionTitle: 'Mini-split service across Southern California',
   regionLinkVerb: 'Mini-split service',

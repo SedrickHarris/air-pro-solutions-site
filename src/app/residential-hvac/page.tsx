@@ -123,6 +123,7 @@ export default function Page() {
         steps={residentialHub.process.steps}
         eyebrow={residentialHub.process.eyebrow}
         title={residentialHub.process.heading}
+        columns={4}
         alt
       />
 

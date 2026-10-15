@@ -180,7 +180,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       <SymptomGrid items={service.symptoms} title={service.page?.symptomsTitle ?? `Common signs you need ${service.name}`} alt={false} />
 
-      <ProcessList steps={service.process} title={service.page?.processTitle ?? `Our ${service.name} process`} alt />
+      <ProcessList steps={service.process} title={service.page?.processTitle ?? `Our ${service.name} process`} columns={service.page?.processColumns} alt />
 
       {service.repairVsReplace && (
         <CompareTable

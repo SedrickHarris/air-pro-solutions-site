@@ -63,6 +63,7 @@ export const heatPumpServicesPage: ServicePage = {
   serviceType: 'Heat Pump Services',
   ctaLabel: 'Schedule Heat Pump Service',
   processTitle: 'What happens during a heat pump service visit',
+  processColumns: 3, // 6 steps shown as 2 rows of 3 instead of the default 5-wide grid
   appliesEyebrow: 'Who this is for',
   appliesTitle: 'Residential and commercial heat pump service',
   regionTitle: 'Heat pump service across Southern California',

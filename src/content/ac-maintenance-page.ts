@@ -45,7 +45,7 @@ export const acMaintenancePage: ServicePage = {
   ctaLabel: 'Schedule AC Maintenance',
   trustStripLicenseLabel: 'California license class',
   processTitle: 'What happens during an AC maintenance visit',
-  processColumns: 2, // 6 steps shown as 2 columns of 3 instead of the default 5-wide grid
+  processColumns: 3, // 6 steps shown as 2 rows of 3 instead of the default 5-wide grid
   appliesTitle: 'Residential and commercial AC maintenance',
   regionTitle: 'AC maintenance across Southern California',
   regionLinkVerb: 'AC maintenance',
