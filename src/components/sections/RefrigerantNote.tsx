@@ -6,7 +6,7 @@
 // can be composed side by side as the "callouts" section on /services/ac-maintenance/, without touching the
 // single-callout usage on /services/ac-repair/ or /services/ac-installation/:
 // - `boldLead`: bolds a short lead phrase before `body` (e.g. "No." before the R-410A answer).
-// - `sourceText`: a plain, non-linked "Source: ..." line (e.g. "listed under Sources below"),
+// - `sourceText`: a plain, non-linked "Source: ..." line (e.g. "Source: ENERGY STAR duct sealing guidance"),
 //   used instead of the sourceLabel/sourceHref anchor when there is no direct URL to link to.
 // - `accent`: adds a colored left border (sky/amber) for a two-up callout grid; omitted keeps the
 //   existing plain panel look.
@@ -47,12 +47,8 @@ export function RefrigerantNote({
       {introBody && <p>{introBody}</p>}
       <p>{boldLead ? <><strong>{boldLead}</strong>{body}</> : body}</p>
       {body2 && <p>{body2}</p>}
-      {sourceLabel && sourceHref && (
-        <p className="refrigerant-source">
-          Source: <a href={sourceHref} rel="noopener">{sourceLabel}</a>
-        </p>
-      )}
-      {!sourceHref && sourceText && <p className="refrigerant-source">{sourceText}</p>}
+      {/* Inline source lines (sourceLabel/sourceHref/sourceText) are intentionally not rendered: the client removed all source
+          references from the service pages. The props are still accepted so the content data does not need to change. */}
     </div>
   );
 

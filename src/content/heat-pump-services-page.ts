@@ -47,6 +47,11 @@ export const heatPumpServicesPage: ServicePage = {
     'Heat pump services for homes and businesses across Los Angeles and Southern California: repair, replacement, and ductless systems. Schedule service.',
   lede:
     'AIRPRO SOLUTIONS provides heat pump services for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. That covers diagnosing a heat pump that will not heat or cool, replacing an aging system, and maintaining one so problems are found early.',
+  heroImage: {
+    src: '/images/services/heat-pump/hero.webp',
+    alt: 'Wall-mounted indoor heat pump unit in a bright living room, with the outdoor unit visible through a sliding glass door',
+  },
+  heroCaption: 'Heat pump service for year-round heating and cooling in Southern California.',
   heroProof: [
     // TODO(data): confirm CSLB record shows C-20 for both license numbers.
     { icon: 'check', label: 'Licensed HVAC contractor' },
@@ -203,7 +208,7 @@ export const heatPumpServicesPage: ServicePage = {
     boldLead: 'Existing R-410A systems are not banned.',
     body:
       ' They can stay in service and be repaired, subject to applicable rules and refrigerant availability. Newer systems commonly use refrigerants such as R-32, which is classed A2L, meaning low toxicity and mildly flammable. Handling and installation requirements differ from older R-410A equipment, and the refrigerant depends on the brand and model selected.',
-    sourceText: 'Sources: U.S. EPA HFC phasedown FAQ and EPA SNAP substitutes table (listed under Sources below).',
+    sourceText: 'Sources: U.S. EPA HFC phasedown FAQ and EPA SNAP substitutes table.',
     accent: 'amber',
   },
   pricingTitle: 'What affects heat pump cost',

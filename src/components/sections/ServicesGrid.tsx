@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { services, serviceHref, commercialCardImage, type ServiceImage } from '@/content/services';
+import { services, serviceHref, commercialCardImage, commercialCardDescription, type ServiceImage } from '@/content/services';
 import { Icon } from '@/components/ui/Icon';
 
 // Homepage curation and order. ductwork, indoor-air-quality and furnace-installation are intentionally
@@ -17,7 +17,7 @@ export type Card = { href: string; name: string; description: string; icon: stri
 const commercialCard: Card = {
   href: '/commercial-hvac/',
   name: 'Commercial HVAC',
-  description: 'Repair, replacement, and maintenance agreements for commercial buildings.',
+  description: commercialCardDescription,
   icon: 'building',
   image: commercialCardImage,
 };

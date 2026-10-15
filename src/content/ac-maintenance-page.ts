@@ -30,6 +30,12 @@ export const acMaintenancePage: ServicePage = {
     'Get AC maintenance for homes and businesses across Los Angeles and Southern California. Coils, drains, airflow, and controls checked. Schedule service.',
   lede:
     'AIRPRO SOLUTIONS provides AC maintenance for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. A pre-season tune-up checks controls, electrical connections, coils, the condensate drain, and airflow so small problems can be found early.',
+  heroImage: {
+    src: '/images/services/ac-maintenance/hero.webp',
+    alt: 'Technician with gloved hands brushing the coil of an air handler in a home utility closet during a system inspection',
+  },
+  relatedDescriptions: true, // related cards show the same descriptions as the /services/ hub
+  heroCaption: 'Pre-season AC tune-ups across Southern California.',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
@@ -157,7 +163,7 @@ export const acMaintenancePage: ServicePage = {
       accent: 'sky',
       title: 'Can maintenance lower my energy costs?',
       body: 'It can address problems that reduce efficiency. ENERGY STAR says dirty coils can make a system run longer, incorrect refrigerant levels reduce efficiency, and airflow problems can cut efficiency by up to 15 percent. Whether a visit lowers your bill depends on what the inspection finds, and a specific bill increase can have other causes such as thermostat use, the building envelope, or rate changes.',
-      sourceText: 'Source: ENERGY STAR maintenance checklist (listed under Sources below).',
+      sourceText: 'Source: ENERGY STAR maintenance checklist.',
     },
     {
       id: 'r410a',
@@ -165,7 +171,7 @@ export const acMaintenancePage: ServicePage = {
       title: 'Do I have to replace my R-410A air conditioner?',
       boldLead: 'No.',
       body: ' The EPA states that existing equipment can stay in use through its useful life. The refrigerant change applies to new installations: a split system installed after January 1, 2026 must use a refrigerant with a global warming potential below 700. An older R-410A system can still be maintained, and replacement is a decision based on condition, repair history, and your plans for the property.',
-      sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ (listed under Sources below).',
+      sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ.',
     },
   ],
   pricingTitle: 'What affects AC maintenance cost',

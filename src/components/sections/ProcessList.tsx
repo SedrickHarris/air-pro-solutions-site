@@ -23,7 +23,7 @@ export function ProcessList({
   alt?: boolean;
   intro?: string;
   note?: string;
-  columns?: 2 | 3 | 5;
+  columns?: 2 | 3 | 4 | 5;
 }) {
   return (
     <section className={alt ? 'alt' : undefined}>

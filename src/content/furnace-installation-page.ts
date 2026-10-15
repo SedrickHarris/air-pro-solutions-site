@@ -37,6 +37,11 @@ export const furnaceInstallationPage: ServicePage = {
     'Furnace installation in Los Angeles, the South Bay, Orange County, and the Inland Empire. See what affects cost and timing, then request an estimate.',
   lede:
     'AIRPRO SOLUTIONS provides furnace installation and replacement in Los Angeles and across the South Bay, Orange County, and the Inland Empire. Here is what the work involves, what affects the price, and what your written proposal should show.',
+  heroImage: {
+    src: '/images/services/furnace-installation/hero.webp',
+    alt: 'Gas furnace installed in a home utility closet with finished vent, gas, and condensate connections and ductwork above',
+  },
+  heroCaption: 'A properly installed furnace with neatly finished duct and utility connections',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Furnace replacement for homes' },
@@ -49,6 +54,7 @@ export const furnaceInstallationPage: ServicePage = {
   symptomsEyebrow: 'Signs to look at',
   symptomsTitle: 'When a furnace may need replacing',
   processTitle: 'What a furnace installation involves',
+  processColumns: 3, // 6 steps shown as 2 rows of 3 instead of the default 5-wide grid
   appliesEyebrow: 'Your property',
   appliesTitle: 'What changes from one property to the next',
   regionTitle: 'Furnace installation across Southern California',
@@ -149,7 +155,7 @@ export const furnaceInstallationPage: ServicePage = {
     body: ' The blower, evaporator coil, controls, ducts, and existing air conditioner still need to be checked for compatibility, along with venting, electrical, and gas piping.',
     body2:
       'Refrigerant rules matter only when the project includes cooling equipment. The EPA states that a newly installed split system on or after January 1, 2026 must use a refrigerant with a global-warming potential below 700. Existing R-410A equipment can still be serviced, and a furnace-only replacement is not automatically a refrigerant project. If the work includes a new split AC or heat pump, confirm the equipment and installation requirements in the proposal.',
-    sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ (listed under Sources below).',
+    sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ.',
   },
   pricingTitle: 'What affects furnace installation cost',
   // TODO(data): the $3,000-$12,000 range is published market data, not an Air Pro quote. Needs client

@@ -22,6 +22,8 @@ export type ServicePage = {
   lede: string; // also the Service JSON-LD description - must stay word-for-word identical to the visible copy
   heroImage?: ServiceImage; // 1200x900 hero photo; falls back to the "photo pending" tile when absent
   heroCaption?: string; // shown on the hero photo caption band when heroImage is set
+  heroCaptionAlign?: 'left'; // caption text alignment; centered when unset
+  relatedDescriptions?: boolean; // show each related service's hub card description in the "Explore related services" cards
   heroProof: { icon: string; label: string }[];
   serviceType: string; // schema.org Service.serviceType, e.g. "Air Conditioning Repair"
   ctaLabel: string; // e.g. "Schedule AC Repair" - reused for the hero primary button and final CTA ghost button
@@ -212,7 +214,7 @@ export type ServicePage = {
   // Desktop column-count override for ProcessList (see the `columns` prop added there). Unset for
   // every page except AC Maintenance, whose 6-step process renders 2x3 instead of the default 5-wide
   // grid, which would wrap unevenly for a 6-item list.
-  processColumns?: 2 | 3 | 5;
+  processColumns?: 2 | 3 | 4 | 5;
   // A second VisitScope-shaped block rendered after the incentives/rebatesNote section (e.g.
   // furnace-installation's "Before you sign" proposal checklist) - distinct from the
   // visitIncludes/visitExtra pair above, which renders right after the process steps.
@@ -1088,6 +1090,8 @@ export const topLevelServices: string[] = [];
 export const serviceHref = (slug: string) => (topLevelServices.includes(slug) ? `/${slug}/` : `/services/${slug}/`);
 
 // Commercial HVAC is an audience hub, not a service, so its homepage card image lives here.
+// Commercial HVAC is an audience hub, not a service, so its card description lives here too.
+export const commercialCardDescription = 'Repair, replacement, and maintenance agreements for commercial buildings.';
 export const commercialCardImage: ServiceImage = card('commercial-hvac', 'Rooftop package HVAC units and conduit on a commercial building roof, with a business park and hillside in the background');
 export const residentialCardImage: ServiceImage = card('residential-hvac', 'Outdoor AC condenser beside a stucco home with a tile roof and drought-tolerant landscaping');
 export const servicesHubCardImage: ServiceImage = card('services-hub', 'Outdoor AC condenser and an open utility closet with a furnace beside a tile-roofed home');

@@ -169,7 +169,7 @@ export const emergencyHvacPage: ServicePage = {
     boldLead: 'Yes.',
     body:
       ' The EPA allows R-410A components to be used to service existing systems. What changed on January 1, 2026 is that a newly installed residential split system must use a refrigerant with a global-warming potential below 700, and R-410A components cannot be used to install a new R-410A system. An existing R-410A system does not have to be replaced only because of that rule. If a repair is major, a technician can walk you through the repair option and a replacement comparison.',
-    sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ (listed under Sources below).',
+    sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ.',
   },
   pricingTitle: 'What affects the cost of an emergency repair',
   pricingIntro:

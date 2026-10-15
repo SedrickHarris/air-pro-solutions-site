@@ -39,6 +39,12 @@ export const heatingRepairPage: ServicePage = {
     'Heating repair for homes and businesses across Los Angeles, the South Bay, Orange County, and the Inland Empire. Furnaces, heat pumps, and more. Call today.',
   lede:
     'Furnace not heating, a heat pump blowing cool air, or a system that keeps shutting off? AIRPRO SOLUTIONS provides residential and commercial heating repair in Los Angeles and across the South Bay, Orange County, and the Inland Empire - with a repair cost explained before any work begins.',
+  heroImage: {
+    src: '/images/services/heating-repair/hero.webp',
+    alt: 'Gas furnace in a home utility closet with the access panel removed and a multimeter resting nearby during a diagnostic check',
+  },
+  heroCaption: 'Heating system diagnostics help identify the cause of furnace and heat pump problems',
+  heroCaptionAlign: 'left',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
@@ -130,7 +136,7 @@ export const heatingRepairPage: ServicePage = {
     boldLead: 'Yes.',
     body:
       ' Existing R-410A equipment can still be serviced and repaired, and owners are not required to replace a working system only because it uses R-410A. The refrigerant transition applies to new equipment. New residential and light-commercial heat pumps and air conditioners are moving to lower-GWP refrigerants such as R-454B and R-32, which are classified A2L (lower flammability). Those systems need compatible equipment and installation practices and are not interchangeable with R-410A equipment. A technician can assess whether repair remains practical for your system.',
-    sourceText: 'Sources: NAHB and Bosch Home Comfort (listed under Sources below).',
+    sourceText: 'Sources: NAHB and Bosch Home Comfort.',
   },
   pricingTitle: 'What affects heating repair cost',
   pricingIntro: 'Heating repair pricing depends on what testing finds, not just the symptom. After diagnosis, ask for a written repair option that identifies the issue, the recommended scope, and the total before work begins.',

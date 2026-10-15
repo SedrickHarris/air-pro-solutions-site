@@ -29,6 +29,11 @@ export const acInstallationPage: ServicePage = {
     'Central AC installation and replacement for Los Angeles and Southern California properties, sized to your load. Request an installation estimate.',
   lede:
     'Replacing an aging system or adding cooling for the first time? AIRPRO SOLUTIONS evaluates your property, sizes the system to its actual load, and gives you a written proposal before installation begins, for homes and businesses across Los Angeles, the South Bay, Orange County, and the Inland Empire.',
+  heroImage: {
+    src: '/images/services/ac-installation/hero.webp',
+    alt: 'Commercial rooftop AC package unit with ductwork on a flat roof, with palm trees and hills in the distance',
+  },
+  heroCaption: 'Commercial AC installation for Southern California homes and businesses.',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
@@ -39,6 +44,7 @@ export const acInstallationPage: ServicePage = {
   ctaLabel: 'Request an Installation Estimate',
   symptomsTitle: 'When to schedule an installation evaluation',
   processTitle: 'Our AC installation process',
+  processColumns: 4, // 8 steps shown as 2 rows of 4 instead of the default 5-wide grid
   appliesTitle: 'Residential and commercial AC installation',
   regionTitle: 'AC installation across Southern California',
   regionLinkVerb: 'AC installation',
@@ -113,7 +119,7 @@ export const acInstallationPage: ServicePage = {
     title: 'New AC systems and the refrigerant change',
     body:
       'The EPA states that a wholly new split system installed on or after January 1, 2026 must use a refrigerant with a global-warming potential below 700. New lower-GWP systems may use A2L refrigerants such as R-454B, depending on the manufacturer and model, and installation must follow the manufacturer, the equipment listing, and the local authority. Existing R-410A systems can still be repaired through their useful life, so this rule is not a reason to replace a working system.',
-    sourceLabel: 'U.S. EPA, HFC Phasedown FAQ (listed under Sources below).',
+    sourceLabel: 'U.S. EPA, HFC Phasedown FAQ.',
     sourceHref: 'https://www.epa.gov/climate-hfcs-reduction/frequent-questions-phasedown-hydrofluorocarbons',
   },
   pricingTitle: 'What affects AC installation cost',

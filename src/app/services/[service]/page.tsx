@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getService, services, serviceHref, commercialCardImage } from '@/content/services';
+import { getService, services, serviceHref, commercialCardImage, commercialCardDescription } from '@/content/services';
 import { siteConfig } from '@/content/site-config';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { PendingNote } from '@/components/ui/PendingNote';
@@ -28,7 +28,6 @@ import { RegionGrid } from '@/components/sections/RegionGrid';
 import { Proof } from '@/components/sections/Proof';
 import { RelatedRow } from '@/components/sections/RelatedRow';
 import { FaqList } from '@/components/sections/FaqList';
-import { SourcesList } from '@/components/sections/SourcesList';
 import { RebateCards } from '@/components/sections/RebateCards';
 import { FinalCta } from '@/components/sections/FinalCta';
 import { breadcrumbSchema, faqSchema, jsonLd, serviceSchema } from '@/lib/schema';
@@ -109,11 +108,11 @@ export default async function Page({ params }: { params: Promise<{ service: stri
     ...s.related.map((relSlug) => {
       const rel = getService(relSlug);
       if (!rel) throw new Error(`Unknown related service slug on ${serviceHref(s.slug)}: ${relSlug}`);
-      return { name: page.relatedLabels?.[relSlug] ?? rel.name, href: serviceHref(rel.slug), icon: page.relatedIconOverrides?.[relSlug] ?? page.relatedIcons?.[relSlug] ?? relatedIcons[relSlug] ?? rel.icon, image: rel.image };
+      return { name: page.relatedLabels?.[relSlug] ?? rel.name, href: serviceHref(rel.slug), icon: page.relatedIconOverrides?.[relSlug] ?? page.relatedIcons?.[relSlug] ?? relatedIcons[relSlug] ?? rel.icon, image: rel.image, description: page.relatedDescriptions ? rel.description : undefined };
     }),
     // Pages that already list 4 related services (e.g. ac-installation) skip the auto-appended
     // Commercial HVAC card - it's still linked from the "More on this topic" row instead.
-    ...(s.related.length <= 3 ? [{ name: 'Commercial HVAC', href: '/commercial-hvac/', icon: relatedIcons['commercial-hvac'], image: commercialCardImage }] : []),
+    ...(s.related.length <= 3 ? [{ name: 'Commercial HVAC', href: '/commercial-hvac/', icon: relatedIcons['commercial-hvac'], image: commercialCardImage, description: page.relatedDescriptions ? commercialCardDescription : undefined }] : []),
   ];
 
   const schema = [
@@ -239,7 +238,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
                 priority
               />
               {page.heroCaption && (
-                <span className="photo-caption photo-caption-band photo-caption-silver">{page.heroCaption}</span>
+                <span className={`photo-caption photo-caption-band${page.heroCaptionAlign === 'left' ? ' photo-caption-band-left' : ''} photo-caption-silver`}>{page.heroCaption}</span>
               )}
             </div>
           ) : (
@@ -766,8 +765,6 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       <RelatedRow items={related} title="Explore related services" alt={false} moreLinks={page.moreLinks} />
 
       <FaqList faqs={page.faqs} eyebrow="Direct answers" title={page.faqTitle} alt firstOpen boldFirstSentence id={page.faqSectionId} />
-
-      {page.sources && <SourcesList items={page.sources} columns={page.sourcesColumns} eyebrow={page.sourcesEyebrow} />}
 
       <FinalCta title={page.finalCtaTitle} body={page.finalCtaBody} ghostLabel={page.ctaLabel} />
     </>

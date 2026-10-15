@@ -53,6 +53,11 @@ export const ductworkPage: ServicePage = {
     'Get ductwork repair, sealing, and replacement for homes and businesses across Los Angeles and Southern California. Inspection first. Schedule service.',
   lede:
     'AIRPRO SOLUTIONS provides ductwork repair, sealing, and replacement for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. We start with an inspection to find out whether the problem is leakage, damage, sizing, return air, or insulation, then explain your repair, seal, or replace options.',
+  heroImage: {
+    src: '/images/services/ductwork/hero.webp',
+    alt: 'Insulated flexible ducts and a galvanized plenum suspended by straps in a residential attic over blown-in insulation',
+  },
+  heroCaption: 'An inspection helps identify duct leaks, damage, airflow restrictions, and insulation concerns.',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
@@ -64,6 +69,7 @@ export const ductworkPage: ServicePage = {
   trustStripLicenseLabel: 'California license class',
   symptomsTitle: 'Signs your ducts may need attention',
   processTitle: 'What happens during a ductwork visit',
+  processColumns: 3, // 6 steps shown as 2 rows of 3 instead of the default 5-wide grid
   appliesTitle: 'Residential and commercial ductwork',
   regionTitle: 'Ductwork service across Southern California',
   regionLinkVerb: 'Ductwork',
@@ -226,7 +232,7 @@ export const ductworkPage: ServicePage = {
       accent: 'sky',
       title: 'Can sealing or replacing ducts lower my energy bill?',
       body: 'It can reduce waste when leakage is part of the problem. ENERGY STAR estimates that 20 to 30 percent of the air in a typical duct system can be lost through leaks, holes, and poor connections, and says leaky ducts can raise utility bills and make rooms hard to keep comfortable. Savings are not guaranteed, because bills also depend on equipment condition, thermostat settings, insulation, weather, and energy rates.',
-      sourceText: 'Source: ENERGY STAR duct sealing guidance (listed under Sources below).',
+      sourceText: 'Source: ENERGY STAR duct sealing guidance.',
     },
     {
       id: 'seer-rating',

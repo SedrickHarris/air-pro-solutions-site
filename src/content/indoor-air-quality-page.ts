@@ -12,8 +12,7 @@ import type { ServicePage } from '@/content/services';
 // documented.
 // TODO(data): confirm dispatch times and emergency availability. None is claimed anywhere on this
 // page (see the "Emergency HVAC" moreLinks entry below - that page's own claims are out of scope here).
-// TODO(data): real hero and section photos to replace the "Photo pending" tiles (no heroImage is set
-// below, so the hero renders the standard photo-pending tile).
+// TODO(data): real section photos to replace any remaining "Photo pending" tiles. The hero photo is set below.
 // TODO(data): LADWP and SCE rebate program status must be rechecked immediately before launch -
 // program funding and terms change.
 // TODO(copy): client review of every FAQ answer below before launch.
@@ -38,6 +37,11 @@ export const indoorAirQualityPage: ServicePage = {
     'Indoor air quality service for homes and businesses in Los Angeles and Southern California. Filtration, ventilation, and humidity reviewed. Schedule service.',
   lede:
     'AIRPRO SOLUTIONS provides indoor air quality service for homes and businesses in Los Angeles and across the South Bay, Orange County, and the Inland Empire. A visit starts with diagnosis, looking at filtration, ventilation, humidity, ducts, and equipment fit before anything is recommended.',
+  heroImage: {
+    src: '/images/services/indoor-air-quality/hero.webp',
+    alt: 'Pleated air filter leaning against a wall beside a return air grille in a bright hallway, with a small air quality monitor on a shelf',
+  },
+  heroCaption: 'Indoor air quality assessment for Southern California homes and businesses',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
@@ -48,6 +52,7 @@ export const indoorAirQualityPage: ServicePage = {
   ctaLabel: 'Schedule an Air Quality Visit',
   trustStripLicenseLabel: 'California license class',
   processTitle: 'What happens during an air quality visit',
+  processColumns: 3, // 6 steps shown as 2 rows of 3 instead of the default 5-wide grid
   appliesTitle: 'Residential and commercial air quality work',
   regionTitle: 'Indoor air quality across Southern California',
   regionLinkVerb: 'Air quality service',
@@ -173,7 +178,7 @@ export const indoorAirQualityPage: ServicePage = {
       title: 'Is a higher MERV filter always better?',
       boldLead: 'No.',
       body: ' A higher-efficiency filter can reduce airborne particles, but only if the system can hold it. The filter slot or cabinet, blower capacity, duct design, and pressure drop decide what fits. The EPA recommends MERV 13 or better, or the most efficient filter your system can accommodate, to reduce fine particles during smoke events. We check the actual system before recommending a filter upgrade, and we do not promise that MERV 13 fits every system.',
-      sourceText: 'Source: U.S. EPA, Wildfires and Indoor Air Quality (listed under Sources below).',
+      sourceText: 'Source: U.S. EPA, Wildfires and Indoor Air Quality.',
     },
     {
       id: 'uv',
@@ -267,7 +272,7 @@ export const indoorAirQualityPage: ServicePage = {
   replacementNote: {
     title: 'If an upgrade turns into a replacement',
     body: "If replacement is recommended, we identify your system's refrigerant, explain whether repair components are available for the existing equipment, and give you options that meet current requirements. Under EPA rules, a new split system installed after January 1, 2026 must use a refrigerant with a global warming potential below 700, and existing R-410A equipment can still be serviced.",
-    sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ (listed under Sources below).',
+    sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ.',
   },
   // "Rebates and incentives" - plain rebates callout, same shape /services/ac-maintenance/ introduced.
   rebatesNote: {

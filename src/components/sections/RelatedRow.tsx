@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import type { ServiceImage } from '@/content/services';
 
-type Item = { name: string; href?: string; icon: string; image?: ServiceImage };
+type Item = { name: string; href?: string; icon: string; image?: ServiceImage; description?: string };
 
 export function RelatedRow({
   items,
@@ -47,6 +47,7 @@ export function RelatedRow({
                 )}
                 <div className="svc-card-body">
                   <h3>{it.name}</h3>
+                  {it.description && <p>{it.description}</p>}
                   {it.href && (
                     <span className="card-arrow">
                       {ctaLabel} <Icon name="arrow" size={16} />
