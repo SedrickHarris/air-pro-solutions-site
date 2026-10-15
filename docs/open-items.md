@@ -39,8 +39,15 @@ this file is the index, not the source of truth.
 
 - LADWP heat pump rebate amount ("Up to $2,500 per ton"): sourced from an undated utility page.
   Verify the current amount before launch.
-- Pasadena Water and Power heat pump rebate amount ("$170 per ton"): sourced from an undated
-  utility page. Verify the current amount before launch.
+- Removed 2026-10-15 because the Pasadena city research did not confirm them: the Pasadena
+  screening rule (PMC 17.40.150) and "inland foothill setting" note, the Pasadena Water and Power
+  heat pump rebate card ("$170 per ton"), and the Pasadena row in the SCAG housing table (49.3%
+  single-family, 50.5% multifamily). Re-add only with a dated official source. The $75 SoCalGas
+  thermostat card now fills the third rebate slot and has no link until an official URL is verified.
+- Still unconfirmed for Pasadena after that research: "Pasadena Water and Power" as the electric
+  utility (hub utility list, utility FAQ, utilities FAQ in service-area-hub.ts; the research listed SCE
+  at Medium confidence only) and Pasadena in the "inland areas more exposed to heat" climate
+  placement. Confirm the electric provider from an official source before the Pasadena page goes live.
 
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 

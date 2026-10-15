@@ -74,7 +74,6 @@ export const laCountyHub = {
     rows: [
       ['Los Angeles', '43.5%', '55.8%', '5-or-more-unit multifamily, 47.0%'],
       ['Long Beach', '47.7%', '51.0%', 'Single-family detached, 42.0%'],
-      ['Pasadena', '49.3%', '50.5%', 'Single-family detached, 42.5%'],
       ['Glendale', '39.0%', '60.9%', '5-or-more-unit multifamily, 52.3%'],
       ['Burbank', '48.7%', '51.0%', 'Single-family detached, 44.4%'],
       ['Culver City', '48.4%', '50.4%', 'Single-family detached, 39.4%'],
@@ -99,7 +98,7 @@ export const laCountyHub = {
     cards: [
       { slug: 'ac-repair', body: 'Diagnosis for cooling failures across coastal, valley, and foothill homes, where outdoor conditions and system workload differ by area.' },
       { slug: 'heating-repair', body: 'Cool, wet winters mean a real heating season, and Santa Ana wind periods run from October through April.' },
-      { slug: 'heat-pump-services', body: 'Heat pump work that starts with your electric utility: LADWP, Pasadena Water and Power, and Burbank Water and Power each publish their own rebates.' },
+      { slug: 'heat-pump-services', body: 'Heat pump work that starts with your electric utility: LADWP and Burbank Water and Power each publish their own rebates.' },
       { slug: 'residential-hvac', name: 'Residential HVAC', body: 'Detached homes, townhomes, and apartments each bring different access and equipment-placement questions.', icon: 'home' },
       { slug: 'commercial-hvac', name: 'Commercial HVAC', body: 'Offices, retail, restaurants, and rooftop equipment across the county’s commercial districts.', icon: 'building' },
       { slug: 'services', name: 'All HVAC Services', body: 'See the full list of repair, installation, and maintenance services.', icon: 'check' },
@@ -133,7 +132,7 @@ export const laCountyHub = {
 
   // Sources: LADBS express permits; LAMC 112.02 noise; Ordinance 188716 repeal of the all-electric
   // standard effective October 13, 2025; Long Beach Development Services (separate permit per
-  // building; CF1R Title 24 submission); Pasadena PMC 17.40.150; Glendale online permit portal;
+  // building; CF1R Title 24 submission); Pasadena Permit Center apply-for-permit page (cityofpasadena.net/planning/permit-center/apply-for-permit/); Glendale online permit portal;
   // Burbank energy-report scopes; Culver City separate applications per permit type; Santa Monica
   // Permit Services Center plan review page and paused Zero Emission Building Code enforcement;
   // Inglewood HVAC application and online permitting. Title 24 per the CEC Energy Code Support
@@ -146,7 +145,7 @@ export const laCountyHub = {
     rows: [
       ['Los Angeles', 'Los Angeles Department of Building and Safety (LADBS)', 'Same-size and same-type AC replacement is listed as an express permit category. It is a faster path, not a permit exemption. The City’s prior all-electric building ordinance was repealed effective October 13, 2025.'],
       ['Long Beach', 'Development Services, Building and Safety Bureau', 'A separate permit is required for equipment in each separate building. HVAC permit submissions include a CF1R Title 24 compliance document.'],
-      ['Pasadena', 'Planning and Community Development, Permit Center', 'New exterior mechanical equipment, including AC and heating equipment, ducts, and plumbing lines, must be screened or located out of view from public rights-of-way (PMC 17.40.150).'],
+      ['Pasadena', 'Planning and Community Development, Permit Center', 'The Permit Center at 175 North Garfield Ave. lists installing or replacing heating and cooling units among its plan and submittal items. The City’s site-plan requirement can apply to equipment placed outside, and building permits are valid for 180 days from issuance.'],
       ['Glendale', 'Community Development, Building and Safety', 'HVAC change-outs are listed as a simple residential permit on the City’s online permit portal.'],
       ['Burbank', 'Community Development, Building and Safety Division', 'Rooftop or rear-of-property unit replacement, and replacement with new ducts or a new HVAC system, are scopes the City lists as needing an energy report.'],
       ['Culver City', 'Building Safety Division', 'Each structure and each permit type (building, mechanical, electrical, plumbing) needs its own application, so a heat pump change-out can involve more than the mechanical permit.'],
@@ -159,7 +158,7 @@ export const laCountyHub = {
     ],
   },
 
-  // Rebate sources: LADWP Consumer Rebate Program; Pasadena Water and Power heat pump rebate;
+  // Rebate sources: LADWP Consumer Rebate Program;
   // Burbank Water and Power electrification rebate (dated January 9, 2026); SoCalGas 2026 Home
   // Energy Efficiency Rebate Program ($75 smart thermostat, applications postmarked by December 31,
   // 2026, first come first served); CPUC Energy Savings Assistance Program. Do not state or imply
@@ -178,11 +177,9 @@ export const laCountyHub = {
         linkHref: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program',
       },
       {
-        // TODO(data): verify current amount before launch.
-        amount: '$170 per ton',
-        description: 'Pasadena Water and Power heat pump rebate for ducted and ductless systems that meet 15.3 SEER2 and 7.8 HSPF2. Apply within 180 days of purchase. A central AC tune-up rebate is listed separately.',
-        linkLabel: 'Pasadena program page',
-        linkHref: 'https://pwp.cityofpasadena.net/heatpumprebate/',
+        // No official program URL is verified for this card yet, so it renders without a link.
+        amount: '$75',
+        description: 'SoCalGas smart thermostat rebate for qualifying purchases and installations, through December 31, 2026, while funds last.',
       },
       {
         amount: '$1,000 per ton',
@@ -192,7 +189,7 @@ export const laCountyHub = {
       },
     ] satisfies RebateCard[],
     copy: [
-      '**Region-wide programs.** SoCalGas lists a $75 smart thermostat rebate for qualifying purchases and installations through December 31, 2026, while funds last. The CPUC Energy Savings Assistance Program offers no-cost weatherization to income-qualified SCE and SoCalGas households.',
+      '**Region-wide programs.** The CPUC Energy Savings Assistance Program offers no-cost weatherization to income-qualified SCE and SoCalGas households.',
       '**Long Beach and Inglewood** are served by SCE, and SCE publishes its current rebate offerings on its rebate center. **Culver City** is split between LADWP and SCE by address. **Glendale and Santa Monica:** confirm current electric-utility incentives by address before relying on any rebate.',
       'Rebates and eligibility vary by service address, utility account, equipment efficiency, income qualifications, and available funding. We can help identify potential programs, but confirm final eligibility, amount, and application requirements with your utility before installation.',
     ],
@@ -217,7 +214,7 @@ export const laCountyHub = {
     items: [
       { name: 'Los Angeles', note: 'Spans coast, basin, valley, and foothill conditions. Electric service from LADWP.', href: '/service-areas/los-angeles/' },
       { name: 'Long Beach', note: 'Coastal. Electric service from SCE.', href: '/service-areas/long-beach/' },
-      { name: 'Pasadena', note: 'Inland foothill setting. New exterior equipment must be screened from public view.' },
+      { name: 'Pasadena', note: 'Has its own Permit Center. A site plan can apply to equipment placed outside.' },
       { name: 'Glendale', note: 'Inland basin and foothill setting, with 60.9% multifamily housing (2018).' },
       { name: 'Burbank', note: 'Valley-edge climate. Rooftop and rear-of-property replacements need an energy report.' },
       { name: 'Culver City', note: 'Near-coastal, with a near-even single-family and multifamily mix. Utility varies by address.' },
@@ -265,8 +262,8 @@ export const laCountyHub = {
       a: 'Multifamily housing is a large share of the region. Per 2018 SCAG data, multifamily is 77.5 percent of housing units in Santa Monica and 60.9 percent in Glendale. For apartments, condos, and HOA properties, we verify access, equipment placement, property-management requirements, permits, and local noise rules before installation or replacement.',
     },
     {
-      q: 'Are there placement or screening rules for outdoor equipment?',
-      a: 'Sometimes. Pasadena requires new exterior mechanical equipment, including AC and heating equipment, ducts, and plumbing lines, to be screened or located out of view from public rights-of-way. Other cities on this page have their own zoning and placement rules, so we check the property before recommending where equipment goes.',
+      q: 'Are there placement rules for outdoor equipment?',
+      a: 'Sometimes. In Pasadena, the City’s site-plan requirement can apply to equipment placed outside. Other cities on this page have their own zoning and placement rules, so we check the property before recommending where equipment goes.',
     },
     {
       q: 'Do older homes in Los Angeles County need different HVAC work?',
