@@ -102,6 +102,32 @@ this file is the index, not the source of truth.
 - Claim wording follows the approved list. Do not strengthen it.
 - Reference artifact: claude/reference/redondo-beach-location.html.
 
+## /service-areas/el-segundo/ (elSegundoOverrides in src/content/cities.ts)
+
+- Title: `cityTitle('El Segundo')` ("HVAC Services in El Segundo, CA | AIRPRO SOLUTIONS", 50 characters) does not collide with another page, so no `distinctTitle` is needed. The meta description is the hand-written `page.metaDescription` (151 characters, validated by `assertDescription`; "Licensed, 4.8-star rated" only, none of the blocked words). Region is South Bay (src/content/regions.ts), so all hub wiring goes to the South Bay files.
+- Right-hand card: "Official El Segundo resources" (`page.officialResources`), not a ZIP card. 90245 appears only as the Location field of a CEQAnet Housing Element notice (ceqanet.lci.ca.gov/2021110413, not a service-area statement) and on a third-party list (zip-codes.com); the USPS pages could not be read. Add a ZIP line only after a USPS or City listing confirms it.
+- No community pills (`neighborhoods: []`) and no community names in the lede: none of the City pages checked gave a neighborhood list.
+- Mismatches between the research and the cited sources, resolved by holding the claim out:
+  - Chevron refinery (about 1,000 acres, 1,100+ employees, 500 contractors): elsegundo.chevron.com has none of these figures.
+  - Specific-plan names (Downtown, Smoky Hollow, Pacific Coast Commons, South Campus) and the zoning-district list: the only source is gocodebook, which describes itself as AI-generated and unofficial. The cited zoning-map link is on the Rec & Parks domain and returned a fetch error; the Planning Division page does not mention a zoning map.
+  - Noise "ESMC 7-2-3 and allowable decibel increases": the infilla FAQ is robots-blocked, and the only readable source (2015 South Campus EIR) cites 7-2-4 and 7-2-10. The page has no noise section, section number or decibel figure.
+  - SoCalGas "start, transfer, restoration service": the research cites the SCE rebate page, which does not say it, and the SoCalGas rebates page does not either.
+  - "SCE page lists gas water heaters": the page names only heat pump water heaters (coupons, no amounts).
+  - Housing Element bulletin: dated 2024-07-31, not 2024-07-01. Real but not HVAC-relevant, so it is not on the page.
+  - Building and Safety page: supports plan check, "permit issuance" and construction hours, but says nothing about mechanical or HVAC permits (the page says so). Its inspection Friday hours contain a typo, so inspection details are not published.
+- City pages disagree on code editions: the Building Codes page lists the 2022 Mechanical Code "with amendments" and the 2022 Energy Code (adopted November 15, 2022), while the Building and Safety page says the 2022 code is current and the 2025 edition takes effect January 1, 2026. The page states no code year. Reconfirm before launch.
+- Census: owner-occupied rate differs by source (42.6% in the research for 2019-2023, 42.5% on QuickFacts now for 2020-2024, 42.0% on the City page from 2021 ACS) and the 7,889 housing-unit count could not be confirmed. Only the City's 2021 ACS 5-year structure split (53% multi-unit, 46.9% single-unit) is published, attributed to the City.
+- Utilities: SCE (electric) and SoCalGas (gas) are confirmed by the utilities' own documents (SCE community engagement filing, 2021, which lists El Segundo; SoCalGas city list, undated). The two City directory pages in the research (service directory 369 and 368/268948) returned fetch errors. PRE-LAUNCH CHECK: reconfirm both on a current SCE territory page and SoCalGas listing. SCE and SoCalGas rebates are linked with no dollar amounts. The SCE rebate page lists instant coupons for air conditioners and smart thermostats (retailer-based) and a $75 smart-thermostat bill credit; neither figure is on the page.
+- Commercial: Los Angeles Air Force Base and The Aerospace Corporation (2310 E. El Segundo Blvd., aerospace.org/locations) are named from the City's economic-development site ("home to Los Angeles Air Force Base", alongside The Aerospace Corporation). Northrop Grumman, Boeing, Raytheon and Lockheed Martin appear only on that promotional page and stay off the page. Client approval of naming the two organizations is pending (TODO(copy)).
+- Not published (NOT FOUND, Medium or unverified): ZIP list, climate and NOAA values, coastal or marine-layer wording, median year built, neighborhood-specific home age, HVAC decibel limits, HOA or historic-district areas, condenser setbacks, humidity, TOU plan names, neighboring-city list.
+- Client confirmations still needed (all flagged `TODO(copy)` in `elSegundoOverrides`): every FAQ answer (the 2026-10-15 approval covered the other six city pages only), the "can walk you through the steps" wording, the new condo and apartment FAQ (practice claim), the commercial FAQ and the Air Force Base / Aerospace Corporation mention, and the emergency card wording (not named in the 2026-10-15 approval). The "& Replacement" service card names were approved 2026-10-15 and are reused.
+- Glance stats: 53% multi-unit households (City demographics page), Mon-Sat 7a-6p construction hours (City Building and Safety page), 2 utilities (SCE and SoCalGas).
+- Nearby row: Redondo Beach, Torrance, Los Angeles, Culver City. All four have real pages. The research has no neighbor list, so adjacency is not claimed. No other city's `nearby` row lists El Segundo, and the matrix `nearby` rows are unaffected.
+- Go-live wiring done: El Segundo card href on the South Bay hub (`cities.items` in src/content/south-bay.ts), chip link on /service-areas/, `hubCityIndexNote`, and the South Bay page sentence.
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list. Do not strengthen it.
+- Reference artifact: claude/reference/el-segundo-location.html.
+
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
 - Hermosa Beach: permit applications become online-only through the city's portal starting

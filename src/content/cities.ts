@@ -57,7 +57,7 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city and redondo-beach have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach and el-segundo have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -1078,6 +1078,202 @@ const redondoBeachOverrides: Partial<City> = {
   },
 };
 
+// El Segundo (location page, built from the Redondo Beach template). Facts come only from City of El Segundo pages
+// (Building and Safety Division, Building Codes and Regulations, Planning Division, demographics, economic-development site),
+// SCE's and SoCalGas's own service-area documents and their rebate pages. Held out: ZIP card (90245 is not source-verified),
+// Chevron figures, specific-plan names and zoning map (unofficial source), noise section and decibels, code year, Census
+// tenure and unit counts, climate, neighbor list - see docs/open-items.md "/service-areas/el-segundo/".
+const elSegundoOverrides: Partial<City> = {
+  // TODO(data): add verified housing-age, climate and commercial detail before treating this as a full local page.
+  neighborhoods: [], // no community names are used: the City pages checked did not give a neighborhood list
+  zips: [], // no verified ZIP list: 90245 appears only in a CEQA notice and a third-party list, and the USPS pages could not be read
+  page: {
+    metaDescription:
+      'HVAC for El Segundo homes and businesses, from AC repair to installation. Know the local construction hours and permit steps. Licensed, 4.8-star rated.',
+    lede:
+      'AIRPRO SOLUTIONS provides HVAC services across El Segundo, including AC repair, heating repair, installation, and maintenance for homes and businesses.',
+    heroCaption: { title: 'El Segundo, CA', text: 'Local HVAC service across El Segundo' },
+    heroProof: [
+      { icon: 'shield', label: 'Licensed, bonded & insured' },
+      { icon: 'star', label: '4.8-star rated' },
+      { icon: 'bolt', label: '24/7 emergency dispatch' },
+      { icon: 'building', label: 'Residential and commercial' },
+    ],
+    trustStats: [
+      { num: '4.8★', label: 'Google rating, 40 reviews' },
+      { num: 'C-20', label: 'California licensed' },
+      { num: '24/7', label: 'emergency dispatch' },
+      { num: 'Same-day', label: 'service typical' },
+    ],
+    answer: {
+      lead: 'AIRPRO SOLUTIONS is a licensed HVAC contractor serving El Segundo',
+      body:
+        ', providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.',
+    },
+    glance: {
+      title: 'El Segundo at a glance',
+      stats: [
+        { num: '53%', label: 'of households are multi-unit and 46.9% are single-unit (2021 ACS 5-year estimates, per the City)' },
+        { num: '7a-6p', label: 'construction hours Monday through Saturday, with no work on Sunday or legal holidays' },
+        { num: '2', label: 'utilities serve the city: SCE for electricity and SoCalGas for natural gas' },
+      ],
+      source: "Sources: City of El Segundo demographics and Building and Safety pages, SCE's service-area filing, and SoCalGas's city list.",
+    },
+    localTitle: 'El Segundo has more multi-unit than single-unit households, and set construction hours',
+    // TODO(copy): "can walk you through the steps" is client-approved on the other city pages; re-flag until the client confirms it here.
+    // TODO(copy): client to confirm naming Los Angeles Air Force Base and The Aerospace Corporation (City economic-development site; aerospace.org).
+    localParagraphs: [
+      "The City of El Segundo handles **plan check, permits, and inspections** through the Building and Safety Division of its Community Development Department. The City's Building Codes page lists its mechanical code **with amendments**, and its Building and Safety page does not list HVAC permit requirements, so ask the division what your project needs before work starts. **AIRPRO SOLUTIONS plans each job around your address** and can walk you through the steps.",
+      "The City sets construction hours at **Monday through Saturday, 7 a.m. to 6 p.m.**, with no work allowed on Sunday or legal holidays, so keep that window in mind when you schedule an installation. The City's demographics page, citing 2021 American Community Survey 5-year estimates, reports that **53% of households are multi-unit and 46.9% are single-unit**. In a multi-unit building, equipment access and placement can depend on the building, so we confirm those details at the property.",
+      "Electricity comes from **Southern California Edison** and natural gas from **SoCalGas**, and each utility's own service-area listing includes El Segundo. Both publish rebate programs, and terms and funding change, so confirm current details with the utility before you buy. For commercial properties, the City's economic-development site names **Los Angeles Air Force Base** and The Aerospace Corporation among the organizations located in El Segundo. Official links are in the card beside this text.",
+    ],
+    neighborhoodsHeading: 'Official El Segundo resources',
+    officialResources: [
+      {
+        text: 'Building and Safety Division',
+        href: 'https://www.elsegundo.gov/government/departments/community-development/building-and-safety-division',
+        note: 'Plan check, permits, inspections, and construction hours.',
+      },
+      {
+        text: 'Building codes and regulations',
+        href: 'https://www.elsegundo.gov/government/departments/community-development/building-and-safety-division/building-codes-and-regulations',
+        note: "Lists the City's adopted codes, including its mechanical code with amendments.",
+      },
+      {
+        text: 'Planning Division',
+        href: 'https://www.elsegundo.gov/government/departments/community-development/planning-division',
+        note: 'Administers the General Plan and the Zoning Code.',
+      },
+      {
+        text: 'City demographics',
+        href: 'https://www.elsegundo.gov/our-city/demographics',
+        note: 'Housing structure estimates cited by the City.',
+      },
+    ],
+    servicesTitle: 'Everything we handle for El Segundo homes and businesses',
+    serviceCards: [
+      { slug: 'ac-repair', name: 'AC Repair', body: 'Diagnosis and repair for cooling failures, weak airflow, and unusual noises.' },
+      { slug: 'ac-installation', name: 'AC Installation & Replacement', body: 'New system sizing and installation, including the El Segundo permit steps that apply to your project.' },
+      { slug: 'ac-maintenance', name: 'AC Maintenance', body: 'Seasonal AC tune-ups that catch small issues early.' },
+      { slug: 'heating-repair', name: 'Heating Repair', body: 'Furnace and heating system diagnosis and repair.' },
+      { slug: 'furnace-installation', name: 'Furnace Installation & Replacement', body: 'New furnace sizing and installation, including the El Segundo permit steps that apply to your project.' },
+      { slug: 'heat-pump-services', name: 'Heat Pump Services', body: 'Installation, repair, and maintenance for heat pumps.' },
+      { slug: 'ductless-mini-split', name: 'Ductless Mini-Split', body: 'Room-by-room comfort control for spaces where ductwork is not an option.' },
+      { slug: 'ductwork', name: 'Ductwork Services', body: 'Duct repair, sealing, replacement, and installation.' },
+      { slug: 'indoor-air-quality', name: 'Indoor Air Quality', body: 'Air filtration, whole-home purification, and ventilation options.' },
+      // TODO(copy): emergency card wording was not named in the 2026-10-15 approval; confirm with the client.
+      { slug: 'emergency-hvac', name: 'Emergency HVAC', body: 'Dispatch for no-cool and no-heat emergencies in El Segundo.' },
+    ],
+    resources: {
+      eyebrow: 'Know before you start',
+      title: 'El Segundo construction hours, code amendments, and utility rebates',
+      intro: 'Official sources for three local items worth checking before an El Segundo HVAC project.',
+      cards: [
+        {
+          amount: 'Mon-Sat 7a-6p',
+          description: 'El Segundo lists construction hours of Monday through Saturday, 7 a.m. to 6 p.m., with no work allowed on Sunday or legal holidays.',
+          linkLabel: 'Building and Safety page',
+          linkHref: 'https://www.elsegundo.gov/government/departments/community-development/building-and-safety-division',
+        },
+        {
+          amount: 'Code amendments',
+          description: "The City's Building Codes page lists its mechanical code with amendments. Ask the Building and Safety Division which requirements apply to your project.",
+          linkLabel: 'Building codes and regulations',
+          linkHref: 'https://www.elsegundo.gov/government/departments/community-development/building-and-safety-division/building-codes-and-regulations',
+        },
+        {
+          amount: 'Utility rebates',
+          description: 'SCE and SoCalGas both publish rebate programs for qualifying equipment. Terms, eligibility, and funding change, so confirm current details before you buy.',
+          linkLabel: 'SCE rebates',
+          linkHref: 'https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace',
+        },
+      ],
+    },
+    // Nearby row: only cities with real pages. The research has no neighbor list, so adjacency is not claimed.
+    nearby: ['redondo-beach', 'torrance', 'los-angeles', 'culver-city'],
+    proof: {
+      heading: 'Licensed, reviewed, and ready across El Segundo',
+      body: 'AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.',
+      stats: [
+        { num: '4.8★', label: 'Google rating' },
+        { num: '40', label: 'Google reviews' },
+        { num: 'C-20', label: 'California license class' },
+        { num: '24/7', label: 'Emergency dispatch' },
+      ],
+    },
+    finalCtaBody: 'Call or request service online to schedule a visit anywhere in El Segundo. Same-day service is typical.',
+    faqs: [
+      {
+        q: 'Does AIRPRO SOLUTIONS service all of El Segundo?',
+        a: 'Yes. AIRPRO SOLUTIONS serves homes and businesses across El Segundo as part of our South Bay coverage. El Segundo handles permits through its own Community Development Department, so we plan each visit around your specific address.',
+        links: [{ text: 'South Bay coverage', href: '/service-areas/south-bay/' }],
+      },
+      {
+        q: 'How fast can a technician reach my El Segundo home?',
+        a: 'Same-day service is typical in El Segundo, subject to capacity. Call (323) 776-9047 to confirm a window for your address.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'Do I need a permit for HVAC work in El Segundo?',
+        a: 'Check with the City before work starts. El Segundo handles plan check, permits, and inspections through its Building and Safety Division. Its Building Codes page lists its mechanical code with amendments, and its Building and Safety page does not list HVAC permit requirements, so ask the City what your specific project needs. AIRPRO SOLUTIONS can walk you through the steps.',
+      },
+      {
+        q: 'What hours can HVAC work happen in El Segundo?',
+        a: "Monday through Saturday, 7 a.m. to 6 p.m. The City's Building and Safety page lists those construction hours and says no work is allowed on Sunday or legal holidays. Confirm with the City whether the hours apply to your specific job.",
+        boldLead: 'Monday through Saturday, 7 a.m. to 6 p.m.',
+      },
+      {
+        // TODO(copy): practice claim (condos, townhomes, apartments, equipment access); client to confirm.
+        q: 'Do you work in condos and apartment buildings in El Segundo?',
+        a: "Yes. The City's demographics page, citing 2021 American Community Survey 5-year estimates, reports that 53% of El Segundo households are multi-unit and 46.9% are single-unit. AIRPRO SOLUTIONS services condos, townhomes, and apartments as well as single-family homes, and in a multi-unit building we confirm equipment access and placement at the property. See our Residential HVAC page.",
+        links: [{ text: 'Residential HVAC page', href: '/residential-hvac/' }],
+      },
+      {
+        q: 'Which utilities serve El Segundo, and are there HVAC rebates?',
+        a: "Southern California Edison provides electricity and SoCalGas provides natural gas. Each utility's own service-area listing includes El Segundo. Both publish rebate programs for qualifying equipment, and terms and funding change, so confirm current details on the SCE rebates page and the SoCalGas rebates page before you buy.",
+        links: [
+          { text: 'SCE rebates page', href: 'https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace' },
+          { text: 'SoCalGas rebates page', href: 'https://www.socalgas.com/savings/rebates-and-incentives' },
+        ],
+      },
+      {
+        q: 'What HVAC services are available in El Segundo?',
+        a: 'AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout El Segundo, for both residential and commercial properties.',
+        boldLead: 'AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC',
+        links: [
+          { text: 'AC repair', href: serviceHref('ac-repair') },
+          { text: 'AC installation and replacement', href: serviceHref('ac-installation') },
+          { text: 'AC maintenance', href: serviceHref('ac-maintenance') },
+          { text: 'heating repair', href: serviceHref('heating-repair') },
+          { text: 'furnace installation and replacement', href: serviceHref('furnace-installation') },
+          { text: 'heat pump services', href: serviceHref('heat-pump-services') },
+          { text: 'ductless mini-splits', href: serviceHref('ductless-mini-split') },
+          { text: 'ductwork', href: serviceHref('ductwork') },
+          { text: 'indoor air quality', href: serviceHref('indoor-air-quality') },
+          { text: 'emergency HVAC', href: serviceHref('emergency-hvac') },
+        ],
+      },
+      {
+        q: 'Is emergency HVAC service available in El Segundo?',
+        a: 'Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in El Segundo. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'How much does HVAC service cost in El Segundo?',
+        a: 'Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        // TODO(copy): commercial practice claim plus the Air Force Base / Aerospace Corporation mention; client to confirm.
+        q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in El Segundo?',
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in El Segundo, including rooftop units, office buildings, and retail spaces. The City's economic-development site names Los Angeles Air Force Base and The Aerospace Corporation among the organizations located in El Segundo. See our Commercial HVAC page for the full scope.",
+        links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
+      },
+    ],
+    // TODO(copy): client review pending for every FAQ answer above (2026-10-15 approval covered the other six city pages only).
+  },
+};
+
 // Map-card image for every city, used in nearby-areas rows (and city-page heroes once a city has
 // real content). Source files (1300x676) live in public/images/locations/<region-slug>/.
 const cardImages: Record<string, ServiceImage> = Object.fromEntries(
@@ -1103,6 +1299,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'pasadena' ? pasadenaOverrides
     : c.slug === 'culver-city' ? culverCityOverrides
     : c.slug === 'redondo-beach' ? redondoBeachOverrides
+    : c.slug === 'el-segundo' ? elSegundoOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
