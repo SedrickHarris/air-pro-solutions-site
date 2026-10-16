@@ -57,7 +57,7 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo and gardena have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena and irvine have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -1497,6 +1497,255 @@ const gardenaOverrides: Partial<City> = {
   },
 };
 
+const irvineOverrides: Partial<City> = {
+  // TODO(data): add verified climate and neighborhood detail before treating this as a full local page.
+  neighborhoods: [], // no official neighborhood list was verified
+  zips: [], // no USPS or City listing was verified for the research's ZIP list, so the ZIP card is held out
+  page: {
+    metaDescription:
+      "HVAC for Irvine homes and businesses, from AC repair to installation. Know the online replacement permit path and your utilities. Licensed, 4.8-star rated.",
+    lede:
+      "AIRPRO SOLUTIONS provides HVAC services across Irvine, including AC repair, heating repair, installation, and maintenance for homes and businesses.",
+    heroCaption: { title: 'Irvine, CA', text: 'Local HVAC service across Irvine' },
+    heroProof: [
+      { icon: 'shield', label: 'Licensed, bonded & insured' },
+      { icon: 'star', label: '4.8-star rated' },
+      { icon: 'bolt', label: '24/7 emergency dispatch' },
+      { icon: 'building', label: 'Residential and commercial' },
+    ],
+    trustStats: [
+      { num: '4.8★', label: 'Google rating, 40 reviews' },
+      { num: 'C-20', label: 'California licensed' },
+      { num: '24/7', label: 'emergency dispatch' },
+      { num: 'Same-day', label: 'service typical' },
+    ],
+    answer: {
+      lead: 'AIRPRO SOLUTIONS is a licensed HVAC contractor serving Irvine',
+      body:
+        ', providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.',
+    },
+    glance: {
+      title: 'Irvine at a glance',
+      stats: [
+        { num: '43.6%', label: 'of housing units are in multifamily buildings, and 38.9% are single-family detached (California Department of Finance, 2018, per SCAG)' },
+        { num: '4.8%', label: 'of housing was built before 1970 (2017 American Community Survey, per SCAG)' },
+        { num: '2', label: 'utilities named by the City: SCE for electricity and SoCalGas for natural gas' },
+      ],
+      source: "Sources: SCAG's 2019 Irvine local profile and the City of Irvine local utility companies page.",
+    },
+    localTitle: "Irvine's online permit path, HOA approvals, and equipment rules",
+    // TODO(copy): client has not approved any Irvine wording yet (local paragraphs, every FAQ answer, emergency card, PermitsDIRECT sentence,
+    // code-adoption sentence, SCE program wording, commercial FAQ). Keep flagged until the user says the client approved.
+    // TODO(copy): confirm with the City which portal handles the residential replacement permit after 2026-09-14 (PermitsDIRECT! vs the self-service page).
+    // Code edition: Irvine Municipal Code Sec. 5-9-101 (Ord. 25-26, 11-12-25) adopts the 2025 California Mechanical Code subject to Division 9 modifications.
+    // The Chapter 4 mechanical amendments were not read, so the page states the edition and "local modifications" and nothing about their content.
+    // Municode (Supp. 20, codified through Ord. 26-05) says it may not reflect the most current legislation.
+    // Pre-launch recheck: SCE and SoCalGas program pages, Municode, the SCAG profile URL, and the City utility, rebate and permit pages.
+    // OCPA intentionally left off the page.
+    localParagraphs: [
+      "Irvine offers an **online self-service permit for residential air conditioner and furnace replacements**. The City says the new condensing unit must be in the same location as the existing unit and at least 2 feet from any property line, and that you must obtain approval from your Homeowner's Association, if applicable, before the work. Since September 14, 2026, the City has directed new online no-plan-check applications to its PermitsDIRECT! portal, powered by Symbium, so confirm which route your project uses. **AIRPRO SOLUTIONS plans each job around your address** and can walk you through the steps.",
+      "Irvine's housing leans newer and mixed. SCAG's 2019 local profile, using California Department of Finance data for 2018, counts **102,474 housing units: 38.9% single-family detached, 16.4% attached, 6.2% in buildings of 2 to 4 units, and 37.4% in buildings of 5 or more**. The same profile, citing the 2017 American Community Survey, reports that **only 4.8% of housing was built before 1970**. These figures are dated, so we confirm the equipment, access, and ductwork at the property. The City publishes an HOA map and notes that not every single-family neighborhood has an association, so we check whether one applies before choosing equipment or placement.",
+      "For outdoor equipment, the City says **rooftop and ground-mounted mechanical equipment must be screened**, citing Section 3-20-1.B of its zoning ordinance. Irvine Municipal Code Sec. 6-8-205 limits noise from air conditioning, refrigeration, or heating equipment to the higher of the land-use noise standard in Sec. 6-8-204 or five decibels above the ambient noise level, and the City's code adopts the 2025 California Mechanical Code with local modifications. The City's online code notes it may not reflect the most current legislation, so confirm current rules with the City. For commercial buildings, the City has an **automated permit path for like-for-like rooftop packaged heat-pump change-outs of 20 tons or less**, with weight, roof-slope, and curb conditions, and plans prepared by the licensed mechanical contractor doing the work or the Mechanical Engineer of Record.",
+      "Electricity comes from **Southern California Edison** and natural gas from **SoCalGas**, as named on the City's utility page. The City's residential rebates page links to SCE and SoCalGas programs, and SCE lists an Energy Savings Assistance program for income-qualified households that includes central AC and central heat pump replacement among its upgrades. SCE says some options may not be available in all areas, and terms and funding change, so confirm current details with the utility before you buy. Official links are in the card beside this text.",
+    ],
+    neighborhoodsHeading: 'Official Irvine resources',
+    officialResources: [
+      {
+        text: "Self-service permits",
+        href: "https://cityofirvine.gov/community-development/self-service-permits",
+        note: "Lists the online residential air conditioner and furnace replacement permit and its location condition.",
+      },
+      {
+        text: "HVAC change-out (commercial rooftop)",
+        href: "https://www.cityofirvine.gov/building-permits-and-inspections/hvac-change-out",
+        note: "Automated permit path, screening rule, and plan requirements.",
+      },
+      {
+        text: "Homeowners associations",
+        href: "https://cityofirvine.gov/community-development/irvine-homeowners-associations",
+        note: "HOA map and notes on neighborhoods without an association.",
+      },
+      {
+        text: "City utility companies",
+        href: "https://cityofirvine.gov/node/13136",
+        note: "Names SCE for electricity and SoCalGas for natural gas.",
+      },
+      {
+        text: "City residential rebates page",
+        href: "https://cityofirvine.gov/sustainability-division/rebates-residents",
+        note: "Links to SCE and SoCalGas programs.",
+      },
+      {
+        text: "Irvine Municipal Code (Municode)",
+        href: "https://library.municode.com/ca/irvine/codes/code_of_ordinances",
+        note: "Sec. 6-8-205 equipment noise and Sec. 5-9-101 code adoption.",
+      },
+      {
+        text: "SCAG Irvine local profile",
+        href: "https://www.scag.ca.gov/sites/default/files/2024-05/irvine_localprofile.pdf",
+        note: "Housing counts and building age cited on this page.",
+      },
+    ],
+    servicesTitle: 'Everything we handle for Irvine homes and businesses',
+    serviceCards: [
+      { slug: "ac-repair", name: "AC Repair", body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises, with Irvine's equipment noise limit in mind for outdoor units." },
+      { slug: "ac-installation", name: "AC Installation & Replacement", body: "New system sizing and installation, including Irvine's replacement permit and its condensing-unit placement condition." },
+      { slug: "ac-maintenance", name: "AC Maintenance", body: "Seasonal AC tune-ups that catch small issues early." },
+      { slug: "heating-repair", name: "Heating Repair", body: "Furnace and heating system diagnosis and repair." },
+      { slug: "furnace-installation", name: "Furnace Installation & Replacement", body: "New furnace sizing and installation, including Irvine's furnace replacement permit, which lists a same-location condition." },
+      { slug: "heat-pump-services", name: "Heat Pump Services", body: "Installation, repair, and maintenance for heat pumps, including like-for-like rooftop units on commercial buildings." },
+      { slug: "ductless-mini-split", name: "Ductless Mini-Split", body: "Room-by-room comfort control for spaces where ductwork is not an option." },
+      { slug: "ductwork", name: "Ductwork Services", body: "Duct repair, sealing, replacement, and installation." },
+      { slug: "indoor-air-quality", name: "Indoor Air Quality", body: "Air filtration, whole-home purification, and ventilation options." },
+      // TODO(copy): emergency card wording not yet client-approved for Irvine.
+      { slug: "emergency-hvac", name: "Emergency HVAC", body: "Dispatch for no-cool and no-heat emergencies in Irvine." },
+    ],
+    resources: {
+      eyebrow: 'Know before you start',
+      title: 'Irvine permits, HOA approval, and utility rebates',
+      intro: 'Official sources for three local items worth checking before an Irvine HVAC project.',
+      cards: [
+        {
+          amount: "Online permit",
+          description: "Irvine offers an online self-service permit for residential air conditioner and furnace replacements. The condensing unit must stay in its existing location and at least 2 feet from any property line.",
+          linkLabel: "Self-service permits page",
+          linkHref: "https://cityofirvine.gov/community-development/self-service-permits",
+        },
+        {
+          amount: "HOA approval",
+          description: "The City says you must obtain approval from your Homeowner's Association, if applicable, before doing the work. It publishes an HOA map and notes that not all single-family neighborhoods have an HOA.",
+          linkLabel: "HOA page",
+          linkHref: "https://cityofirvine.gov/community-development/irvine-homeowners-associations",
+        },
+        // TODO(copy): rebate wording not yet client-approved. No dollar amounts on purpose.
+        {
+          amount: "Utility rebates",
+          description: "SCE and SoCalGas both publish rebate programs, and the City's rebates page links to both. Terms, eligibility, and funding change, so confirm current details before you buy.",
+          linkLabel: "City rebates page",
+          linkHref: "https://cityofirvine.gov/sustainability-division/rebates-residents",
+        },
+      ],
+    },
+    // Nearby row held out: no Orange County city page is live yet and the research has no neighbor list, so adjacency is not claimed.
+    // The city page skips the section when this is empty. Add Orange County cities here as their pages go live.
+    nearby: [],
+    proof: {
+      heading: 'Licensed, reviewed, and ready across Irvine',
+      body: 'AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.',
+      stats: [
+        { num: '4.8★', label: 'Google rating' },
+        { num: '40', label: 'Google reviews' },
+        { num: 'C-20', label: 'California license class' },
+        { num: '24/7', label: 'Emergency dispatch' },
+      ],
+    },
+    finalCtaBody: 'Call or request service online to schedule a visit anywhere in Irvine. Same-day service is typical.',
+    // TODO(copy): client has not confirmed any FAQ answer below.
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Irvine?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Irvine as part of our Orange County coverage. Irvine runs its own permit process, so we plan each visit around your specific address.",
+        links: [
+          { text: "Orange County coverage", href: "/service-areas/orange-county/" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Irvine home?",
+        a: "Same-day service is typical in Irvine, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an AC or furnace in Irvine?",
+        a: "Check with the City before work starts. Irvine offers an online self-service permit for residential air conditioner and furnace replacements. The City says the new condensing unit must be in the same location as the existing unit and at least 2 feet from any property line. The City also lists limited cases where a mechanical permit is not required, such as portable equipment, and says separate permits can still apply. AIRPRO SOLUTIONS can walk you through the steps.",
+      },
+      {
+        q: "Where do I apply for an Irvine HVAC permit online?",
+        a: "Confirm the route with the City. Starting September 14, 2026, the City's older permits site no longer accepts online no-plan-check applications, and it directs new online permit applications to PermitsDIRECT!, powered by Symbium. The older site stays available for plan check inquiries, permit inquiries, and inspection requests. Ask the City which route your project uses. AIRPRO SOLUTIONS can walk you through the steps.",
+      },
+      {
+        q: "Do I need homeowners association approval for HVAC work in Irvine?",
+        a: "If an association applies, yes. The City's permit page says you must obtain approval from your Homeowner's Association, if applicable, before doing the work. The City publishes an HOA map and guidance and notes that not all single-family neighborhoods have an HOA, including portions of Lower Peters Canyon, Northwood, and El Camino Real, though some may still have deed restrictions. We check whether an association applies to your address before we choose equipment or placement.",
+        links: [
+          { text: "HOA map and guidance", href: "https://cityofirvine.gov/community-development/irvine-homeowners-associations" },
+        ],
+      },
+      {
+        q: "Does Irvine have rules for where AC equipment goes and how loud it can be?",
+        a: "Yes. The City says rooftop and ground-mounted mechanical equipment must be screened, citing Section 3-20-1.B of its zoning ordinance. Irvine Municipal Code Sec. 6-8-205 says noise from air conditioning, refrigeration, or heating equipment may not exceed the higher of the land-use noise standard in Sec. 6-8-204 or five decibels above the ambient noise level. The City's code adopts the 2025 California Mechanical Code with local modifications. The City's online code notes it may not reflect the most current legislation, so we confirm current rules with the City for your project.",
+      },
+      {
+        q: "Do you work in condos and apartment buildings in Irvine?",
+        a: "Yes. SCAG's 2019 profile of Irvine, using California Department of Finance data for 2018, counts 102,474 housing units, with 38.9% single-family detached, 16.4% single-family attached, 6.2% in buildings of 2 to 4 units, and 37.4% in buildings of 5 or more units. AIRPRO SOLUTIONS services condos, townhomes, and apartments as well as single-family homes, and in a multi-unit building we confirm equipment access and placement at the property. See our Residential HVAC page.",
+        links: [
+          { text: "Residential HVAC page", href: "/residential-hvac/" },
+        ],
+      },
+      {
+        q: "Does the age of Irvine homes matter for HVAC work?",
+        a: "We confirm building age and construction on site. SCAG's 2019 profile, citing the 2017 American Community Survey, reports that 4.8% of Irvine's housing stock was built before 1970. Equipment, attic access, and ductwork are still property-specific, so we check them at a site visit before recommending repair or replacement.",
+      },
+      {
+        q: "Which utilities serve Irvine, and are there HVAC rebates?",
+        a: "Southern California Edison provides electricity and SoCalGas provides natural gas. The City's utility page names both, and its residential rebates page links to SCE and SoCalGas programs. Terms and funding change, so confirm current details on the SCE rebates page and the SoCalGas rebates page before you buy.",
+        links: [
+          { text: "utility page", href: "https://cityofirvine.gov/node/13136" },
+          { text: "residential rebates page", href: "https://cityofirvine.gov/sustainability-division/rebates-residents" },
+          { text: "SCE rebates page", href: "https://www.sce.com/residential/rebates-savings/rebates" },
+          { text: "SoCalGas rebates page", href: "https://www.socalgas.com/save-money-and-energy/rebates-and-incentives" },
+        ],
+      },
+      {
+        q: "Does SCE have an income-qualified HVAC program for Irvine households?",
+        a: "SCE lists one. Its Energy Savings Assistance program lists central AC and central heat pump replacement among the upgrades for income-qualified households with an active SCE residential account. SCE also says some options may not be available in all areas, and eligibility and income limits change, so check SCE's page before you plan around it.",
+        links: [
+          { text: "Energy Savings Assistance program", href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program" },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Irvine?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Irvine, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC",
+        links: [
+          { text: "AC repair", href: serviceHref("ac-repair") },
+          { text: "AC installation and replacement", href: serviceHref("ac-installation") },
+          { text: "AC maintenance", href: serviceHref("ac-maintenance") },
+          { text: "heating repair", href: serviceHref("heating-repair") },
+          { text: "furnace installation and replacement", href: serviceHref("furnace-installation") },
+          { text: "heat pump services", href: serviceHref("heat-pump-services") },
+          { text: "ductless mini-splits", href: serviceHref("ductless-mini-split") },
+          { text: "ductwork", href: serviceHref("ductwork") },
+          { text: "indoor air quality", href: serviceHref("indoor-air-quality") },
+          { text: "emergency HVAC", href: serviceHref("emergency-hvac") },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Irvine?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Irvine. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Irvine?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Irvine?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Irvine, including rooftop units. The City has an automated permit path for like-for-like commercial rooftop packaged heat-pump change-outs of 20 tons or less, where new units weigh no more than the existing units and no more than 2,000 pounds each, the roof slope is 2% or less, and no curb change is needed. Anything outside those limits is a different review. See our Commercial HVAC page for the full scope.",
+        links: [
+          { text: "automated permit path", href: "https://www.cityofirvine.gov/building-permits-and-inspections/hvac-change-out" },
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 // Map-card image for every city, used in nearby-areas rows (and city-page heroes once a city has
 // real content). Source files (1300x676) live in public/images/locations/<region-slug>/.
 const cardImages: Record<string, ServiceImage> = Object.fromEntries(
@@ -1524,6 +1773,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'redondo-beach' ? redondoBeachOverrides
     : c.slug === 'el-segundo' ? elSegundoOverrides
     : c.slug === 'gardena' ? gardenaOverrides
+    : c.slug === 'irvine' ? irvineOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;

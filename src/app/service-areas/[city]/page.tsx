@@ -263,14 +263,17 @@ export default async function Page({ params }: { params: Promise<{ city: string 
         </section>
       )}
 
-      <RelatedRow
-        items={nearby}
-        eyebrow="Nearby areas"
-        title={`Also serving the rest of ${regionPhrase}`}
-        intro={`AIRPRO SOLUTIONS also serves the surrounding ${regionLabel} cities.`}
-        ctaLabel="View area"
-        footerAction={{ label: `View the ${regionLabel} service area`, href: `/service-areas/${city.region}/` }}
-      />
+      {/* Skipped when a city has no nearby pages yet (Irvine: no Orange County city is live). */}
+      {nearby.length > 0 && (
+        <RelatedRow
+          items={nearby}
+          eyebrow="Nearby areas"
+          title={`Also serving the rest of ${regionPhrase}`}
+          intro={`AIRPRO SOLUTIONS also serves the surrounding ${regionLabel} cities.`}
+          ctaLabel="View area"
+          footerAction={{ label: `View the ${regionLabel} service area`, href: `/service-areas/${city.region}/` }}
+        />
+      )}
 
       <Proof
         eyebrow="Why Air Pro"
