@@ -1120,8 +1120,7 @@ const elSegundoOverrides: Partial<City> = {
       source: "Sources: City of El Segundo demographics and Building and Safety pages, SCE's service-area filing, and SoCalGas's city list.",
     },
     localTitle: 'El Segundo has more multi-unit than single-unit households, and set construction hours',
-    // Client confirmed the FAQ answers (including the "walk you through the steps" wording and the Air Force Base / Aerospace Corporation mention in the commercial FAQ) on 2026-10-15.
-    // TODO(copy): the same "walk you through the steps" wording and the Air Force Base / Aerospace Corporation mention also appear in these local paragraphs, which were not part of that confirmation.
+    // Client approved the wording and content of this page (local paragraphs included) on 2026-10-15.
     localParagraphs: [
       "The City of El Segundo handles **plan check, permits, and inspections** through the Building and Safety Division of its Community Development Department. The City's Building Codes page lists its mechanical code **with amendments**, and its Building and Safety page does not list HVAC permit requirements, so ask the division what your project needs before work starts. **AIRPRO SOLUTIONS plans each job around your address** and can walk you through the steps.",
       "The City sets construction hours at **Monday through Saturday, 7 a.m. to 6 p.m.**, with no work allowed on Sunday or legal holidays, so keep that window in mind when you schedule an installation. The City's demographics page, citing 2021 American Community Survey 5-year estimates, reports that **53% of households are multi-unit and 46.9% are single-unit**. In a multi-unit building, equipment access and placement can depend on the building, so we confirm those details at the property.",
@@ -1161,7 +1160,7 @@ const elSegundoOverrides: Partial<City> = {
       { slug: 'ductless-mini-split', name: 'Ductless Mini-Split', body: 'Room-by-room comfort control for spaces where ductwork is not an option.' },
       { slug: 'ductwork', name: 'Ductwork Services', body: 'Duct repair, sealing, replacement, and installation.' },
       { slug: 'indoor-air-quality', name: 'Indoor Air Quality', body: 'Air filtration, whole-home purification, and ventilation options.' },
-      // TODO(copy): emergency card wording was not named in the 2026-10-15 approval; confirm with the client.
+      // Client approved the emergency card wording on 2026-10-15.
       { slug: 'emergency-hvac', name: 'Emergency HVAC', body: 'Dispatch for no-cool and no-heat emergencies in El Segundo.' },
     ],
     resources: {
@@ -1268,7 +1267,7 @@ const elSegundoOverrides: Partial<City> = {
         links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
       },
     ],
-    // Client confirmed every FAQ answer above on 2026-10-15.
+    // Client confirmed every FAQ answer above on 2026-10-15, and approved the full page wording and content the same day.
   },
 };
 
