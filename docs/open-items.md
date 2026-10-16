@@ -9,8 +9,8 @@ this file is the index, not the source of truth.
 - Title collision: `cityTitle('Los Angeles')` equals `homeTitle()`, so this page uses `cityTitleAcross()` ("HVAC Services Across Los Angeles, CA"). Decide whether to keep that or retarget the homepage.
 - The neighborhood card shows only the City's ZIP listing, grouped by area in collapsed rows (no neighborhood pills). Arleta, Athens, Atwater and Baldwin Hills appear in the lede only. Climate, housing age, terrain, noise, HOA and competitor/SERP detail were NOT FOUND in the research and are not published. Add verified local detail before treating this as a full page.
 - LADWP heat-pump rebate ("up to $2,500 per ton/unit", listed 2026-05-22): the research source is undated and the amount is also an open item on the LA County hub. Reconfirm amount and terms before launch.
-- "AIRPRO SOLUTIONS can walk you through what your project needs" (permits) is a practice claim carried from the Torrance pattern; client to confirm.
-- Service card names with "& Replacement" and the emergency card wording are pending client confirmation, as on Torrance.
+- Client approved the "walk you through" permit wording on 2026-10-15.
+- Client approved the "& Replacement" service card names on 2026-10-15. The emergency card wording was not named in the approval, so confirm it separately.
 - Hero photo is still "Photo pending".
 - Claim wording follows the approved list (24/7 emergency dispatch, same-day service typical and subject to capacity, licensed, bonded & insured, 4.8 stars / 40 reviews). Do not strengthen it.
 - Reference artifact: claude/reference/los-angeles-location.html.
@@ -27,10 +27,10 @@ this file is the index, not the source of truth.
   3. "free upgrades for eligible households through its Energy Savings Assistance Program" - confirm the program is still offered. Source: https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program
   Fallback if you would rather not maintain a dollar figure: drop the "$75" credit and keep the coupon wording. Also confirm SCE is still the electric provider shown for Long Beach on an SCE territory page.
 - Long Beach Utilities gas: "nearly 150,000 accounts" covers Long Beach, Signal Hill and parts of nearby communities, so the glance card uses the pipeline-mileage figure with the Long Beach Utilities attribution rather than a Long Beach-only claim.
-- "AIRPRO SOLUTIONS can walk you through what your project needs" (permits) is a practice claim carried from the Torrance pattern; client to confirm.
+- Client approved the "walk you through" permit wording on 2026-10-15.
 - Nearby row: Torrance, Los Angeles, Carson, Redondo Beach. Redondo Beach now links to its live page; Carson still links to a noindex stub until a real page exists.
 - Port of Long Beach claims removed from /service-areas/los-angeles-county/ (Long Beach card note, the commercial paragraph and the "Port and logistics" chip). The "51,000 local jobs" figure was attributed to the City of Long Beach but comes from a Port-commissioned economic impact study (EDR Group, 2017 data, reported 2019). Re-add only with a current, correctly attributed source. The hub FAQ now notes that Long Beach has its own gas utility (SoCalGas serves most of the region).
-- Service card names with "& Replacement" and the emergency card wording are pending client confirmation, as on Torrance and Los Angeles.
+- Client approved the "& Replacement" service card names on 2026-10-15. The emergency card wording was not named in the approval, so confirm it separately.
 - Hero photo is still "Photo pending".
 - Claim wording follows the approved list (24/7 emergency dispatch, same-day service typical and subject to capacity, licensed, bonded & insured, 4.8 stars / 40 reviews). Do not strengthen it.
 - Reference artifact: claude/reference/long-beach-location.html.
@@ -43,9 +43,9 @@ this file is the index, not the source of truth.
 - Noise standards: the City agenda document (October 2024) describes revised exterior standards but does not confirm adoption. The page says so and sends visitors to the City. Reconfirm adoption, then replace the card and FAQ with the adopted rule.
 - Electric provider is Pasadena Water and Power (City FY2025 budget page), confirmed, but it is not named on the city page and no PWP rebate is published. Add both only with a current PWP source.
 - Verified-fact gaps (not published): housing-age and housing-mix figures, climate detail, major employers, outdoor-unit screening or setback rules.
-- "AIRPRO SOLUTIONS can walk you through the steps" (permits) is a practice claim carried from the Torrance pattern; client to confirm.
+- Client approved the "walk you through" permit wording on 2026-10-15.
 - Nearby row: Los Angeles, Long Beach, Glendale, Burbank. Glendale and Burbank link to their noindex stub pages until real pages exist. South Pasadena is not routed.
-- Service card names with "& Replacement" and the emergency card wording are pending client confirmation, as on the other city pages.
+- Client approved the "& Replacement" service card names on 2026-10-15. The emergency card wording was not named in the approval, so confirm it separately.
 - Hero photo is still "Photo pending".
 - Claim wording follows the approved list. Do not strengthen it.
 - Go-live wiring done: Pasadena card href on the LA County hub, chip link on /service-areas/, hub intro wording, LA County page sentence, hubCityIndexNote. The South Bay, Orange County and Inland Empire hubs have no Pasadena content, so their "coming soon" text stays.
@@ -62,9 +62,9 @@ this file is the index, not the source of truth.
 - Hayden Tract Specific Plan: the 30-day public review ended 2026-09-27 and adoption hearings are expected November to January. The page only says the City has published a public review draft. Update the wording once the plan is adopted.
 - Glance stats: 5 residential zoning districts (R1, R2, RLD, RMD, RHD), Mechanical permit scope, Municipal Code Chapter 9.07 (noise). The page does not state a decibel limit.
 - Hub copy corrected: the LA County hub no longer says Culver City is "split between LADWP and SCE by address" or "near-coastal". Utility wording is now "confirm by address" (card note, utility paragraph, bullet, FAQ). Restore a specific utility statement only if the client or a source confirms one.
-- "AIRPRO SOLUTIONS can walk you through the steps" (permits) is a practice claim carried from the Torrance pattern; client to confirm.
+- Client approved the "walk you through" permit wording on 2026-10-15.
 - Nearby row: Los Angeles, Long Beach, Pasadena, Torrance. All four have real pages. The research has no neighbor list, so adjacency is not claimed.
-- Service card names with "& Replacement" and the emergency card wording are pending client confirmation, as on the other city pages.
+- Client approved the "& Replacement" service card names on 2026-10-15. The emergency card wording was not named in the approval, so confirm it separately.
 - Hero photo is still "Photo pending".
 - Go-live wiring done: Culver City card href on the LA County hub, chip link on /service-areas/, hub intro wording, LA County page sentence, hubCityIndexNote.
 - Claim wording follows the approved list. Do not strengthen it.
@@ -93,9 +93,9 @@ this file is the index, not the source of truth.
 - No community pills (`neighborhoods: []`). The lede names "North Redondo Beach" and "the Coastal Zone" only because the City's own pages use both terms.
 - Mismatches between the research and the cited sources, resolved by holding the claim out: the CTS Portal / redondo.cts.city name and the Aug 5, 2024 date (the page says "the City's Citizen Portal" with no date or URL); 2022 vs 2025 code cycle (no code year stated); the pre-sale report; the "City Hall" label for the permit office; the USB hybrid submittal; the 310-318-0607 inspection line and required-fields claim; the FAQ and forms pages on redondo.org (fetch errors).
 - Not published (NOT FOUND, Medium or unverified): ZIP list, climate values, Census housing figures, coastal or marine-layer wording, HVAC decibel limits, neighborhoods other than North Redondo Beach, SCE and TECH dollar amounts (the SCE programs card links the fact sheet instead of quoting amounts).
-- Client confirmations before launch: every FAQ answer (TODO(copy) in cities.ts); the practice claim "AIRPRO SOLUTIONS can walk you through the steps"; the "from North Redondo Beach to the Coastal Zone" lede wording.
+- Client approved every FAQ answer, the "walk you through the steps" wording and the "from North Redondo Beach to the Coastal Zone" lede wording on 2026-10-15.
 - Nearby row: Torrance, Los Angeles, Long Beach, Culver City. The research has no neighbor list, so adjacency is not claimed.
-- Service card names with "& Replacement" and the emergency card wording are pending client confirmation, as on the other city pages.
+- Client approved the "& Replacement" service card names on 2026-10-15. The emergency card wording was not named in the approval, so confirm it separately.
 - Hero photo is still "Photo pending".
 - Go-live wiring done: Redondo Beach card href on the South Bay hub, chip link on /service-areas/, hubCityIndexNote, South Bay page sentence. The Torrance and Long Beach nearby cards already linked this slug and now reach a live page.
 - Existing South Bay hub copy checked against sources: multiple-family zones and the (MU) Mixed-Use Overlay (Zoning Code Article 2), exterior noise limits by receiving land use and time of day (Municipal Code 4-24.301), Clean Power Alliance listing Redondo Beach in its service area (Fall 2025 fact sheet), and the online Citizen Portal. No hub text needed changing. Not re-checked: the "west of the 405, reached from Pacific Coast Highway" sentence and the line saying the city code covers installation, alteration, repair and replacement of heating and cooling systems.

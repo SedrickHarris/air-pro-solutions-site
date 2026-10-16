@@ -179,7 +179,7 @@ const torranceOverrides: Partial<City> = {
         a: 'Yes. AIRPRO SOLUTIONS services major residential and commercial HVAC brands, whether the equipment was installed by us or another contractor. Call to confirm your specific make and model.',
       },
     ],
-    // TODO(copy): client review of every FAQ answer above before launch.
+    // Client approved every FAQ answer above on 2026-10-15.
   },
 };
 
@@ -227,7 +227,7 @@ const losAngelesOverrides: Partial<City> = {
     },
     localParagraphs: [
       'The City of Los Angeles is organized into **99 Neighborhood Councils**, and its General Plan is built from **34 Community Plans**. A call in one community can look very different from a call in another, so **AIRPRO SOLUTIONS plans each visit around your specific address** instead of treating the whole city as a single market.',
-      // TODO(data): "can walk you through" is a practice claim carried over from the Torrance page; client to confirm the permit process.
+      // Client approved the "can walk you through" permit wording on 2026-10-15.
       'Permits also work differently here than in a smaller suburb. Heating and cooling work inside city limits goes through **LADBS, the Los Angeles Department of Building and Safety**. LADBS requires a mechanical permit to install or modify a heating or cooling system, and covered work needs HVAC plan check approval before the permit is issued. Qualifying small projects can be filed online through PermitLA, and projects that need plan review go through ePlanLA. AIRPRO SOLUTIONS can walk you through what your project needs.',
       'Two more local resources are worth knowing. **LADWP** lists a heat-pump HVAC rebate of up to $2,500 per ton/unit through its Home Electrification Savings program, and **South Coast AQMD** publishes current air quality readings at the neighborhood level. Details and links are in the section below.',
     ],
@@ -248,7 +248,7 @@ const losAngelesOverrides: Partial<City> = {
     servicesTitle: 'Everything we handle for Los Angeles homes and businesses',
     serviceCards: [
       { slug: 'ac-repair', name: 'AC Repair', body: 'Diagnosis and repair for cooling failures, weak airflow, and unusual noises.' },
-      // TODO(copy): "& Replacement" card names pending client confirmation, same as the Torrance cards.
+      // Client approved the "& Replacement" card names on 2026-10-15.
       { slug: 'ac-installation', name: 'AC Installation & Replacement', body: 'New system sizing and installation, including the LADBS permit steps that apply to your project.' },
       { slug: 'ac-maintenance', name: 'AC Maintenance', body: 'Seasonal AC tune-ups that catch small issues early.' },
       { slug: 'heating-repair', name: 'Heating Repair', body: 'Furnace and heating system diagnosis and repair.' },
@@ -347,7 +347,7 @@ const losAngelesOverrides: Partial<City> = {
         links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
       },
     ],
-    // TODO(copy): client review of every FAQ answer above before launch.
+    // Client approved every FAQ answer above on 2026-10-15.
   },
 };
 
@@ -397,7 +397,7 @@ const longBeachOverrides: Partial<City> = {
     localTitle: 'Long Beach has its own permits, gas utility, and zoning map',
     localParagraphs: [
       'Long Beach has **its own municipal gas utility**. Long Beach Utilities provides natural gas in Long Beach and Signal Hill and to parts of nearby communities, while **Southern California Edison** provides electricity. Gas and electric programs come from different places, so **AIRPRO SOLUTIONS can help you sort out which ones apply** before you choose equipment.',
-      // TODO(data): "can walk you through" is a practice claim carried over from the Torrance page; client to confirm the permit process.
+      // Client approved the "can walk you through" permit wording on 2026-10-15.
       'Permits run through the City itself. **Long Beach issues building, electrical, plumbing, and mechanical permits through its Permit Center** at 411 West Ocean Blvd., 3rd Floor, and permits and plans for mechanical construction on private property are issued and processed there, separate from LADBS in the City of Los Angeles. AIRPRO SOLUTIONS can walk you through what your project needs.',
       "Two more local items are worth knowing. The City's **Noise Control Program** enforces Municipal Code Chapter 8.80 and names air conditioners among equipment that can exceed noise standards, so it helps to plan where new equipment will sit. The City's **zoning and land-use map** shows a property's zoning, historic-district status, coastal-zone status, and parking-impacted areas. Official links are below and in the section that follows.",
     ],
@@ -528,7 +528,7 @@ const longBeachOverrides: Partial<City> = {
         links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
       },
     ],
-    // TODO(copy): client review of every FAQ answer above before launch.
+    // Client approved every FAQ answer above on 2026-10-15.
   },
 };
 
@@ -705,7 +705,7 @@ const pasadenaOverrides: Partial<City> = {
         links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
       },
     ],
-    // TODO(copy): client review of every FAQ answer above before launch.
+    // Client approved every FAQ answer above on 2026-10-15.
   },
 };
 
@@ -888,7 +888,7 @@ const culverCityOverrides: Partial<City> = {
         links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
       },
     ],
-    // TODO(copy): client review of every FAQ answer above before launch.
+    // Client approved every FAQ answer above on 2026-10-15.
   },
 };
 
@@ -904,7 +904,7 @@ const redondoBeachOverrides: Partial<City> = {
   page: {
     metaDescription:
       'HVAC for Redondo Beach homes and businesses, from North Redondo Beach to the Coastal Zone. Know the permit steps. Licensed, 4.8-star rated. Schedule service.',
-    // TODO(copy): "from North Redondo Beach to the Coastal Zone" needs client review (the Coastal Zone is a regulatory area, not a neighborhood).
+    // Client approved the "from North Redondo Beach to the Coastal Zone" wording on 2026-10-15.
     lede:
       'AIRPRO SOLUTIONS provides HVAC services across Redondo Beach, including AC repair, heating repair, installation, and maintenance for homes and businesses - from North Redondo Beach to the Coastal Zone.',
     heroCaption: { title: 'Redondo Beach, CA', text: 'Local HVAC service across Redondo Beach' },
@@ -1074,7 +1074,7 @@ const redondoBeachOverrides: Partial<City> = {
         links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
       },
     ],
-    // TODO(copy): client review of every FAQ answer above before launch.
+    // Client approved every FAQ answer above on 2026-10-15.
   },
 };
 
