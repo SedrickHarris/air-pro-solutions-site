@@ -57,7 +57,7 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena and irvine have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine and anaheim have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -1746,6 +1746,273 @@ const irvineOverrides: Partial<City> = {
   },
 };
 
+const anaheimOverrides: Partial<City> = {
+  // TODO(data): add verified climate and neighborhood detail before treating this as a full local page.
+  neighborhoods: [], // no official neighborhood list was verified
+  zips: [], // only third-party ZIP lists exist (data.mongabay, hometownlocator); the ZIP card is held out
+  page: {
+    metaDescription:
+      "HVAC for Anaheim homes and businesses, from AC repair to installation. Know the City's permit steps and your electric utility. Licensed, 4.8-star rated.",
+    lede:
+      "AIRPRO SOLUTIONS provides HVAC services across Anaheim, including AC repair, heating repair, installation, and maintenance for homes and businesses.",
+    heroCaption: { title: 'Anaheim, CA', text: 'Local HVAC service across Anaheim' },
+    heroProof: [
+      { icon: 'shield', label: 'Licensed, bonded & insured' },
+      { icon: 'star', label: '4.8-star rated' },
+      { icon: 'bolt', label: '24/7 emergency dispatch' },
+      { icon: 'building', label: 'Residential and commercial' },
+    ],
+    trustStats: [
+      { num: '4.8★', label: 'Google rating, 40 reviews' },
+      { num: 'C-20', label: 'California licensed' },
+      { num: '24/7', label: 'emergency dispatch' },
+      { num: 'Same-day', label: 'service typical' },
+    ],
+    answer: {
+      lead: 'AIRPRO SOLUTIONS is a licensed HVAC contractor serving Anaheim',
+      body:
+        ', providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.',
+    },
+    glance: {
+      title: 'Anaheim at a glance',
+      stats: [
+        { num: '45.4%', label: 'of housing units are in multifamily buildings, and 41.7% are single-family detached (California Department of Finance, 2018, per SCAG)' },
+        { num: '44.6%', label: 'of housing was built before 1970 (2017 American Community Survey, per SCAG)' },
+        { num: '1', label: 'city-owned electric utility, Anaheim Public Utilities, the only municipal electric utility in Orange County (City of Anaheim)' },
+      ],
+      source: "Sources: SCAG's local profile of Anaheim and the City of Anaheim utilities pages.",
+    },
+    localTitle: "Anaheim's mechanical permits, older housing, and municipal electric utility",
+    // TODO(copy): client has not approved any Anaheim wording yet (local paragraphs, every FAQ answer, emergency card, permit-application sentence,
+    // code-adoption and sound-limit sentences, APU and GO ZERO wording, commercial Resort sentence). Keep flagged until the user says the client approved.
+    // TODO(copy): confirm with the City Building Division (714-765-5153) which permits an HVAC replacement needs. Do not state any same-location exemption:
+    // the Form B713 footnote "No Building Permit required for replacement in same location (Residential - R3 sf only)" is attached to the ventilation fan line, not to HVAC equipment.
+    // Code edition: Anaheim Municipal Code Sec. 15.03.010.0104 (Ord. 6613, 9-23-2025) adopts the 2025 California Mechanical Code; American Legal supplement 2026 S-28
+    // says it may not reflect the most current legislation. The only mechanical amendment in Sec. 15.03.060 is a Chapter 1 substitution, so the page states the edition and nothing more.
+    // Sound limit: Sec. 6.70.010 is a general property-line limit (60 dB(A)), not HVAC-specific; the rest of its measurement conditions were not stated on the page.
+    // Pre-launch recheck: APU rebate pages (anaheim.net/2579 and /936), AQMD GO ZERO page, the municipal code supplement, the SCAG profile URL, Form B713, the City building codes page.
+    // Held out: ZIPs, neighborhoods, same-location exemption, permit fees and resolution number, gas provider, Resort shielding claim, rooftop screening, rebate dollar amounts, commercial APU incentives, Manual J, nearby row.
+    localParagraphs: [
+      "Anaheim's Building Division issues mechanical permits through its **Mechanical Permit Application, Form B713**. The form asks for the project address, a description of the work, the contractor's state license number, and proof of workers' compensation coverage, and the Building Division's number printed on it is (714) 765-5153. We do not assume that a furnace or AC replacement is exempt, so **AIRPRO SOLUTIONS confirms which permits your project needs with the City** before work starts and can walk you through the steps.",
+      "Anaheim's housing is mixed, and much of it is older. SCAG's local profile, using California Department of Finance data for 2018, counts **108,222 housing units: 41.7% single-family detached, 8.6% attached, 10.5% in buildings of 2 to 4 units, 34.9% in buildings of 5 or more, and 4.3% mobile homes**. The same profile, citing the 2017 American Community Survey, reports that **44.6% of housing was built before 1970**. These figures are dated, so we confirm the equipment, access, and ductwork at the property, and in a multi-unit building we confirm equipment access and placement.",
+      "The City lists **Climate Zone 8** as a local design criterion and says the 2025 codes apply to projects submitted on or after January 1, 2026. Anaheim Municipal Code Sec. 15.03.010.0104 adopts the 2025 California Mechanical Code, and the City's online code notes it may not reflect the most current legislation, so confirm current rules with the City. Sec. 6.70.010 sets a general sound limit of 60 decibels on the A-scale at the property line for sound radiated for extended periods. It is not written for HVAC equipment, and we confirm how it applies to your address before choosing a condenser location.",
+      "Electricity comes from **Anaheim Public Utilities**, which the City describes as a city-owned, not-for-profit utility and the only municipal electric utility in Orange County. Its rebate pages list residential incentives, and South Coast AQMD runs a separate GO ZERO heat-pump program, so confirm current terms with each before you buy. For commercial work, the City's Anaheim Resort page describes a 581-acre specific plan area of hotels, convention and conference facilities, restaurants, retail, and entertainment, and each rooftop project there is its own review. Official links are in the card beside this text.",
+    ],
+    neighborhoodsHeading: 'Official Anaheim resources',
+    officialResources: [
+      {
+        text: "Mechanical Permit Application (Form B713)",
+        href: "https://www.anaheim.net/DocumentCenter/View/39695/Mechanical-Permit-Application---B713",
+        note: "Building Division application, with the contractor license and workers' compensation fields.",
+      },
+      {
+        text: "Current building codes and design criteria",
+        href: "https://www.anaheim.net/6018/Current-Building-Codes-and-Design-Criter",
+        note: "Lists Climate Zone 8 and the 2025 codes for projects submitted from January 1, 2026.",
+      },
+      {
+        text: "Anaheim Municipal Code",
+        href: "https://codelibrary.amlegal.com/codes/anaheim/latest/overview",
+        note: "Sec. 15.03.010.0104 code adoption and Sec. 6.70.010 sound limit.",
+      },
+      {
+        text: "About the Utilities",
+        href: "https://www.anaheim.net/1067/About-the-Utilities",
+        note: "Describes Anaheim Public Utilities as city-owned and not-for-profit.",
+      },
+      {
+        text: "APU heating and cooling systems rebates",
+        href: "https://www.anaheim.net/2579/Heating-Cooling-Systems",
+        note: "Residential HVAC incentive terms from Anaheim Public Utilities.",
+      },
+      {
+        text: "South Coast AQMD GO ZERO",
+        href: "https://www.aqmd.gov/go-zero",
+        note: "Separate heat-pump program; check its page for current status.",
+      },
+      {
+        text: "Anaheim Resort",
+        href: "https://www.anaheim.gov/1009/Anaheim-Resort",
+        note: "The 581-acre Anaheim Resort specific plan area.",
+      },
+      {
+        text: "SCAG Anaheim local profile",
+        href: "https://www.scag.ca.gov/sites/default/files/2024-05/anaheim_localprofile.pdf",
+        note: "Housing counts and building age cited on this page.",
+      },
+    ],
+    servicesTitle: 'Everything we handle for Anaheim homes and businesses',
+    serviceCards: [
+      { slug: "ac-repair", name: "AC Repair", body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises, with Anaheim's property-line sound limit in mind for outdoor units." },
+      { slug: "ac-installation", name: "AC Installation & Replacement", body: "New system sizing and installation, planned around Anaheim's mechanical permit application and Building Division review." },
+      { slug: "ac-maintenance", name: "AC Maintenance", body: "Seasonal AC tune-ups that catch small issues early." },
+      { slug: "heating-repair", name: "Heating Repair", body: "Furnace and heating system diagnosis and repair." },
+      { slug: "furnace-installation", name: "Furnace Installation & Replacement", body: "New furnace sizing and installation, with Anaheim's mechanical permit process confirmed before work starts." },
+      { slug: "heat-pump-services", name: "Heat Pump Services", body: "Installation, repair, and maintenance for heat pumps, including how the work fits your Anaheim Public Utilities electric account." },
+      { slug: "ductless-mini-split", name: "Ductless Mini-Split", body: "Room-by-room comfort control for spaces where ductwork is not an option." },
+      { slug: "ductwork", name: "Ductwork Services", body: "Duct repair, sealing, replacement, and installation." },
+      { slug: "indoor-air-quality", name: "Indoor Air Quality", body: "Air filtration, whole-home purification, and ventilation options." },
+      { slug: "emergency-hvac", name: "Emergency HVAC", body: "Dispatch for no-cool and no-heat emergencies in Anaheim." },
+    ],
+    resources: {
+      eyebrow: 'Know before you start',
+      title: 'Anaheim permits, utility, and rebate programs',
+      intro: 'Official sources for three local items worth checking before an Anaheim HVAC project.',
+      cards: [
+        // TODO(copy): rebate wording not yet client-approved. No dollar amounts on purpose.
+        {
+          amount: "Mechanical permit",
+          description: "Anaheim's Building Division issues mechanical permits and publishes an application, Form B713. Confirm which permits your project needs before work starts.",
+          linkLabel: "Form B713",
+          linkHref: "https://www.anaheim.net/DocumentCenter/View/39695/Mechanical-Permit-Application---B713",
+        },
+        {
+          amount: "City-owned utility",
+          description: "Anaheim Public Utilities is a city-owned, not-for-profit utility and the only municipal electric utility in Orange County. Its rebate terms and funding change, so confirm current details before you buy.",
+          linkLabel: "APU rebates page",
+          linkHref: "https://www.anaheim.net/2579/Heating-Cooling-Systems",
+        },
+        {
+          amount: "Heat-pump program",
+          description: "South Coast AQMD runs a separate GO ZERO program. It is not an Anaheim Public Utilities rebate, and its status and terms change, so check the program page first.",
+          linkLabel: "GO ZERO page",
+          linkHref: "https://www.aqmd.gov/go-zero",
+        },
+      ],
+    },
+    // Nearby row held out: no sourced adjacency, and no other Orange County city page links are claimed here. The city page skips the section when this is empty.
+    nearby: [],
+    proof: {
+      heading: 'Licensed, reviewed, and ready across Anaheim',
+      body: 'AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.',
+      stats: [
+        { num: '4.8★', label: 'Google rating' },
+        { num: '40', label: 'Google reviews' },
+        { num: 'C-20', label: 'California license class' },
+        { num: '24/7', label: 'Emergency dispatch' },
+      ],
+    },
+    finalCtaBody: 'Call or request service online to schedule a visit anywhere in Anaheim. Same-day service is typical.',
+    // TODO(copy): client has not confirmed any FAQ answer below.
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Anaheim?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Anaheim as part of our Orange County coverage. Anaheim issues its own mechanical permits through its Building Division, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Orange County coverage", href: "/service-areas/orange-county/" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Anaheim home?",
+        a: "Same-day service is typical in Anaheim, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Anaheim, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an AC or furnace in Anaheim?",
+        a: "Check with the City before work starts. Anaheim's Building Division issues mechanical permits and publishes a Mechanical Permit Application (Form B713). The form asks for the project address, a description of the work, the contractor's state license number, and proof of workers' compensation coverage. We do not assume a replacement is exempt, so confirm which permits your project needs with the Building Division at (714) 765-5153. AIRPRO SOLUTIONS can walk you through the steps.",
+        boldLead: "Check with the City before work starts.",
+        links: [
+          { text: "Mechanical Permit Application (Form B713)", href: "https://www.anaheim.net/DocumentCenter/View/39695/Mechanical-Permit-Application---B713" },
+        ],
+      },
+      {
+        q: "Where is Anaheim's Building Division?",
+        a: "200 S. Anaheim Blvd., Suite 145, Anaheim, CA 92805. The address and the (714) 765-5153 phone number are printed on the City's Mechanical Permit Application. The form is headed City of Anaheim Planning Department, Building Division.",
+        boldLead: "200 S. Anaheim Blvd., Suite 145, Anaheim, CA 92805.",
+      },
+      {
+        q: "Which building codes apply to HVAC work in Anaheim?",
+        a: "Anaheim lists Climate Zone 8 and the 2025 California codes. The City's current building codes page lists Climate Zone 8 as a local design criterion and says the 2025 codes apply to projects submitted on or after January 1, 2026. Anaheim Municipal Code Sec. 15.03.010.0104 adopts the 2025 California Mechanical Code (Ordinance 6613, September 23, 2025). The City's online code notes it may not reflect the most current legislation, so we confirm current rules with the City for your project.",
+        boldLead: "Anaheim lists Climate Zone 8 and the 2025 California codes.",
+        links: [
+          { text: "current building codes page", href: "https://www.anaheim.net/6018/Current-Building-Codes-and-Design-Criter" },
+        ],
+      },
+      {
+        q: "Does Anaheim have a noise rule that affects AC equipment?",
+        a: "Anaheim has a general sound limit. Anaheim Municipal Code Sec. 6.70.010 prohibits sound radiated for extended periods from a premises that produces a sound pressure level above 60 decibels on the A-scale at the property line. It is a general rule, not one written for HVAC equipment, and it sets measurement conditions of its own, so we confirm how it applies to your address before we choose a condenser location.",
+        boldLead: "Anaheim has a general sound limit.",
+      },
+      {
+        q: "Do you work in condos and apartment buildings in Anaheim?",
+        a: "Yes. SCAG's local profile of Anaheim, using California Department of Finance data for 2018, counts 108,222 housing units, with 41.7% single-family detached, 8.6% single-family attached, 10.5% in buildings of 2 to 4 units, 34.9% in buildings of 5 or more units, and 4.3% mobile homes. AIRPRO SOLUTIONS services condos, townhomes, and apartments as well as single-family homes, and in a multi-unit building we confirm equipment access and placement at the property. See our Residential HVAC page.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Residential HVAC page", href: "/residential-hvac/" },
+        ],
+      },
+      {
+        q: "Does the age of Anaheim homes matter for HVAC work?",
+        a: "It can, and we confirm it on site. SCAG's local profile, citing the 2017 American Community Survey, reports that 44.6% of Anaheim's housing stock was built before 1970. Older homes can mean older equipment, attic access, and ductwork, but those are still property-specific, so we check them at a site visit before recommending repair or replacement.",
+        boldLead: "It can, and we confirm it on site.",
+      },
+      {
+        q: "Who provides electricity in Anaheim, and are there HVAC rebates?",
+        a: "Anaheim Public Utilities, the City's own utility. The City describes Anaheim Public Utilities as a city-owned, not-for-profit utility, and says it operates the only municipal electric utility in Orange County. Its Heating & Cooling Systems page and rebate programs page list its residential incentives. Terms and funding change, so confirm current details with Anaheim Public Utilities before you buy.",
+        boldLead: "Anaheim Public Utilities, the City's own utility.",
+        links: [
+          { text: "Heating & Cooling Systems page", href: "https://www.anaheim.net/2579/Heating-Cooling-Systems" },
+          { text: "rebate programs page", href: "https://www.anaheim.net/936/Energy-Rebates-Programs" },
+        ],
+      },
+      {
+        q: "Is there another rebate program for heat pumps in Anaheim?",
+        a: "South Coast AQMD runs a separate program called GO ZERO. It is not an Anaheim Public Utilities rebate. Its status and terms change, so check the GO ZERO page for whether it is accepting applications and whether your property and project qualify before you plan around it.",
+        boldLead: "South Coast AQMD runs a separate program called GO ZERO.",
+        links: [
+          { text: "GO ZERO page", href: "https://www.aqmd.gov/go-zero" },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Anaheim?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Anaheim, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC",
+        links: [
+          { text: "AC repair", href: serviceHref("ac-repair") },
+          { text: "AC installation and replacement", href: serviceHref("ac-installation") },
+          { text: "AC maintenance", href: serviceHref("ac-maintenance") },
+          { text: "heating repair", href: serviceHref("heating-repair") },
+          { text: "furnace installation and replacement", href: serviceHref("furnace-installation") },
+          { text: "heat pump services", href: serviceHref("heat-pump-services") },
+          { text: "ductless mini-splits", href: serviceHref("ductless-mini-split") },
+          { text: "ductwork", href: serviceHref("ductwork") },
+          { text: "indoor air quality", href: serviceHref("indoor-air-quality") },
+          { text: "emergency HVAC", href: serviceHref("emergency-hvac") },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Anaheim?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Anaheim. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Anaheim?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Anaheim?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Anaheim, including rooftop units. The City's Anaheim Resort page describes a 581-acre specific plan area with hotels, convention and conference facilities, restaurants, retail, and entertainment, and the Mechanical Permit Application's component worksheet lists package units as typically commercial and on the rooftop and counts commercial systems per 1,000 square feet. Each project is a different review, so we confirm the permit path with the Building Division. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Anaheim Resort page", href: "https://www.anaheim.gov/1009/Anaheim-Resort" },
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 // Map-card image for every city, used in nearby-areas rows (and city-page heroes once a city has
 // real content). Source files (1300x676) live in public/images/locations/<region-slug>/.
 const cardImages: Record<string, ServiceImage> = Object.fromEntries(
@@ -1774,6 +2041,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'el-segundo' ? elSegundoOverrides
     : c.slug === 'gardena' ? gardenaOverrides
     : c.slug === 'irvine' ? irvineOverrides
+    : c.slug === 'anaheim' ? anaheimOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
