@@ -125,6 +125,7 @@ this file is the index, not the source of truth.
 - Nearby row: Redondo Beach, Torrance, Los Angeles, Culver City. All four have real pages. The research has no neighbor list, so adjacency is not claimed. No other city's `nearby` row lists El Segundo, and the matrix `nearby` rows are unaffected.
 - Go-live wiring done: El Segundo card href on the South Bay hub (`cities.items` in src/content/south-bay.ts), chip link on /service-areas/, `hubCityIndexNote`, and the South Bay page sentence.
 - Hero photo is still "Photo pending".
+- Existing South Bay hub copy checked against sources (client approved the fixes 2026-10-15): supported as written were "Community Development, Building and Safety Division" (City department URL) and local mechanical code amendments (Building Codes page). Changed because no source supports them: "immediately south of LAX" and the "LAX edge" group label (now labeled "El Segundo"), "corporate office, aerospace, high-tech, and airport-related" and "corporate campuses" (now aerospace and deep tech, per the City's economic-development site), "light industrial uses" (only an unofficial zoning summary supported it), the "2022 California Mechanical Code and 2022 Energy Code with local amendments" row (the Energy Code is listed without amendments and the City's pages disagree on the current edition), and the "LAX edge" / "El Segundo by LAX" phrasings in src/content/service-area-hub.ts (region card description, region table, hub lead) and the South Bay photo caption. Not re-checked: "the west and northwest" placement in the South Bay local paragraph.
 - Claim wording follows the approved list. Do not strengthen it.
 - Reference artifact: claude/reference/el-segundo-location.html.
 
@@ -140,8 +141,9 @@ this file is the index, not the source of truth.
   before each summer.
 - TECH Clean California / HEEHRA: status described "as of early 2026" (Southern California
   single-family funding fully reserved, later requests waitlisted). Re-verify before launch.
-- El Segundo: currently on the 2022 CA Mechanical Code / Energy Code cycle with local amendments.
-  Re-verify if the city moves to the 2025 code cycle.
+- El Segundo: the City's Building Codes page lists its mechanical code with amendments (2022 codes adopted
+  November 15, 2022), but its Building and Safety page says the 2025 edition takes effect January 1, 2026. The hub
+  states no code year. Reconfirm which edition and amendments apply before launch.
 - Carson and Redondo Beach noise limits: deliberately left without dBA figures (medium-confidence
   planning-document sourcing for Carson). Do not add specific numbers without a stronger source.
 - Clean Power Alliance generation: only confirmed for Redondo Beach, Manhattan Beach, and Carson.

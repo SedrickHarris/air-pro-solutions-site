@@ -47,7 +47,7 @@ export const hubRegions: RegionCard[] = [
   {
     name: 'South Bay',
     slug: 'south-bay',
-    description: 'Beach cities, the LAX edge, and the inland South Bay, each with its own permit office and equipment placement rules.',
+    description: 'Beach cities and the inland South Bay, each with its own permit office and equipment placement rules.',
     cities: ['Torrance', 'Redondo Beach', 'Manhattan Beach', 'Hermosa Beach', 'El Segundo', 'Gardena', 'Hawthorne', 'Carson'],
   },
   {
@@ -81,7 +81,7 @@ export const hubTableRows: TableRow[] = [
     region: 'South Bay',
     slug: 'south-bay',
     cities: hubRegions[1].cities.join(', '),
-    climate: 'Beach cities in the west, El Segundo by LAX, Torrance, Gardena, and Hawthorne inland, Carson in the southeast.',
+    climate: 'Beach cities in the west, El Segundo, Torrance, Gardena, and Hawthorne inland, Carson in the southeast.',
     checksFirst: "The property's city, since ZIP codes are not city boundaries, then noise and screening rules.",
   },
   {
@@ -126,7 +126,7 @@ export const hubFaqs: HubFaq[] = [
   },
   {
     q: 'Why is the South Bay separate from Los Angeles County?',
-    lead: 'The South Bay has its own mix of beach cities, LAX-edge, and inland cities, so it has its own page.',
+    lead: 'The South Bay has its own mix of beach cities and inland cities, so it has its own page.',
     rest: ' The Los Angeles County page covers the cities outside the South Bay, so the two pages never cover the same city.',
   },
   {
