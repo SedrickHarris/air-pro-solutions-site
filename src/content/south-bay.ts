@@ -115,7 +115,7 @@ export const southBayHub = {
   // Division; electronic permit system); Manhattan Beach (Community Development, Building and
   // Safety); Hermosa Beach (Community Development, Building Safety Division; online-only portal
   // effective 2026-10-01); El Segundo (Community Development, Building and Safety Division; mechanical
-  // code listed with amendments on the City's Building Codes page); Gardena (Community Development, Building
+  // 2025 California Mechanical Code with amendments per ESMC 13-4-1, Ord. 1680, 12-3-2025); Gardena (Community Development, Building
   // Services; New HVAC/Forced Air Unit over-the-counter permits, CF1R forms); Hawthorne (Department
   // of Building and Safety; 24-hour inspection lead time, 9am-5pm window); Carson (Building and
   // Safety Department; mechanical permit worksheet). Title 24 per the CEC Energy Code Support
@@ -130,7 +130,7 @@ export const southBayHub = {
       ['Redondo Beach', 'Community Development, Building and Safety Division', 'The city’s code covers installation, alteration, repair, and replacement of heating and cooling systems, and permits must be obtained before work begins. Applications and inspections run through an electronic permit system.'],
       ['Manhattan Beach', 'Community Development, Building and Safety', 'The city states permits are required for improvements to mechanical systems. Exterior equipment placement, architectural review, and noise conditions are confirmed with the city.'],
       ['Hermosa Beach', 'Community Development, Building Safety Division', 'Separate building, mechanical, electrical, and plumbing applications. Beginning October 1, 2026, applications available through the city’s online portal are to be submitted online.'],
-      ['El Segundo', 'Community Development, Building and Safety Division', 'The City’s Building Codes page lists its mechanical code with amendments, so amendments are checked before permit submittal.'],
+      ['El Segundo', 'Community Development, Building and Safety Division', 'The municipal code adopts the 2025 California Mechanical Code with local amendments, so amendments are checked before permit submittal.'],
       ['Gardena', 'Community Development, Building Services', 'Lists New HVAC Permit and Forced Air Unit Permit among its over-the-counter permit types, and the in-person process requires completed CF1R forms.'],
       ['Hawthorne', 'Department of Building and Safety', 'Inspections are requested at least 24 hours in advance and run between 9:00 a.m. and 5:00 p.m., so inspection lead time belongs in the schedule.'],
       ['Carson', 'Building and Safety Department', 'The city’s mechanical permit worksheet lists furnace, heater, boiler, mini-split, and AC condenser work.'],
@@ -209,7 +209,7 @@ export const southBayHub = {
       { name: 'Redondo Beach', note: 'Multiple-family zoning and a mixed-use overlay. Noise limits depend on the neighboring use. Clean Power Alliance supplies generation.', href: '/service-areas/redondo-beach/' },
       { name: 'Manhattan Beach', note: 'Beach city with Clean Power Alliance generation. Mechanical work needs a permit, and exterior equipment placement is confirmed with the city.' },
       { name: 'Hermosa Beach', note: 'Beach city with separate mechanical applications, and online-only submittals beginning October 1, 2026.' },
-      { name: 'El Segundo', note: 'Aerospace and deep-tech businesses, per the City’s economic-development site. The mechanical code has local amendments.', href: '/service-areas/el-segundo/' },
+      { name: 'El Segundo', note: 'Aerospace and deep-tech businesses, per the City’s economic-development site. The 2025 California Mechanical Code applies with local amendments.', href: '/service-areas/el-segundo/' },
       { name: 'Gardena', note: 'HVAC and forced-air unit permits are over-the-counter types and need CF1R forms. Industrial and warehouse zones in the mix.' },
       { name: 'Hawthorne', note: 'Century Business Center and Green Line mixed-use planning areas. Inspections are requested 24 hours ahead.' },
       { name: 'Carson', note: 'Industrial, commercial, and townhome settings. The County noise ordinance applies, and multifamily equipment may need vibration isolation.' },

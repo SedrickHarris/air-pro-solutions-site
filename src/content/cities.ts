@@ -1121,8 +1121,9 @@ const elSegundoOverrides: Partial<City> = {
     },
     localTitle: 'El Segundo has more multi-unit than single-unit households, and set construction hours',
     // Client approved the wording and content of this page (local paragraphs included) on 2026-10-15.
+    // Code edition: ESMC 13-4-1 (amlegal) adopts the 2025 California Mechanical Code with amendments, Ord. 1680, 12-3-2025 (checked 2026-10-15).
     localParagraphs: [
-      "The City of El Segundo handles **plan check, permits, and inspections** through the Building and Safety Division of its Community Development Department. The City's Building Codes page lists its mechanical code **with amendments**, and its Building and Safety page does not list HVAC permit requirements, so ask the division what your project needs before work starts. **AIRPRO SOLUTIONS plans each job around your address** and can walk you through the steps.",
+      "The City of El Segundo handles **plan check, permits, and inspections** through the Building and Safety Division of its Community Development Department. El Segundo's municipal code adopts the **2025 California Mechanical Code with local amendments**, and the City's Building and Safety page does not list HVAC permit requirements, so ask the division what your project needs before work starts. **AIRPRO SOLUTIONS plans each job around your address** and can walk you through the steps.",
       "The City sets construction hours at **Monday through Saturday, 7 a.m. to 6 p.m.**, with no work allowed on Sunday or legal holidays, so keep that window in mind when you schedule an installation. The City's demographics page, citing 2021 American Community Survey 5-year estimates, reports that **53% of households are multi-unit and 46.9% are single-unit**. In a multi-unit building, equipment access and placement can depend on the building, so we confirm those details at the property.",
       "Electricity comes from **Southern California Edison** and natural gas from **SoCalGas**, and each utility's own service-area listing includes El Segundo. Both publish rebate programs, and terms and funding change, so confirm current details with the utility before you buy. For commercial properties, the City's economic-development site names **Los Angeles Air Force Base** and The Aerospace Corporation among the organizations located in El Segundo. Official links are in the card beside this text.",
     ],
@@ -1136,7 +1137,7 @@ const elSegundoOverrides: Partial<City> = {
       {
         text: 'Building codes and regulations',
         href: 'https://www.elsegundo.gov/government/departments/community-development/building-and-safety-division/building-codes-and-regulations',
-        note: "Lists the City's adopted codes, including its mechanical code with amendments.",
+        note: "Lists the City's building codes and regulations.",
       },
       {
         text: 'Planning Division',
@@ -1176,7 +1177,7 @@ const elSegundoOverrides: Partial<City> = {
         },
         {
           amount: 'Code amendments',
-          description: "The City's Building Codes page lists its mechanical code with amendments. Ask the Building and Safety Division which requirements apply to your project.",
+          description: "El Segundo's municipal code adopts the 2025 California Mechanical Code with local amendments. Ask the Building and Safety Division which requirements apply to your project.",
           linkLabel: 'Building codes and regulations',
           linkHref: 'https://www.elsegundo.gov/government/departments/community-development/building-and-safety-division/building-codes-and-regulations',
         },
@@ -1214,7 +1215,7 @@ const elSegundoOverrides: Partial<City> = {
       },
       {
         q: 'Do I need a permit for HVAC work in El Segundo?',
-        a: 'Check with the City before work starts. El Segundo handles plan check, permits, and inspections through its Building and Safety Division. Its Building Codes page lists its mechanical code with amendments, and its Building and Safety page does not list HVAC permit requirements, so ask the City what your specific project needs. AIRPRO SOLUTIONS can walk you through the steps.',
+        a: 'Check with the City before work starts. El Segundo handles plan check, permits, and inspections through its Building and Safety Division. Its municipal code adopts the 2025 California Mechanical Code with local amendments, and its Building and Safety page does not list HVAC permit requirements, so ask the City what your specific project needs. AIRPRO SOLUTIONS can walk you through the steps.',
       },
       {
         q: 'What hours can HVAC work happen in El Segundo?',

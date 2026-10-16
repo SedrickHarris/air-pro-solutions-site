@@ -115,7 +115,7 @@ this file is the index, not the source of truth.
   - "SCE page lists gas water heaters": the page names only heat pump water heaters (coupons, no amounts).
   - Housing Element bulletin: dated 2024-07-31, not 2024-07-01. Real but not HVAC-relevant, so it is not on the page.
   - Building and Safety page: supports plan check, "permit issuance" and construction hours, but says nothing about mechanical or HVAC permits (the page says so). Its inspection Friday hours contain a typo, so inspection details are not published.
-- City pages disagree on code editions: the Building Codes page lists the 2022 Mechanical Code "with amendments" and the 2022 Energy Code (adopted November 15, 2022), while the Building and Safety page says the 2022 code is current and the 2025 edition takes effect January 1, 2026. The page states no code year. Reconfirm before launch.
+- Code edition (resolved 2026-10-15): the El Segundo Municipal Code (amlegal) section 13-4-1 adopts the 2025 California Mechanical Code with amendments, and 13-1-1 the 2025 California Building Code, both by Ord. 1680 (12-3-2025). The City's Building Codes page still lists the 2022 adoption (Ord. 1641) and is stale. The page states the 2025 Mechanical Code with local amendments and nothing about the amendment text, the Energy Code or the Green Building Code. The amlegal site notes it may not reflect the most current legislation.
 - Census: owner-occupied rate differs by source (42.6% in the research for 2019-2023, 42.5% on QuickFacts now for 2020-2024, 42.0% on the City page from 2021 ACS) and the 7,889 housing-unit count could not be confirmed. Only the City's 2021 ACS 5-year structure split (53% multi-unit, 46.9% single-unit) is published, attributed to the City.
 - Utilities: SCE (electric) and SoCalGas (gas) are confirmed by the utilities' own documents (SCE community engagement filing, 2021, which lists El Segundo; SoCalGas city list, undated). The two City directory pages in the research (service directory 369 and 368/268948) returned fetch errors. PRE-LAUNCH CHECK: reconfirm both on a current SCE territory page and SoCalGas listing. SCE and SoCalGas rebates are linked with no dollar amounts. The SCE rebate page lists instant coupons for air conditioners and smart thermostats (retailer-based) and a $75 smart-thermostat bill credit; neither figure is on the page.
 - Commercial: Los Angeles Air Force Base and The Aerospace Corporation (2310 E. El Segundo Blvd., aerospace.org/locations) are named from the City's economic-development site ("home to Los Angeles Air Force Base", alongside The Aerospace Corporation). Northrop Grumman, Boeing, Raytheon and Lockheed Martin appear only on that promotional page and stay off the page. Client approval of naming the two organizations is pending (TODO(copy)).
@@ -141,9 +141,7 @@ this file is the index, not the source of truth.
   before each summer.
 - TECH Clean California / HEEHRA: status described "as of early 2026" (Southern California
   single-family funding fully reserved, later requests waitlisted). Re-verify before launch.
-- El Segundo: the City's Building Codes page lists its mechanical code with amendments (2022 codes adopted
-  November 15, 2022), but its Building and Safety page says the 2025 edition takes effect January 1, 2026. The hub
-  states no code year. Reconfirm which edition and amendments apply before launch.
+- El Segundo: hub states the 2025 California Mechanical Code with local amendments (ESMC 13-4-1, Ord. 1680, 12-3-2025; checked 2026-10-15). See the El Segundo section above.
 - Carson and Redondo Beach noise limits: deliberately left without dBA figures (medium-confidence
   planning-document sourcing for Carson). Do not add specific numbers without a stronger source.
 - Clean Power Alliance generation: only confirmed for Redondo Beach, Manhattan Beach, and Carson.
