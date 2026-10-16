@@ -81,7 +81,7 @@ export const hubTableRows: TableRow[] = [
     region: 'South Bay',
     slug: 'south-bay',
     cities: hubRegions[1].cities.join(', '),
-    climate: 'Beach cities in the west, El Segundo, Torrance, Gardena, and Hawthorne inland, Carson in the southeast.',
+    climate: 'From the beach cities to Carson, including El Segundo, Torrance, Gardena, and Hawthorne.',
     checksFirst: "The property's city, since ZIP codes are not city boundaries, then noise and screening rules.",
   },
   {

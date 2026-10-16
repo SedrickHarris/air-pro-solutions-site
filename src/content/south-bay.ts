@@ -46,8 +46,8 @@ export const southBayHub = {
   },
 
   // Sources: city geography per each city's own description (beach cities west of the 405, reached
-  // from PCH; Torrance/Gardena/Hawthorne inland around the 405
-  // corridor). Carson: City of Carson ("about 16 miles south of Downtown Los Angeles"), access to
+  // from PCH; Torrance/Hawthorne inland around the 405
+  // corridor; Gardena's placement is not sourced and is not stated). Carson: City of Carson ("about 16 miles south of Downtown Los Angeles"), access to
   // the 110/405/91. Climate-zone lookup: California Energy Commission address-based tool. No
   // city-level heat-day counts, humidity, record highs, or dBA figures are quoted (see
   // docs/open-items.md).
@@ -55,7 +55,7 @@ export const southBayHub = {
     eyebrow: 'Local knowledge',
     title: 'Beach cities to Carson: how the South Bay fits together',
     paragraphs: [
-      'The South Bay runs from the beach cities and El Segundo on the west and northwest to Carson on the southeast, and each part of it has a different mix of buildings and rules. The beach cities of Redondo Beach, Hermosa Beach, and Manhattan Beach sit west of the 405 and are reached from Pacific Coast Highway. Torrance, Gardena, and Hawthorne form the inland middle around the 405 corridor.',
+      'The South Bay runs from the beach cities and El Segundo on the west and northwest to Carson on the southeast, and each part of it has a different mix of buildings and rules. The beach cities of Redondo Beach, Hermosa Beach, and Manhattan Beach sit west of the 405 and are reached from Pacific Coast Highway. Torrance and Hawthorne form the inland middle around the 405 corridor.',
       'Carson is the southeast anchor, between Torrance and Long Beach, with direct access to the 110, 405, and 91. The city describes itself as about 16 miles south of Downtown Los Angeles. Cross-region driving commonly uses the 405, 110, 105, and 91, and actual travel time depends on traffic and the property’s location.',
       '**California’s Energy Code requirements can vary by a property’s physical location**, and the California Energy Commission provides an address-based climate-zone lookup. That is why we work from the property’s address, not from an assumption that the whole region behaves alike.',
     ],
@@ -63,10 +63,11 @@ export const southBayHub = {
     groups: [
       { label: 'Beach cities', cities: ['Redondo Beach', 'Manhattan Beach', 'Hermosa Beach'] },
       { label: 'El Segundo', cities: ['El Segundo'] },
-      { label: 'Central South Bay', cities: ['Torrance', 'Gardena', 'Hawthorne'] },
+      { label: 'Central South Bay', cities: ['Torrance', 'Hawthorne'] },
+      { label: 'Gardena', cities: ['Gardena'] },
       { label: 'Harbor side', cities: ['Carson'] },
     ],
-    note: 'ZIP codes are not city boundaries. For example, 90248 includes parts of Gardena, Carson, and Los Angeles’ Harbor Gateway area, so permits follow the property’s city, not its mailing city.',
+    note: 'ZIP codes are not city boundaries, so permits follow the property’s city, not its mailing city.',
   },
 
   services: {
@@ -77,14 +78,14 @@ export const southBayHub = {
       { slug: 'heating-repair', body: 'Furnace and gas heating work in cities served by SoCalGas, with the city’s mechanical permit path checked first.' },
       { slug: 'heat-pump-services', body: 'Heat pump work starts with SCE for electric delivery, and with state incentive programs that have had limited funding.' },
       { slug: 'residential-hvac', name: 'Residential HVAC', body: 'Single-family homes, condos, townhomes, and apartments each bring different access, approval, and equipment-placement questions.', icon: 'home' },
-      { slug: 'commercial-hvac', name: 'Commercial HVAC', body: 'Offices, retail, restaurants, and rooftop equipment, from El Segundo’s aerospace and deep-tech businesses to Gardena and Carson industrial zones.', icon: 'building' },
+      { slug: 'commercial-hvac', name: 'Commercial HVAC', body: 'Offices, retail, restaurants, and rooftop equipment, from El Segundo’s aerospace and deep-tech businesses to Carson industrial zones.', icon: 'building' },
       { slug: 'services', name: 'All HVAC Services', body: 'See the full list of repair, installation, and maintenance services.', icon: 'check' },
     ] satisfies ServiceCardSpec[],
   },
 
   // Sources: Redondo Beach multiple-family zoning and mixed-use overlay; Torrance Downtown
   // condominium complexes; El Segundo aerospace and deep-tech businesses (City economic-development site);
-  // Torrance 290-acre industrial project area; Gardena and Carson industrial/warehouse zones.
+  // Torrance 290-acre industrial project area; Carson industrial/warehouse zones (no Gardena industrial source).
   split: {
     eyebrow: 'Residential and commercial',
     title: 'Beach-city condos, suburban homes, and commercial buildings',
@@ -99,7 +100,7 @@ export const southBayHub = {
     commercial: {
       tag: 'Commercial',
       title: 'Commercial properties',
-      body: 'El Segundo’s economic-development site highlights aerospace and deep-tech businesses. Torrance has a 290-acre industrial project area, and Gardena and Carson have industrial and warehouse zones.',
+      body: 'El Segundo’s economic-development site highlights aerospace and deep-tech businesses. Torrance has a 290-acre industrial project area, and Carson has industrial and warehouse zones.',
       chips: ['Offices', 'Retail and restaurants', 'Rooftop units', 'Warehouse and light industrial'],
       ctaLabel: 'Commercial HVAC',
       href: '/commercial-hvac/',
@@ -115,8 +116,8 @@ export const southBayHub = {
   // Division; electronic permit system); Manhattan Beach (Community Development, Building and
   // Safety); Hermosa Beach (Community Development, Building Safety Division; online-only portal
   // effective 2026-10-01); El Segundo (Community Development, Building and Safety Division; mechanical
-  // 2025 California Mechanical Code with amendments per ESMC 13-4-1, Ord. 1680, 12-3-2025); Gardena (Community Development, Building
-  // Services; New HVAC/Forced Air Unit over-the-counter permits, CF1R forms); Hawthorne (Department
+  // 2025 California Mechanical Code with amendments per ESMC 13-4-1, Ord. 1680, 12-3-2025); Gardena (Building & Safety Division, per the
+  // City's Schedule An Appointment page dated 2026-08-05; New HVAC/Forced Air Unit over-the-counter permits, CF1R forms); Hawthorne (Department
   // of Building and Safety; 24-hour inspection lead time, 9am-5pm window); Carson (Building and
   // Safety Department; mechanical permit worksheet). Title 24 per the CEC Energy Code Support
   // Center. See docs/open-items.md for the dated items.
@@ -131,7 +132,7 @@ export const southBayHub = {
       ['Manhattan Beach', 'Community Development, Building and Safety', 'The city states permits are required for improvements to mechanical systems. Exterior equipment placement, architectural review, and noise conditions are confirmed with the city.'],
       ['Hermosa Beach', 'Community Development, Building Safety Division', 'Separate building, mechanical, electrical, and plumbing applications. Beginning October 1, 2026, applications available through the city’s online portal are to be submitted online.'],
       ['El Segundo', 'Community Development, Building and Safety Division', 'The municipal code adopts the 2025 California Mechanical Code with local amendments, so amendments are checked before permit submittal.'],
-      ['Gardena', 'Community Development, Building Services', 'Lists New HVAC Permit and Forced Air Unit Permit among its over-the-counter permit types, and the in-person process requires completed CF1R forms.'],
+      ['Gardena', 'Building & Safety Division', 'Lists New HVAC Permit and Forced Air Unit Permit among its over-the-counter permit types, and the in-person process requires completed CF1R forms.'],
       ['Hawthorne', 'Department of Building and Safety', 'Inspections are requested at least 24 hours in advance and run between 9:00 a.m. and 5:00 p.m., so inspection lead time belongs in the schedule.'],
       ['Carson', 'Building and Safety Department', 'The city’s mechanical permit worksheet lists furnace, heater, boiler, mini-split, and AC condenser work.'],
     ],
@@ -210,7 +211,7 @@ export const southBayHub = {
       { name: 'Manhattan Beach', note: 'Beach city with Clean Power Alliance generation. Mechanical work needs a permit, and exterior equipment placement is confirmed with the city.' },
       { name: 'Hermosa Beach', note: 'Beach city with separate mechanical applications, and online-only submittals beginning October 1, 2026.' },
       { name: 'El Segundo', note: 'Aerospace and deep-tech businesses, per the City’s economic-development site. The 2025 California Mechanical Code applies with local amendments.', href: '/service-areas/el-segundo/' },
-      { name: 'Gardena', note: 'HVAC and forced-air unit permits are over-the-counter types and need CF1R forms. Industrial and warehouse zones in the mix.', href: '/service-areas/gardena/' },
+      { name: 'Gardena', note: 'HVAC and forced-air unit permits are over-the-counter types and need CF1R forms.', href: '/service-areas/gardena/' },
       { name: 'Hawthorne', note: 'Century Business Center and Green Line mixed-use planning areas. Inspections are requested 24 hours ahead.' },
       { name: 'Carson', note: 'Industrial, commercial, and townhome settings. The County noise ordinance applies, and multifamily equipment may need vibration isolation.' },
     ],
@@ -256,12 +257,12 @@ export const southBayHub = {
     },
     {
       q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in the South Bay?',
-      a: 'Yes, for offices, retail, restaurants, and light industrial and warehouse properties. El Segundo’s economic-development site highlights aerospace and deep-tech businesses, and Torrance has a 290-acre industrial project area, while Gardena and Carson have industrial and warehouse zones. Business incentives such as SCE Express Solutions or SoCalGas business rebates depend on the equipment and project, so call us before you buy equipment.',
+      a: 'Yes, for offices, retail, restaurants, and light industrial and warehouse properties. El Segundo’s economic-development site highlights aerospace and deep-tech businesses, and Torrance has a 290-acre industrial project area, while Carson has industrial and warehouse zones. Business incentives such as SCE Express Solutions or SoCalGas business rebates depend on the equipment and project, so call us before you buy equipment.',
       links: [{ text: 'call us', href: siteConfig.phoneHref }],
     },
     {
       q: 'Does my ZIP code tell me which city permit rules apply?',
-      a: 'No, because ZIP codes are mail delivery areas, not city boundaries. ZIP 90248, for example, includes parts of Gardena, Carson, and Los Angeles’ Harbor Gateway area, and 90250 includes Hawthorne and unincorporated communities. The city that issues your permit is set by the property’s physical location, so we confirm jurisdiction by address before quoting.',
+      a: 'No, because ZIP codes are mail delivery areas, not city boundaries. ZIP 90250, for example, includes Hawthorne and unincorporated communities. The city that issues your permit is set by the property’s physical location, so we confirm jurisdiction by address before quoting.',
     },
     {
       q: 'How quickly can a technician reach me?',
