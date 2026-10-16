@@ -70,7 +70,6 @@ export const orangeCountyHub = {
       { label: 'North Orange County', cities: ['Anaheim', 'Fullerton'] },
       { label: 'Central Orange County', cities: ['Santa Ana', 'Costa Mesa', 'Tustin'] },
       { label: 'Coastal', cities: ['Huntington Beach', 'Newport Beach'] },
-      { label: 'Freeway and toll-road hub', cities: ['Irvine'] },
     ],
     gettingAround:
       '**Getting around:** the north is served by I-5, SR-57, and SR-91, the central cities by I-5, SR-55, SR-22, and I-405, and the coast by I-405, SR-55, SR-73, and PCH. Arrival times vary with freeway traffic and appointment availability.',
@@ -80,7 +79,7 @@ export const orangeCountyHub = {
   // Source: SCAG local profiles using California Department of Finance E-5 data, 2018 (structure
   // type only). Building-age figures: ACS 2019 countywide (60.4% pre-1980, 26.6% 1980-1999, 13.0%
   // 2000+); ACS 2014-2018 estimates for Santa Ana (55% pre-1970), Costa Mesa (49.6% pre-1970),
-  // Newport Beach (40.1% pre-1970), Irvine (1.4% pre-1970, largest cohort 2000-2009 at 23.7%). No
+  // Newport Beach (40.1% pre-1970). Irvine's own 4.8% pre-1970 (SCAG, ACS 2017) is on its city page. No
   // age figures were found for Anaheim, Huntington Beach, Fullerton, or Tustin - none are claimed.
   housing: {
     eyebrow: 'Property types',
@@ -100,7 +99,7 @@ export const orangeCountyHub = {
     paragraphs: [
       'Structure type shapes the job. Detached homes are the largest single category in all eight cities, but in Irvine and Tustin buildings with 5 or more units are within two points of them. Attached homes are 16.4% of Irvine and 15.7% of Newport Beach units, which can mean shared walls, shared roofs, and association rules.',
       'Anaheim has the largest housing stock at 108,222 units, followed by Irvine at 102,474, and in both cities more than a third of units are in buildings of 5 or more.',
-      'Building age varies widely. Countywide, 60.4% of housing units were built before 1980, 26.6% between 1980 and 1999, and 13.0% in 2000 or later (ACS 2019). Homes built before 1970 are 55% of Santa Ana, 49.6% of Costa Mesa, and 40.1% of Newport Beach, against 1.4% in Irvine, where the largest group was built from 2000 to 2009.',
+      'Building age varies widely. Countywide, 60.4% of housing units were built before 1980, 26.6% between 1980 and 1999, and 13.0% in 2000 or later (ACS 2019). Homes built before 1970 are 55% of Santa Ana, 49.6% of Costa Mesa, and 40.1% of Newport Beach.',
       'Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     ],
     pending: 'Housing age figures were not found for Anaheim, Huntington Beach, Fullerton, and Tustin, so no age claim is made for them.',
@@ -113,15 +112,15 @@ export const orangeCountyHub = {
       { slug: 'ac-repair', body: "Diagnosis for cooling failures where inland Tustin and Anaheim run hotter than the ocean-moderated coast, and where Irvine's screening and noise rules affect condenser placement." },
       { slug: 'heating-repair', body: 'Mild winters still bring a real heating season, with a January average low of 44°F. Furnace work in each city starts with its permit path and SoCalGas service.' },
       { slug: 'heat-pump-services', body: 'Heat pump work starts with your electric utility, Anaheim Public Utilities or SCE, and with state incentive programs whose funding has been fully reserved.' },
-      { slug: 'residential-hvac', name: 'Residential HVAC', body: "Detached homes, townhomes, condos, and apartments, from Santa Ana's older housing to Irvine's newer planned communities.", icon: 'home' },
-      { slug: 'commercial-hvac', name: 'Commercial HVAC', body: 'Hotels and convention space at the Anaheim Resort, offices in the Irvine Business Complex, and rooftop units with city-specific screening rules.', icon: 'building' },
+      { slug: 'residential-hvac', name: 'Residential HVAC', body: "Detached homes, townhomes, condos, and apartments, from Santa Ana's older housing to Irvine, where SCAG counts only 4.8% of housing built before 1970.", icon: 'home' },
+      { slug: 'commercial-hvac', name: 'Commercial HVAC', body: 'Hotels and convention space at the Anaheim Resort and rooftop units with city-specific screening rules.', icon: 'building' },
       { slug: 'services', name: 'All HVAC Services', body: 'See the full list of repair, installation, and maintenance services.', icon: 'check' },
     ] satisfies ServiceCardSpec[],
   },
 
   // Source: Anaheim Resort Specific Plan (581 acres); Irvine like-for-like rooftop heat pump
   // change-out limits (20 tons or less, under 2,000 lb, roof slope 2% or less, no curb change);
-  // Irvine Business Complex / Spectrum, Anaheim Resort / Convention Center, Santa Ana Downtown /
+  // Anaheim Resort / Convention Center, Santa Ana Downtown /
   // Civic Center district names.
   split: {
     eyebrow: 'Residential and commercial',
@@ -129,7 +128,7 @@ export const orangeCountyHub = {
     residential: {
       tag: 'Residential',
       title: 'Homes, condos, and apartments',
-      body: "From Santa Ana's older housing to Irvine's newer planned communities and HOA neighborhoods, with access, placement, and association rules checked first.",
+      body: "From Santa Ana's older housing to Irvine's mostly post-1970 housing and HOA neighborhoods, with access, placement, and association rules checked first.",
       chips: ['Single-family homes', 'Condos and townhomes', 'Apartments'],
       ctaLabel: 'Residential HVAC',
       href: '/residential-hvac/',
@@ -143,8 +142,8 @@ export const orangeCountyHub = {
       href: '/commercial-hvac/',
     },
     paragraphs: [
-      "**Irvine's rooftop path has limits.** The city describes a like-for-like commercial rooftop heat pump change-out for units of 20 tons or less, under 2,000 pounds, on a roof with a slope of 2% or less and no curb change. Anything outside those limits is a different review.",
-      "**Districts differ.** The Irvine Business Complex and Spectrum, the Anaheim Resort and Convention Center area, and Santa Ana's Downtown and Civic Center each bring different building types, rooftop access, and neighbor-noise conditions.",
+      "**Irvine's rooftop path has limits.** The city describes a like-for-like commercial rooftop heat pump change-out for units of 20 tons or less, no more than 2,000 pounds each, on a roof with a slope of 2% or less and no curb change. Anything outside those limits is a different review.",
+      "**Districts differ.** The Anaheim Resort and Convention Center area and Santa Ana's Downtown and Civic Center each bring different building types, rooftop access, and neighbor-noise conditions.",
     ],
   },
 
@@ -161,7 +160,7 @@ export const orangeCountyHub = {
     intro: 'Mechanical permits come from each city, not from Orange County. Replacing AC, furnace, heat pump, or air handler equipment should be treated as permit-required unless the city says otherwise, and electrical, gas, or plumbing permits can apply on the same job.',
     columns: ['City', 'Permit path', 'What is different locally'],
     rows: [
-      ['Irvine', 'Online residential replacement permit for AC and furnace', 'The new outdoor condenser must stay in its existing location and at least 2 feet from any property line, and the applicant is to check HOA requirements where they apply.'],
+      ['Irvine', 'Online residential replacement permit for AC and furnace', 'The new outdoor condenser must stay in its existing location and at least 2 feet from any property line, and HOA approval is required where an association applies.'],
       ['Anaheim', 'Mechanical permit', 'The city states no separate building permit is needed for a same-location replacement when the drain, gas, and electrical are not altered. The mechanical permit still applies.'],
       ['Santa Ana', 'Permit before work, by equipment category', 'Separate categories for air conditioning, furnaces up to and over 100,000 BTU, fan coils, mini-splits, gas piping, and air vents, so the equipment decides the permit.'],
       ['Costa Mesa', 'Insta-Permit, with Title 24 form and site plan', 'Requires a CF1R compliance form, and a condenser site plan is reviewed by Planning.'],
@@ -178,14 +177,14 @@ export const orangeCountyHub = {
   },
 
   // Sources: Irvine screening/noise standard (parapet height / eave-line visibility; 5 dB(A) above
-  // ambient or the zone standard, whichever is higher) and HOA map; Anaheim Resort Specific Plan
+  // ambient or the land-use standard, whichever is higher) and HOA map; Anaheim Resort Specific Plan
   // (581 acres); Fullerton Municipal Code Chapter 15.90 and its construction-hours exemption.
   placement: {
     eyebrow: 'Placement and noise',
     title: 'Where the outdoor unit can go depends on the city',
     columns: ['City', 'Placement, screening, and noise'],
     rows: [
-      ['Irvine', 'Rooftop and ground equipment must be screened: no higher than the parapet on a flat roof, and not visible from the eave line on a pitched roof. Air conditioning noise is capped at the higher of the zone standard or 5 dB(A) above ambient. The city publishes an HOA map.'],
+      ['Irvine', 'Rooftop and ground equipment must be screened: no higher than the parapet on a flat roof, and not visible from the eave line on a pitched roof. Air conditioning noise is capped at the higher of the land-use noise standard or 5 dB(A) above ambient. The city publishes an HOA map.'],
       ['Anaheim', 'The Anaheim Resort Specific Plan covers 581 acres of hotels, convention space, restaurants, and retail, where equipment shielding and sound buffering are part of the planning context.'],
       ['Fullerton', 'Noise is regulated under Chapter 15.90. Construction is exempt from the noise limits from 7 a.m. to 8 p.m., except on Sundays and holidays.'],
       ['Santa Ana, Costa Mesa, Newport Beach, Huntington Beach, Tustin', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
@@ -232,7 +231,7 @@ export const orangeCountyHub = {
       'Other seven cities, electric: SCE',
       'Natural gas: SoCalGas',
     ],
-    note: '**Confirm by address:** service territory can vary by address, so verify your utility directly before relying on any program. Gas service is directly confirmed for Anaheim and assumed for the other cities.',
+    note: '**Confirm by address:** service territory can vary by address, so verify your utility directly before relying on any program. Gas service is directly confirmed for Anaheim and Irvine and assumed for the other six cities.',
   },
 
   cities: {
@@ -242,10 +241,11 @@ export const orangeCountyHub = {
       {
         name: 'Irvine',
         href: '/service-areas/irvine/',
-        note: 'Planned-community city where only 1.4% of homes were built before 1970 and the largest age group is 2000 to 2009, at 23.7%. Detached homes lead at 38.9%, with 5-or-more-unit buildings close behind at 37.4%.',
-        areas: 'Irvine Business Complex, Spectrum, Great Park, Northwood, Woodbridge, Turtle Rock, Orchard Hills, Portola Springs',
-        utility: 'Electric: SCE. Rooftop and ground equipment screening rules apply.',
-        zips: '92602, 92603, 92604, 92606, 92612, 92614, 92616-92620, 92623, 92650',
+        note: 'Only 4.8% of housing was built before 1970 (SCAG, ACS 2017). Detached homes lead at 38.9%, with buildings of 5 or more units close behind at 37.4% (SCAG, 2018).',
+        areas: 'Neighborhood list pending verification',
+        utility: 'Electric: SCE. Gas: SoCalGas. Rooftop and ground equipment must be screened (City of Irvine).',
+        zips: 'pending',
+        pending: 'ZIP list pending verification.',
       },
       {
         name: 'Anaheim',
@@ -335,7 +335,7 @@ export const orangeCountyHub = {
     },
     {
       q: 'Are there noise or screening rules for outdoor equipment?',
-      a: 'Yes, and they are not the same in every city. Irvine requires screening of rooftop and ground equipment and caps air conditioning noise at the higher of the zone standard or 5 dB(A) above ambient. Fullerton regulates noise under Chapter 15.90. The Anaheim Resort Specific Plan area has its own shielding and sound-buffering context. For the other cities, confirm placement, screening, and noise conditions for the specific property.',
+      a: 'Yes, and they are not the same in every city. Irvine requires screening of rooftop and ground equipment and caps air conditioning noise at the higher of the land-use noise standard or 5 dB(A) above ambient. Fullerton regulates noise under Chapter 15.90. The Anaheim Resort Specific Plan area has its own shielding and sound-buffering context. For the other cities, confirm placement, screening, and noise conditions for the specific property.',
     },
     {
       q: 'Do you work on condos, apartments, and HOA properties?',
@@ -343,11 +343,11 @@ export const orangeCountyHub = {
     },
     {
       q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in Orange County?',
-      a: "Yes, for offices, retail, restaurants, hotels, and other commercial properties. Examples include the Anaheim Resort area and the Irvine Business Complex and Spectrum. Irvine's permit rules describe a like-for-like rooftop heat pump change-out path for units of 20 tons or less, under 2,000 pounds, on a roof with a slope of 2% or less and no curb change.",
+      a: "Yes, for offices, retail, restaurants, hotels, and other commercial properties. An example is the Anaheim Resort area. Irvine's permit rules describe a like-for-like rooftop heat pump change-out path for units of 20 tons or less, no more than 2,000 pounds each, on a roof with a slope of 2% or less and no curb change.",
     },
     {
       q: 'Do older homes in Orange County need different HVAC work?',
-      a: 'Often, yes. Countywide, 60.4% of housing units were built before 1980. In Santa Ana 55% of homes were built before 1970, in Costa Mesa 49.6%, and in Newport Beach 40.1%, compared with 1.4% in Irvine. Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
+      a: 'Often, yes. Countywide, 60.4% of housing units were built before 1980. In Santa Ana 55% of homes were built before 1970, in Costa Mesa 49.6%, and in Newport Beach 40.1%. Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     },
     {
       q: 'How quickly can a technician reach me?',
