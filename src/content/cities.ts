@@ -1120,8 +1120,8 @@ const elSegundoOverrides: Partial<City> = {
       source: "Sources: City of El Segundo demographics and Building and Safety pages, SCE's service-area filing, and SoCalGas's city list.",
     },
     localTitle: 'El Segundo has more multi-unit than single-unit households, and set construction hours',
-    // TODO(copy): "can walk you through the steps" is client-approved on the other city pages; re-flag until the client confirms it here.
-    // TODO(copy): client to confirm naming Los Angeles Air Force Base and The Aerospace Corporation (City economic-development site; aerospace.org).
+    // Client confirmed the FAQ answers (including the "walk you through the steps" wording and the Air Force Base / Aerospace Corporation mention in the commercial FAQ) on 2026-10-15.
+    // TODO(copy): the same "walk you through the steps" wording and the Air Force Base / Aerospace Corporation mention also appear in these local paragraphs, which were not part of that confirmation.
     localParagraphs: [
       "The City of El Segundo handles **plan check, permits, and inspections** through the Building and Safety Division of its Community Development Department. The City's Building Codes page lists its mechanical code **with amendments**, and its Building and Safety page does not list HVAC permit requirements, so ask the division what your project needs before work starts. **AIRPRO SOLUTIONS plans each job around your address** and can walk you through the steps.",
       "The City sets construction hours at **Monday through Saturday, 7 a.m. to 6 p.m.**, with no work allowed on Sunday or legal holidays, so keep that window in mind when you schedule an installation. The City's demographics page, citing 2021 American Community Survey 5-year estimates, reports that **53% of households are multi-unit and 46.9% are single-unit**. In a multi-unit building, equipment access and placement can depend on the building, so we confirm those details at the property.",
@@ -1223,7 +1223,6 @@ const elSegundoOverrides: Partial<City> = {
         boldLead: 'Monday through Saturday, 7 a.m. to 6 p.m.',
       },
       {
-        // TODO(copy): practice claim (condos, townhomes, apartments, equipment access); client to confirm.
         q: 'Do you work in condos and apartment buildings in El Segundo?',
         a: "Yes. The City's demographics page, citing 2021 American Community Survey 5-year estimates, reports that 53% of El Segundo households are multi-unit and 46.9% are single-unit. AIRPRO SOLUTIONS services condos, townhomes, and apartments as well as single-family homes, and in a multi-unit building we confirm equipment access and placement at the property. See our Residential HVAC page.",
         links: [{ text: 'Residential HVAC page', href: '/residential-hvac/' }],
@@ -1264,13 +1263,12 @@ const elSegundoOverrides: Partial<City> = {
         links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
       },
       {
-        // TODO(copy): commercial practice claim plus the Air Force Base / Aerospace Corporation mention; client to confirm.
         q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in El Segundo?',
         a: "Yes. AIRPRO SOLUTIONS services commercial properties in El Segundo, including rooftop units, office buildings, and retail spaces. The City's economic-development site names Los Angeles Air Force Base and The Aerospace Corporation among the organizations located in El Segundo. See our Commercial HVAC page for the full scope.",
         links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
       },
     ],
-    // TODO(copy): client review pending for every FAQ answer above (2026-10-15 approval covered the other six city pages only).
+    // Client confirmed every FAQ answer above on 2026-10-15.
   },
 };
 
