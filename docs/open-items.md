@@ -197,7 +197,7 @@ this file is the index, not the source of truth.
 - Pre-launch recheck: APU rebate pages (anaheim.net/2579 and /936), AQMD GO ZERO page, the American Legal supplement, Form B713 and the City building codes page, the SCAG profile URL.
 - Client approval: NOT YET CONFIRMED. Everything stays flagged TODO(copy) until the user says the client approved it: the local paragraphs, every FAQ answer, the emergency card wording, the permit-application sentence, the code-adoption and sound-limit sentences, the APU and GO ZERO wording and the commercial Resort FAQ. TODO(copy): confirm with the City Building Division which permits an AC or furnace replacement needs.
 - Go-live wiring done (Orange County hub is built): Anaheim card `href` in `orangeCountyHub.cities.items` (src/content/orange-county.ts), chip link on /service-areas/ (src/app/service-areas/page.tsx), `hubCityIndexNote` (src/content/service-area-hub.ts), and the Orange County page sentence now links the Irvine and Anaheim pages. Skipped, pending the user's approval: the Commercial HVAC region card (src/content/commercial-hvac.ts, a city-name list only), any other city's `nearby` row (Irvine's `nearby` stays empty), and the Anaheim card text itself (workflow step 7, hub audit). No hub page was created.
-- Hub audit (step 7): pending the user's approval of each change. Existing hub Anaheim copy flagged as unsupported so far: the same-location permit row, "shielding and sound buffering" for the Resort plan, the note that no Anaheim age figures were found (SCAG has 44.6% before 1970), the "$200 per ton" rebate line with no source link, and "gas directly confirmed for Anaheim".
+- Hub audit APPLIED 2026-10-15 (user approved all eleven fixes): the permit row and permit FAQ no longer state an exemption (Form B713 and the Building Division instead); the Resort "shielding and sound buffering" claim was replaced with the City's Resort page description and the AMC 6.70.010 general limit (row and noise FAQ); the APU rebate card is link-only with no amounts; the first-come-first-served sentence and the gas note were corrected (gas confirmed for Irvine only); the Anaheim card gained the 44.6% pre-1970 figure and its ZIPs are now pending; the "no age figures" note no longer lists Anaheim; the districts line and the AC repair card no longer assert rooftop, noise or inland-heat conditions. No change was needed on the /service-areas/ directory, the Commercial HVAC region card (a city-name list) or the Residential HVAC hub. Follow-ups: an audit of the generic SoCalGas lines for all eight cities, and the NWS 112F and OCTA grouping checks.
 - Hero photo is still "Photo pending".
 - Claim wording follows the approved list. Do not strengthen it.
 - Reference artifact: claude/reference/anaheim-location.html (artifact https://claude.ai/artifact/ERB3EoUntRgJ28MbaxujFf, version 1; to be synced to repo wording at the end).
@@ -225,8 +225,9 @@ this file is the index, not the source of truth.
 
 ## /service-areas/orange-county/ (src/content/orange-county.ts)
 
-- Anaheim Public Utilities Home Incentives Program ($200/ton, duct repair, thermostat terms):
-  first-come-first-served, no publication date found. Verify current terms before launch.
+- Anaheim Public Utilities rebate card is link-only (anaheim.net/2579/Heating-Cooling-Systems); no dollar
+  amounts are published (the $200/ton, duct repair and thermostat terms are not on the City page and the
+  DSIRE record is dated 2025-08-04). Recheck the APU rebate pages before launch.
 - SoCalGas 2026 furnace rebate tiers and $75 thermostat rebate: through December 31, 2026 or until
   funds run out. Remove or update in January 2027.
 - SCE Smart Energy Program ($75 enrollment + up to $50/yr): re-verify current credit amount before
@@ -235,14 +236,19 @@ this file is the index, not the source of truth.
   multifamily reservation window closed 2025-12-18. Re-verify before launch.
 - 2025 Energy Code (Title 24) effective date: applies to permits submitted on or after 2026-01-01.
   Re-verify if the compliance date changes.
-- No source URLs were found for any of the three Orange County rebate programs, so the rebate
-  cards carry no link. Add official source URLs once verified (Anaheim Public Utilities Home
-  Incentives Program, SoCalGas 2026 rebates, SCE Smart Energy Program).
-- Housing age figures are missing for Anaheim, Huntington Beach, Fullerton, and Tustin - no age
-  claim is made for them. Do not add without a source.
+- No source URLs were found for the SoCalGas and SCE Smart Energy rebate cards, so they carry no link.
+  Add official source URLs once verified (SoCalGas 2026 rebates, SCE Smart Energy Program).
+- Housing age figures are missing for Huntington Beach, Fullerton, and Tustin - no age claim is made
+  for them. Do not add without a source. Anaheim's (44.6% before 1970) and Irvine's (4.8%) are on their
+  city pages and on the hub's city cards or notes; they are not in the cross-city comparison because
+  the vintages differ (ACS 2017 vs ACS 2014-2018).
 - Fullerton ZIP list is unverified (low confidence) and shown as "pending," not a list.
-- Gas utility (SoCalGas) is directly confirmed only for Anaheim and assumed for the other seven
-  cities. Do not strengthen this to a confirmed claim without a source.
+- Gas utility (SoCalGas) is directly confirmed only for Irvine (City utility page) and assumed for the
+  other seven cities. No source names SoCalGas for Anaheim. The generic "natural gas is supplied by
+  SoCalGas" lines (the utilities intro and the utility FAQ) cover all eight cities and are not yet
+  audited. Do not strengthen this to a confirmed claim without a source.
+- Anaheim climate: the hub's NWS 112F Anaheim event reading and the "North Orange County" OCTA grouping
+  were not re-checked.
 - Climate figures come from the NWS Tustin MCAS station summary (single station, not 1991-2020
   normals). Keep the "station and event readings, not city averages" wording.
 - City-tagged Orange County reviews, real photos, and business hours are pending client input.

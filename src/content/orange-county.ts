@@ -79,8 +79,8 @@ export const orangeCountyHub = {
   // Source: SCAG local profiles using California Department of Finance E-5 data, 2018 (structure
   // type only). Building-age figures: ACS 2019 countywide (60.4% pre-1980, 26.6% 1980-1999, 13.0%
   // 2000+); ACS 2014-2018 estimates for Santa Ana (55% pre-1970), Costa Mesa (49.6% pre-1970),
-  // Newport Beach (40.1% pre-1970). Irvine's own 4.8% pre-1970 (SCAG, ACS 2017) is on its city page. No
-  // age figures were found for Anaheim, Huntington Beach, Fullerton, or Tustin - none are claimed.
+  // Newport Beach (40.1% pre-1970). Irvine's own 4.8% pre-1970 (SCAG, ACS 2017) is on its city page. Anaheim's own
+  // 44.6% pre-1970 (SCAG, ACS 2017) is on its city page. No age figures were found for Huntington Beach, Fullerton, or Tustin - none are claimed.
   housing: {
     eyebrow: 'Property types',
     title: 'Housing mix by city: detached homes lead, but multifamily is close to half in two cities',
@@ -102,14 +102,14 @@ export const orangeCountyHub = {
       'Building age varies widely. Countywide, 60.4% of housing units were built before 1980, 26.6% between 1980 and 1999, and 13.0% in 2000 or later (ACS 2019). Homes built before 1970 are 55% of Santa Ana, 49.6% of Costa Mesa, and 40.1% of Newport Beach.',
       'Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     ],
-    pending: 'Housing age figures were not found for Anaheim, Huntington Beach, Fullerton, and Tustin, so no age claim is made for them.',
+    pending: 'Housing age figures were not found for Huntington Beach, Fullerton, and Tustin, so no age claim is made for them. Anaheim\'s and Irvine\'s pre-1970 shares are on their city pages.',
   },
 
   services: {
     eyebrow: 'Services in Orange County',
     title: "HVAC work across the county's homes and buildings",
     cards: [
-      { slug: 'ac-repair', body: "Diagnosis for cooling failures where inland Tustin and Anaheim run hotter than the ocean-moderated coast, and where Irvine's screening and noise rules affect condenser placement." },
+      { slug: 'ac-repair', body: "Diagnosis for cooling failures, with equipment sized from a load calculation for your specific property, and where Irvine's screening and noise rules affect condenser placement." },
       { slug: 'heating-repair', body: 'Mild winters still bring a real heating season, with a January average low of 44°F. Furnace work in each city starts with its permit path and SoCalGas service.' },
       { slug: 'heat-pump-services', body: 'Heat pump work starts with your electric utility, Anaheim Public Utilities or SCE, and with state incentive programs whose funding has been fully reserved.' },
       { slug: 'residential-hvac', name: 'Residential HVAC', body: "Detached homes, townhomes, condos, and apartments, from Santa Ana's older housing to Irvine, where SCAG counts only 4.8% of housing built before 1970.", icon: 'home' },
@@ -143,12 +143,11 @@ export const orangeCountyHub = {
     },
     paragraphs: [
       "**Irvine's rooftop path has limits.** The city describes a like-for-like commercial rooftop heat pump change-out for units of 20 tons or less, no more than 2,000 pounds each, on a roof with a slope of 2% or less and no curb change. Anything outside those limits is a different review.",
-      "**Districts differ.** The Anaheim Resort and Convention Center area and Santa Ana's Downtown and Civic Center each bring different building types, rooftop access, and neighbor-noise conditions.",
+      "**Districts differ.** The Anaheim Resort and Convention Center area and Santa Ana's Downtown and Civic Center are different kinds of districts, so we confirm building type, rooftop access, and nearby noise conditions at each property.",
     ],
   },
 
-  // Sources: Irvine online residential replacement permit; Anaheim same-location replacement
-  // exemption from a separate building permit; Santa Ana equipment-category permitting; Costa Mesa
+  // Sources: Irvine online residential replacement permit; Anaheim Form B713 (no exemption stated); Santa Ana equipment-category permitting; Costa Mesa
   // Insta-Permit and CF1R/site plan; Newport Beach express furnace permit and plan-check triggers;
   // Huntington Beach mechanical plan package; Fullerton EasyDev portal / CF1R-ALT-HVAC; Tustin
   // 360-day permit expiration. Title 24: CEC 2025 Energy Code effective for permits submitted on or
@@ -161,7 +160,7 @@ export const orangeCountyHub = {
     columns: ['City', 'Permit path', 'What is different locally'],
     rows: [
       ['Irvine', 'Online residential replacement permit for AC and furnace', 'The new outdoor condenser must stay in its existing location and at least 2 feet from any property line, and HOA approval is required where an association applies.'],
-      ['Anaheim', 'Mechanical permit', 'The city states no separate building permit is needed for a same-location replacement when the drain, gas, and electrical are not altered. The mechanical permit still applies.'],
+      ['Anaheim', 'Mechanical permit', 'The Building Division issues mechanical permits through Form B713. Confirm with the Building Division, (714) 765-5153, which permits your replacement needs.'],
       ['Santa Ana', 'Permit before work, by equipment category', 'Separate categories for air conditioning, furnaces up to and over 100,000 BTU, fan coils, mini-splits, gas piping, and air vents, so the equipment decides the permit.'],
       ['Costa Mesa', 'Insta-Permit, with Title 24 form and site plan', 'Requires a CF1R compliance form, and a condenser site plan is reviewed by Planning.'],
       ['Newport Beach', 'Express permit path for furnace replacement', 'Furnace replacement often needs a permit. Plan check applies to systems over 7,000 square feet, mechanically ventilated basements or garages, standby generator exhaust, and VRF systems.'],
@@ -185,29 +184,30 @@ export const orangeCountyHub = {
     columns: ['City', 'Placement, screening, and noise'],
     rows: [
       ['Irvine', 'Rooftop and ground equipment must be screened: no higher than the parapet on a flat roof, and not visible from the eave line on a pitched roof. Air conditioning noise is capped at the higher of the land-use noise standard or 5 dB(A) above ambient. The city publishes an HOA map.'],
-      ['Anaheim', 'The Anaheim Resort Specific Plan covers 581 acres of hotels, convention space, restaurants, and retail, where equipment shielding and sound buffering are part of the planning context.'],
+      ['Anaheim', "The City's Anaheim Resort page describes a 581-acre specific plan area of hotels, convention and conference facilities, restaurants, retail, and entertainment. Anaheim Municipal Code Sec. 6.70.010 sets a general 60 dB(A) property-line sound limit, so confirm placement and noise for the specific property."],
       ['Fullerton', 'Noise is regulated under Chapter 15.90. Construction is exempt from the noise limits from 7 a.m. to 8 p.m., except on Sundays and holidays.'],
       ['Santa Ana, Costa Mesa, Newport Beach, Huntington Beach, Tustin', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
     ],
     note: "Based on each city's municipal code and planning materials. Code text changes, so current requirements are confirmed with the city.",
   },
 
-  // Rebate sources: Anaheim Public Utilities Home Incentives Program ($200/ton AC/heat pump at
-  // 14.3 SEER2+, 50% duct repair up to $300, $50/thermostat up to 2, first-come first-served);
+  // Rebate sources: Anaheim Public Utilities rebate page (link only, no amounts published; the
+  // City page does not list them and the DSIRE amounts are dated 2025-08-04);
   // SoCalGas 2026 furnace rebate tiers ($1.40/$10/$25 per kBtuh by AFUE tier, $75 thermostat,
   // through 2026-12-31 or funds); SCE Smart Energy Program ($75 enrollment + up to $50/yr,
   // enrollment program, not an equipment rebate). HEEHRA: single-family fully reserved statewide as
   // of 2026-02-24; multifamily reservation window closed 2025-12-18. No source URLs were found for
-  // any of the three programs (see docs/open-items.md), so the cards carry no link.
+  // the SoCalGas and SCE programs (see docs/open-items.md), so those cards carry no link.
   rebates: {
     eyebrow: 'Utilities and rebates',
     title: 'Your utility accounts decide which programs to look at',
     intro: 'Anaheim has its own municipal electric utility. The other seven cities are generally served by SCE, and natural gas is supplied by SoCalGas.',
     cards: [
       {
-        verifyTag: 'Verify current amount before launch',
-        amount: '$200 per ton',
-        description: 'Anaheim Public Utilities Home Incentives Program for AC or heat pump replacement at 14.3 SEER2 or higher. Duct repair is 50% up to $300, and smart thermostats are $50 each, up to 2. First-come, first-served.',
+        amount: 'Home incentives',
+        description: 'Anaheim Public Utilities lists residential HVAC incentives on its Heating & Cooling Systems page. Terms and funding change, so confirm current details before you buy.',
+        linkLabel: 'Anaheim Public Utilities rebates',
+        linkHref: 'https://www.anaheim.net/2579/Heating-Cooling-Systems',
       },
       {
         verifyTag: 'Verify current amount before launch',
@@ -221,7 +221,7 @@ export const orangeCountyHub = {
       },
     ] satisfies RebateCard[],
     copy: [
-      "Program details change quickly. Anaheim's program is first-come, first-served and runs until funding is exhausted. SoCalGas furnace and thermostat rebates are for gas equipment only. We did not find a standard SCE rebate for AC or heat pump replacement, so we do not list one.",
+      "Program details change quickly. Confirm Anaheim Public Utilities' current terms and funding on its rebate page. SoCalGas furnace and thermostat rebates are for gas equipment only. We did not find a standard SCE rebate for AC or heat pump replacement, so we do not list one.",
       'State heat pump funding is limited. HEEHRA single-family funding was fully reserved statewide as of February 24, 2026, and the multifamily reservation window closed December 18, 2025.',
       'Rebates and eligibility vary by service address, utility account, equipment efficiency, and available funding. Confirm final eligibility, amount, and application requirements with your utility before installation.',
     ],
@@ -231,7 +231,7 @@ export const orangeCountyHub = {
       'Other seven cities, electric: SCE',
       'Natural gas: SoCalGas',
     ],
-    note: '**Confirm by address:** service territory can vary by address, so verify your utility directly before relying on any program. Gas service is directly confirmed for Anaheim and Irvine and assumed for the other six cities.',
+    note: '**Confirm by address:** service territory can vary by address, so verify your utility directly before relying on any program. Gas service is directly confirmed for Irvine and assumed for the other seven cities.',
   },
 
   cities: {
@@ -250,10 +250,11 @@ export const orangeCountyHub = {
       {
         name: 'Anaheim',
         href: '/service-areas/anaheim/',
-        note: 'The largest housing stock of the eight cities, at 108,222 units, with 45.4% multifamily. It is the only city here with a municipal electric utility, Anaheim Public Utilities, which runs its own home incentive program.',
+        note: 'The largest housing stock of the eight cities, at 108,222 units, with 45.4% multifamily. It is the only city here with a municipal electric utility, Anaheim Public Utilities, which runs its own home incentive program. 44.6% of housing was built before 1970 (SCAG, ACS 2017).',
         areas: 'Anaheim Resort, Convention Center area',
         utility: 'Electric: Anaheim Public Utilities.',
-        zips: '92801-92808, 92812, 92814-92817, 92825, 92850',
+        zips: 'pending',
+        pending: 'ZIP list pending verification.',
       },
       {
         name: 'Santa Ana',
@@ -324,7 +325,7 @@ export const orangeCountyHub = {
     },
     {
       q: 'Do I need a permit to replace my AC in Orange County?',
-      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Orange County. Irvine offers an online residential replacement permit, and Anaheim states that a same-location replacement with unaltered drain, gas, and electrical does not need a separate building permit. For Huntington Beach, Fullerton, and Tustin we did not find a published like-for-like exemption. Confirm the local permit path before work begins.',
+      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Orange County. Irvine offers an online residential replacement permit, and Anaheim\'s Building Division issues mechanical permits through a published application, Form B713. For Huntington Beach, Fullerton, and Tustin we did not find a published like-for-like exemption. Confirm the local permit path before work begins.',
     },
     {
       q: 'What is Title 24 and how does it affect an HVAC replacement?',
@@ -336,7 +337,7 @@ export const orangeCountyHub = {
     },
     {
       q: 'Are there noise or screening rules for outdoor equipment?',
-      a: 'Yes, and they are not the same in every city. Irvine requires screening of rooftop and ground equipment and caps air conditioning noise at the higher of the land-use noise standard or 5 dB(A) above ambient. Fullerton regulates noise under Chapter 15.90. The Anaheim Resort Specific Plan area has its own shielding and sound-buffering context. For the other cities, confirm placement, screening, and noise conditions for the specific property.',
+      a: 'Yes, and they are not the same in every city. Irvine requires screening of rooftop and ground equipment and caps air conditioning noise at the higher of the land-use noise standard or 5 dB(A) above ambient. Fullerton regulates noise under Chapter 15.90. Anaheim Municipal Code Sec. 6.70.010 sets a general sound limit of 60 decibels on the A-scale at the property line. For the other cities, confirm placement, screening, and noise conditions for the specific property.',
     },
     {
       q: 'Do you work on condos, apartments, and HOA properties?',
