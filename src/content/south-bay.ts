@@ -210,7 +210,7 @@ export const southBayHub = {
       { name: 'Manhattan Beach', note: 'Beach city with Clean Power Alliance generation. Mechanical work needs a permit, and exterior equipment placement is confirmed with the city.' },
       { name: 'Hermosa Beach', note: 'Beach city with separate mechanical applications, and online-only submittals beginning October 1, 2026.' },
       { name: 'El Segundo', note: 'Aerospace and deep-tech businesses, per the City’s economic-development site. The 2025 California Mechanical Code applies with local amendments.', href: '/service-areas/el-segundo/' },
-      { name: 'Gardena', note: 'HVAC and forced-air unit permits are over-the-counter types and need CF1R forms. Industrial and warehouse zones in the mix.' },
+      { name: 'Gardena', note: 'HVAC and forced-air unit permits are over-the-counter types and need CF1R forms. Industrial and warehouse zones in the mix.', href: '/service-areas/gardena/' },
       { name: 'Hawthorne', note: 'Century Business Center and Green Line mixed-use planning areas. Inspections are requested 24 hours ahead.' },
       { name: 'Carson', note: 'Industrial, commercial, and townhome settings. The County noise ordinance applies, and multifamily equipment may need vibration isolation.' },
     ],

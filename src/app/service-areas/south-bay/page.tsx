@@ -228,8 +228,9 @@ export default function Page() {
           <p>
             Individual city pages are coming. For now, see our{' '}
             <Link href="/service-areas/torrance/">Torrance page</Link>,{' '}
-            <Link href="/service-areas/redondo-beach/">Redondo Beach page</Link>, or{' '}
-            <Link href="/service-areas/el-segundo/">El Segundo page</Link>, or browse{' '}
+            <Link href="/service-areas/redondo-beach/">Redondo Beach page</Link>,{' '}
+            <Link href="/service-areas/el-segundo/">El Segundo page</Link>, or{' '}
+            <Link href="/service-areas/gardena/">Gardena page</Link>, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">

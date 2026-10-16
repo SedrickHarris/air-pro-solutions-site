@@ -57,7 +57,7 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach and el-segundo have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo and gardena have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -1272,6 +1272,231 @@ const elSegundoOverrides: Partial<City> = {
   },
 };
 
+// Gardena (location page, built from the El Segundo template). Facts come only from City of Gardena pages (utility providers page,
+// Building & Safety "Schedule An Appointment" page dated 2026-08-05), SCE's and SoCalGas's own service-area documents and rebate pages,
+// and SCAG's 2019 Gardena local profile (California Department of Finance E-5 2018 housing counts; ACS 2017 building age).
+// Held out: ZIP card (the research's 90247/90248/90249 list rests on an undated, unsourced PDF and its USPS link shows no Gardena data),
+// neighborhoods, climate, noise, municipal code edition, commercial and industrial detail, neighbor adjacency, the 1950-59 and 1960-69
+// decade shares (not readable from the SCAG chart), the Census profile figure of 21,837 units - see docs/open-items.md "/service-areas/gardena/".
+const gardenaOverrides: Partial<City> = {
+  // TODO(data): add verified climate, commercial and neighborhood detail before treating this as a full local page.
+  neighborhoods: [], // the research found no official neighborhood list
+  zips: [], // no USPS or City listing confirms a ZIP list (90247 is only the City Hall address ZIP)
+  page: {
+    metaDescription:
+      "HVAC for Gardena homes and businesses, from AC repair to installation. Know the local over-the-counter permit path and your utilities. Licensed, 4.8-star rated.",
+    lede:
+      "AIRPRO SOLUTIONS provides HVAC services across Gardena, including AC repair, heating repair, installation, and maintenance for homes and businesses.",
+    heroCaption: { title: 'Gardena, CA', text: 'Local HVAC service across Gardena' },
+    heroProof: [
+      { icon: 'shield', label: 'Licensed, bonded & insured' },
+      { icon: 'star', label: '4.8-star rated' },
+      { icon: 'bolt', label: '24/7 emergency dispatch' },
+      { icon: 'building', label: 'Residential and commercial' },
+    ],
+    trustStats: [
+      { num: '4.8★', label: 'Google rating, 40 reviews' },
+      { num: 'C-20', label: 'California licensed' },
+      { num: '24/7', label: 'emergency dispatch' },
+      { num: 'Same-day', label: 'service typical' },
+    ],
+    answer: {
+      lead: 'AIRPRO SOLUTIONS is a licensed HVAC contractor serving Gardena',
+      body:
+        ', providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.',
+    },
+    glance: {
+      title: 'Gardena at a glance',
+      stats: [
+        { num: '52%', label: 'of housing units are single-family and 42.3% are multifamily (California Department of Finance, 2018, per SCAG)' },
+        { num: '68%', label: 'of housing was built before 1970 (2017 American Community Survey, per SCAG)' },
+        { num: '2', label: 'utilities serve the city: SCE for electricity and SoCalGas for natural gas' },
+      ],
+      source: "Sources: SCAG's 2019 Gardena local profile, the City of Gardena utility providers page, SCE's service-area filing, and SoCalGas's city list.",
+    },
+    localTitle: "Gardena's older housing, multifamily mix, and permit path",
+    // TODO(copy): client has not approved any Gardena wording yet (local paragraphs, every FAQ answer, emergency card, SCE program wording, commercial FAQ).
+    // Code edition intentionally not stated: Gardena Municipal Code 15.06.010 adopts the 2022 California Building Code, and the ordinance table lists
+    // Ord. 1888 (2026-03-10) as amending the Mechanical and Energy Codes with no edition or text. Confirm before stating any year.
+    localParagraphs: [
+      "Gardena's Building & Safety Division lists a **New HVAC Permit and a Forced Air Unit Permit** among its over-the-counter permits. The New HVAC Permit lists a CF1R form, and the City says permits will not be processed without the completed CF1R forms. The division accepts walk-in counter visits and appointments and asks you to bring all documents completed. **AIRPRO SOLUTIONS plans each job around your address** and can walk you through the steps.",
+      "The housing is older and mixed. SCAG's 2019 local profile, using California Department of Finance data for 2018, counts about **52% of units as single-family and 42.3% as multifamily**, with 30.6% in buildings of five or more units and 5.7% as mobile homes. The same profile, citing the 2017 American Community Survey, reports that **68% of housing was built before 1970**. These figures are dated, so we confirm the equipment, access, and ductwork at the property before recommending repair or replacement.",
+      "Electricity comes from **Southern California Edison** and natural gas from **SoCalGas**. The City's utility page lists both, and each utility's own service-area list includes Gardena. Both publish rebate programs, and SCE lists an Energy Savings Assistance program for income-qualified households that includes central AC and central heat pump replacement among its upgrades. SCE says some options may not be available in all areas, and terms and funding change, so confirm current details with the utility before you buy. Official links are in the card beside this text.",
+    ],
+    neighborhoodsHeading: 'Official Gardena resources',
+    officialResources: [
+      {
+        text: 'Building & Safety: over-the-counter permits',
+        href: "https://cityofgardena.org/schedule-an-appointment/",
+        note: 'Lists the New HVAC and Forced Air Unit permits and the CF1R requirement.',
+      },
+      {
+        text: 'City utility providers',
+        href: "https://cityofgardena.org/utility-providers/",
+        note: 'Lists SCE for electricity and SoCalGas for natural gas, with rebate links.',
+      },
+      {
+        text: 'SCE rebates and incentives',
+        href: "https://www.sce.com/residential/rebates-savings/rebates",
+        note: "Linked from the City's utility page.",
+      },
+      {
+        text: 'SoCalGas rebates and incentives',
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "Linked from the City's utility page.",
+      },
+      {
+        text: 'SCAG Gardena local profile',
+        href: "https://www.scag.ca.gov/sites/default/files/2024-05/gardena_localprofile.pdf",
+        note: 'Housing counts and building age cited on this page.',
+      },
+    ],
+    servicesTitle: 'Everything we handle for Gardena homes and businesses',
+    serviceCards: [
+      { slug: "ac-repair", name: "AC Repair", body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises." },
+      { slug: "ac-installation", name: "AC Installation & Replacement", body: "New system sizing and installation, including the Gardena permit steps that apply to your project." },
+      { slug: "ac-maintenance", name: "AC Maintenance", body: "Seasonal AC tune-ups that catch small issues early." },
+      { slug: "heating-repair", name: "Heating Repair", body: "Furnace and heating system diagnosis and repair." },
+      { slug: "furnace-installation", name: "Furnace Installation & Replacement", body: "New furnace sizing and installation, including the Gardena permit steps that apply to your project." },
+      { slug: "heat-pump-services", name: "Heat Pump Services", body: "Installation, repair, and maintenance for heat pumps." },
+      { slug: "ductless-mini-split", name: "Ductless Mini-Split", body: "Room-by-room comfort control for spaces where ductwork is not an option." },
+      { slug: "ductwork", name: "Ductwork Services", body: "Duct repair, sealing, replacement, and installation." },
+      { slug: "indoor-air-quality", name: "Indoor Air Quality", body: "Air filtration, whole-home purification, and ventilation options." },
+      // TODO(copy): emergency card wording not yet client-approved for Gardena.
+      { slug: "emergency-hvac", name: "Emergency HVAC", body: "Dispatch for no-cool and no-heat emergencies in Gardena." },
+    ],
+    resources: {
+      eyebrow: 'Know before you start',
+      title: 'Gardena permits, appointments, and utility rebates',
+      intro: 'Official sources for three local items worth checking before a Gardena HVAC project.',
+      cards: [
+        {
+          amount: 'Over-the-counter',
+          description: 'Gardena lists the New HVAC Permit and the Forced Air Unit Permit among its over-the-counter permits. The New HVAC Permit lists a CF1R form.',
+          linkLabel: 'Building & Safety page',
+          linkHref: "https://cityofgardena.org/schedule-an-appointment/",
+        },
+        {
+          amount: 'Appointments',
+          description: 'The division accepts walk-in counter visits and appointments, and asks you to bring all documents completed. A permit that is not on its over-the-counter list cannot be submitted in person.',
+          linkLabel: 'Schedule an appointment',
+          linkHref: "https://cityofgardena.org/schedule-an-appointment/",
+        },
+        {
+          // TODO(copy): rebate wording not yet client-approved. No dollar amounts on purpose.
+          amount: 'Utility rebates',
+          description: "SCE and SoCalGas both publish rebate programs, and the City's utility page links to both. Terms, eligibility, and funding change, so confirm current details before you buy.",
+          linkLabel: 'SCE rebates',
+          linkHref: "https://www.sce.com/residential/rebates-savings/rebates",
+        },
+      ],
+    },
+    // Nearby row: only cities with real pages. The research has no neighbor list, so adjacency is not claimed.
+    nearby: ['torrance', 'redondo-beach', 'el-segundo', 'los-angeles'],
+    proof: {
+      heading: 'Licensed, reviewed, and ready across Gardena',
+      body: 'AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.',
+      stats: [
+        { num: '4.8★', label: 'Google rating' },
+        { num: '40', label: 'Google reviews' },
+        { num: 'C-20', label: 'California license class' },
+        { num: '24/7', label: 'Emergency dispatch' },
+      ],
+    },
+    finalCtaBody: 'Call or request service online to schedule a visit anywhere in Gardena. Same-day service is typical.',
+    // TODO(copy): client has not confirmed any FAQ answer below. The over-the-counter permit FAQ, the SCE Energy Savings Assistance FAQ and the
+    // commercial FAQ are new for Gardena (not in the El Segundo set).
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Gardena?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Gardena as part of our South Bay coverage. Gardena handles permits through its own Building & Safety Division, so we plan each visit around your specific address.",
+        links: [
+          { text: "South Bay coverage", href: "/service-areas/south-bay/" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Gardena home?",
+        a: "Same-day service is typical in Gardena, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit for HVAC work in Gardena?",
+        a: "Check with the City before work starts. Gardena's Building & Safety Division lists a New HVAC Permit and a Forced Air Unit Permit among its over-the-counter permits, and the New HVAC Permit lists a CF1R form. The City says permits will not be processed without the completed CF1R forms, so ask the City what your specific project needs. AIRPRO SOLUTIONS can walk you through the steps.",
+      },
+      {
+        q: "Can I get an HVAC permit at the counter in Gardena?",
+        a: "Yes, for the permit types the City lists. Gardena's Building & Safety Division accepts walk-in counter visits and appointments for over-the-counter permits, and it asks you to bring all documents completed before you arrive. If a permit is not on the City's over-the-counter list, it cannot be submitted in person. AIRPRO SOLUTIONS can walk you through the steps.",
+      },
+      {
+        q: "Do you work in condos and apartment buildings in Gardena?",
+        a: "Yes. SCAG's 2019 profile of Gardena, using California Department of Finance data for 2018, counts about 52% of housing units as single-family, 42.3% as multifamily, and 5.7% as mobile homes. AIRPRO SOLUTIONS services condos, townhomes, and apartments as well as single-family homes, and in a multi-unit building we confirm equipment access and placement at the property. See our Residential HVAC page.",
+        links: [
+          { text: "Residential HVAC page", href: "/residential-hvac/" },
+        ],
+      },
+      {
+        q: "Does the age of Gardena homes matter for HVAC work?",
+        a: "We confirm building age and construction on site. SCAG's 2019 profile, citing the 2017 American Community Survey, reports that 68% of Gardena's housing was built before 1970. Equipment, attic access, and original ductwork are property-specific, so we check them at a site visit before recommending repair or replacement.",
+      },
+      {
+        q: "Which utilities serve Gardena, and are there HVAC rebates?",
+        a: "Southern California Edison provides electricity and SoCalGas provides natural gas. The City's utility page lists both, and each utility's own service-area list includes Gardena. Both publish rebate programs for qualifying equipment, and the City links to both. Terms and funding change, so confirm current details on the SCE rebates page and the SoCalGas rebates page before you buy.",
+        links: [
+          { text: "SCE rebates page", href: "https://www.sce.com/residential/rebates-savings/rebates" },
+          { text: "SoCalGas rebates page", href: "https://www.socalgas.com/savings/rebates-and-incentives" },
+        ],
+      },
+      {
+        q: "Does SCE have an income-qualified HVAC program for Gardena households?",
+        a: "SCE lists one. Its Energy Savings Assistance program lists central AC and central heat pump replacement among the upgrades for income-qualified households with an active SCE residential account. SCE also says some options may not be available in all areas, and eligibility and income limits change, so check SCE's page before you plan around it.",
+        links: [
+          { text: "Energy Savings Assistance program", href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program" },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Gardena?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Gardena, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC",
+        links: [
+          { text: "AC repair", href: serviceHref("ac-repair") },
+          { text: "AC installation and replacement", href: serviceHref("ac-installation") },
+          { text: "AC maintenance", href: serviceHref("ac-maintenance") },
+          { text: "heating repair", href: serviceHref("heating-repair") },
+          { text: "furnace installation and replacement", href: serviceHref("furnace-installation") },
+          { text: "heat pump services", href: serviceHref("heat-pump-services") },
+          { text: "ductless mini-splits", href: serviceHref("ductless-mini-split") },
+          { text: "ductwork", href: serviceHref("ductwork") },
+          { text: "indoor air quality", href: serviceHref("indoor-air-quality") },
+          { text: "emergency HVAC", href: serviceHref("emergency-hvac") },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Gardena?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Gardena. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Gardena?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Gardena?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Gardena, including rooftop units, office buildings, and retail spaces. See our Commercial HVAC page for the full scope.",
+        links: [
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 // Map-card image for every city, used in nearby-areas rows (and city-page heroes once a city has
 // real content). Source files (1300x676) live in public/images/locations/<region-slug>/.
 const cardImages: Record<string, ServiceImage> = Object.fromEntries(
@@ -1298,6 +1523,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'culver-city' ? culverCityOverrides
     : c.slug === 'redondo-beach' ? redondoBeachOverrides
     : c.slug === 'el-segundo' ? elSegundoOverrides
+    : c.slug === 'gardena' ? gardenaOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
