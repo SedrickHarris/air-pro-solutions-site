@@ -249,6 +249,7 @@ export const orangeCountyHub = {
       },
       {
         name: 'Anaheim',
+        href: '/service-areas/anaheim/',
         note: 'The largest housing stock of the eight cities, at 108,222 units, with 45.4% multifamily. It is the only city here with a municipal electric utility, Anaheim Public Utilities, which runs its own home incentive program.',
         areas: 'Anaheim Resort, Convention Center area',
         utility: 'Electric: Anaheim Public Utilities.',
