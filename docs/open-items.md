@@ -28,7 +28,7 @@ this file is the index, not the source of truth.
   Fallback if you would rather not maintain a dollar figure: drop the "$75" credit and keep the coupon wording. Also confirm SCE is still the electric provider shown for Long Beach on an SCE territory page.
 - Long Beach Utilities gas: "nearly 150,000 accounts" covers Long Beach, Signal Hill and parts of nearby communities, so the glance card uses the pipeline-mileage figure with the Long Beach Utilities attribution rather than a Long Beach-only claim.
 - "AIRPRO SOLUTIONS can walk you through what your project needs" (permits) is a practice claim carried from the Torrance pattern; client to confirm.
-- Nearby row: Torrance, Los Angeles, Carson, Redondo Beach. Carson and Redondo Beach link to their noindex stub pages until real pages exist.
+- Nearby row: Torrance, Los Angeles, Carson, Redondo Beach. Redondo Beach now links to its live page; Carson still links to a noindex stub until a real page exists.
 - Port of Long Beach claims removed from /service-areas/los-angeles-county/ (Long Beach card note, the commercial paragraph and the "Port and logistics" chip). The "51,000 local jobs" figure was attributed to the City of Long Beach but comes from a Port-commissioned economic impact study (EDR Group, 2017 data, reported 2019). Re-add only with a current, correctly attributed source. The hub FAQ now notes that Long Beach has its own gas utility (SoCalGas serves most of the region).
 - Service card names with "& Replacement" and the emergency card wording are pending client confirmation, as on Torrance and Los Angeles.
 - Hero photo is still "Photo pending".
@@ -85,6 +85,22 @@ this file is the index, not the source of truth.
 - Pasadena was dropped from the "inland areas more exposed to heat" FAQ sentence and the climate intro
   because no official coastal or inland classification was found. It still appears in the "Where each
   city sits" group card.
+
+## /service-areas/redondo-beach/ (redondoBeachOverrides in src/content/cities.ts)
+
+- Title: `cityTitle('Redondo Beach')` ("HVAC Services in Redondo Beach, CA | AIRPRO SOLUTIONS", 53 characters) does not collide with another page, so no `distinctTitle` is needed. The meta description is the hand-written `page.metaDescription` (157 characters, validated by `assertDescription`).
+- Right-hand card: "Official Redondo Beach resources" (`page.officialResources`), not a ZIP card. The USPS pages supplied could not be read, so no ZIPs are published. Add a ZIP card only after the USPS lookup confirms the list and area names.
+- No community pills (`neighborhoods: []`). The lede names "North Redondo Beach" and "the Coastal Zone" only because the City's own pages use both terms.
+- Mismatches between the research and the cited sources, resolved by holding the claim out: the CTS Portal / redondo.cts.city name and the Aug 5, 2024 date (the page says "the City's Citizen Portal" with no date or URL); 2022 vs 2025 code cycle (no code year stated); the pre-sale report; the "City Hall" label for the permit office; the USB hybrid submittal; the 310-318-0607 inspection line and required-fields claim; the FAQ and forms pages on redondo.org (fetch errors).
+- Not published (NOT FOUND, Medium or unverified): ZIP list, climate values, Census housing figures, coastal or marine-layer wording, HVAC decibel limits, neighborhoods other than North Redondo Beach, SCE and TECH dollar amounts (the SCE programs card links the fact sheet instead of quoting amounts).
+- Client confirmations before launch: every FAQ answer (TODO(copy) in cities.ts); the practice claim "AIRPRO SOLUTIONS can walk you through the steps"; the "from North Redondo Beach to the Coastal Zone" lede wording.
+- Nearby row: Torrance, Los Angeles, Long Beach, Culver City. The research has no neighbor list, so adjacency is not claimed.
+- Service card names with "& Replacement" and the emergency card wording are pending client confirmation, as on the other city pages.
+- Hero photo is still "Photo pending".
+- Go-live wiring done: Redondo Beach card href on the South Bay hub, chip link on /service-areas/, hubCityIndexNote, South Bay page sentence. The Torrance and Long Beach nearby cards already linked this slug and now reach a live page.
+- Existing South Bay hub copy checked against sources: multiple-family zones and the (MU) Mixed-Use Overlay (Zoning Code Article 2), exterior noise limits by receiving land use and time of day (Municipal Code 4-24.301), Clean Power Alliance listing Redondo Beach in its service area (Fall 2025 fact sheet), and the online Citizen Portal. No hub text needed changing. Not re-checked: the "west of the 405, reached from Pacific Coast Highway" sentence and the line saying the city code covers installation, alteration, repair and replacement of heating and cooling systems.
+- Claim wording follows the approved list. Do not strengthen it.
+- Reference artifact: claude/reference/redondo-beach-location.html.
 
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 

@@ -227,7 +227,8 @@ export default function Page() {
           <h2>{southBayHub.cities.title}</h2>
           <p>
             Individual city pages are coming. For now, see our{' '}
-            <Link href="/service-areas/torrance/">Torrance page</Link>, or browse{' '}
+            <Link href="/service-areas/torrance/">Torrance page</Link> or{' '}
+            <Link href="/service-areas/redondo-beach/">Redondo Beach page</Link>, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">

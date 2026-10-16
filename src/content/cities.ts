@@ -57,7 +57,7 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles and long-beach have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city and redondo-beach have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -454,7 +454,7 @@ const longBeachOverrides: Partial<City> = {
         },
       ],
     },
-    // TODO(data): Carson and Redondo Beach have no city pages yet, so their cards render without a link; Torrance and Los Angeles link.
+    // Torrance, Los Angeles and Redondo Beach have live pages. TODO(data): Carson has no city page yet, so its card links to a noindex stub.
     nearby: ['torrance', 'los-angeles', 'carson', 'redondo-beach'],
     proof: {
       heading: 'Licensed, reviewed, and ready across Long Beach',
@@ -892,6 +892,192 @@ const culverCityOverrides: Partial<City> = {
   },
 };
 
+// Redondo Beach (location page, built from the Culver City template). Facts come only from City of Redondo Beach pages
+// (Building & Safety, plan check submittal process, scheduling inspections, interactive zoning map, New Resident Guide),
+// the Municipal Code (Title 10 Chapter 5, Coastal Land Use Plan Implementing Ordinance) and SCE program pages. Held out:
+// ZIP list, 2022 code adoption, pre-sale building report, CTS portal name/date, climate, housing figures, noise limits -
+// see docs/open-items.md "/service-areas/redondo-beach/".
+const redondoBeachOverrides: Partial<City> = {
+  // TODO(data): add verified housing-age, climate and commercial detail before treating this as a full local page.
+  neighborhoods: [], // North Redondo Beach appears in the lede; the right-hand card lists official City links, not ZIPs
+  zips: [], // no verified ZIP list: the USPS record links could not be read (the City pages only show 90277 and 90278 on municipal addresses)
+  page: {
+    metaDescription:
+      'HVAC for Redondo Beach homes and businesses, from North Redondo Beach to the Coastal Zone. Know the permit steps. Licensed, 4.8-star rated. Schedule service.',
+    // TODO(copy): "from North Redondo Beach to the Coastal Zone" needs client review (the Coastal Zone is a regulatory area, not a neighborhood).
+    lede:
+      'AIRPRO SOLUTIONS provides HVAC services across Redondo Beach, including AC repair, heating repair, installation, and maintenance for homes and businesses - from North Redondo Beach to the Coastal Zone.',
+    heroCaption: { title: 'Redondo Beach, CA', text: 'Local HVAC service across Redondo Beach' },
+    heroProof: [
+      { icon: 'shield', label: 'Licensed, bonded & insured' },
+      { icon: 'star', label: '4.8-star rated' },
+      { icon: 'bolt', label: '24/7 emergency dispatch' },
+      { icon: 'building', label: 'Residential and commercial' },
+    ],
+    trustStats: [
+      { num: '4.8★', label: 'Google rating, 40 reviews' },
+      { num: 'C-20', label: 'California licensed' },
+      { num: '24/7', label: 'emergency dispatch' },
+      { num: 'Same-day', label: 'service typical' },
+    ],
+    answer: {
+      lead: 'AIRPRO SOLUTIONS is a licensed HVAC contractor serving Redondo Beach',
+      body:
+        ', providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.',
+    },
+    glance: {
+      title: 'Redondo Beach at a glance',
+      stats: [
+        { num: 'Online', label: "all building applications and plans are submitted through the City's Citizen Portal" },
+        { num: 'Art. 10', label: 'of the Coastal Zone ordinance covers Coastal Development Permits' },
+        { num: '2', label: "utilities listed in the City's New Resident Guide: SCE for electricity, SoCalGas for gas" },
+      ],
+      source: "Sources: City of Redondo Beach Building & Safety pages, Municipal Code Title 10 Chapter 5, and the City's New Resident Guide.",
+    },
+    localTitle: 'Redondo Beach permits are submitted online, with Coastal Zone rules for some addresses',
+    localParagraphs: [
+      "The City of Redondo Beach provides **permitting, planning, and inspection services** through its Community Development Department at 415 Diamond Street. Applications, plans, and related documents must be submitted electronically through the City's **Citizen Portal**, and inspections are scheduled there too. For projects that need plan check, Planning and Zoning reviews the plans first and stamps them as ready to submit to Building & Safety. **AIRPRO SOLUTIONS plans each job around your address** and walks you through what your project needs.",
+      "On inspection day, approved plans and the Inspection Card must be onsite. If the approved plans are missing, the inspector issues a Not Ready correction and the visit has to be rescheduled, so keep the approved plans with the job. Part of the city also sits in the **Coastal Zone**. The City's zoning regulations apply to all land in the Coastal Zone, and developments there are subject to Coastal Development Permit requirements under Article 10 of the City's coastal ordinance. This page does not say whether outdoor equipment at a given address is affected, so check with the City before you plan an installation.",
+      "City pages refer to **North Redondo Beach** as a local area. To see how a property is zoned, use the City's interactive zoning map; the Planning and Zoning Ordinance governs land use. For power and fuel, the City's New Resident Guide lists **Southern California Edison** for electricity and **SoCalGas** for gas. SCE lists summer demand-response programs with bill credits and TECH Clean California incentives for heat-pump HVAC, subject to equipment eligibility and available funding, so confirm current terms with SCE before you buy. Official links are in the card beside this text.",
+    ],
+    neighborhoodsHeading: 'Official Redondo Beach resources',
+    officialResources: [
+      {
+        text: 'Building & Safety and the Citizen Portal',
+        href: 'https://www.redondo.org/departments/community_development/building_and_safety/index.php',
+        note: "Permit applications and plans are submitted electronically through the City's Citizen Portal.",
+      },
+      {
+        text: 'Plan check submittal process',
+        href: 'https://redondo.org/departments/community_development/building_and_safety/plan_check_submittal_process_for_residential_and_commercial_projects.php',
+        note: 'Planning and Zoning review comes before Building & Safety plan check.',
+      },
+      {
+        text: 'Interactive zoning map',
+        href: 'https://www.redondo.org/departments/community_development/planning/property_data_and_maps/index.php',
+        note: 'Look up how a property is zoned.',
+      },
+      {
+        text: 'Coastal Zone ordinance',
+        href: 'https://ecode360.com/42657615',
+        note: 'Coastal Development Permit requirements for land in the Coastal Zone.',
+      },
+    ],
+    servicesTitle: 'Everything we handle for Redondo Beach homes and businesses',
+    serviceCards: [
+      { slug: 'ac-repair', name: 'AC Repair', body: 'Diagnosis and repair for cooling failures, weak airflow, and unusual noises.' },
+      { slug: 'ac-installation', name: 'AC Installation & Replacement', body: 'New system sizing and installation, including the Redondo Beach permit steps that apply to your project.' },
+      { slug: 'ac-maintenance', name: 'AC Maintenance', body: 'Seasonal AC tune-ups that catch small issues early.' },
+      { slug: 'heating-repair', name: 'Heating Repair', body: 'Furnace and heating system diagnosis and repair.' },
+      { slug: 'furnace-installation', name: 'Furnace Installation & Replacement', body: 'New furnace sizing and installation, including the Redondo Beach permit steps that apply to your project.' },
+      { slug: 'heat-pump-services', name: 'Heat Pump Services', body: 'Installation, repair, and maintenance for heat pumps.' },
+      { slug: 'ductless-mini-split', name: 'Ductless Mini-Split', body: 'Room-by-room comfort control for spaces where ductwork is not an option.' },
+      { slug: 'ductwork', name: 'Ductwork Services', body: 'Duct repair, sealing, replacement, and installation.' },
+      { slug: 'indoor-air-quality', name: 'Indoor Air Quality', body: 'Air filtration, whole-home purification, and ventilation options.' },
+      { slug: 'emergency-hvac', name: 'Emergency HVAC', body: 'Dispatch for no-cool and no-heat emergencies in Redondo Beach.' },
+    ],
+    resources: {
+      eyebrow: 'Know before you start',
+      title: 'Redondo Beach permits, Coastal Zone, and SCE programs',
+      intro: 'Official sources for three local items worth checking before a Redondo Beach HVAC project.',
+      cards: [
+        {
+          amount: 'Citizen Portal',
+          description: "Redondo Beach requires building applications, plans, and related documents to be submitted electronically through the City's Citizen Portal. Inspections are scheduled there too.",
+          linkLabel: 'Building & Safety page',
+          linkHref: 'https://www.redondo.org/departments/community_development/building_and_safety/index.php',
+        },
+        {
+          amount: 'Coastal Zone',
+          description: "The City's zoning regulations apply to all land in the Coastal Zone, and developments there are subject to Coastal Development Permit requirements. Confirm with the City whether your address is affected.",
+          linkLabel: 'Coastal Zone ordinance',
+          linkHref: 'https://ecode360.com/42657615',
+        },
+        {
+          amount: 'SCE programs',
+          description: 'SCE offers summer demand-response programs with bill credits and TECH Clean California incentives for heat-pump HVAC, subject to equipment eligibility and available funding. Confirm current terms with SCE before you buy.',
+          linkLabel: 'SCE heat pump programs',
+          linkHref: 'https://www.sce.com/factsheet/ConsolidatedHeatPumpPrograms',
+        },
+      ],
+    },
+    nearby: ['torrance', 'los-angeles', 'long-beach', 'culver-city'],
+    proof: {
+      heading: 'Licensed, reviewed, and ready across Redondo Beach',
+      body: 'AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.',
+      stats: [
+        { num: '4.8★', label: 'Google rating' },
+        { num: '40', label: 'Google reviews' },
+        { num: 'C-20', label: 'California license class' },
+        { num: '24/7', label: 'Emergency dispatch' },
+      ],
+    },
+    finalCtaBody: 'Call or request service online to schedule a visit anywhere in Redondo Beach. Same-day service is typical.',
+    faqs: [
+      {
+        q: 'Does AIRPRO SOLUTIONS service all of Redondo Beach?',
+        a: 'Yes. AIRPRO SOLUTIONS serves homes and businesses across Redondo Beach as part of our South Bay coverage. Redondo Beach handles permits through its own Community Development Department, so we plan each visit around your specific address.',
+        links: [{ text: 'South Bay coverage', href: '/service-areas/south-bay/' }],
+      },
+      {
+        q: 'How fast can a technician reach my Redondo Beach home?',
+        a: 'Same-day service is typical in Redondo Beach, subject to capacity. Call (323) 776-9047 to confirm a window for your address.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'Do I need a permit for HVAC work in Redondo Beach?',
+        a: 'Check with the City before work starts. Redondo Beach provides permitting, planning, and inspection services through its Community Development Department, and we cannot list one rule for every project. Ask the City what your specific project needs. AIRPRO SOLUTIONS can walk you through the steps.',
+      },
+      {
+        q: 'How do I submit permit paperwork in Redondo Beach?',
+        a: "Electronically, through the City's Citizen Portal. The City says all applications, plans, and related documents must be submitted electronically. For projects that need plan check, Planning and Zoning reviews the plans first and stamps them as ready to submit to Building & Safety. For process questions, the City lists a Building Division line at (310) 318-0636.",
+        links: [{ text: '(310) 318-0636', href: 'tel:+13103180636' }],
+      },
+      {
+        q: 'What happens at a permit inspection in Redondo Beach?',
+        a: "Approved plans and the Inspection Card must be onsite. You request inspections through the City's Citizen Portal. If approved plans are not onsite, the inspector issues a Not Ready correction and the inspection must be rescheduled, so keep the approved plans with the job.",
+      },
+      {
+        q: 'Does the Coastal Zone affect HVAC work in Redondo Beach?',
+        a: "Possibly. Redondo Beach's zoning regulations apply to all land in the Coastal Zone, and developments there are subject to Coastal Development Permit requirements. This page does not say whether outdoor HVAC equipment at a specific address needs one, so ask the City, and use its interactive zoning map to see how your property is zoned.",
+      },
+      {
+        q: 'What HVAC services are available in Redondo Beach?',
+        a: 'AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Redondo Beach, for both residential and commercial properties.',
+        boldLead: 'AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC',
+        links: [
+          { text: 'AC repair', href: serviceHref('ac-repair') },
+          { text: 'AC installation and replacement', href: serviceHref('ac-installation') },
+          { text: 'AC maintenance', href: serviceHref('ac-maintenance') },
+          { text: 'heating repair', href: serviceHref('heating-repair') },
+          { text: 'furnace installation and replacement', href: serviceHref('furnace-installation') },
+          { text: 'heat pump services', href: serviceHref('heat-pump-services') },
+          { text: 'ductless mini-splits', href: serviceHref('ductless-mini-split') },
+          { text: 'ductwork', href: serviceHref('ductwork') },
+          { text: 'indoor air quality', href: serviceHref('indoor-air-quality') },
+          { text: 'emergency HVAC', href: serviceHref('emergency-hvac') },
+        ],
+      },
+      {
+        q: 'Is emergency HVAC service available in Redondo Beach?',
+        a: 'Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Redondo Beach. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'How much does HVAC service cost in Redondo Beach?',
+        a: 'Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.',
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      },
+      {
+        q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in Redondo Beach?',
+        a: 'Yes. AIRPRO SOLUTIONS services commercial properties in Redondo Beach, including rooftop units, office buildings, and retail spaces. See our Commercial HVAC page for the full scope.',
+        links: [{ text: 'Commercial HVAC page', href: '/commercial-hvac/' }],
+      },
+    ],
+    // TODO(copy): client review of every FAQ answer above before launch.
+  },
+};
+
 // Map-card image for every city, used in nearby-areas rows (and city-page heroes once a city has
 // real content). Source files (1300x676) live in public/images/locations/<region-slug>/.
 const cardImages: Record<string, ServiceImage> = Object.fromEntries(
@@ -916,6 +1102,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'long-beach' ? longBeachOverrides
     : c.slug === 'pasadena' ? pasadenaOverrides
     : c.slug === 'culver-city' ? culverCityOverrides
+    : c.slug === 'redondo-beach' ? redondoBeachOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;

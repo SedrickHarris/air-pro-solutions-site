@@ -206,7 +206,7 @@ export const southBayHub = {
     title: 'The eight cities on this page',
     items: [
       { name: 'Torrance', note: 'Office, retail, industrial, and condo settings, with a 290-acre industrial project area. Property-line noise and equipment screening rules apply.', href: '/service-areas/torrance/' },
-      { name: 'Redondo Beach', note: 'Multiple-family zoning and a mixed-use overlay. Noise limits depend on the neighboring use. Clean Power Alliance supplies generation.' },
+      { name: 'Redondo Beach', note: 'Multiple-family zoning and a mixed-use overlay. Noise limits depend on the neighboring use. Clean Power Alliance supplies generation.', href: '/service-areas/redondo-beach/' },
       { name: 'Manhattan Beach', note: 'Beach city with Clean Power Alliance generation. Mechanical work needs a permit, and exterior equipment placement is confirmed with the city.' },
       { name: 'Hermosa Beach', note: 'Beach city with separate mechanical applications, and online-only submittals beginning October 1, 2026.' },
       { name: 'El Segundo', note: 'South of LAX, with corporate office, aerospace, high-tech, and light industrial uses. Local code amendments apply.' },
