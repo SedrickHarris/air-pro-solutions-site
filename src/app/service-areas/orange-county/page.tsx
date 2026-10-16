@@ -242,14 +242,15 @@ export default function Page() {
           <p className="eyebrow">{orangeCountyHub.cities.eyebrow}</p>
           <h2>{orangeCountyHub.cities.title}</h2>
           <p>
-            Individual Orange County city pages are coming. For now, browse{' '}
+            Individual Orange County city pages are coming. For now, see our{' '}
+            <Link href="/service-areas/irvine/">Irvine page</Link>, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">
             {orangeCountyHub.cities.items.map((c) => {
               const image = getCity(citySlug(c.name))?.cardImage;
-              return (
-              <div className="svc-card" key={c.name}>
+              const body = (
+                <>
                 {image ? (
                   <div className="svc-card-img">
                     <Image src={image.src} alt={image.alt} width={800} height={600} sizes="(max-width: 520px) 100vw, (max-width: 920px) 50vw, 25vw" />
@@ -267,9 +268,18 @@ export default function Page() {
                   <p style={{ fontSize: '0.85rem' }}>{renderBold(`**Utility:** ${c.utility}`)}</p>
                   <p style={{ fontSize: '0.85rem' }}>{renderBold(`**ZIP codes:** ${c.zips}`)}</p>
                   {c.pending && <p style={{ fontSize: '0.82rem', color: 'var(--ink-soft)', fontStyle: 'italic' }}>{c.pending}</p>}
-                  <span className="card-soon">City page coming soon</span>
+                  {c.href ? (
+                    <span className="card-arrow">View area <Icon name="arrow" size={16} /></span>
+                  ) : (
+                    <span className="card-soon">City page coming soon</span>
+                  )}
                 </div>
-              </div>
+                </>
+              );
+              return c.href ? (
+                <Link key={c.name} href={c.href} className="svc-card">{body}</Link>
+              ) : (
+                <div key={c.name} className="svc-card">{body}</div>
               );
             })}
           </div>

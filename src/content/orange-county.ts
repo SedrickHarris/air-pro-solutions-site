@@ -10,7 +10,7 @@ import type { RebateCard } from '@/components/sections/RebateCards';
 // docs/open-items.md.
 
 type ServiceCardSpec = { slug: string; body: string; name?: string; icon?: string };
-type CityCardSpec = { name: string; note: string; areas: string; utility: string; zips: string; pending?: string };
+type CityCardSpec = { name: string; note: string; areas: string; utility: string; zips: string; pending?: string; href?: string };
 
 export const orangeCountyHub = {
   path: '/service-areas/orange-county/',
@@ -241,6 +241,7 @@ export const orangeCountyHub = {
     items: [
       {
         name: 'Irvine',
+        href: '/service-areas/irvine/',
         note: 'Planned-community city where only 1.4% of homes were built before 1970 and the largest age group is 2000 to 2009, at 23.7%. Detached homes lead at 38.9%, with 5-or-more-unit buildings close behind at 37.4%.',
         areas: 'Irvine Business Complex, Spectrum, Great Park, Northwood, Woodbridge, Turtle Rock, Orchard Hills, Portola Springs',
         utility: 'Electric: SCE. Rooftop and ground equipment screening rules apply.',
