@@ -242,6 +242,14 @@ Built 2026-10-16, local commits only until the push-or-PR answer. Reference arti
   copy on the Orange County hub (Costa Mesa card note, areas, utility and ZIPs; permits row; placement row; "Central Orange
   County" group; housing table row; FAQs), the Commercial HVAC region card (city-name list in commercial-hvac.ts), the
   Residential HVAC hub and /service-areas/ copy. Irvine's and Anaheim's `nearby` rows untouched.
+- Orange County hub audit APPLIED 2026-10-16 (user approved all eight items): permits row (CF1R and "reviewed by Planning" removed,
+  Insta-Permit single-family scope added), placement row (Costa Mesa split out with the ground-level side or rear rule and Sec. 13-280),
+  Costa Mesa card note (dated sources, no Planning claim), card utility now "Utilities: confirm by address.", dated attribution on the
+  49.6% in the building-age paragraph and FAQ, and two source comments. Checked, no change: housing table row and note, condo FAQ, card
+  areas and ZIPs, name lists, Commercial HVAC region card, Residential HVAC hub, /service-areas/.
+- Open follow-ups on the hub: "Central Orange County" grouping and the central-cities freeway sentence (OCTA placement of Costa Mesa not
+  checked); the generic "generally served by SCE" and "natural gas is supplied by SoCalGas" lines (all eight cities, unaudited); name the
+  Costa Mesa electric and gas providers only once a source does (the City utility page would not load).
 - Hero photo is still "Photo pending".
 
 ## /service-areas/south-bay/ (src/content/south-bay.ts)

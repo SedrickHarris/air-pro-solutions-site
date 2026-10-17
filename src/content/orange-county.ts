@@ -78,7 +78,7 @@ export const orangeCountyHub = {
 
   // Source: SCAG local profiles using California Department of Finance E-5 data, 2018 (structure
   // type only). Building-age figures: ACS 2019 countywide (60.4% pre-1980, 26.6% 1980-1999, 13.0%
-  // 2000+); ACS 2014-2018 estimates for Santa Ana (55% pre-1970), Costa Mesa (49.6% pre-1970),
+  // 2000+); ACS estimates for Santa Ana (55% pre-1970), SCAG ACS 2017 for Costa Mesa (49.6% pre-1970),
   // Newport Beach (40.1% pre-1970). Irvine's own 4.8% pre-1970 (SCAG, ACS 2017) is on its city page. Anaheim's own
   // 44.6% pre-1970 (SCAG, ACS 2017) is on its city page. No age figures were found for Huntington Beach, Fullerton, or Tustin - none are claimed.
   housing: {
@@ -99,7 +99,7 @@ export const orangeCountyHub = {
     paragraphs: [
       'Structure type shapes the job. Detached homes are the largest single category in all eight cities, but in Irvine and Tustin buildings with 5 or more units are within two points of them. Attached homes are 16.4% of Irvine and 15.7% of Newport Beach units, which can mean shared walls, shared roofs, and association rules.',
       'Anaheim has the largest housing stock at 108,222 units, followed by Irvine at 102,474, and in both cities more than a third of units are in buildings of 5 or more.',
-      'Building age varies widely. Countywide, 60.4% of housing units were built before 1980, 26.6% between 1980 and 1999, and 13.0% in 2000 or later (ACS 2019). Homes built before 1970 are 55% of Santa Ana, 49.6% of Costa Mesa, and 40.1% of Newport Beach.',
+      'Building age varies widely. Countywide, 60.4% of housing units were built before 1980, 26.6% between 1980 and 1999, and 13.0% in 2000 or later (ACS 2019). Homes built before 1970 are 55% of Santa Ana, 49.6% of Costa Mesa (SCAG, 2017 American Community Survey), and 40.1% of Newport Beach.',
       'Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     ],
     pending: 'Housing age figures were not found for Huntington Beach, Fullerton, and Tustin, so no age claim is made for them. Anaheim\'s and Irvine\'s pre-1970 shares are on their city pages.',
@@ -148,7 +148,7 @@ export const orangeCountyHub = {
   },
 
   // Sources: Irvine online residential replacement permit; Anaheim Form B713 (no exemption stated); Santa Ana equipment-category permitting; Costa Mesa
-  // Insta-Permit and CF1R/site plan; Newport Beach express furnace permit and plan-check triggers;
+  // Insta-Permit page and Mechanical - Residential application; Newport Beach express furnace permit and plan-check triggers;
   // Huntington Beach mechanical plan package; Fullerton EasyDev portal / CF1R-ALT-HVAC; Tustin
   // 360-day permit expiration. Title 24: CEC 2025 Energy Code effective for permits submitted on or
   // after 2026-01-01; duct leakage limits (10% total / 7% to outside) and R-6 duct insulation, and
@@ -162,7 +162,7 @@ export const orangeCountyHub = {
       ['Irvine', 'Online residential replacement permit for AC and furnace', 'The new outdoor condenser must stay in its existing location and at least 2 feet from any property line, and HOA approval is required where an association applies.'],
       ['Anaheim', 'Mechanical permit', 'The Building Division issues mechanical permits through Form B713. Confirm with the Building Division, (714) 765-5153, which permits your replacement needs.'],
       ['Santa Ana', 'Permit before work, by equipment category', 'Separate categories for air conditioning, furnaces up to and over 100,000 BTU, fan coils, mini-splits, gas piping, and air vents, so the equipment decides the permit.'],
-      ['Costa Mesa', 'Insta-Permit, with Title 24 form and site plan', 'Requires a CF1R compliance form, and a condenser site plan is reviewed by Planning.'],
+      ['Costa Mesa', 'Residential HVAC Insta-Permit, or Mechanical - Residential application', "The Insta-Permit is limited to a single-family dwelling on a single parcel, and exterior equipment must sit at ground level on the side or rear, out of public view. Work beyond that scope uses a Mechanical - Residential application in the City's TESSA portal."],
       ['Newport Beach', 'Express permit path for furnace replacement', 'Furnace replacement often needs a permit. Plan check applies to systems over 7,000 square feet, mechanically ventilated basements or garages, standby generator exhaust, and VRF systems.'],
       ['Huntington Beach', 'Mechanical plan package', 'The city asks for a detailed mechanical plan package. We did not find a published like-for-like exemption, so treat replacement as permit-required.'],
       ['Fullerton', 'EasyDev online portal', 'Submittals use the EasyDev portal with a CF1R-ALT-HVAC form. We did not find a published like-for-like exemption.'],
@@ -177,7 +177,7 @@ export const orangeCountyHub = {
 
   // Sources: Irvine screening/noise standard (parapet height / eave-line visibility; 5 dB(A) above
   // ambient or the land-use standard, whichever is higher) and HOA map; Anaheim Resort Specific Plan
-  // (581 acres); Fullerton Municipal Code Chapter 15.90 and its construction-hours exemption.
+  // (581 acres); Fullerton Municipal Code Chapter 15.90 and its construction-hours exemption; Costa Mesa Insta-Permit page and Municipal Code Sec. 13-280 (GoCodebook).
   placement: {
     eyebrow: 'Placement and noise',
     title: 'Where the outdoor unit can go depends on the city',
@@ -186,7 +186,8 @@ export const orangeCountyHub = {
       ['Irvine', 'Rooftop and ground equipment must be screened: no higher than the parapet on a flat roof, and not visible from the eave line on a pitched roof. Air conditioning noise is capped at the higher of the land-use noise standard or 5 dB(A) above ambient. The city publishes an HOA map.'],
       ['Anaheim', "The City's Anaheim Resort page describes a 581-acre specific plan area of hotels, convention and conference facilities, restaurants, retail, and entertainment. Anaheim Municipal Code Sec. 6.70.010 sets a general 60 dB(A) property-line sound limit, so confirm placement and noise for the specific property."],
       ['Fullerton', 'Noise is regulated under Chapter 15.90. Construction is exempt from the noise limits from 7 a.m. to 8 p.m., except on Sundays and holidays.'],
-      ['Santa Ana, Costa Mesa, Newport Beach, Huntington Beach, Tustin', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
+      ['Costa Mesa', "Under the Insta-Permit, outdoor equipment goes at ground level on the side or rear of the home, out of public view, with no roof-top equipment. Municipal Code Sec. 13-280 sets residential exterior noise limits of 55 dB(A) by day and 50 dB(A) at night. We confirm placement for the specific property."],
+      ['Santa Ana, Newport Beach, Huntington Beach, Tustin', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
     ],
     note: "Based on each city's municipal code and planning materials. Code text changes, so current requirements are confirmed with the city.",
   },
@@ -265,9 +266,9 @@ export const orangeCountyHub = {
       },
       {
         name: 'Costa Mesa',
-        note: 'Nearly half of homes (49.6%) were built before 1970, and 48.0% of units are multifamily. Permits need a CF1R form and a condenser site plan reviewed by Planning.',
+        note: "Nearly half of homes (49.6%) were built before 1970 (SCAG, 2017 American Community Survey), and 48.0% of units are multifamily (SCAG, 2018). The City's Insta-Permit covers single-family homes only, so condos, townhomes, and apartments use a different permit application.",
         areas: 'Westside, Eastside, Mesa Verde',
-        utility: 'Electric: SCE.',
+        utility: 'Utilities: confirm by address.',
         zips: '92626-92628',
         href: '/service-areas/costa-mesa/',
       },
@@ -350,7 +351,7 @@ export const orangeCountyHub = {
     },
     {
       q: 'Do older homes in Orange County need different HVAC work?',
-      a: 'Often, yes. Countywide, 60.4% of housing units were built before 1980. In Santa Ana 55% of homes were built before 1970, in Costa Mesa 49.6%, and in Newport Beach 40.1%. Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
+      a: 'Often, yes. Countywide, 60.4% of housing units were built before 1980. In Santa Ana 55% of homes were built before 1970, in Costa Mesa 49.6% (SCAG, 2017 American Community Survey), and in Newport Beach 40.1%. Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     },
     {
       q: 'How quickly can a technician reach me?',
