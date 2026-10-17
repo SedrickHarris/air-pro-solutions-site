@@ -253,7 +253,7 @@ Built 2026-10-16 and pushed to main (user chose push to main). Reference artifac
 - Hero photo is still "Photo pending".
 
 ## /service-areas/huntington-beach/ (huntingtonBeachOverrides in src/content/cities.ts)
-Built 2026-10-16. Reference artifact: claude/reference/huntington-beach-location.html
+Built 2026-10-16 and pushed to main (user chose push to main). Reference artifact: claude/reference/huntington-beach-location.html
 (https://claude.ai/artifact/6pK6kPAjzNFRqSGNUyKrn4). Generated from one data source so JSON-LD, visible text and TS match.
 - Title: `cityTitle('Huntington Beach')` ("HVAC Services in Huntington Beach, CA | AIRPRO SOLUTIONS", 56 characters) does not collide with another
   page, so no `distinctTitle`. The meta description is the hand-written `page.metaDescription` (153 characters, validated by
