@@ -203,7 +203,7 @@ this file is the index, not the source of truth.
 - Reference artifact: claude/reference/anaheim-location.html (artifact https://claude.ai/artifact/ERB3EoUntRgJ28MbaxujFf, version 1; to be synced to repo wording at the end).
 
 ## /service-areas/costa-mesa/ (costaMesaOverrides in src/content/cities.ts)
-Built 2026-10-16, local commits only until the push-or-PR answer. Reference artifact: claude/reference/costa-mesa-location.html
+Built 2026-10-16 and pushed to main (user chose push to main). Reference artifact: claude/reference/costa-mesa-location.html
 (https://claude.ai/artifact/NY8qRzh5rpGSEhJD6mbRGD). Generated from one data source so JSON-LD, visible text and TS match.
 - Client approval NOT confirmed. Every Costa Mesa FAQ answer, the four local paragraphs, the Insta-Permit scope and
   placement sentences, the noise and code sentences, the commercial General Plan sentence and the incentive wording stay
