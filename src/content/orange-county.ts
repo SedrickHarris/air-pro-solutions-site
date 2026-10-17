@@ -80,7 +80,7 @@ export const orangeCountyHub = {
   // type only). Building-age figures: ACS 2019 countywide (60.4% pre-1980, 26.6% 1980-1999, 13.0%
   // 2000+); ACS estimates for Santa Ana (55% pre-1970), SCAG ACS 2017 for Costa Mesa (49.6% pre-1970),
   // Newport Beach (40.1% pre-1970). Irvine's own 4.8% pre-1970 (SCAG, ACS 2017) is on its city page. Anaheim's own
-  // 44.6% pre-1970 (SCAG, ACS 2017) is on its city page. No age figures were found for Huntington Beach, Fullerton, or Tustin - none are claimed.
+  // 44.6% pre-1970 (SCAG, ACS 2017) is on its city page. Huntington Beach's own 43.5% pre-1970 (SCAG, ACS 2017) is on its city page. No age figures were found for Fullerton or Tustin - none are claimed.
   housing: {
     eyebrow: 'Property types',
     title: 'Housing mix by city: detached homes lead, but multifamily is close to half in two cities',
@@ -99,10 +99,10 @@ export const orangeCountyHub = {
     paragraphs: [
       'Structure type shapes the job. Detached homes are the largest single category in all eight cities, but in Irvine and Tustin buildings with 5 or more units are within two points of them. Attached homes are 16.4% of Irvine and 15.7% of Newport Beach units, which can mean shared walls, shared roofs, and association rules.',
       'Anaheim has the largest housing stock at 108,222 units, followed by Irvine at 102,474, and in both cities more than a third of units are in buildings of 5 or more.',
-      'Building age varies widely. Countywide, 60.4% of housing units were built before 1980, 26.6% between 1980 and 1999, and 13.0% in 2000 or later (ACS 2019). Homes built before 1970 are 55% of Santa Ana, 49.6% of Costa Mesa (SCAG, 2017 American Community Survey), and 40.1% of Newport Beach.',
+      'Building age varies widely. Countywide, 60.4% of housing units were built before 1980, 26.6% between 1980 and 1999, and 13.0% in 2000 or later (ACS 2019). Homes built before 1970 are 55% of Santa Ana, 49.6% of Costa Mesa (SCAG, 2017 American Community Survey), 43.5% of Huntington Beach (SCAG, 2017 American Community Survey), and 40.1% of Newport Beach.',
       'Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     ],
-    pending: 'Housing age figures were not found for Huntington Beach, Fullerton, and Tustin, so no age claim is made for them. Anaheim\'s and Irvine\'s pre-1970 shares are on their city pages.',
+    pending: 'Housing age figures were not found for Fullerton and Tustin, so no age claim is made for them. The pre-1970 shares for Anaheim, Irvine, and Huntington Beach are on their city pages.',
   },
 
   services: {
@@ -149,7 +149,7 @@ export const orangeCountyHub = {
 
   // Sources: Irvine online residential replacement permit; Anaheim Form B713 (no exemption stated); Santa Ana equipment-category permitting; Costa Mesa
   // Insta-Permit page and Mechanical - Residential application; Newport Beach express furnace permit and plan-check triggers;
-  // Huntington Beach mechanical plan package; Fullerton EasyDev portal / CF1R-ALT-HVAC; Tustin
+  // Huntington Beach Permit Center, HB ACA portal and forms page (Mechanical Permit Application, Mechanical Plan Requirements, Mechanical Plan Check Waiver Request); Fullerton EasyDev portal / CF1R-ALT-HVAC; Tustin
   // 360-day permit expiration. Title 24: CEC 2025 Energy Code effective for permits submitted on or
   // after 2026-01-01; duct leakage limits (10% total / 7% to outside) and R-6 duct insulation, and
   // heat pump refrigerant charge verification, per the CEC Energy Code Support Center.
@@ -164,7 +164,7 @@ export const orangeCountyHub = {
       ['Santa Ana', 'Permit before work, by equipment category', 'Separate categories for air conditioning, furnaces up to and over 100,000 BTU, fan coils, mini-splits, gas piping, and air vents, so the equipment decides the permit.'],
       ['Costa Mesa', 'Residential HVAC Insta-Permit, or Mechanical - Residential application', "The Insta-Permit is limited to a single-family dwelling on a single parcel, and exterior equipment must sit at ground level on the side or rear, out of public view. Work beyond that scope uses a Mechanical - Residential application in the City's TESSA portal."],
       ['Newport Beach', 'Express permit path for furnace replacement', 'Furnace replacement often needs a permit. Plan check applies to systems over 7,000 square feet, mechanically ventilated basements or garages, standby generator exhaust, and VRF systems.'],
-      ['Huntington Beach', 'Mechanical plan package', 'The city asks for a detailed mechanical plan package. We did not find a published like-for-like exemption, so treat replacement as permit-required.'],
+      ['Huntington Beach', 'Permit Center and HB ACA online portal', 'The Permit Center issues mechanical permits, and the City lists a Mechanical Permit Application, Mechanical Plan Requirements, and a Mechanical Plan Check Waiver Request. We did not find a published like-for-like exemption, so treat replacement as permit-required.'],
       ['Fullerton', 'EasyDev online portal', 'Submittals use the EasyDev portal with a CF1R-ALT-HVAC form. We did not find a published like-for-like exemption.'],
       ['Tustin', 'Building Division', 'Permits expire if work is not started within 360 days. We did not find a published like-for-like exemption.'],
     ],
@@ -232,7 +232,7 @@ export const orangeCountyHub = {
       'Other seven cities, electric: SCE',
       'Natural gas: SoCalGas',
     ],
-    note: '**Confirm by address:** service territory can vary by address, so verify your utility directly before relying on any program. Gas service is directly confirmed for Irvine and assumed for the other seven cities.',
+    note: '**Confirm by address:** service territory can vary by address, so verify your utility directly before relying on any program. Gas service is directly confirmed for Irvine and Huntington Beach and assumed for the other six cities.',
   },
 
   cities: {
@@ -274,11 +274,12 @@ export const orangeCountyHub = {
       },
       {
         name: 'Huntington Beach',
-        note: 'Coastal city where detached homes are 47.9% of housing and 5-or-more-unit buildings are 24.9%. Permit submittals use a detailed mechanical plan package.',
-        areas: 'Downtown and Main Street, Huntington Harbour, Bolsa Chica',
-        utility: 'Electric: SCE.',
-        zips: '92605, 92615, 92646-92649',
-        pending: 'Housing age figures pending for this city.',
+        href: '/service-areas/huntington-beach/',
+        note: 'Coastal city where detached homes are 47.9% of housing (SCAG, 2018) and 43.5% of housing was built before 1970 (SCAG, 2017 American Community Survey). Mechanical permits run through the Permit Center and the HB ACA online portal.',
+        areas: 'Huntington Harbour, Oak View, Sunset Beach',
+        utility: 'Electric: SCE. Gas: Southern California Gas Company (City of Huntington Beach utility page).',
+        zips: 'pending',
+        pending: 'ZIP list pending verification.',
       },
       {
         name: 'Newport Beach',
@@ -327,7 +328,7 @@ export const orangeCountyHub = {
     },
     {
       q: 'Do I need a permit to replace my AC in Orange County?',
-      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Orange County. Irvine offers an online residential replacement permit, and Anaheim\'s Building Division issues mechanical permits through a published application, Form B713. For Huntington Beach, Fullerton, and Tustin we did not find a published like-for-like exemption. Confirm the local permit path before work begins.',
+      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Orange County. Irvine offers an online residential replacement permit, and Anaheim\'s Building Division issues mechanical permits through a published application, Form B713. Huntington Beach issues mechanical permits through its Permit Center and HB ACA portal. For Huntington Beach, Fullerton, and Tustin we did not find a published like-for-like exemption. Confirm the local permit path before work begins.',
     },
     {
       q: 'What is Title 24 and how does it affect an HVAC replacement?',

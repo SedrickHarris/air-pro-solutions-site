@@ -252,6 +252,60 @@ Built 2026-10-16 and pushed to main (user chose push to main). Reference artifac
   Costa Mesa electric and gas providers only once a source does (the City utility page would not load).
 - Hero photo is still "Photo pending".
 
+## /service-areas/huntington-beach/ (huntingtonBeachOverrides in src/content/cities.ts)
+Built 2026-10-16. Reference artifact: claude/reference/huntington-beach-location.html
+(https://claude.ai/artifact/6pK6kPAjzNFRqSGNUyKrn4). Generated from one data source so JSON-LD, visible text and TS match.
+- Title: `cityTitle('Huntington Beach')` ("HVAC Services in Huntington Beach, CA | AIRPRO SOLUTIONS", 56 characters) does not collide with another
+  page, so no `distinctTitle`. The meta description is the hand-written `page.metaDescription` (153 characters, validated by
+  `assertDescription`).
+- Client approval NOT confirmed. Every Huntington Beach FAQ answer, the five local paragraphs, the noise sentences, the Title 24
+  sentences, the commercial sentence and the incentive wording stay flagged TODO(copy) until the user says the client approved
+  them. Irvine, Gardena, Anaheim and Costa Mesa flags also stay.
+- TODO(copy): confirm with the City (general office number (714) 536-5241) which permit path each HVAC job needs, and whether
+  AIRPRO SOLUTIONS holds a Huntington Beach business license (the City asks contractors for one, plus the matching State license
+  and workers' compensation proof unless working alone).
+- Lead angle: the Permit Center issues mechanical permits and the HB ACA portal handles applications, payments, status and
+  inspections. The forms page lists a Mechanical Permit Application, Mechanical Plan Requirements and a Mechanical Plan Check
+  Waiver Request, and does not say when a waiver applies. No like-for-like exemption was found, so the page never assumes one.
+  The mechanical plan checklist is written mainly for commercial projects; the page says so.
+- Housing and population: SCAG's Huntington Beach profile only for housing (DOF E-5 2018: 81,656 units; 47.9% detached, 11.6%
+  attached, 11.8% in 2-4 units, 24.9% in 5+, 3.8% mobile homes, 36.7% multifamily; ACS 2017: 43.5% built before 1970) and Census
+  QuickFacts for 198,711 residents (2020 Census). Both are attributed and labeled dated.
+- Noise: Municipal Code Sec. 8.40.050 from ecode360 (third-party host; amendments cited 3940-7/12 and 4222-9/21): 55 dBA Leq
+  7 a.m.-10 p.m. for low-density residential, reduced 5 dBA for impact, simple tone, speech or music; air conditioners are defined
+  as fixed noise sources. The nighttime row under Low-Density Residential is unlabeled on that host, so NO nighttime number is
+  stated (the page says a lower limit applies at night). Permitted work hours come from the City noise FAQ (7 a.m.-7 p.m.,
+  Mon-Fri, including Saturday; not Sundays or federal holidays).
+- Code: the City says permits rely on city adopted state building codes and local codes. The DGS code page could not be opened
+  and the City's adoption ordinance was not found, so NO code edition or local amendment is stated. Title 24: 2025 Energy Code
+  for permit applications submitted on or after 2026-01-01; duct sealing and verification triggers per the CEC HVAC page.
+- Utilities: the City's utility services page lists Southern California Edison (electric) and Southern California Gas Company
+  (gas). Rebate pages are link-only with no dollar amounts; the CEC notice dated 2026-02-24 is cited for HEEHRA status.
+- Right-hand card: "Official Huntington Beach resources" (`page.officialResources`, 10 links). `neighborhoods: []`, `zips: []`,
+  `nearby: []` (the city page skips the section when `nearby` is empty). Huntington Harbour, Oak View and Sunset Beach appear
+  in prose only, each tied to a City page.
+- Held out (no verified source): ZIP card (the only list is a water-service ZIP list in an unreadable PDF; 92605 and 92615 are
+  not official; 92646-92649 and 90742 are unverified as a postal city list), neighborhood pills, nearby row, climate and NOAA
+  data (2014 visitor page only), humidity, SCE time-of-use plans, OCPA (customers returned to SCE in 2024), rebate dollar
+  amounts, HEEHRA $8,000, SCE Home Performance Plus (the page does not say it covers HVAC), the SCE $600 per ton heat pump fact
+  sheet figure, Edwards Hill and Seagate (records site blocked by robots), setbacks, coastal or historic placement rules,
+  AC charge verification (climate zone not found), competitor SERP table.
+- Corrected research overstatements: the mechanical plan checklist is mostly commercial; (714) 536-5241 is the general office
+  number, not a Permit Center line; the planning page does not name neighborhoods, so no "service areas include" sentence.
+- Pre-launch recheck: SCE rebates page; SoCalGas rebates page (dated 2024-07-23); TECH Clean California and switchison.org;
+  CEC HEEHRA status (notice dated 2026-02-24); the City utility services page; ecode360 Sec. 8.40.050 and 8.40.090; SCAG
+  profile URL; QuickFacts; DGS code page (not opened); the water-board ZIP source if a ZIP sentence is ever added.
+- Orange County hub wiring DONE (Gate 6): Huntington Beach card href, /service-areas/ chip, `hubCityIndexNote` and the Orange
+  County page sentence.
+- Orange County hub Huntington Beach copy corrected (Gate 7): card ZIPs set to pending (the old list had 92605 and 92615), areas
+  now Huntington Harbour, Oak View and Sunset Beach (old "Downtown and Main Street" and "Bolsa Chica" had no source), utility
+  line now names SCE and Southern California Gas Company, card note adds the 43.5% pre-1970 share and drops "detailed mechanical
+  plan package", permits row and permits FAQ now name the Permit Center and HB ACA, building-age paragraph and comments add the
+  43.5% figure, and the "housing age pending" strings no longer list Huntington Beach. Checked, no change: housing table row,
+  "Coastal" group, placement row, Commercial HVAC region card (city-name list).
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list. Do not strengthen it.
+
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
 - Hermosa Beach: permit applications become online-only through the city's portal starting
@@ -288,13 +342,14 @@ Built 2026-10-16 and pushed to main (user chose push to main). Reference artifac
   Re-verify if the compliance date changes.
 - No source URLs were found for the SoCalGas and SCE Smart Energy rebate cards, so they carry no link.
   Add official source URLs once verified (SoCalGas 2026 rebates, SCE Smart Energy Program).
-- Housing age figures are missing for Huntington Beach, Fullerton, and Tustin - no age claim is made
-  for them. Do not add without a source. Anaheim's (44.6% before 1970) and Irvine's (4.8%) are on their
-  city pages and on the hub's city cards or notes; they are not in the cross-city comparison because
-  the vintages differ (ACS 2017 vs ACS 2014-2018).
+- Housing age figures are missing for Fullerton and Tustin - no age claim is made for them. Do not add
+  without a source. Anaheim's (44.6% before 1970), Irvine's (4.8%) and Huntington Beach's (43.5%, SCAG,
+  ACS 2017) are on their city pages and on the hub's city cards or notes; Huntington Beach's is also in the
+  building-age paragraph. Irvine and Anaheim are not in the cross-city comparison because the vintages
+  differ (ACS 2017 vs ACS 2014-2018).
 - Fullerton ZIP list is unverified (low confidence) and shown as "pending," not a list.
-- Gas utility (SoCalGas) is directly confirmed only for Irvine (City utility page) and assumed for the
-  other seven cities. No source names SoCalGas for Anaheim. The generic "natural gas is supplied by
+- Gas utility (SoCalGas) is directly confirmed only for Irvine and Huntington Beach (City utility pages;
+  Huntington Beach's page names "Southern California Gas Company") and assumed for the other six cities. No source names SoCalGas for Anaheim. The generic "natural gas is supplied by
   SoCalGas" lines (the utilities intro and the utility FAQ) cover all eight cities and are not yet
   audited. Do not strengthen this to a confirmed claim without a source.
 - Anaheim climate: the hub's NWS 112F Anaheim event reading and the "North Orange County" OCTA grouping

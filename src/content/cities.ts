@@ -57,7 +57,7 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim and costa-mesa have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa and huntington-beach have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -2325,6 +2325,329 @@ const costaMesaOverrides: Partial<City> = {
   },
 };
 
+const huntingtonBeachOverrides: Partial<City> = {
+  // TODO(data): add verified climate detail before treating this as a full local page.
+  neighborhoods: [], // no official neighborhood list was verified; City sources document Huntington Harbour, Oak View and Sunset Beach, used in prose only
+  zips: [], // the only ZIP list found is a water-service list (source PDF unreadable); the ZIP card is held out
+  page: {
+    metaDescription:
+      "HVAC for Huntington Beach homes and businesses, from AC repair to installation. Know the HB ACA permit portal and noise limits. Licensed, 4.8-star rated.",
+    lede:
+      "AIRPRO SOLUTIONS provides HVAC services across Huntington Beach, including AC repair, heating repair, installation, and maintenance for homes and businesses.",
+    heroCaption: { title: "Huntington Beach, CA", text: "Local HVAC service across Huntington Beach" },
+    heroProof: [
+      { icon: 'shield', label: 'Licensed, bonded & insured' },
+      { icon: 'star', label: '4.8-star rated' },
+      { icon: 'bolt', label: '24/7 emergency dispatch' },
+      { icon: 'building', label: 'Residential and commercial' },
+    ],
+    trustStats: [
+      { num: '4.8★', label: 'Google rating, 40 reviews' },
+      { num: 'C-20', label: 'California licensed' },
+      { num: '24/7', label: 'emergency dispatch' },
+      { num: 'Same-day', label: 'service typical' },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Huntington Beach",
+      body:
+        ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Huntington Beach at a glance",
+      stats: [
+        { num: "198,711", label: "residents in the 2020 U.S. Census (U.S. Census Bureau QuickFacts)" },
+        { num: "47.9%", label: "of 81,656 housing units are single-family detached, and 36.7% are in buildings of 2 or more units (California Department of Finance, 2018, per SCAG)" },
+        { num: "43.5%", label: "of housing was built before 1970 (2017 American Community Survey, per SCAG)" },
+      ],
+      source: "Sources: U.S. Census Bureau QuickFacts and SCAG's local profile of Huntington Beach.",
+    },
+    localTitle: "Huntington Beach's HB ACA permits, communities, and noise limits",
+    // Held out (no verified source): ZIP card (water-service ZIP list only, source PDF unreadable; 92605 and 92615 are not official), neighborhood pills, nearby row (no source names neighbors), climate and NOAA data (2014 visitor page only), humidity, SCE time-of-use plans, OCPA (customers returned to SCE in 2024), rebate dollar amounts, HEEHRA $8,000 figure, SCE Home Performance Plus (page does not say it covers HVAC), Edwards Hill and Seagate (records site blocked), setbacks, coastal or historic placement rules, any city code edition or local mechanical amendment (DGS code page not opened), any like-for-like exemption, AC charge verification (climate zone not found), competitor SERP table.
+    // TODO(copy): client has not approved any Huntington Beach wording (every FAQ answer, the five local paragraphs, the noise sentences, the Title 24 sentences, the commercial sentence, the incentive wording). Keep flagged until the user says the client approved. Irvine, Gardena, Anaheim and Costa Mesa flags also stay.
+    // TODO(copy): confirm with the City (general office number (714) 536-5241) which permit path each HVAC job needs, and whether AIRPRO SOLUTIONS holds a Huntington Beach business license (the City asks contractors for one).
+    // TODO(copy): noise text is from ecode360 (third-party host; amendments cited 3940-7/12 and 4222-9/21). The nighttime row under Low-Density Residential is unlabeled on that host, so no nighttime number is stated; recheck against the official code before adding one.
+    // Pre-launch recheck: SCE rebates page, SoCalGas rebates page (dated 2024-07-23), TECH Clean California and switchison.org, CEC HEEHRA status (notice dated 2026-02-24), the City utility services page, ecode360 Sec. 8.40.050 and 8.40.090, SCAG profile URL, QuickFacts, DGS code page (not opened), water-board ZIP source if a ZIP sentence is ever added.
+    localParagraphs: [
+      "Huntington Beach's Permit Center issues mechanical permits along with building, electrical, plumbing, and other construction permits, and its HB ACA portal handles online permit processing, payments, project status, and inspection scheduling. The City's forms page lists a Mechanical Permit Application, Mechanical Plan Requirements, and a Mechanical Plan Check Waiver Request, and it does not say when a waiver applies. The City pages we reviewed state no like-for-like exemption, so **AIRPRO SOLUTIONS confirms which permit path applies** with the City before work starts. The City asks contractors for a current Huntington Beach business license, the matching State contractor license, and workers' compensation proof unless working alone.",
+      "Huntington Beach had 198,711 residents in the 2020 U.S. Census. City sources document communities such as Huntington Harbour, which the City's Harbour Commission advises on alongside its beaches, facilities, and parks, the Oak View community, which the City describes as a square mile area, and Sunset Beach, which is listed among the City's major projects. The City also adopts specific plans for planning districts, including Downtown, Bella Terra, and the Beach-Edinger Corridor. SCAG's local profile, using California Department of Finance data for 2018, counts **81,656 housing units: 47.9% single-family detached, 11.6% attached, 11.8% in buildings of 2 to 4 units, 24.9% in buildings of 5 or more, and 3.8% mobile homes**. The same profile, citing the 2017 American Community Survey, reports that **43.5% of housing was built before 1970**. These figures are dated, so we confirm the equipment, access, and ductwork at the property, and in a multi-unit building we confirm equipment access and placement.",
+      "Municipal Code Sec. 8.40.050 sets exterior noise standards by land use. For low-density residential property, the table we read lists **55 dBA Leq from 7 a.m. to 10 p.m.**, with a lower limit at night, and each limit is reduced by 5 dBA for impact, simple tone, speech, or music sounds. The code defines fixed noise sources to include air conditioners and refrigeration equipment, and we did not see a section written only for HVAC equipment. The text we read comes from a third-party code host that may not reflect the most current legislation, so we confirm how the limits apply to your address before choosing a condenser location. The City's noise FAQ says work under a valid City permit may run from 7 a.m. to 7 p.m., Monday through Friday, including Saturday, and not on Sundays or federal holidays.",
+      "Replacements are also subject to California's Title 24 energy code, and the 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing and field verification requirements, and the Certificate of Compliance (CF1R) specifies the required tests. We did not find a Huntington Beach rule that adds to the state requirements, and we confirm what your job needs with the City.",
+      "For commercial work, the City's mechanical plan requirements ask for an equipment schedule, a scaled duct layout, air-conditioning condenser locations and equipment access, and Title 24 mechanical calculations for all new HVAC systems. The City's Zoning Code includes IG and IL industrial districts. The City's utility services page lists Southern California Edison for electricity and Southern California Gas Company for natural gas. Incentive programs and funding change, so we link the SCE rebates page and the state program pages rather than quote amounts. Official links are in the card beside this text.",
+    ],
+    neighborhoodsHeading: "Official Huntington Beach resources",
+    officialResources: [
+      {
+        text: "Permit Center",
+        href: "https://www.huntingtonbeachca.gov/departments/community_development/building_inspection/permit_center/index.php",
+        note: "Issues mechanical and other construction permits and points to the HB ACA portal.",
+      },
+      {
+        text: "HB ACA online portal",
+        href: "https://aca-prod.accela.com/cohb/Default.aspx",
+        note: "Applications, payments, project status, and inspection scheduling.",
+      },
+      {
+        text: "Applications and forms",
+        href: "https://www.huntingtonbeachca.gov/departments/community_development/building_inspection/permit_center/applications_forms.php",
+        note: "Mechanical Permit Application, Mechanical Plan Requirements, and Mechanical Plan Check Waiver Request.",
+      },
+      {
+        text: "Building Inspection and contractor requirements",
+        href: "https://www.huntingtonbeachca.gov/departments/community_development/building_inspection/index.php",
+        note: "Business license, State license, workers' compensation, owner-builder rules, and the general office number.",
+      },
+      {
+        text: "Mechanical plan requirements (PDF)",
+        href: "https://cms3.revize.com/revize/huntingtonbeachca/Documents/Departments/Community%20Development/Building%20Inspections/Permit%20Centre/Applications%20%26%20Forms/Plan%20Review%20Supplemental%20Forms/Mechanical-Plan-Requirements.pdf",
+        note: "City checklist, written mainly for commercial projects.",
+      },
+      {
+        text: "Municipal Code Sec. 8.40.050",
+        href: "https://ecode360.com/43796779",
+        note: "Exterior noise standards, on a third-party code host.",
+      },
+      {
+        text: "City noise FAQ",
+        href: "https://www.huntingtonbeachca.gov/services/report_an_issue/noise_complaint_faq.php",
+        note: "Permitted construction and repair hours.",
+      },
+      {
+        text: "Utility services",
+        href: "https://www.huntingtonbeachca.gov/services/utility_services.php",
+        note: "Electric and natural gas providers listed by the City.",
+      },
+      {
+        text: "SCAG Huntington Beach local profile",
+        href: "https://www.scag.ca.gov/sites/default/files/2024-05/huntingtonbeach_localprofile.pdf",
+        note: "Housing counts and building age cited on this page.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/huntingtonbeachcitycalifornia",
+        note: "2020 Census population cited on this page.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Huntington Beach homes and businesses",
+    serviceCards: [
+      { slug: "ac-repair", name: "AC Repair", body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises, with the City's residential noise limits in mind for outdoor units." },
+      { slug: "ac-installation", name: "AC Installation & Replacement", body: "New system sizing and installation, planned around the City's Permit Center process and Title 24 requirements." },
+      { slug: "ac-maintenance", name: "AC Maintenance", body: "Seasonal AC tune-ups that catch small issues early." },
+      { slug: "heating-repair", name: "Heating Repair", body: "Furnace and heating system diagnosis and repair." },
+      { slug: "furnace-installation", name: "Furnace Installation & Replacement", body: "New furnace sizing and installation, with the City's permit path confirmed before work starts." },
+      { slug: "heat-pump-services", name: "Heat Pump Services", body: "Installation, repair, and maintenance for heat pumps. Incentive availability changes, so we point you to the current program pages." },
+      { slug: "ductless-mini-split", name: "Ductless Mini-Split", body: "Room-by-room comfort control for spaces where ductwork is not an option." },
+      { slug: "ductwork", name: "Ductwork Services", body: "Duct repair, sealing, replacement, and installation, with Title 24 duct sealing and verification in mind." },
+      { slug: "indoor-air-quality", name: "Indoor Air Quality", body: "Air filtration, whole-home purification, and ventilation options." },
+      { slug: "emergency-hvac", name: "Emergency HVAC", body: "Dispatch for no-cool and no-heat emergencies in Huntington Beach." },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Huntington Beach permits, noise limits, and incentive programs",
+      intro: "Official sources for three local items worth checking before a Huntington Beach HVAC project.",
+      cards: [
+        // TODO(copy): incentive wording not yet client-approved. No dollar amounts on purpose; recheck links before launch.
+        {
+          amount: "Permit Center",
+          description: "Huntington Beach's Permit Center issues mechanical permits, and applications and inspection scheduling run through the HB ACA portal. We do not assume a like-for-like replacement is exempt.",
+          linkLabel: "HB ACA portal",
+          linkHref: "https://aca-prod.accela.com/cohb/Default.aspx",
+        },
+        {
+          amount: "Noise limits",
+          description: "Municipal Code Sec. 8.40.050 sets exterior noise standards by land use, and air conditioners are defined as fixed noise sources. Check it before choosing a condenser location.",
+          linkLabel: "Sec. 8.40.050",
+          linkHref: "https://ecode360.com/43796779",
+        },
+        {
+          amount: "Incentive programs",
+          description: "Rebate terms and funding change, and we do not quote amounts. Confirm which program applies to your address and check current terms before you buy.",
+          linkLabel: "SCE rebates page",
+          linkHref: "https://www.sce.com/save-money/rebates-financial-assistance",
+        },
+      ],
+    },
+    // Nearby row held out: no source names Huntington Beach neighbors. The city page skips the section when this is empty.
+    nearby: [],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Huntington Beach",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        { num: '4.8★', label: 'Google rating' },
+        { num: '40', label: 'Google reviews' },
+        { num: 'C-20', label: 'California license class' },
+        { num: '24/7', label: 'Emergency dispatch' },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Huntington Beach. Same-day service is typical, subject to capacity.",
+    // TODO(copy): client has not confirmed any FAQ answer below.
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Huntington Beach?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Huntington Beach as part of our Orange County coverage. Huntington Beach takes permit applications through its HB ACA online portal, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Orange County coverage", href: "/service-areas/orange-county/" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Huntington Beach home?",
+        a: "Same-day service is typical in Huntington Beach, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Huntington Beach, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an AC or furnace in Huntington Beach?",
+        a: "Check with the City before work starts. Huntington Beach's Permit Center issues mechanical permits, and applications go through the HB ACA portal. The City's forms page lists a Mechanical Permit Application, Mechanical Plan Requirements, and a Mechanical Plan Check Waiver Request, and it does not say when a waiver applies. The City pages we reviewed state no like-for-like exemption, so we do not assume a replacement is exempt. To ask whether a permit is needed, call the City's general office number at (714) 536-5241. AIRPRO SOLUTIONS can walk you through the steps.",
+        boldLead: "Check with the City before work starts.",
+        links: [
+          { text: "Permit Center", href: "https://www.huntingtonbeachca.gov/departments/community_development/building_inspection/permit_center/index.php" },
+          { text: "HB ACA portal", href: "https://aca-prod.accela.com/cohb/Default.aspx" },
+          { text: "forms page", href: "https://www.huntingtonbeachca.gov/departments/community_development/building_inspection/permit_center/applications_forms.php" },
+        ],
+      },
+      {
+        q: "What does the City require of a contractor who pulls the permit?",
+        a: "The City says contractors need a current Huntington Beach business license, the matching State contractor license, and proof of workers' compensation coverage unless working alone. Owner-builders submit an Owner-Builder Verification Form with each application. The City's Building Inspection page also lists online applications and inspection scheduling through HB ACA.",
+        boldLead: "The City says contractors need a current Huntington Beach business license, the matching State contractor license, and proof of workers' compensation coverage unless working alone.",
+        links: [
+          { text: "City's Building Inspection page", href: "https://www.huntingtonbeachca.gov/departments/community_development/building_inspection/index.php" },
+        ],
+      },
+      {
+        q: "What does the City ask to see with an HVAC permit?",
+        a: "The City's mechanical plan requirements ask for an equipment schedule, a scaled duct layout, air-conditioning condenser locations and equipment access, and Title 24 mechanical calculations for all new HVAC systems. The checklist is written mainly for commercial projects, so what a home replacement needs can differ. Confirm yours with the City at (714) 536-5241.",
+        boldLead: "The City's mechanical plan requirements ask for an equipment schedule, a scaled duct layout, air-conditioning condenser locations and equipment access, and Title 24 mechanical calculations for all new HVAC systems.",
+        links: [
+          { text: "mechanical plan requirements", href: "https://cms3.revize.com/revize/huntingtonbeachca/Documents/Departments/Community%20Development/Building%20Inspections/Permit%20Centre/Applications%20%26%20Forms/Plan%20Review%20Supplemental%20Forms/Mechanical-Plan-Requirements.pdf" },
+        ],
+      },
+      {
+        q: "Which building codes apply to HVAC work in Huntington Beach?",
+        a: "The City says permits rely on city adopted state building codes as well as on local codes and ordinances. We did not find the City's adoption ordinance or any local mechanical amendments, so we do not state a code edition and we confirm current requirements with the City for your project. The Building Inspection page describes the City's framework.",
+        boldLead: "The City says permits rely on city adopted state building codes as well as on local codes and ordinances.",
+        links: [
+          { text: "Building Inspection page", href: "https://www.huntingtonbeachca.gov/departments/community_development/building_inspection/index.php" },
+        ],
+      },
+      {
+        q: "Does Title 24 apply when I replace an AC or furnace in Huntington Beach?",
+        a: "Yes, the applicable Title 24 energy requirements apply. California's 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing and field verification requirements. Depending on the job, that can include duct leakage testing, with limits of 10% total leakage or 7% leakage to outside for existing ducts, refrigerant charge verification for heat pumps, and a Certificate of Compliance (CF1R) that lists the required tests. Not every job needs every test.",
+        boldLead: "Yes, the applicable Title 24 energy requirements apply.",
+        links: [
+          { text: "2025 Energy Code", href: "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency" },
+          { text: "Energy Commission", href: "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/energy-code-support-center/hvac-0" },
+        ],
+      },
+      {
+        q: "Does Huntington Beach have a noise rule that affects AC equipment?",
+        a: "Huntington Beach sets exterior noise standards by land use. Municipal Code Sec. 8.40.050 lists 55 dBA Leq from 7 a.m. to 10 p.m. for low-density residential property, with a lower limit at night, reduced by 5 dBA for impact, simple tone, speech, or music sounds. The code defines fixed noise sources to include air conditioners and refrigeration equipment, and we did not see a section written only for HVAC equipment. The text we read is from a third-party code host that may not reflect the most current legislation, so we confirm how the limits apply to your address before we choose a condenser location.",
+        boldLead: "Huntington Beach sets exterior noise standards by land use.",
+        links: [
+          { text: "Sec. 8.40.050", href: "https://ecode360.com/43796779" },
+        ],
+      },
+      {
+        q: "What hours can permitted HVAC work happen in Huntington Beach?",
+        a: "The City's noise FAQ allows construction, repair, remodeling, or grading under a valid City permit from 7 a.m. to 7 p.m., Monday through Friday, including Saturday. It says this work is not allowed on Sundays or federal holidays. Call (323) 776-9047 to schedule a visit.",
+        boldLead: "The City's noise FAQ allows construction, repair, remodeling, or grading under a valid City permit from 7 a.m. to 7 p.m., Monday through Friday, including Saturday.",
+        links: [
+          { text: "noise FAQ", href: "https://www.huntingtonbeachca.gov/services/report_an_issue/noise_complaint_faq.php" },
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do you work in condos and apartment buildings in Huntington Beach?",
+        a: "Yes. SCAG's local profile of Huntington Beach, using California Department of Finance data for 2018, counts 81,656 housing units, with 47.9% single-family detached, 11.6% single-family attached, 11.8% in buildings of 2 to 4 units, 24.9% in buildings of 5 or more units, and 3.8% mobile homes. AIRPRO SOLUTIONS services condos, townhomes, and apartments as well as single-family homes, and in a multi-unit building we confirm equipment access and placement at the property. See our Residential HVAC page.",
+        boldLead: "Yes.",
+        links: [
+          { text: "local profile", href: "https://www.scag.ca.gov/sites/default/files/2024-05/huntingtonbeach_localprofile.pdf" },
+          { text: "Residential HVAC page", href: "/residential-hvac/" },
+        ],
+      },
+      {
+        q: "Does the age of Huntington Beach homes matter for HVAC work?",
+        a: "It can, and we confirm it on site. SCAG's local profile, citing the 2017 American Community Survey, reports that 43.5% of Huntington Beach's housing stock was built before 1970. Older homes can mean older equipment, attic access, and ductwork, but those are still property-specific, so we check them at a site visit before recommending repair or replacement.",
+        boldLead: "It can, and we confirm it on site.",
+      },
+      {
+        q: "Do you service Huntington Harbour, Oak View, and Sunset Beach?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Huntington Beach. City sources document Huntington Harbour, the Oak View community, and Sunset Beach, which is listed among the City's major projects. We plan each visit around the address, including equipment access and placement.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Huntington Harbour", href: "https://www.huntingtonbeachca.gov/government/boards_commissions/harbour_commission.php" },
+          { text: "Oak View", href: "https://www.huntingtonbeachca.gov/government/boards_commissions/oak_view_task_force.php" },
+          { text: "major projects", href: "https://www.huntingtonbeachca.gov/departments/community_development/major_projects.php" },
+        ],
+      },
+      {
+        q: "Who provides electricity and gas in Huntington Beach?",
+        a: "The City's utility services page lists Southern California Edison for electricity and Southern California Gas Company for natural gas. Programs, amounts, and funding change, so confirm current eligibility with your utility before scheduling installation.",
+        boldLead: "The City's utility services page lists Southern California Edison for electricity and Southern California Gas Company for natural gas.",
+        links: [
+          { text: "utility services page", href: "https://www.huntingtonbeachca.gov/services/utility_services.php" },
+        ],
+      },
+      {
+        q: "Which rebate and incentive pages should I check before buying HVAC equipment in Huntington Beach?",
+        a: "Check the utility and state program pages for current terms. We do not quote amounts, because availability and funding change. SCE lists its rebates and programs, SoCalGas lists furnace rebates with its own eligibility requirements, and heat-pump incentives are tracked by TECH Clean California and The Switch Is On. The Energy Commission's notice dated February 24, 2026 says single-family HEEHRA heat pump rebates are fully reserved statewide, with unapproved requests waitlisted. Confirm current eligibility and reservation status before scheduling installation.",
+        boldLead: "Check the utility and state program pages for current terms.",
+        links: [
+          { text: "SCE", href: "https://www.sce.com/save-money/rebates-financial-assistance" },
+          { text: "SoCalGas", href: "https://www.socalgas.com/savings/rebates-and-incentives" },
+          { text: "TECH Clean California", href: "https://techcleanca.com/incentives/single-family-incentives/" },
+          { text: "The Switch Is On", href: "https://switchison.org" },
+          { text: "notice dated February 24, 2026", href: "https://www.energy.ca.gov/programs-and-topics/programs/inflation-reduction-act-residential-energy-rebate-programs" },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Huntington Beach?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Huntington Beach, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC",
+        links: [
+          { text: "AC repair", href: "/services/ac-repair/" },
+          { text: "AC installation and replacement", href: "/services/ac-installation/" },
+          { text: "AC maintenance", href: "/services/ac-maintenance/" },
+          { text: "heating repair", href: "/services/heating-repair/" },
+          { text: "furnace installation and replacement", href: "/services/furnace-installation/" },
+          { text: "heat pump services", href: "/services/heat-pump-services/" },
+          { text: "ductless mini-splits", href: "/services/ductless-mini-split/" },
+          { text: "ductwork", href: "/services/ductwork/" },
+          { text: "indoor air quality", href: "/services/indoor-air-quality/" },
+          { text: "emergency HVAC", href: "/services/emergency-hvac/" },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Huntington Beach?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Huntington Beach. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Huntington Beach?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Huntington Beach?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Huntington Beach, including rooftop units. The City's mechanical plan requirements ask for an equipment schedule, a scaled duct layout, condenser locations and equipment access, and Title 24 mechanical calculations for new HVAC systems, and the City's Zoning Code includes IG and IL industrial districts. We confirm the permit path with the City before work starts. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "mechanical plan requirements", href: "https://cms3.revize.com/revize/huntingtonbeachca/Documents/Departments/Community%20Development/Building%20Inspections/Permit%20Centre/Applications%20%26%20Forms/Plan%20Review%20Supplemental%20Forms/Mechanical-Plan-Requirements.pdf" },
+          { text: "IG and IL industrial districts", href: "https://ecode360.com/43803237" },
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -2338,6 +2661,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'irvine' ? irvineOverrides
     : c.slug === 'anaheim' ? anaheimOverrides
     : c.slug === 'costa-mesa' ? costaMesaOverrides
+    : c.slug === 'huntington-beach' ? huntingtonBeachOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
