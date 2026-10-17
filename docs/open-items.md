@@ -377,7 +377,7 @@ visible text and TS match.
 - Claim wording follows the approved list. Do not strengthen it.
 
 ## /service-areas/ontario/ (ontarioOverrides in src/content/cities.ts)
-Built 2026-10-16. Reference artifact: claude/reference/ontario-location.html
+Built 2026-10-16 and pushed to main (user chose push to main). Reference artifact: claude/reference/ontario-location.html
 (https://claude.ai/artifact/Dutd6Jjxy2gye8N3cyErp7). Second Inland Empire wave-1 city. Generated from one data source so
 JSON-LD, visible text and TS match.
 - Title: `cityTitle('Ontario')` ("HVAC Services in Ontario, CA | AIRPRO SOLUTIONS", 47 characters) does not collide with another
