@@ -10,9 +10,9 @@ import type { RebateCard } from '@/components/sections/RebateCards';
 //
 // TODO(verify): rebate programs and funding (Riverside Public Utilities, SCE thermostat credit,
 // TECH Clean California) and whether to add dollar amounts.
-// TODO(verify): electric utility per city for Ontario, Rancho Cucamonga, Chino, Fontana, Upland,
+// TODO(verify): electric utility per city for Rancho Cucamonga, Chino, Fontana, Upland,
 // and Eastvale (SCE is medium-to-low confidence).
-// TODO(verify): like-for-like permit rules for Corona, Ontario, Rancho Cucamonga, Upland, and
+// TODO(verify): like-for-like permit rules for Corona, Rancho Cucamonga, Upland, and
 // Eastvale, and current Title 24 code dates.
 // TODO(client): the research does not support saying "we handle permits", so this page does not.
 // TODO(client): real photos, city-tagged reviews, business hours, and the confirmed Inland Empire
@@ -59,8 +59,8 @@ export const inlandEmpireHub = {
   },
 
   // Sources: NWS Riverside Municipal Airport 1991-2020 normals (90.6F July normal high, 18 days/yr
-  // at or above 90F); Ontario/Riverside September 6, 2024 heat event (114F/115F, NWS); Riverside's
-  // July record high (118F). Ontario Airport late-summer normals (93-95F). Norton AFB station
+  // at or above 90F); Riverside September 6, 2024 heat event (115F, NWS; the Ontario 114F figure was removed, no source found); Riverside's
+  // July record high (118F). Norton AFB station
   // record, 1980-1990 (96 days/yr at or above 90F, 21 at or above 100F, 66 days below 40F, ~1,602
   // CDD vs ~1,846 HDD) - an older, single-station record, treated as pattern context only. No
   // city-level data found for Corona, Rancho Cucamonga, Chino, Fontana, Upland, or Eastvale.
@@ -70,11 +70,11 @@ export const inlandEmpireHub = {
     facts: [
       '90.6°F July normal high at Riverside Municipal Airport, 1991-2020',
       '18 days in a typical July at or above 90°F at that station',
-      '114-115°F reached in Ontario and Riverside on September 6, 2024',
+      '115°F reached in Riverside on September 6, 2024',
       "118°F Riverside's July record high",
     ],
     paragraphs: [
-      'Inland Empire summers are a cooling-load story. Ontario Airport normals run 93 to 95°F on late-summer dates, and the September 2024 heat wave pushed Ontario to 114°F and Riverside to 115°F. **Equipment here runs hard and long**, which is why a system that was fine on paper can struggle in a heat wave.',
+      'Inland Empire summers are a cooling-load story. the September 2024 heat wave pushed Riverside to 115°F. **Equipment here runs hard and long**, which is why a system that was fine on paper can struggle in a heat wave.',
       'Heating still matters. A 1980 to 1990 record at a San Bernardino-area station, Norton AFB, shows 96 days a year at or above 90°F and 21 at or above 100°F, and also 66 days below 40°F, with about 1,602 cooling degree days against 1,846 heating degree days. It is an older, single-station record, so treat it as a sense of the pattern, not a current forecast.',
       'We did not find city-level climate data for Corona, Rancho Cucamonga, Chino, Fontana, Upland, or Eastvale, so we use nearby stations for context only. **We size equipment from a load calculation for your specific building**, not from a regional temperature assumption.',
     ],
@@ -88,7 +88,7 @@ export const inlandEmpireHub = {
     source: 'Climate figures are from nearby weather stations, not city averages. Riverside Municipal Airport figures are 1991-2020 normals and the Norton AFB record covers 1980 to 1990. County grouping shows where each city sits and is not a climate-zone or permit boundary.',
   },
 
-  // Source: 2018 housing-age estimates. Ontario is a minimum (later-decade figures not found).
+  // Source: 2018 housing-age estimates. Ontario: SCAG's local profile states 36.1% built before 1970 (ACS, year not stated).
   // Cities are listed highest share to lowest; "age group" is a general grouping, not a ranking.
   housing: {
     eyebrow: 'Property types',
@@ -97,7 +97,7 @@ export const inlandEmpireHub = {
     numericCols: [1],
     rows: [
       ['Riverside', '39.5%', 'Older, established', 'Mix of detached homes and multifamily'],
-      ['Ontario', '36.1% or more', 'Older, established', 'Mix of detached homes and multifamily'],
+      ['Ontario', '36.1%', 'Older, established', 'Mix of detached homes and multifamily'],
       ['Upland', '34.5%', 'Older, established', 'Mix of detached homes and multifamily. Construction peaked from 1970 to 1979.'],
       ['Fontana', '22.3%', 'Middle', 'Predominantly detached single-family'],
       ['Chino', '18.9%', 'Middle', 'Predominantly detached single-family. Construction peaked from 1970 to 1979.'],
@@ -105,19 +105,19 @@ export const inlandEmpireHub = {
       ['Rancho Cucamonga', '9.6%', 'Newer', 'Mix of detached homes and multifamily'],
       ['Eastvale', '0.7%', 'Newer', 'Predominantly detached single-family'],
     ],
-    note: 'Share of homes built before 1970, 2018 data. Ontario is a minimum because figures for later decades were not found. Cities are listed from the highest share to the lowest, and the age group is a general grouping, not a ranking of city size.',
+    note: 'Share of homes built before 1970, 2018 data. Cities are listed from the highest share to the lowest, and the age group is a general grouping, not a ranking of city size.',
     paragraphs: [
       '**Structure type shapes the job.** Eastvale, Fontana, Chino, and Corona are predominantly detached single-family markets, while Riverside, Upland, Ontario, and Rancho Cucamonga have a heavier mix of multifamily buildings. Attached and multifamily properties can mean shared roofs, limited equipment locations, and association rules.',
       '**Age is only a starting point.** Construction peaked from 1970 to 1979 in both Chino and Upland. Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     ],
-    pending: 'Housing mix figures were not found for Upland, and later-decade age figures were not found for Ontario, so no further claims are made for them. Attic, foundation, ductwork, and home-size data were not found for any city.',
+    pending: 'Housing mix figures were not found for Upland, so no further claims are made for it. Attic, foundation, ductwork, and home-size data were not found for any city.',
   },
 
   services: {
     eyebrow: 'Services in the Inland Empire',
     title: "HVAC work across the region's homes and buildings",
     cards: [
-      { slug: 'ac-repair', body: 'Diagnosis for cooling failures in a region where the July normal high at Riverside Municipal Airport is 90.6°F and September 2024 heat reached 114°F in Ontario and 115°F in Riverside.' },
+      { slug: 'ac-repair', body: 'Diagnosis for cooling failures in a region where the July normal high at Riverside Municipal Airport is 90.6°F and September 2024 heat reached 115°F in Riverside.' },
       { slug: 'heating-repair', body: 'Nights get cold enough to matter, with 66 days a year below 40°F in one San Bernardino-area station record. Furnace work starts with the city permit and SoCalGas service.' },
       { slug: 'heat-pump-services', body: 'Heat pump work starts with your electric utility, Riverside Public Utilities or SCE, and with state incentive programs whose funding is limited.' },
       { slug: 'residential-hvac', name: 'Residential HVAC', body: "Detached homes, townhomes, condos, and apartments, from Riverside and Upland's older neighborhoods to newer housing in Eastvale and Rancho Cucamonga.", icon: 'home' },
@@ -143,14 +143,14 @@ export const inlandEmpireHub = {
     commercial: {
       tag: 'Commercial',
       title: 'Commercial properties',
-      body: 'Warehouse and logistics space in Fontana and Chino, industrial employment areas and retail in Rancho Cucamonga, Downtown Riverside, and commercial space near Ontario Airport.',
+      body: 'Warehouse and logistics space in Fontana and Chino, industrial employment areas and retail in Rancho Cucamonga, Downtown Riverside, and commercial space in Ontario.',
       chips: ['Offices', 'Retail', 'Restaurants', 'Rooftop units'],
       ctaLabel: 'Commercial HVAC',
       href: '/commercial-hvac/',
     },
     paragraphs: [
-      "**Districts differ.** Downtown Riverside, Ontario's airport area, Rancho Cucamonga's industrial and retail areas, and Fontana and Chino's warehouse districts each bring different building types, rooftop access, and neighbor conditions.",
-      '**Rooftop units may need review.** Ontario and Fontana have rules that can bring screening review to rooftop equipment, and we confirm the rules for Riverside with the City, so we check placement and curb changes with the city before a unit is ordered.',
+      "**Districts differ.** Downtown Riverside, Ontario, Rancho Cucamonga's industrial and retail areas, and Fontana and Chino's warehouse districts each bring different building types, rooftop access, and neighbor conditions.",
+      '**Rooftop units may need review.** Fontana has rules that can bring screening review to rooftop equipment, and we confirm the rules for Riverside and Ontario with each City, so we check placement and curb changes with the city before a unit is ordered.',
     ],
     pending: 'No commercial property evidence was found for Corona, Upland, or Eastvale, so this section makes no commercial claim for them.',
   },
@@ -167,27 +167,27 @@ export const inlandEmpireHub = {
     rows: [
       ['Riverside', 'Permit through the Public Permit Portal or the Permit Services counter', "The City's Bulletin 140 lists no like-for-like exemption for a whole unit, so we confirm the permit path with the City."],
       ['Corona', 'Generally a city mechanical permit', "Submittals go through the city's eTRAKiT system. We confirm the requirement with the city."],
-      ['Ontario', 'Generally a city mechanical permit', 'We confirm the requirement with the city. Rooftop equipment may need screening review.'],
+      ['Ontario', 'City online permitting portal or the Building Department counter', "The City's fee schedule lists mechanical permit items, but we found no rule on whole-unit replacement, so we confirm the permit path with the City."],
       ['Rancho Cucamonga', 'Generally a city mechanical permit', 'Permit submittals are online only. We confirm the requirement with the city.'],
       ['Chino', 'Mechanical permit for like-for-like replacement', "Confirmed on the city's fee schedule."],
       ['Fontana', 'Mechanical permit for like-for-like replacement', "Confirmed on the city's fee schedule. Rooftop equipment may need screening review."],
       ['Upland', 'Generally a city mechanical permit', 'We confirm the requirement with the city before work begins.'],
       ['Eastvale', 'Generally a city mechanical permit', "Submittals go through the city's Accela portal. We confirm the requirement with the city."],
     ],
-    note: "Based on each city's published permit and fee pages where available. A like-for-like permit requirement was confirmed for Chino and Fontana. For Riverside, the City lists no like-for-like exemption for a whole unit. For the other five cities it was not confirmed in the sources we reviewed, so we confirm with the city before work begins. Procedures change.",
+    note: "Based on each city's published permit and fee pages where available. A like-for-like permit requirement was confirmed for Chino and Fontana. For Riverside, the City lists no like-for-like exemption for a whole unit, and for Ontario the City lists mechanical permit fee items but we found no whole-unit replacement rule. For the other four cities it was not confirmed in the sources we reviewed, so we confirm with the city before work begins. Procedures change.",
     paragraphs: [
       '**Title 24 checks depend on the job.** Refrigerant charge verification applies to air conditioners in Climate Zones 2 and 8 through 15 and to heat pumps everywhere. Duct sealing and testing may apply, and a setback thermostat upgrade can be required when a refrigerant component is replaced.',
       '**Climate zone is set by address.** Which checks apply depends on the climate zone for your property, so we confirm it by address rather than by city. Not every job needs every test.',
     ],
   },
 
-  // No decibel figures per source: only screening-review context for Ontario and Fontana (Riverside removed: no City source read).
+  // No decibel figures per source: only screening-review context for Fontana (Ontario and Riverside removed: no City source read).
   placement: {
     eyebrow: 'Placement and screening',
     title: 'Where the outdoor unit can go depends on the building',
     columns: ['Cities', 'Placement and screening'],
     rows: [
-      ['Ontario, Fontana', 'Rooftop equipment may need screening review, so we check the rules and any curb change with the city before choosing a unit and location.'],
+      ['Fontana', 'Rooftop equipment may need screening review, so we check the rules and any curb change with the city before choosing a unit and location.'],
       ['Riverside, Corona, Rancho Cucamonga, Chino, Upland, Eastvale', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
     ],
     note: 'Code text changes, so current requirements are confirmed with the city before installation.',
@@ -228,10 +228,12 @@ export const inlandEmpireHub = {
     utilities: [
       'Riverside electric: Riverside Public Utilities',
       'Corona electric: mostly SCE',
-      'Other six cities, electric: generally SCE',
+      'Ontario electric: SCE',
+      'Other five cities, electric: generally SCE',
+      'Ontario gas: SoCalGas',
       'Natural gas: SoCalGas outside Riverside, where we confirm the provider by address',
     ],
-    note: '**Confirm by address:** SCE service for Ontario, Rancho Cucamonga, Chino, Fontana, Upland, and Eastvale is not directly confirmed, so verify your utility before relying on any program.',
+    note: '**Confirm by address:** SCE service for Rancho Cucamonga, Chino, Fontana, Upland, and Eastvale is not directly confirmed, so verify your utility before relying on any program.',
   },
 
   cities: {
@@ -253,10 +255,10 @@ export const inlandEmpireHub = {
       },
       {
         name: 'Ontario',
-        note: 'At least 36.1% of homes were built before 1970, and airport-adjacent commercial and logistics space sits near residential neighborhoods. Rooftop equipment may need screening review.',
-        areas: 'Ontario Airport area, Ontario Mills, Holt Boulevard',
-        utility: 'Electric: generally SCE.',
-        pending: 'Pending: Ontario housing figures after 1970 were not found.',
+        href: '/service-areas/ontario/',
+        note: '36.1% of homes were built before 1970, and Ontario Ranch adds new construction. The City names Southern California Edison as the electric utility and Southern California Gas Company as the gas utility.',
+        areas: 'Ontario Ranch, the airport area',
+        utility: 'Electric: SCE. Gas: SoCalGas.',
       },
       {
         name: 'Rancho Cucamonga',
@@ -313,7 +315,7 @@ export const inlandEmpireHub = {
     },
     {
       q: 'Do I need a permit to replace my AC in the Inland Empire?',
-      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Riverside County or San Bernardino County. A like-for-like replacement permit requirement is confirmed for Chino and Fontana. Riverside lists no like-for-like exemption for a whole unit, and we confirm its path with the City. For the other five cities, replacement generally requires a city mechanical permit, and we confirm the path with your city before work begins.',
+      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Riverside County or San Bernardino County. A like-for-like replacement permit requirement is confirmed for Chino and Fontana. Riverside lists no like-for-like exemption for a whole unit, and Ontario lists mechanical permit fee items but no whole-unit rule we found, so we confirm each path with the City. For the other four cities, replacement generally requires a city mechanical permit, and we confirm the path with your city before work begins.',
     },
     {
       q: 'What is Title 24 and how does it affect an HVAC replacement?',
@@ -325,11 +327,11 @@ export const inlandEmpireHub = {
     },
     {
       q: 'How hot does it get, and does that change equipment sizing?',
-      a: 'Yes, the heat is a real design factor. The July normal high at Riverside Municipal Airport is 90.6°F, and on September 6, 2024 Ontario reached 114°F and Riverside reached 115°F. Those are station readings, not city averages, so we size equipment from a load calculation for your specific building.',
+      a: 'Yes, the heat is a real design factor. The July normal high at Riverside Municipal Airport is 90.6°F, and on September 6, 2024 Riverside reached 115°F. Those are station readings, not city averages, so we size equipment from a load calculation for your specific building.',
     },
     {
       q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in the Inland Empire?',
-      a: 'Yes, for offices, retail, restaurants, and other commercial properties. The commercial mix includes warehouse and logistics space in Fontana and Chino, industrial and retail areas in Rancho Cucamonga, Downtown Riverside, and airport-adjacent commercial space in Ontario. Rooftop equipment may need screening review in Ontario and Fontana, and we confirm the rules for Riverside with the City.',
+      a: 'Yes, for offices, retail, restaurants, and other commercial properties. The commercial mix includes warehouse and logistics space in Fontana and Chino, industrial and retail areas in Rancho Cucamonga, Downtown Riverside, and commercial space in Ontario. Rooftop equipment may need screening review in Fontana, and we confirm the rules for Riverside and Ontario with each City.',
     },
     {
       q: 'Do older homes in the Inland Empire need different HVAC work?',

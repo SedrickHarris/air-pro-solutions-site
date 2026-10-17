@@ -57,7 +57,7 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach and riverside have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside and ontario have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -2979,6 +2979,359 @@ const riversideOverrides: Partial<City> = {
   },
 };
 
+const ontarioOverrides: Partial<City> = {
+  // TODO(data): add verified climate detail before treating this as a full local page.
+  neighborhoods: [], // no official neighborhood list was verified (only a third-party ZIP site names neighbors); nothing is shown
+  zips: [], // ZIP list held out: sources were Wikipedia, a third-party aggregator and an unreadable court PDF; the CEQA record lists project metadata, not a postal list
+  page: {
+    metaDescription:
+      "HVAC for Ontario homes and businesses, from AC repair to installation. Know the City's permit steps and noise rules. Licensed, 4.8-star rated.",
+    lede:
+      "AIRPRO SOLUTIONS provides HVAC services across Ontario, including Ontario Ranch and the airport area, with AC repair, heating repair, installation, and maintenance for homes and businesses.",
+    heroCaption: { title: "Ontario, CA", text: "Local HVAC service across Ontario" },
+    heroProof: [
+      { icon: "shield", label: "Licensed, bonded & insured" },
+      { icon: "star", label: "4.8-star rated" },
+      { icon: "bolt", label: "24/7 emergency dispatch" },
+      { icon: "building", label: "Residential and commercial" },
+    ],
+    trustStats: [
+      { num: "4.8★", label: "Google rating, 40 reviews" },
+      { num: "C-20", label: "California licensed" },
+      { num: "24/7", label: "emergency dispatch" },
+      { num: "Same-day", label: "service typical" },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Ontario",
+      body:
+        ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Ontario at a glance",
+      stats: [
+        { num: "187,013", label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)" },
+        { num: "59.0%", label: "of 49,648 housing units are single-family detached, and 30.3% are in buildings of 2 or more units (California Department of Finance, 2018, per SCAG)" },
+        { num: "36.1%", label: "of housing was built before 1970 (American Community Survey, per SCAG)" },
+      ],
+      source: "Sources: U.S. Census Bureau QuickFacts and SCAG's local profile of Ontario.",
+    },
+    localTitle: "Ontario's permit rules, Ontario Ranch, and noise limits",
+    // Held out (no verified source): ZIP card: the research's list (91758, 91761, 91762, 91764) was cited to Wikipedia and a third-party aggregator, and the follow-up court filing-venue PDF returned no readable text; the CEQA record that lists six ZIPs is project location metadata, not a postal or service-area list; neighborhood pills and nearby row (the only neighbor list is a third-party ZIP site; neighborhoods and nearby stay empty); Ontario Mills, Holt Boulevard, Toyota Arena, Convention Center and Downtown Ontario landmarks (the City pages read do not mention them); climate, NOAA and heat figures including the hub's Ontario 114F on September 6, 2024 and the 93 to 95F late-summer normals (no sourced Ontario figure found); South Coast AQMD and Ontario's air-basin membership (the AQMD page names San Bernardino County but not Ontario); City permit trigger for like-for-like replacement, any HVAC permit checklist, contractor and business-license requirement, local code amendments and the current adopted code edition (Applicable Codes page is undated and lists 2022 editions); official Municipal Code text of Chapter 29 noise (not found; numbers come from a third-party copy); fixed noise source definition for air conditioners; outdoor-unit setbacks, historic and HOA rules; median year built, humidity, decade-by-decade housing age (the SCAG chart values have no bin labels); single-family, multifamily and commercial split beyond the SCAG DOF table; SCE and SoCalGas rebate dollar amounts; competitor SERP table (gap analysis only).
+    // TODO(copy): client has not approved any Ontario wording (every FAQ answer, the five local paragraphs, the noise sentences, the Title 24 sentences, the commercial sentence, the incentive wording). Keep flagged until the user says the client approved.
+    // TODO(copy): confirm with the City which permit path each HVAC job needs (Building Department lists (909) 395-2023 for plan check and counter services).
+    // TODO(copy): noise text is from a third-party copy of Title 5, Chapter 29 on nonoise.org (undated; cites Ord. 2888, effective March 6, 2008). Recheck against the official Municipal Code before relying on the numbers.
+    // Pre-launch recheck: Applicable Codes page, fee schedule, online permitting portal, Building Permit FAQs, Chapter 5 (Aug 18, 2026 revision exists) and Chapter 6, Euclid plan guidelines, SCE and SoCalGas rebate pages, Ontario Ranch and logistics pages, SCAG profile URL, QuickFacts.
+    localParagraphs: [
+      "Ontario's Building Department provides plan review and inspection services, and the City's online permitting portal lets applicants apply for permits, upload plans, and pay fees after staff review. The Building Department also offers appointments and counter service at City Hall, 303 East B Street, and lists (909) 395-2023 for plan check and counter services. The City's Building Permit FAQs say no permit is required for portable comfort-cooling or evaporative cooler equipment, and the City's fee schedule, as of July 1, 2026, lists mechanical permit fees for furnaces, air handler units, evaporative coolers, wall heaters, and mini splits, with flat-fee reviews for single-family and multi-family homes. We did not find a City rule or exemption that addresses replacing a whole air conditioner or furnace like for like, so **AIRPRO SOLUTIONS confirms which permit path applies** with the City before work starts. The City's Applicable Codes page lists 2022 editions of the California Mechanical Code and Energy Code, among others, for plans filed on or after January 1, 2023, and the page is undated, so we confirm which edition applies to your project. We did not read any local amendments.",
+      "Ontario had an estimated 187,013 residents on July 1, 2025, up from 175,265 in the 2020 U.S. Census, and QuickFacts reports a 58.0% owner-occupied housing rate for 2020-2024. The City's economic development site describes Ontario Ranch as a 13-square-mile master-planned community planned for 69,000 residential units at completion, with 1,200 new homes built in 2023, so Ontario's housing includes new construction as well as older homes. SCAG's local profile, using California Department of Finance data for 2018, counts **49,648 housing units: 59.0% single-family detached, 6.3% attached, 10.2% in buildings of 2 to 4 units, 20.1% in buildings of 5 or more, and 4.4% mobile homes**. The same profile, citing the American Community Survey, reports that **36.1% of housing was built before 1970**. The City's Ontario Ranch page is undated and the SCAG figures are dated and citywide, so we confirm the equipment, access, and ductwork at the property, and in a multi-unit building we confirm equipment access and placement.",
+      "Ontario's Development Code points to Title 5, Chapter 29 of the Municipal Code for noise. The third-party copy we read lists exterior limits for single-family residential property of **65 dBA from 7 a.m. to 10 p.m. and 45 dBA from 10 p.m. to 7 a.m.**, and 65 dBA by day and 50 dBA at night for multi-family residential (Sec. 5-29.04). It says that when ambient noise exceeds a standard, the ambient level becomes the standard, and it does not mention air conditioners, so we did not find a rule written only for HVAC equipment. Construction activity noise is limited to weekdays from 7 a.m. to 6 p.m. and Saturdays and Sundays from 9 a.m. to 6 p.m., with exceptions including emergency work (Sec. 5-29.09). The copy cites Ord. 2888, effective March 6, 2008, comes from a host that is not the City, and has no current date, so we confirm how the limits apply to your address before choosing a condenser location.",
+      "For equipment placement, the December 3, 2024 revision of Ontario's Development Code that we read sets screening standards for residential districts: for single-family dwellings, **new exterior roof-mounted mechanical, heating and air conditioning equipment is prohibited**, and for multiple-family development, roof-mounted equipment must be completely screened from public view by parapet walls or roof screens (Sec. 6.01.010). We did not confirm how those standards apply to replacing existing equipment, so we check placement with the City. Development Plan applications ask for the location of roof-mounted mechanical equipment and equipment screens, and the Euclid Mixed-Use Specific Plan in Ontario Ranch calls for screening ground- and roof-mounted mechanical equipment from public view. Replacements are also subject to California's Title 24 energy code, and the 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing requirements, and field verification and diagnostic testing is prescriptively required for most HVAC alterations.",
+      "For commercial work, the City's economic development site reports that Ontario International Airport served 6.5 million passengers in 2023 and handled over 750,000 tons of freight, lists logistics and distribution among its target industries, and shows Ontario Ranch planning 12 million square feet of commercial and office space and 31 million square feet of industrial space, so we plan commercial visits around the building and its rooftop or ground equipment access. The City's contact pages name Southern California Edison for electric service and Southern California Gas Company for gas, and eligibility for a program follows your utility account, so confirm both on your bill. SCE's rebates page lists Golden State Rebates coupons for air conditioners and smart thermostats and a Smart Energy Program bill credit, and SoCalGas lists a rebate for qualifying gas furnaces. Programs and funding change, so we link the program pages rather than quote amounts. Official links are in the card beside this text.",
+    ],
+    neighborhoodsHeading: "Official Ontario resources",
+    officialResources: [
+      {
+        text: "Building Department",
+        href: "https://www.ontarioca.gov/government/community-development/building",
+        note: "Plan review, inspections, counter services, and contact numbers.",
+      },
+      {
+        text: "Building Permit FAQs",
+        href: "https://www.ontarioca.gov/government/community-development/building/general-requirements/building-permit-faqs",
+        note: "Lists portable comfort-cooling and evaporative cooler equipment as not needing a permit.",
+      },
+      {
+        text: "Applicable Codes",
+        href: "https://ontarioca.gov/node/137",
+        note: "Code editions the City lists for plans filed on or after January 1, 2023 (undated page).",
+      },
+      {
+        text: "Citywide fee schedule (PDF)",
+        href: "https://content.ontarioca.gov/sites/default/files/2026-06/FY%202026-27%20Citywide%20Fee%20Schedule%2007.01.26.pdf",
+        note: "Mechanical permit fee items, as of July 1, 2026.",
+      },
+      {
+        text: "Online permitting portal guide (PDF)",
+        href: "https://content.ontarioca.gov/sites/default/files/2026-03/ACA%20User%20Guide%20-%203.9.2026.pdf",
+        note: "How to apply, upload plans, and pay fees online.",
+      },
+      {
+        text: "Development Code Chapter 6 (PDF)",
+        href: "https://content.ontarioca.gov/sites/default/files/2025-01/Chapter%206.0%20-%20Development%20%26%20Subdivision%20Regs_Rev%2012-03-2024.pdf",
+        note: "Equipment screening in residential districts (December 2024 revision).",
+      },
+      {
+        text: "Euclid Mixed-Use Specific Plan guidelines (PDF)",
+        href: "https://content.ontarioca.gov/sites/default/files/2025-01/EMUSP_Ch5_Design%20Guidelines.pdf",
+        note: "Mechanical equipment screening in that Ontario Ranch plan area.",
+      },
+      {
+        text: "Municipal Code Title 5, Chapter 29, noise",
+        href: "https://nonoise.org/regulation/ordinance/Ontario,%20California.pdf",
+        note: "Exterior noise standards and construction hours, on a third-party host.",
+      },
+      {
+        text: "City utility contacts",
+        href: "https://www.ontariothinksbusiness.com/node/71",
+        note: "Names the electric and gas utilities.",
+      },
+      {
+        text: "SCE rebates",
+        href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+        note: "Golden State Rebates coupons, Smart Energy Program, and Home Performance Plus.",
+      },
+      {
+        text: "SoCalGas rebates",
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "Natural gas furnace rebate and program terms.",
+      },
+      {
+        text: "Ontario Ranch",
+        href: "https://www.ontariothinksbusiness.com/develop-ontario/district-information/ontario-ranch",
+        note: "Size, planned units, and 2023 new-home figures cited on this page.",
+      },
+      {
+        text: "Logistics and distribution",
+        href: "https://www.ontariothinksbusiness.com/develop-ontario/target-industries/logistics-distribution",
+        note: "Airport passenger and freight figures cited on this page.",
+      },
+      {
+        text: "SCAG Ontario local profile",
+        href: "https://sp.scag.ca.gov/sites/default/files/2024-05/ontario_localprofile.pdf",
+        note: "Housing counts and building age cited on this page.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/fact/table/ontariocitycalifornia/PST045224",
+        note: "Population and owner-occupied rate cited on this page.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Ontario homes and businesses",
+    serviceCards: [
+      { slug: "ac-repair", name: "AC Repair", body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises, with the limits in the City's Municipal Code in mind for outdoor units." },
+      { slug: "ac-installation", name: "AC Installation & Replacement", body: "New system sizing and installation, planned around the City's permit process, equipment screening standards, and Title 24 requirements." },
+      { slug: "ac-maintenance", name: "AC Maintenance", body: "Seasonal AC tune-ups that catch small issues early, for homes and for commercial rooftop and ground units." },
+      { slug: "heating-repair", name: "Heating Repair", body: "Furnace and heating system diagnosis and repair. The City's contact pages name Southern California Gas Company as the gas utility." },
+      { slug: "furnace-installation", name: "Furnace Installation & Replacement", body: "New furnace sizing and installation, with the City's permit path confirmed before work starts. SoCalGas lists a gas furnace rebate, and funding changes, so we point you to the current program page." },
+      { slug: "heat-pump-services", name: "Heat Pump Services", body: "Installation, repair, and maintenance for heat pumps. Heat pump work starts with your electric utility, which the City's contact pages list as SCE, and incentive programs change." },
+      { slug: "ductless-mini-split", name: "Ductless Mini-Split", body: "Room-by-room comfort control for spaces where ductwork is not an option. The City's fee schedule lists a mini split base fee." },
+      { slug: "ductwork", name: "Ductwork Services", body: "Duct repair, sealing, replacement, and installation, with Title 24 duct sealing and verification in mind." },
+      { slug: "indoor-air-quality", name: "Indoor Air Quality", body: "Air filtration, whole-home purification, and ventilation options." },
+      { slug: "emergency-hvac", name: "Emergency HVAC", body: "Dispatch for no-cool and no-heat emergencies in Ontario." },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Ontario permits, noise limits, and incentive programs",
+      intro: "Official sources for three local items worth checking before an Ontario HVAC project.",
+      cards: [
+        // TODO(copy): incentive wording not yet client-approved. No dollar amounts on purpose; recheck links before launch.
+        {
+          amount: "Permits and codes",
+          description: "Ontario's Building Department provides plan review and inspection, and the City's fee schedule lists mechanical permit items. We found no City rule on replacing a whole unit like for like, so we do not assume a replacement is exempt.",
+          linkLabel: "Building Department",
+          linkHref: "https://www.ontarioca.gov/government/community-development/building",
+        },
+        {
+          amount: "Noise limits",
+          description: "Title 5, Chapter 29 of Ontario's Municipal Code sets exterior noise standards by land use. The copy we read does not mention air conditioners, so check it before choosing a condenser location.",
+          linkLabel: "Noise code (third-party copy)",
+          linkHref: "https://nonoise.org/regulation/ordinance/Ontario,%20California.pdf",
+        },
+        {
+          amount: "Incentive programs",
+          description: "SCE and SoCalGas list HVAC-related programs for their customers, including Golden State Rebates coupons, a Smart Energy Program bill credit, and a gas furnace rebate. Terms and funding change, and we do not quote amounts, so check the current terms before you buy.",
+          linkLabel: "SCE rebates",
+          linkHref: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+        },
+      ],
+    },
+    nearby: [],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Ontario",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        { num: "4.8★", label: "Google rating" },
+        { num: "40", label: "Google reviews" },
+        { num: "C-20", label: "California license class" },
+        { num: "24/7", label: "Emergency dispatch" },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Ontario. Same-day service is typical, subject to capacity.",
+    // TODO(copy): client has not confirmed any FAQ answer below.
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Ontario?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Ontario as part of our Inland Empire coverage. Ontario's Building Department handles permits, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Inland Empire coverage", href: "/service-areas/inland-empire/" },
+          { text: "Building Department", href: "https://www.ontarioca.gov/government/community-development/building" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Ontario home?",
+        a: "Same-day service is typical in Ontario, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Ontario, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an AC or furnace in Ontario?",
+        a: "Check with the City before work starts. Ontario's Building Department issues permits, and its Building Permit FAQs say no permit is required for portable comfort-cooling or evaporative cooler equipment. The City's fee schedule lists mechanical permit fees, including furnaces, air handler units, and mini splits, but we found no City rule or exemption that addresses replacing a whole air conditioner or furnace like for like, so we do not assume a replacement is exempt. The Building Department lists (909) 395-2023 for plan check and counter services. AIRPRO SOLUTIONS can walk you through the steps.",
+        boldLead: "Check with the City before work starts.",
+        links: [
+          { text: "Building Permit FAQs", href: "https://www.ontarioca.gov/government/community-development/building/general-requirements/building-permit-faqs" },
+          { text: "fee schedule", href: "https://content.ontarioca.gov/sites/default/files/2026-06/FY%202026-27%20Citywide%20Fee%20Schedule%2007.01.26.pdf" },
+        ],
+      },
+      {
+        q: "How do I apply for an HVAC permit in Ontario?",
+        a: "Use the City's online permitting portal or the Building Department counter. The portal's user guide says applicants can apply for permits, upload plans, and pay fees after staff review, and the Building Department also offers appointments and counter service at City Hall, 303 East B Street. The City's fee schedule lists a mechanical permit issuance fee and flat-fee reviews for single-family and multi-family homes, and we do not quote fees. We did not find a City list of HVAC permit types or a checklist for an equipment changeout, so we confirm the path with the City.",
+        boldLead: "Use the City's online permitting portal or the Building Department counter.",
+        links: [
+          { text: "online permitting portal", href: "https://content.ontarioca.gov/sites/default/files/2026-03/ACA%20User%20Guide%20-%203.9.2026.pdf" },
+          { text: "fee schedule", href: "https://content.ontarioca.gov/sites/default/files/2026-06/FY%202026-27%20Citywide%20Fee%20Schedule%2007.01.26.pdf" },
+        ],
+      },
+      {
+        q: "Which building codes apply to HVAC work in Ontario?",
+        a: "The City's Applicable Codes page lists 2022 editions of the California Building, Mechanical, and Energy Codes for plans filed on or after January 1, 2023. The page is undated, and California's 2025 Energy Code applies to permit applications submitted on or after January 1, 2026, so we confirm which edition applies to your project with the City. We did not read any local amendments.",
+        boldLead: "The City's Applicable Codes page lists 2022 editions of the California Building, Mechanical, and Energy Codes for plans filed on or after January 1, 2023.",
+        links: [
+          { text: "Applicable Codes page", href: "https://ontarioca.gov/node/137" },
+          { text: "2025 Energy Code", href: "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency" },
+        ],
+      },
+      {
+        q: "Does Title 24 apply when I replace an AC or furnace in Ontario?",
+        a: "Yes, the applicable Title 24 energy requirements apply. California's 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing requirements, and field verification and diagnostic testing is prescriptively required for most HVAC alterations. Depending on the job, that can include duct leakage testing, with limits of 10% total leakage or 7% leakage to outside for existing ducts, and refrigerant charge verification for heat pumps. Not every job needs every test.",
+        boldLead: "Yes, the applicable Title 24 energy requirements apply.",
+        links: [
+          { text: "2025 Energy Code", href: "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency" },
+          { text: "Energy Commission", href: "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/energy-code-support-center/hvac-0" },
+        ],
+      },
+      {
+        q: "Does Ontario have a noise rule that affects AC equipment?",
+        a: "Ontario sets exterior noise standards by land use. The Municipal Code copy we read lists 65 dBA from 7 a.m. to 10 p.m. and 45 dBA from 10 p.m. to 7 a.m. for single-family residential property (Sec. 5-29.04), and it does not mention air conditioners, so we did not find a rule written only for HVAC equipment. Ontario's Development Code points to Title 5, Chapter 29 for noise. The text is a third-party copy with no current date, so we confirm how the limits apply to your address before we choose a condenser location.",
+        boldLead: "Ontario sets exterior noise standards by land use.",
+        links: [
+          { text: "Municipal Code copy", href: "https://nonoise.org/regulation/ordinance/Ontario,%20California.pdf" },
+          { text: "Development Code", href: "https://content.ontarioca.gov/sites/default/files/2025-01/Chapter%206.0%20-%20Development%20%26%20Subdivision%20Regs_Rev%2012-03-2024.pdf" },
+        ],
+      },
+      {
+        q: "What hours can HVAC work happen in Ontario?",
+        a: "The Municipal Code copy we read limits construction activity noise to weekdays from 7 a.m. to 6 p.m. and Saturdays and Sundays from 9 a.m. to 6 p.m., with exceptions including emergency work (Sec. 5-29.09). The text is a third-party copy, so we confirm current hours with the City. Call (323) 776-9047 to schedule a visit.",
+        boldLead: "The Municipal Code copy we read limits construction activity noise to weekdays from 7 a.m. to 6 p.m. and Saturdays and Sundays from 9 a.m. to 6 p.m., with exceptions including emergency work (Sec. 5-29.09).",
+        links: [
+          { text: "Municipal Code copy", href: "https://nonoise.org/regulation/ordinance/Ontario,%20California.pdf" },
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does Ontario have rules for where rooftop and exterior AC equipment can go?",
+        a: "Ontario's Development Code has equipment screening standards for residential districts. For single-family dwellings, the December 2024 revision we read prohibits new exterior roof-mounted mechanical, heating and air conditioning equipment, and for multiple-family development it requires roof-mounted equipment to be completely screened from public view by parapet walls or roof screens (Sec. 6.01.010). We did not confirm how those standards apply to replacing existing equipment, and we did not find a numeric condenser setback, so we confirm placement with the City before choosing a unit and location. Development Plan applications also ask for the location of roof-mounted mechanical equipment and equipment screens.",
+        boldLead: "Ontario's Development Code has equipment screening standards for residential districts.",
+        links: [
+          { text: "Development Code", href: "https://content.ontarioca.gov/sites/default/files/2025-01/Chapter%206.0%20-%20Development%20%26%20Subdivision%20Regs_Rev%2012-03-2024.pdf" },
+          { text: "Development Plan applications", href: "https://content.ontarioca.gov/sites/default/files/2025-01/FILLABLE%20FORM_Application_Discretionary%20Permits%20%26%20Actions_Rev%209.9.2024.pdf" },
+        ],
+      },
+      {
+        q: "Do you work in condos and apartment buildings in Ontario?",
+        a: "Yes. SCAG's local profile of Ontario, using California Department of Finance data for 2018, counts 49,648 housing units, with 59.0% single-family detached, 6.3% single-family attached, 10.2% in buildings of 2 to 4 units, 20.1% in buildings of 5 or more units, and 4.4% mobile homes. AIRPRO SOLUTIONS services condos, townhomes, and apartments as well as single-family homes, and in a multi-unit building we confirm equipment access and placement at the property. See our Residential HVAC page.",
+        boldLead: "Yes.",
+        links: [
+          { text: "local profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/ontario_localprofile.pdf" },
+          { text: "Residential HVAC page", href: "/residential-hvac/" },
+        ],
+      },
+      {
+        q: "Does the age of Ontario homes matter for HVAC work?",
+        a: "It can, and we confirm it on site. SCAG's local profile, citing the American Community Survey, reports that 36.1% of Ontario's housing stock was built before 1970. The City describes Ontario Ranch as a 13-square-mile master-planned community with 1,200 new homes built in 2023, so Ontario's housing includes new construction as well. Older homes can mean older equipment, attic access, and ductwork, but those are still property-specific, so we check them at a site visit before recommending repair or replacement.",
+        boldLead: "It can, and we confirm it on site.",
+        links: [
+          { text: "local profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/ontario_localprofile.pdf" },
+          { text: "Ontario Ranch", href: "https://www.ontariothinksbusiness.com/develop-ontario/district-information/ontario-ranch" },
+        ],
+      },
+      {
+        q: "Do you service Ontario Ranch and the airport area?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Ontario. The City describes Ontario Ranch as a master-planned community of 13 square miles planned for 69,000 residential units, and it reports that Ontario International Airport served 6.5 million passengers in 2023. We plan each visit around the address, including equipment access and placement.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Ontario Ranch", href: "https://www.ontariothinksbusiness.com/develop-ontario/district-information/ontario-ranch" },
+          { text: "Ontario International Airport", href: "https://www.ontariothinksbusiness.com/develop-ontario/target-industries/logistics-distribution" },
+        ],
+      },
+      {
+        q: "Who provides electricity and gas in Ontario?",
+        a: "The City's utility contacts name Southern California Edison for electric service and Southern California Gas Company for gas. The City's ADU contact page lists SCE and SoCalGas as well. Confirm both on your bill before counting on a program, because eligibility follows your utility account. Programs, amounts, and funding change, so confirm current eligibility with your utility before scheduling installation.",
+        boldLead: "The City's utility contacts name Southern California Edison for electric service and Southern California Gas Company for gas.",
+        links: [
+          { text: "utility contacts", href: "https://www.ontariothinksbusiness.com/node/71" },
+          { text: "ADU contact page", href: "https://www.ontarioca.gov/government/community-development/building/accessory-dwelling-units-adus/adu-contact-information" },
+        ],
+      },
+      {
+        q: "Which rebate and incentive pages should I check before buying HVAC equipment in Ontario?",
+        a: "Check SCE and SoCalGas for current terms. SCE's rebates page lists Golden State Rebates instant coupons for air conditioners and smart thermostats, a Smart Energy Program bill credit for letting SCE adjust an eligible smart thermostat, and Home Performance Plus for eligible customers in disadvantaged or low-income communities. SoCalGas lists a rebate for qualifying natural gas furnaces that requires installation by a licensed contractor with proof of permit closure and is limited to one per household. Funds are first come, first served and programs can change, so confirm eligibility with each utility. We do not quote amounts.",
+        boldLead: "Check SCE and SoCalGas for current terms.",
+        links: [
+          { text: "SCE's rebates page", href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace" },
+          { text: "SoCalGas", href: "https://www.socalgas.com/savings/rebates-and-incentives" },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Ontario?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Ontario, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC",
+        links: [
+          { text: "AC repair", href: "/services/ac-repair/" },
+          { text: "AC installation and replacement", href: "/services/ac-installation/" },
+          { text: "AC maintenance", href: "/services/ac-maintenance/" },
+          { text: "heating repair", href: "/services/heating-repair/" },
+          { text: "furnace installation and replacement", href: "/services/furnace-installation/" },
+          { text: "heat pump services", href: "/services/heat-pump-services/" },
+          { text: "ductless mini-splits", href: "/services/ductless-mini-split/" },
+          { text: "ductwork", href: "/services/ductwork/" },
+          { text: "indoor air quality", href: "/services/indoor-air-quality/" },
+          { text: "emergency HVAC", href: "/services/emergency-hvac/" },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Ontario?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Ontario. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Ontario?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Ontario?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Ontario, including rooftop units. The City's economic development site reports that Ontario International Airport handled over 750,000 tons of freight in 2023, lists logistics and distribution among its target industries, and shows Ontario Ranch planning 12 million square feet of commercial and office space and 31 million square feet of industrial space. Development Plan applications ask for the location of roof-mounted mechanical equipment and equipment screens, and we confirm the permit path with the City before work starts. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "logistics and distribution", href: "https://www.ontariothinksbusiness.com/develop-ontario/target-industries/logistics-distribution" },
+          { text: "Ontario Ranch", href: "https://www.ontariothinksbusiness.com/develop-ontario/district-information/ontario-ranch" },
+          { text: "Development Plan applications", href: "https://content.ontarioca.gov/sites/default/files/2025-01/FILLABLE%20FORM_Application_Discretionary%20Permits%20%26%20Actions_Rev%209.9.2024.pdf" },
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -2994,6 +3347,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'costa-mesa' ? costaMesaOverrides
     : c.slug === 'huntington-beach' ? huntingtonBeachOverrides
     : c.slug === 'riverside' ? riversideOverrides
+    : c.slug === 'ontario' ? ontarioOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;

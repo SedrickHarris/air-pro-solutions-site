@@ -376,6 +376,76 @@ visible text and TS match.
 - Hero photo is still "Photo pending".
 - Claim wording follows the approved list. Do not strengthen it.
 
+## /service-areas/ontario/ (ontarioOverrides in src/content/cities.ts)
+Built 2026-10-16. Reference artifact: claude/reference/ontario-location.html
+(https://claude.ai/artifact/Dutd6Jjxy2gye8N3cyErp7). Second Inland Empire wave-1 city. Generated from one data source so
+JSON-LD, visible text and TS match.
+- Title: `cityTitle('Ontario')` ("HVAC Services in Ontario, CA | AIRPRO SOLUTIONS", 47 characters) does not collide with another
+  page, so no `distinctTitle`. H1 is `cityH1('Ontario')` (28 characters). The meta description is the hand-written
+  `page.metaDescription` (142 characters, validated by `assertDescription`).
+- Client approval NOT confirmed. Every Ontario FAQ answer, the five local paragraphs, the noise sentences, the Title 24
+  sentences, the equipment-screening sentences, the commercial sentence and the incentive wording stay flagged TODO(copy) until
+  the user says the client approved them.
+- TODO(copy): confirm with the City (Building Department lists (909) 395-2023 for plan check and counter services) which permit
+  path each HVAC job needs. No City business-license or contractor requirement was found on the pages read.
+- Lead angle: Building Department plan review and inspection, the online permitting portal (apply, upload plans, pay fees after
+  review) and counter service at City Hall. The Building Permit FAQs list portable comfort-cooling and evaporative cooler
+  equipment as not needing a permit; the FY 2026-27 fee schedule (July 1, 2026) lists mechanical permit items (furnaces, air
+  handler units, evaporative coolers, wall heaters, mini splits) and flat-fee reviews. NO like-for-like rule was found, so the
+  page never assumes an exemption or a requirement. The fee schedule has no "Table C" and does not name AC units or heat pumps.
+- Housing and population: SCAG's Ontario profile (DOF 2018: 49,648 units; 59.0% detached, 6.3% attached, 10.2% in 2-4 units,
+  20.1% in 5+, 4.4% mobile homes, 30.3% in 2+ unit buildings; ACS, year NOT stated: 36.1% built before 1970) and Census
+  QuickFacts (187,013 residents, July 1, 2025; 175,265 in the 2020 Census; 58.0% owner-occupied, 2020-2024). Decade bins in the
+  SCAG chart have no labels, so only the stated 36.1% / 63.9% split is used. Ontario Ranch (13 square miles, 69,000 planned
+  units, 1,200 new homes in 2023) and the airport and logistics figures (6.5 million passengers, over 750,000 tons of freight in
+  2023; 12 million sq ft commercial/office and 31 million sq ft industrial planned in Ontario Ranch) come from the City's
+  economic development pages (undated). All attributed.
+- Noise: Title 5, Chapter 29 from a THIRD-PARTY copy on nonoise.org (undated; cites Ord. 2888, effective March 6, 2008): Sec.
+  5-29.04 single-family 65 dBA 7 a.m.-10 p.m. and 45 dBA 10 p.m.-7 a.m., multi-family 65/50 dBA, ambient becomes the standard
+  when higher; Sec. 5-29.09 construction hours (weekdays 7 a.m.-6 p.m., weekends 9 a.m.-6 p.m., emergency exception). It does
+  NOT mention air conditioners. The official Municipal Code text was not found. Recheck before relying on the numbers.
+- Equipment screening: Development Code Chapter 6 (Rev 12-03-2024) Sec. 6.01.010 prohibits new roof-mounted mechanical,
+  heating and air conditioning equipment on single-family dwellings and requires complete screening for multiple-family roof
+  equipment. How it applies to replacing existing equipment is NOT confirmed. The Euclid Mixed-Use Specific Plan screening
+  applies only to that Ontario Ranch plan area; the Discretionary Permits form's roof-plan line applies only to Development
+  Plan applications.
+- Code: the Applicable Codes page (undated) lists 2022 CBC, CMC and Energy Code for plans filed on or after January 1, 2023.
+  This conflicts with the state's 2025 codes, so NO edition is asserted and no local amendment was read. Title 24: duct sealing
+  and verification per the CEC HVAC page.
+- Utilities: the City's utility contacts and ADU contact pages name Southern California Edison (electric) and Southern
+  California Gas Company (gas). Rebate cards are link-only with no dollar amounts.
+- DECISION NEEDED on rebate amounts (verified from the research batch and SCE/SoCalGas pages; not published): SoCalGas gas
+  furnace $1.40 (92-94% AFUE), $10 (95-96%) and $25 (97%+) per kBtuh, one per household, licensed contractor and proof of permit
+  closure required, 2026 purchases, first come first served; SCE Smart Energy Program $75 one-time credit (the "up to $50 a year"
+  figure was NOT verified by me); SoCalGas $75 smart thermostat rebate applies ONLY to wildfire-impacted customers (the research
+  overstated it as general); Golden State Rebates coupons and Home Performance Plus have no amounts on the utility pages;
+  Energy Savings Assistance claims were not independently verified. Do not relabel SEER as SEER2.
+- Right-hand card: "Official Ontario resources" (`page.officialResources`, 15 links). `neighborhoods: []`, `zips: []`,
+  `nearby: []` (the city page skips the section when `nearby` is empty).
+- Held out (no verified source): ZIP card (91758/91761/91762/91764 came from Wikipedia, a third-party aggregator and a court PDF
+  with no readable text; the CEQA record is project metadata; 91710/91743 appear only in a planning location list), neighborhood
+  pills and nearby row (only a third-party ZIP site names neighbors), Ontario Mills, Holt Boulevard, Toyota Arena and the
+  Convention Center (not on the City pages read), climate/NOAA/heat data, South Coast AQMD membership, like-for-like permit
+  rule, permit checklist, contractor license requirement, local code amendments, current adopted edition, official Chapter 29
+  text, outdoor-unit setbacks, historic/HOA rules, median year built, humidity, rebate amounts, competitor SERP table.
+- Corrected research overstatements: Chapter 6 does not reference Title 24, the City Building Code or sound transmission (it only
+  says to refer to OMC Title 5, Chapter 29); EMUSP screening is not citywide; the Discretionary form roof-plan line is
+  Development Plan only; SoCalGas $75 thermostat is wildfire-only; the gas provider is named by the City (not "NOT FOUND");
+  amlegal "ontario" is Ontario, Ohio (discarded).
+- Pre-launch recheck: nonoise.org copy vs official Chapter 29; Applicable Codes page; fee schedule; online permitting portal
+  (robots-blocked, not read); Building Permit FAQs; Chapter 5 (an Aug 18, 2026 revision exists) and Chapter 6; Euclid guidelines;
+  SCE and SoCalGas rebate pages; Ontario Ranch and logistics pages; SCAG profile URL; QuickFacts; CEC pages.
+- Inland Empire hub wiring DONE: Ontario card `href` and card rewrite (36.1% flat, SCE/SoCalGas, areas now "Ontario Ranch, the
+  airport area"), /service-areas/ chip, `hubCityIndexNote`, the Inland Empire page sentence.
+- Inland Empire hub audit, Ontario copy corrected: housing row "36.1% or more" -> "36.1%", "minimum" note and the "Pending"
+  strings removed; permits row, note and FAQ (portal/counter, no whole-unit rule found); rooftop screening claims for Ontario
+  removed from the placement table, commercial lines and commercial FAQ (Fontana stays); "near Ontario Airport" and "airport-
+  adjacent" wording dropped; Ontario 114F (Sept 6, 2024) and the 93-95F Ontario Airport normals removed everywhere (service-area-hub.ts
+  too); utilities list now names Ontario electric SCE and gas SoCalGas; Ontario removed from the SCE "not confirmed" note.
+  Checked, no change: Commercial HVAC region card (city-name list). Riverside's 115F and the 90.6F normal remain NOT re-verified.
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list. Do not strengthen it.
+
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
 - Hermosa Beach: permit applications become online-only through the city's portal starting

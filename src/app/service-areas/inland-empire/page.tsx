@@ -249,7 +249,8 @@ export default function Page() {
           <h2>{inlandEmpireHub.cities.title}</h2>
           <p>
             Individual Inland Empire city pages are coming. For now, see our{' '}
-            <Link href="/service-areas/riverside/">Riverside page</Link>, or browse{' '}
+            <Link href="/service-areas/riverside/">Riverside</Link> and{' '}
+            <Link href="/service-areas/ontario/">Ontario</Link> pages, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">

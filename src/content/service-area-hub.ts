@@ -95,14 +95,14 @@ export const hubTableRows: TableRow[] = [
     region: 'Inland Empire',
     slug: 'inland-empire',
     cities: hubRegions[3].cities.join(', '),
-    climate: 'Long, hot summers and cool nights. Ontario and Riverside reached 114-115°F on September 6, 2024.',
+    climate: 'Long, hot summers and cool nights. Riverside reached 115°F on September 6, 2024.',
     checksFirst: 'Equipment sizing for heat, and whether the building is older or newer housing.',
   },
 ];
 
 export const hubTableNote = 'Climate and housing figures come from the individual region pages, which cite their sources. City placement is general, not a climate-zone or permit boundary.';
 
-export const hubCityIndexNote = 'Individual city pages are coming. Torrance, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Los Angeles, Long Beach, Pasadena, and Culver City are live today, and each region page covers the rest.';
+export const hubCityIndexNote = 'Individual city pages are coming. Torrance, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario, Los Angeles, Long Beach, Pasadena, and Culver City are live today, and each region page covers the rest.';
 
 export const hubProof = {
   eyebrow: 'Why Air Pro',
@@ -148,7 +148,7 @@ export const hubFaqs: HubFaq[] = [
   {
     q: 'Is the climate the same across all four regions?',
     lead: 'No, and that is why we size equipment from a load calculation for your property.',
-    rest: ' The ocean moderates the coast, while inland cities run hotter. Inland Empire summers are a cooling-load story: Ontario reached 114°F and Riverside 115°F on September 6, 2024.',
+    rest: ' The ocean moderates the coast, while inland cities run hotter. Inland Empire summers are a cooling-load story: Riverside reached 115°F on September 6, 2024.',
   },
   {
     q: 'Do you serve homes and commercial properties in every region?',
