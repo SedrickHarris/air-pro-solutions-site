@@ -202,6 +202,43 @@ this file is the index, not the source of truth.
 - Claim wording follows the approved list. Do not strengthen it.
 - Reference artifact: claude/reference/anaheim-location.html (artifact https://claude.ai/artifact/ERB3EoUntRgJ28MbaxujFf, version 1; to be synced to repo wording at the end).
 
+## /service-areas/costa-mesa/ (costaMesaOverrides in src/content/cities.ts)
+Built 2026-10-16, local commits only until the push-or-PR answer. Reference artifact: claude/reference/costa-mesa-location.html
+(https://claude.ai/artifact/NY8qRzh5rpGSEhJD6mbRGD). Generated from one data source so JSON-LD, visible text and TS match.
+- Client approval NOT confirmed. Every Costa Mesa FAQ answer, the four local paragraphs, the Insta-Permit scope and
+  placement sentences, the noise and code sentences, the commercial General Plan sentence and the incentive wording stay
+  flagged TODO(copy) until the user says the client approved them. Irvine, Gardena and Anaheim flags also stay.
+- TODO(copy): confirm with Building Safety (714-754-5273) which permit path each job needs, including condos and
+  townhomes. Confirm whether AIRPRO SOLUTIONS holds a Costa Mesa business license (the City requires one, plus an active
+  State contractor's license, for Insta-Permit contractors).
+- Lead angle: the Residential HVAC Insta-Permit is limited to a single-family dwelling on a single parcel; exterior
+  equipment at ground level on the side or rear, not visible to the public; no roof-top equipment; the City's standard
+  plans must be used (the standard-plan PDF is image-only and was not read). Work beyond scope goes to a Mechanical -
+  Residential application. The two TESSA apply links (Mechanical - Residential, Mechanical - Commercial) open a Tyler
+  Portico sign-in page, so a visitor may need an account. Decide whether to keep them or link the Building Permits page.
+- Housing: SCAG's Costa Mesa profile only, attributed and labeled dated (DOF E-5 2018: 42,836 units, 39.6% detached,
+  10.2% attached, 13.3% in 2-4 units, 34.7% in 5+, 2.2% mobile homes, 48% multifamily; ACS 2017: 49.6% built before 1970).
+  General Plan unit counts (28,413 / 14,210) and the "30%" figure are held out (the 30% conflicts with Table LU-2's 28.8%).
+- Noise: Municipal Code Sec. 13-280 (55 dB(A) 7 a.m.-11 p.m., 50 dB(A) 11 p.m.-7 a.m., reduced 5 dB(A) for impact, simple
+  tone, speech or music) and Sec. 13-281 (55 day / 45 night interior), from GoCodebook (2026-10 edition, text as of
+  2026-10-04), not the City's own publication. No HVAC-specific section. Noise Element and CNEL held out (PDF would not open).
+- Code: the City's notice says Ordinance 2025-08 adopts the 2025 California Building Standards Code with local amendments,
+  effective 2026-01-01. The Mechanical Code is not named (Titles 5 and 7 not read).
+- ZIP card held out: one sentence from the City About page (92626, 92627, 92628); `zips: []`, `neighborhoods: []`;
+  right-hand card is "Official Costa Mesa resources" (officialResources, 10 links). `nearby: []` (no source names neighbors;
+  Irvine's and Anaheim's rows untouched).
+- Utilities: no Costa Mesa source opened names an electric or gas provider; the City utility page would not load. The page
+  links SCE, SoCalGas, TECH Clean California and The Switch Is On with no dollar amounts and says to confirm which utility
+  serves the address. OCPA membership unchecked.
+- Commercial: General Plan Land Use Element only (South Coast Plaza on Bristol Street, 92-acre East 17th Street corridor,
+  Westside mixed uses). No specific-plan shielding or noise claims.
+- Held out: neighbors, Building Safety street address (77 Fair Drive, 2nd Floor appears only on City Clerk notices), median
+  home age, climate and NOAA, humidity and AQI, competitor SERP table, Jaspector and zip-codes.com (third party).
+- Pre-launch recheck: SCE rebates, Energy Savings Assistance and Time-Of-Use pages; SoCalGas rebates page (dated 2024-07-23,
+  mentions 2026 funds); TECH Clean California and switchison.org status; the City utility page; GoCodebook Sec. 13-280 and
+  13-281 against the official code; Insta-Permit page and standard plan; TESSA links; SCAG profile URL (titled 2019 profile).
+- Hero photo is still "Photo pending". Orange County hub wiring (Gate 6) and hub audit (Gate 7) are not done yet.
+
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
 - Hermosa Beach: permit applications become online-only through the city's portal starting
