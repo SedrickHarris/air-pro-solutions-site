@@ -57,7 +57,7 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine and anaheim have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim and costa-mesa have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -2030,6 +2030,301 @@ const cardImages: Record<string, ServiceImage> = Object.fromEntries(
   ),
 );
 
+const costaMesaOverrides: Partial<City> = {
+  // TODO(data): add verified climate and neighborhood detail before treating this as a full local page.
+  neighborhoods: [], // no official neighborhood list was verified
+  zips: [], // only the City About page lists 92626, 92627 and 92628 (used as one attributed sentence); the ZIP card is held out
+  page: {
+    metaDescription:
+      "HVAC for Costa Mesa homes and businesses, from AC repair to installation. Know the City's Insta-Permit rules and noise limits. Licensed, 4.8-star rated.",
+    lede:
+      "AIRPRO SOLUTIONS provides HVAC services across Costa Mesa, including AC repair, heating repair, installation, and maintenance for homes and businesses.",
+    heroCaption: { title: "Costa Mesa, CA", text: "Local HVAC service across Costa Mesa" },
+    heroProof: [
+      { icon: 'shield', label: 'Licensed, bonded & insured' },
+      { icon: 'star', label: '4.8-star rated' },
+      { icon: 'bolt', label: '24/7 emergency dispatch' },
+      { icon: 'building', label: 'Residential and commercial' },
+    ],
+    trustStats: [
+      { num: '4.8★', label: 'Google rating, 40 reviews' },
+      { num: 'C-20', label: 'California licensed' },
+      { num: '24/7', label: 'emergency dispatch' },
+      { num: 'Same-day', label: 'service typical' },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Costa Mesa",
+      body:
+        ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Costa Mesa at a glance",
+      stats: [
+        { num: "48%", label: "of housing units are in multifamily buildings, and 39.6% are single-family detached (California Department of Finance, 2018, per SCAG)" },
+        { num: "49.6%", label: "of housing was built before 1970 (2017 American Community Survey, per SCAG)" },
+        { num: "16", label: "square miles, just one mile from the Pacific Coast (City of Costa Mesa)" },
+      ],
+      source: "Sources: SCAG's local profile of Costa Mesa and the City of Costa Mesa About page.",
+    },
+    localTitle: "Costa Mesa's single-family Insta-Permit, multifamily housing, and noise limits",
+    // Held out (no verified source): neighboring cities and any adjacency (nearby row empty), ZIP card and neighborhoods (only the City About page ZIP sentence is used; zips and neighborhoods empty), named electric or gas provider (no Costa Mesa source opened names SCE or SoCalGas; links only), OCPA membership, rebate dollar amounts, General Plan unit counts and the 30% figure (conflict with Table LU-2 and SCAG), Noise Element and CNEL (PDF could not be opened), median home age, climate and NOAA data, humidity and AQI, Building Safety street address (77 Fair Drive, 2nd Floor appears only on City Clerk notices; the Building Safety page redirected), competitor SERP table, Jaspector and zip-codes.com (third-party), the Insta-Permit standard plan contents (image-only PDF), any Planning review or CF1R statement.
+    // TODO(copy): client has not approved any Costa Mesa wording (every FAQ answer, the four local paragraphs, the Insta-Permit scope and placement sentences, the noise and code sentences, the commercial General Plan sentence, the incentive wording). Keep flagged until the user says the client approved. Irvine, Gardena and Anaheim flags also stay.
+    // TODO(copy): confirm with Building Safety (714-754-5273) which permit path each HVAC job needs, including condos and townhomes, and whether AIRPRO SOLUTIONS holds a Costa Mesa business license (the City requires one for Insta-Permit contractors).
+    // TODO(copy): noise text is from GoCodebook (2026-10 edition, text as of 2026-10-04), not the City's official publication; recheck against the official code. The code-adoption sentence does not name the Mechanical Code (Titles 5 and 7 not read).
+    // Pre-launch recheck: SCE rebates, Energy Savings Assistance and Time-Of-Use pages; SoCalGas rebates page (page dated 2024-07-23, mentions 2026 funds); TECH Clean California and switchison.org status; the City's utility page (add providers only if a source names them); GoCodebook Sec. 13-280 and 13-281 against the official code; Insta-Permit page and standard plan; TESSA links; SCAG profile URL; Building Safety address.
+    localParagraphs: [
+      "Costa Mesa has a **Residential HVAC Insta-Permit** through its online TESSA portal, but the City limits it to a single-family dwelling on a single parcel. Its scope can include A/C condensers, forced air units, furnaces, heat pumps, mini splits, and new ductwork, and the City says exterior equipment must be installed at ground level on the side or rear of the home, where it is not visible to the public. Work beyond that scope goes to a Mechanical - Residential permit application, so **AIRPRO SOLUTIONS confirms which permit path applies** with the City before work starts, including for condos, townhomes, and apartments.",
+      "The City's About page lists ZIP codes 92626, 92627, and 92628 and describes Costa Mesa as 16 square miles, just one mile from the Pacific Coast. SCAG's local profile, using California Department of Finance data for 2018, counts **42,836 housing units: 39.6% single-family detached, 10.2% attached, 13.3% in buildings of 2 to 4 units, 34.7% in buildings of 5 or more, and 2.2% mobile homes**, which makes about 48% of housing multifamily. The same profile, citing the 2017 American Community Survey, reports that **49.6% of housing was built before 1970**. These figures are dated, so we confirm the equipment, access, and ductwork at the property, and in a multi-unit building we confirm equipment access and placement.",
+      "Municipal Code Sec. 13-280 sets an exterior noise standard for all residential property of **55 dB(A) from 7 a.m. to 11 p.m. and 50 dB(A) from 11 p.m. to 7 a.m.**, reduced by 5 dB(A) for impact, simple tone, speech, or music sounds, with additional duration tiers. Sec. 13-281 sets interior limits of 55 dB(A) by day and 45 dB(A) at night. The code has no section written for HVAC equipment, and the text we read comes from a third-party code host that may not reflect the most current legislation, so we confirm how the limits apply to your address before choosing a condenser location. The City's notice says it adopted the 2025 California Building Standards Code with local amendments, effective January 1, 2026.",
+      "For commercial work, the City's General Plan Land Use Element describes South Coast Plaza, along the Bristol Street corridor, as the largest single concentration of retail uses in the city, a 92-acre East 17th Street commercial corridor, and a Westside with an intertwined mix of industrial, commercial, and residential uses. The City lists a separate Mechanical - Commercial permit application. Utility and state incentive programs change, so we link the SCE, SoCalGas, TECH Clean California, and The Switch Is On pages rather than quote amounts. Confirm which utility serves your address and check current eligibility before you buy. Official links are in the card beside this text.",
+    ],
+    neighborhoodsHeading: "Official Costa Mesa resources",
+    officialResources: [
+      {
+        text: "Insta-Permit: Residential HVAC",
+        href: "https://www.costamesaca.gov/trending/insta-permit",
+        note: "Single-family scope, ground-level side or rear equipment, issued by email after payment.",
+      },
+      {
+        text: "Mechanical - Residential permit application",
+        href: "https://permits.costamesaca.gov/energov_prod/selfservice#/permit/apply/275/0/0",
+        note: "TESSA application for work beyond the Insta-Permit scope.",
+      },
+      {
+        text: "Mechanical - Commercial permit application",
+        href: "https://permits.costamesaca.gov/energov_prod/selfservice#/permit/apply/354/0/0",
+        note: "The City's separate commercial mechanical permit type.",
+      },
+      {
+        text: "Building permits and TESSA",
+        href: "https://www.costamesaca.gov/government/departments-and-divisions/community-development/building-safety/permit-types-submittal-requirements/building-permits",
+        note: "Application information is entered directly in TESSA; paper forms are ignored.",
+      },
+      {
+        text: "Replacement of mechanical, electrical, and plumbing fixtures",
+        href: "https://www.costamesaca.gov/home/showpublisheddocument/63188/639135790567430000",
+        note: "City handout listing Title 24 energy forms and a site plan for submittals.",
+      },
+      {
+        text: "Municipal Code Sec. 13-280",
+        href: "https://gocodebook.com/library/us/ca/costa-mesa-zoning/title-13-planning-zoning-and-development/chapter-xiii-noise-control/13-280.-exterior-noise-standards",
+        note: "Exterior noise standards, on a third-party code host.",
+      },
+      {
+        text: "Municipal Code Sec. 13-281",
+        href: "https://gocodebook.com/library/us/ca/costa-mesa-zoning/title-13-planning-zoning-and-development/chapter-xiii-noise-control/13-281.-interior-noise-standards",
+        note: "Interior noise standards, on a third-party code host.",
+      },
+      {
+        text: "General Plan Land Use Element",
+        href: "http://ftp.costamesaca.gov/costamesaca/generalplan2015-2035/adopted/02_FinalDraftLandUseElement_02-2016.pdf",
+        note: "Source for the commercial corridors described on this page.",
+      },
+      {
+        text: "About Costa Mesa",
+        href: "https://www.costamesaca.gov/community/about",
+        note: "City description, size, and ZIP codes.",
+      },
+      {
+        text: "SCAG Costa Mesa local profile",
+        href: "https://scag.ca.gov/sites/main/files/file-attachments/costamesa_localprofile.pdf",
+        note: "Housing counts and building age cited on this page.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Costa Mesa homes and businesses",
+    serviceCards: [
+      { slug: "ac-repair", name: "AC Repair", body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises, with the City's residential noise limits in mind for outdoor units." },
+      { slug: "ac-installation", name: "AC Installation & Replacement", body: "New system sizing and installation, planned around the City's Insta-Permit for single-family homes and its Mechanical - Residential permit for other work." },
+      { slug: "ac-maintenance", name: "AC Maintenance", body: "Seasonal AC tune-ups that catch small issues early." },
+      { slug: "heating-repair", name: "Heating Repair", body: "Furnace and heating system diagnosis and repair." },
+      { slug: "furnace-installation", name: "Furnace Installation & Replacement", body: "New furnace sizing and installation, with the City's permit path confirmed before work starts. Furnaces are within the Insta-Permit scope for single-family homes." },
+      { slug: "heat-pump-services", name: "Heat Pump Services", body: "Installation, repair, and maintenance for heat pumps. Incentive availability changes, so we point you to the current program pages." },
+      { slug: "ductless-mini-split", name: "Ductless Mini-Split", body: "Room-by-room comfort control for spaces where ductwork is not an option. Mini splits are within the Insta-Permit scope for single-family homes." },
+      { slug: "ductwork", name: "Ductwork Services", body: "Duct repair, sealing, replacement, and installation. New ductwork is within the Insta-Permit scope for single-family homes." },
+      { slug: "indoor-air-quality", name: "Indoor Air Quality", body: "Air filtration, whole-home purification, and ventilation options." },
+      { slug: "emergency-hvac", name: "Emergency HVAC", body: "Dispatch for no-cool and no-heat emergencies in Costa Mesa." },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Costa Mesa permits, noise limits, and incentive programs",
+      intro: "Official sources for three local items worth checking before a Costa Mesa HVAC project.",
+      cards: [
+        // TODO(copy): incentive wording not yet client-approved. No dollar amounts on purpose; recheck links before launch.
+        {
+          amount: "Insta-Permit",
+          description: "Costa Mesa's Residential HVAC Insta-Permit covers a single-family dwelling on a single parcel and is issued by email within minutes of payment. Work beyond that scope uses a Mechanical - Residential permit application.",
+          linkLabel: "Insta-Permit page",
+          linkHref: "https://www.costamesaca.gov/trending/insta-permit",
+        },
+        {
+          amount: "Noise limits",
+          description: "The Municipal Code sets exterior limits of 55 dB(A) by day and 50 dB(A) at night on residential property. Check Sec. 13-280 before choosing a condenser location.",
+          linkLabel: "Sec. 13-280",
+          linkHref: "https://gocodebook.com/library/us/ca/costa-mesa-zoning/title-13-planning-zoning-and-development/chapter-xiii-noise-control/13-280.-exterior-noise-standards",
+        },
+        {
+          amount: "Incentive programs",
+          description: "Rebate terms and funding change, and we do not quote amounts. Confirm which utility serves your address and check current terms before you buy.",
+          linkLabel: "SCE rebates page",
+          linkHref: "https://www.sce.com/save-money/rebates-financial-assistance",
+        },
+      ],
+    },
+    // Nearby row held out: no source names Costa Mesa neighbors. The city page skips the section when this is empty.
+    nearby: [],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Costa Mesa",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        { num: '4.8★', label: 'Google rating' },
+        { num: '40', label: 'Google reviews' },
+        { num: 'C-20', label: 'California license class' },
+        { num: '24/7', label: 'Emergency dispatch' },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Costa Mesa. Same-day service is typical.",
+    // TODO(copy): client has not confirmed any FAQ answer below.
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Costa Mesa?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Costa Mesa as part of our Orange County coverage. Costa Mesa takes permit applications through its online TESSA portal, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Orange County coverage", href: "/service-areas/orange-county/" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Costa Mesa home?",
+        a: "Same-day service is typical in Costa Mesa, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Costa Mesa, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an AC or furnace in Costa Mesa?",
+        a: "Check with the City before work starts. Costa Mesa offers a Residential HVAC Insta-Permit for a single-family dwelling on a single parcel, issued by email within minutes of payment, and a Mechanical - Residential permit application for work beyond that scope. Applications are entered directly in TESSA, and the City says paper forms are ignored. We do not assume a replacement is exempt, so confirm your project's permit path with Building Safety at 714-754-5273. AIRPRO SOLUTIONS can walk you through the steps.",
+        boldLead: "Check with the City before work starts.",
+        links: [
+          { text: "Residential HVAC Insta-Permit", href: "https://www.costamesaca.gov/trending/insta-permit" },
+          { text: "Mechanical - Residential permit application", href: "https://permits.costamesaca.gov/energov_prod/selfservice#/permit/apply/275/0/0" },
+        ],
+      },
+      {
+        q: "Can a condo, townhome, or apartment use the Insta-Permit?",
+        a: "The Insta-Permit is limited to single-family homes. The City describes it as a limited permit for a single-family dwelling on a single parcel, and says work beyond that scope goes to a Mechanical - Residential permit application. For a condo, townhome, or apartment, we confirm the permit path with Building Safety before work starts.",
+        boldLead: "The Insta-Permit is limited to single-family homes.",
+      },
+      {
+        q: "Where can the outdoor unit go under the Insta-Permit?",
+        a: "Outdoor equipment goes on the ground at the side or rear of the home. The City's Insta-Permit page says exterior equipment must be installed at ground level, with no roof-top equipment, on the side or rear of the building, where it is not visible to the public. All components must be in a privately owned location, and the City's standard plans for HVAC must be used.",
+        boldLead: "Outdoor equipment goes on the ground at the side or rear of the home.",
+        links: [
+          { text: "Insta-Permit page", href: "https://www.costamesaca.gov/trending/insta-permit" },
+        ],
+      },
+      {
+        q: "What does the City require of a contractor who pulls the permit?",
+        a: "The City says contractors need an active State contractor's license and a Costa Mesa business license. Owner-builders use a separate Owner-Builder application. Insta-Permit requests are submitted through TESSA.",
+        boldLead: "The City says contractors need an active State contractor's license and a Costa Mesa business license.",
+      },
+      {
+        q: "What does the City ask to see with an HVAC replacement permit?",
+        a: "The City's handout for replacing mechanical, electrical, and plumbing fixtures lists Title 24 energy forms and a 24 by 36 inch site plan showing the equipment location and property line. Requirements vary by project, so confirm yours with Building Safety at 714-754-5273 or buildinginfo@costamesaca.gov.",
+        boldLead: "The City's handout for replacing mechanical, electrical, and plumbing fixtures lists Title 24 energy forms and a 24 by 36 inch site plan showing the equipment location and property line.",
+        links: [
+          { text: "handout", href: "https://www.costamesaca.gov/home/showpublisheddocument/63188/639135790567430000" },
+        ],
+      },
+      {
+        q: "Which building codes apply to HVAC work in Costa Mesa?",
+        a: "The City's notice says Costa Mesa adopted the 2025 California Building Standards Code with local amendments, effective January 1, 2026. The notice describes Ordinance 2025-08 as adopting the code by reference. We confirm current requirements with the City for your project.",
+        boldLead: "The City's notice says Costa Mesa adopted the 2025 California Building Standards Code with local amendments, effective January 1, 2026.",
+        links: [
+          { text: "notice", href: "https://www.costamesaca.gov/home/showpublisheddocument/61746/639001965494430000" },
+        ],
+      },
+      {
+        q: "Does Costa Mesa have a noise rule that affects AC equipment?",
+        a: "Costa Mesa has general residential noise limits. Municipal Code Sec. 13-280 sets an exterior standard of 55 dB(A) from 7 a.m. to 11 p.m. and 50 dB(A) from 11 p.m. to 7 a.m. on residential property, reduced by 5 dB(A) for impact, simple tone, speech, or music sounds. Sec. 13-281 sets interior limits of 55 dB(A) by day and 45 dB(A) at night. The code has no section written for HVAC equipment, and the text we read is from a third-party code host that may not reflect the most current legislation, so we confirm how the limits apply to your address before we choose a condenser location.",
+        boldLead: "Costa Mesa has general residential noise limits.",
+        links: [
+          { text: "Sec. 13-280", href: "https://gocodebook.com/library/us/ca/costa-mesa-zoning/title-13-planning-zoning-and-development/chapter-xiii-noise-control/13-280.-exterior-noise-standards" },
+          { text: "Sec. 13-281", href: "https://gocodebook.com/library/us/ca/costa-mesa-zoning/title-13-planning-zoning-and-development/chapter-xiii-noise-control/13-281.-interior-noise-standards" },
+        ],
+      },
+      {
+        q: "Do you work in condos and apartment buildings in Costa Mesa?",
+        a: "Yes. SCAG's local profile of Costa Mesa, using California Department of Finance data for 2018, counts 42,836 housing units, with 39.6% single-family detached, 10.2% single-family attached, 13.3% in buildings of 2 to 4 units, 34.7% in buildings of 5 or more units, and 2.2% mobile homes. AIRPRO SOLUTIONS services condos, townhomes, and apartments as well as single-family homes, and in a multi-unit building we confirm equipment access and placement at the property. See our Residential HVAC page.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Residential HVAC page", href: "/residential-hvac/" },
+        ],
+      },
+      {
+        q: "Does the age of Costa Mesa homes matter for HVAC work?",
+        a: "It can, and we confirm it on site. SCAG's local profile, citing the 2017 American Community Survey, reports that 49.6% of Costa Mesa's housing stock was built before 1970. Older homes can mean older equipment, attic access, and ductwork, but those are still property-specific, so we check them at a site visit before recommending repair or replacement.",
+        boldLead: "It can, and we confirm it on site.",
+      },
+      {
+        q: "Which rebate and incentive pages should I check before buying HVAC equipment in Costa Mesa?",
+        a: "Check the utility and state program pages for current terms. We do not quote amounts, because availability and funding change. SCE publishes rebates and an income-qualified Energy Savings Assistance program, SoCalGas lists furnace rebates with its own eligibility requirements, and heat-pump incentives are tracked by TECH Clean California and The Switch Is On. Confirm which utility serves your address, and confirm current eligibility and reservation status before scheduling installation.",
+        boldLead: "Check the utility and state program pages for current terms.",
+        links: [
+          { text: "SCE", href: "https://www.sce.com/save-money/rebates-financial-assistance" },
+          { text: "Energy Savings Assistance", href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program" },
+          { text: "SoCalGas", href: "https://www.socalgas.com/savings/rebates-and-incentives" },
+          { text: "TECH Clean California", href: "https://techcleanca.com/incentives/single-family-incentives/" },
+          { text: "The Switch Is On", href: "https://switchison.org" },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Costa Mesa?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Costa Mesa, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC",
+        links: [
+          { text: "AC repair", href: "/services/ac-repair/" },
+          { text: "AC installation and replacement", href: "/services/ac-installation/" },
+          { text: "AC maintenance", href: "/services/ac-maintenance/" },
+          { text: "heating repair", href: "/services/heating-repair/" },
+          { text: "furnace installation and replacement", href: "/services/furnace-installation/" },
+          { text: "heat pump services", href: "/services/heat-pump-services/" },
+          { text: "ductless mini-splits", href: "/services/ductless-mini-split/" },
+          { text: "ductwork", href: "/services/ductwork/" },
+          { text: "indoor air quality", href: "/services/indoor-air-quality/" },
+          { text: "emergency HVAC", href: "/services/emergency-hvac/" },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Costa Mesa?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Costa Mesa. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Costa Mesa?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Costa Mesa?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Costa Mesa, including rooftop units. The City's General Plan Land Use Element describes South Coast Plaza, along the Bristol Street corridor, as the largest single concentration of retail uses in the city, a 92-acre East 17th Street commercial corridor, and a Westside with an intertwined mix of industrial, commercial, and residential uses. The City lists a separate Mechanical - Commercial permit application, so we confirm the permit path with Building Safety. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "General Plan Land Use Element", href: "http://ftp.costamesaca.gov/costamesaca/generalplan2015-2035/adopted/02_FinalDraftLandUseElement_02-2016.pdf" },
+          { text: "Mechanical - Commercial permit application", href: "https://permits.costamesaca.gov/energov_prod/selfservice#/permit/apply/354/0/0" },
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -2042,6 +2337,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'gardena' ? gardenaOverrides
     : c.slug === 'irvine' ? irvineOverrides
     : c.slug === 'anaheim' ? anaheimOverrides
+    : c.slug === 'costa-mesa' ? costaMesaOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
