@@ -269,6 +269,7 @@ export const orangeCountyHub = {
         areas: 'Westside, Eastside, Mesa Verde',
         utility: 'Electric: SCE.',
         zips: '92626-92628',
+        href: '/service-areas/costa-mesa/',
       },
       {
         name: 'Huntington Beach',
