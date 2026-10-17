@@ -237,7 +237,12 @@ Built 2026-10-16, local commits only until the push-or-PR answer. Reference arti
 - Pre-launch recheck: SCE rebates, Energy Savings Assistance and Time-Of-Use pages; SoCalGas rebates page (dated 2024-07-23,
   mentions 2026 funds); TECH Clean California and switchison.org status; the City utility page; GoCodebook Sec. 13-280 and
   13-281 against the official code; Insta-Permit page and standard plan; TESSA links; SCAG profile URL (titled 2019 profile).
-- Hero photo is still "Photo pending". Orange County hub wiring (Gate 6) and hub audit (Gate 7) are not done yet.
+- Orange County hub wiring DONE (Gate 6, commit 1a9499e): Costa Mesa card href, /service-areas/ chip, hubCityIndexNote and the
+  Orange County page sentence. No new hub page created. Skipped on purpose until the Gate 7 audit is approved: all Costa Mesa
+  copy on the Orange County hub (Costa Mesa card note, areas, utility and ZIPs; permits row; placement row; "Central Orange
+  County" group; housing table row; FAQs), the Commercial HVAC region card (city-name list in commercial-hvac.ts), the
+  Residential HVAC hub and /service-areas/ copy. Irvine's and Anaheim's `nearby` rows untouched.
+- Hero photo is still "Photo pending".
 
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
