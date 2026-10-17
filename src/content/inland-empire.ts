@@ -21,7 +21,7 @@ import type { RebateCard } from '@/components/sections/RebateCards';
 // to the region data / sitemap.
 
 type ServiceCardSpec = { slug: string; body: string; name?: string; icon?: string };
-type CityCardSpec = { name: string; note: string; areas: string; utility: string; pending?: string };
+type CityCardSpec = { name: string; note: string; areas: string; utility: string; pending?: string; href?: string };
 
 export const inlandEmpireHub = {
   path: '/service-areas/inland-empire/',
@@ -149,8 +149,8 @@ export const inlandEmpireHub = {
       href: '/commercial-hvac/',
     },
     paragraphs: [
-      "**Districts differ.** Downtown Riverside, Canyon Springs, and the Innovation District, Ontario's airport area, Rancho Cucamonga's industrial and retail areas, and Fontana and Chino's warehouse districts each bring different building types, rooftop access, and neighbor conditions.",
-      '**Rooftop units may need review.** Riverside, Ontario, and Fontana have rules that can bring screening review to rooftop equipment, so we check placement and curb changes with the city before a unit is ordered.',
+      "**Districts differ.** Downtown Riverside, Ontario's airport area, Rancho Cucamonga's industrial and retail areas, and Fontana and Chino's warehouse districts each bring different building types, rooftop access, and neighbor conditions.",
+      '**Rooftop units may need review.** Ontario and Fontana have rules that can bring screening review to rooftop equipment, and we confirm the rules for Riverside with the City, so we check placement and curb changes with the city before a unit is ordered.',
     ],
     pending: 'No commercial property evidence was found for Corona, Upland, or Eastvale, so this section makes no commercial claim for them.',
   },
@@ -165,7 +165,7 @@ export const inlandEmpireHub = {
     intro: "All eight are incorporated cities, so mechanical permits come from each city's building department, not from Riverside County or San Bernardino County. Replacing AC, furnace, heat pump, or air handler equipment should be treated as permit-required unless the city says otherwise.",
     columns: ['City', 'Permit path', 'What is different locally'],
     rows: [
-      ['Riverside', 'Mechanical permit for like-for-like replacement', "Confirmed on the city's fee schedule. Rooftop equipment may need screening review."],
+      ['Riverside', 'Permit through the Public Permit Portal or the Permit Services counter', "The City's Bulletin 140 lists no like-for-like exemption for a whole unit, so we confirm the permit path with the City."],
       ['Corona', 'Generally a city mechanical permit', "Submittals go through the city's eTRAKiT system. We confirm the requirement with the city."],
       ['Ontario', 'Generally a city mechanical permit', 'We confirm the requirement with the city. Rooftop equipment may need screening review.'],
       ['Rancho Cucamonga', 'Generally a city mechanical permit', 'Permit submittals are online only. We confirm the requirement with the city.'],
@@ -174,21 +174,21 @@ export const inlandEmpireHub = {
       ['Upland', 'Generally a city mechanical permit', 'We confirm the requirement with the city before work begins.'],
       ['Eastvale', 'Generally a city mechanical permit', "Submittals go through the city's Accela portal. We confirm the requirement with the city."],
     ],
-    note: "Based on each city's published permit and fee pages where available. A like-for-like permit requirement was confirmed for Riverside, Chino, and Fontana. For the other five cities it was not confirmed in the sources we reviewed, so we confirm with the city before work begins. Procedures change.",
+    note: "Based on each city's published permit and fee pages where available. A like-for-like permit requirement was confirmed for Chino and Fontana. For Riverside, the City lists no like-for-like exemption for a whole unit. For the other five cities it was not confirmed in the sources we reviewed, so we confirm with the city before work begins. Procedures change.",
     paragraphs: [
       '**Title 24 checks depend on the job.** Refrigerant charge verification applies to air conditioners in Climate Zones 2 and 8 through 15 and to heat pumps everywhere. Duct sealing and testing may apply, and a setback thermostat upgrade can be required when a refrigerant component is replaced.',
       '**Climate zone is set by address.** Which checks apply depends on the climate zone for your property, so we confirm it by address rather than by city. Not every job needs every test.',
     ],
   },
 
-  // No decibel figures per source: only screening-review context for Riverside, Ontario, Fontana.
+  // No decibel figures per source: only screening-review context for Ontario and Fontana (Riverside removed: no City source read).
   placement: {
     eyebrow: 'Placement and screening',
     title: 'Where the outdoor unit can go depends on the building',
     columns: ['Cities', 'Placement and screening'],
     rows: [
-      ['Riverside, Ontario, Fontana', 'Rooftop equipment may need screening review, so we check the rules and any curb change with the city before choosing a unit and location.'],
-      ['Corona, Rancho Cucamonga, Chino, Upland, Eastvale', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
+      ['Ontario, Fontana', 'Rooftop equipment may need screening review, so we check the rules and any curb change with the city before choosing a unit and location.'],
+      ['Riverside, Corona, Rancho Cucamonga, Chino, Upland, Eastvale', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
     ],
     note: 'Code text changes, so current requirements are confirmed with the city before installation.',
   },
@@ -201,7 +201,7 @@ export const inlandEmpireHub = {
   rebates: {
     eyebrow: 'Utilities and rebates',
     title: 'Your utility accounts decide which programs to look at',
-    intro: 'Electric service depends on location. Riverside is served by Riverside Public Utilities, Corona is mostly SCE, and natural gas is supplied by SoCalGas.',
+    intro: 'Electric service depends on location. Riverside is served by Riverside Public Utilities, Corona is mostly SCE, and natural gas is supplied by SoCalGas outside Riverside, where we confirm the gas provider by address.',
     cards: [
       {
         verifyTag: 'Verify current program before launch',
@@ -229,7 +229,7 @@ export const inlandEmpireHub = {
       'Riverside electric: Riverside Public Utilities',
       'Corona electric: mostly SCE',
       'Other six cities, electric: generally SCE',
-      'Natural gas: SoCalGas',
+      'Natural gas: SoCalGas outside Riverside, where we confirm the provider by address',
     ],
     note: '**Confirm by address:** SCE service for Ontario, Rancho Cucamonga, Chino, Fontana, Upland, and Eastvale is not directly confirmed, so verify your utility before relying on any program.',
   },
@@ -240,9 +240,10 @@ export const inlandEmpireHub = {
     items: [
       {
         name: 'Riverside',
+        href: '/service-areas/riverside/',
         note: 'Among the older housing stock here: 39.5% of homes were built before 1970. Riverside Public Utilities is the electric utility and publishes its own AC, heat pump, and tune-up rebates, subject to funding.',
-        areas: 'Downtown, Orangecrest, La Sierra, Canyon Springs, Mission Grove',
-        utility: 'Electric: Riverside Public Utilities. Rooftop equipment may need screening review.',
+        areas: 'Downtown, Arlington, La Sierra, Canyon Crest, Orangecrest, Mission Grove',
+        utility: 'Electric: Riverside Public Utilities. Gas provider confirmed by address.',
       },
       {
         name: 'Corona',
@@ -312,7 +313,7 @@ export const inlandEmpireHub = {
     },
     {
       q: 'Do I need a permit to replace my AC in the Inland Empire?',
-      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Riverside County or San Bernardino County. A like-for-like replacement permit requirement is confirmed for Riverside, Chino, and Fontana. For the other five cities, replacement generally requires a city mechanical permit, and we confirm the path with your city before work begins.',
+      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Riverside County or San Bernardino County. A like-for-like replacement permit requirement is confirmed for Chino and Fontana. Riverside lists no like-for-like exemption for a whole unit, and we confirm its path with the City. For the other five cities, replacement generally requires a city mechanical permit, and we confirm the path with your city before work begins.',
     },
     {
       q: 'What is Title 24 and how does it affect an HVAC replacement?',
@@ -320,7 +321,7 @@ export const inlandEmpireHub = {
     },
     {
       q: 'Which utility serves my home, and are there HVAC rebates?',
-      a: 'It depends on your address. Riverside is served by Riverside Public Utilities. Corona is mostly Southern California Edison (SCE), with small city electric areas, and the other cities are generally SCE. Natural gas is supplied by Southern California Gas Company (SoCalGas). Programs, amounts, and funding change, so confirm your utility by address and confirm current eligibility before installation.',
+      a: 'It depends on your address. Riverside is served by Riverside Public Utilities. Corona is mostly Southern California Edison (SCE), with small city electric areas, and the other cities are generally SCE. Outside Riverside, natural gas is supplied by Southern California Gas Company (SoCalGas), and in Riverside we confirm the gas provider by address. Programs, amounts, and funding change, so confirm your utility by address and confirm current eligibility before installation.',
     },
     {
       q: 'How hot does it get, and does that change equipment sizing?',
@@ -328,7 +329,7 @@ export const inlandEmpireHub = {
     },
     {
       q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in the Inland Empire?',
-      a: 'Yes, for offices, retail, restaurants, and other commercial properties. The commercial mix includes warehouse and logistics space in Fontana and Chino, industrial and retail areas in Rancho Cucamonga, Downtown Riverside, and airport-adjacent commercial space in Ontario. Rooftop equipment may need screening review in Riverside, Ontario, and Fontana.',
+      a: 'Yes, for offices, retail, restaurants, and other commercial properties. The commercial mix includes warehouse and logistics space in Fontana and Chino, industrial and retail areas in Rancho Cucamonga, Downtown Riverside, and airport-adjacent commercial space in Ontario. Rooftop equipment may need screening review in Ontario and Fontana, and we confirm the rules for Riverside with the City.',
     },
     {
       q: 'Do older homes in the Inland Empire need different HVAC work?',

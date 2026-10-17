@@ -306,6 +306,76 @@ Built 2026-10-16 and pushed to main (user chose push to main). Reference artifac
 - Hero photo is still "Photo pending".
 - Claim wording follows the approved list. Do not strengthen it.
 
+## /service-areas/riverside/ (riversideOverrides in src/content/cities.ts)
+Built 2026-10-16 (not pushed yet; the user chooses push to main or PR). Reference artifact: claude/reference/riverside-location.html
+(https://claude.ai/artifact/PZWLA3KYYz2Kis5zGNU7QB). First Inland Empire wave-1 city. Generated from one data source so JSON-LD,
+visible text and TS match.
+- Title: `cityTitle('Riverside')` ("HVAC Services in Riverside, CA | AIRPRO SOLUTIONS", 49 characters) does not collide with another
+  page, so no `distinctTitle`. H1 is `cityH1('Riverside')` (30 characters). The meta description is the hand-written
+  `page.metaDescription` (145 characters, validated by `assertDescription`).
+- Client approval NOT confirmed. Every Riverside FAQ answer, the five local paragraphs, the noise sentences, the Title 24
+  sentences, the commercial sentence and the incentive wording stay flagged TODO(copy) until the user says the client approved
+  them. Irvine, Gardena, Anaheim, Costa Mesa and Huntington Beach flags also stay.
+- TODO(copy): confirm with the City (the permits page lists (951) 826-5800 for fee information) which permit path each HVAC job
+  needs, and whether AIRPRO SOLUTIONS holds a City of Riverside business license (the City requires one of contractors, plus
+  verifiable State licensing and a workers' compensation certificate for contractors with employees).
+- Lead angle: Building & Safety issues permits and the Public Permit Portal handles applications, electronic plans, fees, status
+  and inspections (the Permit Services counter, mail-in and fax also work). Bulletin 140 lists portable cooling units and
+  like-for-part replacement as exempt and lists NO like-for-like exemption for a whole unit, so the page never assumes one.
+- Housing and population: SCAG's Riverside profile only for housing (DOF 2018: 100,515 units; 64.0% detached, 3.9% attached, 6.4%
+  in 2-4 units, 23.5% in 5+, 2.2% mobile homes, 29.9% in 2+ unit buildings; ACS 2017: 39.5% built before 1970) and Census QuickFacts
+  for 323,057 residents (July 1, 2025 estimate; 314,998 in the 2020 Census; 56.8% owner-occupied, 2020-2024). All attributed and
+  labeled dated. Neighborhoods come from the General Plan (28 neighborhoods) and the Orangecrest description from a City page, in
+  prose only.
+- Noise: Municipal Code Title 7 from a third-party copy on nonoise.org (no current date; latest amendment citations are from
+  2007): Sec. 7.25.010 residential 55 dBA 7 a.m.-10 p.m. and 45 dBA 10 p.m.-7 a.m.; Sec. 7.10.070 defines fixed noise sources to
+  include air conditioners and refrigeration devices; Sec. 7.35.010 construction and repair hours (weekdays 7 p.m.-7 a.m.,
+  Saturdays 5 p.m.-8 a.m., all day Sundays and federal holidays, emergency exception). The official Municode text would not load.
+  Recheck before relying on the numbers.
+- Code: the City's California Building Standards page lists the 2025 CBC, Mechanical Code and Energy Code, effective 2026-01-01,
+  and describes no local amendments. Municode Title 16 would not load, so NO local amendment is stated. Title 24: duct sealing and
+  verification per the CEC HVAC page.
+- Utilities: the City describes Riverside Public Utilities (RPU) as providing water and electric service. NO City source names the
+  gas provider, so the page says to confirm gas by address. Rebate pages are link-only with no dollar amounts (the pages are
+  undated).
+- DECISION NEEDED on rebate amounts. Verified on RPU's pages 2026-10-16 (pages undated; the residential application says "UPDATED
+  JUNE 2026"): residential central AC $150/ton (15.2-15.9 SEER) and $250/ton (16+ SEER), electric heat pump $750/ton (15.2+ SEER),
+  tune-up $25 (with refrigerant check), smart thermostat $50, whole-house evaporative cooler $150, room evaporative cooler $50,
+  ENERGY STAR room AC $50, duct replacement up to $150 (R-6). Residential: RPU electric customers only, matched condenser and coil
+  in the AHRI Directory, apply within 90 days of purchase, no new construction or used equipment, subject to funding, may be
+  cancelled, and the application certifies no other utility incentive for the same improvement. Commercial: $150/ton (15.2 SEER/11.7
+  EER), $250/ton (16 SEER/12.8 EER+), $300/ton load shifting or demand response (stacking not stated), $50 thermostat, $10/ton
+  tune-up; caps $25,000 flat-rate, $50,000 demand, $100,000 time-of-use; 50% of project cost; one capped rebate per program, per
+  fiscal year, per premises. RPU uses SEER, not SEER2: do not relabel. The commercial amounts are NOT residential offers. Not
+  found: remaining funding, expiration or deadline, SEER2 thresholds, commercial heat pump or ductless amounts, chiller schedule.
+- Right-hand card: "Official Riverside resources" (`page.officialResources`, 11 links). `neighborhoods: []`, `zips: []`,
+  `nearby: []` (the city page skips the section when `nearby` is empty).
+- Held out (no verified source): ZIP card (the only official list, 92501 and 92503-92509, is a January 2024 City press release about
+  Earthquake Brace + Bolt grant eligibility, not a service-area or postal list; 92521 and 92522 appear only in a 2003 Council
+  report), neighborhood pills, nearby row, climate and NOAA data, gas provider, rebate dollar amounts, any local code amendment,
+  official Municode noise text, named employers and employee counts (City employer page shows no data year), Alessandro Heights and
+  Arlanza details, the 20 specific plans, General Plan land-use categories, median year built, humidity and air quality, HOA and
+  historic-district rules, outdoor-unit setbacks, competitor SERP table (every row NOT FOUND).
+- Corrected research overstatements: the hub claim that like-for-like replacement is "confirmed on the city's fee schedule" is
+  unsupported (the fee schedule only lists furnaces, air handling units and air conditioning units as fee items); the RPU commercial
+  amounts are not residential offers; the ZIP list is grant eligibility only; ecode360 43101139 was Atascadero, not Riverside
+  (discarded); the City's clerk records links returned errors, so nothing was taken from them.
+- Pre-launch recheck: RPU residential and business rebate pages and general program guidelines; City permits page; Public Permit
+  Portal; Bulletin 140; fee schedule; California Building Standards page; Title 7 official text; SCAG profile URL; QuickFacts;
+  General Plan PDF; top employers page; Energy Commission pages; the NWS figures on the Inland Empire hub (not re-verified).
+- Inland Empire hub wiring DONE: Riverside card `href` (`CityCardSpec` gained an optional `href`, and the hub cards render as links
+  like the Orange County hub), /service-areas/ chip, `hubCityIndexNote` and the Inland Empire page sentence.
+- Inland Empire hub Riverside copy corrected: permits row and permits note and FAQ no longer say like-for-like is "confirmed" for
+  Riverside (they say the City lists no like-for-like exemption for a whole unit); the rooftop screening-review claim for Riverside
+  is removed from the placement table, commercial lines and commercial FAQ (no City source read; Ontario and Fontana stay);
+  card areas now use General Plan neighborhoods (the old "Canyon Springs" had no source) and the card utility line drops the
+  screening sentence and says the gas provider is confirmed by address; "Canyon Springs and the Innovation District" removed
+  from the commercial districts line; the generic "Natural gas: SoCalGas" lines now exclude Riverside. Checked, no change: housing
+  table row (39.5%, labeled 2018 data), rebate card wording, Commercial HVAC region card (city-name list). NOT re-verified and left
+  as is: the 90.6 F July normal, 18 days at or above 90 F, 114-115 F on 2024-09-06 and 118 F record figures.
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list. Do not strengthen it.
+
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
 - Hermosa Beach: permit applications become online-only through the city's portal starting
@@ -366,7 +436,7 @@ Built 2026-10-16 and pushed to main (user chose push to main). Reference artifac
 - Electric utility per city for Ontario, Rancho Cucamonga, Chino, Fontana, Upland, and Eastvale is
   medium-to-low confidence ("generally SCE"). Verify directly before launch.
 - Like-for-like permit rules for Corona, Ontario, Rancho Cucamonga, Upland, and Eastvale were not
-  confirmed in the sources reviewed (confirmed only for Riverside, Chino, Fontana). Verify with
+  confirmed in the sources reviewed (confirmed only for Chino and Fontana; Riverside lists no like-for-like exemption for a whole unit). Verify with
   each city, and re-verify current Title 24 code dates.
 - This page does not say "we handle permits" - the research does not support that claim. Do not
   add it without client sign-off.

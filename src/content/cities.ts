@@ -57,7 +57,7 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa and huntington-beach have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach and riverside have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -2648,6 +2648,337 @@ const huntingtonBeachOverrides: Partial<City> = {
   },
 };
 
+const riversideOverrides: Partial<City> = {
+  // TODO(data): add verified climate detail before treating this as a full local page.
+  neighborhoods: [], // no official neighborhood pill list was verified; the General Plan's 28 neighborhoods are cited in prose only
+  zips: [], // the only official ZIP list is a 2024 grant-eligibility press release (not a service-area or postal list); the ZIP card is held out
+  page: {
+    metaDescription:
+      "HVAC for Riverside homes and businesses, from AC repair to installation. Know the Public Permit Portal and RPU rebates. Licensed, 4.8-star rated.",
+    lede:
+      "AIRPRO SOLUTIONS provides HVAC services across Riverside, including AC repair, heating repair, installation, and maintenance for homes and businesses.",
+    heroCaption: { title: "Riverside, CA", text: "Local HVAC service across Riverside" },
+    heroProof: [
+      { icon: 'shield', label: "Licensed, bonded & insured" },
+      { icon: 'star', label: "4.8-star rated" },
+      { icon: 'bolt', label: "24/7 emergency dispatch" },
+      { icon: 'building', label: "Residential and commercial" },
+    ],
+    trustStats: [
+      { num: "4.8★", label: "Google rating, 40 reviews" },
+      { num: "C-20", label: "California licensed" },
+      { num: "24/7", label: "emergency dispatch" },
+      { num: "Same-day", label: "service typical" },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Riverside",
+      body:
+        ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Riverside at a glance",
+      stats: [
+        { num: "323,057", label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)" },
+        { num: "64.0%", label: "of 100,515 housing units are single-family detached, and 29.9% are in buildings of 2 or more units (California Department of Finance, 2018, per SCAG)" },
+        { num: "39.5%", label: "of housing was built before 1970 (2017 American Community Survey, per SCAG)" },
+      ],
+      source: "Sources: U.S. Census Bureau QuickFacts and SCAG's local profile of Riverside.",
+    },
+    localTitle: "Riverside's permit portal, neighborhoods, and noise limits",
+    // Held out (no verified source): ZIP card: the only official list (92501, 92503-92509) is a January 2024 City press release about Earthquake Brace + Bolt grant eligibility, not a service-area or postal list; 92521 and 92522 appear only in a 2003 Council report; neighborhood pills and nearby row (no source names neighbors; neighborhoods and nearby stay empty); climate, NOAA and heat figures (no sourced Riverside figure found; the hub's NWS Riverside Municipal Airport figures could not be re-verified); gas provider (no City source names it); RPU rebate dollar amounts (pages are undated; the June 2026 application is dated); any local amendment to the 2025 codes (City page says nothing; Municipal Code Title 16 on Municode would not load); official Municode text of Title 7 noise (page would not load; numbers come from a third-party copy); named employers and employee counts (City employer page shows no data year); Alessandro Heights and Arlanza neighborhood details, 20 specific plans, General Plan land-use categories (cited in the research, not re-read); median year built, humidity and air quality, HOA and historic-district rules, outdoor-unit setbacks; competitor SERP table (every row NOT FOUND in the research).
+    // TODO(copy): client has not approved any Riverside wording (every FAQ answer, the five local paragraphs, the noise sentences, the Title 24 sentences, the commercial sentence, the incentive wording). Keep flagged until the user says the client approved. Irvine, Gardena, Anaheim, Costa Mesa and Huntington Beach flags also stay.
+    // TODO(copy): confirm with the City (permits page lists (951) 826-5800 for fee information) which permit path each HVAC job needs, and whether AIRPRO SOLUTIONS holds a City of Riverside business license (the City requires one of contractors).
+    // TODO(copy): noise text is from a third-party copy of Title 7 on nonoise.org (no current date; latest amendment citations are from 2007). Recheck against the official Municode text before relying on the numbers.
+    // Pre-launch recheck: RPU residential and business rebate pages and general program guidelines (pages undated; June 2026 application is dated), City permits page, Public Permit Portal, Bulletin 140, fee schedule, California Building Standards page, Title 7 official text, SCAG profile URL, QuickFacts, General Plan PDF, top employers page, Energy Commission pages.
+    localParagraphs: [
+      "Riverside's Building & Safety Division issues the City's building permits, and the City's Public Permit Portal lets applicants submit permit applications and electronic plans, pay fees, track progress, and schedule inspections online. Applications can also be made at the Permit Services counter in the One Stop Shop or by mail-in or fax. The City's permits page says a permit is needed to replace an electrical, gas, mechanical, or plumbing system when the work is regulated by code. Its Bulletin 140 on work exempt from permits lists portable cooling units and the replacement of a part that does not alter the equipment's approval, and it lists no like-for-like exemption for a whole unit, so **AIRPRO SOLUTIONS confirms which permit path applies** with the City before work starts. The City says contractors must show proof of licensing that can be verified with the California Contractors State License Board and hold a current City of Riverside business license, and contractors with employees present a workers' compensation certificate when the permit is issued. The City's California Building Standards page lists the 2025 California Building Code, Mechanical Code, and Energy Code, effective January 1, 2026, and it does not describe local amendments.",
+      "Riverside had an estimated 323,057 residents on July 1, 2025, up from 314,998 in the 2020 U.S. Census, and QuickFacts reports a 56.8% owner-occupied housing rate for 2020-2024. The City's General Plan identifies 28 neighborhoods, including Downtown, Arlington, La Sierra, Casa Blanca, Canyon Crest, Orangecrest, and Mission Grove, and it calls Downtown, Arlington, and La Sierra historic communities. The City describes Orangecrest, in the most southeasterly portion of the city, as a master planned community of predominantly single-family homes, with a major portion annexed in 1986. SCAG's local profile, using California Department of Finance data for 2018, counts **100,515 housing units: 64.0% single-family detached, 3.9% attached, 6.4% in buildings of 2 to 4 units, 23.5% in buildings of 5 or more, and 2.2% mobile homes**. The same profile, citing the 2017 American Community Survey, reports that **39.5% of housing was built before 1970**. These figures are dated and citywide, so we confirm the equipment, access, and ductwork at the property, and in a multi-unit building we confirm equipment access and placement.",
+      "Riverside's Municipal Code Title 7 sets exterior noise standards by land use. For residential property, the copy we read lists **55 dBA from 7 a.m. to 10 p.m. and 45 dBA from 10 p.m. to 7 a.m.** (Sec. 7.25.010), and it defines fixed noise sources to include air conditioners and refrigeration devices (Sec. 7.10.070). We did not see a section written only for new HVAC equipment. Construction and repair work that creates a disturbance across a property line is restricted on weekdays from 7 p.m. to 7 a.m., on Saturdays from 5 p.m. to 8 a.m., and all day on Sundays and federal holidays, with an exception for emergency work (Sec. 7.35.010). The text we read is a third-party copy with no current date, and its latest amendment citations are from 2007, so we confirm how the limits apply to your address before choosing a condenser location. Riverside County's code enforcement says it serves unincorporated areas and refers residents of incorporated cities to local code enforcement, so the City's own code is the one to check.",
+      "Replacements are also subject to California's Title 24 energy code, and the 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing requirements, and field verification and diagnostic testing is prescriptively required for most HVAC alterations. We did not read any Riverside amendment that adds to the state requirements, and we confirm what your job needs with the City.",
+      "For commercial work, the City's top employer list includes healthcare systems, universities, school districts, county government, a military installation, retail, and hospitality, so we plan commercial visits around the building and its equipment access. Riverside Public Utilities, which the City describes as providing water and electric service, lists business air conditioning incentives that pay by the ton by efficiency level, with caps that depend on the customer's rate class and a limit of one capped rebate per program per premises each fiscal year. For homes, it lists separate rebates for central AC, electric heat pumps, tune-ups, smart thermostats, and evaporative coolers for its electric customers. Incentive programs and funding change, and RPU's pages say programs can be cancelled, modified, or reduced, so we link the program pages rather than quote amounts. We did not find a City source naming the gas provider, so confirm yours by address. Official links are in the card beside this text.",
+    ],
+    neighborhoodsHeading: "Official Riverside resources",
+    officialResources: [
+      {
+        text: "Permits",
+        href: "https://riversideca.gov/cedd/building-safety/building-safety-services/permits",
+        note: "Permit types, contractor requirements, and the Permit Services counter.",
+      },
+      {
+        text: "Public Permit Portal",
+        href: "https://riversideca.gov/cedd/building-safety/online-services/public-permit-portal",
+        note: "Applications, electronic plans, fee payments, progress tracking, and inspection scheduling.",
+      },
+      {
+        text: "Bulletin 140: work exempt from permits (PDF)",
+        href: "http://riversideca.gov/cedd/sites/riversideca.gov.cedd/files/pdf/building/forms/140_WORK%20EXEMPTED%20FROM%20BUILDING%20PERMITS_V2.0.pdf",
+        note: "Mechanical exemptions, including portable cooling units.",
+      },
+      {
+        text: "Permit and plan check fees (PDF)",
+        href: "https://riversideca.gov/cedd/sites/riversideca.gov.cedd/files/pdf/building/forms/126_BUILDING-FEES_V2.0.pdf",
+        note: "Lists furnaces, air handling units, and air conditioning units as mechanical fee items.",
+      },
+      {
+        text: "California Building Standards",
+        href: "https://riversideca.gov/cedd/building-safety/building-codes-design-criteria/california-building-standards",
+        note: "The 2025 codes the City lists, effective January 1, 2026.",
+      },
+      {
+        text: "Municipal Code Title 7, noise control",
+        href: "https://www.nonoise.org/regulation/ordinance/Riverside,%20California.pdf",
+        note: "Exterior noise standards and work hours, on a third-party host.",
+      },
+      {
+        text: "RPU residential HVAC rebates",
+        href: "https://riversideca.gov/utilities/residents/rebates/energy-rebates/heat-pump-and-air-conditioning-rebates",
+        note: "Central AC, electric heat pump, tune-up, thermostat, and evaporative cooler rebates.",
+      },
+      {
+        text: "RPU business air conditioning incentives",
+        href: "https://riversideca.gov/utilities/businesses/rebates/energy-rebates/air-conditioning-incentives",
+        note: "Per-ton, thermostat, and tune-up incentives with caps by rate class.",
+      },
+      {
+        text: "General Plan land use and neighborhoods (PDF)",
+        href: "https://riversideca.gov/cedd/sites/riversideca.gov.cedd/files/pdf/planning/general-plan/vol2/5-9_Land_Use_Planning.pdf",
+        note: "The 28 neighborhoods cited on this page.",
+      },
+      {
+        text: "SCAG Riverside local profile",
+        href: "https://www.scag.ca.gov/sites/default/files/2024-05/riverside_localprofile.pdf",
+        note: "Housing counts and building age cited on this page.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/riversidecitycalifornia",
+        note: "Population and owner-occupied rate cited on this page.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Riverside homes and businesses",
+    serviceCards: [
+      { slug: "ac-repair", name: "AC Repair", body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises, with the City's residential noise limits in mind for outdoor units." },
+      { slug: "ac-installation", name: "AC Installation & Replacement", body: "New system sizing and installation, planned around the City's Public Permit Portal process and Title 24 requirements." },
+      { slug: "ac-maintenance", name: "AC Maintenance", body: "Seasonal AC tune-ups that catch small issues early. RPU lists a tune-up rebate for eligible electric customers." },
+      { slug: "heating-repair", name: "Heating Repair", body: "Furnace and heating system diagnosis and repair." },
+      { slug: "furnace-installation", name: "Furnace Installation & Replacement", body: "New furnace sizing and installation, with the City's permit path confirmed before work starts." },
+      { slug: "heat-pump-services", name: "Heat Pump Services", body: "Installation, repair, and maintenance for heat pumps. RPU lists an electric heat pump rebate for its electric customers, and availability changes, so we point you to the current program page." },
+      { slug: "ductless-mini-split", name: "Ductless Mini-Split", body: "Room-by-room comfort control for spaces where ductwork is not an option." },
+      { slug: "ductwork", name: "Ductwork Services", body: "Duct repair, sealing, replacement, and installation, with Title 24 duct sealing and verification in mind." },
+      { slug: "indoor-air-quality", name: "Indoor Air Quality", body: "Air filtration, whole-home purification, and ventilation options." },
+      { slug: "emergency-hvac", name: "Emergency HVAC", body: "Dispatch for no-cool and no-heat emergencies in Riverside." },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Riverside permits, noise limits, and incentive programs",
+      intro: "Official sources for three local items worth checking before a Riverside HVAC project.",
+      cards: [
+        // TODO(copy): incentive wording not yet client-approved. No dollar amounts on purpose; recheck links before launch.
+        {
+          amount: "Public Permit Portal",
+          description: "Riverside's Public Permit Portal accepts permit applications and electronic plans, fee payments, and inspection scheduling. The City's Bulletin 140 lists no like-for-like exemption for a whole unit, so we do not assume a replacement is exempt.",
+          linkLabel: "Public Permit Portal",
+          linkHref: "https://riversideca.gov/cedd/building-safety/online-services/public-permit-portal",
+        },
+        {
+          amount: "Noise limits",
+          description: "Riverside's Municipal Code Title 7 sets exterior noise standards by land use and defines air conditioners as fixed noise sources. Check it before choosing a condenser location.",
+          linkLabel: "Title 7 (third-party copy)",
+          linkHref: "https://www.nonoise.org/regulation/ordinance/Riverside,%20California.pdf",
+        },
+        {
+          amount: "Incentive programs",
+          description: "Riverside Public Utilities lists rebates for central AC, electric heat pumps, tune-ups, and smart thermostats for its electric customers. Terms and funding change, and we do not quote amounts, so check the current terms before you buy.",
+          linkLabel: "RPU rebates",
+          linkHref: "https://riversideca.gov/utilities/residents/rebates/energy-rebates/heat-pump-and-air-conditioning-rebates",
+        },
+      ],
+    },
+    // Nearby row held out: no source names Riverside neighbors. The city page skips the section when this is empty.
+    nearby: [],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Riverside",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        { num: "4.8★", label: "Google rating" },
+        { num: "40", label: "Google reviews" },
+        { num: "C-20", label: "California license class" },
+        { num: "24/7", label: "Emergency dispatch" },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Riverside. Same-day service is typical, subject to capacity.",
+    // TODO(copy): client has not confirmed any FAQ answer below.
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Riverside?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Riverside as part of our Inland Empire coverage. Riverside takes permit applications through its Public Permit Portal, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Inland Empire coverage", href: "/service-areas/inland-empire/" },
+          { text: "Public Permit Portal", href: "https://riversideca.gov/cedd/building-safety/online-services/public-permit-portal" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Riverside home?",
+        a: "Same-day service is typical in Riverside, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Riverside, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an AC or furnace in Riverside?",
+        a: "Check with the City before work starts. The City's permits page says a permit is needed to replace an electrical, gas, mechanical, or plumbing system when the work is regulated by code, and applications go through the Public Permit Portal or the Permit Services counter. Bulletin 140 on work exempt from permits lists portable cooling units and replacing a part that does not alter the equipment's approval, and it lists no like-for-like exemption for a whole unit, so we do not assume a replacement is exempt. The permits page lists (951) 826-5800 for fee information. AIRPRO SOLUTIONS can walk you through the steps.",
+        boldLead: "Check with the City before work starts.",
+        links: [
+          { text: "permits page", href: "https://riversideca.gov/cedd/building-safety/building-safety-services/permits" },
+          { text: "Public Permit Portal", href: "https://riversideca.gov/cedd/building-safety/online-services/public-permit-portal" },
+          { text: "Bulletin 140", href: "http://riversideca.gov/cedd/sites/riversideca.gov.cedd/files/pdf/building/forms/140_WORK%20EXEMPTED%20FROM%20BUILDING%20PERMITS_V2.0.pdf" },
+        ],
+      },
+      {
+        q: "What does the City require of a contractor who pulls the permit?",
+        a: "The City says contractors must show proof of licensing that can be verified with the California Contractors State License Board and hold a current City of Riverside business license. Contractors with employees present a workers' compensation certificate when the permit is issued, and permits can go to the property owner, an authorized agent, or an appropriately licensed contractor. Details are on the City's permits page.",
+        boldLead: "The City says contractors must show proof of licensing that can be verified with the California Contractors State License Board and hold a current City of Riverside business license.",
+        links: [
+          { text: "permits page", href: "https://riversideca.gov/cedd/building-safety/building-safety-services/permits" },
+        ],
+      },
+      {
+        q: "How do I apply for an HVAC permit in Riverside?",
+        a: "Use the City's Public Permit Portal or the Permit Services counter. The portal accepts permit applications and electronic plans, fee payments, progress tracking, and inspection scheduling, and the City also takes mail-in and fax applications. Some projects need plan review, and the City's same-day permit examples are simple water heater change outs, residential service meter upgrades, reroofs, re-stucco, and simple patio covers, so we confirm the path for an HVAC job with the City. The City's fee schedule lists furnaces, air handling units, and air conditioning units as mechanical fee items, and we do not quote fees.",
+        boldLead: "Use the City's Public Permit Portal or the Permit Services counter.",
+        links: [
+          { text: "Public Permit Portal", href: "https://riversideca.gov/cedd/building-safety/online-services/public-permit-portal" },
+          { text: "fee schedule", href: "https://riversideca.gov/cedd/sites/riversideca.gov.cedd/files/pdf/building/forms/126_BUILDING-FEES_V2.0.pdf" },
+        ],
+      },
+      {
+        q: "Which building codes apply to HVAC work in Riverside?",
+        a: "The City's California Building Standards page lists the 2025 California Building Code, Mechanical Code, and Energy Code, effective January 1, 2026. The page does not describe local amendments, and we have not read the City's Municipal Code amendments, so we confirm current requirements with the City for your project.",
+        boldLead: "The City's California Building Standards page lists the 2025 California Building Code, Mechanical Code, and Energy Code, effective January 1, 2026.",
+        links: [
+          { text: "California Building Standards page", href: "https://riversideca.gov/cedd/building-safety/building-codes-design-criteria/california-building-standards" },
+        ],
+      },
+      {
+        q: "Does Title 24 apply when I replace an AC or furnace in Riverside?",
+        a: "Yes, the applicable Title 24 energy requirements apply. California's 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing requirements, and field verification and diagnostic testing is prescriptively required for most HVAC alterations. Depending on the job, that can include duct leakage testing, with limits of 10% total leakage or 7% leakage to outside for existing ducts, and refrigerant charge verification for heat pumps. Not every job needs every test.",
+        boldLead: "Yes, the applicable Title 24 energy requirements apply.",
+        links: [
+          { text: "2025 Energy Code", href: "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency" },
+          { text: "Energy Commission", href: "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/energy-code-support-center/hvac-0" },
+        ],
+      },
+      {
+        q: "Does Riverside have a noise rule that affects AC equipment?",
+        a: "Riverside sets exterior noise standards by land use. The Municipal Code copy we read lists 55 dBA from 7 a.m. to 10 p.m. and 45 dBA from 10 p.m. to 7 a.m. for residential property (Sec. 7.25.010), and it defines fixed noise sources to include air conditioners and refrigeration devices (Sec. 7.10.070). We did not see a section written only for new HVAC equipment. The text is a third-party copy with no current date, so we confirm how the limits apply to your address before we choose a condenser location. Riverside County's code enforcement serves unincorporated areas, so the City's code is the one to check.",
+        boldLead: "Riverside sets exterior noise standards by land use.",
+        links: [
+          { text: "Municipal Code copy", href: "https://www.nonoise.org/regulation/ordinance/Riverside,%20California.pdf" },
+          { text: "Riverside County's code enforcement", href: "https://ce.rctlma.org/faqs" },
+        ],
+      },
+      {
+        q: "What hours can HVAC work happen in Riverside?",
+        a: "The Municipal Code copy we read restricts construction, repair, and similar work that creates a disturbance across a property line on weekdays from 7 p.m. to 7 a.m. and on Saturdays from 5 p.m. to 8 a.m., and it allows none on Sundays or federal holidays (Sec. 7.35.010), with an exception for emergency work. The text is a third-party copy, so we confirm current hours with the City. Call (323) 776-9047 to schedule a visit.",
+        boldLead: "The Municipal Code copy we read restricts construction, repair, and similar work that creates a disturbance across a property line on weekdays from 7 p.m. to 7 a.m. and on Saturdays from 5 p.m. to 8 a.m., and it allows none on Sundays or federal holidays (Sec. 7.35.010), with an exception for emergency work.",
+        links: [
+          { text: "Municipal Code copy", href: "https://www.nonoise.org/regulation/ordinance/Riverside,%20California.pdf" },
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do you work in condos and apartment buildings in Riverside?",
+        a: "Yes. SCAG's local profile of Riverside, using California Department of Finance data for 2018, counts 100,515 housing units, with 64.0% single-family detached, 3.9% single-family attached, 6.4% in buildings of 2 to 4 units, 23.5% in buildings of 5 or more units, and 2.2% mobile homes. AIRPRO SOLUTIONS services condos, townhomes, and apartments as well as single-family homes, and in a multi-unit building we confirm equipment access and placement at the property. See our Residential HVAC page.",
+        boldLead: "Yes.",
+        links: [
+          { text: "local profile", href: "https://www.scag.ca.gov/sites/default/files/2024-05/riverside_localprofile.pdf" },
+          { text: "Residential HVAC page", href: "/residential-hvac/" },
+        ],
+      },
+      {
+        q: "Does the age of Riverside homes matter for HVAC work?",
+        a: "It can, and we confirm it on site. SCAG's local profile, citing the 2017 American Community Survey, reports that 39.5% of Riverside's housing stock was built before 1970, and the City's General Plan calls Downtown, Arlington, and La Sierra historic communities. Older homes can mean older equipment, attic access, and ductwork, but those are still property-specific, so we check them at a site visit before recommending repair or replacement.",
+        boldLead: "It can, and we confirm it on site.",
+        links: [
+          { text: "local profile", href: "https://www.scag.ca.gov/sites/default/files/2024-05/riverside_localprofile.pdf" },
+          { text: "General Plan", href: "https://riversideca.gov/cedd/sites/riversideca.gov.cedd/files/pdf/planning/general-plan/vol2/5-9_Land_Use_Planning.pdf" },
+        ],
+      },
+      {
+        q: "Do you service Orangecrest, La Sierra, Downtown, and Mission Grove?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Riverside. The City's General Plan identifies 28 neighborhoods, including Downtown, Arlington, La Sierra, Casa Blanca, Canyon Crest, Orangecrest, and Mission Grove, and the City describes Orangecrest as a master planned community of predominantly single-family homes. We plan each visit around the address, including equipment access and placement.",
+        boldLead: "Yes.",
+        links: [
+          { text: "General Plan", href: "https://riversideca.gov/cedd/sites/riversideca.gov.cedd/files/pdf/planning/general-plan/vol2/5-9_Land_Use_Planning.pdf" },
+          { text: "master planned community", href: "https://riversideca.gov/athomeinriverside/neighborhoods-orangecrest.asp" },
+        ],
+      },
+      {
+        q: "Who provides electricity and gas in Riverside?",
+        a: "The City describes Riverside Public Utilities as providing water and electric service in Riverside. Confirm your electric provider on your bill before counting on an RPU program, and confirm your gas provider by address, because we did not find a City source naming it. Programs, amounts, and funding change, so confirm current eligibility with your utility before scheduling installation.",
+        boldLead: "The City describes Riverside Public Utilities as providing water and electric service in Riverside.",
+        links: [
+          { text: "Riverside Public Utilities", href: "https://riversideca.gov/utilities/residents" },
+        ],
+      },
+      {
+        q: "Which rebate and incentive pages should I check before buying HVAC equipment in Riverside?",
+        a: "Check Riverside Public Utilities for current terms. RPU lists residential rebates for central air conditioners, electric heat pumps, HVAC tune-ups, smart thermostats, and evaporative coolers. Under its general program guidelines, the incentive is paid to the electric customer of record for new equipment only, and new construction does not qualify. The HVAC rebate page asks for a new matched condenser and evaporator coil listed together in the AHRI Directory for split systems, asks for applications within 90 days of purchase, and says the program is subject to fund availability and may be cancelled at any time. RPU's pages use SEER ratings, so confirm the rating thresholds with RPU. We do not quote amounts.",
+        boldLead: "Check Riverside Public Utilities for current terms.",
+        links: [
+          { text: "Riverside Public Utilities", href: "https://riversideca.gov/utilities/residents/rebates/energy-rebates/heat-pump-and-air-conditioning-rebates" },
+          { text: "general program guidelines", href: "https://riversideca.gov/utilities/residents/rebates/energy-rebates/general-program-guidelines" },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Riverside?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Riverside, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC",
+        links: [
+          { text: "AC repair", href: "/services/ac-repair/" },
+          { text: "AC installation and replacement", href: "/services/ac-installation/" },
+          { text: "AC maintenance", href: "/services/ac-maintenance/" },
+          { text: "heating repair", href: "/services/heating-repair/" },
+          { text: "furnace installation and replacement", href: "/services/furnace-installation/" },
+          { text: "heat pump services", href: "/services/heat-pump-services/" },
+          { text: "ductless mini-splits", href: "/services/ductless-mini-split/" },
+          { text: "ductwork", href: "/services/ductwork/" },
+          { text: "indoor air quality", href: "/services/indoor-air-quality/" },
+          { text: "emergency HVAC", href: "/services/emergency-hvac/" },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Riverside?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Riverside. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Riverside?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Riverside?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Riverside, including rooftop units. The City's top employer list includes healthcare systems, universities, school districts, county government, a military installation, retail, and hospitality, and Riverside Public Utilities lists business air conditioning incentives that pay by the ton by efficiency level, with caps that depend on the customer's rate class and a matching evaporator coil required. We do not quote amounts, and we confirm the permit path with the City before work starts. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "top employer list", href: "https://riversideca.gov/cedd/economic-development/data-reports/top-employers" },
+          { text: "business air conditioning incentives", href: "https://riversideca.gov/utilities/businesses/rebates/energy-rebates/air-conditioning-incentives" },
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -2662,6 +2993,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'anaheim' ? anaheimOverrides
     : c.slug === 'costa-mesa' ? costaMesaOverrides
     : c.slug === 'huntington-beach' ? huntingtonBeachOverrides
+    : c.slug === 'riverside' ? riversideOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
