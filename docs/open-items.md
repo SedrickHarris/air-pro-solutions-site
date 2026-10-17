@@ -307,7 +307,7 @@ Built 2026-10-16 and pushed to main (user chose push to main). Reference artifac
 - Claim wording follows the approved list. Do not strengthen it.
 
 ## /service-areas/riverside/ (riversideOverrides in src/content/cities.ts)
-Built 2026-10-16 (not pushed yet; the user chooses push to main or PR). Reference artifact: claude/reference/riverside-location.html
+Built 2026-10-16 and pushed to main (user chose push to main). Reference artifact: claude/reference/riverside-location.html
 (https://claude.ai/artifact/PZWLA3KYYz2Kis5zGNU7QB). First Inland Empire wave-1 city. Generated from one data source so JSON-LD,
 visible text and TS match.
 - Title: `cityTitle('Riverside')` ("HVAC Services in Riverside, CA | AIRPRO SOLUTIONS", 49 characters) does not collide with another
