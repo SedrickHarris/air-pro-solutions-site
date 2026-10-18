@@ -157,8 +157,8 @@ export const southBayHub = {
     },
   },
 
-  // Rebate sources: SoCalGas 2026 Home Energy Efficiency Rebate ($75 thermostat, install in 2026,
-  // applications due 2026-12-31); SCE Summer Discount Plan (up to $145/unit, seasonal, cycling
+  // Rebate sources: SoCalGas 2026 Home Energy Efficiency Rebate (furnace tiers, install in 2026,
+  // applications due 2026-12-31; the $75 thermostat offer is wildfire-only per the 2026 application, so it is not advertised); SCE Summer Discount Plan (up to $145/unit, seasonal, cycling
   // program); TECH Clean California / HEEHRA (income-based, funding-limited; SoCal single-family
   // fully reserved as of early 2026, waitlisted). See docs/open-items.md for re-verify dates.
   rebates: {
@@ -168,8 +168,8 @@ export const southBayHub = {
     cards: [
       {
         verifyTag: 'Verify current amount before launch',
-        amount: '$75 per thermostat',
-        description: 'SoCalGas 2026 Home Energy Efficiency Rebate for a qualifying ENERGY STAR smart thermostat. Equipment must be purchased and installed in 2026, and applications are due by December 31, 2026.',
+        amount: 'SoCalGas furnace rebates',
+        description: 'SoCalGas 2026 Home Energy Efficiency Rebate for a qualifying ENERGY STAR gas furnace in an existing home. Equipment must be purchased and installed in 2026, and applications are due by December 31, 2026. Funding and program terms apply.',
         linkLabel: 'SoCalGas application',
         linkHref: 'https://www.socalgas.com/sites/default/files/2026-03/SCG-HEER-Application.pdf.pdf',
       },
@@ -245,7 +245,7 @@ export const southBayHub = {
     },
     {
       q: 'Which utility serves my home, and are there HVAC rebates?',
-      a: 'In these cities, Southern California Edison (SCE) delivers electricity and Southern California Gas Company (SoCalGas) supplies natural gas. Clean Power Alliance supplies electricity generation in Redondo Beach, Manhattan Beach, and Carson, while SCE still handles delivery, billing, and outages. SoCalGas lists a $75 smart thermostat rebate for equipment purchased and installed in 2026, and SCE’s Summer Discount Plan offers up to $145 in bill credits per unit. Confirm your utility by address and confirm current eligibility before installation.',
+      a: 'In these cities, Southern California Edison (SCE) delivers electricity and Southern California Gas Company (SoCalGas) supplies natural gas. Clean Power Alliance supplies electricity generation in Redondo Beach, Manhattan Beach, and Carson, while SCE still handles delivery, billing, and outages. SoCalGas lists a 2026 rebate for qualifying ENERGY STAR gas furnaces purchased and installed in 2026, and SCE’s Summer Discount Plan offers up to $145 in bill credits per unit. Confirm your utility by address and confirm current eligibility before installation.',
     },
     {
       q: 'Are there noise or screening rules for outdoor equipment?',

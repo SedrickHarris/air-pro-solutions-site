@@ -194,7 +194,7 @@ export const orangeCountyHub = {
 
   // Rebate sources: Anaheim Public Utilities rebate page (link only, no amounts published; the
   // City page does not list them and the DSIRE amounts are dated 2025-08-04);
-  // SoCalGas 2026 furnace rebate tiers ($1.40/$10/$25 per kBtuh by AFUE tier, $75 thermostat,
+  // SoCalGas 2026 furnace rebate tiers ($1.40/$10/$25 per kBtuh by AFUE tier; the $75 thermostat offer is wildfire-only so it is not advertised,
   // through 2026-12-31 or funds); SCE Smart Energy Program ($75 enrollment + up to $50/yr,
   // enrollment program, not an equipment rebate). HEEHRA: single-family fully reserved statewide as
   // of 2026-02-24; multifamily reservation window closed 2025-12-18. No source URLs were found for
@@ -213,7 +213,7 @@ export const orangeCountyHub = {
       {
         verifyTag: 'Verify current amount before launch',
         amount: '$1.40 to $25 per kBtuh',
-        description: 'SoCalGas 2026 furnace rebate tiers: $1.40 for 92 to 94% AFUE, $10 for 95 to 96%, and $25 for 97% or higher. A smart thermostat is $75. Gas equipment only, through December 31, 2026 or until funds run out.',
+        description: 'SoCalGas 2026 furnace rebate tiers: $1.40 for 92 to 94% AFUE, $10 for 95 to 96%, and $25 for 97% or higher. Gas equipment only, through December 31, 2026 or until funds run out.',
       },
       {
         verifyTag: 'Verify current amount before launch',
@@ -222,7 +222,7 @@ export const orangeCountyHub = {
       },
     ] satisfies RebateCard[],
     copy: [
-      "Program details change quickly. Confirm Anaheim Public Utilities' current terms and funding on its rebate page. SoCalGas furnace and thermostat rebates are for gas equipment only. We did not find a standard SCE rebate for AC or heat pump replacement, so we do not list one.",
+      "Program details change quickly. Confirm Anaheim Public Utilities' current terms and funding on its rebate page. SoCalGas furnace rebates are for gas equipment only. We did not find a standard SCE rebate for AC or heat pump replacement, so we do not list one.",
       'State heat pump funding is limited. HEEHRA single-family funding was fully reserved statewide as of February 24, 2026, and the multifamily reservation window closed December 18, 2025.',
       'Rebates and eligibility vary by service address, utility account, equipment efficiency, and available funding. Confirm final eligibility, amount, and application requirements with your utility before installation.',
     ],

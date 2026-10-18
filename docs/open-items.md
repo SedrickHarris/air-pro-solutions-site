@@ -582,7 +582,7 @@ Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: 
 - Corrected research overstatements: code effective date is January 1, 2026 (research said 2025); Zone III is the industrial conservation district, not "Light Manufacturing and Studio District", and Zone II was omitted; the noise test is Sec. 4.12.130(c), not Sec. 4.12.170; NOAA ICAC1 is a water level and meteorological station, not a buoy and not a normals source; the plan review page does not use "electronic plan review" (the process is Citizen Access plus ProjectDox); page dates differ from the research (plan review published 2021-11-30, modified 2026-09-17); the SoCalGas form code "0926" is not labelled as a date and the wildfire boost is "up to 50%", not "50% more"; the housing mix was marked NOT FOUND but SCAG verifies it (52,441 units, 77.5% multifamily); the research's Express Permit HVAC scope is unverified.
 - LA County hub wiring DONE: Santa Monica card `href` and sourced note, /service-areas/ chip, `hubCityIndexNote`, hub intro wording, LA County page sentence. `commercial-hvac.ts` only lists city names, so unchanged.
 - LA County hub audit, Santa Monica copy corrected: the permits row no longer says "Permit Services Center" (unverified, page blocked) or that the Zero Emission Building Code "is adopted, and its enforcement is currently paused" (conflicting sources); it now describes Same-Day Review versus Plan Review and the equipment noise rules. The "$75 smart thermostat" rebate card was wrong (wildfire-exclusive) and is replaced by a link-only SoCalGas furnace rebate card. The utilities list and the rebates and FAQ copy now say Santa Monica is served by SCE (Clean Power Alliance supplies power per the City's April 12, 2019 post). Checked, no change: housing row (22.1 / 77.5 / 67.4 matches SCAG), "most multifamily at 77.5%" city note.
-- STILL OPEN outside this page: the South Bay and Orange County hubs also advertise a "$75 thermostat" SoCalGas rebate (south-bay.ts lines about 160 to 171 and 248, orange-county.ts lines about 197 to 216). It is wildfire-exclusive per SoCalGas, so check those before launch. Not changed here because they are not Santa Monica copy.
+- RESOLVED 2026-10-18 (after the Inglewood push): the South Bay and Orange County hubs no longer advertise the wildfire-only "$75 thermostat" SoCalGas rebate. South Bay now shows a link-only SoCalGas furnace rebate card and FAQ sentence; Orange County dropped the thermostat sentence and wording. Dollar amounts for the OC furnace tiers were not changed.
 - Other pages that link Santa Monica: none beyond the LA County hub and `hubCityIndexNote`; `commercial-hvac.ts` lists the name as text only. Pasadena's `nearby` row does not link Santa Monica; not changed. User decision 2026-10-18: do not touch other city pages yet.
 - Still needs pasted pages from the user: the City Permit Services Center page (hours, address, paperless wording) and the City land use PDF (LUCE), both blocked by bot detection.
 - Pre-launch recheck: plan review page, Same-Day Review page, Permit Services Center page (hours, address; blocked here), noise program page, Chapter 4.12 (official code), SCE Golden State Rebates and Smart Energy Program pages, SoCalGas rebates page, City Clean Power Alliance post (2019), SCAG profile, QuickFacts, Principal Employers report.
@@ -643,7 +643,7 @@ Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: 
 - Claim wording follows the approved list. Do not strengthen it.
 - Hub wiring done with this page: LA County hub Inglewood card now links /service-areas/inglewood/; the unsourced "near-coastal" and SCE statements for Inglewood were removed from the hub card, utilities list, rebates copy and FAQ; the permits row for Inglewood was reworded to the verified Building Safety Division and online portal facts; the "other city pages are coming" sentences were reworded because Inglewood is the last of the eight LA County cities. Chip and index note on /service-areas/ added.
 - Rancho Cucamonga: still only a noindex stub (flagged in Gate 0, not built here).
-- Carryovers still open: South Bay and Orange County hubs still advertise the wildfire-only $75 SoCalGas thermostat rebate; SCE "authorized service provider" client question (Santa Monica); Burbank BWP installer question.
+- Carryovers still open: SCE "authorized service provider" client question (Santa Monica); Burbank BWP installer question.
 
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
@@ -651,7 +651,7 @@ Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: 
   2026-10-01. Update the permits table copy after that date.
 - Torrance: plan reviews and permit submittals became electronic as of 2026-01-05. Already past;
   re-verify the process hasn't changed further.
-- SoCalGas $75 smart-thermostat rebate: a 2026 program with an application deadline of
+- SoCalGas 2026 furnace rebate (replaced the wildfire-only $75 thermostat card): application deadline
   2026-12-31. Remove or update in January 2027.
 - SCE Summer Discount Plan (up to $145/unit): seasonal program - confirm current enrollment terms
   before each summer.
@@ -671,7 +671,7 @@ Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: 
 - Anaheim Public Utilities rebate card is link-only (anaheim.net/2579/Heating-Cooling-Systems); no dollar
   amounts are published (the $200/ton, duct repair and thermostat terms are not on the City page and the
   DSIRE record is dated 2025-08-04). Recheck the APU rebate pages before launch.
-- SoCalGas 2026 furnace rebate tiers and $75 thermostat rebate: through December 31, 2026 or until
+- SoCalGas 2026 furnace rebate tiers (the wildfire-only $75 thermostat was removed): through December 31, 2026 or until
   funds run out. Remove or update in January 2027.
 - SCE Smart Energy Program ($75 enrollment + up to $50/yr): re-verify current credit amount before
   launch.
