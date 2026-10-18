@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale and burbank have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank and santa-monica have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // TODO(copy): the closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale and Burbank, because under 920px the card sits below the text. Several of these pages were client-approved,
+// Corona (two places), Glendale, Burbank and Santa Monica, because under 920px the card sits below the text. Several of these pages were client-approved,
 // so confirm the one-phrase change with the client.
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
@@ -4296,7 +4296,7 @@ const burbankOverrides: Partial<City> = {
     },
     localTitle: "Burbank's permit tiers, codes, noise levels, and electric service",
     // Held out (no verified source): ZIP card: City 'Zip Code Areas' map lists 18 ZIPs including non-Burbank ZIPs; cannot tell which are inside the City.; Neighborhood list (Magnolia Park, Elmwood, Lake-Alameda, Peyton-Grismer, Verdugo Lake): not named in the cited Land Use Element.; Municipal Code 9-3-208 noise specifics: only a 2016 third-party copy was readable.; 2024 staff report '45 dBA most restrictive' figure: no code section or zone cited.; Gas provider: no service-territory page found.; Rebate dollar amounts (BWP heat pump, room AC, thermostat, business): link-only by rule.; BWP heat pump installer condition (licensed electrical contractor): kept off the page.; 9.9% BWP rate increase and TOU hours: not on the page read.; SoCalGas ESA no-cost furnace: research only.; Permit counter hours: conflict on the City page itself.; Outdoor-unit setbacks, historic rules, duct testing thresholds, employers, Valley-edge climate: no source.; Zoneomics rooftop-height rule: unofficial.
-    // TODO(copy): client has not approved any Burbank wording (every FAQ answer, the five local paragraphs, the three local cards, the permit, code, noise, work-hour, utility and incentive sentences, the commercial sentence). Keep flagged until the user says the client approved.
+    // TODO(copy): client has not approved any Burbank wording (every FAQ answer, the five local paragraphs, the two local cards, the permit, code, noise, work-hour, utility and incentive sentences, the commercial sentence). Keep flagged until the user says the client approved.
     // TODO(verify): code editions. The building-codes page says 2025 but its Energy Standards link points to the 2022 standards; reach-code status was not stated on the City pages read; the full Title 9 amendments were not read.
     // TODO(verify): construction-hour section number (City ordinance says 9-1-1-105.10; third-party copies say 105.8). Municipal Code text is a publisher copy.
     // Pre-launch recheck: Building Permits page, Building Codes page, Ordinance 25-4,034, Noise Element Table N-4, BWP Electrify Your Home, residential and business rebate pages, SCAG profile, QuickFacts.
@@ -4639,6 +4639,409 @@ const burbankOverrides: Partial<City> = {
   },
 };
 
+const santaMonicaOverrides: Partial<City> = {
+  // TODO(data): add verified climate detail before treating this as a full local page.
+  neighborhoods: [], // neighborhood list held out: the City land use document would not load, so the names are unverified
+  zips: [], // ZIP list held out: no official source states the City's ZIPs (see held out comment below)
+  page: {
+    metaDescription: "HVAC for Santa Monica homes and businesses, from AC repair to installation. Know the City's permit review and equipment noise rules. Licensed, 4.8-star rated.",
+    lede: "AIRPRO SOLUTIONS provides HVAC services across Santa Monica, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit review and equipment noise rules in mind.",
+    heroCaption: { title: "Santa Monica, CA", text: "Local HVAC service across Santa Monica" },
+    heroProof: [
+      { icon: "shield", label: "Licensed, bonded & insured" },
+      { icon: "star", label: "4.8-star rated" },
+      { icon: "bolt", label: "24/7 emergency dispatch" },
+      { icon: "building", label: "Residential and commercial" },
+    ],
+    trustStats: [
+      { num: "4.8★", label: "Google rating, 40 reviews" },
+      { num: "C-20", label: "California licensed" },
+      { num: "24/7", label: "emergency dispatch" },
+      { num: "Same-day", label: "service typical" },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Santa Monica",
+      body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Santa Monica at a glance",
+      stats: [
+        {
+          num: "90,082",
+          label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "67.4%",
+          label: "of 52,441 housing units are in buildings of 5 or more units, and 18.6% are single-family detached (California Department of Finance E-5, 2018, per SCAG)",
+        },
+        {
+          num: "56.2%",
+          label: "of housing was built before 1970 (U.S. Census American Community Survey, 2017; Nielsen Co., per SCAG)",
+        },
+      ],
+      source: "Sources: U.S. Census Bureau QuickFacts and SCAG's 2019 Local Profile of Santa Monica.",
+    },
+    localTitle: "Santa Monica's permit review, equipment noise rules, codes, and electric service",
+    // Held out (no verified source): ZIP card: the only ZIP source is a Housing Authority payment-standard table (90401 to 90405) that does not say these are the City's ZIPs; SoCalGas lists 90402 and 90403 in a wildfire section without naming the City. | Neighborhood names (North of Montana, Wilshire-Montana, Pico, Sunset Park, Ocean Park, Mid-City, Northeast, Downtown): the City land use PDF (LUCE) would not load, so the names are unverified. | Climate, NOAA normals and heat-day counts: NOAA ICAC1 is a National Ocean Service water level and meteorological station, not a buoy and not a normals source; the Wikipedia 63 to 71F range is third-party. | Permit Services Center address, hours and paperless wording: the City page returned a bot-detection page. | Express Permit HVAC scopes: not named on the pages read. | MEP Plan Check Thresholds values: separate PDF not read. | Zero Emission Building Code status: City page says enforcement is paused (no date), a news report says Council replaced it in September 2024 with an Energy Performance Approach effective October 24, 2024. | SMMC 9.21.140 screening rule: seen only in a project approval. | Gas provider: no service-territory page found. | All rebate dollar amounts and wildfire-related SoCalGas items: link-only by rule. | SCE Smart Energy Program authorized-service-provider condition: kept off the page. | Outdoor-unit setbacks, historic-property rules, duct testing thresholds, zoning map, HOA areas: no source. | Competitor SERP table: never on the page.
+    // TODO(copy): client has not approved any Santa Monica wording (every FAQ answer, the five local paragraphs, the two local cards, the noise, permit, code, utility and incentive sentences, the commercial sentence). Keep flagged until the user says the client approved.
+    // TODO(verify): Sec. 4.12.130 applies to 'development project applications'. Whether the City applies it to a like-for-like AC replacement permit is unconfirmed. Chapter 4.12 text is the ecode360 publisher copy (core sections added by Ord. 2115CCS, 2/24/04; 4.12.020 and 4.12.050 amended by Ord. 2679CCS, 8/24/21); no overall edition date shown.
+    // TODO(verify): code edition: the plan review page says 2025 California Standards Code effective January 1, 2026; reach-code and Zero Emission Building Code status are unresolved (see held out list) and are not on the page.
+    // Pre-launch recheck: plan review page, Same-Day Review page, Permit Services Center page (hours, address; blocked here), noise program page, Chapter 4.12 (official code), SCE Golden State Rebates and Smart Energy Program pages, SoCalGas rebates page, City Clean Power Alliance post (2019), SCAG profile, QuickFacts, Principal Employers report.
+    localParagraphs: [
+      "The City's plan review page lists **mechanical installations among the minor projects that may qualify for Same-Day Review**, approved at the public counter, and says mechanical, electrical, or plumbing work over the City's thresholds is not eligible and goes to formal Plan Review. It also says Santa Monica evaluates applications under the 2025 California Standards Code, effective January 1, 2026, and that submittals received on or before December 31, 2025 stay on the 2022 code cycle unless major plan revisions or permit expirations require re-evaluation. The threshold table is in a City PDF we did not read, so we do not assume which track a job gets. A Title 24 report is among the supporting documents the page lists. Applications start in Citizen Access, with the application and supporting documents uploaded to ProjectDox, and the City assigns a project number before the counter visit. A licensed contractor, or in certain circumstances the property owner, can pull the permit in person or through Virtual Permit Issuance, and inspections are scheduled through the City's eInspections site. The page also says plan review timelines are delayed beyond the estimated timeframes, so **AIRPRO SOLUTIONS confirms the review track and the code edition with the City** before work starts, and we do not quote fees or promise permit dates.",
+      "Santa Monica's noise code reaches the equipment itself. Chapter 4.12 of the Municipal Code defines mechanical equipment to include air conditioners, and Sec. 4.12.130 says development project applications must list permanent mechanical equipment placed outdoors and indoor equipment that can be heard outdoors. **Before a building permit is issued, that equipment needs a noise analysis showing it meets the Sec. 4.12.060 limits.** The same section says equipment may not sit on the side of a building next to a residential building on the adjoining lot unless compliance is shown, allows roof locations when the equipment is inside a noise-attenuating structure, and requires a noise test for final approval of the location, with the owner or contractor supplying the test equipment and sending the results to the Community Noise Officer. Sec. 4.12.130 is written for development project applications, and we did not confirm how the City applies it to a like-for-like air conditioner replacement, so **AIRPRO SOLUTIONS asks the City whether an analysis or test applies to your job** before we place or replace outdoor equipment. The code text we read is the ecode360 publisher copy, not the official code.",
+      "The limits that analysis points to are measured community noise levels, not a condenser's manufacturer rating. The City sorts property into three noise zones: Zone I is residential districts and excludes the Santa Monica Pier, Zone II is non-residential districts and includes the Pier, and Zone III is the industrial conservation district. In Zone I, Sec. 4.12.060(a) sets **50 dBA over a 15-minute measurement from 10 p.m. to 7 a.m. Monday to Friday and from 10 p.m. to 8 a.m. on weekends, and 60 dBA during the day**. Zone II is 60 dBA at night and 65 dBA by day, and Zone III is 70 dBA at any time. The table also lists 5-minute limits that run 5 dBA higher, the standard drops by 5 dBA for impulsive or simple tone noise, and where ambient noise already exceeds the standard the ambient level becomes the standard. Construction hours in Sec. 4.12.110 are **8 a.m. to 6 p.m. Monday to Friday and 9 a.m. to 5 p.m. on Saturday**, with no construction on Sundays and eight listed holidays unless the City permits otherwise. We have not confirmed how those hours apply to a particular installation, so ask us about timing for your address.",
+      "Santa Monica had an estimated 90,082 residents on July 1, 2025, and QuickFacts reports a 27.9% owner-occupied housing rate for 2020-2024. SCAG's 2019 Local Profile, using California Department of Finance E-5 data for 2018, counts **52,441 housing units: 18.6% single-family detached, 3.5% attached, 10.1% in buildings of 2 to 4 units, 67.4% in buildings of 5 or more, and 0.4% mobile homes**. The same profile reports that **56.2% of housing was built before 1970**, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. Those figures are citywide and dated, so we confirm the equipment, roof or attic access, and ductwork at the property. In a multi-unit building we confirm equipment access and placement with the owner or manager, and we check the lot against the City's rule on equipment next to residential buildings. On the commercial side, the City's October 2024 Principal Employers report lists UCLA Medical Center Santa Monica, Providence Saint John's Health Center, Amazon, Snap, and Santa Monica College among the largest employers, and for commercial work we plan rooftop access and equipment placement with the building owner or manager.",
+      "Southern California Edison delivers electricity in Santa Monica. A City post dated April 12, 2019 says Clean Power Alliance buys the power while SCE still owns and reads the meter and sends the bill, so SCE's programs are the first place to look. SCE lists Golden State Rebates coupons for air conditioners, smart thermostats, and heat pump and gas water heaters, redeemed at participating retailers, and its Smart Energy Program offers a bill credit for enrolling a qualifying smart thermostat. SoCalGas lists a rebate for ENERGY STAR furnaces, with funding first come, first served through December 31, 2026 or until it runs out. Programs and funding change and some restrict combining incentives on the same equipment, so we link the program pages rather than quote amounts, and **confirm your utility accounts on your bills before counting on a program**. We did not confirm Santa Monica's gas provider from a service-territory page, so we ask which utility serves the address. Official links are in the card for this section.",
+    ],
+    localCards: [
+      {
+        heading: "Santa Monica permit path",
+        rows: [
+          { label: "Same-Day Review", value: "Certain minor projects, including mechanical installations, approved at the counter" },
+          { label: "Plan Review", value: "Mechanical, electrical, or plumbing work over the City's thresholds" },
+          { label: "Code edition", value: "2025 California Standards Code, effective January 1, 2026" },
+          { label: "Earlier submittals", value: "On or before December 31, 2025 stay on the 2022 code cycle, with exceptions" },
+          { label: "How to apply", value: "Citizen Access, then ProjectDox uploads" },
+        ],
+        note: "From the City's plan review and Same-Day Review pages. The threshold table is a separate City PDF we did not read.",
+      },
+      {
+        heading: "Santa Monica equipment noise rules",
+        rows: [
+          { label: "Applies to", value: "Development project applications with permanent outdoor mechanical equipment, or indoor equipment audible outdoors" },
+          { label: "Before the permit", value: "Noise analysis showing compliance with Sec. 4.12.060" },
+          { label: "Siting", value: "Not on a building side adjacent to a residential building on the adjoining lot, unless compliance is shown" },
+          { label: "Roof", value: "Allowed inside a noise-attenuating structure" },
+          { label: "Final approval", value: "Noise test run by the owner or contractor, results to the Community Noise Officer" },
+        ],
+        note: "Sec. 4.12.130, from the ecode360 publisher copy, which shows no overall edition date. We confirm with the City whether it applies to a replacement.",
+      },
+    ],
+    neighborhoodsHeading: "Official Santa Monica resources",
+    officialResources: [
+      {
+        text: "Plan review",
+        href: "https://www.santamonica.gov/plan-review",
+        note: "Same-Day Review, Plan Review, and the 2025 code edition.",
+      },
+      {
+        text: "Same-Day Review steps",
+        href: "https://www.santamonica.gov/process-explainers/how-to-submit-for-same-day-review-at-building-permit-counter",
+        note: "Citizen Access, ProjectDox, and what qualifies.",
+      },
+      {
+        text: "eInspections",
+        href: "https://einspections.smgov.net",
+        note: "Schedule inspections for issued permits.",
+      },
+      {
+        text: "Noise program",
+        href: "https://www.santamonica.gov/programs/noise",
+        note: "Noise zones, limits, and construction hours.",
+      },
+      {
+        text: "Municipal Code, Chapter 4.12",
+        href: "https://ecode360.com/42727200",
+        note: "Noise ordinance, including Sec. 4.12.130 (publisher copy).",
+      },
+      {
+        text: "SCE Golden State Rebates",
+        href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+        note: "Instant rebate coupons at participating retailers.",
+      },
+      {
+        text: "SCE Smart Energy Program",
+        href: "https://www.sce.com/save-money/savings-programs/enroll-in-savings-programs/smart-energy-program",
+        note: "Smart thermostat enrollment credit and event rules.",
+      },
+      {
+        text: "SoCalGas rebates",
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "ENERGY STAR furnace rebate and program period.",
+      },
+      {
+        text: "City post on Clean Power Alliance",
+        href: "https://santamonica.gov/blog/answering-questions-about-the-clean-power-alliance",
+        note: "Who buys power and who delivers it (dated April 12, 2019).",
+      },
+      {
+        text: "SCAG Santa Monica local profile",
+        href: "https://sp.scag.ca.gov/sites/default/files/2024-05/santamonica_localprofile.pdf",
+        note: "Housing counts and building age cited on this page.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/fact/table/santamonicacitycalifornia/PST045224",
+        note: "Population and owner-occupied rate cited on this page.",
+      },
+      {
+        text: "Principal Employers 2024",
+        href: "https://www.santamonica.gov/media/Economic_Recovery/2024_Principal_Employers.pdf",
+        note: "The City's October 2024 employer report.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Santa Monica homes and businesses",
+    serviceCards: [
+      {
+        slug: "ac-repair",
+        name: "AC Repair",
+        body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises, with the City's measured noise limits for outdoor equipment in mind.",
+      },
+      {
+        slug: "ac-installation",
+        name: "AC Installation & Replacement",
+        body: "New system sizing and installation, planned around the City's review tracks, the 2025 code edition, and the noise rules that can apply to outdoor equipment.",
+      },
+      {
+        slug: "ac-maintenance",
+        name: "AC Maintenance",
+        body: "Seasonal AC tune-ups that catch small issues early, for homes and for commercial rooftop and ground units.",
+      },
+      {
+        slug: "heating-repair",
+        name: "Heating Repair",
+        body: "Furnace and heating system diagnosis and repair for Santa Monica homes and businesses.",
+      },
+      {
+        slug: "furnace-installation",
+        name: "Furnace Installation & Replacement",
+        body: "Furnace sizing and installation, planned around the City's permit process. We confirm the review track with the City first.",
+      },
+      {
+        slug: "heat-pump-services",
+        name: "Heat Pump Services",
+        body: "Heat pump installation, repair, and maintenance, with the City's equipment noise rules and your electric utility's program pages in mind.",
+      },
+      {
+        slug: "ductless-mini-split",
+        name: "Ductless Mini-Split",
+        body: "Ductless systems for additions, converted spaces, and rooms the existing ducts do not reach, with outdoor unit placement checked against the City's noise rules.",
+      },
+      {
+        slug: "ductwork",
+        name: "Ductwork Services",
+        body: "Duct repair, sealing, and replacement for Santa Monica homes and buildings.",
+      },
+      {
+        slug: "indoor-air-quality",
+        name: "Indoor Air Quality",
+        body: "Filtration, ventilation, and air-quality upgrades for Santa Monica homes and offices.",
+      },
+      {
+        slug: "emergency-hvac",
+        name: "Emergency HVAC",
+        body: "24/7 emergency dispatch for no-cool and no-heat problems. If you smell gas, leave the building and call 911 or your gas utility.",
+      },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Santa Monica noise rules, permits, and incentive programs",
+      intro: "Official sources for three local items worth checking before a Santa Monica HVAC project.",
+      cards: [
+        {
+          amount: "Equipment noise",
+          description: "Chapter 4.12 of the Municipal Code sets noise limits by zone, and Sec. 4.12.130 covers the location and testing of mechanical equipment. Check how it applies to your project before choosing equipment and a location.",
+          linkLabel: "Noise Ordinance, Chapter 4.12",
+          linkHref: "https://ecode360.com/42727200",
+        },
+        {
+          amount: "Permit review",
+          description: "The City's plan review page lists mechanical installations among the minor projects that may qualify for Same-Day Review, and says work over its thresholds goes to formal Plan Review. We confirm the review track with the City.",
+          linkLabel: "Plan review page",
+          linkHref: "https://www.santamonica.gov/plan-review",
+        },
+        {
+          amount: "Incentive programs",
+          description: "Your utility accounts decide which programs apply. SCE lists Golden State Rebates and a Smart Energy Program, and SoCalGas lists an ENERGY STAR furnace rebate. Terms and funding change, and we do not quote amounts, so check the current terms before you buy.",
+          linkLabel: "SCE Golden State Rebates",
+          linkHref: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+        },
+      ],
+    },
+    nearby: [],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Santa Monica",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        { num: "4.8★", label: "Google rating" },
+        { num: "40", label: "Google reviews" },
+        { num: "C-20", label: "California license class" },
+        { num: "24/7", label: "Emergency dispatch" },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Santa Monica. Same-day service is typical, subject to capacity.",
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Santa Monica?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Santa Monica as part of our Los Angeles County coverage. The City runs its own plan review and permit process, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Los Angeles County coverage", href: "/service-areas/los-angeles-county/" },
+          { text: "plan review and permit process", href: "https://www.santamonica.gov/plan-review" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Santa Monica home?",
+        a: "Same-day service is typical in Santa Monica, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Santa Monica, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an air conditioner in Santa Monica?",
+        a: "The City reviews mechanical installations through its permit process. Its plan review page lists mechanical installations among the minor projects that may qualify for Same-Day Review at the counter, and says mechanical, electrical, or plumbing work over the City's thresholds goes to formal Plan Review. We did not read the threshold table or confirm which like-for-like replacements, if any, are exempt, so AIRPRO SOLUTIONS confirms the permit path with the City before work starts, and we do not quote fees.",
+        boldLead: "The City reviews mechanical installations through its permit process.",
+        links: [
+          { text: "plan review page", href: "https://www.santamonica.gov/plan-review" },
+        ],
+      },
+      {
+        q: "What is Same-Day Review in Santa Monica?",
+        a: "It is a counter review track for certain minor projects. The City says projects such as reroofs, mechanical installations, facade remodels and repairs, and patio covers may be reviewed and approved in one counter visit, and that work over its mechanical, electrical, and plumbing thresholds is not eligible. Applicants start in Citizen Access and upload documents to ProjectDox first, and the City warns that incomplete uploads can delay the visit. See the City's Same-Day Review page for the steps.",
+        boldLead: "It is a counter review track for certain minor projects.",
+        links: [
+          { text: "Same-Day Review page", href: "https://www.santamonica.gov/process-explainers/how-to-submit-for-same-day-review-at-building-permit-counter" },
+        ],
+      },
+      {
+        q: "Which building codes apply to a new HVAC project in Santa Monica?",
+        a: "The 2025 California Standards Code. The City's plan review page says current submittals are evaluated under it, effective January 1, 2026, and that submittals received on or before December 31, 2025 remain on the 2022 code cycle unless major plan revisions or permit expirations require re-evaluation. A Title 24 report is among the supporting documents the page lists. We confirm the edition for your permit with the City.",
+        boldLead: "The 2025 California Standards Code.",
+        links: [
+          { text: "plan review page", href: "https://www.santamonica.gov/plan-review" },
+        ],
+      },
+      {
+        q: "How do I apply for a Santa Monica HVAC permit, and who can pull it?",
+        a: "Applications start in Citizen Access. The application, plans if applicable, and supporting documents are uploaded to ProjectDox, and the City assigns a project number before the counter visit. The City's plan review page says a licensed contractor, or a property owner under certain circumstances, can pull the permit in person or through Virtual Permit Issuance, and inspections are scheduled through eInspections. AIRPRO SOLUTIONS confirms the process for your job with the City.",
+        boldLead: "Applications start in Citizen Access.",
+        links: [
+          { text: "plan review page", href: "https://www.santamonica.gov/plan-review" },
+          { text: "eInspections", href: "https://einspections.smgov.net" },
+        ],
+      },
+      {
+        q: "How long does plan review take in Santa Monica?",
+        a: "The City says plan review timelines are delayed. Its plan review page says timelines are delayed beyond the estimated timeframes. We do not promise permit dates, and we confirm the review track with the City before we schedule work.",
+        boldLead: "The City says plan review timelines are delayed.",
+        links: [
+          { text: "plan review page", href: "https://www.santamonica.gov/plan-review" },
+        ],
+      },
+      {
+        q: "How does Santa Monica's noise code apply to an outdoor AC unit?",
+        a: "The City sets measured limits by noise zone. In residential Zone I, Sec. 4.12.060(a) lists 50 dBA over a 15-minute measurement at night and 60 dBA by day. Zone II is 60 dBA at night and 65 dBA by day, and Zone III is 70 dBA at any time. These are community noise levels measured at an exterior location on the affected property, not a condenser's manufacturer rating, and the standard drops by 5 dBA for impulsive or simple tone noise. We confirm the zone for your address before choosing equipment and a location.",
+        boldLead: "The City sets measured limits by noise zone.",
+        links: [
+          { text: "Sec. 4.12.060(a)", href: "https://ecode360.com/42727200" },
+        ],
+      },
+      {
+        q: "Does Santa Monica require a noise analysis for HVAC equipment?",
+        a: "The code requires one for development project applications. Sec. 4.12.130 says those applications must list permanent outdoor mechanical equipment and indoor equipment audible outdoors, that the equipment needs a noise analysis showing compliance before a building permit is issued, and that final approval of the location requires a noise test. The code defines mechanical equipment to include air conditioners. We did not confirm whether the City applies this to a like-for-like replacement, so we ask the City before we install.",
+        boldLead: "The code requires one for development project applications.",
+        links: [
+          { text: "Sec. 4.12.130", href: "https://ecode360.com/42727200" },
+        ],
+      },
+      {
+        q: "Where can an outdoor AC unit go on a Santa Monica property?",
+        a: "The code limits equipment on the side of a building next to a residence. Sec. 4.12.130(b) says mechanical equipment may not be on the side of a building adjacent to a residential building on the adjoining lot unless compliance with the noise limits is shown, and that roof locations may be used when the equipment is inside a noise-attenuating structure. We did not confirm a separate citywide condenser setback rule, so we check the property before recommending a location.",
+        boldLead: "The code limits equipment on the side of a building next to a residence.",
+        links: [
+          { text: "Sec. 4.12.130(b)", href: "https://ecode360.com/42727200" },
+        ],
+      },
+      {
+        q: "What hours can HVAC installation work happen in Santa Monica?",
+        a: "Municipal Code construction hours are 8 a.m. to 6 p.m. Monday to Friday and 9 a.m. to 5 p.m. on Saturday, with no construction on Sundays or on eight listed holidays. They come from Sec. 4.12.110 of Chapter 4.12, and the City can allow work outside those hours by permit when it finds that in the public interest. We have not confirmed how the hours apply to a particular installation, so ask us about timing for your address.",
+        boldLead: "Municipal Code construction hours are 8 a.m. to 6 p.m. Monday to Friday and 9 a.m. to 5 p.m. on Saturday,",
+        links: [
+          { text: "Chapter 4.12", href: "https://ecode360.com/42727200" },
+        ],
+      },
+      {
+        q: "What about HVAC in Santa Monica condos and apartment buildings?",
+        a: "Multi-unit buildings add access and placement questions. About 67.4% of Santa Monica's 52,441 housing units are in buildings of 5 or more units, according to SCAG's 2019 Local Profile using California Department of Finance data for 2018, so we confirm equipment access and placement with the property owner or manager, and we check the lot against the City's rule on equipment next to residential buildings.",
+        boldLead: "Multi-unit buildings add access and placement questions.",
+        links: [
+          { text: "SCAG's 2019 Local Profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/santamonica_localprofile.pdf" },
+        ],
+      },
+      {
+        q: "Does the age of my Santa Monica home matter for HVAC?",
+        a: "Age is one factor we check. SCAG's 2019 Local Profile reports that 56.2% of Santa Monica housing was built before 1970, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. That is a citywide, dated figure, so we confirm the equipment, roof or attic access, and ductwork at your property.",
+        boldLead: "Age is one factor we check.",
+        links: [
+          { text: "SCAG's 2019 Local Profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/santamonica_localprofile.pdf" },
+        ],
+      },
+      {
+        q: "Which utility serves my Santa Monica address?",
+        a: "Your bill answers it. Check which companies provide your electric and gas service before counting on a program. A City post dated April 12, 2019 says Clean Power Alliance buys the electricity and Southern California Edison delivers it, owns and reads the meter, and sends the bill. We did not confirm Santa Monica's gas provider from a service-territory page, so we ask which utility serves the address.",
+        boldLead: "Your bill answers it.",
+        links: [
+          { text: "City post", href: "https://santamonica.gov/blog/answering-questions-about-the-clean-power-alliance" },
+        ],
+      },
+      {
+        q: "Are there HVAC rebates for Santa Monica customers?",
+        a: "SCE and SoCalGas list programs. SCE lists Golden State Rebates coupons for air conditioners, smart thermostats, and water heaters, redeemed at participating retailers, and a Smart Energy Program with a bill credit for enrolling a qualifying smart thermostat. SoCalGas lists a rebate for ENERGY STAR furnaces, with funding first come, first served through December 31, 2026 or until it runs out. Terms and funding change, some programs restrict combining incentives on the same equipment, and we do not quote amounts, so check the current terms before you buy.",
+        boldLead: "SCE and SoCalGas list programs.",
+        links: [
+          { text: "Golden State Rebates", href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace" },
+          { text: "Smart Energy Program", href: "https://www.sce.com/save-money/savings-programs/enroll-in-savings-programs/smart-energy-program" },
+          { text: "ENERGY STAR furnaces", href: "https://www.socalgas.com/savings/rebates-and-incentives" },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Santa Monica?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Santa Monica, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides",
+        links: [
+          { text: "AC repair", href: "/services/ac-repair/" },
+          { text: "AC installation and replacement", href: "/services/ac-installation/" },
+          { text: "AC maintenance", href: "/services/ac-maintenance/" },
+          { text: "heating repair", href: "/services/heating-repair/" },
+          { text: "furnace installation and replacement", href: "/services/furnace-installation/" },
+          { text: "heat pump services", href: "/services/heat-pump-services/" },
+          { text: "ductless mini-splits", href: "/services/ductless-mini-split/" },
+          { text: "ductwork", href: "/services/ductwork/" },
+          { text: "indoor air quality", href: "/services/indoor-air-quality/" },
+          { text: "emergency HVAC", href: "/services/emergency-hvac/" },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Santa Monica?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Santa Monica. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Santa Monica?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Santa Monica?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Santa Monica, including rooftop units. The City's October 2024 Principal Employers report lists UCLA Medical Center Santa Monica, Providence Saint John's Health Center, Amazon, Snap, and Santa Monica College among the largest employers. Commercial properties fall in different noise zones than residential ones, and we confirm the zone and the permit path with the City before work starts. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Principal Employers report", href: "https://www.santamonica.gov/media/Economic_Recovery/2024_Principal_Employers.pdf" },
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -4658,6 +5061,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'corona' ? coronaOverrides
     : c.slug === 'glendale' ? glendaleOverrides
     : c.slug === 'burbank' ? burbankOverrides
+    : c.slug === 'santa-monica' ? santaMonicaOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;

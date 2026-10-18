@@ -159,7 +159,7 @@ export default function Page() {
                   <h3><Link href={`/service-areas/${r.slug}/`}>{r.name}</Link></h3>
                   <div className="nbhd-list">
                     {r.cities.map((c) =>
-                      c === 'Torrance' || c === 'Los Angeles' || c === 'Long Beach' || c === 'Pasadena' || c === 'Glendale' || c === 'Burbank' || c === 'Culver City' || c === 'Redondo Beach' || c === 'El Segundo' || c === 'Gardena' || c === 'Irvine' || c === 'Anaheim' || c === 'Costa Mesa' || c === 'Huntington Beach' || c === 'Riverside' || c === 'Ontario' || c === 'Corona' ? (
+                      c === 'Torrance' || c === 'Los Angeles' || c === 'Long Beach' || c === 'Pasadena' || c === 'Glendale' || c === 'Burbank' || c === 'Santa Monica' || c === 'Culver City' || c === 'Redondo Beach' || c === 'El Segundo' || c === 'Gardena' || c === 'Irvine' || c === 'Anaheim' || c === 'Costa Mesa' || c === 'Huntington Beach' || c === 'Riverside' || c === 'Ontario' || c === 'Corona' ? (
                         <Link key={c} href={`/service-areas/${citySlug(c)}/`} className="chip-link">{c}</Link>
                       ) : (
                         <span key={c}>{c}</span>
