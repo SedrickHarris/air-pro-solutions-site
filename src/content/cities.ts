@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona and glendale have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale and burbank have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // TODO(copy): the closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places) and Glendale, because under 920px the card sits below the text. Several of these pages were client-approved,
+// Corona (two places), Glendale and Burbank, because under 920px the card sits below the text. Several of these pages were client-approved,
 // so confirm the one-phrase change with the client.
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
@@ -638,7 +638,7 @@ const pasadenaOverrides: Partial<City> = {
         },
       ],
     },
-    // TODO(data): Glendale and Burbank are noindex stubs, so their cards render without a link; Los Angeles and Long Beach link.
+    // TODO(data): Glendale and Burbank now have page content (both wave 2, so neither is in sitemap.xml yet); all four cards link.
     nearby: ['los-angeles', 'long-beach', 'glendale', 'burbank'],
     proof: {
       heading: 'Licensed, reviewed, and ready across Pasadena',
@@ -4252,6 +4252,393 @@ const glendaleOverrides: Partial<City> = {
   },
 };
 
+const burbankOverrides: Partial<City> = {
+  // TODO(data): add verified climate detail before treating this as a full local page.
+  neighborhoods: [], // neighborhood list held out: the cited Land Use Element does not name the research's neighborhoods
+  zips: [], // ZIP list held out: the City ZIP map mixes non-Burbank ZIPs and cannot be read as a City list
+  page: {
+    metaDescription: "HVAC for Burbank homes and businesses, from AC repair to installation. Know the City's permit tiers and Burbank Water and Power. Licensed, 4.8-star rated.",
+    lede: "AIRPRO SOLUTIONS provides HVAC services across Burbank, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit tiers and Burbank Water and Power electric service in mind.",
+    heroCaption: { title: "Burbank, CA", text: "Local HVAC service across Burbank" },
+    heroProof: [
+      { icon: "shield", label: "Licensed, bonded & insured" },
+      { icon: "star", label: "4.8-star rated" },
+      { icon: "bolt", label: "24/7 emergency dispatch" },
+      { icon: "building", label: "Residential and commercial" },
+    ],
+    trustStats: [
+      { num: "4.8★", label: "Google rating, 40 reviews" },
+      { num: "C-20", label: "California licensed" },
+      { num: "24/7", label: "emergency dispatch" },
+      { num: "Same-day", label: "service typical" },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Burbank",
+      body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Burbank at a glance",
+      stats: [
+        {
+          num: "102,988",
+          label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "44.4%",
+          label: "of 44,642 housing units are single-family detached, and 40.4% are in buildings of 5 or more units (California Department of Finance E-5, 2018, per SCAG)",
+        },
+        {
+          num: "62.9%",
+          label: "of housing was built before 1970 (U.S. Census American Community Survey, 2017; Nielsen Co., per SCAG)",
+        },
+      ],
+      source: "Sources: U.S. Census Bureau QuickFacts and SCAG's 2019 Local Profile of Burbank.",
+    },
+    localTitle: "Burbank's permit tiers, codes, noise levels, and electric service",
+    // Held out (no verified source): ZIP card: City 'Zip Code Areas' map lists 18 ZIPs including non-Burbank ZIPs; cannot tell which are inside the City.; Neighborhood list (Magnolia Park, Elmwood, Lake-Alameda, Peyton-Grismer, Verdugo Lake): not named in the cited Land Use Element.; Municipal Code 9-3-208 noise specifics: only a 2016 third-party copy was readable.; 2024 staff report '45 dBA most restrictive' figure: no code section or zone cited.; Gas provider: no service-territory page found.; Rebate dollar amounts (BWP heat pump, room AC, thermostat, business): link-only by rule.; BWP heat pump installer condition (licensed electrical contractor): kept off the page.; 9.9% BWP rate increase and TOU hours: not on the page read.; SoCalGas ESA no-cost furnace: research only.; Permit counter hours: conflict on the City page itself.; Outdoor-unit setbacks, historic rules, duct testing thresholds, employers, Valley-edge climate: no source.; Zoneomics rooftop-height rule: unofficial.
+    // TODO(copy): client has not approved any Burbank wording (every FAQ answer, the five local paragraphs, the three local cards, the permit, code, noise, work-hour, utility and incentive sentences, the commercial sentence). Keep flagged until the user says the client approved.
+    // TODO(verify): code editions. The building-codes page says 2025 but its Energy Standards link points to the 2022 standards; reach-code status was not stated on the City pages read; the full Title 9 amendments were not read.
+    // TODO(verify): construction-hour section number (City ordinance says 9-1-1-105.10; third-party copies say 105.8). Municipal Code text is a publisher copy.
+    // Pre-launch recheck: Building Permits page, Building Codes page, Ordinance 25-4,034, Noise Element Table N-4, BWP Electrify Your Home, residential and business rebate pages, SCAG profile, QuickFacts.
+    localParagraphs: [
+      "Burbank's Building Permits page sorts work into two tiers. Tier 1 covers simple permits for repair and maintenance type work that do not require plan check, and the City says these can generally be obtained over the counter. Tier 2 covers work that needs plan check or zoning approval, such as commercial tenant improvements, additions, new buildings, and accessory dwelling units, and it is submitted electronically through the City's ProjectDox system after contacting Building & Safety. The page lists HVAC changeouts and mechanical ducting among the single-family permits available through Burbank Online Permits, and it names two Tier 1 HVAC scopes that need an energy report: **replacing a unit located on the roof or at the rear of the property**, and **replacing an HVAC system with new ducts or installing a new HVAC system**. It also lists mechanical exemptions, including portable cooling units, portable evaporative coolers, and replacing a part that does not change the equipment's approval or make it unsafe, and it says exemptions do not authorize work that violates the code. Which tier applies depends on the scope of the job, so **AIRPRO SOLUTIONS confirms the tier and the permit path** with the City before work starts, and we do not quote fees.",
+      "The City's building codes page says Burbank adopted the 2025 California Building Code with local amendments, effective January 1, 2026. The adopted set it lists includes the California Mechanical, Electrical, and Plumbing Codes, CALGreen, and the Building Energy Efficiency Standards, and it says applications received before noon on December 31, 2025 follow the 2022 codes. The local amendments are in Title 9 of the Municipal Code, which adopts Ordinance No. 25-4,034. We did not find a Burbank reach code on the City pages we read, and we did not read the full text of the local amendments, so **we confirm the code edition and any local amendment** that applies to your project before work starts.",
+      "Burbank's General Plan Noise Element, in Table N-4, lists typical hourly noise levels for stationary sources at exterior spaces: **55 dBA by day (7 a.m. to 10 p.m.) and 45 dBA at night (10 p.m. to 7 a.m.)**, and 50 dBA by day and 40 dBA at night for tonal, impulsive, repetitive, or speech and music sounds. A footnote says the City may apply stricter or looser standards depending on ambient levels. That table is part of the General Plan, not a Municipal Code limit and not a condenser rating, and we did not confirm how the City applies it to a specific air conditioner. Construction hours in Municipal Code Sec. 9-1-1-105.10, as adopted by Ordinance No. 25-4,034, are **7 a.m. to 7 p.m. Monday to Friday and 8 a.m. to 5 p.m. on Saturday**, with no construction work on Sundays and City holidays, and exceptions that include owner-builder and emergency work. We have not confirmed how those hours apply to a particular installation, so ask us about timing for your address.",
+      "Burbank had an estimated 102,988 residents on July 1, 2025, and QuickFacts reports a 43.3% owner-occupied housing rate for 2020-2024. SCAG's 2019 Local Profile, using California Department of Finance E-5 data for 2018, counts **44,642 housing units: 44.4% single-family detached, 4.3% attached, 10.6% in buildings of 2 to 4 units, 40.4% in buildings of 5 or more, and 0.3% mobile homes**. The same profile reports that **62.9% of housing was built before 1970**, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. Those figures are citywide and dated, so we confirm the equipment, roof or attic access, and ductwork at the property, and in a multi-unit building we confirm equipment access and placement. The City's Land Use Element describes the Rancho neighborhood's equestrian character and describes the Media District Commercial designation as a regional employment center of media-oriented and commercial uses, with a Media District Specific Plan adopted in 1991. A Rancho home, an apartment building, and a commercial site each have different access and equipment placement, so we look at each property on its own terms.",
+      "Burbank Water and Power (BWP) describes itself as a not-for-profit organization owned by the citizens of Burbank. Its Electrify Your Home page lists a heat pump HVAC rebate for central heat pumps and mini-splits, with conditions that include replacing a gas appliance, no new construction, an application within six months, and first-come, first-served funding that is not guaranteed. BWP's residential rebates page lists rebates for ENERGY STAR room air conditioners and smart thermostats, and its business rebates page lists a catalog that includes package terminal and heat pump HVAC equipment. Programs and funding change, so we link the program pages rather than quote amounts, and **confirm your electric provider on your bill before counting on a program**. We did not confirm Burbank's gas provider from a service-territory page, so we ask which utility serves the address. For commercial work, we plan rooftop access and equipment placement with the building owner or manager. Official links are in the card for this section.",
+    ],
+    localCards: [
+      {
+        heading: "Burbank permit tiers",
+        rows: [
+          { label: "Tier 1", value: "Simple repair and maintenance permits with no plan check, generally over the counter" },
+          { label: "Tier 2", value: "Work needing plan check or zoning approval, submitted through ProjectDox" },
+          { label: "Energy report (Tier 1)", value: "Roof or rear-of-property unit replacement, and replacement with new ducts or a new HVAC system" },
+          { label: "Online permits", value: "HVAC changeout and mechanical ducting for single-family homes" },
+        ],
+        note: "From the City's Building Permits page, which shows no update date. We confirm the tier with the City.",
+      },
+      {
+        heading: "Burbank noise levels and work hours",
+        rows: [
+          { label: "Stationary sources, day", value: "55 dBA typical hourly level (7 a.m. to 10 p.m.)" },
+          { label: "Stationary sources, night", value: "45 dBA (10 p.m. to 7 a.m.)" },
+          { label: "Tonal or impulsive, day and night", value: "50 dBA and 40 dBA" },
+          { label: "Construction hours", value: "7 a.m. to 7 p.m. Monday to Friday, 8 a.m. to 5 p.m. Saturday" },
+          { label: "Sundays and City holidays", value: "No construction work, with exceptions" },
+        ],
+        note: "Noise Element Table N-4 is a General Plan table, not a Municipal Code limit or a condenser rating. Hours are from Municipal Code Sec. 9-1-1-105.10 (Ordinance No. 25-4,034).",
+      },
+    ],
+    neighborhoodsHeading: "Official Burbank resources",
+    officialResources: [
+      {
+        text: "Building Permits",
+        href: "https://www.burbankca.gov/web/community-development/building-permits",
+        note: "Permit tiers, energy report scopes, and exemptions.",
+      },
+      {
+        text: "Building Codes",
+        href: "https://www.burbankca.gov/web/community-development/building-codes",
+        note: "The 2025 code set, the 2022 transition, and local amendments.",
+      },
+      {
+        text: "Ordinance No. 25-4,034",
+        href: "https://www.burbankca.gov/documents/d/community-development/25-4-034-adopting-by-reference-2025-ca-building-standards-code?download=true",
+        note: "Adopts the 2025 California Building Standards Code.",
+      },
+      {
+        text: "Municipal Code, Title 9",
+        href: "https://ecode360.com/BU4369",
+        note: "Buildings and construction, as the City links it (publisher copy).",
+      },
+      {
+        text: "General Plan Noise Element",
+        href: "https://www.burbankca.gov/documents/173607/1541047/20130213_Chapter+5+-+Noise.pdf/49ad50b9-b22c-299c-8072-9a6709a62802?version=1.0&imagePreview=1",
+        note: "Table N-4 stationary source levels and the ambient footnote.",
+      },
+      {
+        text: "General Plan Land Use Element",
+        href: "https://www.burbankca.gov/documents/173607/1541047/20130213_Chapter+3+-+Land+Use.pdf/8130d103-3e0c-ac0d-9e31-99802742bb9a?t=1637190558920",
+        note: "Rancho and Media District Commercial descriptions.",
+      },
+      {
+        text: "Electrify Your Home",
+        href: "https://www.burbankwaterandpower.com/electrify-your-home",
+        note: "Burbank Water and Power heat pump HVAC rebate and its conditions.",
+      },
+      {
+        text: "Residential rebates",
+        href: "https://www.burbankwaterandpower.com/residential-rebates",
+        note: "Room air conditioner and smart thermostat rebates.",
+      },
+      {
+        text: "Business rebates",
+        href: "https://www.burbankwaterandpower.com/business-rebates",
+        note: "Burbank Water and Power catalog and custom rebates for businesses.",
+      },
+      {
+        text: "SCAG Burbank local profile",
+        href: "https://sp.scag.ca.gov/sites/default/files/2024-05/burbank_localprofile.pdf",
+        note: "Housing counts and building age cited on this page.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/fact/table/burbankcitycalifornia/PST045224",
+        note: "Population and owner-occupied rate cited on this page.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Burbank homes and businesses",
+    serviceCards: [
+      {
+        slug: "ac-repair",
+        name: "AC Repair",
+        body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises, with the City's published noise levels for stationary equipment in mind.",
+      },
+      {
+        slug: "ac-installation",
+        name: "AC Installation & Replacement",
+        body: "New system sizing and installation, planned around the City's permit tiers, the energy report scopes it lists, and the 2025 codes.",
+      },
+      {
+        slug: "ac-maintenance",
+        name: "AC Maintenance",
+        body: "Seasonal AC tune-ups that catch small issues early, for homes and for commercial rooftop and ground units.",
+      },
+      {
+        slug: "heating-repair",
+        name: "Heating Repair",
+        body: "Furnace and heating system diagnosis and repair for Burbank homes and businesses.",
+      },
+      {
+        slug: "furnace-installation",
+        name: "Furnace Installation & Replacement",
+        body: "Furnace sizing and installation, planned around Burbank's permit process. We confirm the permit path with the City first.",
+      },
+      {
+        slug: "heat-pump-services",
+        name: "Heat Pump Services",
+        body: "Heat pump installation, repair, and maintenance, with Burbank Water and Power's heat pump rebate conditions in mind. Check the program page for current terms.",
+      },
+      {
+        slug: "ductless-mini-split",
+        name: "Ductless Mini-Split",
+        body: "Ductless systems for additions, converted spaces, and rooms the existing ducts do not reach. Burbank Water and Power also lists mini-splits in its heat pump rebate.",
+      },
+      {
+        slug: "ductwork",
+        name: "Ductwork Services",
+        body: "Duct repair, sealing, and replacement. The City lists replacement with new ducts as a Tier 1 scope that needs an energy report.",
+      },
+      {
+        slug: "indoor-air-quality",
+        name: "Indoor Air Quality",
+        body: "Filtration, ventilation, and air-quality upgrades for Burbank homes and offices.",
+      },
+      {
+        slug: "emergency-hvac",
+        name: "Emergency HVAC",
+        body: "24/7 emergency dispatch for no-cool and no-heat problems. If you smell gas, leave the building and call 911 or your gas utility.",
+      },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Burbank permits, codes, and incentive programs",
+      intro: "Official sources for three local items worth checking before a Burbank HVAC project.",
+      cards: [
+        {
+          amount: "Permit tiers",
+          description: "The City's Building Permits page sorts work into Tier 1 simple permits and Tier 2 permits that need plan check or zoning approval, and it lists two HVAC scopes that need an energy report. Check which tier your project falls in before choosing equipment.",
+          linkLabel: "Building Permits page",
+          linkHref: "https://www.burbankca.gov/web/community-development/building-permits",
+        },
+        {
+          amount: "Codes",
+          description: "The City's building codes page says Burbank adopted the 2025 California codes with local amendments, effective January 1, 2026. We did not find a Burbank reach code, and we confirm what applies to your project.",
+          linkLabel: "Building Codes",
+          linkHref: "https://www.burbankca.gov/web/community-development/building-codes",
+        },
+        {
+          amount: "Incentive programs",
+          description: "Your electric provider decides which programs apply. Burbank Water and Power lists a heat pump HVAC rebate, room air conditioner and smart thermostat rebates, and business rebates. Terms and funding change, and we do not quote amounts, so check the current terms before you buy.",
+          linkLabel: "Electrify Your Home",
+          linkHref: "https://www.burbankwaterandpower.com/electrify-your-home",
+        },
+      ],
+    },
+    nearby: [],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Burbank",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        { num: "4.8★", label: "Google rating" },
+        { num: "40", label: "Google reviews" },
+        { num: "C-20", label: "California license class" },
+        { num: "24/7", label: "Emergency dispatch" },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Burbank. Same-day service is typical, subject to capacity.",
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Burbank?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Burbank as part of our Los Angeles County coverage. Burbank's Building & Safety office answers permit questions at (818) 238-5220, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Los Angeles County coverage", href: "/service-areas/los-angeles-county/" },
+          { text: "Building & Safety office", href: "https://www.burbankca.gov/web/community-development/building-permits" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Burbank home?",
+        a: "Same-day service is typical in Burbank, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Burbank, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an air conditioner in Burbank?",
+        a: "The City lists HVAC replacement as permit work. Its Building Permits page includes HVAC changeouts among the single-family permits available through Burbank Online Permits, and it lists mechanical exemptions such as portable cooling units, portable evaporative coolers, and replacing a part that does not change the equipment's approval or make it unsafe. AIRPRO SOLUTIONS confirms the permit path with the City before work starts, and we do not quote fees.",
+        boldLead: "The City lists HVAC replacement as permit work.",
+        links: [
+          { text: "Building Permits page", href: "https://www.burbankca.gov/web/community-development/building-permits" },
+        ],
+      },
+      {
+        q: "Which Burbank HVAC replacements need an energy report?",
+        a: "The City lists two Tier 1 scopes. Its Building Permits page says an energy report is required when a unit on the roof or at the rear of the property is replaced, and when an HVAC system is replaced with new ducts or a new HVAC system is installed. We confirm the requirement for your project with the City before work starts.",
+        boldLead: "The City lists two Tier 1 scopes.",
+        links: [
+          { text: "Building Permits page", href: "https://www.burbankca.gov/web/community-development/building-permits" },
+        ],
+      },
+      {
+        q: "What is the difference between Tier 1 and Tier 2 permits in Burbank?",
+        a: "Tier 1 is for simple permits with no plan check. The City describes them as repair and maintenance type work and says they can generally be obtained over the counter. Tier 2 is for work that needs plan check or zoning approval, such as commercial tenant improvements, additions, new buildings, and accessory dwelling units, and it is submitted electronically through ProjectDox after contacting Building & Safety. Which tier applies depends on the scope, so we confirm it with the City.",
+        boldLead: "Tier 1 is for simple permits with no plan check.",
+        links: [
+          { text: "Building & Safety", href: "https://www.burbankca.gov/web/community-development/building-permits" },
+        ],
+      },
+      {
+        q: "Which building codes apply to a new HVAC project in Burbank?",
+        a: "The 2025 California codes with Burbank's local amendments. The City's building codes page says Burbank adopted the 2025 California Building Code with local amendments, effective January 1, 2026, and that applications received before noon on December 31, 2025 follow the 2022 codes. The local amendments are in Title 9 of the Municipal Code and Ordinance No. 25-4,034. We confirm the edition for your permit with the City.",
+        boldLead: "The 2025 California codes with Burbank's local amendments.",
+        links: [
+          { text: "building codes page", href: "https://www.burbankca.gov/web/community-development/building-codes" },
+          { text: "Ordinance No. 25-4,034", href: "https://www.burbankca.gov/documents/d/community-development/25-4-034-adopting-by-reference-2025-ca-building-standards-code?download=true" },
+        ],
+      },
+      {
+        q: "Does Burbank have a reach code that changes AC replacement?",
+        a: "We did not find a Burbank reach code on the City pages we read, but we did not read the full text of the local amendments in Title 9 of the Municipal Code. We confirm what applies to your project before work starts.",
+        boldLead: "We did not find a Burbank reach code on the City pages we read,",
+        links: [
+          { text: "Title 9 of the Municipal Code", href: "https://ecode360.com/BU4369" },
+        ],
+      },
+      {
+        q: "How loud can an outdoor AC unit be in Burbank?",
+        a: "The City publishes noise levels in its General Plan. Table N-4 of the Noise Element lists typical hourly levels for stationary sources at exterior spaces of 55 dBA by day and 45 dBA at night, and 50 and 40 dBA for tonal, impulsive, repetitive, or speech and music sounds. A footnote says the City may apply stricter or looser standards by ambient level. This is a General Plan table, not a Municipal Code limit and not a condenser rating, and we did not confirm how the City applies it to a specific air conditioner.",
+        boldLead: "The City publishes noise levels in its General Plan.",
+        links: [
+          { text: "Noise Element", href: "https://www.burbankca.gov/documents/173607/1541047/20130213_Chapter+5+-+Noise.pdf/49ad50b9-b22c-299c-8072-9a6709a62802?version=1.0&imagePreview=1" },
+        ],
+      },
+      {
+        q: "What hours can HVAC installation work happen in Burbank?",
+        a: "Municipal Code construction hours are 7 a.m. to 7 p.m. Monday to Friday and 8 a.m. to 5 p.m. on Saturday, with no construction work on Sundays and City holidays, and exceptions that include owner-builder and emergency work. They come from Sec. 9-1-1-105.10, adopted by Ordinance No. 25-4,034. We have not confirmed how the hours apply to a particular installation, so ask us about timing for your address.",
+        boldLead: "Municipal Code construction hours are 7 a.m. to 7 p.m. Monday to Friday and 8 a.m. to 5 p.m. on Saturday,",
+        links: [
+          { text: "Ordinance No. 25-4,034", href: "https://www.burbankca.gov/documents/d/community-development/25-4-034-adopting-by-reference-2025-ca-building-standards-code?download=true" },
+        ],
+      },
+      {
+        q: "What about HVAC in Burbank condos and apartment buildings?",
+        a: "Multi-unit buildings add access and placement questions. About 40.4% of Burbank's 44,642 housing units are in buildings of 5 or more units, according to SCAG's 2019 Local Profile using California Department of Finance data for 2018, so we confirm equipment access and placement with the property owner or manager at the address.",
+        boldLead: "Multi-unit buildings add access and placement questions.",
+        links: [
+          { text: "SCAG's 2019 Local Profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/burbank_localprofile.pdf" },
+        ],
+      },
+      {
+        q: "Does the age of my Burbank home matter for HVAC?",
+        a: "Age is one factor we check. SCAG's 2019 Local Profile reports that 62.9% of Burbank housing was built before 1970, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. That is a citywide, dated figure, so we confirm the equipment, roof or attic access, and ductwork at your property.",
+        boldLead: "Age is one factor we check.",
+        links: [
+          { text: "SCAG's 2019 Local Profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/burbank_localprofile.pdf" },
+        ],
+      },
+      {
+        q: "Does Burbank Water and Power offer HVAC rebates?",
+        a: "Burbank Water and Power lists heat pump, room air conditioner, and smart thermostat rebates. Its Electrify Your Home page lists a heat pump HVAC rebate for central heat pumps and mini-splits, and its residential rebates page lists rebates for ENERGY STAR room air conditioners and smart thermostats. The heat pump page says the equipment must replace a gas appliance, new construction does not qualify, and funding is first-come, first-served and not guaranteed. Terms and funding change, and we do not quote amounts, so check the current terms before you buy.",
+        boldLead: "Burbank Water and Power lists heat pump, room air conditioner, and smart thermostat rebates.",
+        links: [
+          { text: "Electrify Your Home page", href: "https://www.burbankwaterandpower.com/electrify-your-home" },
+          { text: "residential rebates page", href: "https://www.burbankwaterandpower.com/residential-rebates" },
+        ],
+      },
+      {
+        q: "Are there Burbank rebates for commercial HVAC?",
+        a: "Burbank Water and Power lists business rebates. Its business rebates page lists a catalog and custom rebates. The catalog includes package terminal HVAC and heat pump equipment, with amounts in the downloadable catalog. Terms and funding change, so check the current terms before you buy.",
+        boldLead: "Burbank Water and Power lists business rebates.",
+        links: [
+          { text: "business rebates page", href: "https://www.burbankwaterandpower.com/business-rebates" },
+        ],
+      },
+      {
+        q: "Which utility serves my Burbank address?",
+        a: "Your bill answers it. Check which company provides your electric and gas service before counting on a program. We did not confirm Burbank's gas provider from a service-territory page, so we ask which utility serves the address.",
+        boldLead: "Your bill answers it.",
+        links: [],
+      },
+      {
+        q: "What HVAC services are available in Burbank?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Burbank, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides",
+        links: [
+          { text: "AC repair", href: "/services/ac-repair/" },
+          { text: "AC installation and replacement", href: "/services/ac-installation/" },
+          { text: "AC maintenance", href: "/services/ac-maintenance/" },
+          { text: "heating repair", href: "/services/heating-repair/" },
+          { text: "furnace installation and replacement", href: "/services/furnace-installation/" },
+          { text: "heat pump services", href: "/services/heat-pump-services/" },
+          { text: "ductless mini-splits", href: "/services/ductless-mini-split/" },
+          { text: "ductwork", href: "/services/ductwork/" },
+          { text: "indoor air quality", href: "/services/indoor-air-quality/" },
+          { text: "emergency HVAC", href: "/services/emergency-hvac/" },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Burbank?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Burbank. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Burbank?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Burbank?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Burbank, including rooftop units. The City's Land Use Element describes the Media District Commercial designation as a regional employment center of media-oriented and commercial uses. Work that needs plan check or zoning approval, such as commercial tenant improvements, follows Tier 2 on the City's Building Permits page, and we confirm the permit path with the City before work starts. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Land Use Element", href: "https://www.burbankca.gov/documents/173607/1541047/20130213_Chapter+3+-+Land+Use.pdf/8130d103-3e0c-ac0d-9e31-99802742bb9a?t=1637190558920" },
+          { text: "Building Permits page", href: "https://www.burbankca.gov/web/community-development/building-permits" },
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -4270,6 +4657,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'ontario' ? ontarioOverrides
     : c.slug === 'corona' ? coronaOverrides
     : c.slug === 'glendale' ? glendaleOverrides
+    : c.slug === 'burbank' ? burbankOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;

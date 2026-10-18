@@ -159,7 +159,7 @@ export const laCountyHub = {
   },
 
   // Rebate sources: LADWP Consumer Rebate Program;
-  // Burbank Water and Power electrification rebate (dated January 9, 2026); SoCalGas 2026 Home
+  // Burbank Water and Power Electrify Your Home page (link-only, no amounts, undated page); SoCalGas 2026 Home
   // Energy Efficiency Rebate Program ($75 smart thermostat, applications postmarked by December 31,
   // 2026, first come first served); CPUC Energy Savings Assistance Program. Do not state or imply
   // rebate stacking. HEEHRA single-family rebates were fully reserved statewide as of February 24,
@@ -182,8 +182,8 @@ export const laCountyHub = {
         description: 'SoCalGas smart thermostat rebate for qualifying purchases and installations, through December 31, 2026, while funds last.',
       },
       {
-        amount: '$1,000 per ton',
-        description: 'Burbank Water and Power electrification rebate, up to $2,500, for replacing gas equipment with a heat pump. New construction does not qualify. Cool Rewards thermostat credits are listed separately.',
+        amount: 'Heat pump rebate',
+        description: 'Burbank Water and Power lists a heat pump HVAC rebate for replacing gas equipment. New construction does not qualify, and funding is first-come, first-served and not guaranteed. Check the program page for current terms.',
         linkLabel: 'Burbank program page',
         linkHref: 'https://www.burbankwaterandpower.com/electrify-your-home',
       },
@@ -212,13 +212,13 @@ export const laCountyHub = {
   cities: {
     eyebrow: 'Cities served',
     title: 'The eight cities on this page',
-    intro: 'Our Los Angeles, Long Beach, Pasadena, Glendale, and Culver City pages are live and the other city pages are coming. For the South Bay, see our Torrance page, or browse all service areas.',
+    intro: 'Our Los Angeles, Long Beach, Pasadena, Glendale, Burbank, and Culver City pages are live and the other city pages are coming. For the South Bay, see our Torrance page, or browse all service areas.',
     items: [
       { name: 'Los Angeles', note: 'Spans coast, basin, valley, and foothill conditions. Electric service from LADWP.', href: '/service-areas/los-angeles/' },
       { name: 'Long Beach', note: 'Coastal. Electric service from SCE.', href: '/service-areas/long-beach/' },
       { name: 'Pasadena', note: 'Has its own Permit Center. A site plan can apply to equipment placed outside.', href: '/service-areas/pasadena/' },
       { name: 'Glendale', note: 'Has its own AC replacement code page and zone noise limits, with 60.9% multifamily housing (2018).', href: '/service-areas/glendale/' },
-      { name: 'Burbank', note: 'Valley-edge climate. Rooftop and rear-of-property replacements need an energy report.' },
+      { name: 'Burbank', note: 'Has its own permit tiers. Rooftop and rear-of-property replacements need an energy report.', href: '/service-areas/burbank/' },
       { name: 'Culver City', note: 'Near-even single-family and multifamily mix. Has its own Building Safety Division for permits.', href: '/service-areas/culver-city/' },
       { name: 'Santa Monica', note: 'Coastal, and the most multifamily city here at 77.5% of housing units (2018).' },
       { name: 'Inglewood', note: 'Near-coastal, with 55.3% multifamily housing (2018). Electric service from SCE.' },
