@@ -673,14 +673,13 @@ Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: 
   DSIRE record is dated 2025-08-04). Recheck the APU rebate pages before launch.
 - SoCalGas 2026 furnace rebate tiers (the wildfire-only $75 thermostat was removed): through December 31, 2026 or until
   funds run out. Remove or update in January 2027.
-- SCE Smart Energy Program ($75 enrollment + up to $50/yr): re-verify current credit amount before
-  launch.
+- SCE Smart Energy Program card removed 2026-10-18 (enrollment credit, not an HVAC rebate; amount unverified; authorized-service-provider condition is an open client question).
 - HEEHRA reservation status: single-family funding fully reserved statewide as of 2026-02-24;
   multifamily reservation window closed 2025-12-18. Re-verify before launch.
 - 2025 Energy Code (Title 24) effective date: applies to permits submitted on or after 2026-01-01.
   Re-verify if the compliance date changes.
-- No source URLs were found for the SoCalGas and SCE Smart Energy rebate cards, so they carry no link.
-  Add official source URLs once verified (SoCalGas 2026 rebates, SCE Smart Energy Program).
+- No source URL was found for the SoCalGas furnace rebate card, so it carries no link.
+  Add the official source URL once verified (SoCalGas 2026 rebates).
 - Housing age figures are missing for Fullerton and Tustin - no age claim is made for them. Do not add
   without a source. Anaheim's (44.6% before 1970), Irvine's (4.8%) and Huntington Beach's (43.5%, SCAG,
   ACS 2017) are on their city pages and on the hub's city cards or notes; Huntington Beach's is also in the

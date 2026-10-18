@@ -195,8 +195,7 @@ export const orangeCountyHub = {
   // Rebate sources: Anaheim Public Utilities rebate page (link only, no amounts published; the
   // City page does not list them and the DSIRE amounts are dated 2025-08-04);
   // SoCalGas 2026 furnace rebate tiers ($1.40/$10/$25 per kBtuh by AFUE tier; the $75 thermostat offer is wildfire-only so it is not advertised,
-  // through 2026-12-31 or funds); SCE Smart Energy Program ($75 enrollment + up to $50/yr,
-  // enrollment program, not an equipment rebate). HEEHRA: single-family fully reserved statewide as
+  // through 2026-12-31 or funds); the SCE Smart Energy Program ($75 enrollment credit) is not advertised (enrollment program, not an equipment rebate, amount unverified, authorized-service-provider condition is an open client question). HEEHRA: single-family fully reserved statewide as
   // of 2026-02-24; multifamily reservation window closed 2025-12-18. No source URLs were found for
   // the SoCalGas and SCE programs (see docs/open-items.md), so those cards carry no link.
   rebates: {
@@ -214,11 +213,6 @@ export const orangeCountyHub = {
         verifyTag: 'Verify current amount before launch',
         amount: '$1.40 to $25 per kBtuh',
         description: 'SoCalGas 2026 furnace rebate tiers: $1.40 for 92 to 94% AFUE, $10 for 95 to 96%, and $25 for 97% or higher. Gas equipment only, through December 31, 2026 or until funds run out.',
-      },
-      {
-        verifyTag: 'Verify current amount before launch',
-        amount: '$75 plus up to $50 a year',
-        description: 'SCE Smart Energy Program: a $75 enrollment credit plus up to $50 per year. It is an enrollment program for eligible customers, not an equipment rebate.',
       },
     ] satisfies RebateCard[],
     copy: [
