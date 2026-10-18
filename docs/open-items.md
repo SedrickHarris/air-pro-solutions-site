@@ -447,7 +447,7 @@ JSON-LD, visible text and TS match.
 - Claim wording follows the approved list. Do not strengthen it.
 
 ## /service-areas/corona/ (coronaOverrides in src/content/cities.ts)
-Built 2026-10-18, committed locally (push route pending). Reference artifact: claude/reference/corona-location.html
+Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: claude/reference/corona-location.html
 (https://claude.ai/artifact/FWyHWFK6TqueUcqDFf4njM). Third Inland Empire wave-1 city page in this repo. Generated from one data
 source so JSON-LD, visible text and TS match. Rancho Cucamonga is NOT in this repo yet, so it is not wired into the hub.
 - Title: `cityTitle('Corona')` ("HVAC Services in Corona, CA | AIRPRO SOLUTIONS", 46 characters) does not collide with another page, so no `distinctTitle`.
