@@ -493,7 +493,7 @@ source so JSON-LD, visible text and TS match. Rancho Cucamonga is NOT in this re
 - Claim wording follows the approved list. Do not strengthen it.
 
 ## /service-areas/glendale/ (glendaleOverrides in src/content/cities.ts)
-Built 2026-10-18, NOT yet pushed (awaiting the user's choice of push to main or PR). Reference artifact: claude/reference/glendale-location.html
+Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: claude/reference/glendale-location.html
 (https://claude.ai/artifact/E3TW4WvfKyULt7XKHkNxot). First LA County city page built from a single data source feeding the visible HTML, the
 three JSON-LD blocks and the TS overrides. Glendale was a wave 2 noindex stub before this.
 - Title: `cityTitle('Glendale')` ("HVAC Services in Glendale, CA | AIRPRO SOLUTIONS") needs no `distinctTitle`. H1 is `cityH1('Glendale')`.
