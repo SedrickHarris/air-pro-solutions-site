@@ -135,7 +135,7 @@ export const laCountyHub = {
   // building; CF1R Title 24 submission); Pasadena Permit Center apply-for-permit page (cityofpasadena.net/planning/permit-center/apply-for-permit/); Glendale permit guidance page (Building & Safety Division);
   // Burbank energy-report scopes; Culver City separate applications per permit type; Santa Monica
   // plan review and Same-Day Review pages (the Zero Emission Building Code sentence was removed because the City page and news coverage conflict);
-  // Inglewood HVAC application and online permitting. Title 24 per the CEC Energy Code Support
+  // Inglewood Building Safety Division permit types and online permit portal (City General Information page, no update date; the portal page showed only its menu, so no HVAC application is claimed). Title 24 per the CEC Energy Code Support
   // Center. No duct-leakage percentages, R-values, CFM-per-ton figures, or climate-zone rules quoted.
   permits: {
     eyebrow: 'Permits and code',
@@ -150,7 +150,7 @@ export const laCountyHub = {
       ['Burbank', 'Community Development, Building and Safety Division', 'Rooftop or rear-of-property unit replacement, and replacement with new ducts or a new HVAC system, are scopes the City lists as needing an energy report.'],
       ['Culver City', 'Building Safety Division', 'Each structure and each permit type (building, mechanical, electrical, plumbing) needs its own application, so a heat pump change-out can involve more than the mechanical permit.'],
       ['Santa Monica', 'City plan review', 'The City sorts work into Same-Day Review for certain minor projects, including mechanical installations, and Plan Review for larger work. A permit is still required, and outdoor equipment is subject to the City’s equipment noise rules.'],
-      ['Inglewood', 'Building Safety Division', 'Provides a dedicated HVAC application and an online permitting system for documents, fees, inspections, and permit tracking.'],
+      ['Inglewood', 'Building Safety Division', 'Issues building, electrical, plumbing, sewer, mechanical, and grading permits, and the City runs an online permit portal.'],
     ],
     copyCols: [
       ['**Title 24 applies statewide.** California’s energy code is administered through each city’s building department. Many HVAC alterations need compliance documentation and third-party field verification and diagnostic testing, and duct leakage testing can apply when components are installed in ducted systems. The required tests are identified on the compliance forms for each job.'],
@@ -191,7 +191,7 @@ export const laCountyHub = {
     ] satisfies RebateCard[],
     copy: [
       '**Region-wide programs.** The CPUC Energy Savings Assistance Program offers no-cost weatherization to income-qualified SCE and SoCalGas households.',
-      '**Long Beach, Inglewood, and Santa Monica** are served by SCE, and SCE publishes its current rebate offerings on its rebate center. **Culver City and Glendale:** confirm current electric-utility incentives by address before relying on any rebate.',
+      '**Long Beach and Santa Monica** are served by SCE, and SCE publishes its current rebate offerings on its rebate center. **Inglewood, Culver City, and Glendale:** confirm current electric-utility incentives by address before relying on any rebate.',
       'Rebates and eligibility vary by service address, utility account, equipment efficiency, income qualifications, and available funding. We can help identify potential programs, but confirm final eligibility, amount, and application requirements with your utility before installation.',
     ],
     utilityCardTitle: 'Electric utility by city',
@@ -203,7 +203,7 @@ export const laCountyHub = {
       'Burbank: Burbank Water and Power',
       'Glendale: Glendale Water & Power',
       'Long Beach: SCE',
-      'Inglewood: SCE',
+      'Inglewood: confirm by address',
       'Culver City: confirm by address',
       'Santa Monica: SCE',
     ],
@@ -213,7 +213,7 @@ export const laCountyHub = {
   cities: {
     eyebrow: 'Cities served',
     title: 'The eight cities on this page',
-    intro: 'Our Los Angeles, Long Beach, Pasadena, Glendale, Burbank, Culver City, and Santa Monica pages are live and the other city pages are coming. For the South Bay, see our Torrance page, or browse all service areas.',
+    intro: 'Our Los Angeles, Long Beach, Pasadena, Glendale, Burbank, Culver City, Santa Monica, and Inglewood pages are all live. For the South Bay, see our Torrance page, or browse all service areas.',
     items: [
       { name: 'Los Angeles', note: 'Spans coast, basin, valley, and foothill conditions. Electric service from LADWP.', href: '/service-areas/los-angeles/' },
       { name: 'Long Beach', note: 'Coastal. Electric service from SCE.', href: '/service-areas/long-beach/' },
@@ -222,7 +222,7 @@ export const laCountyHub = {
       { name: 'Burbank', note: 'Has its own permit tiers. Rooftop and rear-of-property replacements need an energy report.', href: '/service-areas/burbank/' },
       { name: 'Culver City', note: 'Near-even single-family and multifamily mix. Has its own Building Safety Division for permits.', href: '/service-areas/culver-city/' },
       { name: 'Santa Monica', note: 'Has its own equipment noise rules for outdoor units, and the most multifamily city here at 77.5% of housing units (2018).', href: '/service-areas/santa-monica/' },
-      { name: 'Inglewood', note: 'Near-coastal, with 55.3% multifamily housing (2018). Electric service from SCE.' },
+      { name: 'Inglewood', note: 'Has its own Building Safety Division and online permit portal, with 55.3% multifamily housing (2018).', href: '/service-areas/inglewood/' },
     ],
   },
 
@@ -258,7 +258,7 @@ export const laCountyHub = {
     },
     {
       q: 'Which utility serves my home, and are there HVAC rebates?',
-      a: 'It depends on the city and sometimes the address. Los Angeles is served by LADWP, Pasadena by Pasadena Water and Power, Burbank by Burbank Water and Power, Glendale by Glendale Water & Power, and Long Beach, Inglewood, and Santa Monica by SCE. Culver City and Glendale should be confirmed by address. SoCalGas is the natural-gas utility across most of the region, but Long Beach has its own municipal gas utility, Long Beach Utilities. Rebate amounts and funding change, so confirm current eligibility with your utility before installation.',
+      a: 'It depends on the city and sometimes the address. Los Angeles is served by LADWP, Pasadena by Pasadena Water and Power, Burbank by Burbank Water and Power, Glendale by Glendale Water & Power, and Long Beach and Santa Monica by SCE. Inglewood, Culver City, and Glendale should be confirmed by address. SoCalGas is the natural-gas utility across most of the region, but Long Beach has its own municipal gas utility, Long Beach Utilities. Rebate amounts and funding change, so confirm current eligibility with your utility before installation.',
     },
     {
       q: 'Do you work on apartments, condos, and HOA properties?',

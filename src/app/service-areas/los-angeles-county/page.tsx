@@ -227,7 +227,7 @@ export default function Page() {
           <p className="eyebrow">{laCountyHub.cities.eyebrow}</p>
           <h2>{laCountyHub.cities.title}</h2>
           <p>
-            See our <Link href="/service-areas/los-angeles/">Los Angeles page</Link>, <Link href="/service-areas/long-beach/">Long Beach page</Link>, <Link href="/service-areas/pasadena/">Pasadena page</Link>, <Link href="/service-areas/glendale/">Glendale page</Link>, <Link href="/service-areas/burbank/">Burbank page</Link>, <Link href="/service-areas/culver-city/">Culver City page</Link>, and <Link href="/service-areas/santa-monica/">Santa Monica page</Link>. The other city pages are coming. For the South Bay, see our{' '}
+            See our <Link href="/service-areas/los-angeles/">Los Angeles page</Link>, <Link href="/service-areas/long-beach/">Long Beach page</Link>, <Link href="/service-areas/pasadena/">Pasadena page</Link>, <Link href="/service-areas/glendale/">Glendale page</Link>, <Link href="/service-areas/burbank/">Burbank page</Link>, <Link href="/service-areas/culver-city/">Culver City page</Link>, <Link href="/service-areas/santa-monica/">Santa Monica page</Link>, and <Link href="/service-areas/inglewood/">Inglewood page</Link>. For the South Bay, see our{' '}
             <Link href="/service-areas/torrance/">Torrance page</Link>, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>

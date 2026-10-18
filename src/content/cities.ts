@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank and santa-monica have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica and inglewood have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // TODO(copy): the closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale, Burbank and Santa Monica, because under 920px the card sits below the text. Several of these pages were client-approved,
+// Corona (two places), Glendale, Burbank, Santa Monica and Inglewood, because under 920px the card sits below the text. Several of these pages were client-approved,
 // so confirm the one-phrase change with the client.
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
@@ -5042,6 +5042,323 @@ const santaMonicaOverrides: Partial<City> = {
   },
 };
 
+const inglewoodOverrides: Partial<City> = {
+  // TODO(data): add verified climate detail before treating this as a full local page.
+  neighborhoods: [], // neighborhood list held out: Wikipedia is the only source, so the names are unverified
+  zips: [], // ZIP list held out: no official City or USPS source in the research (see held out comment below)
+  page: {
+    metaDescription: "HVAC for Inglewood homes and businesses, from AC repair to installation. Know the City's permit process and local housing. Licensed, 4.8-star rated.",
+    lede: "AIRPRO SOLUTIONS provides HVAC services across Inglewood, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit process and local housing stock in mind.",
+    heroCaption: { title: "Inglewood, CA", text: "Local HVAC service across Inglewood" },
+    heroProof: [
+      { icon: "shield", label: "Licensed, bonded & insured" },
+      { icon: "star", label: "4.8-star rated" },
+      { icon: "bolt", label: "24/7 emergency dispatch" },
+      { icon: "building", label: "Residential and commercial" },
+    ],
+    trustStats: [
+      { num: "4.8★", label: "Google rating, 40 reviews" },
+      { num: "C-20", label: "California licensed" },
+      { num: "24/7", label: "emergency dispatch" },
+      { num: "Same-day", label: "service typical" },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Inglewood",
+      body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Inglewood at a glance",
+      stats: [
+        { num: "101,662", label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)" },
+        {
+          num: "41.0%",
+          label: "of 38,655 housing units are in buildings of 5 or more units, and 38.2% are single-family detached (California Department of Finance E-5, 2018, per SCAG)",
+        },
+        { num: "70%", label: "of housing was built before 1970 (U.S. Census American Community Survey, 2017; Nielsen Co., per SCAG)" },
+      ],
+      source: "Sources: U.S. Census Bureau QuickFacts and SCAG's 2019 Local Profile of Inglewood.",
+    },
+    localTitle: "Inglewood's permits, housing stock, and utility programs",
+    // Held out (no verified source): Noise code: Municipal Code Chapter 5, Article 2 (Sec. 5-27 base levels, Sec. 5-39 machinery, equipment, fans and air conditioning) was read only in a third-party copy (nonoise.org, printed date 6/11/2016, no edition line, official code location not confirmed). Not published (user decision needed, see open-items). | ZIP card (90301 to 90312) and neighborhood names (Morningside Park, Downtown, Fairview Heights, Arbor Village, Hollypark Knolls, Centinela Heights, Century Heights, Inglewood Knolls, Lockhaven): Wikipedia only, no official City or USPS source. | Climate, NOAA normals, heat-day counts, humidity: no station verified for Inglewood. | Neighboring cities and the nearby row: no official source named them. | Building Safety address, phone, hours, QLESS appointments, the dedicated HVAC application and the January 5, 2026 engineer stamp rule: the City Building Safety page returned only an intro line and the applications and fees page would not load. | Electric and gas provider (SCE and SoCalGas): the City New to the City page would not load, so neither is stated for Inglewood. | Zoning Chapter 12, zoning map and overlay map: the City Zoning Codes and Map Gallery pages would not load. | South Coast AQMD: Inglewood is listed under Los Angeles County Western Region (verified), and the basin exceeded the 8-hour ozone standard on 124 days in 2022 (preliminary). No sourced HVAC tie, so not used on the page. | Employers, shopping centers, schools, hospitals, industrial areas, HOA areas, setbacks, historic-district rules, median year built: no source. | All rebate dollar amounts; federal Section 25C and 25D status; HEEHRA status; SCE older heat pump discounts and the TECH $1,000 incentive; SCE Building Electrification (closed); Clean Power Alliance room AC coupon (Inglewood account eligibility unconfirmed). | SoCalGas licensed-contractor and permit-closure conditions and SCE approved-contractor wording: kept off the page. | Competitor SERP table: never on the page.
+    // TODO(copy): client has not approved any Inglewood wording (every FAQ answer, the three local paragraphs, the permit card, the permit, rebate and assistance sentences, the commercial sentence). Keep flagged until the user says the client approved.
+    // TODO(verify): General Information page (City page 237) was read through a fetch summary: it lists building, electrical, plumbing, sewer, mechanical, and grading permits, shows no date, and does not use the term HVAC. Re-read it directly.
+    // TODO(verify): Online permit portal: only the navigation menu was readable (Building, Planning/Zoning, Public Works permits). It does not mention HVAC, inspections or fees.
+    // TODO(verify): SoCalGas terms come from the 2026 residential application PDF (form code J087-228EEC 0926, no stated publication date). SCE Energy Savings Assistance page shows no publication date (income limits June 1, 2026 to May 31, 2027).
+    // Pre-launch recheck: City Building Safety page, General Information page, applications and fees page, online permit portal, New to the City page, Chapter 5 noise text (official code), SoCalGas rebates page and 2026 application, SCE Energy Savings Assistance, rebate directory and service area pages, SCAG profile, QuickFacts.
+    localParagraphs: [
+      "The City of Inglewood's Building Safety Division issues building, electrical, plumbing, sewer, mechanical, and grading permits, according to the City's General Information page, which shows no update date. The page does not use the term HVAC, so **AIRPRO SOLUTIONS confirms the permit path for your job with the City** before work starts. The City also runs an online permit portal where applicants can start a Building Permit, Planning/Zoning Permits, or Public Works Permits, but the pages we read do not say which application an air conditioner or furnace replacement uses, whether any like-for-like replacement is exempt, or which code edition applies. The General Information page says fees depend on the project's type and complexity, so we do not quote permit fees or promise permit dates.",
+      "Inglewood had an estimated 101,662 residents on July 1, 2025, and QuickFacts reports a 36.2% owner-occupied housing rate for 2020-2024. SCAG's 2019 Local Profile, using California Department of Finance E-5 data for 2018, counts **38,655 housing units: 38.2% single-family detached, 6.0% attached, 14.3% in buildings of 2 to 4 units, 41.0% in buildings of 5 or more, and 0.5% mobile homes**. The same profile reports that **70 percent of the housing stock was built before 1970**, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. Those figures are citywide and dated, so we confirm the equipment, roof or attic access, and ductwork at the property. In a multi-unit building we confirm equipment access and placement with the owner or manager, and for commercial work we plan rooftop access and equipment placement with the building owner or manager.",
+      "SoCalGas and Southern California Edison each publish their own programs, and your bills show which companies serve your address. We did not confirm Inglewood's electric or gas provider from a service-territory page, so we ask which utility serves the address before counting on a program. SoCalGas lists a 2026 rebate for ENERGY STAR central natural gas furnaces in existing occupied homes, with purchase and installation from January 1 to December 31, 2026 and funding first come, first served until that date or until it runs out. SCE's Energy Savings Assistance program lists central AC or central heat pump replacement among the upgrades income-qualified households may receive at no cost, and says services may not be available in all areas and a co-payment may be required for some services. SCE's rebate directory lists Golden State Rebates coupons for air conditioners and smart thermostats at participating retailers, and a Home Performance Plus program for customers in disadvantaged or low-income communities, and we did not confirm whether an Inglewood address qualifies. Terms and funding change and some programs restrict combining incentives on the same equipment, so we link the program pages rather than quote amounts, and **confirm your utility accounts on your bills before counting on a program**. Official links are in the card for this section.",
+    ],
+    localCards: [
+      {
+        heading: "Inglewood permit path",
+        rows: [
+          { label: "Permit types listed", value: "Building, electrical, plumbing, sewer, mechanical, and grading" },
+          { label: "HVAC replacement", value: "Application, exemptions, and code edition are not stated on the pages we read" },
+        ],
+        note: "From the City's General Information page, which shows no update date, and the menu of its online permit portal. We confirm the path with the City.",
+      },
+    ],
+    neighborhoodsHeading: "Official Inglewood resources",
+    officialResources: [
+      {
+        text: "Building Safety Division",
+        href: "https://www.cityofinglewood.org/236/Building-Safety",
+        note: "The City's Building Safety Division page.",
+      },
+      {
+        text: "General Information",
+        href: "https://www.cityofinglewood.org/237/General-Information",
+        note: "Permit types the Division issues and fee wording.",
+      },
+      {
+        text: "Online permit portal",
+        href: "https://aca-prod.accela.com/inglewood/Default.aspx",
+        note: "Search applications and start a Building Permit.",
+      },
+      {
+        text: "SoCalGas rebates",
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "ENERGY STAR furnace rebate and program period.",
+      },
+      {
+        text: "SoCalGas 2026 rebate application",
+        href: "https://www.socalgas.com/sites/default/files/2026-03/SCG-HEER-Application.pdf.pdf",
+        note: "Furnace terms and program dates (PDF).",
+      },
+      {
+        text: "SCE Energy Savings Assistance",
+        href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+        note: "Income-qualified no-cost upgrades and eligibility.",
+      },
+      {
+        text: "SCE Golden State Rebates",
+        href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+        note: "Instant coupons and Home Performance Plus.",
+      },
+      {
+        text: "SCE service area",
+        href: "https://www.sce.com/customer-service-center/help-center/stop-start-move-service/faq/how-to-know-if-sce-is-my-electric-utility",
+        note: "Check whether SCE serves your address.",
+      },
+      {
+        text: "SCAG Inglewood local profile",
+        href: "https://sp.scag.ca.gov/sites/default/files/2024-05/inglewood_localprofile.pdf",
+        note: "Housing counts and building age cited on this page.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/fact/table/inglewoodcitycalifornia/PST045224",
+        note: "Population and owner-occupied rate cited on this page.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Inglewood homes and businesses",
+    serviceCards: [
+      {
+        slug: "ac-repair",
+        name: "AC Repair",
+        body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises in Inglewood homes and businesses.",
+      },
+      {
+        slug: "ac-installation",
+        name: "AC Installation & Replacement",
+        body: "New system sizing and installation, planned around the City's permit process. We confirm the permit path with the City first.",
+      },
+      {
+        slug: "ac-maintenance",
+        name: "AC Maintenance",
+        body: "Seasonal AC tune-ups that catch small issues early, for homes and for commercial rooftop and ground units.",
+      },
+      { slug: "heating-repair", name: "Heating Repair", body: "Furnace and heating system diagnosis and repair for Inglewood homes and businesses." },
+      {
+        slug: "furnace-installation",
+        name: "Furnace Installation & Replacement",
+        body: "Furnace sizing and installation, planned around the City's permit process. SoCalGas lists a furnace rebate with its own terms.",
+      },
+      {
+        slug: "heat-pump-services",
+        name: "Heat Pump Services",
+        body: "Heat pump installation, repair, and maintenance, with the City's permit process and your utilities' program pages in mind.",
+      },
+      {
+        slug: "ductless-mini-split",
+        name: "Ductless Mini-Split",
+        body: "Ductless systems for additions, converted spaces, and rooms the existing ducts do not reach.",
+      },
+      { slug: "ductwork", name: "Ductwork Services", body: "Duct repair, sealing, and replacement for Inglewood homes and buildings." },
+      {
+        slug: "indoor-air-quality",
+        name: "Indoor Air Quality",
+        body: "Filtration, ventilation, and air-quality upgrades for Inglewood homes and offices.",
+      },
+      {
+        slug: "emergency-hvac",
+        name: "Emergency HVAC",
+        body: "24/7 emergency dispatch for no-cool and no-heat problems. If you smell gas, leave the building and call 911 or your gas utility.",
+      },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Inglewood permits and incentive programs",
+      intro: "Official sources for three items worth checking before an Inglewood HVAC project.",
+      cards: [
+        {
+          amount: "Permit review",
+          description: "The City's General Information page lists mechanical permits among the permits its Building Safety Division issues, and says fees depend on the project's type and complexity. We confirm the permit path with the City.",
+          linkLabel: "General Information page",
+          linkHref: "https://www.cityofinglewood.org/237/General-Information",
+        },
+        {
+          amount: "Furnace rebate",
+          description: "SoCalGas lists a 2026 rebate for ENERGY STAR central natural gas furnaces in existing occupied homes, with purchase and installation between January 1 and December 31, 2026. Funding is first come, first served and may run out, and we do not quote amounts.",
+          linkLabel: "SoCalGas rebates",
+          linkHref: "https://www.socalgas.com/savings/rebates-and-incentives",
+        },
+        {
+          amount: "No-cost assistance",
+          description: "SCE's Energy Savings Assistance program lists central AC or central heat pump replacement among the upgrades income-qualified households may receive at no cost. It says services may not be available in all areas, so check eligibility with SCE.",
+          linkLabel: "SCE Energy Savings Assistance",
+          linkHref: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+        },
+      ],
+    },
+    nearby: [],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Inglewood",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        { num: "4.8★", label: "Google rating" },
+        { num: "40", label: "Google reviews" },
+        { num: "C-20", label: "California license class" },
+        { num: "24/7", label: "Emergency dispatch" },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Inglewood. Same-day service is typical, subject to capacity.",
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Inglewood?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Inglewood as part of our Los Angeles County coverage. The City's Building Safety Division runs its own permits, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Los Angeles County coverage", href: "/service-areas/los-angeles-county/" },
+          { text: "Building Safety Division", href: "https://www.cityofinglewood.org/236/Building-Safety" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Inglewood home?",
+        a: "Same-day service is typical in Inglewood, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Inglewood, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an air conditioner in Inglewood?",
+        a: "The City's Building Safety Division issues mechanical permits. Its General Information page lists mechanical permits among the permits the Division issues, and says fees depend on the project's type and complexity. We did not find which like-for-like replacements, if any, are exempt, so AIRPRO SOLUTIONS confirms the permit path with the City before work starts, and we do not quote permit fees.",
+        boldLead: "The City's Building Safety Division issues mechanical permits.",
+        links: [
+          { text: "General Information page", href: "https://www.cityofinglewood.org/237/General-Information" },
+        ],
+      },
+      {
+        q: "How do I start an Inglewood permit application?",
+        a: "Start with the City's online portal. The City's permit portal menu lets applicants search applications and start a Building Permit, Planning/Zoning Permits, or Public Works Permits. The pages we read do not say which one an HVAC replacement uses, so AIRPRO SOLUTIONS confirms the application and the process for your job with the City.",
+        boldLead: "Start with the City's online portal.",
+        links: [
+          { text: "permit portal", href: "https://aca-prod.accela.com/inglewood/Default.aspx" },
+        ],
+      },
+      {
+        q: "Does the age of my Inglewood home matter for HVAC?",
+        a: "Age is one factor we check. SCAG's 2019 Local Profile reports that 70 percent of Inglewood's housing stock was built before 1970, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. That is a citywide, dated figure, so we confirm the equipment, roof or attic access, and ductwork at your property.",
+        boldLead: "Age is one factor we check.",
+        links: [
+          { text: "SCAG's 2019 Local Profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/inglewood_localprofile.pdf" },
+        ],
+      },
+      {
+        q: "What about HVAC in Inglewood condos and apartment buildings?",
+        a: "Multi-unit buildings add access and placement questions. About 41.0% of Inglewood's 38,655 housing units are in buildings of 5 or more units, according to SCAG's 2019 Local Profile using California Department of Finance data for 2018, so we confirm equipment access and placement with the property owner or manager before installation or replacement.",
+        boldLead: "Multi-unit buildings add access and placement questions.",
+        links: [
+          { text: "SCAG's 2019 Local Profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/inglewood_localprofile.pdf" },
+        ],
+      },
+      {
+        q: "Which utility serves my Inglewood address?",
+        a: "Your bill answers it. Check which companies provide your electric and gas service before counting on a program. SCE publishes a service area page for checking its territory. We did not confirm Inglewood's electric or gas provider from a service-territory page, so we ask which utility serves the address.",
+        boldLead: "Your bill answers it.",
+        links: [
+          {
+            text: "service area page",
+            href: "https://www.sce.com/customer-service-center/help-center/stop-start-move-service/faq/how-to-know-if-sce-is-my-electric-utility",
+          },
+        ],
+      },
+      {
+        q: "Are there HVAC rebates for Inglewood customers?",
+        a: "SoCalGas and SCE list programs. SoCalGas lists a rebate for ENERGY STAR central natural gas furnaces in existing occupied homes, with purchase and installation from January 1 to December 31, 2026 and funding first come, first served. SCE lists Golden State Rebates coupons for air conditioners and smart thermostats at participating retailers, and Home Performance Plus for customers in disadvantaged or low-income communities. We did not confirm whether an Inglewood address qualifies for the SCE programs. Terms and funding change, some programs restrict combining incentives on the same equipment, and we do not quote amounts, so check the current terms before you buy.",
+        boldLead: "SoCalGas and SCE list programs.",
+        links: [
+          { text: "rebate for ENERGY STAR central natural gas furnaces", href: "https://www.socalgas.com/savings/rebates-and-incentives" },
+          { text: "Golden State Rebates", href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace" },
+          { text: "Home Performance Plus", href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace" },
+        ],
+      },
+      {
+        q: "Is there no-cost HVAC help for income-qualified Inglewood households?",
+        a: "Possibly, for income-qualified households. SCE's Energy Savings Assistance program lists central AC or central heat pump replacement among the upgrades eligible households may receive for free, and says services may not be available in all areas, restrictions may apply, and a co-payment may be required for some services. Eligibility depends on household income and the property, so check with SCE before counting on it.",
+        boldLead: "Possibly, for income-qualified households.",
+        links: [
+          { text: "Energy Savings Assistance program", href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program" },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Inglewood?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Inglewood, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides",
+        links: [
+          { text: "AC repair", href: "/services/ac-repair/" },
+          { text: "AC installation and replacement", href: "/services/ac-installation/" },
+          { text: "AC maintenance", href: "/services/ac-maintenance/" },
+          { text: "heating repair", href: "/services/heating-repair/" },
+          { text: "furnace installation and replacement", href: "/services/furnace-installation/" },
+          { text: "heat pump services", href: "/services/heat-pump-services/" },
+          { text: "ductless mini-splits", href: "/services/ductless-mini-split/" },
+          { text: "ductwork", href: "/services/ductwork/" },
+          { text: "indoor air quality", href: "/services/indoor-air-quality/" },
+          { text: "emergency HVAC", href: "/services/emergency-hvac/" },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Inglewood?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Inglewood. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Inglewood?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Inglewood?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Inglewood, including rooftop units. We confirm the permit path with the City before commercial work starts, and we plan rooftop access and equipment placement with the building owner or manager. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -5062,6 +5379,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'glendale' ? glendaleOverrides
     : c.slug === 'burbank' ? burbankOverrides
     : c.slug === 'santa-monica' ? santaMonicaOverrides
+    : c.slug === 'inglewood' ? inglewoodOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
