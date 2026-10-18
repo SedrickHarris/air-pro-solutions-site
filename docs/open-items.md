@@ -552,7 +552,7 @@ Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: 
 - Claim wording follows the approved list. Do not strengthen it.
 
 ## /service-areas/santa-monica/ (santaMonicaOverrides in src/content/cities.ts)
-Built 2026-10-18, committed locally on branch add-santa-monica-page (not yet pushed). Reference artifact: claude/reference/santa-monica-location.html
+Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: claude/reference/santa-monica-location.html
 (https://claude.ai/artifact/UKkwRydNT7oeYjRfqoqiVh). Same single-data-source build as Glendale and Burbank. Santa Monica was a wave 2 noindex stub before this.
 - Title: `cityTitle('Santa Monica')` ("HVAC Services in Santa Monica, CA | AIRPRO SOLUTIONS", 52 characters). H1 is `cityH1('Santa Monica')`. Hand-written `page.metaDescription` is 158 characters and passes `assertDescription`.
 - TODO(copy): client has not approved any Santa Monica wording (every FAQ answer, the five local paragraphs, the two local cards, the noise, permit, code, utility and incentive sentences, the commercial sentence). Keep flagged until the user says the client approved.
