@@ -1550,6 +1550,21 @@ const irvineOverrides: Partial<City> = {
       "For outdoor equipment, the City says **rooftop and ground-mounted mechanical equipment must be screened**, citing Section 3-20-1.B of its zoning ordinance. Irvine Municipal Code Sec. 6-8-205 limits noise from air conditioning, refrigeration, or heating equipment to the higher of the land-use noise standard in Sec. 6-8-204 or five decibels above the ambient noise level, and the City's code adopts the 2025 California Mechanical Code with local modifications. The City's online code notes it may not reflect the most current legislation, so confirm current rules with the City. For commercial buildings, the City has an **automated permit path for like-for-like rooftop packaged heat-pump change-outs of 20 tons or less**, with weight, roof-slope, and curb conditions, and plans prepared by the licensed mechanical contractor doing the work or the Mechanical Engineer of Record.",
       "Electricity comes from **Southern California Edison** and natural gas from **SoCalGas**, as named on the City's utility page. The City's residential rebates page links to SCE and SoCalGas programs, and SCE lists an Energy Savings Assistance program for income-qualified households that includes central AC and central heat pump replacement among its upgrades. SCE says some options may not be available in all areas, and terms and funding change, so confirm current details with the utility before you buy. Official links are in the card beside this text.",
     ],
+    // TODO(copy): the housing card below restates figures already in the second local paragraph; client has not approved it.
+    localCards: [
+      {
+        heading: "Irvine housing snapshot",
+        rows: [
+          { label: "Housing units", value: "102,474" },
+          { label: "Single-family detached", value: "38.9%" },
+          { label: "Single-family attached", value: "16.4%" },
+          { label: "Buildings of 2 to 4 units", value: "6.2%" },
+          { label: "Buildings of 5 or more units", value: "37.4%" },
+          { label: "Built before 1970", value: "4.8%" },
+        ],
+        note: "California Department of Finance E-5 data for 2018 and 2017 American Community Survey data, both through SCAG's 2019 local profile. Figures are citywide and dated.",
+      },
+    ],
     neighborhoodsHeading: 'Official Irvine resources',
     officialResources: [
       {
@@ -2376,6 +2391,23 @@ const huntingtonBeachOverrides: Partial<City> = {
       "Replacements are also subject to California's Title 24 energy code, and the 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing and field verification requirements, and the Certificate of Compliance (CF1R) specifies the required tests. We did not find a Huntington Beach rule that adds to the state requirements, and we confirm what your job needs with the City.",
       "For commercial work, the City's mechanical plan requirements ask for an equipment schedule, a scaled duct layout, air-conditioning condenser locations and equipment access, and Title 24 mechanical calculations for all new HVAC systems. The City's Zoning Code includes IG and IL industrial districts. The City's utility services page lists Southern California Edison for electricity and Southern California Gas Company for natural gas. Incentive programs and funding change, so we link the SCE rebates page and the state program pages rather than quote amounts. Official links are in the card beside this text.",
     ],
+    // TODO(copy): the housing card below restates figures already in the second local paragraph; client has not approved it.
+    localCards: [
+      {
+        heading: "Huntington Beach housing snapshot",
+        rows: [
+          { label: "Residents (2020 Census)", value: "198,711" },
+          { label: "Housing units", value: "81,656" },
+          { label: "Single-family detached", value: "47.9%" },
+          { label: "Single-family attached", value: "11.6%" },
+          { label: "Buildings of 2 to 4 units", value: "11.8%" },
+          { label: "Buildings of 5 or more units", value: "24.9%" },
+          { label: "Mobile homes", value: "3.8%" },
+          { label: "Built before 1970", value: "43.5%" },
+        ],
+        note: "Housing counts: California Department of Finance E-5 data for 2018, and building age: 2017 American Community Survey data, both through SCAG's local profile. Population: 2020 U.S. Census. Figures are citywide and dated.",
+      },
+    ],
     neighborhoodsHeading: "Official Huntington Beach resources",
     officialResources: [
       {
@@ -2698,6 +2730,33 @@ const riversideOverrides: Partial<City> = {
       "Riverside's Municipal Code Title 7 sets exterior noise standards by land use. For residential property, the copy we read lists **55 dBA from 7 a.m. to 10 p.m. and 45 dBA from 10 p.m. to 7 a.m.** (Sec. 7.25.010), and it defines fixed noise sources to include air conditioners and refrigeration devices (Sec. 7.10.070). We did not see a section written only for new HVAC equipment. Construction and repair work that creates a disturbance across a property line is restricted on weekdays from 7 p.m. to 7 a.m., on Saturdays from 5 p.m. to 8 a.m., and all day on Sundays and federal holidays, with an exception for emergency work (Sec. 7.35.010). The text we read is a third-party copy with no current date, and its latest amendment citations are from 2007, so we confirm how the limits apply to your address before choosing a condenser location. Riverside County's code enforcement says it serves unincorporated areas and refers residents of incorporated cities to local code enforcement, so the City's own code is the one to check.",
       "Replacements are also subject to California's Title 24 energy code, and the 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing requirements, and field verification and diagnostic testing is prescriptively required for most HVAC alterations. We did not read any Riverside amendment that adds to the state requirements, and we confirm what your job needs with the City.",
       "For commercial work, the City's top employer list includes healthcare systems, universities, school districts, county government, a military installation, retail, and hospitality, so we plan commercial visits around the building and its equipment access. Riverside Public Utilities, which the City describes as providing water and electric service, lists business air conditioning incentives that pay by the ton by efficiency level, with caps that depend on the customer's rate class and a limit of one capped rebate per program per premises each fiscal year. For homes, it lists separate rebates for central AC, electric heat pumps, tune-ups, smart thermostats, and evaporative coolers for its electric customers. Incentive programs and funding change, and RPU's pages say programs can be cancelled, modified, or reduced, so we link the program pages rather than quote amounts. We did not find a City source naming the gas provider, so confirm yours by address. Official links are in the card beside this text.",
+    ],
+    // TODO(copy): the two cards below restate figures already in the local paragraphs; client has not approved them.
+    localCards: [
+      {
+        heading: "Riverside housing snapshot",
+        rows: [
+          { label: "Housing units", value: "100,515" },
+          { label: "Single-family detached", value: "64.0%" },
+          { label: "Single-family attached", value: "3.9%" },
+          { label: "Buildings of 2 to 4 units", value: "6.4%" },
+          { label: "Buildings of 5 or more units", value: "23.5%" },
+          { label: "Mobile homes", value: "2.2%" },
+          { label: "Built before 1970", value: "39.5%" },
+        ],
+        note: "California Department of Finance E-5 data for 2018 and 2017 American Community Survey data, both through SCAG's local profile. Figures are citywide and dated.",
+      },
+      {
+        heading: "Riverside noise and work hours",
+        rows: [
+          { label: "Residential, 7 a.m. to 10 p.m.", value: "55 dBA" },
+          { label: "Residential, 10 p.m. to 7 a.m.", value: "45 dBA" },
+          { label: "Restricted work, weekdays", value: "7 p.m. to 7 a.m." },
+          { label: "Restricted work, Saturdays", value: "5 p.m. to 8 a.m." },
+          { label: "Restricted work, Sundays and federal holidays", value: "All day" },
+        ],
+        note: "Municipal Code Title 7 (Sec. 7.25.010 and 7.35.010), from a third-party copy with no current date; its latest amendment citations are from 2007. Applies to work that creates a disturbance across a property line, with an exception for emergency work. We did not see a section written only for new HVAC equipment.",
+      },
     ],
     neighborhoodsHeading: "Official Riverside resources",
     officialResources: [
@@ -3029,6 +3088,22 @@ const ontarioOverrides: Partial<City> = {
       "Ontario's Development Code points to Title 5, Chapter 29 of the Municipal Code for noise. The third-party copy we read lists exterior limits for single-family residential property of **65 dBA from 7 a.m. to 10 p.m. and 45 dBA from 10 p.m. to 7 a.m.**, and 65 dBA by day and 50 dBA at night for multi-family residential (Sec. 5-29.04). It says that when ambient noise exceeds a standard, the ambient level becomes the standard, and it does not mention air conditioners, so we did not find a rule written only for HVAC equipment. Construction activity noise is limited to weekdays from 7 a.m. to 6 p.m. and Saturdays and Sundays from 9 a.m. to 6 p.m., with exceptions including emergency work (Sec. 5-29.09). The copy cites Ord. 2888, effective March 6, 2008, comes from a host that is not the City, and has no current date, so we confirm how the limits apply to your address before choosing a condenser location.",
       "For equipment placement, the December 3, 2024 revision of Ontario's Development Code that we read sets screening standards for residential districts: for single-family dwellings, **new exterior roof-mounted mechanical, heating and air conditioning equipment is prohibited**, and for multiple-family development, roof-mounted equipment must be completely screened from public view by parapet walls or roof screens (Sec. 6.01.010). We did not confirm how those standards apply to replacing existing equipment, so we check placement with the City. Development Plan applications ask for the location of roof-mounted mechanical equipment and equipment screens, and the Euclid Mixed-Use Specific Plan in Ontario Ranch calls for screening ground- and roof-mounted mechanical equipment from public view. Replacements are also subject to California's Title 24 energy code, and the 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing requirements, and field verification and diagnostic testing is prescriptively required for most HVAC alterations.",
       "For commercial work, the City's economic development site reports that Ontario International Airport served 6.5 million passengers in 2023 and handled over 750,000 tons of freight, lists logistics and distribution among its target industries, and shows Ontario Ranch planning 12 million square feet of commercial and office space and 31 million square feet of industrial space, so we plan commercial visits around the building and its rooftop or ground equipment access. The City's contact pages name Southern California Edison for electric service and Southern California Gas Company for gas, and eligibility for a program follows your utility account, so confirm both on your bill. SCE's rebates page lists Golden State Rebates coupons for air conditioners and smart thermostats and a Smart Energy Program bill credit, and SoCalGas lists a rebate for qualifying gas furnaces. Programs and funding change, so we link the program pages rather than quote amounts. Official links are in the card beside this text.",
+    ],
+    // TODO(copy): the card below restates figures already in the second and fifth local paragraphs; client has not approved it.
+    localCards: [
+      {
+        heading: "Ontario Ranch and the airport",
+        rows: [
+          { label: "Ontario Ranch size", value: "13 square miles" },
+          { label: "Planned residential units", value: "69,000 at completion" },
+          { label: "New homes built in 2023", value: "1,200" },
+          { label: "Planned commercial and office space", value: "12 million square feet" },
+          { label: "Planned industrial space", value: "31 million square feet" },
+          { label: "Airport passengers, 2023", value: "6.5 million" },
+          { label: "Airport freight, 2023", value: "Over 750,000 tons" },
+        ],
+        note: "From the City's economic development pages, which are undated. Figures are as the City reports them.",
+      },
     ],
     neighborhoodsHeading: "Official Ontario resources",
     officialResources: [
@@ -3382,6 +3457,19 @@ const coronaOverrides: Partial<City> = {
       "Corona's Building Division handles permits at 400 South Vicentia Avenue, Suite 120, and lists 951-736-2250. The City's permits directory groups building, electrical, mechanical, and plumbing permits under one entry, and the Building Division page links its online building portal, eTRAKiT, to apply for a permit, check plan status, request inspections, and search permit history. The page lists counter hours of Monday through Thursday, 7 a.m. to 6 p.m., and closed Friday. The City's mechanical fee schedule, effective October 4, 2026, has line items for a residential furnace change-out in the same location, a residential A/C condenser change-out, and a combined change-out, but we did not find a City checklist for an HVAC replacement or a written rule on which replacements need a permit, so **AIRPRO SOLUTIONS confirms the permit path** with the City before work starts, and we do not quote fees. Corona's Municipal Code adopts the 2025 California Mechanical Code (Sec. 15.08.020) and the 2025 California Building Code (Sec. 15.04.020), and California's 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. We did not read any local amendments. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing requirements, and field verification and diagnostic testing is prescriptively required for most HVAC alterations.",
       "Corona had an estimated 161,734 residents on July 1, 2025, up from 157,136 in the 2020 U.S. Census, and QuickFacts reports a 63.8% owner-occupied housing rate for 2020-2024. SCAG's local profile, using California Department of Finance E-5 data for 2018, counts **49,277 housing units: 66.9% single-family detached, 4.3% attached, 4.5% in buildings of 2 to 4 units, 20.9% in buildings of 5 or more, and 3.4% mobile homes**. The same profile reports that **15.6% of housing was built before 1970**, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. Those figures are citywide and dated, so we confirm the equipment, roof or attic access, and ductwork at the property, and in a multi-unit building we confirm equipment access and placement. The City's list of specific plans, linked in the card beside this text, names plan areas such as Dos Lagos, Eagle Glen, and Downtown Corona, but a plan name does not tell us a home's age or equipment, so we draw no conclusions from it.",
       "Corona has two electric providers. The City's new-resident page says a majority of Corona residents are served by Southern California Edison, and that small areas near Dos Lagos, The Crossings, Corona Pointe, and Princeland are served by the City's Department of Water & Power. The City's electric service page says its rebates are for City of Corona electric customers, who do not receive an electric bill from Southern California Edison, so **confirm your electric provider on your bill before counting on a program**. SCE's time-of-use plan page lists summer weekday peak hours of 4 to 9 p.m. for TOU-D 4-9 PM and 5 to 8 p.m. for TOU-D 5-8 PM. Those are SCE plans, and we did not read the City's electric rate schedules. The new-resident page also links SoCalGas assistance programs. SCE's rebates page lists Golden State Rebates coupons for air conditioners and smart thermostats and a Smart Energy Program bill credit, SoCalGas lists a rebate for qualifying gas furnaces, and the City's electric service page lists residential and commercial programs for its electric customers. Programs and funding change, so we link the program pages rather than quote amounts. For commercial work, the City's economic development site says Corona's largest industries include construction, manufacturing, health care, and retail services, and the page is undated, so we plan commercial visits around the building and its rooftop or ground equipment access. Official links are in the card beside this text.",
+    ],
+    // TODO(copy): client approved the Corona local paragraphs on 2026-10-18; this card restates the first paragraph and is new wording, so it is not approved yet.
+    // TODO(verify): Sec. 17.84.040 subsection letters and edition label come from the American Legal Publishing copy; recheck against the official code.
+    localCards: [
+      {
+        heading: "Corona outdoor equipment rule",
+        rows: [
+          { label: "Setback from the adjoining property line", value: "At least 10 feet (Sec. 17.84.040(D)(1))" },
+          { label: "Alternative", value: "A 5-foot block sound wall, or sound attenuation the Building Official approves" },
+          { label: "Exemption", value: "Repair and replacement of residential equipment installed by permit before May 20, 1993 (Sec. 17.84.040(E)(6))" },
+        ],
+        note: "Municipal Code Sec. 17.84.040, American Legal Publishing copy, which may not reflect the latest legislation. We confirm how the rule applies to your lot.",
+      },
     ],
     neighborhoodsHeading: "Specific plan areas and official resources",
     neighborhoodsNote: "Partial list of area names from the City's specific plans. These are land-use plans, not neighborhood boundaries.",

@@ -397,7 +397,7 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 }
 
 /* Local knowledge (sections/LocalKnowledge) */
-.local-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; margin-top: 1.25rem; }
+.local-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; margin-top: 1.25rem; align-items: start; } /* card keeps its own height instead of stretching hollow beside long copy */
 .local-copy p { font-size: 0.96rem; line-height: 1.65; color: var(--ink-soft); }
 .local-copy p + p { margin-top: 14px; }
 .local-copy p strong { color: var(--ink); }
