@@ -447,18 +447,17 @@ JSON-LD, visible text and TS match.
 - Claim wording follows the approved list. Do not strengthen it.
 
 ## /service-areas/corona/ (coronaOverrides in src/content/cities.ts)
-Built 2026-10-18, committed locally (push route pending the user's choice). Reference artifact: claude/reference/corona-location.html
+Built 2026-10-18, committed locally (push route pending). Reference artifact: claude/reference/corona-location.html
 (https://claude.ai/artifact/FWyHWFK6TqueUcqDFf4njM). Third Inland Empire wave-1 city page in this repo. Generated from one data
 source so JSON-LD, visible text and TS match. Rancho Cucamonga is NOT in this repo yet, so it is not wired into the hub.
 - Title: `cityTitle('Corona')` ("HVAC Services in Corona, CA | AIRPRO SOLUTIONS", 46 characters) does not collide with another page, so no `distinctTitle`.
   H1 is `cityH1('Corona')` (27 characters). The meta description is the hand-written `page.metaDescription`
   (150 characters, validated by `assertDescription`).
-- Client approval NOT confirmed. Every Corona FAQ answer, the five local paragraphs, the setback and noise sentences, the Title 24
-  sentences, the utility and incentive sentences and the commercial sentence stay flagged TODO(copy) until the user says the client
-  approved them.
-- TODO(copy): confirm with the City which permit path each HVAC job needs (Building Division lists 951-736-2250 and BuildingPlanCheck@CoronaCA.gov) and whether AIRPRO SOLUTIONS needs a City business license (none found on the pages read).
-- TODO(copy): setback, noise and construction-hour text is from the American Legal Publishing copy of Sec. 17.84.040, labeled 2025 S-56 (current) on both reads; the research said 2026 S-57. The publisher says its copy may not reflect the latest legislation. Recheck against the official code and confirm subsection letters (C)(2), (D)(1), (D)(2), (E)(6) before launch.
-- TODO(copy): the fee schedule PDF names only the Building Division, not the City, and says effective October 4, 2026 inside the file; the file name says 10.4.26. Fees are not on the page.
+- Client approved the Corona copy on 2026-10-18 (per the user), so the blanket TODO(copy) flags were removed. Items that still need
+  checking against the City are flagged TODO(verify).
+- TODO(verify): confirm with the City which permit path each HVAC job needs (Building Division lists 951-736-2250 and BuildingPlanCheck@CoronaCA.gov) and whether AIRPRO SOLUTIONS needs a City business license (none found on the pages read).
+- TODO(verify): setback, noise and construction-hour text is from the American Legal Publishing copy of Sec. 17.84.040, labeled 2025 S-56 (current) on both reads; the research said 2026 S-57. The publisher says its copy may not reflect the latest legislation. Recheck against the official code and confirm subsection letters (C)(2), (D)(1), (D)(2), (E)(6) before launch.
+- TODO(verify): the fee schedule PDF names only the Building Division, not the City, and says effective October 4, 2026 inside the file; the file name says 10.4.26. Fees are not on the page.
 - Lead angle: the City's outdoor-unit rule. Municipal Code Sec. 17.84.040(D)(1): equipment installed under a building permit must be
   at least 10 feet from the adjoining property line, with a 5-foot block sound wall alternative or Building Official-approved sound
   attenuation, and a pre-May 20, 1993 permitted-equipment exemption for repairs and replacement (E)(6). Noise: 55 dBA (7 a.m.-10 p.m.)
