@@ -197,6 +197,18 @@ Adding a new city or service should mostly be a data-file change plus
 page-level copy for anything that needs genuine local/service nuance -
 not a new component.
 
+## City page local-knowledge band: balance check (required)
+
+Every city page's "local knowledge" band is two columns at 920px and wider: `page.localParagraphs` on the left, one
+`.nbhd-card` on the right. Long copy with a short card leaves a large empty card. Before a city page is called done,
+measure the band at 1280px and make the card end within about 50px of the copy; anything with 250px or more of blank
+card must be fixed before launch. Fill it with `page.localCards` (label/value fact cards with a source note) built only
+from content already verified in that city's `docs/open-items.md` section - a housing snapshot, a noise table, a code or
+permit summary, an attributed fact table. Never add held-out ZIPs, neighborhoods, rebate amounts or code editions, never
+invent filler, and never make the card sticky. If nothing verified exists, leave the card short (the grid is top-aligned
+globally). Close the local paragraphs with "Official links are in the card for this section." (never "beside this text").
+New cards are TODO(copy). Full rules, planning numbers and the measuring snippet: `docs/local-knowledge-balance.md`.
+
 ## Reference
 
 Six page templates were prototyped as Claude artifacts before this repo
