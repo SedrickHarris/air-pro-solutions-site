@@ -10,10 +10,10 @@ import type { RebateCard } from '@/components/sections/RebateCards';
 //
 // TODO(verify): rebate programs and funding (Riverside Public Utilities, SCE thermostat credit,
 // TECH Clean California) and whether to add dollar amounts.
-// TODO(verify): electric utility per city for Rancho Cucamonga, Chino, Fontana, Upland,
-// and Eastvale (SCE is medium-to-low confidence).
-// TODO(verify): like-for-like permit rules for Rancho Cucamonga, Upland, and
-// Eastvale, and current Title 24 code dates.
+// TODO(verify): electric utility per city for Chino, Fontana, Upland, and Eastvale (SCE is
+// medium-to-low confidence). Rancho Cucamonga is confirmed on the City's utilities and RCMU pages.
+// TODO(verify): like-for-like permit rules for Upland and Eastvale, and current Title 24 code
+// dates. Rancho Cucamonga: the City page says all permits are online-only; no whole-unit rule found.
 // TODO(client): the research does not support saying "we handle permits", so this page does not.
 // TODO(client): real photos, city-tagged reviews, business hours, and the confirmed Inland Empire
 // city list for regions.ts (this page currently reuses the 8-city list already in regions.ts).
@@ -102,7 +102,7 @@ export const inlandEmpireHub = {
       ['Fontana', '22.3%', 'Middle', 'Predominantly detached single-family'],
       ['Chino', '18.9%', 'Middle', 'Predominantly detached single-family. Construction peaked from 1970 to 1979.'],
       ['Corona', '15.6%', 'Middle', 'Mostly detached single-family homes (66.9%), with 20.9% of homes in buildings of 5 or more units'],
-      ['Rancho Cucamonga', '9.6%', 'Newer', 'Mix of detached homes and multifamily'],
+      ['Rancho Cucamonga', '9.6%', 'Newer', 'Mostly detached single-family homes (62.5%), with 24.0% of homes in buildings of 5 or more units'],
       ['Eastvale', '0.7%', 'Newer', 'Predominantly detached single-family'],
     ],
     note: 'Share of homes built before 1970, 2018 data. Cities are listed from the highest share to the lowest, and the age group is a general grouping, not a ranking of city size.',
@@ -121,14 +121,15 @@ export const inlandEmpireHub = {
       { slug: 'heating-repair', body: 'Nights get cold enough to matter, with 66 days a year below 40°F in one San Bernardino-area station record. Furnace work starts with the city permit and SoCalGas service.' },
       { slug: 'heat-pump-services', body: 'Heat pump work starts with your electric utility, Riverside Public Utilities or SCE, and with state incentive programs whose funding is limited.' },
       { slug: 'residential-hvac', name: 'Residential HVAC', body: "Detached homes, townhomes, condos, and apartments, from Riverside and Upland's older neighborhoods to newer housing in Eastvale and Rancho Cucamonga.", icon: 'home' },
-      { slug: 'commercial-hvac', name: 'Commercial HVAC', body: 'Warehouse and logistics space in Fontana and Chino, industrial and retail in Rancho Cucamonga, Downtown Riverside, and rooftop units that may need screening review.', icon: 'building' },
+      { slug: 'commercial-hvac', name: 'Commercial HVAC', body: 'Warehouse and logistics space in Fontana and Chino, commercial and industrial developments around Victoria Gardens in Rancho Cucamonga, Downtown Riverside, and rooftop units that may need screening review.', icon: 'building' },
       { slug: 'services', name: 'All HVAC Services', body: 'See the full list of repair, installation, and maintenance services.', icon: 'check' },
     ] satisfies ServiceCardSpec[],
   },
 
   // Sources: Riverside/Ontario/Fontana rooftop screening-review context; Riverside, Ontario,
-  // Rancho Cucamonga district names; no commercial-property evidence found for Corona, Upland, or
-  // Eastvale.
+  // Rancho Cucamonga Municipal Utility's commercial service page (Victoria Gardens Mall and surrounding
+  // commercial and industrial developments), Riverside and Ontario district names; no commercial-property
+  // evidence found for Corona, Upland, or Eastvale.
   split: {
     eyebrow: 'Residential and commercial',
     title: 'Established neighborhoods, newer housing, and warehouse-scale buildings',
@@ -143,13 +144,13 @@ export const inlandEmpireHub = {
     commercial: {
       tag: 'Commercial',
       title: 'Commercial properties',
-      body: 'Warehouse and logistics space in Fontana and Chino, industrial employment areas and retail in Rancho Cucamonga, Downtown Riverside, and commercial space in Ontario.',
+      body: 'Warehouse and logistics space in Fontana and Chino, commercial and industrial developments around Victoria Gardens in Rancho Cucamonga, Downtown Riverside, and commercial space in Ontario.',
       chips: ['Offices', 'Retail', 'Restaurants', 'Rooftop units'],
       ctaLabel: 'Commercial HVAC',
       href: '/commercial-hvac/',
     },
     paragraphs: [
-      "**Districts differ.** Downtown Riverside, Ontario, Rancho Cucamonga's industrial and retail areas, and Fontana and Chino's warehouse districts each bring different building types, rooftop access, and neighbor conditions.",
+      "**Districts differ.** Downtown Riverside, Ontario, Rancho Cucamonga's Victoria Gardens area, and Fontana and Chino's warehouse districts each bring different building types, rooftop access, and neighbor conditions.",
       '**Rooftop units may need review.** Fontana has rules that can bring screening review to rooftop equipment, and we confirm the rules for Riverside and Ontario with each City, so we check placement and curb changes with the city before a unit is ordered.',
     ],
     pending: 'No commercial property evidence was found for Corona, Upland, or Eastvale, so this section makes no commercial claim for them.',
@@ -168,13 +169,13 @@ export const inlandEmpireHub = {
       ['Riverside', 'Permit through the Public Permit Portal or the Permit Services counter', "The City's Bulletin 140 lists no like-for-like exemption for a whole unit, so we confirm the permit path with the City."],
       ['Corona', 'City eTRAKiT system or the Building Division counter', "The City's fee schedule lists change-out items, but we found no rule on whole-unit replacement, so we confirm the permit path with the City."],
       ['Ontario', 'City online permitting portal or the Building Department counter', "The City's fee schedule lists mechanical permit items, but we found no rule on whole-unit replacement, so we confirm the permit path with the City."],
-      ['Rancho Cucamonga', 'Generally a city mechanical permit', 'Permit submittals are online only. We confirm the requirement with the city.'],
+      ['Rancho Cucamonga', "City Online Permit Center only, with no over-the-counter permits", "The City's guide lists HVAC replacement-only work among its no plan check permits, but it is an older undated document, so we confirm the permit path with the City."],
       ['Chino', 'Mechanical permit for like-for-like replacement', "Confirmed on the city's fee schedule."],
       ['Fontana', 'Mechanical permit for like-for-like replacement', "Confirmed on the city's fee schedule. Rooftop equipment may need screening review."],
       ['Upland', 'Generally a city mechanical permit', 'We confirm the requirement with the city before work begins.'],
       ['Eastvale', 'Generally a city mechanical permit', "Submittals go through the city's Accela portal. We confirm the requirement with the city."],
     ],
-    note: "Based on each city's published permit and fee pages where available. A like-for-like permit requirement was confirmed for Chino and Fontana. For Riverside, the City lists no like-for-like exemption for a whole unit, and for Ontario the City lists mechanical permit fee items but we found no whole-unit replacement rule. For the other four cities it was not confirmed in the sources we reviewed, so we confirm with the city before work begins. Procedures change.",
+    note: "Based on each city's published permit and fee pages where available. A like-for-like permit requirement was confirmed for Chino and Fontana. For Riverside, the City lists no like-for-like exemption for a whole unit, for Ontario the City lists mechanical permit fee items but we found no whole-unit replacement rule, and Rancho Cucamonga takes every permit through its Online Permit Center. For the other three cities it was not confirmed in the sources we reviewed, so we confirm with the city before work begins. Procedures change.",
     paragraphs: [
       '**Title 24 checks depend on the job.** Refrigerant charge verification applies to air conditioners in Climate Zones 2 and 8 through 15 and to heat pumps everywhere. Duct sealing and testing may apply, and a setback thermostat upgrade can be required when a refrigerant component is replaced.',
       '**Climate zone is set by address.** Which checks apply depends on the climate zone for your property, so we confirm it by address rather than by city. Not every job needs every test.',
@@ -221,6 +222,7 @@ export const inlandEmpireHub = {
     ] satisfies RebateCard[],
     copy: [
       '**Corona has small city electric areas.** Most of Corona is served by SCE, but small areas including Dos Lagos, The Crossings, Corona Pointe, and Princeland have city electric service. Confirm your utility by address before relying on a program.',
+      '**Rancho Cucamonga has a city electric utility in limited areas.** The City lists Southern California Edison as the main electric provider, and Rancho Cucamonga Municipal Utility serves limited areas, including Victoria Gardens Mall and several named developments. Confirm your utility by address before relying on a program.',
       '**Program details change quickly.** Riverside Public Utilities rebates, the SCE thermostat credit, and TECH Clean California incentives are all subject to funding. We do not list dollar amounts here.',
       'Rebates and eligibility vary by service address, utility account, equipment efficiency, and available funding. Confirm final eligibility, amount, and application requirements with your utility before installation.',
     ],
@@ -229,11 +231,12 @@ export const inlandEmpireHub = {
       'Riverside electric: Riverside Public Utilities',
       'Corona electric: mostly SCE',
       'Ontario electric: SCE',
-      'Other five cities, electric: generally SCE',
-      'Ontario gas: SoCalGas',
+      'Rancho Cucamonga electric: SCE, with Rancho Cucamonga Municipal Utility in limited areas',
+      'Other four cities, electric: generally SCE',
+      'Ontario and Rancho Cucamonga gas: SoCalGas',
       'Natural gas: SoCalGas outside Riverside, where we confirm the provider by address',
     ],
-    note: '**Confirm by address:** SCE service for Rancho Cucamonga, Chino, Fontana, Upland, and Eastvale is not directly confirmed, so verify your utility before relying on any program.',
+    note: '**Confirm by address:** SCE service for Chino, Fontana, Upland, and Eastvale is not directly confirmed, so verify your utility before relying on any program.',
   },
 
   cities: {
@@ -263,9 +266,10 @@ export const inlandEmpireHub = {
       },
       {
         name: 'Rancho Cucamonga',
-        note: 'Newer housing, with 9.6% of homes built before 1970. Permit submittals are online only, and industrial employment areas, retail, restaurants, and hospitality shape the commercial work.',
-        areas: 'Victoria Gardens, Alta Loma, Etiwanda, Terra Vista',
-        utility: 'Electric: generally SCE.',
+        href: '/service-areas/rancho-cucamonga/',
+        note: 'Newer housing, with 9.6% of homes built before 1970 and 62.5% detached homes. The City takes every permit through its Online Permit Center, and its own municipal utility serves limited areas alongside SCE.',
+        areas: 'Victoria Gardens, Foothill Boulevard, Cucamonga Town Center, HART District',
+        utility: 'Electric: SCE, with Rancho Cucamonga Municipal Utility in limited areas. Gas: SoCalGas.',
       },
       {
         name: 'Chino',
@@ -316,7 +320,7 @@ export const inlandEmpireHub = {
     },
     {
       q: 'Do I need a permit to replace my AC in the Inland Empire?',
-      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Riverside County or San Bernardino County. A like-for-like replacement permit requirement is confirmed for Chino and Fontana. Riverside lists no like-for-like exemption for a whole unit, and Ontario lists mechanical permit fee items but no whole-unit rule we found, so we confirm each path with the City. For the other four cities, replacement generally requires a city mechanical permit, and we confirm the path with your city before work begins.',
+      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Riverside County or San Bernardino County. A like-for-like replacement permit requirement is confirmed for Chino and Fontana. Riverside lists no like-for-like exemption for a whole unit, Ontario lists mechanical permit fee items but no whole-unit rule we found, and Rancho Cucamonga takes every permit through its Online Permit Center, so we confirm each path with the City. For the other three cities, replacement generally requires a city mechanical permit, and we confirm the path with your city before work begins.',
     },
     {
       q: 'What is Title 24 and how does it affect an HVAC replacement?',
@@ -324,7 +328,7 @@ export const inlandEmpireHub = {
     },
     {
       q: 'Which utility serves my home, and are there HVAC rebates?',
-      a: 'It depends on your address. Riverside is served by Riverside Public Utilities. Corona is mostly Southern California Edison (SCE), with small city electric areas, and the other cities are generally SCE. Outside Riverside, natural gas is supplied by Southern California Gas Company (SoCalGas), and in Riverside we confirm the gas provider by address. Programs, amounts, and funding change, so confirm your utility by address and confirm current eligibility before installation.',
+      a: 'It depends on your address. Riverside is served by Riverside Public Utilities. Corona is mostly Southern California Edison (SCE), with small city electric areas. In Rancho Cucamonga, SCE is the main electric provider and Rancho Cucamonga Municipal Utility serves limited areas. The other cities are generally SCE. Outside Riverside, natural gas is supplied by Southern California Gas Company (SoCalGas), and in Riverside we confirm the gas provider by address. Programs, amounts, and funding change, so confirm your utility by address and confirm current eligibility before installation.',
     },
     {
       q: 'How hot does it get, and does that change equipment sizing?',
@@ -332,7 +336,7 @@ export const inlandEmpireHub = {
     },
     {
       q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in the Inland Empire?',
-      a: 'Yes, for offices, retail, restaurants, and other commercial properties. The commercial mix includes warehouse and logistics space in Fontana and Chino, industrial and retail areas in Rancho Cucamonga, Downtown Riverside, and commercial space in Ontario. Rooftop equipment may need screening review in Fontana, and we confirm the rules for Riverside and Ontario with each City.',
+      a: 'Yes, for offices, retail, restaurants, and other commercial properties. The commercial mix includes warehouse and logistics space in Fontana and Chino, commercial and industrial developments around Victoria Gardens in Rancho Cucamonga, Downtown Riverside, and commercial space in Ontario. Rooftop equipment may need screening review in Fontana, and we confirm the rules for Riverside and Ontario with each City.',
     },
     {
       q: 'Do older homes in the Inland Empire need different HVAC work?',

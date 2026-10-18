@@ -494,6 +494,64 @@ source so JSON-LD, visible text and TS match. Rancho Cucamonga is NOT in this re
 - Hero photo is still "Photo pending".
 - Claim wording follows the approved list. Do not strengthen it.
 
+## /service-areas/rancho-cucamonga/ (ranchoCucamongaOverrides in src/content/cities.ts)
+Built 2026-10-18, committed locally (push to main or PR not yet chosen). Reference artifact: claude/reference/rancho-cucamonga-location.html.
+Fourth Inland Empire wave-1 city page in this repo. Generated from one data source so JSON-LD, visible text and TS match.
+- Title: `cityTitle('Rancho Cucamonga')` ("HVAC Services in Rancho Cucamonga, CA | AIRPRO SOLUTIONS", 56 characters) needs no `distinctTitle`.
+  H1 is `cityH1('Rancho Cucamonga')` (37 characters). The meta description is the hand-written `page.metaDescription`
+  (152 characters, validated by `assertDescription`).
+- TODO(copy): the client has NOT approved any Rancho Cucamonga wording (every FAQ answer, the five local paragraphs, the noise
+  sentences, the Title 24 sentences, the RCMU sentences, the commercial sentence, the incentive wording, and both local cards).
+  Keep flagged until the user says the client approved.
+- TODO(verify): confirm with the City which permit path each HVAC job needs (permitting questions (909) 488-4668, call or text) and
+  whether AIRPRO SOLUTIONS needs a City business license (not found on the City pages read).
+- TODO(verify): noise text is from a THIRD-PARTY copy of Development Code Section 17.66.050 on GoCodebook (labeled 2026-10 edition,
+  says it is not a substitute for the official code, does not mention air conditioners). Recheck against the official ecode360 text
+  before publishing any limit. The ecode360 table of contents loaded but the noise text did not.
+- TODO(verify): Title 24 sentences are general because the Energy Commission HVAC page was permission-blocked this session. Recheck
+  before adding leakage limits or the climate-zone list.
+- Lead angle: two electric utilities and online-only permits. Rancho Cucamonga Municipal Utility (RCMU) serves limited areas
+  (The Enclave, Day Creek Square, The Row & Bungalows, The Resort, Day Creek Villas, Cadence Senior Living; Victoria Gardens Mall and
+  surrounding commercial and industrial developments) and SCE is the main provider, so rebate eligibility follows the utility account.
+  The research missed RCMU entirely. The City says all permits are applied for online, with no over-the-counter permits.
+- Housing and population: SCAG housing PDF (DOF E-5, 2018: 59,440 units, 62.5% detached, 24.0% in 5+ unit buildings; 28.5% built
+  1980-89 and 9.6% before 1970) and Census QuickFacts (177,856 residents, July 1, 2025). Data years labeled as printed.
+- DECISION (recommended: keep link-only; user approved the recommendations): verified amounts, not published. RCMU HVAC rebates
+  $100 and $200 per ton; SoCalGas furnace $1.40 / $10 / $25 per kBtuh by AFUE tier; SCE Smart Energy $75. The SoCalGas $75 thermostat
+  rebate is wildfire-ZIP only. Rebate cards are link-only with no dollar amounts.
+- Right-hand card (balance rule, docs/local-knowledge-balance.md): two `page.localCards` (housing snapshot, exterior noise limits)
+  above the "Official Rancho Cucamonga resources" list (`page.officialResources`, 11 links). Measured at 1280px: copy 1,369px,
+  card 1,439px (about 70px past the copy, no blank card); no horizontal scroll at 390px. A third card (electric and gas providers) and
+  six surplus links (Online Permit Center guide, Applicable Codes, Ordinance 1048, fee schedule, RCMU residential and commercial
+  pages) were cut to stay balanced; those links all remain inside the FAQ answers. Measured with mocked fonts, so treat as close.
+  `neighborhoods: []`, `zips: []`, `nearby: []`.
+- Held out (no verified source): ZIP card (the research's 91701, 91730, 91737, 91739 came from a third-party real-estate guide);
+  neighborhood pills and nearby row (Alta Loma, Etiwanda, Terra Vista, Victoria, Caryn, Red Hill from a third-party guide; the City
+  General Plan would not load); climate and NOAA figures (third-party airport-station normals); the HVAC self-certification
+  inspection by photo or video (a March 2020 pandemic document); dollar fee amounts; the SCE Summer Discount Plan, Energy Savings
+  Assistance and TECH Clean California claims (not read); city-specific condenser setbacks and screening rules; named industrial
+  areas, employers and employee counts; the City At a Glance PDF figures (173,134 residents conflicts with QuickFacts); the
+  competitor SERP table.
+- Corrected research overstatements: fee figures $332, $50 and $395 are from the superseded FY 2025-26 schedule and were mislabeled;
+  GPMF is 10%, not 15.9%, and does not apply to the HVAC lines; the self-certification inspection is a 2020 pandemic document; the
+  "no plan check" guide is older and undated; the SoCalGas thermostat rebate is wildfire-ZIP only; RCMU was missing; the ecode360 IDs
+  43101139, 47019330 and 43727776 belong to other cities.
+- Blocked, not worked around: rcdocs.cityofrc.us (robots disallowed), the Energy Commission HVAC page (permission not answered),
+  the SCAG localprofile.pdf URL (redirected to an unrelated page, so the Pre-Certified Housing Data PDF was used).
+- Pre-launch recheck: Building & Safety page, Online Permit Center guide (undated), Applicable Codes (undated), Ordinance 1048 and
+  its Chapter 15.16, Community Development fee schedule (file name says eff 1-1-26, content says FY 2026-27), RCMU pages and rebate
+  forms, SCE and SoCalGas rebate pages, GoCodebook vs official ecode360 Section 17.66.050, Energy Commission HVAC page, SCAG
+  housing PDF, QuickFacts, economic development page, zoning viewer.
+- Inland Empire hub wiring DONE: city card `href` and rewrite (62.5% detached, 9.6% pre-1970, areas now "Victoria Gardens, Foothill
+  Boulevard, Cucamonga Town Center, HART District"; "Alta Loma, Etiwanda, Terra Vista" dropped as third-party), /service-areas/
+  chip, `hubCityIndexNote`, the Inland Empire page sentence.
+- Inland Empire hub audit, Rancho Cucamonga copy corrected: housing row now says mostly detached (62.5%) with 24.0% in 5+ unit
+  buildings; permits row and note now say every permit goes through the Online Permit Center, with the guide's no plan check
+  mention hedged; utilities list, note, copy bullet and FAQ now name RCMU; commercial wording now follows RCMU's Victoria Gardens
+  statement instead of "industrial employment areas and retail"; header TODO(verify) comments narrowed to the other cities.
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list. Do not strengthen it.
+
 ## /service-areas/glendale/ (glendaleOverrides in src/content/cities.ts)
 Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: claude/reference/glendale-location.html
 (https://claude.ai/artifact/E3TW4WvfKyULt7XKHkNxot). First LA County city page built from a single data source feeding the visible HTML, the
@@ -774,10 +832,10 @@ Built 2026-10-19, pushed to main (user said the page should be pushed; read as p
 - Rebate programs (Riverside Public Utilities, SCE thermostat credit, TECH Clean California) and
   their funding status: no dollar amounts were found/verified, so none are shown. Verify before
   launch and decide whether amounts can be added.
-- Electric utility per city for Ontario, Rancho Cucamonga, Chino, Fontana, Upland, and Eastvale is
-  medium-to-low confidence ("generally SCE"). Verify directly before launch.
-- Like-for-like permit rules for Corona, Ontario, Rancho Cucamonga, Upland, and Eastvale were not
-  confirmed in the sources reviewed (confirmed only for Chino and Fontana; Riverside lists no like-for-like exemption for a whole unit). Verify with
+- Electric utility per city for Ontario, Chino, Fontana, Upland, and Eastvale is
+  medium-to-low confidence ("generally SCE"). Verify directly before launch. Rancho Cucamonga is confirmed on the City's utilities and RCMU pages (SCE main, RCMU in limited areas).
+- Like-for-like permit rules for Corona, Ontario, Upland, and Eastvale were not
+  confirmed in the sources reviewed (confirmed only for Chino and Fontana; Riverside lists no like-for-like exemption for a whole unit; Rancho Cucamonga takes every permit online and its older guide lists replacement-only HVAC as no plan check). Verify with
   each city, and re-verify current Title 24 code dates.
 - This page does not say "we handle permits" - the research does not support that claim. Do not
   add it without client sign-off.

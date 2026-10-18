@@ -59,7 +59,7 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach and hermosa-beach have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach and rancho-cucamonga have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -6264,6 +6264,353 @@ const hermosaBeachOverrides: Partial<City> = {
   },
 };
 
+const ranchoCucamongaOverrides: Partial<City> = {
+  // TODO(data): add verified climate detail before treating this as a full local page.
+  neighborhoods: [], // no official neighborhood list was verified (only a third-party guide names areas); nothing is shown
+  zips: [], // ZIP list held out: the research's list came from a third-party real-estate guide; no official postal or service-area list was read
+  page: {
+    metaDescription:
+      "HVAC for Rancho Cucamonga homes and businesses, from AC repair to installation. Know the online permit steps and your utility. Licensed, 4.8-star rated.",
+    lede:
+      "AIRPRO SOLUTIONS provides HVAC services across Rancho Cucamonga, including the Victoria Gardens area, with AC repair, heating repair, installation, and maintenance for homes and businesses.",
+    heroCaption: { title: "Rancho Cucamonga, CA", text: "Local HVAC service across Rancho Cucamonga" },
+    heroProof: [
+      { icon: "shield", label: "Licensed, bonded & insured" },
+      { icon: "star", label: "4.8-star rated" },
+      { icon: "bolt", label: "24/7 emergency dispatch" },
+      { icon: "building", label: "Residential and commercial" },
+    ],
+    trustStats: [
+      { num: "4.8★", label: "Google rating, 40 reviews" },
+      { num: "C-20", label: "California licensed" },
+      { num: "24/7", label: "emergency dispatch" },
+      { num: "Same-day", label: "service typical" },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Rancho Cucamonga",
+      body:
+        ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Rancho Cucamonga at a glance",
+      stats: [
+        { num: "177,856", label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)" },
+        { num: "62.5%", label: "of 59,440 housing units are single-family detached, and 24.0% are in buildings of 5 or more units (California Department of Finance E-5 estimates, per SCAG, updated April 2021)" },
+        { num: "28.5%", label: "of housing was built from 1980 to 1989, the largest share, and 9.6% before 1970 (American Community Survey 2014-2018, per SCAG)" },
+      ],
+      source: "Sources: U.S. Census Bureau QuickFacts and SCAG's Pre-Certified Local Housing Data for Rancho Cucamonga.",
+    },
+    localTitle: "Rancho Cucamonga's online permits, utilities, and noise limits",
+    // Held out (no verified source): ZIP card (the research's 91701, 91730, 91737 and 91739 came from a third-party real-estate guide; the City pages read show only 91730 in the City Hall address); neighborhood pills and the nearby row (Alta Loma, Etiwanda, Terra Vista, Victoria, Caryn and Red Hill came from a third-party guide and the City General Plan would not load); climate, NOAA and heat figures (the timeanddate airport-station normals are third-party and not city data); HVAC self-certification inspection by photo or video (a March 2020 pandemic-era document that says interiors of existing single-family homes are not inspected at this time, with no evidence it is still in effect); dollar fee amounts (the research's 332, 50 and 395 figures are from the FY 2025-26 schedule, were mislabeled and are superseded; pairing in the newer schedule is not verifiable); RCMU and SoCalGas rebate amounts; the SCE Summer Discount Plan, Energy Savings Assistance, TECH Clean California and annual-credit claims (not read this session); city-specific condenser setbacks, screening rules, historic and HOA rules; named industrial areas, employers and employee counts; Municipal Code landing-page currency claims (through Ordinance 1029); official ecode360 noise text (only the table of contents loaded); the City At a Glance PDF figures (173,134 residents, Retail Coach source, conflicts with QuickFacts); competitor SERP table (gap analysis only).
+    // TODO(copy): client has not approved any Rancho Cucamonga wording (every FAQ answer, the five local paragraphs, the noise sentences, the Title 24 sentences, the RCMU sentences, the commercial sentence, the incentive wording). Keep flagged until the user says the client approved.
+    // TODO(copy): confirm with the City which permit path each HVAC job needs (permitting questions (909) 488-4668, call or text) and whether AIRPRO SOLUTIONS needs a City business license (not found on the City pages read).
+    // TODO(copy): noise text is from a THIRD-PARTY copy of Development Code Section 17.66.050 on GoCodebook (labeled 2026-10 edition, as of 2026-10-04, says it is not a substitute for the official code). Recheck against the official ecode360 text before publishing any limit.
+    // TODO(copy): Title 24 sentences are general because the Energy Commission HVAC page was permission-blocked this session. Recheck the page before adding leakage limits or the climate-zone list.
+    // Pre-launch recheck: Building & Safety page, Online Permit Center guide (undated), Applicable Codes (undated), Ordinance 1048 and its Chapter 15.16, Community Development fee schedule (file name says eff 1-1-26, content says FY 2026-27), RCMU pages and rebate forms, SCE and SoCalGas rebate pages, GoCodebook vs official ecode360 Section 17.66.050, Energy Commission HVAC page, SCAG housing PDF, QuickFacts, economic development page, zoning viewer.
+    localParagraphs: [
+      "Rancho Cucamonga's Building & Safety page says all permits are applied for online and that the City does not issue permits over the counter, and it lists (909) 488-4668 for permitting questions by call or text. Applications can also be started at kiosks at City Hall, 10500 Civic Center Drive. The City's Online Permit Center guide, an older undated document, lists condenser, forced air unit, and HVAC replacement-only work among the **no plan check permits that can be processed and issued online**, including payment, and the City's fee schedule lists HVAC system and package or split system fee items. We did not find a current City page that states which HVAC jobs need a permit, so **AIRPRO SOLUTIONS confirms the permit path with the City** before work starts.",
+      "The City's Applicable Codes page, which is undated, lists 2025 California editions of the Building, Mechanical, and Energy Codes, among others, for plans filed on or after January 1, 2026, and earlier editions for plans filed before then. Ordinance No. 1048, adopted November 19, 2025, adopts the 2025 California Mechanical Code, and the Mechanical Code amendments we read cover permit fees and a Board of Appeals. The City's Building & Safety page lists **Climate Zone 10**, and California's Title 24 energy rules can require duct sealing, field verification and diagnostic testing, and refrigerant charge verification depending on the job, so we confirm which checks and which code edition apply to your project.",
+      "Rancho Cucamonga had an estimated 177,856 residents on July 1, 2025, up from 174,453 in the 2020 U.S. Census, and QuickFacts reports a 62.3% owner-occupied housing rate for 2020-2024. SCAG's housing data, using California Department of Finance E-5 estimates and updated April 2021, counts **59,440 housing units: 62.5% single-family detached, 6.2% attached, 4.6% in buildings of 2 to 4 units, 24.0% in buildings of 5 or more, and 2.6% mobile homes**. The same report, citing the American Community Survey for 2014-2018, shows that **28.5% of housing units were built from 1980 to 1989**, the largest share, with 21.5% built from 1970 to 1979 and 9.6% before 1970. The figures are dated and citywide, and a build year does not tell us equipment age, ductwork, or access, so we check those at the property.",
+      "Rancho Cucamonga has two electric providers. The City's utilities page lists Southern California Edison and Rancho Cucamonga Municipal Utility (RCMU) for electric service and Southern California Gas for gas. RCMU's page says **Southern California Edison is the main service provider** and that RCMU serves limited areas, with residential service at The Enclave, Day Creek Square, The Row & Bungalows, The Resort, Day Creek Villas, and Cadence Senior Living, and commercial service to Victoria Gardens Mall and surrounding commercial and industrial developments. Rebate eligibility follows your utility account, so confirm on your bill whether SCE or RCMU serves you. We link the program pages instead of quoting amounts.",
+      "For noise, the third-party copy of Development Code Section 17.66.050 that we read lists residential exterior limits of **65 dBA from 7 a.m. to 10 p.m. and 60 dBA from 10 p.m. to 7 a.m.**, measured at the adjacent residential property line, and 70 dBA by day and 65 dBA at night for commercial and office property. It does not mention air conditioners. The copy is hosted by GoCodebook, not the City, and says it is not a substitute for the official code, so we confirm how the limits apply to your address before choosing a condenser location. For commercial work, the City's economic development site names the HART District, the Epicenter Master Plan area, the Foothill Boulevard Corridor, Cucamonga Town Center, and Cucamonga Station, and the City's Zoning Plan Interactive Viewer shows how a property is zoned, so we plan commercial visits around the building and its rooftop or ground equipment access. Official links are in the card for this section.",
+    ],
+    neighborhoodsHeading: "Official Rancho Cucamonga resources",
+    officialResources: [
+      {
+        text: "Building & Safety",
+        href: "https://www.cityofrc.us/community-development/building-safety",
+        note: "Online-only permits and contact numbers.",
+      },
+      {
+        text: "Online Permit Center",
+        href: "https://www.cityofrc.us/construction-development/online-permit-center",
+        note: "Where the City sends applicants to apply for permits.",
+      },
+      {
+        text: "Zoning Plan Interactive Viewer",
+        href: "https://www.cityofrc.us/everything-we-do/zoning-map",
+        note: "Look up how a property is zoned.",
+      },
+      {
+        text: "Development Code Section 17.66.050, noise",
+        href: "https://gocodebook.com/library/us/ca/rancho-cucamonga-zoning/title-17-development-code/chapter-17.66-performance-standards",
+        note: "Exterior noise standards, on a third-party host.",
+      },
+      {
+        text: "City utilities information",
+        href: "https://www.cityofrc.us/construction-development/local-utilities-information",
+        note: "Lists the electric, gas, and water providers.",
+      },
+      {
+        text: "Rancho Cucamonga Municipal Utility",
+        href: "https://www.cityofrc.us/rcmu",
+        note: "The City's electric utility, its limited service area, and its rebates.",
+      },
+      {
+        text: "SCE rebates",
+        href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+        note: "Rebate and coupon programs.",
+      },
+      {
+        text: "SoCalGas rebates",
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "Natural gas furnace rebate and program terms.",
+      },
+      {
+        text: "Economic development",
+        href: "https://www.cityofrc.us/everything-we-do/economic-development",
+        note: "Districts and corridors named on this page.",
+      },
+      {
+        text: "SCAG housing data (PDF)",
+        href: "https://scag.ca.gov/sites/main/files/file-attachments/rancho-cucamonga-he-0421.pdf?1620770003",
+        note: "Housing counts and building age.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/fact/table/ranchocucamongacitycalifornia/PST045224",
+        note: "Population and owner-occupied rate.",
+      },
+    ],
+    // TODO(copy): the local cards below restate figures already in the local paragraphs; client has not approved them.
+    localCards: [
+      {
+        heading: "Rancho Cucamonga housing snapshot",
+        rows: [
+          { label: "Single-family detached", value: "62.5%" },
+          { label: "Buildings of 5 or more units", value: "24.0%" },
+          { label: "Built 1980 to 1989", value: "28.5%" },
+          { label: "Built before 1970", value: "9.6%" },
+        ],
+        note: "SCAG's housing data, updated April 2021: California Department of Finance E-5 estimates for housing type and American Community Survey 2014-2018 estimates for building age. Figures are citywide and dated.",
+      },
+      {
+        heading: "Exterior noise limits",
+        rows: [
+          { label: "Residential, 7 a.m. to 10 p.m.", value: "65 dBA" },
+          { label: "Residential, 10 p.m. to 7 a.m.", value: "60 dBA" },
+          { label: "Commercial and office, 7 a.m. to 10 p.m.", value: "70 dBA" },
+          { label: "Commercial and office, 10 p.m. to 7 a.m.", value: "65 dBA" },
+        ],
+        note: "Development Code Section 17.66.050, measured at the adjacent property line. Third-party copy on GoCodebook, not the City, and it does not mention air conditioners. Confirm against the official code.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Rancho Cucamonga homes and businesses",
+    serviceCards: [
+      { slug: "ac-repair", name: "AC Repair", body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises, with the City's noise standards in mind for outdoor units." },
+      { slug: "ac-installation", name: "AC Installation & Replacement", body: "New system sizing and installation, planned around the City's online permit process, Climate Zone 10 Title 24 requirements, and your electric utility." },
+      { slug: "ac-maintenance", name: "AC Maintenance", body: "Seasonal AC tune-ups that catch small issues early, for homes and for commercial rooftop and ground units." },
+      { slug: "heating-repair", name: "Heating Repair", body: "Furnace and heating system diagnosis and repair. The City's utilities page lists Southern California Gas as the gas provider." },
+      { slug: "furnace-installation", name: "Furnace Installation & Replacement", body: "New furnace sizing and installation, with the City's permit path confirmed before work starts. SoCalGas lists a gas furnace rebate that requires proof of permit closure, and funding changes, so we point you to the current program page." },
+      { slug: "heat-pump-services", name: "Heat Pump Services", body: "Installation, repair, and maintenance for heat pumps. Heat pump work starts with your electric utility, which is SCE or, in limited areas, RCMU, and incentive programs change." },
+      { slug: "ductless-mini-split", name: "Ductless Mini-Split", body: "Room-by-room comfort control for spaces where ductwork is not an option." },
+      { slug: "ductwork", name: "Ductwork Services", body: "Duct repair, sealing, replacement, and installation, with Title 24 duct sealing and verification in mind. The City's fee schedule lists a ductwork-only item." },
+      { slug: "indoor-air-quality", name: "Indoor Air Quality", body: "Air filtration, whole-home purification, and ventilation options." },
+      { slug: "emergency-hvac", name: "Emergency HVAC", body: "Dispatch for no-cool and no-heat emergencies in Rancho Cucamonga." },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Rancho Cucamonga permits, electric utilities, and incentive programs",
+      intro: "Official sources for three local items worth checking before a Rancho Cucamonga HVAC project.",
+      cards: [
+        // TODO(copy): incentive wording not yet client-approved. No dollar amounts on purpose; recheck links before launch.
+        {
+          amount: "Online permits",
+          description: "Rancho Cucamonga does not issue permits over the counter, and applications go through the City's Online Permit Center. The City's guide lists condenser, forced air unit, and HVAC replacement-only work among the no plan check permits, but it is an older undated document, so confirm your job with the City.",
+          linkLabel: "Building & Safety",
+          linkHref: "https://www.cityofrc.us/community-development/building-safety",
+        },
+        {
+          amount: "Two electric utilities",
+          description: "Southern California Edison is the main electric provider, and the City's own utility, RCMU, serves limited areas that include Victoria Gardens Mall. Which utility serves you decides which rebates apply, so check your bill.",
+          linkLabel: "RCMU",
+          linkHref: "https://www.cityofrc.us/rcmu",
+        },
+        {
+          amount: "Incentive programs",
+          description: "SCE, SoCalGas, and RCMU list HVAC-related programs for their own customers, including Golden State Rebates coupons, a gas furnace rebate that needs proof of permit closure, and RCMU rebates. Terms and funding change, and we do not quote amounts, so check the current terms before you buy.",
+          linkLabel: "SCE rebates",
+          linkHref: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+        },
+      ],
+    },
+    nearby: [],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Rancho Cucamonga",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        { num: "4.8★", label: "Google rating" },
+        { num: "40", label: "Google reviews" },
+        { num: "C-20", label: "California license class" },
+        { num: "24/7", label: "Emergency dispatch" },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Rancho Cucamonga. Same-day service is typical, subject to capacity.",
+    // TODO(copy): client has not confirmed any FAQ answer below.
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Rancho Cucamonga?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Rancho Cucamonga as part of our Inland Empire coverage. The City's Building & Safety department handles permits through its Online Permit Center, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Inland Empire coverage", href: "/service-areas/inland-empire/" },
+          { text: "Online Permit Center", href: "https://www.cityofrc.us/construction-development/online-permit-center" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Rancho Cucamonga home?",
+        a: "Same-day service is typical in Rancho Cucamonga, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Rancho Cucamonga, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an AC or furnace in Rancho Cucamonga?",
+        a: "Check with the City before work starts. Rancho Cucamonga's Building & Safety page says all permits are applied for online and that the City does not issue permits over the counter. The City's Online Permit Center guide, an older undated document, lists condenser, forced air unit, and HVAC replacement-only work among the no plan check permits that can be issued online, but we did not find a current City page that says which HVAC jobs need a permit. The City's fee schedule lists HVAC system fees, and the SoCalGas furnace rebate requires proof of permit closure, so AIRPRO SOLUTIONS confirms the permit path with the City before work starts.",
+        boldLead: "Check with the City before work starts.",
+        links: [
+          { text: "Building & Safety page", href: "https://www.cityofrc.us/community-development/building-safety" },
+          { text: "Online Permit Center guide", href: "https://www.cityofrc.us/sites/default/files/2020-10/How%20to%20Start%20an%20Application%20Using%20the%20Online%20Permit%20Center.pdf" },
+          { text: "fee schedule", href: "https://www.cityofrc.us/sites/default/files/2026-01/Fee_Schedule_Comm_Develop_eff_1-1-26_0.pdf" },
+          { text: "SoCalGas", href: "https://www.socalgas.com/savings/rebates-and-incentives" },
+        ],
+      },
+      {
+        q: "How do I apply for an HVAC permit in Rancho Cucamonga?",
+        a: "Use the City's Online Permit Center. The City says its permit process is done 100% online, and applications can also be started at kiosks at City Hall, 10500 Civic Center Drive. The City lists (909) 488-4668 for permitting questions by call or text. The fee schedule lists HVAC system and package or split system fee items, and we do not quote fees. We confirm what your job needs with the City before we apply.",
+        boldLead: "Use the City's Online Permit Center.",
+        links: [
+          { text: "Online Permit Center", href: "https://www.cityofrc.us/construction-development/online-permit-center" },
+          { text: "fee schedule", href: "https://www.cityofrc.us/sites/default/files/2026-01/Fee_Schedule_Comm_Develop_eff_1-1-26_0.pdf" },
+        ],
+      },
+      {
+        q: "Which building codes apply to HVAC work in Rancho Cucamonga?",
+        a: "The City's Applicable Codes page lists 2025 California editions of the Building, Mechanical, and Energy Codes, among others, for plans filed on or after January 1, 2026. The page is undated. It also lists 2022 editions for plans filed on or after January 1, 2023, and 2019 editions for plans filed on or after January 1, 2020. Ordinance No. 1048, adopted November 19, 2025, adopts the 2025 California Mechanical Code, and the Mechanical Code amendments we read cover permit fees and a Board of Appeals. We confirm which edition applies to your project with the City.",
+        boldLead: "The City's Applicable Codes page lists 2025 California editions of the Building, Mechanical, and Energy Codes, among others, for plans filed on or after January 1, 2026.",
+        links: [
+          { text: "Applicable Codes page", href: "https://www.cityofrc.us/sites/default/files/2026-01/Applicable%20Codes.pdf" },
+          { text: "Ordinance No. 1048", href: "https://ecode360.com/RA4992/laws/LF2538456.pdf" },
+        ],
+      },
+      {
+        q: "Does Title 24 apply when I replace an AC or furnace in Rancho Cucamonga?",
+        a: "Yes, the applicable Title 24 energy requirements apply. The City's Building & Safety page lists Climate Zone 10, and California's Energy Code can require duct sealing, field verification and diagnostic testing, and refrigerant charge verification depending on the job. The Energy Commission's HVAC page explains which checks apply to which work. Not every job needs every test, and we confirm what your job needs.",
+        boldLead: "Yes, the applicable Title 24 energy requirements apply.",
+        links: [
+          { text: "Energy Commission's HVAC page", href: "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/energy-code-support-center/hvac-0" },
+        ],
+      },
+      {
+        q: "Does Rancho Cucamonga have a noise rule that affects AC equipment?",
+        a: "Rancho Cucamonga's Development Code sets exterior noise standards in Section 17.66.050. The third-party copy we read lists 65 dBA from 7 a.m. to 10 p.m. and 60 dBA from 10 p.m. to 7 a.m. for residential property, measured at the adjacent residential property line, and it does not mention air conditioners, so we did not find a rule written only for HVAC equipment. The copy is hosted by GoCodebook, not the City, and says it is not a substitute for the official code, so we confirm how the limits apply to your address before we choose a condenser location.",
+        boldLead: "Rancho Cucamonga's Development Code sets exterior noise standards in Section 17.66.050.",
+        links: [
+          { text: "third-party copy", href: "https://gocodebook.com/library/us/ca/rancho-cucamonga-zoning/title-17-development-code/chapter-17.66-performance-standards" },
+        ],
+      },
+      {
+        q: "Does Rancho Cucamonga have rules for where outdoor AC equipment can go?",
+        a: "We confirm placement with the City before choosing a unit and location. We did not find or verify a City setback or screening rule for replacement equipment, so we do not assume one applies or does not apply. The City's Zoning Plan Interactive Viewer shows how a property is zoned, and the City lists (909) 488-4668 for permitting questions by call or text.",
+        boldLead: "We confirm placement with the City before choosing a unit and location.",
+        links: [
+          { text: "Zoning Plan Interactive Viewer", href: "https://www.cityofrc.us/everything-we-do/zoning-map" },
+        ],
+      },
+      {
+        q: "Do you work in condos and apartment buildings in Rancho Cucamonga?",
+        a: "Yes. SCAG's housing data for Rancho Cucamonga, using California Department of Finance E-5 estimates and updated April 2021, counts 59,440 housing units, with 62.5% single-family detached, 6.2% single-family attached, 4.6% in buildings of 2 to 4 units, 24.0% in buildings of 5 or more units, and 2.6% mobile homes. AIRPRO SOLUTIONS services condos, townhomes, and apartments as well as single-family homes, and in a multi-unit building we confirm equipment access and placement at the property. See our Residential HVAC page.",
+        boldLead: "Yes.",
+        links: [
+          { text: "housing data", href: "https://scag.ca.gov/sites/main/files/file-attachments/rancho-cucamonga-he-0421.pdf?1620770003" },
+          { text: "Residential HVAC page", href: "/residential-hvac/" },
+        ],
+      },
+      {
+        q: "Does the age of Rancho Cucamonga homes matter for HVAC work?",
+        a: "It can, and we confirm it on site. SCAG's housing data, citing the American Community Survey for 2014-2018, reports that 28.5% of Rancho Cucamonga's housing units were built from 1980 to 1989, the largest share, followed by 21.5% from 1970 to 1979 and 21.4% from 2000 to 2009, and 9.6% were built before 1970. Those figures are dated and citywide, and the year a home was built does not tell us its equipment age, ductwork condition, or whether it has air conditioning, so we check those at a site visit before recommending repair or replacement.",
+        boldLead: "It can, and we confirm it on site.",
+        links: [
+          { text: "housing data", href: "https://scag.ca.gov/sites/main/files/file-attachments/rancho-cucamonga-he-0421.pdf?1620770003" },
+        ],
+      },
+      {
+        q: "Do you service Victoria Gardens and the rest of Rancho Cucamonga?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Rancho Cucamonga. The City's municipal electric utility, Rancho Cucamonga Municipal Utility, says it provides commercial electric service to Victoria Gardens Mall and surrounding commercial and industrial developments, and the City's economic development site names the HART District, the Epicenter Master Plan area, the Foothill Boulevard Corridor, and Cucamonga Town Center. We plan each visit around the address, including equipment access and placement.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Rancho Cucamonga Municipal Utility", href: "https://www.cityofrc.us/rcmu/commercial-power-service" },
+          { text: "economic development site", href: "https://www.cityofrc.us/everything-we-do/economic-development" },
+        ],
+      },
+      {
+        q: "Who provides electricity and gas in Rancho Cucamonga?",
+        a: "Southern California Edison is the main electric provider, and the City's own utility, Rancho Cucamonga Municipal Utility (RCMU), serves limited areas, including The Enclave, Day Creek Square, The Row & Bungalows, The Resort, Day Creek Villas, Cadence Senior Living, and Victoria Gardens Mall and surrounding commercial and industrial developments. The City's utilities page lists Southern California Gas for gas. Confirm your electric utility on your bill before counting on a program, because eligibility follows your utility account. Programs, amounts, and funding change.",
+        boldLead: "Southern California Edison is the main electric provider, and the City's own utility, Rancho Cucamonga Municipal Utility (RCMU), serves limited areas, including The Enclave, Day Creek Square, The Row & Bungalows, The Resort, Day Creek Villas, Cadence Senior Living, and Victoria Gardens Mall and surrounding commercial and industrial developments.",
+        links: [
+          { text: "Rancho Cucamonga Municipal Utility", href: "https://www.cityofrc.us/rcmu" },
+          { text: "The Enclave, Day Creek Square, The Row & Bungalows, The Resort, Day Creek Villas, Cadence Senior Living", href: "https://www.cityofrc.us/rcmu/residential-power-service" },
+          { text: "utilities page", href: "https://www.cityofrc.us/construction-development/local-utilities-information" },
+        ],
+      },
+      {
+        q: "Which rebate and incentive pages should I check before buying HVAC equipment in Rancho Cucamonga?",
+        a: "Check the pages for your own electric and gas utility. SCE's rebates page lists Golden State Rebates instant coupons for air conditioners and smart thermostats, a Smart Energy Program bill credit for letting SCE adjust an eligible smart thermostat, and Home Performance Plus for eligible customers in disadvantaged or low-income communities. RCMU says it offers rebates and incentives to its residential and commercial customers. SoCalGas lists a rebate for qualifying natural gas furnaces that requires installation by a licensed contractor with proof of permit closure and is limited to one per household. Funds are first come, first served and programs can change, so confirm eligibility with each utility. We do not quote amounts.",
+        boldLead: "Check the pages for your own electric and gas utility.",
+        links: [
+          { text: "SCE's rebates page", href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace" },
+          { text: "RCMU", href: "https://www.cityofrc.us/rcmu" },
+          { text: "SoCalGas", href: "https://www.socalgas.com/savings/rebates-and-incentives" },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Rancho Cucamonga?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Rancho Cucamonga, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC",
+        links: [
+          { text: "AC repair", href: "/services/ac-repair/" },
+          { text: "AC installation and replacement", href: "/services/ac-installation/" },
+          { text: "AC maintenance", href: "/services/ac-maintenance/" },
+          { text: "heating repair", href: "/services/heating-repair/" },
+          { text: "furnace installation and replacement", href: "/services/furnace-installation/" },
+          { text: "heat pump services", href: "/services/heat-pump-services/" },
+          { text: "ductless mini-splits", href: "/services/ductless-mini-split/" },
+          { text: "ductwork", href: "/services/ductwork/" },
+          { text: "indoor air quality", href: "/services/indoor-air-quality/" },
+          { text: "emergency HVAC", href: "/services/emergency-hvac/" },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Rancho Cucamonga?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Rancho Cucamonga. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Rancho Cucamonga?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Rancho Cucamonga?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Rancho Cucamonga, including rooftop units. The City's municipal electric utility, Rancho Cucamonga Municipal Utility, serves Victoria Gardens Mall and surrounding commercial and industrial developments, and the City's economic development site names the HART District, Cucamonga Town Center, and the Foothill Boulevard Corridor. We confirm the permit path with the City before work starts. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Rancho Cucamonga Municipal Utility", href: "https://www.cityofrc.us/rcmu/commercial-power-service" },
+          { text: "economic development site", href: "https://www.cityofrc.us/everything-we-do/economic-development" },
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -6287,6 +6634,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'inglewood' ? inglewoodOverrides
     : c.slug === 'manhattan-beach' ? manhattanBeachOverrides
     : c.slug === 'hermosa-beach' ? hermosaBeachOverrides
+    : c.slug === 'rancho-cucamonga' ? ranchoCucamongaOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
