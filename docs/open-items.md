@@ -527,7 +527,7 @@ three JSON-LD blocks and the TS overrides. Glendale was a wave 2 noindex stub be
 - Claim wording follows the approved list. Do not strengthen it.
 
 ## /service-areas/burbank/ (burbankOverrides in src/content/cities.ts)
-Built 2026-10-18, committed on branch burbank-city-page (not pushed yet). Reference artifact: claude/reference/burbank-location.html
+Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: claude/reference/burbank-location.html
 (https://claude.ai/artifact/LiMcxAtinjsgg5WJcAr59c). Same single-data-source build as Glendale. Burbank was a wave 2 noindex stub before this.
 - Title: `cityTitle('Burbank')` ("HVAC Services in Burbank, CA | AIRPRO SOLUTIONS", 47 characters). H1 is `cityH1('Burbank')`. Hand-written `page.metaDescription` is 154 characters and passes `assertDescription`.
 - TODO(copy): the client has NOT approved any Burbank wording. Every FAQ answer (18), the five local paragraphs and both local cards stay flagged until the user says the client approved.
