@@ -221,6 +221,7 @@ export default async function Page({ params }: { params: Promise<{ city: string 
         zips={city.zips}
         zipGroups={page.zipGroups}
         officialResources={page.officialResources}
+        localCards={page.localCards}
         zipsLabel={page.zipsLabel ? `${page.zipsLabel}:` : undefined}
         neighborhoodsHeading={page.neighborhoodsHeading}
         neighborhoodsNote={page.neighborhoodsNote}

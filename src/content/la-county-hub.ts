@@ -132,7 +132,7 @@ export const laCountyHub = {
 
   // Sources: LADBS express permits; LAMC 112.02 noise; Ordinance 188716 repeal of the all-electric
   // standard effective October 13, 2025; Long Beach Development Services (separate permit per
-  // building; CF1R Title 24 submission); Pasadena Permit Center apply-for-permit page (cityofpasadena.net/planning/permit-center/apply-for-permit/); Glendale online permit portal;
+  // building; CF1R Title 24 submission); Pasadena Permit Center apply-for-permit page (cityofpasadena.net/planning/permit-center/apply-for-permit/); Glendale permit guidance page (Building & Safety Division);
   // Burbank energy-report scopes; Culver City separate applications per permit type; Santa Monica
   // Permit Services Center plan review page and paused Zero Emission Building Code enforcement;
   // Inglewood HVAC application and online permitting. Title 24 per the CEC Energy Code Support
@@ -146,7 +146,7 @@ export const laCountyHub = {
       ['Los Angeles', 'Los Angeles Department of Building and Safety (LADBS)', 'Same-size and same-type AC replacement is listed as an express permit category. It is a faster path, not a permit exemption. The City’s prior all-electric building ordinance was repealed effective October 13, 2025.'],
       ['Long Beach', 'Development Services, Building and Safety Bureau', 'A separate permit is required for equipment in each separate building. HVAC permit submissions include a CF1R Title 24 compliance document.'],
       ['Pasadena', 'Planning and Community Development, Permit Center', 'The Permit Center at 175 North Garfield Ave. lists installing or replacing heating and cooling units among its plan and submittal items. The City’s site-plan requirement can apply to equipment placed outside, and building permits are valid for 180 days from issuance.'],
-      ['Glendale', 'Community Development, Building and Safety', 'HVAC change-outs are listed as a simple residential permit on the City’s online permit portal.'],
+      ['Glendale', 'Building & Safety Division', 'A C-20 contractor or an owner-builder may apply for a single-family mechanical permit, and owner-builders may not apply for a multifamily one. The City also has an AC to Heat Pump reach code for replacements.'],
       ['Burbank', 'Community Development, Building and Safety Division', 'Rooftop or rear-of-property unit replacement, and replacement with new ducts or a new HVAC system, are scopes the City lists as needing an energy report.'],
       ['Culver City', 'Building Safety Division', 'Each structure and each permit type (building, mechanical, electrical, plumbing) needs its own application, so a heat pump change-out can involve more than the mechanical permit.'],
       ['Santa Monica', 'Permit Services Center', 'Some minor mechanical installations may qualify for a quicker review track at the City, but a permit is still required. The City’s Zero Emission Building Code is adopted, and its enforcement is currently paused.'],
@@ -212,12 +212,12 @@ export const laCountyHub = {
   cities: {
     eyebrow: 'Cities served',
     title: 'The eight cities on this page',
-    intro: 'Our Los Angeles, Long Beach, Pasadena, and Culver City pages are live and the other city pages are coming. For the South Bay, see our Torrance page, or browse all service areas.',
+    intro: 'Our Los Angeles, Long Beach, Pasadena, Glendale, and Culver City pages are live and the other city pages are coming. For the South Bay, see our Torrance page, or browse all service areas.',
     items: [
       { name: 'Los Angeles', note: 'Spans coast, basin, valley, and foothill conditions. Electric service from LADWP.', href: '/service-areas/los-angeles/' },
       { name: 'Long Beach', note: 'Coastal. Electric service from SCE.', href: '/service-areas/long-beach/' },
       { name: 'Pasadena', note: 'Has its own Permit Center. A site plan can apply to equipment placed outside.', href: '/service-areas/pasadena/' },
-      { name: 'Glendale', note: 'Inland basin and foothill setting, with 60.9% multifamily housing (2018).' },
+      { name: 'Glendale', note: 'Has its own AC replacement code page and zone noise limits, with 60.9% multifamily housing (2018).', href: '/service-areas/glendale/' },
       { name: 'Burbank', note: 'Valley-edge climate. Rooftop and rear-of-property replacements need an energy report.' },
       { name: 'Culver City', note: 'Near-even single-family and multifamily mix. Has its own Building Safety Division for permits.', href: '/service-areas/culver-city/' },
       { name: 'Santa Monica', note: 'Coastal, and the most multifamily city here at 77.5% of housing units (2018).' },
@@ -245,7 +245,7 @@ export const laCountyHub = {
     },
     {
       q: 'Does HVAC sizing change between the coast and inland Los Angeles County?',
-      a: 'Yes, the conditions do. The coast is buffered by the ocean and summer marine low clouds, while inland areas such as Burbank and Glendale are more exposed to heat. Equipment should be sized from a load calculation for your property, not from a county-wide temperature assumption.',
+      a: 'Yes, the conditions do. The coast is buffered by the ocean and summer marine low clouds, while inland valley and foothill areas run hotter. Equipment should be sized from a load calculation for your property, not from a county-wide temperature assumption.',
     },
     {
       q: 'Do I need a permit to replace my AC in Los Angeles County?',

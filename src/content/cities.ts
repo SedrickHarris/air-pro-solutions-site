@@ -42,6 +42,8 @@ export type CityPage = {
   zipsLabel?: string;
   // Official-link list shown on the right-hand card instead of ZIPs (set when no verified ZIP list exists).
   officialResources?: { text: string; href: string; note: string }[];
+  // Small fact cards (label/value rows plus a source note) shown above the official-link list on the same card.
+  localCards?: { heading: string; rows: { label: string; value: string }[]; note: string }[];
   // "Know before you start" official-source cards (permits, rebates, air quality).
   resources?: { eyebrow: string; title: string; intro: string; cards: RebateCard[] };
   localTitle?: string; // overrides the default local-knowledge H2 ("HVAC work built around {City}'s housing stock")
@@ -57,7 +59,7 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario and corona have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona and glendale have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -3704,6 +3706,428 @@ const coronaOverrides: Partial<City> = {
   },
 };
 
+const glendaleOverrides: Partial<City> = {
+  // TODO(data): add verified climate detail before treating this as a full local page.
+  neighborhoods: [], // neighborhood list held out: no official City source
+  zips: [], // ZIP list held out: no City or USPS-grade list read
+  page: {
+    metaDescription: "HVAC for Glendale homes and businesses, from AC repair to installation. Know the City's AC replacement code and noise limits. Licensed, 4.8-star rated.",
+    lede: "AIRPRO SOLUTIONS provides HVAC services across Glendale, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's AC replacement code and noise limits in mind.",
+    heroCaption: { title: "Glendale, CA", text: "Local HVAC service across Glendale" },
+    heroProof: [
+      { icon: "shield", label: "Licensed, bonded & insured" },
+      { icon: "star", label: "4.8-star rated" },
+      { icon: "bolt", label: "24/7 emergency dispatch" },
+      { icon: "building", label: "Residential and commercial" },
+    ],
+    trustStats: [
+      { num: "4.8★", label: "Google rating, 40 reviews" },
+      { num: "C-20", label: "California licensed" },
+      { num: "24/7", label: "emergency dispatch" },
+      { num: "Same-day", label: "service typical" },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Glendale",
+      body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Glendale at a glance",
+      stats: [
+        {
+          num: "187,160",
+          label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "34.6%",
+          label: "of 80,176 housing units are single-family detached, and 52.3% are in buildings of 5 or more units (California Department of Finance E-5, 2018, per SCAG)",
+        },
+        {
+          num: "61.8%",
+          label: "of housing was built before 1970 (U.S. Census American Community Survey, 2017; Nielsen Co., per SCAG)",
+        },
+      ],
+      source: "Sources: U.S. Census Bureau QuickFacts and SCAG's 2019 Local Profile of Glendale.",
+    },
+    localTitle: "Glendale's AC replacement code, noise limits, and electric service",
+    // Held out (no verified source): ZIP card (the City finance dashboard list of 91020, 91201-91208, 91210 and 91214 is a tax heat map, not a postal list, includes 91020, and could not be read here; the California CSD list of 91201-91205 could not be read; the research's other ZIPs came from a third-party compilation); neighborhood names (Montrose, La Crescenta, Kenneth Village, Adams Square, Verdugo Woodlands and others came from the Chamber of Commerce site, a property-management blog and Wikipedia, none an official City source); nearby row (neighbors came from Wikipedia); climate, NOAA normals, marine layer, heat island and humidity (NCEI source not retrieved); City housing statements (most units built 1960-1979, 77,783 units in 2024, about 7 percent vacant, 222 new units since 2020: the City demographics pages could not be read); GWP Time-of-Use seasons, eligibility and business peak hours (GWP rate pages could not be read); the 'simple residential HVAC change-outs on the Glendale Permits Portal' claim (the City online-services page read does not mention it); Glendale gas provider (no service-territory source); GWP-serves-all-of-Glendale (no source); Permit Services Center hours (page text garbled); GMC 30.30.020 rooftop equipment rule (read only through a summary); zoning map, employers, hospitals, schools, shopping centers, industrial areas, HOA areas, historic-district equipment rules, setback rules (none found); all rebate dollar amounts; competitor SERP table (gap analysis only, never on the page).
+    // TODO(copy): client has not approved any Glendale wording (every FAQ answer, the five local paragraphs, the AC2HP, noise and construction-hour sentences, the utility and incentive sentences, the commercial sentence). Keep flagged until the user says the client approved.
+    // TODO(verify): AC2HP status. The City page says adopted in Fall 2025 and gives no effective date; the Permit Services page says the 2026 Glendale Reach Code took effect January 1, 2026; a third-party report dated August 7, 2026 says the ordinance was submitted to state agencies in December 2025 and the California Building Standards Commission is still reviewing it. Confirm with the City whether the ordinance is in force before launch.
+    // TODO(verify): the City page says AC2HP covers single-family homes, duplexes and townhomes; the unsigned draft ordinance text (AAGLA-hosted copy) says existing single-family residential buildings only. The page follows the City page wording. Confirm against the adopted ordinance.
+    // TODO(verify): Chapter 8.36 text is from the ecode360 publisher copy, which shows no edition date. Recheck against the official code before launch.
+    // TODO(verify): GWP is described as a City department from the City URL path and its rebate page; rate pages were not readable. Confirm which parts of Glendale GWP serves.
+    // Pre-launch recheck: AC2HP page and adopted ordinance, Permit Services page and building code notice (Jan 1, 2026), permit guidance page, Chapter 8.36 (ecode360), GWP Smart Home Rebate Program page (amounts and dates), City residential resources page, AQMD jurisdiction list, SCAG profile URL (2019 Local Profile in a 2024-05 folder), QuickFacts.
+    localParagraphs: [
+      "Glendale has its own rule for replacing an air conditioner. The City's AC to Heat Pump (AC2HP) Reach Code page says the code was adopted in Fall 2025 and applies when an existing air conditioning system in a single-family home, duplex, or townhome is replaced or altered, or when a new system is installed. **Repairs are not affected by the code change.** The page says the owner either installs a heat pump as the primary heating and cooling system, or installs a new air conditioner along with efficiency measures such as duct sealing, insulation, and system performance improvements. It lists exceptions, including an electrical panel without enough capacity for a properly sized heat pump and a required heat pump that would be more than 12,000 Btu/h larger than the existing system. The City's Permit Services page says the 2025 California Building Standards Code, Glendale's 2026 amendments, and the 2026 Glendale Reach Code took effect January 1, 2026, but the AC2HP page gives no effective date for the ordinance and we did not read the adopted text, so we confirm with the City whether and how the code applies to your replacement before we price a system.",
+      "Glendale's Municipal Code Chapter 8.36 sets exterior noise standards by zone, and it names air-conditioning equipment. Section 8.36.040(A) lists **45 dBA at night and 55 dBA by day for single-family and duplex residential areas**, 60 dBA at any time for multifamily residential, hotels, motels, and transient lodgings, 65 dBA at any time for the central business district and commercial areas, and 70 dBA at any time for industrial areas. Nighttime runs from 10 p.m. to 7 a.m. (Sec. 8.36.020). Section 8.36.060 lists air-conditioning apparatus among the devices that may not create noise above those levels, Sec. 8.36.050 compares noise to the actual ambient level and allows 5 dBA above it, and a pure tone, impulsive sound, or rapidly varying sound is held to a standard 5 dBA lower (Sec. 8.36.030(K)). Section 8.36.080 bars construction work on buildings within a residential zone, or within 500 feet of one, from 7 p.m. to 7 a.m., and from 7 p.m. Saturday to 7 a.m. Monday and around holidays, unless the person first obtains a permit from the building official. The standards are not a condenser rating, the publisher's copy shows no edition date, and we did not confirm whether Sec. 8.36.080 applies to a service call or an installation, so we confirm how these rules apply to your address and schedule before choosing a condenser location or a work time.",
+      "Glendale's Building & Safety Division answers permit questions at (818) 548-3200. The City's permit guidance page says a C-20 Warm-Air Heating, Ventilating, and Air-Conditioning contractor, a B General Building contractor, an A General Engineering contractor, or an owner-builder may apply for a mechanical single-family residential permit, and that **owner-builders may not apply for a mechanical multifamily residential permit**. We did not find a City checklist for an HVAC replacement or a written rule on which replacements need a permit, so **AIRPRO SOLUTIONS confirms the permit path** with the City before work starts, and we do not quote fees. For a single-family replacement, we also check the AC2HP code described above, because the choice between a heat pump and an air conditioner with efficiency measures affects the equipment and the permit.",
+      "Glendale had an estimated 187,160 residents on July 1, 2025, and QuickFacts reports a 35.2% owner-occupied housing rate for 2020-2024. SCAG's 2019 Local Profile, using California Department of Finance E-5 data for 2018, counts **80,176 housing units: 34.6% single-family detached, 4.4% attached, 8.6% in buildings of 2 to 4 units, 52.3% in buildings of 5 or more, and 0.1% mobile homes**. The same profile reports that **61.8% of housing was built before 1970**, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. Those figures are citywide and dated, so we confirm the equipment, roof or attic access, and ductwork at the property, and in a multi-unit building we confirm equipment access and placement.",
+      "Glendale Water & Power is a City of Glendale department, and its Smart Home Rebate Program page lists rebates for ENERGY STAR room air conditioners and for heat pumps and mini-splits. The page says you must be a Glendale Water & Power customer and that the product must be installed in a home it serves, so **confirm your electric provider on your bill before counting on a program**. The City's residential resources page also links SoCalGas rebate information and lists the federal Energy Efficient Home Improvement Credit. We did not confirm Glendale's gas provider from a service-territory page and we did not read Glendale Water & Power's rate schedules. Programs and funding change, so we link the program pages rather than quote amounts. For commercial work, the City's noise code lists higher limits for commercial and industrial areas, and we plan commercial visits around the building and its rooftop or ground equipment access. Official links are in the card beside this text.",
+    ],
+    localCards: [
+      {
+        heading: "Glendale noise limits",
+        rows: [
+          { label: "Single-family and duplex homes", value: "45 dBA at night, 55 dBA by day" },
+          { label: "Multifamily, hotels, motels", value: "60 dBA at any time" },
+          { label: "Commercial and central business district", value: "65 dBA at any time" },
+          { label: "Industrial", value: "70 dBA at any time" },
+        ],
+        note: "Municipal Code Sec. 8.36.040(A). Night is 10 p.m. to 7 a.m. These are zone limits, not a condenser rating.",
+      },
+      {
+        heading: "Replacing an AC in Glendale",
+        rows: [
+          { label: "Heat pump path", value: "A heat pump as the primary heating and cooling system" },
+          {
+            label: "Air conditioner path",
+            value: "A new air conditioner with measures such as duct sealing, insulation, and system performance improvements",
+          },
+          { label: "Repairs", value: "Not affected by the code change" },
+          {
+            label: "Exceptions",
+            value: "A panel without enough capacity for a properly sized heat pump, or a required heat pump more than 12,000 Btu/h larger than the existing system",
+          },
+        ],
+        note: "From the City's AC2HP page, which gives no effective date. We confirm with the City how it applies to your home.",
+      },
+    ],
+    neighborhoodsHeading: "Official Glendale resources",
+    officialResources: [
+      {
+        text: "AC to Heat Pump Reach Code",
+        href: "https://www.glendaleca.gov/government/departments/office-of-the-city-manager/office-of-sustainability/sustainability-initiatives/heat-pump-information",
+        note: "The City's page on the AC2HP code, its requirements, and its exceptions.",
+      },
+      {
+        text: "Permit guidance",
+        href: "https://www.glendaleca.gov/government/departments/community-development/development-services/permit-guidance",
+        note: "Who may apply for mechanical permits and the Building & Safety phone number.",
+      },
+      {
+        text: "Development Services",
+        href: "https://www.glendaleca.gov/government/departments/community-development/development-services",
+        note: "Permit Services Center information and the building code notice.",
+      },
+      {
+        text: "Municipal Code Chapter 8.36, Noise Control",
+        href: "https://ecode360.com/43345448",
+        note: "Exterior noise standards and construction hours (publisher copy).",
+      },
+      {
+        text: "Smart Home Rebate Program",
+        href: "https://www.glendaleca.gov/government/departments/glendale-water-and-power/residential-customers/residential-programs/smart-home-rebate-program",
+        note: "Glendale Water & Power rebates for room air conditioners and heat pumps.",
+      },
+      {
+        text: "Residential resources",
+        href: "https://www.glendaleca.gov/government/departments/office-of-the-city-manager/glendale-office-of-sustainability/resources-for-residents-businesses/residential-resources",
+        note: "SoCalGas rebate link and federal tax credit information.",
+      },
+      {
+        text: "South Coast AQMD cities",
+        href: "https://www.aqmd.gov/nav/about/jurisdiction",
+        note: "Lists Glendale among the Los Angeles County cities in its jurisdiction.",
+      },
+      {
+        text: "SCAG Glendale local profile",
+        href: "https://sp.scag.ca.gov/sites/default/files/2024-05/glendale_localprofile.pdf",
+        note: "Housing counts and building age cited on this page.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/fact/table/glendalecitycalifornia/PST045224",
+        note: "Population and owner-occupied rate cited on this page.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Glendale homes and businesses",
+    serviceCards: [
+      {
+        slug: "ac-repair",
+        name: "AC Repair",
+        body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises, with the City's noise limits for air-conditioning equipment in mind. The City's AC2HP page says repairs are not affected by the code change.",
+      },
+      {
+        slug: "ac-installation",
+        name: "AC Installation & Replacement",
+        body: "New system sizing and installation, planned around the City's AC to Heat Pump Reach Code, its permit process, and Title 24 requirements.",
+      },
+      {
+        slug: "ac-maintenance",
+        name: "AC Maintenance",
+        body: "Seasonal AC tune-ups that catch small issues early, for homes and for commercial rooftop and ground units.",
+      },
+      {
+        slug: "heating-repair",
+        name: "Heating Repair",
+        body: "Furnace and heating system diagnosis and repair. The City's residential resources page links SoCalGas rebate information.",
+      },
+      {
+        slug: "furnace-installation",
+        name: "Furnace Installation & Replacement",
+        body: "New furnace sizing and installation, with the City's permit path confirmed before work starts. The City's AC2HP page covers air conditioner replacements, so we check whether a heat pump path applies to your home.",
+      },
+      {
+        slug: "heat-pump-services",
+        name: "Heat Pump Services",
+        body: "Installation, repair, and maintenance for heat pumps. The City's AC2HP page names a heat pump as one path for air conditioner replacements, and Glendale Water & Power lists heat pump rebates for its customers, so we confirm your electric provider and current terms.",
+      },
+      {
+        slug: "ductless-mini-split",
+        name: "Ductless Mini-Split",
+        body: "Room-by-room comfort control for spaces where ductwork is not an option, with outdoor-unit placement checked against the City's noise limits.",
+      },
+      {
+        slug: "ductwork",
+        name: "Ductwork Services",
+        body: "Duct repair, sealing, replacement, and installation. The City's AC2HP page lists duct sealing among the efficiency measures for a new air conditioner.",
+      },
+      {
+        slug: "indoor-air-quality",
+        name: "Indoor Air Quality",
+        body: "Air filtration, whole-home purification, and ventilation options. South Coast AQMD lists Glendale among the Los Angeles County cities in its jurisdiction.",
+      },
+      {
+        slug: "emergency-hvac",
+        name: "Emergency HVAC",
+        body: "Dispatch for no-cool and no-heat emergencies in Glendale.",
+      },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Glendale AC replacement code, permits, and incentive programs",
+      intro: "Official sources for three local items worth checking before a Glendale HVAC project.",
+      cards: [
+        {
+          amount: "AC replacement code",
+          description: "The City's AC2HP Reach Code page says replacing or altering an air conditioner in a single-family home, duplex, or townhome calls for a heat pump or an air conditioner with efficiency measures, and that repairs are not affected. Check how it applies to your home before choosing equipment.",
+          linkLabel: "AC to Heat Pump Reach Code",
+          linkHref: "https://www.glendaleca.gov/government/departments/office-of-the-city-manager/office-of-sustainability/sustainability-initiatives/heat-pump-information",
+        },
+        {
+          amount: "Permits and codes",
+          description: "Glendale's Building & Safety Division answers permit questions, and the City's guidance says a C-20 contractor may apply for a single-family mechanical permit. We found no City checklist for a replacement, so we confirm the path with the City.",
+          linkLabel: "Permit guidance",
+          linkHref: "https://www.glendaleca.gov/government/departments/community-development/development-services/permit-guidance",
+        },
+        {
+          amount: "Incentive programs",
+          description: "Your electric provider decides which programs apply. Glendale Water & Power lists rebates for room air conditioners and heat pumps for its customers, and the City's residential resources page links SoCalGas rebate information. Terms and funding change, and we do not quote amounts, so check the current terms before you buy.",
+          linkLabel: "Smart Home Rebate Program",
+          linkHref: "https://www.glendaleca.gov/government/departments/glendale-water-and-power/residential-customers/residential-programs/smart-home-rebate-program",
+        },
+      ],
+    },
+    nearby: [],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Glendale",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        { num: "4.8★", label: "Google rating" },
+        { num: "40", label: "Google reviews" },
+        { num: "C-20", label: "California license class" },
+        { num: "24/7", label: "Emergency dispatch" },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Glendale. Same-day service is typical, subject to capacity.",
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Glendale?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Glendale as part of our Los Angeles County coverage. Glendale's Building & Safety Division answers permit questions, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Los Angeles County coverage", href: "/service-areas/los-angeles-county/" },
+          {
+            text: "Building & Safety Division",
+            href: "https://www.glendaleca.gov/government/departments/community-development/development-services/permit-guidance",
+          },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Glendale home?",
+        a: "Same-day service is typical in Glendale, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Glendale, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an AC or furnace in Glendale?",
+        a: "Check with the City before work starts. Glendale's Building & Safety Division answers permit questions at (818) 548-3200. On the City pages we read, we found no checklist or written rule that says whether a given replacement needs a permit, so we do not assume a replacement is exempt. AIRPRO SOLUTIONS can walk you through the steps.",
+        boldLead: "Check with the City before work starts.",
+        links: [
+          {
+            text: "Building & Safety Division",
+            href: "https://www.glendaleca.gov/government/departments/community-development/development-services/permit-guidance",
+          },
+        ],
+      },
+      {
+        q: "Who can apply for an HVAC permit in Glendale?",
+        a: "A C-20 contractor, a B or A licensee, or an owner-builder may apply for a single-family mechanical permit. The City's permit guidance page says a C-20 Warm-Air Heating, Ventilating, and Air-Conditioning contractor, a B General Building contractor, an A General Engineering contractor, or an owner-builder may apply for a mechanical single-family residential permit, and that owner-builders may not apply for a mechanical multifamily residential permit. Call (818) 548-3200 with permit questions.",
+        boldLead: "A C-20 contractor, a B or A licensee, or an owner-builder may apply for a single-family mechanical permit.",
+        links: [
+          {
+            text: "permit guidance page",
+            href: "https://www.glendaleca.gov/government/departments/community-development/development-services/permit-guidance",
+          },
+        ],
+      },
+      {
+        q: "Which building codes apply to HVAC work in Glendale?",
+        a: "The City says the 2025 California Building Standards Code (Title 24), Glendale's 2026 amendments, and the 2026 Glendale Reach Code took effect January 1, 2026. We did not read the amendments, so we confirm with the City which provisions apply to your project.",
+        boldLead: "The City says the 2025 California Building Standards Code (Title 24), Glendale's 2026 amendments, and the 2026 Glendale Reach Code took effect January 1, 2026.",
+        links: [
+          {
+            text: "The City says",
+            href: "https://www.glendaleca.gov/government/departments/community-development/development-services",
+          },
+        ],
+      },
+      {
+        q: "What is Glendale's AC to heat pump code?",
+        a: "The City's page says Glendale adopted an AC to Heat Pump (AC2HP) Reach Code in Fall 2025. It applies when an existing air conditioning system in a single-family home, duplex, or townhome is replaced or altered, or when a new system is installed. The owner either installs a heat pump as the primary heating and cooling system, or installs a new air conditioner with measures such as duct sealing, insulation, and system performance improvements. The page gives no effective date for the ordinance and we did not read the adopted text, so we confirm with the City how it applies to your replacement.",
+        boldLead: "The City's page says Glendale adopted an AC to Heat Pump (AC2HP) Reach Code in Fall 2025.",
+        links: [
+          {
+            text: "The City's page",
+            href: "https://www.glendaleca.gov/government/departments/office-of-the-city-manager/office-of-sustainability/sustainability-initiatives/heat-pump-information",
+          },
+        ],
+      },
+      {
+        q: "Does the AC to heat pump code apply if I only need an AC repair in Glendale?",
+        a: "No. The City's AC2HP page says repairs are not affected by the code change. A replacement, an alteration, or a new installation is what the code addresses, and we confirm with the City how it applies to your job.",
+        boldLead: "No.",
+        links: [
+          {
+            text: "AC2HP page",
+            href: "https://www.glendaleca.gov/government/departments/office-of-the-city-manager/office-of-sustainability/sustainability-initiatives/heat-pump-information",
+          },
+        ],
+      },
+      {
+        q: "What exceptions does Glendale's AC to heat pump code list?",
+        a: "The City's page lists an electrical panel without enough capacity for a properly sized heat pump, and a required heat pump that would be more than 12,000 Btu/h larger than the existing system. It also lists alternative compliance methods for duct sealing and airflow requirements, and says all applicable exceptions in the California Energy Code apply. We confirm with the City which exception, if any, fits your home.",
+        boldLead: "The City's page lists an electrical panel without enough capacity for a properly sized heat pump, and a required heat pump that would be more than 12,000 Btu/h larger than the existing system.",
+        links: [
+          {
+            text: "The City's page",
+            href: "https://www.glendaleca.gov/government/departments/office-of-the-city-manager/office-of-sustainability/sustainability-initiatives/heat-pump-information",
+          },
+        ],
+      },
+      {
+        q: "Does Glendale have a noise rule that affects AC equipment?",
+        a: "Yes. Glendale's Municipal Code Chapter 8.36 sets exterior noise standards by zone and names air-conditioning equipment. Section 8.36.040(A) lists 45 dBA at night and 55 dBA by day for single-family and duplex residential areas, and 60 dBA at any time for multifamily residential, hotels, motels, and transient lodgings. Nighttime runs from 10 p.m. to 7 a.m., and a pure tone, impulsive sound, or rapidly varying sound is held to a standard 5 dBA lower. The limits are not a condenser rating, and the publisher's copy shows no edition date, so we confirm how they apply to your address before we choose a condenser location.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Municipal Code Chapter 8.36", href: "https://ecode360.com/43345448" },
+        ],
+      },
+      {
+        q: "What hours can HVAC work happen in Glendale?",
+        a: "Section 8.36.080 bars construction work within a residential zone, or within 500 feet of one, from 7 p.m. to 7 a.m., and from 7 p.m. Saturday to 7 a.m. Monday and around holidays, unless the person first obtains a permit from the building official. We did not confirm whether that section applies to an HVAC service call or an installation, so we confirm current hours with the City. Call (323) 776-9047 to schedule a visit.",
+        boldLead: "Section 8.36.080 bars construction work within a residential zone, or within 500 feet of one, from 7 p.m. to 7 a.m., and from 7 p.m. Saturday to 7 a.m. Monday and around holidays, unless the person first obtains a permit from the building official.",
+        links: [
+          { text: "Section 8.36.080", href: "https://ecode360.com/43345448" },
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do you work in condos and apartment buildings in Glendale?",
+        a: "Yes. SCAG's local profile of Glendale, using California Department of Finance E-5 data for 2018, counts 80,176 housing units, with 34.6% single-family detached, 4.4% single-family attached, 8.6% in buildings of 2 to 4 units, 52.3% in buildings of 5 or more units, and 0.1% mobile homes. AIRPRO SOLUTIONS services condos, townhomes, and apartments as well as single-family homes, and in a multi-unit building we confirm equipment access and placement at the property. See our Residential HVAC page.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "local profile",
+            href: "https://sp.scag.ca.gov/sites/default/files/2024-05/glendale_localprofile.pdf",
+          },
+          { text: "Residential HVAC page", href: "/residential-hvac/" },
+        ],
+      },
+      {
+        q: "Does the age of Glendale homes matter for HVAC work?",
+        a: "It can, and we confirm it on site. SCAG's local profile reports that 61.8% of Glendale's housing stock was built before 1970, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. That is a citywide share, and age alone does not tell us about attic access, foundation type, or original ductwork, so we check them at a site visit before recommending repair or replacement.",
+        boldLead: "It can, and we confirm it on site.",
+        links: [
+          {
+            text: "local profile",
+            href: "https://sp.scag.ca.gov/sites/default/files/2024-05/glendale_localprofile.pdf",
+          },
+        ],
+      },
+      {
+        q: "Can I get a rebate if I am a Glendale Water & Power customer?",
+        a: "Possibly, if your electric service comes from Glendale Water & Power. The City's Smart Home Rebate Program page lists rebates for ENERGY STAR room air conditioners and for heat pumps and mini-splits. It says you must be a Glendale Water & Power customer, the product must be installed in a home it serves, and applications are due within 12 months of purchase. It also says rebates are first-come, first-served until funds run out, and that the program may be changed or ended without notice. We link the page and do not quote amounts. Check your bill first.",
+        boldLead: "Possibly, if your electric service comes from Glendale Water & Power.",
+        links: [
+          {
+            text: "Smart Home Rebate Program page",
+            href: "https://www.glendaleca.gov/government/departments/glendale-water-and-power/residential-customers/residential-programs/smart-home-rebate-program",
+          },
+        ],
+      },
+      {
+        q: "Which rebate and incentive pages should I check before buying HVAC equipment in Glendale?",
+        a: "Check the page for your electric provider first. Glendale Water & Power's Smart Home Rebate Program page lists rebates for its customers. The City's residential resources page links SoCalGas rebate information and lists the federal Energy Efficient Home Improvement Credit. Funding is limited and programs can change, so confirm eligibility with each program. We do not quote amounts.",
+        boldLead: "Check the page for your electric provider first.",
+        links: [
+          {
+            text: "Smart Home Rebate Program page",
+            href: "https://www.glendaleca.gov/government/departments/glendale-water-and-power/residential-customers/residential-programs/smart-home-rebate-program",
+          },
+          {
+            text: "residential resources page",
+            href: "https://www.glendaleca.gov/government/departments/office-of-the-city-manager/glendale-office-of-sustainability/resources-for-residents-businesses/residential-resources",
+          },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Glendale?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Glendale, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC",
+        links: [
+          { text: "AC repair", href: "/services/ac-repair/" },
+          { text: "AC installation and replacement", href: "/services/ac-installation/" },
+          { text: "AC maintenance", href: "/services/ac-maintenance/" },
+          { text: "heating repair", href: "/services/heating-repair/" },
+          { text: "furnace installation and replacement", href: "/services/furnace-installation/" },
+          { text: "heat pump services", href: "/services/heat-pump-services/" },
+          { text: "ductless mini-splits", href: "/services/ductless-mini-split/" },
+          { text: "ductwork", href: "/services/ductwork/" },
+          { text: "indoor air quality", href: "/services/indoor-air-quality/" },
+          { text: "emergency HVAC", href: "/services/emergency-hvac/" },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Glendale?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Glendale. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Glendale?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Glendale?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Glendale, including rooftop units. The Municipal Code lists 65 dBA at any time for the central business district and commercial areas and 70 dBA at any time for industrial areas (Sec. 8.36.040(A)). We confirm the permit path with the City before work starts. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Municipal Code", href: "https://ecode360.com/43345448" },
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -3721,6 +4145,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'riverside' ? riversideOverrides
     : c.slug === 'ontario' ? ontarioOverrides
     : c.slug === 'corona' ? coronaOverrides
+    : c.slug === 'glendale' ? glendaleOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;

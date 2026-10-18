@@ -444,6 +444,20 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 .local-knowledge-dark .nbhd-card ul.res li:first-child { border-top: none; }
 .local-knowledge-dark .nbhd-card ul.res a { color: var(--sky-400); }
 
+/* Fact cards above the official-link list (LocalKnowledge localCards): label/value rows plus a source note. */
+.nbhd-card .lc { padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+.nbhd-card dl.lc-rows { margin: 0; display: flex; flex-direction: column; }
+.nbhd-card dl.lc-rows > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 12px; padding: 9px 0; border-top: 1px solid var(--line); font-size: 0.86rem; line-height: 1.45; }
+.nbhd-card dl.lc-rows > div:first-child { border-top: none; padding-top: 0; }
+.nbhd-card dl.lc-rows dt { font-weight: 700; color: var(--ink); }
+.nbhd-card dl.lc-rows dd { margin: 0; color: var(--ink-soft); }
+.nbhd-card .lc-note { margin: 10px 0 0; font-size: 0.8rem; line-height: 1.5; color: var(--ink-soft); }
+.local-knowledge-dark .nbhd-card .lc { border-bottom-color: rgba(255, 255, 255, 0.16); }
+.local-knowledge-dark .nbhd-card dl.lc-rows > div { border-top-color: rgba(255, 255, 255, 0.16); }
+.local-knowledge-dark .nbhd-card dl.lc-rows dt { color: #fff; }
+.local-knowledge-dark .nbhd-card dl.lc-rows dd, .local-knowledge-dark .nbhd-card .lc-note { color: #cddaea; }
+@media (max-width: 520px) { .nbhd-card dl.lc-rows > div { grid-template-columns: 1fr; gap: 2px; } }
+
 @media (max-width: 920px) {
   .local-grid { grid-template-columns: 1fr; }
 }

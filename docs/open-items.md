@@ -44,7 +44,7 @@ this file is the index, not the source of truth.
 - Electric provider is Pasadena Water and Power (City FY2025 budget page), confirmed, but it is not named on the city page and no PWP rebate is published. Add both only with a current PWP source.
 - Verified-fact gaps (not published): housing-age and housing-mix figures, climate detail, major employers, outdoor-unit screening or setback rules.
 - Client approved the "walk you through" permit wording on 2026-10-15.
-- Nearby row: Los Angeles, Long Beach, Glendale, Burbank. Glendale and Burbank link to their noindex stub pages until real pages exist. South Pasadena is not routed.
+- Nearby row: Los Angeles, Long Beach, Glendale, Burbank. Burbank links to its noindex stub page until a real page exists. Glendale now has a real page (see its section). South Pasadena is not routed.
 - Client approved the "& Replacement" service card names on 2026-10-15. The emergency card wording was not named in the approval, so confirm it separately.
 - Hero photo is still "Photo pending".
 - Claim wording follows the approved list. Do not strengthen it.
@@ -489,6 +489,33 @@ source so JSON-LD, visible text and TS match. Rancho Cucamonga is NOT in this re
   Building Division counter, no whole-unit rule found); Corona removed from the "predominantly detached" sentence and the Corona
   TODO(verify) permit line removed. Utilities wording ("mostly SCE") kept. Checked, no change: Commercial HVAC region card
   (city-name list), climate-group list.
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list. Do not strengthen it.
+
+## /service-areas/glendale/ (glendaleOverrides in src/content/cities.ts)
+Built 2026-10-18, NOT yet pushed (awaiting the user's choice of push to main or PR). Reference artifact: claude/reference/glendale-location.html
+(https://claude.ai/artifact/E3TW4WvfKyULt7XKHkNxot). First LA County city page built from a single data source feeding the visible HTML, the
+three JSON-LD blocks and the TS overrides. Glendale was a wave 2 noindex stub before this.
+- Title: `cityTitle('Glendale')` ("HVAC Services in Glendale, CA | AIRPRO SOLUTIONS") needs no `distinctTitle`. H1 is `cityH1('Glendale')`.
+  The meta description is the hand-written `page.metaDescription` (151 characters, validated by `assertDescription`).
+- TODO(copy): the client has NOT approved any Glendale wording. Every FAQ answer, the five local paragraphs and the noise and AC2HP cards stay flagged until the user says the client approved.
+- DECISION NEEDED, `wave1`: Glendale is not in the `wave1` Set in cities.ts (client-confirmed list of 16), so `wave === 2`. The page has `page` content, so its own route is
+  indexable and the hubs link it, but `sitemap.ts` only lists `wave1Cities.filter(page)`, so Glendale is NOT in the sitemap. Either add Glendale to `wave1` (and update the "16" comments) or leave it out of the sitemap deliberately. Not changed here because the wave list is client-confirmed.
+- Lead angle: Glendale's AC to Heat Pump (AC2HP) Reach Code and the Municipal Code Chapter 8.36 noise limits (45/55 dBA single-family and duplex night/day, 60 multifamily, 65 commercial and central business district, 70 industrial; night 10 p.m. to 7 a.m.; Sec. 8.36.040(A)).
+- TODO(verify) AC2HP status: the City AC2HP page says adopted in Fall 2025 with no effective date; the Permit Services page says the 2026 Glendale Reach Code took effect January 1, 2026; a third-party report dated August 7, 2026 says the ordinance is still under California Building Standards Commission review. The page says we confirm with the City whether and how it applies. Confirm before launch.
+- TODO(verify) AC2HP scope: the City page says single-family, duplex and townhome; the unsigned draft ordinance (AAGLA-hosted) says existing single-family only. The page follows the City page.
+- TODO(verify): Chapter 8.36 is from the ecode360 copy, which shows no edition date; recheck against the official code. We did not confirm whether Sec. 8.36.080 construction hours apply to a service call. GWP is called a City department from the City URL path only; its rate pages were not readable.
+- Housing and population: SCAG 2019 Local Profile (DOF E-5, 2018: 80,176 units, 34.6% detached, 4.4% attached, 8.6% in 2-4 units, 52.3% in 5+ units, 0.1% mobile; ACS 2017 via SCAG: 61.8% built before 1970) and Census QuickFacts (187,160 residents, July 1, 2025; 35.2% owner-occupied, 2020-2024). Data years labeled as printed.
+- DECISION (default: keep link-only): verified Glendale Water & Power Smart Home Rebate amounts, not published: room AC $400, heat pump or mini-split $500 per ton, gas-to-heat-pump $1,000 per ton, effective Nov 1, 2025, GWP customers only, first come first served. Do not relabel SEER as SEER2.
+- DECISION (default: held out): ZIP card. The user supplied the City dashboard list (91020, 91201-91208, 91210, 91214), but it is a tax heat map that includes 91020 and could not be read here, so it is not an official postal list. `zips: []`, `neighborhoods: []`, `nearby: []`.
+- Right-hand card: two fact cards (`page.localCards`: noise limits table and "Replacing an AC in Glendale") above the "Official Glendale resources" list (`page.officialResources`, 9 links). `localCards` is a NEW optional field on `CityPage`, rendered by `LocalKnowledge` with new `.lc` rules in globals.css. This goes beyond the Corona structure.
+- Held out (no verified source): ZIP card; neighborhood names (Chamber of Commerce, a property-management blog and Wikipedia only); nearby row (Wikipedia); climate, NOAA normals, marine layer, heat island, humidity; City housing statements (most units built 1960-1979, 77,783 units in 2024, about 7 percent vacant, 222 new units since 2020: City demographics pages would not load); GWP Time-of-Use seasons, eligibility and business peak hours (rate pages would not load); the "simple residential HVAC change-outs on the Permits Portal" claim; Glendale gas provider; GWP serving all of Glendale; Permit Services Center hours; GMC 30.30.020 rooftop equipment rule (read only through a summary); zoning, employers, hospitals, schools, shopping centers, industrial areas, HOA and historic-district rules, setbacks; median year built and single-family/multifamily split beyond SCAG; all rebate dollar amounts; competitor SERP table (never on the page).
+- Corrected research overstatements: the research's construction-hours link was Glendale, Ohio (replaced with California GMC 8.36.080); Census figures were from an older ACS series (QuickFacts current values used, no money or household figures); the research missed the AC2HP reach code; the permits-portal change-out claim was unsupported.
+- Still needs pasted pages from the user (City pages that would not fetch): GWP rates, demographics and census-information, ZIP dashboard, fire stations, online services.
+- Pre-launch recheck: AC2HP page and adopted ordinance, Permit Services page and building code notice (Jan 1, 2026), permit guidance page, Chapter 8.36 (ecode360), GWP Smart Home Rebate Program page (amounts and dates), City residential resources page, AQMD jurisdiction list, SCAG profile URL (2019 Local Profile in a 2024-05 folder), QuickFacts.
+- LA County hub wiring DONE: Glendale card `href`, /service-areas/ chip, `hubCityIndexNote`, hub intro wording, LA County page sentence. `commercial-hvac.ts` only lists city names, no link, so unchanged.
+- LA County hub audit, Glendale copy corrected: card note ("Inland basin and foothill setting" was unsourced) now "Has its own AC replacement code page and zone noise limits, with 60.9% multifamily housing (2018)"; permits row ("simple residential permit on the City's online permit portal" was unsupported) now follows the City permit guidance page; FAQ "inland areas such as Burbank and Glendale are more exposed to heat" (unsourced for these cities) now "inland valley and foothill areas run hotter". NOT changed, still open: the rebates copy and the utilities FAQ say both "Glendale by Glendale Water & Power" and "Culver City, Glendale, and Santa Monica should be confirmed by address"; pick one once GWP's service area is confirmed. The Burbank and Pasadena hub notes were not audited here.
+- Pasadena's `nearby` row links Glendale. It renders a normal link, so nothing breaks, and Glendale now has a real page. No code change; the Pasadena note above that calls Glendale a noindex stub is updated.
 - Hero photo is still "Photo pending".
 - Claim wording follows the approved list. Do not strengthen it.
 

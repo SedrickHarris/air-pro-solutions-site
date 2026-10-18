@@ -13,6 +13,7 @@ export function LocalKnowledge({
   neighborhoodsNote,
   zipGroups,
   officialResources,
+  localCards,
   dark = false,
   alt = false,
 }: {
@@ -27,6 +28,7 @@ export function LocalKnowledge({
   zipGroups?: { label: string; zips: string[] }[]; // when set, ZIPs render as labeled pill groups instead of one line
   neighborhoodsNote?: string; // small note under the pills, e.g. that the list is a partial sample
   officialResources?: { text: string; href: string; note: string }[]; // official-link list shown in place of ZIPs when no verified ZIP list exists
+  localCards?: { heading: string; rows: { label: string; value: string }[]; note: string }[]; // small fact cards shown above the heading on the right-hand card
   dark?: boolean;
   alt?: boolean;
 }) {
@@ -56,6 +58,20 @@ export function LocalKnowledge({
             )}
           </div>
           <div className="nbhd-card">
+            {localCards?.map((c) => (
+              <div className="lc" key={c.heading}>
+                <h3>{c.heading}</h3>
+                <dl className="lc-rows">
+                  {c.rows.map((r) => (
+                    <div key={r.label}>
+                      <dt>{r.label}</dt>
+                      <dd>{r.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <p className="lc-note">{c.note}</p>
+              </div>
+            ))}
             <h3>{neighborhoodsHeading}</h3>
             {neighborhoods.length > 0 && (
               <div className="nbhd-list">
