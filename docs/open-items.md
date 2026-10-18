@@ -590,7 +590,7 @@ Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: 
 - Claim wording follows the approved list. Do not strengthen it.
 
 ## /service-areas/inglewood/ (inglewoodOverrides in src/content/cities.ts)
-Built 2026-10-18, committed locally on branch add-inglewood-page, not pushed yet. Reference artifact: claude/reference/inglewood-location.html (https://claude.ai/artifact/CuUM3h1Rp6W2KEgWAuE62n). Same single-data-source build as Glendale, Burbank and Santa Monica. Inglewood was a wave 2 noindex stub before this.
+Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: claude/reference/inglewood-location.html (https://claude.ai/artifact/CuUM3h1Rp6W2KEgWAuE62n). Same single-data-source build as Glendale, Burbank and Santa Monica. Inglewood was a wave 2 noindex stub before this.
 - Title: `cityTitle('Inglewood')` ("HVAC Services in Inglewood, CA | AIRPRO SOLUTIONS", 49 characters). H1 is `cityH1('Inglewood')` (30 characters). Hand-written `page.metaDescription` is 148 characters and passes `assertDescription`.
 - TODO(copy): client has not approved any Inglewood wording (every FAQ answer, the three local paragraphs, the permit card, the permit, rebate and assistance sentences, the commercial sentence). Keep flagged until the user says the client approved.
 - DECISION, `wave1` (user approved 2026-10-18, default kept): Inglewood is wave 2, so its route is indexable by design (it has `page` content) and the hubs link it, but `sitemap.ts` lists only `wave1Cities.filter(page)`, so it is NOT in the sitemap. Not changed; the wave list is client-confirmed.
