@@ -1815,6 +1815,17 @@ const anaheimOverrides: Partial<City> = {
       "The City lists **Climate Zone 8** as a local design criterion and says the 2025 codes apply to projects submitted on or after January 1, 2026. Anaheim Municipal Code Sec. 15.03.010.0104 adopts the 2025 California Mechanical Code, and the City's online code notes it may not reflect the most current legislation, so confirm current rules with the City. Sec. 6.70.010 sets a general sound limit of 60 decibels on the A-scale at the property line for sound radiated for extended periods. It is not written for HVAC equipment, and we confirm how it applies to your address before choosing a condenser location.",
       "Electricity comes from **Anaheim Public Utilities**, which the City describes as a city-owned, not-for-profit utility and the only municipal electric utility in Orange County. Its rebate pages list residential incentives, and South Coast AQMD runs a separate GO ZERO heat-pump program, so confirm current terms with each before you buy. For commercial work, the City's Anaheim Resort page describes a 581-acre specific plan area of hotels, convention and conference facilities, restaurants, retail, and entertainment, and each rooftop project there is its own review. Official links are in the card beside this text.",
     ],
+    // TODO(copy): the housing card below restates figures already in the second local paragraph; client has not approved it.
+    localCards: [
+      {
+        heading: "Anaheim housing snapshot",
+        rows: [
+          { label: "Single-family detached", value: "41.7%" },
+          { label: "Built before 1970", value: "44.6%" },
+        ],
+        note: "California Department of Finance E-5 data for 2018 and 2017 American Community Survey data, both through SCAG's local profile. Citywide and dated.",
+      },
+    ],
     neighborhoodsHeading: 'Official Anaheim resources',
     officialResources: [
       {
@@ -3877,6 +3888,17 @@ const glendaleOverrides: Partial<City> = {
           },
         ],
         note: "From the City's AC2HP page, which gives no effective date. We confirm with the City how it applies to your home.",
+      },
+      // TODO(copy): the housing card below restates figures already in the fourth local paragraph; client has not approved it.
+      {
+        heading: "Glendale housing snapshot",
+        rows: [
+          { label: "Housing units", value: "80,176" },
+          { label: "Single-family detached", value: "34.6%" },
+          { label: "Buildings of 5 or more units", value: "52.3%" },
+          { label: "Built before 1970", value: "61.8%" },
+        ],
+        note: "California Department of Finance E-5 data for 2018 and 2017 American Community Survey data, both through SCAG's 2019 Local Profile. Citywide and dated.",
       },
     ],
     neighborhoodsHeading: "Official Glendale resources",
