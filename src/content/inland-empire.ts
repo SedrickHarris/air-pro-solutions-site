@@ -12,7 +12,7 @@ import type { RebateCard } from '@/components/sections/RebateCards';
 // TECH Clean California) and whether to add dollar amounts.
 // TODO(verify): electric utility per city for Rancho Cucamonga, Chino, Fontana, Upland,
 // and Eastvale (SCE is medium-to-low confidence).
-// TODO(verify): like-for-like permit rules for Corona, Rancho Cucamonga, Upland, and
+// TODO(verify): like-for-like permit rules for Rancho Cucamonga, Upland, and
 // Eastvale, and current Title 24 code dates.
 // TODO(client): the research does not support saying "we handle permits", so this page does not.
 // TODO(client): real photos, city-tagged reviews, business hours, and the confirmed Inland Empire
@@ -101,13 +101,13 @@ export const inlandEmpireHub = {
       ['Upland', '34.5%', 'Older, established', 'Mix of detached homes and multifamily. Construction peaked from 1970 to 1979.'],
       ['Fontana', '22.3%', 'Middle', 'Predominantly detached single-family'],
       ['Chino', '18.9%', 'Middle', 'Predominantly detached single-family. Construction peaked from 1970 to 1979.'],
-      ['Corona', '15.6%', 'Newer', 'Predominantly detached single-family, with some multifamily'],
+      ['Corona', '15.6%', 'Middle', 'Mostly detached single-family homes (66.9%), with 20.9% of homes in buildings of 5 or more units'],
       ['Rancho Cucamonga', '9.6%', 'Newer', 'Mix of detached homes and multifamily'],
       ['Eastvale', '0.7%', 'Newer', 'Predominantly detached single-family'],
     ],
     note: 'Share of homes built before 1970, 2018 data. Cities are listed from the highest share to the lowest, and the age group is a general grouping, not a ranking of city size.',
     paragraphs: [
-      '**Structure type shapes the job.** Eastvale, Fontana, Chino, and Corona are predominantly detached single-family markets, while Riverside, Upland, Ontario, and Rancho Cucamonga have a heavier mix of multifamily buildings. Attached and multifamily properties can mean shared roofs, limited equipment locations, and association rules.',
+      '**Structure type shapes the job.** Eastvale, Fontana, and Chino are predominantly detached single-family markets, while Corona, Riverside, Upland, Ontario, and Rancho Cucamonga have a heavier mix of multifamily buildings. Attached and multifamily properties can mean shared roofs, limited equipment locations, and association rules.',
       '**Age is only a starting point.** Construction peaked from 1970 to 1979 in both Chino and Upland. Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     ],
     pending: 'Housing mix figures were not found for Upland, so no further claims are made for it. Attic, foundation, ductwork, and home-size data were not found for any city.',
@@ -166,7 +166,7 @@ export const inlandEmpireHub = {
     columns: ['City', 'Permit path', 'What is different locally'],
     rows: [
       ['Riverside', 'Permit through the Public Permit Portal or the Permit Services counter', "The City's Bulletin 140 lists no like-for-like exemption for a whole unit, so we confirm the permit path with the City."],
-      ['Corona', 'Generally a city mechanical permit', "Submittals go through the city's eTRAKiT system. We confirm the requirement with the city."],
+      ['Corona', 'City eTRAKiT system or the Building Division counter', "The City's fee schedule lists change-out items, but we found no rule on whole-unit replacement, so we confirm the permit path with the City."],
       ['Ontario', 'City online permitting portal or the Building Department counter', "The City's fee schedule lists mechanical permit items, but we found no rule on whole-unit replacement, so we confirm the permit path with the City."],
       ['Rancho Cucamonga', 'Generally a city mechanical permit', 'Permit submittals are online only. We confirm the requirement with the city.'],
       ['Chino', 'Mechanical permit for like-for-like replacement', "Confirmed on the city's fee schedule."],
@@ -249,8 +249,9 @@ export const inlandEmpireHub = {
       },
       {
         name: 'Corona',
-        note: "Newer housing, with 15.6% of homes built before 1970 and detached single-family homes predominant. Electric service is mostly SCE, with small city electric areas, and permits go through the city's eTRAKiT system.",
-        areas: 'Dos Lagos, The Crossings, Eagle Glen, the 91 and 15 gateway',
+        href: '/service-areas/corona/',
+        note: "15.6% of homes were built before 1970, and 66.9% are detached homes. Electric service is mostly SCE, with small city electric areas, and the City sets setback and noise rules for outdoor units.",
+        areas: 'Dos Lagos, Eagle Glen, Sierra Del Oro, Downtown Corona',
         utility: 'Electric: mostly SCE. City electric areas include Dos Lagos, The Crossings, Corona Pointe, and Princeland.',
       },
       {

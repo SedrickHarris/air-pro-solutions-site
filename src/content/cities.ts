@@ -57,7 +57,7 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside and ontario have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario and corona have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
@@ -3332,6 +3332,380 @@ const ontarioOverrides: Partial<City> = {
   },
 };
 
+const coronaOverrides: Partial<City> = {
+  // TODO(data): add verified climate detail before treating this as a full local page.
+  neighborhoods: ["Dos Lagos", "Eagle Glen", "Downtown Corona", "Sierra Del Oro", "Corona Ranch", "Mountain Gate", "Chase Ranch", "Corona Vista", "Green River Ranch", "Sierra Bella", "Arantine Hills", "Crown Ranch Estates", "The Cimarron", "Skyline Heights"], // plan names from the City's specific plans list, not neighborhood boundaries; partial list
+  zips: [], // ZIP list held out: sources were a third-party aggregator and a court venue order, not a City or USPS-grade list
+  page: {
+    metaDescription:
+      "HVAC for Corona homes and businesses, from AC repair to installation. Know the City's 10-foot setback rule and permit steps. Licensed, 4.8-star rated.",
+    lede:
+      "AIRPRO SOLUTIONS provides HVAC services across Corona, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's setback and noise rules for outdoor units in mind.",
+    heroCaption: { title: "Corona, CA", text: "Local HVAC service across Corona" },
+    heroProof: [
+      { icon: "shield", label: "Licensed, bonded & insured" },
+      { icon: "star", label: "4.8-star rated" },
+      { icon: "bolt", label: "24/7 emergency dispatch" },
+      { icon: "building", label: "Residential and commercial" },
+    ],
+    trustStats: [
+      { num: "4.8★", label: "Google rating, 40 reviews" },
+      { num: "C-20", label: "California licensed" },
+      { num: "24/7", label: "emergency dispatch" },
+      { num: "Same-day", label: "service typical" },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Corona",
+      body:
+        ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Corona at a glance",
+      stats: [
+        { num: "161,734", label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)" },
+        { num: "66.9%", label: "of 49,277 housing units are single-family detached, and 20.9% are in buildings of 5 or more units (California Department of Finance E-5, 2018, per SCAG)" },
+        { num: "15.6%", label: "of housing was built before 1970 (U.S. Census American Community Survey, 2017; Nielsen Co., per SCAG)" },
+      ],
+      source: "Sources: U.S. Census Bureau QuickFacts and SCAG's local profile of Corona.",
+    },
+    localTitle: "Corona's condenser setback, noise limits, and electric service",
+    // Held out (no verified source): ZIP card (the research's 92877, 92878, 92879, 92880, 92881, 92882 and 92883 come from a third-party aggregator and from a Riverside County Superior Court order about where to file civil documents, a court venue list that does not describe them as postal delivery areas; the City's ZIP Code Map is a PDF link whose contents are not in text, and the City pages show only 92880 and 92882, which conflict with each other for the same Vicentia Avenue address); neighborhood claims beyond the City's specific plan names (the research's 'major neighborhoods' were plan names, and the City page calls them specific plans, not neighborhoods; Corona Hills, Corona West, Circle City, Kellogg Village and Buena Vista came only from Wikipedia; Grand Boulevard Historic District and any historic HVAC restriction have no City source read); nearby row; climate, NOAA normals, heat and humidity figures (the NCEI source was not retrieved, so no Corona station values); the research's air quality conclusions beyond AQMD listing Corona among its Riverside County cities (the AQMD data page does not name Corona); SCE TOU-D-PRIME (source is a March 2020 fact sheet, current availability not read); expedited permit pathway (the City's expedited page covers solar, EV charging and solar water heating only, not HVAC); City business license or contractor requirement; HVAC permit checklist and like-for-like rule (none found); local code amendments; median year built; single-family, multifamily and commercial split beyond the SCAG DOF table; employers, hospitals, school districts, shopping centers and industrial parks (the City page names only four industries, undated, and no employers); zoning map; all rebate dollar amounts; HEEHRA, ESA, Building Electrification and Whole Home pilot status claims (not independently verified); competitor SERP table (gap analysis only, never on the page).
+    // TODO(copy): client has not approved any Corona wording (every FAQ answer, the five local paragraphs, the setback and noise sentences, the Title 24 sentences, the utility and incentive sentences, the commercial sentence). Keep flagged until the user says the client approved.
+    // TODO(copy): confirm with the City which permit path each HVAC job needs (Building Division lists 951-736-2250 and BuildingPlanCheck@CoronaCA.gov) and whether AIRPRO SOLUTIONS needs a City business license (none found on the pages read).
+    // TODO(copy): setback, noise and construction-hour text is from the American Legal Publishing copy of Sec. 17.84.040, labeled 2025 S-56 (current) on both reads; the research said 2026 S-57. The publisher says its copy may not reflect the latest legislation. Recheck against the official code and confirm subsection letters (C)(2), (D)(1), (D)(2), (E)(6) before launch.
+    // TODO(copy): the fee schedule PDF names only the Building Division, not the City, and says effective October 4, 2026 inside the file; the file name says 10.4.26. Fees are not on the page.
+    // Pre-launch recheck: Sec. 17.84.040 (edition label and subsections), Chapters 15.04 and 15.08 adoption text, Building Division page (ZIP shown as 92880 in one place and 92882 in another), eTRAKiT portal (not opened), mechanical fee schedule (effective October 4, 2026), City electric service and new-resident pages, SCE and SoCalGas rebate pages and SoCalGas application PDF, SCE TOU page, specific plans list, economic development page, SCAG profile URL, QuickFacts, AQMD jurisdiction list, Energy Commission pages.
+    localParagraphs: [
+      "Corona's Municipal Code sets a numeric placement rule for outdoor units. Under Sec. 17.84.040(D)(1), when a building permit is requested to install mechanical equipment such as an air conditioner in a residential zone, **the equipment must be set back at least 10 feet from an adjoining property line**, unless a 5-foot-high block sound wall extends 2 feet on each side of the equipment, or the Building Official approves sound attenuation devices that keep the noise within the code's limits. The same section exempts repairs to and replacement of residential mechanical equipment installed by permit before May 20, 1993 from that division (Sec. 17.84.040(E)(6)). The text comes from the American Legal Publishing copy of the code, which says it may not reflect the latest legislation, so we confirm how the rule applies to your lot before choosing a condenser location.",
+      "Section 17.84.040 also sets stationary noise standards by land use. For single-, double-, and multi-family residential uses it lists **55 dBA from 7 a.m. to 10 p.m. and 50 dBA from 10 p.m. to 7 a.m.** outdoors, with each limit reduced by 5 dBA for impulse or simple-tone noise, and the ambient level becoming the standard when it is higher (Sec. 17.84.040(C)(2)). Commercial uses are listed at 65 dBA by day and 60 dBA at night. The code measures noise on the neighboring property over time, so these limits are not a rating for a condenser, and we did not find a limit written only for HVAC equipment. Construction noise is prohibited from 8 p.m. to 7 a.m. Monday through Saturday and from 6 p.m. to 10 a.m. on Sundays and federal holidays (Sec. 17.84.040(D)(2)). We did not confirm whether that provision applies to a service call or an installation, so we confirm hours with the City before scheduling work.",
+      "Corona's Building Division handles permits at 400 South Vicentia Avenue, Suite 120, and lists 951-736-2250. The City's permits directory groups building, electrical, mechanical, and plumbing permits under one entry, and the Building Division page links its online building portal, eTRAKiT, to apply for a permit, check plan status, request inspections, and search permit history. The page lists counter hours of Monday through Thursday, 7 a.m. to 6 p.m., and closed Friday. The City's mechanical fee schedule, effective October 4, 2026, has line items for a residential furnace change-out in the same location, a residential A/C condenser change-out, and a combined change-out, but we did not find a City checklist for an HVAC replacement or a written rule on which replacements need a permit, so **AIRPRO SOLUTIONS confirms the permit path** with the City before work starts, and we do not quote fees. Corona's Municipal Code adopts the 2025 California Mechanical Code (Sec. 15.08.020) and the 2025 California Building Code (Sec. 15.04.020), and California's 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. We did not read any local amendments. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing requirements, and field verification and diagnostic testing is prescriptively required for most HVAC alterations.",
+      "Corona had an estimated 161,734 residents on July 1, 2025, up from 157,136 in the 2020 U.S. Census, and QuickFacts reports a 63.8% owner-occupied housing rate for 2020-2024. SCAG's local profile, using California Department of Finance E-5 data for 2018, counts **49,277 housing units: 66.9% single-family detached, 4.3% attached, 4.5% in buildings of 2 to 4 units, 20.9% in buildings of 5 or more, and 3.4% mobile homes**. The same profile reports that **15.6% of housing was built before 1970**, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. Those figures are citywide and dated, so we confirm the equipment, roof or attic access, and ductwork at the property, and in a multi-unit building we confirm equipment access and placement. The City's list of specific plans, linked in the card beside this text, names plan areas such as Dos Lagos, Eagle Glen, and Downtown Corona, but a plan name does not tell us a home's age or equipment, so we draw no conclusions from it.",
+      "Corona has two electric providers. The City's new-resident page says a majority of Corona residents are served by Southern California Edison, and that small areas near Dos Lagos, The Crossings, Corona Pointe, and Princeland are served by the City's Department of Water & Power. The City's electric service page says its rebates are for City of Corona electric customers, who do not receive an electric bill from Southern California Edison, so **confirm your electric provider on your bill before counting on a program**. SCE's time-of-use plan page lists summer weekday peak hours of 4 to 9 p.m. for TOU-D 4-9 PM and 5 to 8 p.m. for TOU-D 5-8 PM. Those are SCE plans, and we did not read the City's electric rate schedules. The new-resident page also links SoCalGas assistance programs. SCE's rebates page lists Golden State Rebates coupons for air conditioners and smart thermostats and a Smart Energy Program bill credit, SoCalGas lists a rebate for qualifying gas furnaces, and the City's electric service page lists residential and commercial programs for its electric customers. Programs and funding change, so we link the program pages rather than quote amounts. For commercial work, the City's economic development site says Corona's largest industries include construction, manufacturing, health care, and retail services, and the page is undated, so we plan commercial visits around the building and its rooftop or ground equipment access. Official links are in the card beside this text.",
+    ],
+    neighborhoodsHeading: "Specific plan areas and official resources",
+    neighborhoodsNote: "Partial list of area names from the City's specific plans. These are land-use plans, not neighborhood boundaries.",
+    officialResources: [
+      {
+        text: "Building Division",
+        href: "https://www.coronaca.gov/departments/building-division",
+        note: "Plan check, inspections, counter hours, and contact details.",
+      },
+      {
+        text: "Online building portal (eTRAKiT)",
+        href: "https://etrakit.coronaca.gov/etrakit/",
+        note: "Apply for permits, check plan status, and request inspections.",
+      },
+      {
+        text: "Mechanical fee schedule (PDF)",
+        href: "https://cdn.prod.website-files.com/65799af8ef225180fdf1ba2e/6ac53e8948e0160eee30ddbf_Table%20E%20Mechancial%20Fees%20-%2010.4.26.pdf",
+        note: "Table E, effective October 4, 2026, with furnace and A/C condenser change-out items.",
+      },
+      {
+        text: "Municipal Code Sec. 17.84.040",
+        href: "https://codelibrary.amlegal.com/codes/corona/latest/corona_ca/0-0-0-55028",
+        note: "Equipment setback, stationary noise limits, and construction hours (American Legal Publishing copy).",
+      },
+      {
+        text: "Municipal Code Chapter 15.08, Mechanical Code",
+        href: "https://codelibrary.amlegal.com/codes/corona/latest/corona_ca/0-0-0-61229",
+        note: "Adopts the 2025 California Mechanical Code (American Legal Publishing copy).",
+      },
+      {
+        text: "Municipal Code Chapter 15.04, Building Code",
+        href: "https://codelibrary.amlegal.com/codes/corona/latest/corona_ca/0-0-0-60978",
+        note: "Adopts the 2025 California Building Code (American Legal Publishing copy).",
+      },
+      {
+        text: "City electric service",
+        href: "https://coronaca.gov/departments/utilities/customer-care/services/electric-service",
+        note: "Service area and rebate programs for City electric customers.",
+      },
+      {
+        text: "New resident utilities",
+        href: "https://www.coronaca.gov/community/getting-involved/new-residents",
+        note: "Names the SCE and City electric areas and links gas assistance programs.",
+      },
+      {
+        text: "SCE rebates",
+        href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+        note: "Golden State Rebates coupons, Smart Energy Program, and Home Performance Plus.",
+      },
+      {
+        text: "SoCalGas rebates",
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "Natural gas furnace rebate and program terms.",
+      },
+      {
+        text: "SCE time-of-use plans",
+        href: "https://www.sce.com/save-money/rates-financing/residential-rate-plans/time-of-use-plans",
+        note: "Peak hours for the TOU-D plans cited on this page.",
+      },
+      {
+        text: "Specific plans",
+        href: "https://www.coronaca.gov/departments/planning-and-development/planning-division/specific-plans",
+        note: "Source of the plan area names in the pills above (plan names, not boundaries).",
+      },
+      {
+        text: "Corona business community",
+        href: "https://coronaca.gov/departments/economic-development/data-demographics/corona-business-community",
+        note: "Largest industries cited on this page (undated).",
+      },
+      {
+        text: "SCAG Corona local profile",
+        href: "https://sp.scag.ca.gov/sites/default/files/2024-05/corona_localprofile.pdf",
+        note: "Housing counts and building age cited on this page.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/fact/table/coronacitycalifornia/PST045224",
+        note: "Population and owner-occupied rate cited on this page.",
+      },
+      {
+        text: "South Coast AQMD cities",
+        href: "https://www.aqmd.gov/nav/about/jurisdiction",
+        note: "Lists Corona among the Riverside County cities in its jurisdiction.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Corona homes and businesses",
+    serviceCards: [
+      { slug: "ac-repair", name: "AC Repair", body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises, with the City's outdoor-unit setback and noise limits in mind." },
+      { slug: "ac-installation", name: "AC Installation & Replacement", body: "New system sizing and installation, planned around the City's 10-foot setback rule for residential outdoor units, its permit process, and Title 24 requirements." },
+      { slug: "ac-maintenance", name: "AC Maintenance", body: "Seasonal AC tune-ups that catch small issues early, for homes and for commercial rooftop and ground units. The City's electric service page lists an AC tune-up program for its electric customers." },
+      { slug: "heating-repair", name: "Heating Repair", body: "Furnace and heating system diagnosis and repair. The City's new-resident page links SoCalGas assistance programs for gas customers." },
+      { slug: "furnace-installation", name: "Furnace Installation & Replacement", body: "New furnace sizing and installation, with the City's permit path confirmed before work starts. SoCalGas lists a gas furnace rebate, and funding changes, so we point you to the current program page." },
+      { slug: "heat-pump-services", name: "Heat Pump Services", body: "Installation, repair, and maintenance for heat pumps. Heat pump work starts with your electric utility, SCE for most of Corona and the City's electric utility in small areas, and incentive programs change." },
+      { slug: "ductless-mini-split", name: "Ductless Mini-Split", body: "Room-by-room comfort control for spaces where ductwork is not an option, with outdoor-unit placement checked against the City's setback rule." },
+      { slug: "ductwork", name: "Ductwork Services", body: "Duct repair, sealing, replacement, and installation, with Title 24 duct sealing and verification in mind." },
+      { slug: "indoor-air-quality", name: "Indoor Air Quality", body: "Air filtration, whole-home purification, and ventilation options. South Coast AQMD lists Corona among the Riverside County cities in its jurisdiction." },
+      { slug: "emergency-hvac", name: "Emergency HVAC", body: "Dispatch for no-cool and no-heat emergencies in Corona." },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Corona setbacks, permits, and incentive programs",
+      intro: "Official sources for three local items worth checking before a Corona HVAC project.",
+      cards: [
+        // TODO(copy): incentive wording not yet client-approved. No dollar amounts on purpose; recheck links before launch.
+        {
+          amount: "Outdoor unit setback",
+          description: "Corona's Municipal Code asks for equipment in residential zones to be set back at least 10 feet from an adjoining property line, with a block-wall or approved sound-attenuation alternative. Check how it applies to your lot before choosing a condenser location.",
+          linkLabel: "Municipal Code Sec. 17.84.040",
+          linkHref: "https://codelibrary.amlegal.com/codes/corona/latest/corona_ca/0-0-0-55028",
+        },
+        {
+          amount: "Permits and codes",
+          description: "Corona's Building Division handles permits through its online building portal, and its mechanical fee schedule lists furnace and A/C condenser change-out items. We found no City checklist for a replacement, so we confirm the path with the City.",
+          linkLabel: "Building Division",
+          linkHref: "https://www.coronaca.gov/departments/building-division",
+        },
+        {
+          amount: "Incentive programs",
+          description: "Your electric provider decides which programs apply. SCE lists Golden State Rebates coupons and a Smart Energy Program bill credit, SoCalGas lists a gas furnace rebate, and the City lists programs for its own electric customers. Terms and funding change, and we do not quote amounts, so check the current terms before you buy.",
+          linkLabel: "City electric service",
+          linkHref: "https://coronaca.gov/departments/utilities/customer-care/services/electric-service",
+        },
+      ],
+    },
+    nearby: [],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Corona",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        { num: "4.8★", label: "Google rating" },
+        { num: "40", label: "Google reviews" },
+        { num: "C-20", label: "California license class" },
+        { num: "24/7", label: "Emergency dispatch" },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Corona. Same-day service is typical, subject to capacity.",
+    // TODO(copy): client has not confirmed any FAQ answer below.
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Corona?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Corona as part of our Inland Empire coverage. Corona's Building Division handles permits, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Inland Empire coverage", href: "/service-areas/inland-empire/" },
+          { text: "Building Division", href: "https://www.coronaca.gov/departments/building-division" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Corona home?",
+        a: "Same-day service is typical in Corona, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Corona, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an AC or furnace in Corona?",
+        a: "Check with the City before work starts. Corona's Building Division handles permits, and the City's mechanical fee schedule lists line items for a residential furnace change-out in the same location, a residential A/C condenser change-out, and a combined change-out. We found no City checklist or written rule that says whether a given replacement needs a permit, so we do not assume a replacement is exempt. The Building Division lists 951-736-2250. AIRPRO SOLUTIONS can walk you through the steps.",
+        boldLead: "Check with the City before work starts.",
+        links: [
+          { text: "Building Division", href: "https://www.coronaca.gov/departments/building-division" },
+          { text: "mechanical fee schedule", href: "https://cdn.prod.website-files.com/65799af8ef225180fdf1ba2e/6ac53e8948e0160eee30ddbf_Table%20E%20Mechancial%20Fees%20-%2010.4.26.pdf" },
+        ],
+      },
+      {
+        q: "How do I apply for an HVAC permit in Corona?",
+        a: "Use the City's online building portal, eTRAKiT, or the Building Division counter. The Building Division's page says the portal is used to apply for a permit, check plan status, request inspections, and search permit history, and it lists the counter at 400 South Vicentia Avenue, Suite 120, open Monday through Thursday, 7 a.m. to 6 p.m., and closed Friday. We did not find a City list of HVAC permit types or a checklist for an equipment change-out, and we do not quote fees, so we confirm the path with the City.",
+        boldLead: "Use the City's online building portal, eTRAKiT, or the Building Division counter.",
+        links: [
+          { text: "online building portal, eTRAKiT", href: "https://etrakit.coronaca.gov/etrakit/" },
+          { text: "Building Division", href: "https://www.coronaca.gov/departments/building-division" },
+        ],
+      },
+      {
+        q: "Which building codes apply to HVAC work in Corona?",
+        a: "Corona's Municipal Code adopts the 2025 California Mechanical Code (Sec. 15.08.020) and the 2025 California Building Code (Sec. 15.04.020). California's 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. The code publisher says its online copy may not reflect the latest legislation, and we did not read any local amendments, so we confirm which provisions apply to your project with the City.",
+        boldLead: "Corona's Municipal Code adopts the 2025 California Mechanical Code (Sec. 15.08.020) and the 2025 California Building Code (Sec. 15.04.020).",
+        links: [
+          { text: "2025 California Mechanical Code", href: "https://codelibrary.amlegal.com/codes/corona/latest/corona_ca/0-0-0-61229" },
+          { text: "2025 California Building Code", href: "https://codelibrary.amlegal.com/codes/corona/latest/corona_ca/0-0-0-60978" },
+          { text: "2025 Energy Code", href: "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency" },
+        ],
+      },
+      {
+        q: "Does Title 24 apply when I replace an AC or furnace in Corona?",
+        a: "Yes, the applicable Title 24 energy requirements apply. California's 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing requirements, and field verification and diagnostic testing is prescriptively required for most HVAC alterations. Depending on the job, that can include duct leakage testing, with limits of 10% total leakage or 7% leakage to outside as a share of system air handler airflow, and refrigerant charge verification for new heat pump systems. Not every job needs every test.",
+        boldLead: "Yes, the applicable Title 24 energy requirements apply.",
+        links: [
+          { text: "2025 Energy Code", href: "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency" },
+          { text: "Energy Commission", href: "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/energy-code-support-center/hvac-0" },
+        ],
+      },
+      {
+        q: "Does Corona limit where an outdoor AC unit can go?",
+        a: "Yes, in residential zones. Corona's Municipal Code (Sec. 17.84.040(D)(1)) says that when a building permit is requested to install mechanical equipment such as an air conditioner, the equipment must be set back at least 10 feet from an adjoining property line, unless a 5-foot-high block sound wall extends 2 feet on each side of the equipment or the Building Official approves sound attenuation devices. That section covers residential zones, and we did not read the standards for other zones. The code publisher says its copy may not reflect the latest legislation, so we confirm placement with the City before choosing a unit and location.",
+        boldLead: "Yes, in residential zones.",
+        links: [
+          { text: "Municipal Code", href: "https://codelibrary.amlegal.com/codes/corona/latest/corona_ca/0-0-0-55028" },
+        ],
+      },
+      {
+        q: "Does the 10-foot setback apply when I replace an old unit in Corona?",
+        a: "Corona's code treats equipment installed by permit before May 20, 1993 differently. The Municipal Code exempts repairs to and replacement of residential mechanical equipment installed by permit before that date from the requirements in division (D) of Sec. 17.84.040, which includes the setback rule (Sec. 17.84.040(E)(6)). The exemption names that division only, so we confirm with the City whether your existing unit qualifies and what still applies before we plan a replacement.",
+        boldLead: "Corona's code treats equipment installed by permit before May 20, 1993 differently.",
+        links: [
+          { text: "Municipal Code", href: "https://codelibrary.amlegal.com/codes/corona/latest/corona_ca/0-0-0-55028" },
+        ],
+      },
+      {
+        q: "Does Corona have a noise rule that affects AC equipment?",
+        a: "Corona sets stationary noise standards by land use. For single-, double-, and multi-family residential uses, the Municipal Code lists 55 dBA from 7 a.m. to 10 p.m. and 50 dBA from 10 p.m. to 7 a.m. outdoors, reduced by 5 dBA for impulse or simple-tone noise, and the ambient level becomes the standard when it is higher (Sec. 17.84.040(C)(2)). Noise is measured on the neighboring property over time, so the limits are not a condenser rating, and we did not find a limit written only for HVAC equipment. The code publisher says its copy may not reflect the latest legislation, so we confirm how the limits apply to your address before we choose a condenser location.",
+        boldLead: "Corona sets stationary noise standards by land use.",
+        links: [
+          { text: "Municipal Code", href: "https://codelibrary.amlegal.com/codes/corona/latest/corona_ca/0-0-0-55028" },
+        ],
+      },
+      {
+        q: "What hours can HVAC work happen in Corona?",
+        a: "The Municipal Code prohibits construction noise from 8 p.m. to 7 a.m. Monday through Saturday and from 6 p.m. to 10 a.m. on Sundays and federal holidays (Sec. 17.84.040(D)(2)). It defines construction noise as disturbing, excessive, or offensive noise generated by tools, machinery, or equipment used in connection with construction operations. We did not confirm whether that provision applies to an HVAC service call or an installation, so we confirm current hours with the City. Call (323) 776-9047 to schedule a visit.",
+        boldLead: "The Municipal Code prohibits construction noise from 8 p.m. to 7 a.m. Monday through Saturday and from 6 p.m. to 10 a.m. on Sundays and federal holidays (Sec. 17.84.040(D)(2)).",
+        links: [
+          { text: "Municipal Code", href: "https://codelibrary.amlegal.com/codes/corona/latest/corona_ca/0-0-0-55028" },
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do you work in condos and apartment buildings in Corona?",
+        a: "Yes. SCAG's local profile of Corona, using California Department of Finance E-5 data for 2018, counts 49,277 housing units, with 66.9% single-family detached, 4.3% single-family attached, 4.5% in buildings of 2 to 4 units, 20.9% in buildings of 5 or more units, and 3.4% mobile homes. AIRPRO SOLUTIONS services condos, townhomes, and apartments as well as single-family homes, and in a multi-unit building we confirm equipment access and placement at the property. See our Residential HVAC page.",
+        boldLead: "Yes.",
+        links: [
+          { text: "local profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/corona_localprofile.pdf" },
+          { text: "Residential HVAC page", href: "/residential-hvac/" },
+        ],
+      },
+      {
+        q: "Does the age of Corona homes matter for HVAC work?",
+        a: "It can, and we confirm it on site. SCAG's local profile reports that 15.6% of Corona's housing stock was built before 1970, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. That is a citywide share, and age alone does not tell us about attic access, foundation type, or original ductwork, so we check them at a site visit before recommending repair or replacement.",
+        boldLead: "It can, and we confirm it on site.",
+        links: [
+          { text: "local profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/corona_localprofile.pdf" },
+        ],
+      },
+      {
+        q: "Do you service Dos Lagos, Eagle Glen, and other Corona communities?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Corona. The City's list of specific plans includes Dos Lagos, Eagle Glen, and Downtown Corona, and its new-resident page says small areas near Dos Lagos and The Crossings are served by the City's electric utility, so we confirm your electric provider by address before pointing you to a program.",
+        boldLead: "Yes.",
+        links: [
+          { text: "list of specific plans", href: "https://www.coronaca.gov/departments/planning-and-development/planning-division/specific-plans" },
+          { text: "new-resident page", href: "https://www.coronaca.gov/community/getting-involved/new-residents" },
+        ],
+      },
+      {
+        q: "Who provides electricity and gas in Corona?",
+        a: "Two providers serve electricity in Corona. The City's new-resident page says a majority of Corona residents are served by Southern California Edison, and that small areas near Dos Lagos, The Crossings, Corona Pointe, and Princeland are served by the City's Department of Water & Power. The page also links SoCalGas assistance programs for gas customers. Confirm your provider on your bill before counting on a program, because eligibility follows your utility account.",
+        boldLead: "Two providers serve electricity in Corona.",
+        links: [
+          { text: "new-resident page", href: "https://www.coronaca.gov/community/getting-involved/new-residents" },
+        ],
+      },
+      {
+        q: "Can I get a rebate if I am a City of Corona electric customer?",
+        a: "Possibly, if your electric bill comes from the City. The City's electric service page says its rebates are for City of Corona electric customers, meaning you do not receive an electric bill from Southern California Edison, and it lists residential programs for a smart thermostat, an AC tune-up, and an AC purchase, new or replacement, each with a limit on how often it can be used. Amounts, limits, and funding change, so we link the page and do not quote them. Check your bill first.",
+        boldLead: "Possibly, if your electric bill comes from the City.",
+        links: [
+          { text: "electric service page", href: "https://coronaca.gov/departments/utilities/customer-care/services/electric-service" },
+        ],
+      },
+      {
+        q: "Which rebate and incentive pages should I check before buying HVAC equipment in Corona?",
+        a: "Check the pages for your electric provider and for SoCalGas. SCE's rebates page lists Golden State Rebates instant coupons for air conditioners and smart thermostats, and a Smart Energy Program bill credit for letting SCE adjust an eligible smart thermostat. SoCalGas lists a rebate for qualifying natural gas furnaces that requires installation by a licensed contractor with proof of permit closure and is limited to one per household. The City's electric service page lists programs for City electric customers. Funding is limited and programs can change, so confirm eligibility with each utility. We do not quote amounts.",
+        boldLead: "Check the pages for your electric provider and for SoCalGas.",
+        links: [
+          { text: "SCE's rebates page", href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace" },
+          { text: "SoCalGas", href: "https://www.socalgas.com/savings/rebates-and-incentives" },
+          { text: "electric service page", href: "https://coronaca.gov/departments/utilities/customer-care/services/electric-service" },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Corona?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Corona, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC",
+        links: [
+          { text: "AC repair", href: "/services/ac-repair/" },
+          { text: "AC installation and replacement", href: "/services/ac-installation/" },
+          { text: "AC maintenance", href: "/services/ac-maintenance/" },
+          { text: "heating repair", href: "/services/heating-repair/" },
+          { text: "furnace installation and replacement", href: "/services/furnace-installation/" },
+          { text: "heat pump services", href: "/services/heat-pump-services/" },
+          { text: "ductless mini-splits", href: "/services/ductless-mini-split/" },
+          { text: "ductwork", href: "/services/ductwork/" },
+          { text: "indoor air quality", href: "/services/indoor-air-quality/" },
+          { text: "emergency HVAC", href: "/services/emergency-hvac/" },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Corona?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Corona. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Corona?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Corona?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Corona, including rooftop units. The City's economic development site says Corona's largest industries include construction, manufacturing, health care, and retail services, and the page is undated. The Municipal Code lists 65 dBA by day and 60 dBA at night for commercial uses (Sec. 17.84.040(C)(2)), and the City's electric service page lists commercial programs for its electric customers. We confirm the permit path with the City before work starts. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "economic development site", href: "https://coronaca.gov/departments/economic-development/data-demographics/corona-business-community" },
+          { text: "Municipal Code", href: "https://codelibrary.amlegal.com/codes/corona/latest/corona_ca/0-0-0-55028" },
+          { text: "electric service page", href: "https://coronaca.gov/departments/utilities/customer-care/services/electric-service" },
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -3348,6 +3722,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'huntington-beach' ? huntingtonBeachOverrides
     : c.slug === 'riverside' ? riversideOverrides
     : c.slug === 'ontario' ? ontarioOverrides
+    : c.slug === 'corona' ? coronaOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;

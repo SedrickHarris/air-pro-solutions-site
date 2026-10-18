@@ -446,6 +446,53 @@ JSON-LD, visible text and TS match.
 - Hero photo is still "Photo pending".
 - Claim wording follows the approved list. Do not strengthen it.
 
+## /service-areas/corona/ (coronaOverrides in src/content/cities.ts)
+Built 2026-10-18, committed locally (push route pending the user's choice). Reference artifact: claude/reference/corona-location.html
+(https://claude.ai/artifact/FWyHWFK6TqueUcqDFf4njM). Third Inland Empire wave-1 city page in this repo. Generated from one data
+source so JSON-LD, visible text and TS match. Rancho Cucamonga is NOT in this repo yet, so it is not wired into the hub.
+- Title: `cityTitle('Corona')` ("HVAC Services in Corona, CA | AIRPRO SOLUTIONS", 46 characters) does not collide with another page, so no `distinctTitle`.
+  H1 is `cityH1('Corona')` (27 characters). The meta description is the hand-written `page.metaDescription`
+  (150 characters, validated by `assertDescription`).
+- Client approval NOT confirmed. Every Corona FAQ answer, the five local paragraphs, the setback and noise sentences, the Title 24
+  sentences, the utility and incentive sentences and the commercial sentence stay flagged TODO(copy) until the user says the client
+  approved them.
+- TODO(copy): confirm with the City which permit path each HVAC job needs (Building Division lists 951-736-2250 and BuildingPlanCheck@CoronaCA.gov) and whether AIRPRO SOLUTIONS needs a City business license (none found on the pages read).
+- TODO(copy): setback, noise and construction-hour text is from the American Legal Publishing copy of Sec. 17.84.040, labeled 2025 S-56 (current) on both reads; the research said 2026 S-57. The publisher says its copy may not reflect the latest legislation. Recheck against the official code and confirm subsection letters (C)(2), (D)(1), (D)(2), (E)(6) before launch.
+- TODO(copy): the fee schedule PDF names only the Building Division, not the City, and says effective October 4, 2026 inside the file; the file name says 10.4.26. Fees are not on the page.
+- Lead angle: the City's outdoor-unit rule. Municipal Code Sec. 17.84.040(D)(1): equipment installed under a building permit must be
+  at least 10 feet from the adjoining property line, with a 5-foot block sound wall alternative or Building Official-approved sound
+  attenuation, and a pre-May 20, 1993 permitted-equipment exemption for repairs and replacement (E)(6). Noise: 55 dBA (7 a.m.-10 p.m.)
+  and 50 dBA (10 p.m.-7 a.m.) residential, construction hours in (D)(2). The code publisher warns its online copy may lag the latest
+  ordinances.
+- Housing and population: SCAG's Corona profile (DOF E-5, 2018: 49,277 units, 66.9% detached, 20.9% in 5+ unit buildings; ACS 2017
+  via SCAG: 15.6% built before 1970) and Census QuickFacts (161,734 residents, July 1, 2025; 157,136 in the 2020 Census; 63.8%
+  owner-occupied, 2020-2024). Data years are labeled as printed.
+- Utilities: the City's new-resident page says a majority of residents are served by SCE, with small City electric areas near Dos
+  Lagos, The Crossings, Corona Pointe and Princeland. Rebate cards are link-only with no dollar amounts.
+- DECISION (recommended: keep link-only; user approved the recommendations): verified amounts, not published. SoCalGas furnace $1.40
+  (92-94% AFUE), $10 (95-96%), $25 (97%+) per kBtuh, one per household, licensed contractor and permit closure, 2026 purchases,
+  subject to funds; SCE Smart Energy $75 one-time plus up to $50 a year (June 1-Sept. 30); City of Corona electric residential
+  thermostat up to $50, AC tune-up up to $80, AC purchase $200/ton up to 25% of project cost; commercial PTAC $100/ton, package AC or
+  heat pump $200/ton, efficiency upgrade up to $25,000 (City electric customers only). SoCalGas $75 thermostat is wildfire-ZIP only.
+  Do not relabel SEER as SEER2.
+- Right-hand card: "Specific plan areas and official resources" (`page.officialResources`, 16 links) with 14 specific plan
+  names shown as pills, labeled as plan names, not boundaries. `zips: []`, `nearby: []`.
+- Held out (no verified source): ZIP card (the research's 92877, 92878, 92879, 92880, 92881, 92882 and 92883 come from a third-party aggregator and from a Riverside County Superior Court order about where to file civil documents, a court venue list that does not describe them as postal delivery areas; the City's ZIP Code Map is a PDF link whose contents are not in text, and the City pages show only 92880 and 92882, which conflict with each other for the same Vicentia Avenue address); neighborhood claims beyond the City's specific plan names (the research's 'major neighborhoods' were plan names, and the City page calls them specific plans, not neighborhoods; Corona Hills, Corona West, Circle City, Kellogg Village and Buena Vista came only from Wikipedia; Grand Boulevard Historic District and any historic HVAC restriction have no City source read); nearby row; climate, NOAA normals, heat and humidity figures (the NCEI source was not retrieved, so no Corona station values); the research's air quality conclusions beyond AQMD listing Corona among its Riverside County cities (the AQMD data page does not name Corona); SCE TOU-D-PRIME (source is a March 2020 fact sheet, current availability not read); expedited permit pathway (the City's expedited page covers solar, EV charging and solar water heating only, not HVAC); City business license or contractor requirement; HVAC permit checklist and like-for-like rule (none found); local code amendments; median year built; single-family, multifamily and commercial split beyond the SCAG DOF table; employers, hospitals, school districts, shopping centers and industrial parks (the City page names only four industries, undated, and no employers); zoning map; all rebate dollar amounts; HEEHRA, ESA, Building Electrification and Whole Home pilot status claims (not independently verified); competitor SERP table (gap analysis only, never on the page).
+- Corrected research overstatements: the research said no Corona municipal HVAC rebates exist (the City electric page lists them);
+  the 10-foot rule is not universal (1993 exemption); the expedited-permits page does not cover HVAC; the SoCalGas $75 thermostat
+  rebate is wildfire-only; "major neighborhoods" were specific plan names; ZIPs came from a court venue order.
+- Pre-launch recheck: Sec. 17.84.040 (edition label and subsections), Chapters 15.04 and 15.08 adoption text, Building Division page (ZIP shown as 92880 in one place and 92882 in another), eTRAKiT portal (not opened), mechanical fee schedule (effective October 4, 2026), City electric service and new-resident pages, SCE and SoCalGas rebate pages and SoCalGas application PDF, SCE TOU page, specific plans list, economic development page, SCAG profile URL, QuickFacts, AQMD jurisdiction list, Energy Commission pages.
+- Inland Empire hub wiring DONE: Corona card `href` and card rewrite (15.6% pre-1970, 66.9% detached, areas now "Dos Lagos, Eagle Glen,
+  Sierra Del Oro, Downtown Corona"; "the 91 and 15 gateway" dropped as unsourced), /service-areas/ chip, `hubCityIndexNote`, the Inland
+  Empire page sentence.
+- Inland Empire hub audit, Corona copy corrected: housing row now 66.9% detached and 20.9% in 5+ units with age group "Middle"
+  (was "Newer", which did not fit the 15.6% position between Chino and Rancho Cucamonga); permits row reworded (eTRAKiT or the
+  Building Division counter, no whole-unit rule found); Corona removed from the "predominantly detached" sentence and the Corona
+  TODO(verify) permit line removed. Utilities wording ("mostly SCE") kept. Checked, no change: Commercial HVAC region card
+  (city-name list), climate-group list.
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list. Do not strengthen it.
+
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
 - Hermosa Beach: permit applications become online-only through the city's portal starting
