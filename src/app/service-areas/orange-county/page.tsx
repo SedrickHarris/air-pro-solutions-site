@@ -245,6 +245,7 @@ export default function Page() {
             Individual Orange County city pages are coming. For now, see our{' '}
             <Link href="/service-areas/irvine/">Irvine page</Link>,{' '}
             <Link href="/service-areas/anaheim/">Anaheim page</Link>,{' '}
+            <Link href="/service-areas/santa-ana/">Santa Ana page</Link>,{' '}
             <Link href="/service-areas/costa-mesa/">Costa Mesa page</Link>, and{' '}
             <Link href="/service-areas/huntington-beach/">Huntington Beach page</Link>, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.

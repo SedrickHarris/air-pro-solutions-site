@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne and carson have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson and santa-ana have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // The closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's local paragraphs use the new sentence from the start. The client approved all city page copy on 2026-10-19 (per the user).
+// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's and Santa Ana's local paragraphs use the new sentence from the start. The client approved all city page copy on 2026-10-19 (per the user).
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
 // building that city page or its matrix pages. Never invent it.
@@ -7276,6 +7276,340 @@ const carsonOverrides: Partial<City> = {
   },
 };
 
+const santaAnaOverrides: Partial<City> = {
+  // Copy approval: the client approved the Santa Ana page copy on 2026-10-19 (per the user).
+  // TODO(data): add verified climate, neighborhood and housing-stock detail before treating this as a full local page.
+  neighborhoods: [], // neighborhood list held out: no City, county or Census source read lists named neighborhoods
+  zips: [], // ZIP list held out: no official City or USPS list of Santa Ana ZIPs was read (see held out comment below)
+  page: {
+    metaDescription: "HVAC for Santa Ana homes and businesses, from AC repair to installation. Know the City's online permit portal and mechanical permits. Licensed, 4.8-star rated.",
+    lede: "AIRPRO SOLUTIONS provides HVAC services across Santa Ana, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's online permit portal in mind.",
+    heroCaption: { title: "Santa Ana, CA", text: "Local service across Santa Ana" },
+    heroProof: [
+      { icon: "shield", label: "Licensed, bonded & insured" },
+      { icon: "star", label: "4.8-star rated" },
+      { icon: "bolt", label: "24/7 emergency dispatch" },
+      { icon: "building", label: "Residential and commercial" },
+    ],
+    trustStats: [
+      { num: "4.8★", label: "Google rating, 40 reviews" },
+      { num: "C-20", label: "California licensed" },
+      { num: "24/7", label: "emergency dispatch" },
+      { num: "Same-day", label: "service typical" },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Santa Ana",
+      body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Santa Ana at a glance",
+      stats: [
+        {
+          num: "315,586",
+          label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "44.6%",
+          label: "owner-occupied housing unit rate among 81,069 households, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+        },
+        { num: "27.34", label: "square miles of land area, 2020 (U.S. Census Bureau QuickFacts)" },
+      ],
+      source: "Source: U.S. Census Bureau QuickFacts for Santa Ana city, California.",
+    },
+    localTitle: "Santa Ana's online permit portal, General Plan, and utility programs",
+    // Held out (no verified source): Held out (no verified source): ZIP card and neighborhoods (the research ZIP lists came from ciclt.net, a third-party site, an Orange County Office on Aging care-facility directory and an Orange County Social Services Agency office table, none of which is a City, USPS, SCAG or Census ZIP list; the City neighborhoods and ZIP overlay map is a PDF whose text was not readable; the lists also disagree with each other and with the hub card) | Housing stock by type and age, median year built (Census B25034 and B25035 for Santa Ana city, geography 160XX00US0669000, returned no data rows on data.census.gov and the Census API needs a key; the Orange County hub says 55 percent of homes were built before 1970 with no source record; the 1974 median belongs to the Anaheim-Santa Ana metro division in a 2011 survey, not the city) | Climate, NOAA normals, marine layer, urban heat island, humidity and hot-day counts (the NOAA station Santa Ana John Wayne Airport, WBAN:93184, was confirmed but no normals were read) | Any "inland" or "not coastal" label | Municipal Code noise limits, setbacks, historic districts and HOA areas (no official code text was supplied) | Same-day express mechanical permit path, the commercial heating and air conditioning permit information form, and the City permits page (the pages errored and were not read, so the pasted claims are unverified) | Permit Counter phone (714) 647-5800 and counter hours (two City pages list the number, but both predate the 2026 move to the portal) | The claim that the General Plan took effect May 26, 2022 (the City post errored and was not read) | Economic Development and GIS pages, employers, hospitals, schools and shopping centers | Neighbors and adjacency (third-party map only) | SCE time-of-use rates | Rebate amounts, SCE Energy Savings Assistance, Home Performance Plus, the SCE $75 smart thermostat credit, Comfortably California, federal 25C and 25D, HEEHRA, the SoCalGas wildfire bonus and contractor or installer conditions | Median gross rent (dollar amount) | Water and trash providers the City lists | Orange County Power Authority and any other community choice aggregator (none is stated for Santa Ana) | Competitor SERP table: never on the page (every row was NOT FOUND).
+    // Copy approval: the client approved the Santa Ana page copy on 2026-10-19 (per the user).
+    // TODO(verify): Census QuickFacts for Santa Ana city was read through a fetch summary (V2025 vintage): 315,586 residents on July 1, 2025 (estimates base 310,534 on April 1, 2020; 2020 Census count 310,227); 81,069 households and a 44.6 percent owner-occupied housing unit rate for 2020 to 2024; 27.34 square miles of land area in 2020 (27.27 in 2010); median gross rent shown but not used (dollar amount); housing units shown as X (not available). The summary does not state the county, so "Orange County seat" rests on the General Plan page below. The 44.6 percent rate covers occupied units, so "more than half of occupied homes are not owner-occupied" is arithmetic, not a QuickFacts line.
+    // TODO(verify): City notice "City of Santa Ana plan reviews and permits moving online" (santa-ana.gov, posted June 12, 2026 per page metadata) was read through a fetch summary: Accela Citizen Access portal; electronic submittal required from July 1, 2026; June 26, 2026 last day for paper plans; mechanical, electrical and plumbing permits, building permits, water heater installation permits, Planning and Zoning and Public Works applications listed; fees and inspection scheduling covered; counters closed June 29 and 30, 2026; the notice names santa-ana.gov/permits, which errored and was not read.
+    // TODO(verify): City Permits & Inspections FAQs (santa-ana.gov/permit-faqs/, last modified January 10, 2025 per page metadata) and the permit cost page (last modified November 12, 2024) were read through fetch summaries: mechanical is one of four permit types; fees are itemized on the forms and no dollar amounts are shown; the counter number appears on both pages and is kept off the page because both predate the portal. The FAQs summary says a general rule requires a permit to replace a code-regulated mechanical system and lists no HVAC exemption, but AC and furnace replacement are not named. The full page was not read, so the page makes no permit-required statement. Re-read the full FAQs before changing that.
+    // TODO(verify): General Plan Land Use Element is on general-plan-santa-ana-ca.proudcity.com, a ProudCity host, not santa-ana.gov. The user should confirm it is the City official General Plan host. The page shows no date; the research gave 2023-12-05, which was not confirmed. Read through a fetch summary: county seat of Orange County, Downtown, District Centers, Urban Neighborhoods, five focus areas, Chapter 41 zoning code, buffers between polluting uses and sensitive receptors, and a planned zoning update for 2022 to 2027. The research line about directing density to "major travel corridors" was not confirmed.
+    // TODO(verify): City utilities pages were read on santa-ana.org (/question/utilities and /topics/utilities), not santa-ana.gov, and show no date: Southern California Edison (electric), Southern California Gas Company (gas), Santa Ana Water, Republic Services (trash), and no community choice aggregator. The user should confirm santa-ana.org is the City official host. The research pointed to a santa-ana.gov electricity page, which errored and was not read. The SCE rebate page and the SoCalGas rebate page name no city, so they do not confirm service in Santa Ana; the City page does. The Orange County Power Authority home page (last modified 2026-08-24) does not list Santa Ana, but it is not a member list.
+    // TODO(verify): SoCalGas rebates page (page shows "Submitted 07/23/2024") and the 2026 Home Energy Efficiency Rebate application PDF were read through fetch summaries: ENERGY STAR central gas furnace tiers of $1.40 per kBtuh (92 to 94 percent AFUE), $10 (95 to 96) and $25 (97 or higher); funds first come, first served until December 31, 2026; postmark by December 31, 2026; one per household; wildfire ZIP list contains no 927xx ZIP; the form footer reads "J087-228EEC 0926" and is not labeled a revision. Amounts and conditions are NOT on the page. Whether kBtuh means input or output capacity is not stated; the administrator is 888-431-2226 or scgprocessing@socalgas.com.
+    // TODO(verify): SCE marketplace page (no date) lists Golden State Rebates instant coupons for air conditioners and smart thermostats at participating retailers with no amounts, Home Performance Plus, a $75 smart thermostat bill credit and Comfortably California (SCE says no direct customer incentives); SCE Energy Savings Assistance page (no date; limits June 1, 2026 to May 31, 2027) lists central AC or central heat pump replacement with approved contractors and says availability varies by area. Only the Golden State Rebates line is on the page.
+    // TODO(verify): The City page on South Coast AQMD (last modified 2022-11-29 per metadata) names the agency as the regional air quality regulator and links a map of permitted facilities in Santa Ana and nearby communities; it is NOT linked or used on the page (nothing in the copy cites it, and it names a City outreach contact that is not published). The aqmd.gov air quality page (no date) says the agency covers all of Orange County and major portions of three other counties; that is not on the page.
+    // Pre-launch recheck: City permits notice and the santa-ana.gov permits page, Permits & Inspections FAQs (full read), express permit page, permit forms page, Permit Counter hours and number, General Plan host and date, City utilities page host, official Municipal Code location (noise and equipment placement), SoCalGas furnace rebate and 2026 application, SCE Golden State Rebates, Census QuickFacts and ACS B25034 and B25035 for Santa Ana city.
+    localParagraphs: ["The City of Santa Ana said on June 12, 2026 that plan reviews and permits were moving online through the **Accela Citizen Access portal**, and that from July 1, 2026 all plans and applications must be submitted electronically. The notice lists mechanical, electrical, and plumbing permits among the permit types in the portal, along with building permits and water heater installation permits, and says the portal also covers paying fees and scheduling inspections. The City's Permits & Inspections FAQs list mechanical as one of four permit types and say mechanical permit fees are itemized on the application forms, but they do not name air conditioner or furnace replacement, so **AIRPRO SOLUTIONS confirms the permit path for your job with the City** before work starts. The FAQs show a last-modified date of January 10, 2025, which is before the move to the portal, so we also confirm current steps with the City. We do not state permit fees, code editions, equipment placement rules, or noise limits, because we did not confirm them from the official code.", "Santa Ana is the Orange County seat, and the City's General Plan Land Use Element directs high-density housing to Downtown, encourages residential mixed-use in its District Centers and Urban Neighborhoods, and identifies five focus areas. It names Chapter 41 as the zoning code, and it calls for buffers between polluting uses and sensitive uses such as homes, schools, and day-care centers. The page shows no date and we did not find an HVAC rule on it, so for multi-unit, mixed-use, office, retail, and industrial buildings we plan rooftop access and equipment placement with the building owner or manager and **confirm current zoning and the permit path with the City** before choosing where equipment goes.", "Santa Ana had an estimated 315,586 residents on July 1, 2025, and QuickFacts reports 81,069 households and a **44.6% owner-occupied housing unit rate** for 2020 to 2024, across 27.34 square miles of land area. That means more than half of occupied homes are not owner-occupied, so when the person who calls is a tenant we work with the owner or property manager on access and approval. Ownership is a different measure from building type or age, so we do not guess how old the homes or ducts are in your part of the city, and **we confirm the equipment, roof or attic access, and ductwork at each property**.", "The City's utilities page for Santa Ana lists Southern California Edison for electricity and Southern California Gas Company for natural gas, shows no date, and names no community choice aggregator, so **your bill shows who supplies your electricity**. SoCalGas lists a 2026 rebate for ENERGY STAR certified furnaces, with funds first come, first served until December 31, 2026 or until they run out. SCE lists Golden State Rebates coupons for air conditioners and smart thermostats at participating retailers. We do not quote amounts, and terms change, so check each program before you buy. Official links are in the card for this section."],
+    localCards: [
+      {
+        heading: "Santa Ana permit path",
+        rows: [
+          { label: "Portal", value: "Accela Citizen Access (online)" },
+          { label: "Electronic submittal", value: "Required from July 1, 2026" },
+          { label: "Mechanical permits", value: "Listed among the online permit types" },
+          { label: "Inspections", value: "Scheduled through the portal" },
+        ],
+        note: "From the City's June 12, 2026 notice. The Permits & Inspections FAQs show a last-modified date of January 10, 2025. We confirm current requirements with the City.",
+      },
+      {
+        heading: "Santa Ana Census snapshot",
+        rows: [
+          { label: "Households, 2020 to 2024", value: "81,069" },
+          { label: "Owner-occupied housing unit rate, 2020 to 2024", value: "44.6%" },
+        ],
+        note: "From U.S. Census Bureau QuickFacts. Both figures are 2020 to 2024 estimates and citywide. Population and land area are in the at-a-glance box.",
+      },
+    ],
+    neighborhoodsHeading: "Official Santa Ana resources",
+    officialResources: [
+      {
+        text: "Permits and plan reviews notice",
+        href: "https://santa-ana.gov/city-of-santa-ana-plan-reviews-and-permits-moving-online/",
+        note: "Online portal, July 1, 2026 date, and permit types.",
+      },
+      {
+        text: "Permits & Inspections FAQs",
+        href: "https://santa-ana.gov/permit-faqs/",
+        note: "Permit types and how the City describes fees.",
+      },
+      {
+        text: "General Plan Land Use Element",
+        href: "https://general-plan-santa-ana-ca.proudcity.com/land-use-element/",
+        note: "Downtown, focus areas, zoning code, and buffers.",
+      },
+      {
+        text: "City utilities page",
+        href: "https://santa-ana.org/question/utilities",
+        note: "Electric, gas, and water providers the City lists.",
+      },
+      {
+        text: "SoCalGas rebates",
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "ENERGY STAR furnace rebate and program period.",
+      },
+      {
+        text: "SCE Golden State Rebates",
+        href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+        note: "Air conditioner and smart thermostat coupons.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/fact/table/santaanacitycalifornia/HSD410224",
+        note: "Population, households, owner-occupied rate, and land area cited on this page.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Santa Ana homes and businesses",
+    serviceCards: [
+      {
+        slug: "ac-repair",
+        name: "AC Repair",
+        body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises in Santa Ana homes and businesses.",
+      },
+      {
+        slug: "ac-installation",
+        name: "AC Installation & Replacement",
+        body: "New system sizing and installation for Santa Ana properties, planned around the City's online permit process.",
+      },
+      {
+        slug: "ac-maintenance",
+        name: "AC Maintenance",
+        body: "Seasonal AC tune-ups that catch small issues early, for Santa Ana homes and for commercial rooftop and ground units.",
+      },
+      {
+        slug: "heating-repair",
+        name: "Heating Repair",
+        body: "Furnace and heating system diagnosis and repair for Santa Ana homes and businesses.",
+      },
+      {
+        slug: "furnace-installation",
+        name: "Furnace Installation & Replacement",
+        body: "Furnace sizing and installation, planned around the City's permit process. SoCalGas lists a furnace rebate with its own terms.",
+      },
+      {
+        slug: "heat-pump-services",
+        name: "Heat Pump Services",
+        body: "Heat pump installation, repair, and maintenance, with the City's permit process and your utilities' program pages in mind.",
+      },
+      {
+        slug: "ductless-mini-split",
+        name: "Ductless Mini-Split",
+        body: "Ductless systems for Santa Ana additions, converted spaces, and rooms the existing ducts do not reach.",
+      },
+      {
+        slug: "ductwork",
+        name: "Ductwork Services",
+        body: "Duct repair, sealing, and replacement for Santa Ana homes and buildings.",
+      },
+      {
+        slug: "indoor-air-quality",
+        name: "Indoor Air Quality",
+        body: "Filtration, ventilation, and air-quality upgrades for Santa Ana homes and offices.",
+      },
+      {
+        slug: "emergency-hvac",
+        name: "Emergency HVAC",
+        body: "24/7 emergency dispatch for no-cool and no-heat problems in Santa Ana. If you smell gas, leave the building and call 911 or your gas utility.",
+      },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Santa Ana permits and incentive programs",
+      intro: "Official sources for three items worth checking before a Santa Ana HVAC project.",
+      cards: [
+        {
+          amount: "Permits and inspections",
+          description: "The City said plan reviews and permits moved online through the Accela Citizen Access portal, with electronic submittal required from July 1, 2026, and lists mechanical permits among them. The City pages we read do not name AC or furnace replacement, so we confirm the steps for your job with the City.",
+          linkLabel: "City permits notice",
+          linkHref: "https://santa-ana.gov/city-of-santa-ana-plan-reviews-and-permits-moving-online/",
+        },
+        {
+          amount: "Furnace rebate",
+          description: "SoCalGas lists a 2026 rebate for ENERGY STAR certified furnaces, with funds first come, first served until December 31, 2026 or until they run out. Check that your gas account is with SoCalGas, and we do not quote amounts.",
+          linkLabel: "SoCalGas rebates",
+          linkHref: "https://www.socalgas.com/savings/rebates-and-incentives",
+        },
+        {
+          amount: "AC and thermostat coupons",
+          description: "SCE lists Golden State Rebates instant coupons for air conditioners and smart thermostats at participating retailers, in store or online. The SCE page lists no amounts, so confirm current terms before you buy.",
+          linkLabel: "SCE Golden State Rebates",
+          linkHref: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+        },
+      ],
+    },
+    nearby: ["anaheim", "costa-mesa", "irvine", "huntington-beach"],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Santa Ana",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        { num: "4.8★", label: "Google rating" },
+        { num: "40", label: "Google reviews" },
+        { num: "C-20", label: "California license class" },
+        { num: "24/7", label: "Emergency dispatch" },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Santa Ana. Same-day service is typical, subject to capacity.",
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Santa Ana?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Santa Ana as part of our Orange County coverage. The City runs its own permit process through an online portal, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Orange County coverage", href: "/service-areas/orange-county/" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Santa Ana home?",
+        a: "Same-day service is typical in Santa Ana, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Santa Ana, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an air conditioner in Santa Ana?",
+        a: "We confirm the permit path with the City. The City's Permits & Inspections FAQs list mechanical as one of four permit types but do not name air conditioner or furnace replacement, so AIRPRO SOLUTIONS checks what your job needs before work starts, and we do not quote permit fees.",
+        boldLead: "We confirm the permit path with the City.",
+        links: [
+          { text: "Permits & Inspections FAQs", href: "https://santa-ana.gov/permit-faqs/" },
+        ],
+      },
+      {
+        q: "How do permits work in Santa Ana?",
+        a: "Permits go through the City's online portal. The City said on June 12, 2026 that plan reviews and permits were moving online through the Accela Citizen Access portal, that all plans and applications must be submitted electronically from July 1, 2026, and that mechanical, electrical, and plumbing permits are among the types available there. AIRPRO SOLUTIONS confirms the steps for your job with the City.",
+        boldLead: "Permits go through the City's online portal.",
+        links: [
+          {
+            text: "plan reviews and permits were moving online",
+            href: "https://santa-ana.gov/city-of-santa-ana-plan-reviews-and-permits-moving-online/",
+          },
+        ],
+      },
+      {
+        q: "Where can an outdoor AC unit go on my Santa Ana property?",
+        a: "We confirm that with the City. We did not confirm the City's equipment placement, setback, or noise rules from the official code, so we do not state limits here, and AIRPRO SOLUTIONS checks the current rules and your property's layout with the City before choosing a location.",
+        boldLead: "We confirm that with the City.",
+      },
+      {
+        q: "Does the age of my Santa Ana home matter for HVAC?",
+        a: "Age is one factor we check. We did not find a verified citywide figure for the age of Santa Ana homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
+        boldLead: "Age is one factor we check.",
+      },
+      {
+        q: "Do you work on rental properties in Santa Ana?",
+        a: "Yes. QuickFacts reports a 44.6% owner-occupied housing unit rate for Santa Ana, so more than half of occupied homes are not owner-occupied. AIRPRO SOLUTIONS works with owners and property managers on access and approval before installation or replacement.",
+        boldLead: "Yes.",
+        links: [
+          { text: "QuickFacts", href: "https://www.census.gov/quickfacts/fact/table/santaanacitycalifornia/HSD410224" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Santa Ana?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Santa Ana, including rooftop units. We confirm the permit path with the City before commercial work starts, and we plan rooftop access and equipment placement with the building owner or manager. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+      {
+        q: "Do zoning rules affect equipment on a Santa Ana commercial building?",
+        a: "We confirm zoning with the City. The City's General Plan Land Use Element names Chapter 41 as the zoning code and calls for buffers between polluting uses and sensitive uses such as homes, schools, and day-care centers. The page shows no date and we did not find an HVAC rule on it, so AIRPRO SOLUTIONS confirms current zoning and the permit path with the City before choosing where equipment goes.",
+        boldLead: "We confirm zoning with the City.",
+        links: [
+          {
+            text: "General Plan Land Use Element",
+            href: "https://general-plan-santa-ana-ca.proudcity.com/land-use-element/",
+          },
+        ],
+      },
+      {
+        q: "Which utility serves my Santa Ana address?",
+        a: "Your bill answers it. The City's utilities page lists Southern California Edison for electricity and Southern California Gas Company for natural gas, shows no date, and names no community choice aggregator, so check your bill to see who supplies your electricity and gas.",
+        boldLead: "Your bill answers it.",
+        links: [
+          { text: "utilities page", href: "https://santa-ana.org/question/utilities" },
+        ],
+      },
+      {
+        q: "Are there HVAC rebates for Santa Ana customers?",
+        a: "SoCalGas and SCE list programs. SoCalGas lists a rebate for ENERGY STAR certified furnaces, with funds first come, first served until December 31, 2026 or until they run out. SCE lists Golden State Rebates coupons for air conditioners and smart thermostats at participating retailers. Terms and funding change and we do not quote amounts, so check the current terms before you buy.",
+        boldLead: "SoCalGas and SCE list programs.",
+        links: [
+          {
+            text: "rebate for ENERGY STAR certified furnaces",
+            href: "https://www.socalgas.com/savings/rebates-and-incentives",
+          },
+          {
+            text: "Golden State Rebates coupons",
+            href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+          },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Santa Ana?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Santa Ana, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides",
+        links: [
+          { text: "AC repair", href: "/services/ac-repair/" },
+          { text: "AC installation and replacement", href: "/services/ac-installation/" },
+          { text: "AC maintenance", href: "/services/ac-maintenance/" },
+          { text: "heating repair", href: "/services/heating-repair/" },
+          { text: "furnace installation and replacement", href: "/services/furnace-installation/" },
+          { text: "heat pump services", href: "/services/heat-pump-services/" },
+          { text: "ductless mini-splits", href: "/services/ductless-mini-split/" },
+          { text: "ductwork", href: "/services/ductwork/" },
+          { text: "indoor air quality", href: "/services/indoor-air-quality/" },
+          { text: "emergency HVAC", href: "/services/emergency-hvac/" },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Santa Ana?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Santa Ana. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Santa Ana?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -7302,6 +7636,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'rancho-cucamonga' ? ranchoCucamongaOverrides
     : c.slug === 'hawthorne' ? hawthorneOverrides
     : c.slug === 'carson' ? carsonOverrides
+    : c.slug === 'santa-ana' ? santaAnaOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;

@@ -48,8 +48,8 @@ export const orangeCountyHub = {
   },
 
   // Source: National Weather Service Tustin MCAS historical station summary (single station, not
-  // 1991-2020 normals). Anaheim 112F and Santa Ana 113F event readings and "ocean-moderated coast"
-  // description also from NWS weather history. City grouping follows OCTA planning areas and is
+  // 1991-2020 normals). Anaheim 112F event reading and "ocean-moderated coast"
+  // description also from NWS weather history. A Santa Ana 113F event reading was removed on 2026-10-19 (not re-verified). City grouping follows OCTA planning areas and is
   // general, not a climate-zone boundary. Freeway list is general routing, not a claimed response time.
   climate: {
     eyebrow: 'Local knowledge',
@@ -61,7 +61,7 @@ export const orangeCountyHub = {
       '56-59% summer afternoon humidity, and 79-81% in the morning',
     ],
     paragraphs: [
-      "Orange County is a coastal Southern California climate, but the ocean moderates the coast while inland cities run hotter. At the National Weather Service's Tustin MCAS station, July, August, and September average highs of 82, 83, and 83°F sit beside a station record of 112°F. NWS weather history also cites 112°F in Anaheim and 113°F in Santa Ana during heat events, and describes the coast as generally ocean-moderated. These are station and event readings, not city averages.",
+      "Orange County is a coastal Southern California climate, but the ocean moderates the coast while inland cities run hotter. At the National Weather Service's Tustin MCAS station, July, August, and September average highs of 82, 83, and 83°F sit beside a station record of 112°F. NWS weather history also cites 112°F in Anaheim during heat events, and describes the coast as generally ocean-moderated. These are station and event readings, not city averages.",
       'Summer haze is common, on 19 to 23 days a month from June through September, and coastal fog and stratus are the predominant pattern. Winters are mild, with a January average high of 68°F, but there is still a heating season. Santa Ana winds are most frequent in winter.',
       '**That is why we size equipment from a load calculation for your specific property**, not from a county-wide temperature assumption. A home near the coast and a home in Anaheim or Tustin can call for different equipment.',
     ],
@@ -77,8 +77,9 @@ export const orangeCountyHub = {
   },
 
   // Source: SCAG local profiles using California Department of Finance E-5 data, 2018 (structure
-  // type only). Building-age figures: ACS 2019 countywide (60.4% pre-1980, 26.6% 1980-1999, 13.0%
-  // 2000+); ACS estimates for Santa Ana (55% pre-1970), SCAG ACS 2017 for Costa Mesa (49.6% pre-1970),
+  // type only). Santa Ana's row and its 55% pre-1970 figure were removed on 2026-10-19: no source record was found and
+  // the figures could not be re-verified (see the Santa Ana section of docs/open-items.md). Building-age figures: ACS 2019 countywide (60.4% pre-1980, 26.6% 1980-1999, 13.0%
+  // 2000+); SCAG ACS 2017 for Costa Mesa (49.6% pre-1970),
   // Newport Beach (40.1% pre-1970). Irvine's own 4.8% pre-1970 (SCAG, ACS 2017) is on its city page. Anaheim's own
   // 44.6% pre-1970 (SCAG, ACS 2017) is on its city page. Huntington Beach's own 43.5% pre-1970 (SCAG, ACS 2017) is on its city page. No age figures were found for Fullerton or Tustin - none are claimed.
   housing: {
@@ -89,7 +90,6 @@ export const orangeCountyHub = {
       ['Anaheim', '108,222', '41.7%', '8.6%', '10.5%', '34.9%', '45.4%'],
       ['Irvine', '102,474', '38.9%', '16.4%', '6.2%', '37.4%', '43.6%'],
       ['Huntington Beach', '81,656', '47.9%', '11.6%', '11.8%', '24.9%', '36.7%'],
-      ['Santa Ana', '78,052', '45.6%', '7.4%', '9.7%', '32.1%', '41.8%'],
       ['Fullerton', '49,430', '49.6%', '10.0%', '8.2%', '30.4%', '38.6%'],
       ['Newport Beach', '44,670', '45.1%', '15.7%', '11.3%', '25.4%', '36.7%'],
       ['Costa Mesa', '42,836', '39.6%', '10.2%', '13.3%', '34.7%', '48.0%'],
@@ -97,12 +97,12 @@ export const orangeCountyHub = {
     ],
     note: 'Share of housing units by structure type, from SCAG local profiles using California Department of Finance E-5 data for 2018. Figures measure structure type only, not condo ownership, HOA status, or renter status. The remainder is other unit types. Costa Mesa and Tustin have the highest multifamily shares, at 48.0% and 49.0%.',
     paragraphs: [
-      'Structure type shapes the job. Detached homes are the largest single category in all eight cities, but in Irvine and Tustin buildings with 5 or more units are within two points of them. Attached homes are 16.4% of Irvine and 15.7% of Newport Beach units, which can mean shared walls, shared roofs, and association rules.',
+      'Structure type shapes the job. Detached homes are the largest single category in every city in the table, but in Irvine and Tustin buildings with 5 or more units are within two points of them. Attached homes are 16.4% of Irvine and 15.7% of Newport Beach units, which can mean shared walls, shared roofs, and association rules.',
       'Anaheim has the largest housing stock at 108,222 units, followed by Irvine at 102,474, and in both cities more than a third of units are in buildings of 5 or more.',
-      'Building age varies widely. Countywide, 60.4% of housing units were built before 1980, 26.6% between 1980 and 1999, and 13.0% in 2000 or later (ACS 2019). Homes built before 1970 are 55% of Santa Ana, 49.6% of Costa Mesa (SCAG, 2017 American Community Survey), 43.5% of Huntington Beach (SCAG, 2017 American Community Survey), and 40.1% of Newport Beach.',
+      'Building age varies widely. Countywide, 60.4% of housing units were built before 1980, 26.6% between 1980 and 1999, and 13.0% in 2000 or later (ACS 2019). Homes built before 1970 are 49.6% of Costa Mesa (SCAG, 2017 American Community Survey), 43.5% of Huntington Beach (SCAG, 2017 American Community Survey), and 40.1% of Newport Beach.',
       'Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     ],
-    pending: 'Housing age figures were not found for Fullerton and Tustin, so no age claim is made for them. The pre-1970 shares for Anaheim, Irvine, and Huntington Beach are on their city pages.',
+    pending: 'Housing age figures were not found for Fullerton and Tustin, so no age claim is made for them. The pre-1970 shares for Anaheim, Irvine, and Huntington Beach are on their city pages. Santa Ana is not in the table because its housing figures are not verified yet.',
   },
 
   services: {
@@ -112,7 +112,7 @@ export const orangeCountyHub = {
       { slug: 'ac-repair', body: "Diagnosis for cooling failures, with equipment sized from a load calculation for your specific property, and where Irvine's screening and noise rules affect condenser placement." },
       { slug: 'heating-repair', body: 'Mild winters still bring a real heating season, with a January average low of 44°F. Furnace work in each city starts with its permit path and SoCalGas service.' },
       { slug: 'heat-pump-services', body: 'Heat pump work starts with your electric utility, Anaheim Public Utilities or SCE, and with state incentive programs whose funding has been fully reserved.' },
-      { slug: 'residential-hvac', name: 'Residential HVAC', body: "Detached homes, townhomes, condos, and apartments, from Santa Ana's older housing to Irvine, where SCAG counts only 4.8% of housing built before 1970.", icon: 'home' },
+      { slug: 'residential-hvac', name: 'Residential HVAC', body: "Detached homes, townhomes, condos, and apartments, from Costa Mesa, where SCAG counts 49.6% of homes built before 1970, to Irvine, where SCAG counts only 4.8%.", icon: 'home' },
       { slug: 'commercial-hvac', name: 'Commercial HVAC', body: 'Hotels and convention space at the Anaheim Resort and rooftop units with city-specific screening rules.', icon: 'building' },
       { slug: 'services', name: 'All HVAC Services', body: 'See the full list of repair, installation, and maintenance services.', icon: 'check' },
     ] satisfies ServiceCardSpec[],
@@ -128,7 +128,7 @@ export const orangeCountyHub = {
     residential: {
       tag: 'Residential',
       title: 'Homes, condos, and apartments',
-      body: "From Santa Ana's older housing to Irvine's mostly post-1970 housing and HOA neighborhoods, with access, placement, and association rules checked first.",
+      body: "From Costa Mesa, where SCAG counts 49.6% of homes built before 1970, to Irvine's mostly post-1970 housing and HOA neighborhoods, with access, placement, and association rules checked first.",
       chips: ['Single-family homes', 'Condos and townhomes', 'Apartments'],
       ctaLabel: 'Residential HVAC',
       href: '/residential-hvac/',
@@ -147,7 +147,7 @@ export const orangeCountyHub = {
     ],
   },
 
-  // Sources: Irvine online residential replacement permit; Anaheim Form B713 (no exemption stated); Santa Ana equipment-category permitting; Costa Mesa
+  // Sources: Irvine online residential replacement permit; Anaheim Form B713 (no exemption stated); Santa Ana City notice of June 12, 2026 (online permit portal); Costa Mesa
   // Insta-Permit page and Mechanical - Residential application; Newport Beach express furnace permit and plan-check triggers;
   // Huntington Beach Permit Center, HB ACA portal and forms page (Mechanical Permit Application, Mechanical Plan Requirements, Mechanical Plan Check Waiver Request); Fullerton EasyDev portal / CF1R-ALT-HVAC; Tustin
   // 360-day permit expiration. Title 24: CEC 2025 Energy Code effective for permits submitted on or
@@ -161,7 +161,7 @@ export const orangeCountyHub = {
     rows: [
       ['Irvine', 'Online residential replacement permit for AC and furnace', 'The new outdoor condenser must stay in its existing location and at least 2 feet from any property line, and HOA approval is required where an association applies.'],
       ['Anaheim', 'Mechanical permit', 'The Building Division issues mechanical permits through Form B713. Confirm with the Building Division, (714) 765-5153, which permits your replacement needs.'],
-      ['Santa Ana', 'Permit before work, by equipment category', 'Separate categories for air conditioning, furnaces up to and over 100,000 BTU, fan coils, mini-splits, gas piping, and air vents, so the equipment decides the permit.'],
+      ['Santa Ana', 'Online through the City permit portal', 'The City said on June 12, 2026 that plan reviews and permits moved online through the Accela Citizen Access portal, with electronic submittal required from July 1, 2026, and it lists mechanical permits among the online types. We confirm what your replacement needs with the City.'],
       ['Costa Mesa', 'Residential HVAC Insta-Permit, or Mechanical - Residential application', "The Insta-Permit is limited to a single-family dwelling on a single parcel, and exterior equipment must sit at ground level on the side or rear, out of public view. Work beyond that scope uses a Mechanical - Residential application in the City's TESSA portal."],
       ['Newport Beach', 'Express permit path for furnace replacement', 'Furnace replacement often needs a permit. Plan check applies to systems over 7,000 square feet, mechanically ventilated basements or garages, standby generator exhaust, and VRF systems.'],
       ['Huntington Beach', 'Permit Center and HB ACA online portal', 'The Permit Center issues mechanical permits, and the City lists a Mechanical Permit Application, Mechanical Plan Requirements, and a Mechanical Plan Check Waiver Request. We did not find a published like-for-like exemption, so treat replacement as permit-required.'],
@@ -226,7 +226,7 @@ export const orangeCountyHub = {
       'Other seven cities, electric: SCE',
       'Natural gas: SoCalGas',
     ],
-    note: '**Confirm by address:** service territory can vary by address, so verify your utility directly before relying on any program. Gas service is directly confirmed for Irvine and Huntington Beach and assumed for the other six cities.',
+    note: '**Confirm by address:** service territory can vary by address, so verify your utility directly before relying on any program. Gas service is directly confirmed for Irvine, Huntington Beach, and Santa Ana (City utilities page) and assumed for the other five cities.',
   },
 
   cities: {
@@ -253,10 +253,12 @@ export const orangeCountyHub = {
       },
       {
         name: 'Santa Ana',
-        note: 'Older housing: 55% of homes were built before 1970, so ductwork and equipment locations are often original. The city permits air conditioning, furnaces, fan coils, mini-splits, and gas piping as separate categories.',
-        areas: 'Downtown, Civic Center, South Coast Metro edge',
-        utility: 'Electric: SCE.',
-        zips: '92701-92707',
+        href: '/service-areas/santa-ana/',
+        note: "The Orange County seat, according to the City's General Plan. The City requires electronic permit submittal through its online portal from July 1, 2026.",
+        areas: 'Neighborhood list pending verification',
+        utility: 'Electric: SCE. Gas: Southern California Gas Company (City of Santa Ana utilities page).',
+        zips: 'pending',
+        pending: 'ZIP list pending verification.',
       },
       {
         name: 'Costa Mesa',
@@ -346,7 +348,7 @@ export const orangeCountyHub = {
     },
     {
       q: 'Do older homes in Orange County need different HVAC work?',
-      a: 'Often, yes. Countywide, 60.4% of housing units were built before 1980. In Santa Ana 55% of homes were built before 1970, in Costa Mesa 49.6% (SCAG, 2017 American Community Survey), and in Newport Beach 40.1%. Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
+      a: 'Often, yes. Countywide, 60.4% of housing units were built before 1980. In Costa Mesa 49.6% of homes were built before 1970 (SCAG, 2017 American Community Survey), and in Newport Beach 40.1%. Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     },
     {
       q: 'How quickly can a technician reach me?',
