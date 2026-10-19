@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson, santa-ana, newport-beach and fullerton have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson, santa-ana, newport-beach, fullerton and tustin have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // The closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's, Santa Ana's, Newport Beach's and Fullerton's local paragraphs use the new sentence from the start. The client approved all city page copy, including Newport Beach and Fullerton, on 2026-10-19 (per the user).
+// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's, Santa Ana's, Newport Beach's, Fullerton's and Tustin's local paragraphs use the new sentence from the start. The client approved all city page copy, including Newport Beach, Fullerton and Tustin, on 2026-10-19 (per the user).
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
 // building that city page or its matrix pages. Never invent it.
@@ -8560,6 +8560,479 @@ const fullertonOverrides: Partial<City> = {
     },
 };
 
+const tustinOverrides: Partial<City> = {
+  // Copy approval: the client approved the Tustin page copy on 2026-10-19 (per the user).
+  // TODO(data): add verified climate, housing-age, ZIP and utility detail before treating this as a full local page.
+  neighborhoods: [], // list held out: no City neighborhood list was read (the Learn About the City page names none; the research list came from Wikipedia, which is not official); the Specific Plans page names plan areas, which are named in the copy and are not neighborhoods
+  zips: [], // ZIP list held out: no official source was read (the cited City page does not mention ZIPs and data.census.gov needs JavaScript), so the hub keeps "pending"
+  page: {
+      metaDescription: "HVAC for Tustin homes and businesses, from AC repair to installation, with the City's permit and code pages in mind. Licensed, 4.8-star rated.",
+      lede: "AIRPRO SOLUTIONS provides HVAC services across Tustin, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit and code pages in mind.",
+      heroCaption: {
+        title: "Tustin, CA",
+        text: "Local service across Tustin",
+      },
+      heroProof: [
+        {
+          icon: "shield",
+          label: "Licensed, bonded & insured",
+        },
+        {
+          icon: "star",
+          label: "4.8-star rated",
+        },
+        {
+          icon: "bolt",
+          label: "24/7 emergency dispatch",
+        },
+        {
+          icon: "building",
+          label: "Residential and commercial",
+        },
+      ],
+      trustStats: [
+        {
+          num: "4.8★",
+          label: "Google rating, 40 reviews",
+        },
+        {
+          num: "C-20",
+          label: "California licensed",
+        },
+        {
+          num: "24/7",
+          label: "emergency dispatch",
+        },
+        {
+          num: "Same-day",
+          label: "service typical",
+        },
+      ],
+      answer: {
+        lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Tustin",
+        body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+      },
+      glance: {
+        title: "Tustin at a glance",
+        stats: [
+          {
+            num: "77,843",
+            label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)",
+          },
+          {
+            num: "48.8%",
+            label: "owner-occupied housing unit rate, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+          },
+          {
+            num: "2.84",
+            label: "persons per household, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+          },
+        ],
+        source: "Source: U.S. Census Bureau QuickFacts for Tustin city, California.",
+      },
+      localTitle: "Tustin's permit pages, code editions, and specific plan areas",
+    // Copy approval: the client approved the Tustin page copy on 2026-10-19 (per the user).
+    // Held out (no verified source or not allowed on the page): ZIP codes (92780, 92781 and 92782 appear in the research, whose cited City page does not mention ZIPs and whose Census table could not be read; the hub keeps its ZIP list unverified); neighborhood and area names such as Tustin Ranch, Columbus Grove and Peppertree (the research source was Wikipedia, which is not official); Tustin Legacy business and employer statements (Virgin Galactic, Rivian, Anduril, Advantech: third-party news and zoneomics, not official); inland, coastal, climate, marine layer, heat island, humidity, air quality and South Coast AQMD statements (no official Tustin page read); the 64 percent over-30-years housing-age figure and the 2013 housing mix (the draft Housing Element could not be fetched and the 2013 shares are not current); the 29,821-unit holding capacity from the 2013 Housing Element (superseded by the 2021 to 2029 cycle); median household income, rent and home value in dollars; SCE and SoCalGas service, rebate amounts (SoCalGas furnace rate tiers, SCE Smart Energy credits and the $30 thermostat recycling incentive), SCE Energy Savings Assistance, Home Performance Plus and Golden State Rebates (no City or utility page read says it serves Tustin addresses, and rebates stay link-only without amounts); Ordinance No. 1569 text, the reported 12-month permit commencement rule and the Section 105.9 owner change rule (the webdocs.tustinca.org Laserfiche document returned a cookie error and could not be read); the Citizen Self Service portal name (the Permits Process page text read names no portal); permit counter and inspection phone numbers and email addresses; the Cultural Resources District Certificate of Appropriateness and the 350 S. B Street record (webdocs documents could not be read); Noise Zone figures from a 2003 report; pool equipment setbacks (not an HVAC rule).
+    // TODO(verify): City Permits Process page (tustinca.org/409, no page date) was read through a fetch summary on 2026-10-19: "A permit is valid for 180 days, unless work is active and progressing"; plans and completed permit applications are submitted by email (the addresses were blank in the extracted text); inspections are requested one day in advance by phone or an online Inspection Request Page; it does not mention a Citizen Self Service portal (the research says it links one, so this is a conflict to recheck), does not say whether HVAC or mechanical replacement needs a permit, and does not mention a 360-day period (the hub says 360).
+    // TODO(verify): City Building Division page (tustinca.org/153, no page date) was read through a fetch summary on 2026-10-19: "The Building Division applies building and grading regulations"; lists the question "When are electrical, plumbing, or mechanical permits required?" without an answer; mentions new fee schedules approved by the City Council; never mentions HVAC and names no code or edition.
+    // TODO(verify): City handout Water Heaters and Furnaces (tustinca.org DocumentCenter 659, cover dated June 1999) was read through a fetch summary on 2026-10-19: "A permit is required to install or replace a water heater, furnace, or air conditioner"; lists 1997 Uniform Code editions and the 1996 National Electrical Code; gives no fees or validity period. Its age is the reason the page attributes and dates the statement.
+    // TODO(verify): City Governing Codes and Ordinances page (tustinca.org/1286, no page date) was read through a fetch summary on 2026-10-19: the City "will be enforcing the following 2022 California Building Standards Codes, effective on January 1, 2023", including the 2022 California Mechanical Code and Energy Code; applications on or after January 1, 2023 must comply with the editions and Ordinance No. 1529; it says the City "will consider adoption of the 2025 California Building Standards Codes" with Ordinance No. 1569 (first reading October 21, 2025, adoption November 18, 2025, effective January 1, 2026); it does not confirm adoption and shows no link hosts.
+    // TODO(verify): City 2025 California Building Standards Codes Information document (tustinca.org DocumentCenter 18983, no date) was read through a fetch summary on 2026-10-19: new plan review applications on or after January 1, 2026 must comply with the 2025 codes, including the 2025 California Mechanical and Energy Codes; Ordinance No. 1569 is described as proposed to adopt and amend; adoption is not confirmed. Source conflict: the research says Tustin adopted Ordinance No. 1569 and quotes 12-month and 180-day permit rules from a webdocs.tustinca.org document that could not be read, and the City Permits Process page says 180 days unless work is active.
+    // TODO(verify): City 2026 Comprehensive Schedule of Fees (tustinca.org DocumentCenter 19836) was read through a fetch summary on 2026-10-19: cover says "Effective April 1, 2026" and "Approved by City Council Resolution No. 26-05 on January 20, 2026" (the research said published July 1, 2026, which the document does not say); the Mechanical Permit Fee Schedule has categories for furnaces, refrigeration compressors, air handling conditioning including ducts, and ventilation systems; no dollar amounts are used on the page and the categories are not an exemption list.
+    // TODO(verify): City Specific Plans page (tustinca.org/400, no page date) was read through a fetch summary on 2026-10-19: names five of nine specific plans as the most significant (Downtown Commercial Core Plan, East Tustin Specific Plan, Pacific Center East Specific Plan, Red Hill Avenue Specific Plan, Tustin Legacy Specific Plan); says specific plans govern land use and development in their areas; names no other four plans, gives no boundaries or standards, and does not mention hospitals or HVAC.
+    // TODO(verify): City Learn About the City page (tustinca.org/596, no page date) was read through a fetch summary on 2026-10-19: Tustin is in central Orange County, "encompasses an area of 11.08 square miles", and has "One of the oldest historical old towns in Orange County"; it names no neighborhoods, ZIP codes or climate, and does not say Tustin is inland (the research says it does; the page mentions hillside areas with views of the Pacific Coast). The page also names bordering cities and two freeways, which stay off this page.
+    // TODO(verify): City Customer Rebates and Incentives page (tustinca.org/1041, no page date) and Environmental Stewardship page (tustinca.org/1445, no page date) were read through fetch summaries on 2026-10-19: the rebates page lists water-efficiency rebates through MWDOC and does not mention SCE, SoCalGas, a community choice aggregator or HVAC; the stewardship page describes City facility LED and HVAC projects and names no utility.
+    // TODO(verify): Census QuickFacts for Tustin city (V2025, no publication date) was read through fetch summaries twice on 2026-10-19: 77,843 residents on July 1, 2025 (2020 Census count 80,276); 48.8 percent owner-occupied housing unit rate and 2.84 persons per household for 2020 to 2024; housing units shown as X. Source conflict: a pasted research set gave 78,863 residents (V2024), 50.9 percent owner-occupied and 2.92 persons per household (ACS 2019 to 2023), which is an older release; it also gave 11.16 square miles of land area (QuickFacts lists 11.16 for 2020 and 11.08 for 2010; the City page says 11.08).
+    // TODO(verify): CSLB Finding the Right Contractor page (no publication date) was read through a fetch summary on 2026-10-19: "Seeing a license number doesn't necessarily mean the license is valid"; license status can be checked online; the lookup shows the address of record and insurance information.
+    // Pre-launch recheck: whether the City Permits Process page links a Citizen Self Service portal and how it handles mechanical permits and like-for-like replacement, a current City source for the furnace and air conditioner permit statement (the handout is dated June 1999), the permit expiration terms (Permits Process page says 180 days; the research reports a 12-month rule in Ordinance No. 1569), whether Council adopted Ordinance No. 1569 and the final 2025 code status, the readable text of Ordinance No. 1569 and its Code host (webdocs.tustinca.org needs cookies), the Cultural Resources District and Old Town review rules, outdoor unit placement and noise rules, an official ZIP source, Census ACS B25034, B25035 and B25024 for Tustin city, the City page naming Tustin's electric and gas providers, the SCAG local profile if the hub housing row should stay, and Census QuickFacts.
+      localParagraphs: [
+        "The City's Specific Plans page calls five of its nine specific plans the most significant: the **Downtown Commercial Core Plan, East Tustin Specific Plan, Pacific Center East Specific Plan, Red Hill Avenue Specific Plan, and Tustin Legacy Specific Plan**. It says a specific plan is a planning and zoning document for a defined area, and it gives no building details or standards, so we do not describe the homes or buildings in each area. The City's Learn About the City page calls Old Town one of the oldest historical old towns in Orange County, but it gives no building ages, so **AIRPRO SOLUTIONS confirms the building, equipment, and access at each property**.",
+        "The City's Permits Process page says a permit is valid for 180 days unless work is active and progressing, and it asks for inspection requests one day in advance. A City handout dated June 1999 says a permit is required to install or replace a water heater, furnace, or air conditioner, but the City's Building Division page lists a question on when mechanical permits are required without giving the answer. The City's fee schedule, effective April 1, 2026, has mechanical permit categories for furnaces, air handling, refrigeration, and ventilation, and a fee category is not an exemption list. We do not state permit fees, and the pages show few dates, so **AIRPRO SOLUTIONS confirms the permit path and expiration terms for your job with the City** before work starts.",
+        "The City's Governing Codes page says Tustin enforces the 2022 California Building Standards Codes, including the 2022 California Mechanical Code and Energy Code, for applications submitted on or after January 1, 2023, with Ordinance No. 1529 applying to plan review. The City's 2025 codes notice describes the 2025 California codes as taking effect January 1, 2026 for new plan review applications, but it calls Ordinance No. 1569 proposed and the pages do not confirm final adoption. We did not read either ordinance, so **we confirm which code edition applies to your project with the City**, and we do not state local amendments or outdoor equipment rules.",
+        "QuickFacts estimates Tustin had 77,843 residents on July 1, 2025, and reports a **48.8% owner-occupied housing unit rate** and 2.84 persons per household for 2020 to 2024. That leaves 51.2% of occupied homes that are not owner-occupied, so when the person who calls is a tenant we work with the owner or property manager on access and approval. Ownership is a different measure from building type or age, so we do not guess how old the homes or ducts are in your part of the city, and **we confirm the equipment, roof or attic access, and ductwork at each property**.",
+        "The City's rebates page lists water-efficiency rebates through the Municipal Water District of Orange County and does not mention HVAC, electric, or gas programs, and neither it nor the City's Environmental Stewardship page says which utility serves Tustin addresses, so **your bill shows who supplies your electricity and gas**. Utility programs have their own terms and funding, and we do not quote amounts, so check each program before you buy. Official links are in the card for this section.",
+      ],
+      localCards: [
+        {
+          heading: "Tustin permit and code pages",
+          rows: [
+            {
+              label: "Permit validity",
+              value: "180 days unless work is active and progressing",
+            },
+            {
+              label: "Furnace and AC permits",
+              value: "A City handout dated June 1999 says one is required to install or replace",
+            },
+            {
+              label: "Inspection requests",
+              value: "One day in advance",
+            },
+            {
+              label: "Fee schedule",
+              value: "Effective April 1, 2026, with mechanical categories",
+            },
+            {
+              label: "Exemption list",
+              value: "None read on the pages we found",
+            },
+            {
+              label: "Code edition",
+              value: "2022 codes now listed; 2025 codes described for January 1, 2026, final adoption not confirmed",
+            },
+            {
+              label: "Web page dates",
+              value: "Mostly none shown",
+            },
+          ],
+          note: "From the City's Permits Process, Building Division, and Governing Codes pages, a June 1999 handout, the fee schedule, and the 2025 codes notice. We confirm current requirements with the City.",
+        },
+      ],
+      neighborhoodsHeading: "Official Tustin resources",
+      officialResources: [
+        {
+          text: "Permits Process",
+          href: "https://www.tustinca.org/409/Permits-Process",
+          note: "Permit validity and inspection requests.",
+        },
+        {
+          text: "Building Division",
+          href: "https://www.tustinca.org/153/Building",
+          note: "Division role and fee schedule notice.",
+        },
+        {
+          text: "Governing codes",
+          href: "https://tustinca.org/1286/Governing-Codes-Ordinances",
+          note: "Code editions and Ordinance No. 1529.",
+        },
+        {
+          text: "2025 codes notice",
+          href: "https://tustinca.org/DocumentCenter/View/18983/2025-California-Building-Standards-Codes-Information-Updated",
+          note: "The 2025 codes and proposed Ordinance No. 1569.",
+        },
+        {
+          text: "Fee schedule, effective April 1, 2026",
+          href: "https://www.tustinca.org/DocumentCenter/View/19836/2026-Comprehensive-Schedule-of-Fees",
+          note: "Mechanical permit categories. We do not quote fees.",
+        },
+        {
+          text: "Specific Plans",
+          href: "https://tustinca.org/400/Specific-Plans",
+          note: "Five of the nine plans named as most significant.",
+        },
+        {
+          text: "Customer rebates",
+          href: "https://tustinca.org/1041/Customer-Rebates-and-Incentives",
+          note: "Water-efficiency rebates only.",
+        },
+        {
+          text: "Census QuickFacts",
+          href: "https://www.census.gov/quickfacts/tustincitycalifornia",
+          note: "Population, owner-occupied rate, and household size cited on this page.",
+        },
+      ],
+      servicesTitle: "Everything we handle for Tustin homes and businesses",
+      serviceCards: [
+        {
+          slug: "ac-repair",
+          name: "AC Repair",
+          body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises in Tustin homes and businesses.",
+        },
+        {
+          slug: "ac-installation",
+          name: "AC Installation & Replacement",
+          body: "New system sizing and installation for Tustin properties, planned around the City's permit pages.",
+        },
+        {
+          slug: "ac-maintenance",
+          name: "AC Maintenance",
+          body: "Seasonal AC tune-ups that catch small issues early, for Tustin homes and for commercial rooftop and ground units.",
+        },
+        {
+          slug: "heating-repair",
+          name: "Heating Repair",
+          body: "Furnace and heating system diagnosis and repair for Tustin homes and businesses.",
+        },
+        {
+          slug: "furnace-installation",
+          name: "Furnace Installation & Replacement",
+          body: "Furnace sizing and installation, planned around the City's permit pages.",
+        },
+        {
+          slug: "heat-pump-services",
+          name: "Heat Pump Services",
+          body: "Heat pump installation, repair, and maintenance, with the City's permit pages and your utilities' program pages in mind.",
+        },
+        {
+          slug: "ductless-mini-split",
+          name: "Ductless Mini-Split",
+          body: "Ductless systems for Tustin additions, converted spaces, and rooms the existing ducts do not reach.",
+        },
+        {
+          slug: "ductwork",
+          name: "Ductwork Services",
+          body: "Duct repair, sealing, and replacement for Tustin homes and buildings.",
+        },
+        {
+          slug: "indoor-air-quality",
+          name: "Indoor Air Quality",
+          body: "Filtration, ventilation, and air-quality upgrades for Tustin homes and offices.",
+        },
+        {
+          slug: "emergency-hvac",
+          name: "Emergency HVAC",
+          body: "24/7 emergency dispatch for no-cool and no-heat problems in Tustin. If you smell gas, leave the building and call 911 or your gas utility.",
+        },
+      ],
+      resources: {
+        eyebrow: "Know before you start",
+        title: "Tustin permits, codes, and incentive programs",
+        intro: "Official sources for three items worth checking before a Tustin HVAC project.",
+        cards: [
+          {
+            amount: "Permits and inspections",
+            description: "The City's Permits Process page says a permit is valid for 180 days unless work is active and progressing, and asks for inspection requests one day in advance. A City handout dated June 1999 says a permit is required to install or replace a furnace or air conditioner. The City's fee schedule, effective April 1, 2026, lists mechanical permit categories for furnaces, air handling, refrigeration, and ventilation. A fee category is not an exemption list, so we confirm the steps and expiration terms for your job with the City.",
+            linkLabel: "City Permits Process page",
+            linkHref: "https://www.tustinca.org/409/Permits-Process",
+          },
+          {
+            amount: "Code edition",
+            description: "The City's Governing Codes page says the 2022 California Building Standards Codes, including the Mechanical and Energy Codes, apply to applications submitted on or after January 1, 2023, and the City's 2025 codes notice describes the 2025 codes as taking effect January 1, 2026 under proposed Ordinance No. 1569. The pages do not confirm final adoption, so we confirm the code edition for your project with the City.",
+            linkLabel: "City governing codes page",
+            linkHref: "https://tustinca.org/1286/Governing-Codes-Ordinances",
+          },
+          {
+            amount: "Rebates and utilities",
+            description: "The City's Customer Rebates and Incentives page lists water-efficiency rebates through the Municipal Water District of Orange County and does not mention HVAC, electric, or gas programs. Neither that page nor the City's Environmental Stewardship page says which utility serves Tustin addresses, so check your bill, and check any utility program's terms before you buy. We do not quote amounts.",
+            linkLabel: "City rebates page",
+            linkHref: "https://tustinca.org/1041/Customer-Rebates-and-Incentives",
+          },
+        ],
+      },
+      nearby: [
+        "santa-ana",
+        "irvine",
+        "costa-mesa",
+        "anaheim",
+      ],
+      proof: {
+        heading: "Licensed, reviewed, and ready across Tustin",
+        body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+        stats: [
+          {
+            num: "4.8★",
+            label: "Google rating",
+          },
+          {
+            num: "40",
+            label: "Google reviews",
+          },
+          {
+            num: "C-20",
+            label: "California license class",
+          },
+          {
+            num: "24/7",
+            label: "Emergency dispatch",
+          },
+        ],
+      },
+      finalCtaBody: "Call or request service online to schedule a visit anywhere in Tustin. Same-day service is typical, subject to capacity.",
+      faqs: [
+        {
+          q: "Does AIRPRO SOLUTIONS service all of Tustin?",
+          a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Tustin as part of our Orange County coverage. The City runs its own permit process, so we plan each visit around your specific address.",
+          boldLead: "Yes.",
+          links: [
+            {
+              text: "Orange County coverage",
+              href: "/service-areas/orange-county/",
+            },
+          ],
+        },
+        {
+          q: "How fast can a technician reach my Tustin home?",
+          a: "Same-day service is typical in Tustin, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+          boldLead: "Same-day service is typical in Tustin, subject to capacity.",
+          links: [
+            {
+              text: "(323) 776-9047",
+              href: "tel:+13237769047",
+            },
+          ],
+        },
+        {
+          q: "Do I need a permit to replace an air conditioner in Tustin?",
+          a: "A City handout says yes, but it is old. A City handout dated June 1999 says a permit is required to install or replace a water heater, furnace, or air conditioner, but it cites 1990s code editions, and the City's current Permits Process and Building Division pages do not repeat the statement, so AIRPRO SOLUTIONS confirms the current permit path with the City before work starts, and we do not quote permit fees.",
+          boldLead: "A City handout says yes, but it is old.",
+          links: [
+            {
+              text: "City handout",
+              href: "https://www.tustinca.org/DocumentCenter/View/659/Water-Heaters-and-Furnaces-PDF",
+            },
+            {
+              text: "Permits Process",
+              href: "https://www.tustinca.org/409/Permits-Process",
+            },
+            {
+              text: "Building Division",
+              href: "https://www.tustinca.org/153/Building",
+            },
+          ],
+        },
+        {
+          q: "Can I get a Tustin HVAC permit online?",
+          a: "We confirm that with the City. The City's Permits Process page says plans and completed permit applications are submitted by email, but the email addresses did not appear in the page text we read, and it lists an online page for inspection requests. We did not confirm an online permit portal, so AIRPRO SOLUTIONS confirms the submittal steps with the City before work starts.",
+          boldLead: "We confirm that with the City.",
+          links: [
+            {
+              text: "Permits Process page",
+              href: "https://www.tustinca.org/409/Permits-Process",
+            },
+          ],
+        },
+        {
+          q: "Where can an outdoor AC unit go on my Tustin property?",
+          a: "We confirm that with the City. We did not find a City page we could read that states setback, screening, or noise rules for outdoor HVAC equipment, so we do not state any here, and AIRPRO SOLUTIONS checks the current rules, how your property is zoned, and its layout with the City before choosing a location.",
+          boldLead: "We confirm that with the City.",
+        },
+        {
+          q: "Does the age of my Tustin home matter for HVAC?",
+          a: "Age is one factor we check. We did not find a verified citywide figure for the age of Tustin homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
+          boldLead: "Age is one factor we check.",
+        },
+        {
+          q: "Do you work on rental properties in Tustin?",
+          a: "Yes. QuickFacts reports a 48.8% owner-occupied housing unit rate for Tustin, so 51.2% of occupied homes are not owner-occupied. AIRPRO SOLUTIONS works with owners and property managers on access and approval before installation or replacement.",
+          boldLead: "Yes.",
+          links: [
+            {
+              text: "QuickFacts",
+              href: "https://www.census.gov/quickfacts/tustincitycalifornia",
+            },
+          ],
+        },
+        {
+          q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Tustin?",
+          a: "Yes. AIRPRO SOLUTIONS services commercial properties in Tustin, including rooftop units, and plans rooftop access and equipment placement with the building owner or manager before commercial work starts. The City's Specific Plans page says specific plans govern land use and development in their areas, so we confirm how your property is zoned and the permit path with the City. See our Commercial HVAC page for the full scope.",
+          boldLead: "Yes.",
+          links: [
+            {
+              text: "Specific Plans page",
+              href: "https://tustinca.org/400/Specific-Plans",
+            },
+            {
+              text: "Commercial HVAC page",
+              href: "/commercial-hvac/",
+            },
+          ],
+        },
+        {
+          q: "How do I check an HVAC contractor in Tustin?",
+          a: "Check the state license first. CSLB says seeing a license number does not necessarily mean the license is valid, so check its status on the CSLB site, which also shows the address of record and insurance information. AIRPRO SOLUTIONS' California license numbers are #1126691 and #50251 (C-20).",
+          boldLead: "Check the state license first.",
+          links: [
+            {
+              text: "CSLB site",
+              href: "https://www.cslb.ca.gov/consumers/hire_a_contractor/finding_the_right_contractor.aspx",
+            },
+          ],
+        },
+        {
+          q: "Which utility serves my Tustin address?",
+          a: "Your bill answers it. The City pages we read do not name Tustin's electric or gas provider, so check your bill to see who supplies your electricity and gas.",
+          boldLead: "Your bill answers it.",
+          links: [
+            {
+              text: "City pages we read",
+              href: "https://tustinca.org/1445/Environmental-Stewardship",
+            },
+          ],
+        },
+        {
+          q: "Are there HVAC rebates for Tustin customers?",
+          a: "The City lists water rebates only. The City's Customer Rebates and Incentives page lists water-efficiency rebates through the Municipal Water District of Orange County and does not mention HVAC, electric, or gas programs. Utility programs have their own terms and funding, and we do not quote amounts, so check each program with your utility before you buy.",
+          boldLead: "The City lists water rebates only.",
+          links: [
+            {
+              text: "Customer Rebates and Incentives page",
+              href: "https://tustinca.org/1041/Customer-Rebates-and-Incentives",
+            },
+          ],
+        },
+        {
+          q: "What HVAC services are available in Tustin?",
+          a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Tustin, for both residential and commercial properties.",
+          boldLead: "AIRPRO SOLUTIONS provides",
+          links: [
+            {
+              text: "AC repair",
+              href: "/services/ac-repair/",
+            },
+            {
+              text: "AC installation and replacement",
+              href: "/services/ac-installation/",
+            },
+            {
+              text: "AC maintenance",
+              href: "/services/ac-maintenance/",
+            },
+            {
+              text: "heating repair",
+              href: "/services/heating-repair/",
+            },
+            {
+              text: "furnace installation and replacement",
+              href: "/services/furnace-installation/",
+            },
+            {
+              text: "heat pump services",
+              href: "/services/heat-pump-services/",
+            },
+            {
+              text: "ductless mini-splits",
+              href: "/services/ductless-mini-split/",
+            },
+            {
+              text: "ductwork",
+              href: "/services/ductwork/",
+            },
+            {
+              text: "indoor air quality",
+              href: "/services/indoor-air-quality/",
+            },
+            {
+              text: "emergency HVAC",
+              href: "/services/emergency-hvac/",
+            },
+          ],
+        },
+        {
+          q: "Is emergency HVAC service available in Tustin?",
+          a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Tustin. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+          boldLead: "Yes.",
+          links: [
+            {
+              text: "(323) 776-9047",
+              href: "tel:+13237769047",
+            },
+          ],
+        },
+        {
+          q: "How much does HVAC service cost in Tustin?",
+          a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+          boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+          links: [
+            {
+              text: "(323) 776-9047",
+              href: "tel:+13237769047",
+            },
+          ],
+        },
+      ],
+    },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -8589,6 +9062,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'santa-ana' ? santaAnaOverrides
     : c.slug === 'newport-beach' ? newportBeachOverrides
     : c.slug === 'fullerton' ? fullertonOverrides
+    : c.slug === 'tustin' ? tustinOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;

@@ -242,14 +242,15 @@ export default function Page() {
           <p className="eyebrow">{orangeCountyHub.cities.eyebrow}</p>
           <h2>{orangeCountyHub.cities.title}</h2>
           <p>
-            Individual Orange County city pages are coming. For now, see our{' '}
-            <Link href="/service-areas/irvine/">Irvine page</Link>,{' '}
-            <Link href="/service-areas/anaheim/">Anaheim page</Link>,{' '}
-            <Link href="/service-areas/santa-ana/">Santa Ana page</Link>,{' '}
-            <Link href="/service-areas/costa-mesa/">Costa Mesa page</Link>,{' '}
-            <Link href="/service-areas/huntington-beach/">Huntington Beach page</Link>,{' '}
-            <Link href="/service-areas/newport-beach/">Newport Beach page</Link>, and{' '}
-            <Link href="/service-areas/fullerton/">Fullerton page</Link>, or browse{' '}
+            All eight Orange County cities we list have their own pages:{' '}
+            <Link href="/service-areas/irvine/">Irvine</Link>,{' '}
+            <Link href="/service-areas/anaheim/">Anaheim</Link>,{' '}
+            <Link href="/service-areas/santa-ana/">Santa Ana</Link>,{' '}
+            <Link href="/service-areas/costa-mesa/">Costa Mesa</Link>,{' '}
+            <Link href="/service-areas/huntington-beach/">Huntington Beach</Link>,{' '}
+            <Link href="/service-areas/newport-beach/">Newport Beach</Link>,{' '}
+            <Link href="/service-areas/fullerton/">Fullerton</Link>, and{' '}
+            <Link href="/service-areas/tustin/">Tustin</Link>. You can also browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">

@@ -63,11 +63,12 @@ export const orangeCountyHub = {
     paragraphs: [
       "Orange County is a coastal Southern California climate, but the ocean moderates the coast while inland cities run hotter. At the National Weather Service's Tustin MCAS station, July, August, and September average highs of 82, 83, and 83°F sit beside a station record of 112°F. NWS weather history also cites 112°F in Anaheim during heat events, and describes the coast as generally ocean-moderated. These are station and event readings, not city averages.",
       'Summer haze is common, on 19 to 23 days a month from June through September, and coastal fog and stratus are the predominant pattern. Winters are mild, with a January average high of 68°F, but there is still a heating season. Santa Ana winds are most frequent in winter.',
-      '**That is why we size equipment from a load calculation for your specific property**, not from a county-wide temperature assumption. A home near the coast and a home in Anaheim or Tustin can call for different equipment.',
+      '**That is why we size equipment from a load calculation for your specific property**, not from a county-wide temperature assumption. A home near the coast and a home in Anaheim can call for different equipment.',
     ],
     cardTitle: 'Where each city sits',
     groups: [
       { label: 'North Orange County', cities: ['Anaheim', 'Fullerton'] },
+      // Flagged 2026-10-19: the Central Orange County grouping (including Tustin) follows OCTA planning areas, was not re-verified from a source read, and is kept as general (see docs/open-items.md, Tustin entry).
       { label: 'Central Orange County', cities: ['Santa Ana', 'Costa Mesa', 'Tustin'] },
       { label: 'Coastal', cities: ['Huntington Beach'] },
     ],
@@ -81,26 +82,25 @@ export const orangeCountyHub = {
   // the figures could not be re-verified (see the Santa Ana section of docs/open-items.md). Building-age figures: ACS 2019 countywide (60.4% pre-1980, 26.6% 1980-1999, 13.0%
   // 2000+); SCAG ACS 2017 for Costa Mesa (49.6% pre-1970),
   // Irvine's own 4.8% pre-1970 (SCAG, ACS 2017) is on its city page. Anaheim's own
-  // 44.6% pre-1970 (SCAG, ACS 2017) is on its city page. Huntington Beach's own 43.5% pre-1970 (SCAG, ACS 2017) is on its city page. No age figures were found for Fullerton or Tustin - none are claimed. Fullerton's structure-type row (49,430 units, SCAG) was removed 2026-10-19: the SCAG source was not read and its 49.6% detached share equals Costa Mesa's pre-1970 share. See docs/open-items.md.
+  // 44.6% pre-1970 (SCAG, ACS 2017) is on its city page. Huntington Beach's own 43.5% pre-1970 (SCAG, ACS 2017) is on its city page. No age figures were found for Fullerton or Tustin - none are claimed. Fullerton's structure-type row (49,430 units, SCAG) was removed 2026-10-19: the SCAG source was not read and its 49.6% detached share equals Costa Mesa's pre-1970 share. See docs/open-items.md. Tustin's row (28,118 units, SCAG E-5 2018) was removed 2026-10-19: the SCAG source was not read, and its 35.1% detached share matches the 2013 City Housing Element memo share while its other shares differ.
   housing: {
     eyebrow: 'Property types',
-    title: 'Housing mix by city: detached homes lead, but multifamily is close to half in two cities',
+    title: 'Housing mix by city: detached homes lead, but multifamily is close to half in Costa Mesa',
     columns: ['City', 'Housing units', 'Detached', 'Attached', '2 to 4 units', '5 or more units', 'All multifamily'],
     rows: [
       ['Anaheim', '108,222', '41.7%', '8.6%', '10.5%', '34.9%', '45.4%'],
       ['Irvine', '102,474', '38.9%', '16.4%', '6.2%', '37.4%', '43.6%'],
       ['Huntington Beach', '81,656', '47.9%', '11.6%', '11.8%', '24.9%', '36.7%'],
       ['Costa Mesa', '42,836', '39.6%', '10.2%', '13.3%', '34.7%', '48.0%'],
-      ['Tustin', '28,118', '35.1%', '12.7%', '14.4%', '34.6%', '49.0%'],
     ],
-    note: 'Share of housing units by structure type, from SCAG local profiles using California Department of Finance E-5 data for 2018. Figures measure structure type only, not condo ownership, HOA status, or renter status. The remainder is other unit types. Costa Mesa and Tustin have the highest multifamily shares, at 48.0% and 49.0%.',
+    note: 'Share of housing units by structure type, from SCAG local profiles using California Department of Finance E-5 data for 2018. Figures measure structure type only, not condo ownership, HOA status, or renter status. The remainder is other unit types. Costa Mesa has the highest multifamily share, at 48.0%.',
     paragraphs: [
-      'Structure type shapes the job. Detached homes are the largest single category in every city in the table, but in Irvine and Tustin buildings with 5 or more units are within two points of them. Attached homes are 16.4% of Irvine units, which can mean shared walls, shared roofs, and association rules.',
+      'Structure type shapes the job. Detached homes are the largest single category in every city in the table, but in Irvine buildings with 5 or more units are within two points of them. Attached homes are 16.4% of Irvine units, which can mean shared walls, shared roofs, and association rules.',
       'Anaheim has the largest housing stock at 108,222 units, followed by Irvine at 102,474, and in both cities more than a third of units are in buildings of 5 or more.',
       'Building age varies widely. Countywide, 60.4% of housing units were built before 1980, 26.6% between 1980 and 1999, and 13.0% in 2000 or later (ACS 2019). Homes built before 1970 are 49.6% of Costa Mesa (SCAG, 2017 American Community Survey) and 43.5% of Huntington Beach (SCAG, 2017 American Community Survey).',
       'Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     ],
-    pending: 'Housing age figures were not found for Fullerton and Tustin, so no age claim is made for them. The pre-1970 shares for Anaheim, Irvine, and Huntington Beach are on their city pages. Santa Ana, Newport Beach, and Fullerton are not in the table because their housing figures are not verified yet.',
+    pending: 'Housing age figures were not found for Fullerton and Tustin, so no age claim is made for them. The pre-1970 shares for Anaheim, Irvine, and Huntington Beach are on their city pages. Santa Ana, Newport Beach, Fullerton, and Tustin are not in the table because their housing figures are not verified yet.',
   },
 
   services: {
@@ -147,8 +147,8 @@ export const orangeCountyHub = {
 
   // Sources: Irvine online residential replacement permit; Anaheim Form B713 (no exemption stated); Santa Ana City notice of June 12, 2026 (online permit portal); Costa Mesa
   // Insta-Permit page and Mechanical - Residential application; Newport Beach Residential Express Permits (City online permitting page);
-  // Huntington Beach Permit Center, HB ACA portal and forms page (Mechanical Permit Application, Mechanical Plan Requirements, Mechanical Plan Check Waiver Request); Fullerton Building and Safety page, FAQ and current building codes page (read through fetch summaries 2026-10-19); Tustin
-  // 360-day permit expiration. Title 24: CEC 2025 Energy Code effective for permits submitted on or
+  // Huntington Beach Permit Center, HB ACA portal and forms page (Mechanical Permit Application, Mechanical Plan Requirements, Mechanical Plan Check Waiver Request); Fullerton Building and Safety page, FAQ and current building codes page (read through fetch summaries 2026-10-19); Tustin Permits Process page, Building Division page, Governing Codes page and a June 1999 City handout (read through fetch summaries 2026-10-19).
+  // Title 24: CEC 2025 Energy Code effective for permits submitted on or
   // after 2026-01-01; duct leakage limits (10% total / 7% to outside) and R-6 duct insulation, and
   // heat pump refrigerant charge verification, per the CEC Energy Code Support Center.
   permits: {
@@ -164,7 +164,7 @@ export const orangeCountyHub = {
       ['Newport Beach', 'Residential Express Permits through the City', "The City's online permitting page names furnace replacement as an example of a simple project for Residential Express Permits, which are not for projects that need multiple permits and plan review. The pages we read do not mention AC replacement, so we confirm what your job needs with the City."],
       ['Huntington Beach', 'Permit Center and HB ACA online portal', 'The Permit Center issues mechanical permits, and the City lists a Mechanical Permit Application, Mechanical Plan Requirements, and a Mechanical Plan Check Waiver Request. We did not find a published like-for-like exemption, so treat replacement as permit-required.'],
       ['Fullerton', 'Building and Safety, with applications through the EasyDev online portal', "The City's FAQ lists new, expanded, or replaced mechanical items among work that needs a permit and says no construction is allowed until the permit is issued. Applications submitted on or after January 1, 2026 follow the 2025 California Building Codes with Fullerton amendments. We confirm which permit your replacement needs with the City."],
-      ['Tustin', 'Building Division', 'Permits expire if work is not started within 360 days. We did not find a published like-for-like exemption.'],
+      ['Tustin', 'Building Division', "The City's Permits Process page says a permit is valid for 180 days unless work is active and progressing, and a City handout dated June 1999 says a permit is required to install or replace a furnace or air conditioner. We confirm the current permit path and expiration terms with the City."],
     ],
     note: "Based on each city's published permit pages. Procedures change, so current requirements are confirmed with the city before permit submittal.",
     paragraphs: [
@@ -185,7 +185,8 @@ export const orangeCountyHub = {
       ['Anaheim', "The City's Anaheim Resort page describes a 581-acre specific plan area of hotels, convention and conference facilities, restaurants, retail, and entertainment. Anaheim Municipal Code Sec. 6.70.010 sets a general 60 dB(A) property-line sound limit, so confirm placement and noise for the specific property."],
       ['Fullerton', 'The City FAQ points construction noise to Municipal Code Chapter 15.90 and exempts it between 7 a.m. and 8 p.m. on any day except Sunday or a City-recognized holiday. We did not read the chapter, so we confirm placement and noise conditions for the specific property with the City.'],
       ['Costa Mesa', "Under the Insta-Permit, outdoor equipment goes at ground level on the side or rear of the home, out of public view, with no roof-top equipment. Municipal Code Sec. 13-280 sets residential exterior noise limits of 55 dB(A) by day and 50 dB(A) at night. We confirm placement for the specific property."],
-      ['Santa Ana, Huntington Beach, Tustin', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
+      ['Santa Ana, Huntington Beach', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
+      ['Tustin', 'We did not find a City page we could read that states placement, screening, or noise rules for outdoor HVAC equipment, so we confirm zoning, screening, HOA approval, and noise conditions for the specific property with the City before recommending where equipment goes.'],
       ['Newport Beach', 'We confirm placement and any noise conditions for the specific property with the City before recommending where equipment goes.'],
     ],
     note: "Based on each city's municipal code and planning materials. Code text changes, so current requirements are confirmed with the city.",
@@ -200,7 +201,7 @@ export const orangeCountyHub = {
   rebates: {
     eyebrow: 'Utilities and rebates',
     title: 'Your utility accounts decide which programs to look at',
-    intro: 'Anaheim has its own municipal electric utility. Five of the other seven cities are generally served by SCE, and natural gas is generally supplied by SoCalGas. We have not confirmed the electric or gas provider for Newport Beach, or the electric provider for Fullerton, from a City source, so confirm it by address.',
+    intro: 'Anaheim has its own municipal electric utility. Four of the other seven cities are generally served by SCE, and natural gas is generally supplied by SoCalGas. We have not confirmed the electric or gas provider for Newport Beach or Tustin, or the electric provider for Fullerton, from a City source, so confirm it by address.',
     cards: [
       {
         amount: 'Home incentives',
@@ -222,10 +223,10 @@ export const orangeCountyHub = {
     utilityCardTitle: 'Utilities in these cities',
     utilities: [
       'Anaheim electric: Anaheim Public Utilities',
-      'Other cities except Newport Beach and Fullerton, electric: SCE',
-      'Natural gas: SoCalGas (not confirmed for Newport Beach; assumed for Fullerton)',
+      'Other cities except Newport Beach, Fullerton, and Tustin, electric: SCE',
+      'Natural gas: SoCalGas (not confirmed for Newport Beach and Tustin; assumed for Fullerton)',
     ],
-    note: '**Confirm by address:** service territory can vary by address, so verify your utility directly before relying on any program. Gas service is directly confirmed for Irvine, Huntington Beach, and Santa Ana (City utilities page) and assumed for Anaheim, Costa Mesa, Fullerton, and Tustin. Neither electric nor gas provider is confirmed for Newport Beach, and the electric provider is not confirmed for Fullerton.',
+    note: '**Confirm by address:** service territory can vary by address, so verify your utility directly before relying on any program. Gas service is directly confirmed for Irvine, Huntington Beach, and Santa Ana (City utilities page) and assumed for Anaheim, Costa Mesa, and Fullerton. Neither electric nor gas provider is confirmed for Newport Beach or Tustin, and the electric provider is not confirmed for Fullerton.',
   },
 
   cities: {
@@ -295,11 +296,12 @@ export const orangeCountyHub = {
       },
       {
         name: 'Tustin',
-        note: 'The highest multifamily share in this group at 49.0%, with detached homes at 35.1% and 5-or-more-unit buildings at 34.6%. Permits expire if work is not started within 360 days.',
-        areas: 'Old Town, Tustin Ranch, Tustin Legacy',
-        utility: 'Electric: SCE.',
-        zips: '92780, 92782',
-        pending: 'Housing age figures pending for this city.',
+        href: '/service-areas/tustin/',
+        note: "The City's Permits Process page says a permit is valid for 180 days unless work is active and progressing, and a City handout dated June 1999 says a permit is required to install or replace a furnace or air conditioner. We confirm the current steps with the City.",
+        areas: 'Pending verification (no City neighborhood list read)',
+        utility: 'Utilities: confirm by address.',
+        zips: 'pending',
+        pending: 'ZIP list pending verification (no official source read).',
       },
     ] satisfies CityCardSpec[],
     note: 'Area names are general references, not permit or jurisdiction boundaries. Housing figures are SCAG 2018 and ACS 2014-2018 estimates.',
@@ -325,7 +327,7 @@ export const orangeCountyHub = {
     },
     {
       q: 'Do I need a permit to replace my AC in Orange County?',
-      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Orange County. Irvine offers an online residential replacement permit, and Anaheim\'s Building Division issues mechanical permits through a published application, Form B713. Huntington Beach issues mechanical permits through its Permit Center and HB ACA portal. For Huntington Beach and Tustin we did not find a published like-for-like exemption, and Fullerton\'s Building and Safety FAQ lists replaced mechanical items among the work that needs a permit. Confirm the local permit path before work begins.',
+      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Orange County. Irvine offers an online residential replacement permit, and Anaheim\'s Building Division issues mechanical permits through a published application, Form B713. Huntington Beach issues mechanical permits through its Permit Center and HB ACA portal. For Huntington Beach we did not find a published like-for-like exemption, Fullerton\'s Building and Safety FAQ lists replaced mechanical items among the work that needs a permit, and a June 1999 City of Tustin handout says a permit is required to install or replace a furnace or air conditioner. Confirm the local permit path before work begins.',
     },
     {
       q: 'What is Title 24 and how does it affect an HVAC replacement?',
@@ -333,7 +335,7 @@ export const orangeCountyHub = {
     },
     {
       q: 'Which utility serves my home, and are there HVAC rebates?',
-      a: 'It depends on the city. Anaheim has its own municipal electric utility, Anaheim Public Utilities, while five of the other seven cities on this page are generally served by Southern California Edison (SCE). Natural gas is generally supplied by Southern California Gas Company (SoCalGas). We have not confirmed the electric or gas provider for Newport Beach, or the electric provider for Fullerton, from a City source. Programs, amounts, and funding change, so confirm your utility by address and confirm current eligibility before installation.',
+      a: 'It depends on the city. Anaheim has its own municipal electric utility, Anaheim Public Utilities, while four of the other seven cities on this page are generally served by Southern California Edison (SCE). Natural gas is generally supplied by Southern California Gas Company (SoCalGas). We have not confirmed the electric or gas provider for Newport Beach or Tustin, or the electric provider for Fullerton, from a City source. Programs, amounts, and funding change, so confirm your utility by address and confirm current eligibility before installation.',
     },
     {
       q: 'Are there noise or screening rules for outdoor equipment?',
@@ -341,7 +343,7 @@ export const orangeCountyHub = {
     },
     {
       q: 'Do you work on condos, apartments, and HOA properties?',
-      a: "Yes, for single-family homes, condos, townhomes, and apartments. Multifamily units are 49.0% of housing in Tustin and 48.0% in Costa Mesa, per 2018 SCAG data. HOA rules are set by each association, and Irvine publishes an HOA map, so check your association's requirements before choosing equipment or placement.",
+      a: "Yes, for single-family homes, condos, townhomes, and apartments. Multifamily units are 48.0% of housing in Costa Mesa, per 2018 SCAG data. HOA rules are set by each association, and Irvine publishes an HOA map, so check your association's requirements before choosing equipment or placement.",
     },
     {
       q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in Orange County?',
