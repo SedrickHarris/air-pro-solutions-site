@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood and manhattan-beach have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach and hermosa-beach have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // TODO(copy): the closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood and Manhattan Beach, because under 920px the card sits below the text. Several of these pages were client-approved,
+// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach and Hermosa Beach, because under 920px the card sits below the text. Several of these pages were client-approved,
 // so confirm the one-phrase change with the client.
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
@@ -5758,6 +5758,516 @@ const manhattanBeachOverrides: Partial<City> = {
   },
 };
 
+const hermosaBeachOverrides: Partial<City> = {
+  // TODO(data): add verified climate detail before treating this as a full local page.
+  neighborhoods: [], // neighborhood list held out: no official City source read, so no names are published
+  zips: [], // ZIP list held out: the City maps page would not load and 90254 appears only on third-party lists in the research
+  page: {
+    metaDescription: "HVAC for Hermosa Beach homes and businesses, from AC repair to installation. Know the City's permit forms and local housing. Licensed, 4.8-star rated.",
+    lede: "AIRPRO SOLUTIONS provides HVAC services across Hermosa Beach, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit forms and Coastal Zone note in mind.",
+    heroCaption: {
+      title: "Hermosa Beach, CA",
+      text: "Local HVAC service across Hermosa Beach",
+    },
+    heroProof: [
+      {
+        icon: "shield",
+        label: "Licensed, bonded & insured",
+      },
+      {
+        icon: "star",
+        label: "4.8-star rated",
+      },
+      {
+        icon: "bolt",
+        label: "24/7 emergency dispatch",
+      },
+      {
+        icon: "building",
+        label: "Residential and commercial",
+      },
+    ],
+    trustStats: [
+      {
+        num: "4.8★",
+        label: "Google rating, 40 reviews",
+      },
+      {
+        num: "C-20",
+        label: "California licensed",
+      },
+      {
+        num: "24/7",
+        label: "emergency dispatch",
+      },
+      {
+        num: "Same-day",
+        label: "service typical",
+      },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Hermosa Beach",
+      body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Hermosa Beach at a glance",
+      stats: [
+        {
+          num: "18,513",
+          label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "43.5%",
+          label: "of 10,026 housing units are single-family detached, and 22.4% are in buildings of 2 to 4 units (California Department of Finance E-5, 2018, per SCAG)",
+        },
+        {
+          num: "52.9%",
+          label: "of housing was built before 1970 (U.S. Census American Community Survey, 2017; Nielsen Co., per SCAG)",
+        },
+      ],
+      source: "Sources: U.S. Census Bureau QuickFacts and SCAG's 2019 Local Profile of Hermosa Beach.",
+    },
+    localTitle: "Hermosa Beach's permit forms, housing stock, and utility programs",
+    // Held out (no verified source): Online-only submittals beginning October 1, 2026: not on the City applications page or the online access page. The South Bay hub claim is removed in hub wiring. | Municipal Code Chapter 15.10 (clearances 15.10.030, rooftop 15.10.040, noise 15.10.050, exhaust 15.10.060, seismic anchorage 15.10.070), Chapter 8.24 noise and the 3 foot equipment setback: read only through a publisher copy (online.encodeplus.com), not the official code, and no operative text or numeric limit was readable. Not published. | City Building and Safety page (hermosabeach.gov/services/inspections-building) and the inspection scheduling page (ServiceDirectory/218/237): would not load here, so inspection days and hours, the phone number, the public counter hours and the department email are not on the page. The Building Division page (community-development/building-division) was read and supports the permit, inspection and construction hours wording. Its geotechnical report note concerns construction and groundwater and is not tied to HVAC, so it is not stated. | City maps page (hermosabeach.gov/services/maps): would not load here, so ZIP 90254, the Coastal Zone Map and the zoning, elevation and contour maps are not on the page. 90254 also appears only on third-party lists in the research. ZIP card and neighborhoods held out. | Pre-1980 asbestos survey or abatement wording and the 100 square foot threshold: the applications page fetch summary quotes only that the requirement applies to projects constructed before 1980, which conflicts with the research reading of a disturbance threshold. Not stated. | Code edition conflict: the applications page says the 2025 codes took effect January 1, 2026, and the Building Division page says the 2022 codes took effect January 1, 2023. Both are undated. The page states both and says we confirm with the City. | Fee schedules effective July 1, 2026 and any permit fee: not on the applications page as read. No fees are quoted. | Building department phone and email and the 1315 Valley Drive address with ZIP: from an Accela permit-picker page not read here. Not on the page. | Whether any like-for-like replacement is exempt, HVAC inspection stages and required test documents: no City statement found. | Clean Power Alliance room AC instant coupon (CARE or FERA customers), CPA Energy Team, SoCalGas Energy Savings Assistance furnace replacement, SoCalGas multifamily rebate, TECH $1,000 incentive, Comfortably CA, SWITCH: from the research only, pages not read here, and amounts are not published. | Climate, NOAA normals, heat-day counts, humidity, marine layer: no station verified for Hermosa Beach. | Beach city, coastal, flat, hillside labels, borders with neighboring cities, Pacific Coast Highway layout, 15 by 40 block size: Wikipedia only. | SCAG 2021 housing element local data (10,092 or 8,979 units, 52 percent single-family share, 1970 to 1979 largest decade, renter and owner counts): the document gives conflicting unit totals (10,092, 8,979 and 9,565 occupied), so the 2019 Local Profile is used instead. | QuickFacts 18,687 residents (July 1, 2024), 50.7 percent owner-occupied (2019 to 2023), households, rent, income: the pasted research disagrees with the QuickFacts page read directly (V2025). Median income and rent are not used. | Employers, schools, hospitals, shopping areas, HOA areas, historic-district rules, median year built: no source. | All rebate dollar amounts; federal Section 25C and 25D status; HEEHRA status; SoCalGas wildfire thermostat; SCE Smart Energy Program credit. | SoCalGas licensed-contractor and permit-closure conditions and SCE approved-contractor wording: kept off the page. | Competitor SERP table: never on the page.
+    // TODO(copy): client has not approved any Hermosa Beach wording (every FAQ answer, the four local paragraphs, both local cards, the permit, coastal, utility, rebate and assistance sentences, the commercial sentence). Keep flagged until the user says the client approved.
+    // TODO(verify): City applications page, online access page and utilities page were read through fetch summaries and show no date. The Mechanical Permit Application (showpublisheddocument/19385) and the combined application (showpublisheddocument/20511) were also read through fetch summaries and show no date. Re-read the PDFs directly.
+    // TODO(verify): The City Building Division page was read through a fetch summary and shows no date. It states the 2022 California Building Codes effective January 1, 2023, which conflicts with the applications page 2025 notice. Ask the City which is current.
+    // TODO(verify): The coastal permit note and the LA County Fire, Public Works and Waste Reduction Plan note come from the permit form affidavit text as summarized. Confirm the wording in the PDF and whether it applies to an HVAC replacement.
+    // TODO(verify): The City Clean Power Alliance page (public-works/environmental-programs) was read through a fetch summary: membership, CPA buys the electricity, SCE still delivers and bills, opt-out. It was not checked for a date. Confirm directly.
+    // TODO(verify): SoCalGas rebate terms were read on the SoCalGas rebates page and the 2026 application PDF (form code J087-228EEC 0926). The SCE Energy Savings Assistance and rebate directory pages show no date.
+    // Pre-launch recheck: City applications page, Mechanical Permit Application and combined application PDFs, online access page, utilities page, Building and Safety page, maps page, official Municipal Code (Chapter 15.10 and Chapter 8.24), SoCalGas rebates page and 2026 application, SCE Energy Savings Assistance and rebate directory, SCAG profile, QuickFacts.
+    localParagraphs: [
+      "The City's Community Development Department posts separate permit applications for building, mechanical, electrical, and plumbing work, plus a combined form that **can only be used when one contractor or owner is acquiring all of the associated permits**. The City's Mechanical Permit Application lists fee items for HVAC equipment, including an air handler only, an air conditioner condenser or compressor, and a forced-air or gravity-type furnace, so **AIRPRO SOLUTIONS confirms which application and fee items fit your job** with the City before work starts. The City's Building Division page says the division is responsible for issuing building, plumbing, electrical, and mechanical permits, among others, and performs field inspections for structural, fire, energy, and life safety requirements. The City's applications page says the 2025 California Building Standards Codes took effect January 1, 2026, while the Building Division page still states that the 2022 California Building Codes took effect January 1, 2023, so **AIRPRO SOLUTIONS confirms the current code edition with the City**. The City's online access page lists select building, electrical, plumbing, and planning applications that can be submitted online, and mechanical or HVAC permits are not among them. We did not find a City statement that permit applications must be submitted online, so we confirm how to submit with the City. None of these City pages shows a date.",
+      "The City's permit forms add conditions beyond the mechanical application. The Mechanical Permit Application's affidavit says that if the property is in the Coastal Zone, **the applicant may need a Coastal Development Permit or an exemption**, and it says additional reviews and submittals may be required for LA County Fire, Public Works, and a Waste Reduction Plan. We did not find whether an HVAC replacement needs coastal review or any of those reviews, so we ask the City about your address before work starts. The forms show no date. The Building Division page lists permitted construction hours of 8:00 a.m. to 6:00 p.m. Monday through Friday and 9:00 a.m. to 5:00 p.m. Saturday, with no work on Sundays or National Holidays. Those are construction hours, not outdoor-unit operating hours. We did not read the Municipal Code text, so we do not state equipment placement, setback, or noise limits.",
+      "Hermosa Beach had an estimated 18,513 residents on July 1, 2025, and QuickFacts reports a 50.6% owner-occupied housing rate for 2020 to 2024. SCAG's 2019 Local Profile, using California Department of Finance E-5 data for 2018, counts **10,026 housing units: 43.5% single-family detached, 8.0% attached, 22.4% in buildings of 2 to 4 units, 23.9% in buildings of 5 or more, and 2.2% mobile homes**. The same profile reports that **52.9 percent of the housing stock was built before 1970**, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. Those figures are citywide and dated, so we confirm the equipment, roof or attic access, and ductwork at the property. In a multi-unit building we confirm equipment access and placement with the owner or manager, and for commercial work we plan rooftop access and equipment placement with the building owner or manager.",
+      "The City's utilities page lists **Southern California Edison for electric service and Southern California Gas Company for natural gas**, and shows no date. The City's Clean Power Alliance page says Hermosa Beach is a member, that Clean Power Alliance buys the electricity, and that **SCE still delivers the power and sends the monthly bill**. The City says customers can opt out and stay with SCE. SoCalGas lists a 2026 rebate for ENERGY STAR furnaces in existing residential properties, with funding first come, first served until December 31, 2026 or until it runs out. SCE's Energy Savings Assistance program lists central AC or central heat pump replacement among its upgrades for income-qualified households, and says services may not be available in all areas and a co-payment may be required for some services. SCE's rebate directory lists Golden State Rebates coupons for air conditioners and smart thermostats at participating retailers, and Home Performance Plus for customers in disadvantaged or low-income communities, and we did not confirm whether a Hermosa Beach address qualifies. Terms and funding change, so we link the program pages rather than quote amounts, and **confirm your utility accounts on your bills before counting on a program**. Official links are in the card for this section.",
+    ],
+    localCards: [
+      {
+        heading: "Hermosa Beach permit path",
+        rows: [
+          {
+            label: "Applications",
+            value: "Separate building, mechanical, electrical, and plumbing applications",
+          },
+          {
+            label: "Combined form",
+            value: "Only when one contractor or owner is acquiring all the permits",
+          },
+          {
+            label: "Mechanical fee items",
+            value: "Air handler only, AC condenser or compressor, forced-air or gravity-type furnace",
+          },
+          {
+            label: "Online applications",
+            value: "Select building, electrical, plumbing, and planning types; HVAC not listed",
+          },
+          {
+            label: "Coastal Zone",
+            value: "A Coastal Development Permit or exemption may be needed",
+          },
+          {
+            label: "Code edition",
+            value: "Applications page: 2025 codes, effective January 1, 2026. Building Division page: 2022 codes. Confirm with the City",
+          },
+          {
+            label: "Construction hours",
+            value: "Mon to Fri 8:00 a.m. to 6:00 p.m., Sat 9:00 a.m. to 5:00 p.m., none Sundays or National Holidays",
+          },
+        ],
+        note: "From the City's applications page, Building Division page, online access page and Mechanical Permit Application (none shows a date). We confirm current requirements with the City.",
+      },
+    ],
+    neighborhoodsHeading: "Official Hermosa Beach resources",
+    officialResources: [
+      {
+        text: "Applications, forms and handouts",
+        href: "https://www.hermosabeach.gov/our-government/community-development/applications-forms-handouts",
+        note: "Separate permit applications and the January 1, 2026 code notice.",
+      },
+      {
+        text: "Building Division",
+        href: "https://www.hermosabeach.gov/our-government/community-development/building-division",
+        note: "Permits issued, inspections and construction hours.",
+      },
+      {
+        text: "Mechanical Permit Application",
+        href: "https://hermosabeach.gov/home/showpublisheddocument/19385/638598171245530000",
+        note: "City form cited on this page (PDF).",
+      },
+      {
+        text: "Combined permit application",
+        href: "https://hermosabeach.gov/home/showpublisheddocument/20511/638598172243600000",
+        note: "Building, mechanical, electrical, and plumbing form (PDF).",
+      },
+      {
+        text: "Online access",
+        href: "https://www.hermosabeach.gov/our-government/city-departments/community-development/online-citizen-access",
+        note: "Applications the City accepts online.",
+      },
+      {
+        text: "City utilities page",
+        href: "https://www.hermosabeach.gov/services/utilities",
+        note: "City listing of electric and natural gas providers.",
+      },
+      {
+        text: "Clean Power Alliance",
+        href: "https://www.hermosabeach.gov/our-government/city-departments/public-works/environmental-programs/clean-power-alliance",
+        note: "City page on delivery, opt-out and rate options.",
+      },
+      {
+        text: "SoCalGas rebates",
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "ENERGY STAR furnace rebate and program period.",
+      },
+      {
+        text: "SCE Energy Savings Assistance",
+        href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+        note: "Income-qualified upgrades and eligibility.",
+      },
+      {
+        text: "SCAG Hermosa Beach local profile",
+        href: "https://sp.scag.ca.gov/sites/default/files/2024-05/hermosabeach_localprofile.pdf",
+        note: "Housing counts and building age cited on this page.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/hermosabeachcitycalifornia",
+        note: "Population and owner-occupied rate cited on this page.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Hermosa Beach homes and businesses",
+    serviceCards: [
+      {
+        slug: "ac-repair",
+        name: "AC Repair",
+        body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises in Hermosa Beach homes and businesses.",
+      },
+      {
+        slug: "ac-installation",
+        name: "AC Installation & Replacement",
+        body: "New system sizing and installation, planned around the City's mechanical permit application.",
+      },
+      {
+        slug: "ac-maintenance",
+        name: "AC Maintenance",
+        body: "Seasonal AC tune-ups that catch small issues early, for homes and for commercial rooftop and ground units.",
+      },
+      {
+        slug: "heating-repair",
+        name: "Heating Repair",
+        body: "Furnace and heating system diagnosis and repair for Hermosa Beach homes and businesses.",
+      },
+      {
+        slug: "furnace-installation",
+        name: "Furnace Installation & Replacement",
+        body: "Furnace sizing and installation, planned around the City's permit process. SoCalGas lists a furnace rebate with its own terms.",
+      },
+      {
+        slug: "heat-pump-services",
+        name: "Heat Pump Services",
+        body: "Heat pump installation, repair, and maintenance, with the City's permit process and your utilities' program pages in mind.",
+      },
+      {
+        slug: "ductless-mini-split",
+        name: "Ductless Mini-Split",
+        body: "Ductless systems for additions, converted spaces, and rooms the existing ducts do not reach.",
+      },
+      {
+        slug: "ductwork",
+        name: "Ductwork Services",
+        body: "Duct repair, sealing, and replacement for Hermosa Beach homes and buildings.",
+      },
+      {
+        slug: "indoor-air-quality",
+        name: "Indoor Air Quality",
+        body: "Filtration, ventilation, and air-quality upgrades for Hermosa Beach homes and offices.",
+      },
+      {
+        slug: "emergency-hvac",
+        name: "Emergency HVAC",
+        body: "24/7 emergency dispatch for no-cool and no-heat problems. If you smell gas, leave the building and call 911 or your gas utility.",
+      },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Hermosa Beach permits and incentive programs",
+      intro: "Official sources for three items worth checking before a Hermosa Beach HVAC project.",
+      cards: [
+        {
+          amount: "Permit applications",
+          description: "The City posts separate building, mechanical, electrical, and plumbing permit applications, and a Mechanical Permit Application with fee items for HVAC equipment. The pages show no date, so we confirm current requirements with the City.",
+          linkLabel: "City applications",
+          linkHref: "https://www.hermosabeach.gov/our-government/community-development/applications-forms-handouts",
+        },
+        {
+          amount: "Furnace rebate",
+          description: "SoCalGas lists a 2026 rebate for ENERGY STAR furnaces in existing residential properties, with funding first come, first served until December 31, 2026 or until it runs out. The City's utilities page lists SoCalGas for natural gas, and we do not quote amounts.",
+          linkLabel: "SoCalGas rebates",
+          linkHref: "https://www.socalgas.com/savings/rebates-and-incentives",
+        },
+        {
+          amount: "Income-qualified help",
+          description: "SCE's Energy Savings Assistance program lists central AC or central heat pump replacement among its upgrades for income-qualified households. It says services may not be available in all areas and a co-payment may be required for some services, so check eligibility with SCE.",
+          linkLabel: "SCE Energy Savings Assistance",
+          linkHref: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+        },
+      ],
+    },
+    nearby: ["manhattan-beach", "redondo-beach", "torrance", "el-segundo"],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Hermosa Beach",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        {
+          num: "4.8★",
+          label: "Google rating",
+        },
+        {
+          num: "40",
+          label: "Google reviews",
+        },
+        {
+          num: "C-20",
+          label: "California license class",
+        },
+        {
+          num: "24/7",
+          label: "Emergency dispatch",
+        },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Hermosa Beach. Same-day service is typical, subject to capacity.",
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Hermosa Beach?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Hermosa Beach as part of our South Bay coverage. The City's Community Development Department handles permit applications, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "South Bay coverage",
+            href: "/service-areas/south-bay/",
+          },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Hermosa Beach home?",
+        a: "Same-day service is typical in Hermosa Beach, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Hermosa Beach, subject to capacity.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an air conditioner in Hermosa Beach?",
+        a: "Expect to apply. The City's Building Division page says the division issues mechanical permits, and the City posts a Mechanical Permit Application with fee items for an air conditioner condenser or compressor, an air handler, and a forced-air or gravity-type furnace. We did not find a City statement on whether any like-for-like replacement is exempt, so AIRPRO SOLUTIONS confirms the permit path with the City before work starts, and we do not quote permit fees.",
+        boldLead: "Expect to apply.",
+        links: [
+          {
+            text: "Building Division page",
+            href: "https://www.hermosabeach.gov/our-government/community-development/building-division",
+          },
+          {
+            text: "Mechanical Permit Application",
+            href: "https://hermosabeach.gov/home/showpublisheddocument/19385/638598171245530000",
+          },
+        ],
+      },
+      {
+        q: "Which permit application covers HVAC work in Hermosa Beach?",
+        a: "The City lists separate applications. It posts separate building, mechanical, electrical, and plumbing permit applications, and a combined form that it says can only be used when one contractor or owner is acquiring all of the associated permits. The mechanical application is the one that lists HVAC equipment fee items, and AIRPRO SOLUTIONS confirms with the City whether your job also needs electrical or plumbing permits.",
+        boldLead: "The City lists separate applications.",
+        links: [
+          {
+            text: "permit applications",
+            href: "https://www.hermosabeach.gov/our-government/community-development/applications-forms-handouts",
+          },
+          {
+            text: "mechanical application",
+            href: "https://hermosabeach.gov/home/showpublisheddocument/19385/638598171245530000",
+          },
+        ],
+      },
+      {
+        q: "Can I submit a Hermosa Beach HVAC permit application online?",
+        a: "The City's online page does not list HVAC permits. The City's online access page says the department accepts online applications for select building permits and planning applications, and its list of online applications does not include mechanical or HVAC permits. We did not find a City statement that permit applications must be submitted online, or a date for any such change, so AIRPRO SOLUTIONS confirms with the City how to submit your application before work starts.",
+        boldLead: "The City's online page does not list HVAC permits.",
+        links: [
+          {
+            text: "online access page",
+            href: "https://www.hermosabeach.gov/our-government/city-departments/community-development/online-citizen-access",
+          },
+        ],
+      },
+      {
+        q: "Does the Coastal Zone affect HVAC work in Hermosa Beach?",
+        a: "The City's permit forms mention it. The Mechanical Permit Application says that if the property is in the Coastal Zone, the applicant may need a Coastal Development Permit or an exemption, and that additional reviews and submittals may be required for LA County Fire, Public Works, and a Waste Reduction Plan. We did not find whether an HVAC replacement needs any of these, so AIRPRO SOLUTIONS asks the City about your address before work starts.",
+        boldLead: "The City's permit forms mention it.",
+        links: [
+          {
+            text: "Mechanical Permit Application",
+            href: "https://hermosabeach.gov/home/showpublisheddocument/19385/638598171245530000",
+          },
+        ],
+      },
+      {
+        q: "Does the age of my Hermosa Beach home matter for HVAC?",
+        a: "Age is one factor we check. SCAG's 2019 Local Profile reports that 52.9 percent of Hermosa Beach's housing stock was built before 1970, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. That is a citywide, dated figure, so we confirm the equipment, roof or attic access, and ductwork at your property.",
+        boldLead: "Age is one factor we check.",
+        links: [
+          {
+            text: "SCAG's 2019 Local Profile",
+            href: "https://sp.scag.ca.gov/sites/default/files/2024-05/hermosabeach_localprofile.pdf",
+          },
+        ],
+      },
+      {
+        q: "What about HVAC in Hermosa Beach condos and apartment buildings?",
+        a: "Multi-unit buildings add access and placement questions. About 22.4% of Hermosa Beach's 10,026 housing units are in buildings of 2 to 4 units and 23.9% are in buildings of 5 or more, according to SCAG's 2019 Local Profile using California Department of Finance data for 2018, so we confirm equipment access and placement with the property owner or manager before installation or replacement.",
+        boldLead: "Multi-unit buildings add access and placement questions.",
+        links: [
+          {
+            text: "SCAG's 2019 Local Profile",
+            href: "https://sp.scag.ca.gov/sites/default/files/2024-05/hermosabeach_localprofile.pdf",
+          },
+        ],
+      },
+      {
+        q: "Which utility serves my Hermosa Beach address?",
+        a: "Your bill answers it. The City's utilities page lists Southern California Edison for electric service and Southern California Gas Company for natural gas, and the City's Clean Power Alliance page says Clean Power Alliance buys the electricity while SCE still delivers it and sends the monthly bill. Check your bill before counting on a program.",
+        boldLead: "Your bill answers it.",
+        links: [
+          {
+            text: "utilities page",
+            href: "https://www.hermosabeach.gov/services/utilities",
+          },
+          {
+            text: "Clean Power Alliance page",
+            href: "https://www.hermosabeach.gov/our-government/city-departments/public-works/environmental-programs/clean-power-alliance",
+          },
+        ],
+      },
+      {
+        q: "Are there HVAC rebates for Hermosa Beach customers?",
+        a: "SoCalGas and SCE list programs. SoCalGas lists a rebate for ENERGY STAR furnaces in existing residential properties, with funding first come, first served until December 31, 2026 or until it runs out. SCE lists Golden State Rebates coupons for air conditioners and smart thermostats at participating retailers, and Home Performance Plus for customers in disadvantaged or low-income communities. We did not confirm whether a Hermosa Beach address qualifies for Home Performance Plus. Terms and funding change and we do not quote amounts, so check the current terms before you buy.",
+        boldLead: "SoCalGas and SCE list programs.",
+        links: [
+          {
+            text: "rebate for ENERGY STAR furnaces",
+            href: "https://www.socalgas.com/savings/rebates-and-incentives",
+          },
+          {
+            text: "Golden State Rebates",
+            href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+          },
+          {
+            text: "Home Performance Plus",
+            href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+          },
+        ],
+      },
+      {
+        q: "Is there HVAC help for income-qualified Hermosa Beach households?",
+        a: "Possibly, for income-qualified households. SCE's Energy Savings Assistance program lists central AC or central heat pump replacement among its upgrades, and says services may not be available in all areas, restrictions may apply, and a co-payment may be required for some services. Eligibility depends on household income and the property, so check with SCE before counting on it.",
+        boldLead: "Possibly, for income-qualified households.",
+        links: [
+          {
+            text: "Energy Savings Assistance program",
+            href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+          },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Hermosa Beach?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Hermosa Beach, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides",
+        links: [
+          {
+            text: "AC repair",
+            href: "/services/ac-repair/",
+          },
+          {
+            text: "AC installation and replacement",
+            href: "/services/ac-installation/",
+          },
+          {
+            text: "AC maintenance",
+            href: "/services/ac-maintenance/",
+          },
+          {
+            text: "heating repair",
+            href: "/services/heating-repair/",
+          },
+          {
+            text: "furnace installation and replacement",
+            href: "/services/furnace-installation/",
+          },
+          {
+            text: "heat pump services",
+            href: "/services/heat-pump-services/",
+          },
+          {
+            text: "ductless mini-splits",
+            href: "/services/ductless-mini-split/",
+          },
+          {
+            text: "ductwork",
+            href: "/services/ductwork/",
+          },
+          {
+            text: "indoor air quality",
+            href: "/services/indoor-air-quality/",
+          },
+          {
+            text: "emergency HVAC",
+            href: "/services/emergency-hvac/",
+          },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Hermosa Beach?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Hermosa Beach. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Hermosa Beach?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Hermosa Beach?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Hermosa Beach, including rooftop units. We confirm the permit path with the City before commercial work starts, and we plan rooftop access and equipment placement with the building owner or manager. Permits go through the City's applications page and Building and Safety Division, and we confirm what applies to your project with the City. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "applications page",
+            href: "https://www.hermosabeach.gov/our-government/community-development/applications-forms-handouts",
+          },
+          {
+            text: "Commercial HVAC page",
+            href: "/commercial-hvac/",
+          },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -5780,6 +6290,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'santa-monica' ? santaMonicaOverrides
     : c.slug === 'inglewood' ? inglewoodOverrides
     : c.slug === 'manhattan-beach' ? manhattanBeachOverrides
+    : c.slug === 'hermosa-beach' ? hermosaBeachOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;

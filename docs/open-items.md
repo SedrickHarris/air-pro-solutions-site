@@ -683,13 +683,49 @@ Built 2026-10-19, pushed to main (user chose push to main). Reference artifact: 
 - Hero photo is still "Photo pending".
 - Claim wording follows the approved list. Do not strengthen it.
 - Hub wiring done with this page: South Bay Manhattan Beach card now links /service-areas/manhattan-beach/; its note dropped "Beach city"; the permits row was reworded to the handout (mechanical system work needs a permit); the unverified "west of the 405, reached from Pacific Coast Highway" sentence was removed; Manhattan Beach was taken out of the shared noise row; the /service-areas/ chip condition and `hubCityIndexNote` list it; the South Bay "city pages are coming" sentence now links the Manhattan Beach page. The "Beach cities" group label is unchanged. Other pages that reach Manhattan Beach: the Torrance city page and the AC Repair x Torrance page via `nearby`; commercial-hvac.ts mentions it as text only. No LA County hub mention.
-- Rancho Cucamonga: still only a noindex stub, not built here. Hermosa Beach has no page.
+- Rancho Cucamonga: still only a noindex stub, not built here. (Hermosa Beach was built afterward; see its section below.)
+- Carryovers still open: SCE "authorized service provider" client question (Santa Monica and Inglewood: does Air Pro qualify for the Smart Energy Program, and do Energy Savings Assistance work); Burbank BWP installer question; client approval of all new city copy.
+
+## /service-areas/hermosa-beach/ (hermosaBeachOverrides in src/content/cities.ts)
+
+Built 2026-10-19, push to main pending (user said the page should be pushed; read as push to main, the Manhattan Beach precedent). Reference artifact: claude/reference/hermosa-beach-location.html (https://claude.ai/artifact/VhQMoRN3ACAzS1MkzrWidc). Same single-data-source build as Glendale, Burbank, Santa Monica, Inglewood and Manhattan Beach. Hermosa Beach was a wave 2 noindex stub before this.
+- Title: `cityTitle('Hermosa Beach')` ("HVAC Services in Hermosa Beach, CA | AIRPRO SOLUTIONS", 53 characters). H1 is `cityH1('Hermosa Beach')` (34 characters). Hand-written `page.metaDescription` is 150 characters and passes `assertDescription`.
+- TODO(copy): client has not approved any Hermosa Beach wording (every FAQ answer, the four local paragraphs, the local card, the permit, coastal, utility, rebate and assistance sentences, the commercial sentence). Keep flagged until the user says the client approved.
+- DECISION `wave1` (user approved 2026-10-19, default kept): Hermosa Beach is wave 2, so its route is indexable by design (it has `page` content) and the hubs link it, but `sitemap.ts` lists only `wave1Cities.filter(page)`, so it is NOT in the sitemap. The wave list is client-confirmed and unchanged.
+- DECISION (user approved 2026-10-19): the restaurant tenant-improvement self-certification sentence was removed from the commercial FAQ (it came from a fetch summary of the applications page). The answer now says permits go through the City's applications page and Building and Safety Division and we confirm what applies with the City. Re-add only with an official source.
+- DECISION (user approved 2026-10-19): code edition wording. The applications page says the 2025 California codes took effect January 1, 2026; the Building Division page says the 2022 codes took effect January 1, 2023. Both are undated. The page states both and says we confirm with the City. Resolve once the official code or a City answer is available.
+- DECISION (user approved 2026-10-19): JSON-LD `containedInPlace` is "South Bay, CA", as the live route emits for every city. The nearby row (Manhattan Beach, Redondo Beach, Torrance, El Segundo) is exempt from the "no other-city names" rule. The page claims no adjacency.
+- Lead angle: the City's separate Mechanical Permit Application and combined application, the online citizen access portal, the Coastal Zone note from the permit form affidavit, and the Building Division page. Housing from the SCAG 2019 Local Profile and QuickFacts (direct read: 18,513 residents, 43.5% owner-occupied of 10,026 households, 52.9%).
+- Clean Power Alliance generation is confirmed by the City's own CPA page (public-works/environmental-programs/clean-power-alliance) and is stated on the page and in the South Bay hub.
+- DECISION (default and chosen: link-only, no amounts): verified amounts, not published. SoCalGas furnace rebate $1.40 to $25 per kBtuh on the main rebates page (92 to 94% AFUE $1.40, 95 to 96% $10, 97% or higher $25); its separate disclaimer page lists $1.15, $4.60 and $14 per kBtuh, so the figures conflict and need confirming against the current application. Clean Power Alliance Instant AC Savings: $300 coupon for an ENERGY STAR room air conditioner, CARE or FERA customers only, replacement coupons issued after August 3, 2026 cancellations; not published. SCE Energy Savings Assistance income limits (June 1, 2026 to May 31, 2027): $39,900 for one person, $54,100 for two, plus $14,200 per additional person; not published. Do not relabel SEER as SEER2.
+- DECISION (default and chosen: not on the page): federal Section 25C and 25D, HEEHRA (single-family funding fully reserved statewide as of 2026-02-24), the SoCalGas $75 thermostat and the SCE $75 Smart Energy Program credit.
+- DECISION (default and chosen: held out): ZIP card and neighborhoods. The City maps page would not load; 90254 appears only on third-party lists. `zips: []`, `neighborhoods: []`. No "flat", "hillside", "coastal" or climate labels.
+- OPEN CLIENT QUESTIONS: (1) SCE Energy Savings Assistance says upgrades are delivered by SCE-approved contractors; ask whether Air Pro does that work. (2) The SoCalGas furnace rebate requires a licensed contractor and permit closure. Both conditions are kept off the page.
+- Held out (no verified source):
+  - Municipal Code Chapter 15.10 (clearances, rooftop, noise, exhaust, seismic anchorage), Chapter 8.24 noise and the 3 foot equipment setback: read only through a publisher copy (online.encodeplus.com), not the official code. A publisher copy is not the official code.
+  - City Building and Safety page (services/inspections-building), the inspection scheduling page (ServiceDirectory/218/237) and the maps page (services/maps): would not load, so inspection days and hours, the phone number, the counter hours, the department email, ZIP 90254 and the Coastal Zone Map are not on the page. The research paste gave Monday to Thursday inspection hours and a phone number from the scheduling page; they remain unpublished until the page is pasted.
+  - Asbestos survey wording and the 100 square foot threshold (fetch summary and research conflict), fee schedules effective July 1, 2026, the building department address and ZIP, like-for-like replacement exemptions, HVAC inspection stages and required test documents.
+  - Climate, NOAA normals, heat-day counts, humidity, marine layer: no station verified.
+  - "Beach city", coastal, flat, hillside labels, neighboring-city borders, Pacific Coast Highway layout, block size: Wikipedia only.
+  - SCAG 2021 housing element local data (conflicting unit totals 10,092, 8,979 and 9,565 occupied) and QuickFacts 18,687 / 50.7% (the pasted research disagrees with the page read directly).
+  - Employers, schools, hospitals, shopping areas, HOA areas, historic-district rules, median year built.
+  - Competitor SERP table: never on the page.
+- Corrected research overstatements:
+  - The pasted QuickFacts figures (18,687 / 50.7%) did not match the QuickFacts page read directly; the direct read is used.
+  - The CPA coupon, CPA Energy Team, SoCalGas ESA, SoCalGas multifamily, TECH $1,000, Comfortably CA and SWITCH items came from research pastes only; none are on the page.
+  - HVAC inspection stages: the research found no City checklist, so the page says only to confirm the stages with the City.
+- Official Municipal Code: any copy on ecode360, American Legal, nonoise.org, Municode mirrors, GoCodebook or encodeplus is a publisher copy, not the official code. A General Plan table is not a Municipal Code limit.
+- Still needs pasted pages from the user: hermosabeach.gov/services/inspections-building, /services/maps, the inspection scheduling page (ServiceDirectory/218/237), PDFs of the Mechanical Permit Application (showpublisheddocument/19385) and combined application (20511), the full text of the applications page (asbestos wording, fee schedule date), the official Municipal Code location and text (Chapters 15.10 and 8.24), the CPA page date, and a USPS or City ZIP list.
+- Pre-launch recheck: City applications page, Mechanical Permit Application and combined application PDFs, online access page, utilities page, Building Division page, Building and Safety page, maps page, official Municipal Code (Chapter 15.10 and Chapter 8.24), City CPA page, SoCalGas rebates page and 2026 application, SCE Energy Savings Assistance and rebate directory, SCAG profile, QuickFacts.
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list. Do not strengthen it.
+- Hub wiring done with this page: South Bay Hermosa Beach card now links /service-areas/hermosa-beach/; the unverified "Beach city" and "online-only October 1, 2026" claims were removed; the permits row was reworded to the verified applications wording and the "Building and Safety Division" label; Hermosa Beach was taken out of the shared equipment-placement row; Hermosa Beach was added to the Clean Power Alliance lines (City-verified); the sentence "We did not find a Clean Power Alliance HVAC rebate" was reworded to "We do not list a Clean Power Alliance rebate on this page" because the research found the CARE/FERA room-AC coupon; the /service-areas/ chip condition and `hubCityIndexNote` list it; the South Bay "city pages are coming" sentence now links the Hermosa Beach page. The "Beach cities" group label is unchanged. commercial-hvac.ts and the LA County hub do not name Hermosa Beach.
+- Rancho Cucamonga: still only a noindex stub, not built here.
 - Carryovers still open: SCE "authorized service provider" client question (Santa Monica and Inglewood: does Air Pro qualify for the Smart Energy Program, and do Energy Savings Assistance work); Burbank BWP installer question; client approval of all new city copy.
 
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
-- Hermosa Beach: permit applications become online-only through the city's portal starting
-  2026-10-01. Update the permits table copy after that date.
+- Hermosa Beach: the "online-only starting 2026-10-01" claim was removed from the hub (no source on the City applications or online access pages). The hub permits row now follows the verified applications wording. See the Hermosa Beach section above.
 - Torrance: plan reviews and permit submittals became electronic as of 2026-01-05. Already past;
   re-verify the process hasn't changed further.
 - SoCalGas 2026 furnace rebate (replaced the wildfire-only $75 thermostat card): application deadline
@@ -702,8 +738,8 @@ Built 2026-10-19, pushed to main (user chose push to main). Reference artifact: 
 - Gardena: hub permit row names the Building & Safety Division (City's Schedule An Appointment page, 2026-08-05). Industrial, 405-corridor and 90248 wording was removed because no source supports it. See the Gardena section above. The 90250 sentence in the ZIP FAQ still needs a source.
 - Carson and Redondo Beach noise limits: deliberately left without dBA figures (medium-confidence
   planning-document sourcing for Carson). Do not add specific numbers without a stronger source.
-- Clean Power Alliance generation: only confirmed for Redondo Beach, Manhattan Beach, and Carson.
-  Do not add Hermosa Beach or Hawthorne without a source.
+- Clean Power Alliance generation: confirmed for Redondo Beach, Manhattan Beach, Hermosa Beach (City CPA page) and Carson.
+  Do not add Hawthorne without a source.
 - Housing age, attic/foundation/duct condition, and population figures were intentionally left off
   the South Bay hub. Do not add them without a source.
 

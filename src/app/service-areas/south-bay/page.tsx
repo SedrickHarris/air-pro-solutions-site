@@ -230,6 +230,7 @@ export default function Page() {
             <Link href="/service-areas/torrance/">Torrance page</Link>,{' '}
             <Link href="/service-areas/redondo-beach/">Redondo Beach page</Link>,{' '}
             <Link href="/service-areas/manhattan-beach/">Manhattan Beach page</Link>,{' '}
+            <Link href="/service-areas/hermosa-beach/">Hermosa Beach page</Link>,{' '}
             <Link href="/service-areas/el-segundo/">El Segundo page</Link>, or{' '}
             <Link href="/service-areas/gardena/">Gardena page</Link>, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.

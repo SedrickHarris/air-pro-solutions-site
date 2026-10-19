@@ -114,8 +114,8 @@ export const southBayHub = {
   // Permit sources: Torrance (Community Development, Building and Safety Division; electronic
   // submittals as of 2026-01-05); Redondo Beach (Community Development, Building and Safety
   // Division; electronic permit system); Manhattan Beach (Community Development, Building and
-  // Safety); Hermosa Beach (Community Development, Building Safety Division; online-only portal
-  // effective 2026-10-01); El Segundo (Community Development, Building and Safety Division; mechanical
+  // Safety); Hermosa Beach (Community Development, Building and Safety Division, per the City applications
+  // and Building Division pages; the October 1, 2026 online-only claim has no source on those pages and was removed); El Segundo (Community Development, Building and Safety Division; mechanical
   // 2025 California Mechanical Code with amendments per ESMC 13-4-1, Ord. 1680, 12-3-2025); Gardena (Building & Safety Division, per the
   // City's Schedule An Appointment page dated 2026-08-05; New HVAC/Forced Air Unit over-the-counter permits, CF1R forms); Hawthorne (Department
   // of Building and Safety; 24-hour inspection lead time, 9am-5pm window); Carson (Building and
@@ -130,7 +130,7 @@ export const southBayHub = {
       ['Torrance', 'Community Development, Building and Safety Division', 'Separate mechanical, electrical, and plumbing submittals, with zoning clearance required before permit application. All plan reviews and permit submittals are electronic as of January 5, 2026.'],
       ['Redondo Beach', 'Community Development, Building and Safety Division', 'The city’s code covers installation, alteration, repair, and replacement of heating and cooling systems, and permits must be obtained before work begins. Applications and inspections run through an electronic permit system.'],
       ['Manhattan Beach', 'Community Development, Building and Safety', 'Mechanical system work needs a permit, per the City\'s Mechanical Equipment Permit Requirements handout. Equipment placement and noise conditions are confirmed with the city.'],
-      ['Hermosa Beach', 'Community Development, Building Safety Division', 'Separate building, mechanical, electrical, and plumbing applications. Beginning October 1, 2026, applications available through the city’s online portal are to be submitted online.'],
+      ['Hermosa Beach', 'Community Development, Building and Safety Division', 'The city has a separate mechanical permit application and a combined application, and offers permit access through its online portal.'],
       ['El Segundo', 'Community Development, Building and Safety Division', 'The municipal code adopts the 2025 California Mechanical Code with local amendments, so amendments are checked before permit submittal.'],
       ['Gardena', 'Building & Safety Division', 'Lists New HVAC Permit and Forced Air Unit Permit among its over-the-counter permit types, and the in-person process requires completed CF1R forms.'],
       ['Hawthorne', 'Department of Building and Safety', 'Inspections are requested at least 24 hours in advance and run between 9:00 a.m. and 5:00 p.m., so inspection lead time belongs in the schedule.'],
@@ -151,7 +151,7 @@ export const southBayHub = {
         ['Torrance', 'Air conditioning and similar equipment may not raise noise at the property line of residential land by more than 5 decibels over ambient (Torrance Municipal Code 46.2.6). Mechanical equipment, ductwork, and plumbing lines must be screened in the applicable zoning context (91.38.4).'],
         ['Redondo Beach', 'Exterior noise limits depend on the receiving land use and the time of day, so there is no single citywide figure. In mixed-use projects, commercial equipment near residences may need acoustical and vibration controls.'],
         ['Carson', 'Chapter 5 of the municipal code adopts the Los Angeles County noise ordinance. In multifamily settings with shared walls or floors, equipment that transmits vibration may need vibration isolators, as determined by the Building Official.'],
-        ['Hermosa Beach, El Segundo, Gardena, Hawthorne', 'We confirm zoning, screening, HOA or architectural approval, and noise conditions for the specific property before recommending where equipment goes.'],
+        ['El Segundo, Gardena, Hawthorne', 'We confirm zoning, screening, HOA or architectural approval, and noise conditions for the specific property before recommending where equipment goes.'],
       ],
       note: "Based on each city's municipal code and planning materials. Code text and city procedures change, so current requirements are confirmed with the building department before permit submittal.",
     },
@@ -189,7 +189,7 @@ export const southBayHub = {
       },
     ] satisfies RebateCard[],
     copy: [
-      'Electric delivery and generation are separate. SCE handles poles, wires, meters, billing, and outage response. In Redondo Beach, Manhattan Beach, and Carson, Clean Power Alliance supplies the electricity generation, and SCE programs are typically tied to an SCE delivery account. We did not find a Clean Power Alliance HVAC rebate, so we do not list one.',
+      'Electric delivery and generation are separate. SCE handles poles, wires, meters, billing, and outage response. In Redondo Beach, Manhattan Beach, Hermosa Beach, and Carson, Clean Power Alliance supplies the electricity generation, and SCE programs are typically tied to an SCE delivery account. We do not list a Clean Power Alliance rebate on this page.',
       "No-cost programs may exist for some households. SCE's Energy Savings Assistance program serves income-qualified households, and its Residential Direct Install program lists duct test and seal for eligible single-family homes with central AC. Business owners can look at SCE Express Solutions and SoCalGas business rebates, and fuel switching does not qualify for the SoCalGas business rebates.",
       'Rebates and eligibility vary by service address, utility account, equipment efficiency, income qualifications, and available funding. We can help identify potential programs, but confirm final eligibility, amount, and application requirements with your utility before installation.',
     ],
@@ -197,7 +197,7 @@ export const southBayHub = {
     utilities: [
       'Electric delivery: SCE',
       'Natural gas: SoCalGas',
-      'Generation: Clean Power Alliance in Redondo Beach, Manhattan Beach, and Carson',
+      'Generation: Clean Power Alliance in Redondo Beach, Manhattan Beach, Hermosa Beach, and Carson',
     ],
     note: 'Confirm by address: service territory and generation provider can vary by address, so verify your utility directly before relying on any program.',
   },
@@ -209,7 +209,7 @@ export const southBayHub = {
       { name: 'Torrance', note: 'Office, retail, industrial, and condo settings, with a 290-acre industrial project area. Property-line noise and equipment screening rules apply.', href: '/service-areas/torrance/' },
       { name: 'Redondo Beach', note: 'Multiple-family zoning and a mixed-use overlay. Noise limits depend on the neighboring use. Clean Power Alliance supplies generation.', href: '/service-areas/redondo-beach/' },
       { name: 'Manhattan Beach', note: 'Clean Power Alliance supplies generation. Mechanical system work needs a permit, and equipment placement is confirmed with the city.', href: '/service-areas/manhattan-beach/' },
-      { name: 'Hermosa Beach', note: 'Beach city with separate mechanical applications, and online-only submittals beginning October 1, 2026.' },
+      { name: 'Hermosa Beach', note: 'Clean Power Alliance supplies generation. The city has a separate mechanical permit application and a combined application.', href: '/service-areas/hermosa-beach/' },
       { name: 'El Segundo', note: 'Aerospace and deep-tech businesses, per the City’s economic-development site. The 2025 California Mechanical Code applies with local amendments.', href: '/service-areas/el-segundo/' },
       { name: 'Gardena', note: 'HVAC and forced-air unit permits are over-the-counter types and need CF1R forms.', href: '/service-areas/gardena/' },
       { name: 'Hawthorne', note: 'Century Business Center and Green Line mixed-use planning areas. Inspections are requested 24 hours ahead.' },
@@ -245,7 +245,7 @@ export const southBayHub = {
     },
     {
       q: 'Which utility serves my home, and are there HVAC rebates?',
-      a: 'In these cities, Southern California Edison (SCE) delivers electricity and Southern California Gas Company (SoCalGas) supplies natural gas. Clean Power Alliance supplies electricity generation in Redondo Beach, Manhattan Beach, and Carson, while SCE still handles delivery, billing, and outages. SoCalGas lists a 2026 rebate for qualifying ENERGY STAR gas furnaces purchased and installed in 2026, and SCE’s Summer Discount Plan offers up to $145 in bill credits per unit. Confirm your utility by address and confirm current eligibility before installation.',
+      a: 'In these cities, Southern California Edison (SCE) delivers electricity and Southern California Gas Company (SoCalGas) supplies natural gas. Clean Power Alliance supplies electricity generation in Redondo Beach, Manhattan Beach, Hermosa Beach, and Carson, while SCE still handles delivery, billing, and outages. SoCalGas lists a 2026 rebate for qualifying ENERGY STAR gas furnaces purchased and installed in 2026, and SCE’s Summer Discount Plan offers up to $145 in bill credits per unit. Confirm your utility by address and confirm current eligibility before installation.',
     },
     {
       q: 'Are there noise or screening rules for outdoor equipment?',
