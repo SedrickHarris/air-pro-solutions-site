@@ -63,10 +63,9 @@ export type City = {
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
-// TODO(copy): the closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
+// The closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach and Hermosa Beach, because under 920px the card sits below the text. Several of these pages were client-approved,
-// so confirm the one-phrase change with the client.
+// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach and Hermosa Beach, because under 920px the card sits below the text. The client approved all city page copy on 2026-10-19 (per the user).
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
 // building that city page or its matrix pages. Never invent it.
@@ -638,7 +637,7 @@ const pasadenaOverrides: Partial<City> = {
         },
       ],
     },
-    // TODO(data): Glendale and Burbank now have page content (both wave 2, so neither is in sitemap.xml yet); all four cards link.
+    // TODO(data): Glendale and Burbank now have page content (both are in sitemap.xml, which lists every city with page content); all four cards link.
     nearby: ['los-angeles', 'long-beach', 'glendale', 'burbank'],
     proof: {
       heading: 'Licensed, reviewed, and ready across Pasadena',
@@ -1321,7 +1320,7 @@ const gardenaOverrides: Partial<City> = {
       source: "Sources: SCAG's 2019 Gardena local profile, the City of Gardena utility providers page, SCE's service-area filing, and SoCalGas's city list.",
     },
     localTitle: "Gardena's older housing, multifamily mix, and permit path",
-    // TODO(copy): client has not approved any Gardena wording yet (local paragraphs, every FAQ answer, emergency card, SCE program wording, commercial FAQ).
+    // Client approved all Gardena wording on 2026-10-19 (per the user).
     // Code edition intentionally not stated: Gardena Municipal Code 15.06.010 adopts the 2022 California Building Code, and the ordinance table lists
     // Ord. 1888 (2026-03-10) as amending the Mechanical and Energy Codes with no edition or text. Confirm before stating any year.
     localParagraphs: [
@@ -1368,7 +1367,7 @@ const gardenaOverrides: Partial<City> = {
       { slug: "ductless-mini-split", name: "Ductless Mini-Split", body: "Room-by-room comfort control for spaces where ductwork is not an option." },
       { slug: "ductwork", name: "Ductwork Services", body: "Duct repair, sealing, replacement, and installation." },
       { slug: "indoor-air-quality", name: "Indoor Air Quality", body: "Air filtration, whole-home purification, and ventilation options." },
-      // TODO(copy): emergency card wording not yet client-approved for Gardena.
+      // Client approved the emergency card wording for Gardena on 2026-10-19 (per the user).
       { slug: "emergency-hvac", name: "Emergency HVAC", body: "Dispatch for no-cool and no-heat emergencies in Gardena." },
     ],
     resources: {
@@ -1389,7 +1388,7 @@ const gardenaOverrides: Partial<City> = {
           linkHref: "https://cityofgardena.org/schedule-an-appointment/",
         },
         {
-          // TODO(copy): rebate wording not yet client-approved. No dollar amounts on purpose.
+          // Client approved the rebate wording on 2026-10-19 (per the user). No dollar amounts on purpose.
           amount: 'Utility rebates',
           description: "SCE and SoCalGas both publish rebate programs, and the City's utility page links to both. Terms, eligibility, and funding change, so confirm current details before you buy.",
           linkLabel: 'SCE rebates',
@@ -1410,8 +1409,7 @@ const gardenaOverrides: Partial<City> = {
       ],
     },
     finalCtaBody: 'Call or request service online to schedule a visit anywhere in Gardena. Same-day service is typical.',
-    // TODO(copy): client has not confirmed any FAQ answer below. The over-the-counter permit FAQ, the SCE Energy Savings Assistance FAQ and the
-    // commercial FAQ are new for Gardena (not in the El Segundo set).
+    // Client approved every FAQ answer below on 2026-10-19 (per the user). The over-the-counter permit FAQ, the SCE Energy Savings Assistance FAQ and the commercial FAQ are new for Gardena (not in the El Segundo set).
     faqs: [
       {
         q: "Does AIRPRO SOLUTIONS service all of Gardena?",
@@ -1540,9 +1538,8 @@ const irvineOverrides: Partial<City> = {
       source: "Sources: SCAG's 2019 Irvine local profile and the City of Irvine local utility companies page.",
     },
     localTitle: "Irvine's online permit path, HOA approvals, and equipment rules",
-    // TODO(copy): client has not approved any Irvine wording yet (local paragraphs, every FAQ answer, emergency card, PermitsDIRECT sentence,
-    // code-adoption sentence, SCE program wording, commercial FAQ). Keep flagged until the user says the client approved.
-    // TODO(copy): confirm with the City which portal handles the residential replacement permit after 2026-09-14 (PermitsDIRECT! vs the self-service page).
+    // Client approved all Irvine wording on 2026-10-19 (per the user).
+    // TODO(verify): confirm with the City which portal handles the residential replacement permit after 2026-09-14 (PermitsDIRECT! vs the self-service page).
     // Code edition: Irvine Municipal Code Sec. 5-9-101 (Ord. 25-26, 11-12-25) adopts the 2025 California Mechanical Code subject to Division 9 modifications.
     // The Chapter 4 mechanical amendments were not read, so the page states the edition and "local modifications" and nothing about their content.
     // Municode (Supp. 20, codified through Ord. 26-05) says it may not reflect the most current legislation.
@@ -1554,7 +1551,7 @@ const irvineOverrides: Partial<City> = {
       "For outdoor equipment, the City says **rooftop and ground-mounted mechanical equipment must be screened**, citing Section 3-20-1.B of its zoning ordinance. Irvine Municipal Code Sec. 6-8-205 limits noise from air conditioning, refrigeration, or heating equipment to the higher of the land-use noise standard in Sec. 6-8-204 or five decibels above the ambient noise level, and the City's code adopts the 2025 California Mechanical Code with local modifications. The City's online code notes it may not reflect the most current legislation, so confirm current rules with the City. For commercial buildings, the City has an **automated permit path for like-for-like rooftop packaged heat-pump change-outs of 20 tons or less**, with weight, roof-slope, and curb conditions, and plans prepared by the licensed mechanical contractor doing the work or the Mechanical Engineer of Record.",
       "Electricity comes from **Southern California Edison** and natural gas from **SoCalGas**, as named on the City's utility page. The City's residential rebates page links to SCE and SoCalGas programs, and SCE lists an Energy Savings Assistance program for income-qualified households that includes central AC and central heat pump replacement among its upgrades. SCE says some options may not be available in all areas, and terms and funding change, so confirm current details with the utility before you buy. Official links are in the card for this section.",
     ],
-    // TODO(copy): the housing card below restates figures already in the second local paragraph; client has not approved it.
+    // the housing card below restates figures already in the second local paragraph; client approved it on 2026-10-19 (per the user).
     localCards: [
       {
         heading: "Irvine housing snapshot",
@@ -1618,7 +1615,7 @@ const irvineOverrides: Partial<City> = {
       { slug: "ductless-mini-split", name: "Ductless Mini-Split", body: "Room-by-room comfort control for spaces where ductwork is not an option." },
       { slug: "ductwork", name: "Ductwork Services", body: "Duct repair, sealing, replacement, and installation." },
       { slug: "indoor-air-quality", name: "Indoor Air Quality", body: "Air filtration, whole-home purification, and ventilation options." },
-      // TODO(copy): emergency card wording not yet client-approved for Irvine.
+      // Client approved the emergency card wording for Irvine on 2026-10-19 (per the user).
       { slug: "emergency-hvac", name: "Emergency HVAC", body: "Dispatch for no-cool and no-heat emergencies in Irvine." },
     ],
     resources: {
@@ -1638,7 +1635,7 @@ const irvineOverrides: Partial<City> = {
           linkLabel: "HOA page",
           linkHref: "https://cityofirvine.gov/community-development/irvine-homeowners-associations",
         },
-        // TODO(copy): rebate wording not yet client-approved. No dollar amounts on purpose.
+        // Client approved the rebate wording on 2026-10-19 (per the user). No dollar amounts on purpose.
         {
           amount: "Utility rebates",
           description: "SCE and SoCalGas both publish rebate programs, and the City's rebates page links to both. Terms, eligibility, and funding change, so confirm current details before you buy.",
@@ -1661,7 +1658,7 @@ const irvineOverrides: Partial<City> = {
       ],
     },
     finalCtaBody: 'Call or request service online to schedule a visit anywhere in Irvine. Same-day service is typical.',
-    // TODO(copy): client has not confirmed any FAQ answer below.
+    // Client approved every FAQ answer below on 2026-10-19 (per the user).
     faqs: [
       {
         q: "Does AIRPRO SOLUTIONS service all of Irvine?",
@@ -1804,9 +1801,8 @@ const anaheimOverrides: Partial<City> = {
       source: "Sources: SCAG's local profile of Anaheim and the City of Anaheim utilities pages.",
     },
     localTitle: "Anaheim's mechanical permits, older housing, and municipal electric utility",
-    // TODO(copy): client has not approved any Anaheim wording yet (local paragraphs, every FAQ answer, emergency card, permit-application sentence,
-    // code-adoption and sound-limit sentences, APU and GO ZERO wording, commercial Resort sentence). Keep flagged until the user says the client approved.
-    // TODO(copy): confirm with the City Building Division (714-765-5153) which permits an HVAC replacement needs. Do not state any same-location exemption:
+    // Client approved all Anaheim wording on 2026-10-19 (per the user).
+    // TODO(verify): confirm with the City Building Division (714-765-5153) which permits an HVAC replacement needs. Do not state any same-location exemption:
     // the Form B713 footnote "No Building Permit required for replacement in same location (Residential - R3 sf only)" is attached to the ventilation fan line, not to HVAC equipment.
     // Code edition: Anaheim Municipal Code Sec. 15.03.010.0104 (Ord. 6613, 9-23-2025) adopts the 2025 California Mechanical Code; American Legal supplement 2026 S-28
     // says it may not reflect the most current legislation. The only mechanical amendment in Sec. 15.03.060 is a Chapter 1 substitution, so the page states the edition and nothing more.
@@ -1819,7 +1815,7 @@ const anaheimOverrides: Partial<City> = {
       "The City lists **Climate Zone 8** as a local design criterion and says the 2025 codes apply to projects submitted on or after January 1, 2026. Anaheim Municipal Code Sec. 15.03.010.0104 adopts the 2025 California Mechanical Code, and the City's online code notes it may not reflect the most current legislation, so confirm current rules with the City. Sec. 6.70.010 sets a general sound limit of 60 decibels on the A-scale at the property line for sound radiated for extended periods. It is not written for HVAC equipment, and we confirm how it applies to your address before choosing a condenser location.",
       "Electricity comes from **Anaheim Public Utilities**, which the City describes as a city-owned, not-for-profit utility and the only municipal electric utility in Orange County. Its rebate pages list residential incentives, and South Coast AQMD runs a separate GO ZERO heat-pump program, so confirm current terms with each before you buy. For commercial work, the City's Anaheim Resort page describes a 581-acre specific plan area of hotels, convention and conference facilities, restaurants, retail, and entertainment, and each rooftop project there is its own review. Official links are in the card for this section.",
     ],
-    // TODO(copy): the housing card below restates figures already in the second local paragraph; client has not approved it.
+    // the housing card below restates figures already in the second local paragraph; client approved it on 2026-10-19 (per the user).
     localCards: [
       {
         heading: "Anaheim housing snapshot",
@@ -1891,7 +1887,7 @@ const anaheimOverrides: Partial<City> = {
       title: 'Anaheim permits, utility, and rebate programs',
       intro: 'Official sources for three local items worth checking before an Anaheim HVAC project.',
       cards: [
-        // TODO(copy): rebate wording not yet client-approved. No dollar amounts on purpose.
+        // Client approved the rebate wording on 2026-10-19 (per the user). No dollar amounts on purpose.
         {
           amount: "Mechanical permit",
           description: "Anaheim's Building Division issues mechanical permits and publishes an application, Form B713. Confirm which permits your project needs before work starts.",
@@ -1925,7 +1921,7 @@ const anaheimOverrides: Partial<City> = {
       ],
     },
     finalCtaBody: 'Call or request service online to schedule a visit anywhere in Anaheim. Same-day service is typical.',
-    // TODO(copy): client has not confirmed any FAQ answer below.
+    // Client approved every FAQ answer below on 2026-10-19 (per the user).
     faqs: [
       {
         q: "Does AIRPRO SOLUTIONS service all of Anaheim?",
@@ -2100,9 +2096,9 @@ const costaMesaOverrides: Partial<City> = {
     },
     localTitle: "Costa Mesa's single-family Insta-Permit, multifamily housing, and noise limits",
     // Held out (no verified source): neighboring cities and any adjacency (nearby row empty), ZIP card and neighborhoods (only the City About page ZIP sentence is used; zips and neighborhoods empty), named electric or gas provider (no Costa Mesa source opened names SCE or SoCalGas; links only), OCPA membership, rebate dollar amounts, General Plan unit counts and the 30% figure (conflict with Table LU-2 and SCAG), Noise Element and CNEL (PDF could not be opened), median home age, climate and NOAA data, humidity and AQI, Building Safety street address (77 Fair Drive, 2nd Floor appears only on City Clerk notices; the Building Safety page redirected), competitor SERP table, Jaspector and zip-codes.com (third-party), the Insta-Permit standard plan contents (image-only PDF), any Planning review or CF1R statement.
-    // TODO(copy): client has not approved any Costa Mesa wording (every FAQ answer, the four local paragraphs, the Insta-Permit scope and placement sentences, the noise and code sentences, the commercial General Plan sentence, the incentive wording). Keep flagged until the user says the client approved. Irvine, Gardena and Anaheim flags also stay.
-    // TODO(copy): confirm with Building Safety (714-754-5273) which permit path each HVAC job needs, including condos and townhomes, and whether AIRPRO SOLUTIONS holds a Costa Mesa business license (the City requires one for Insta-Permit contractors).
-    // TODO(copy): noise text is from GoCodebook (2026-10 edition, text as of 2026-10-04), not the City's official publication; recheck against the official code. The code-adoption sentence does not name the Mechanical Code (Titles 5 and 7 not read).
+    // Client approved all Costa Mesa wording on 2026-10-19 (per the user).
+    // TODO(verify): confirm with Building Safety (714-754-5273) which permit path each HVAC job needs, including condos and townhomes, and whether AIRPRO SOLUTIONS holds a Costa Mesa business license (the City requires one for Insta-Permit contractors).
+    // TODO(verify): noise text is from GoCodebook (2026-10 edition, text as of 2026-10-04), not the City's official publication; recheck against the official code. The code-adoption sentence does not name the Mechanical Code (Titles 5 and 7 not read).
     // Pre-launch recheck: SCE rebates, Energy Savings Assistance and Time-Of-Use pages; SoCalGas rebates page (page dated 2024-07-23, mentions 2026 funds); TECH Clean California and switchison.org status; the City's utility page (add providers only if a source names them); GoCodebook Sec. 13-280 and 13-281 against the official code; Insta-Permit page and standard plan; TESSA links; SCAG profile URL; Building Safety address.
     localParagraphs: [
       "Costa Mesa has a **Residential HVAC Insta-Permit** through its online TESSA portal, but the City limits it to a single-family dwelling on a single parcel. Its scope can include A/C condensers, forced air units, furnaces, heat pumps, mini splits, and new ductwork, and the City says exterior equipment must be installed at ground level on the side or rear of the home, where it is not visible to the public. Work beyond that scope goes to a Mechanical - Residential permit application, so **AIRPRO SOLUTIONS confirms which permit path applies** with the City before work starts, including for condos, townhomes, and apartments.",
@@ -2181,7 +2177,7 @@ const costaMesaOverrides: Partial<City> = {
       title: "Costa Mesa permits, noise limits, and incentive programs",
       intro: "Official sources for three local items worth checking before a Costa Mesa HVAC project.",
       cards: [
-        // TODO(copy): incentive wording not yet client-approved. No dollar amounts on purpose; recheck links before launch.
+        // Client approved the incentive wording on 2026-10-19 (per the user). No dollar amounts on purpose; recheck links before launch.
         {
           amount: "Insta-Permit",
           description: "Costa Mesa's Residential HVAC Insta-Permit covers a single-family dwelling on a single parcel and is issued by email within minutes of payment. Work beyond that scope uses a Mechanical - Residential permit application.",
@@ -2215,7 +2211,7 @@ const costaMesaOverrides: Partial<City> = {
       ],
     },
     finalCtaBody: "Call or request service online to schedule a visit anywhere in Costa Mesa. Same-day service is typical.",
-    // TODO(copy): client has not confirmed any FAQ answer below.
+    // Client approved every FAQ answer below on 2026-10-19 (per the user).
     faqs: [
       {
         q: "Does AIRPRO SOLUTIONS service all of Costa Mesa?",
@@ -2395,9 +2391,9 @@ const huntingtonBeachOverrides: Partial<City> = {
     },
     localTitle: "Huntington Beach's HB ACA permits, communities, and noise limits",
     // Held out (no verified source): ZIP card (water-service ZIP list only, source PDF unreadable; 92605 and 92615 are not official), neighborhood pills, nearby row (no source names neighbors), climate and NOAA data (2014 visitor page only), humidity, SCE time-of-use plans, OCPA (customers returned to SCE in 2024), rebate dollar amounts, HEEHRA $8,000 figure, SCE Home Performance Plus (page does not say it covers HVAC), Edwards Hill and Seagate (records site blocked), setbacks, coastal or historic placement rules, any city code edition or local mechanical amendment (DGS code page not opened), any like-for-like exemption, AC charge verification (climate zone not found), competitor SERP table.
-    // TODO(copy): client has not approved any Huntington Beach wording (every FAQ answer, the five local paragraphs, the noise sentences, the Title 24 sentences, the commercial sentence, the incentive wording). Keep flagged until the user says the client approved. Irvine, Gardena, Anaheim and Costa Mesa flags also stay.
-    // TODO(copy): confirm with the City (general office number (714) 536-5241) which permit path each HVAC job needs, and whether AIRPRO SOLUTIONS holds a Huntington Beach business license (the City asks contractors for one).
-    // TODO(copy): noise text is from ecode360 (third-party host; amendments cited 3940-7/12 and 4222-9/21). The nighttime row under Low-Density Residential is unlabeled on that host, so no nighttime number is stated; recheck against the official code before adding one.
+    // Client approved all Huntington Beach wording on 2026-10-19 (per the user).
+    // TODO(verify): confirm with the City (general office number (714) 536-5241) which permit path each HVAC job needs, and whether AIRPRO SOLUTIONS holds a Huntington Beach business license (the City asks contractors for one).
+    // TODO(verify): noise text is from ecode360 (third-party host; amendments cited 3940-7/12 and 4222-9/21). The nighttime row under Low-Density Residential is unlabeled on that host, so no nighttime number is stated; recheck against the official code before adding one.
     // Pre-launch recheck: SCE rebates page, SoCalGas rebates page (dated 2024-07-23), TECH Clean California and switchison.org, CEC HEEHRA status (notice dated 2026-02-24), the City utility services page, ecode360 Sec. 8.40.050 and 8.40.090, SCAG profile URL, QuickFacts, DGS code page (not opened), water-board ZIP source if a ZIP sentence is ever added.
     localParagraphs: [
       "Huntington Beach's Permit Center issues mechanical permits along with building, electrical, plumbing, and other construction permits, and its HB ACA portal handles online permit processing, payments, project status, and inspection scheduling. The City's forms page lists a Mechanical Permit Application, Mechanical Plan Requirements, and a Mechanical Plan Check Waiver Request, and it does not say when a waiver applies. The City pages we reviewed state no like-for-like exemption, so **AIRPRO SOLUTIONS confirms which permit path applies** with the City before work starts. The City asks contractors for a current Huntington Beach business license, the matching State contractor license, and workers' compensation proof unless working alone.",
@@ -2406,7 +2402,7 @@ const huntingtonBeachOverrides: Partial<City> = {
       "Replacements are also subject to California's Title 24 energy code, and the 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing and field verification requirements, and the Certificate of Compliance (CF1R) specifies the required tests. We did not find a Huntington Beach rule that adds to the state requirements, and we confirm what your job needs with the City.",
       "For commercial work, the City's mechanical plan requirements ask for an equipment schedule, a scaled duct layout, air-conditioning condenser locations and equipment access, and Title 24 mechanical calculations for all new HVAC systems. The City's Zoning Code includes IG and IL industrial districts. The City's utility services page lists Southern California Edison for electricity and Southern California Gas Company for natural gas. Incentive programs and funding change, so we link the SCE rebates page and the state program pages rather than quote amounts. Official links are in the card for this section.",
     ],
-    // TODO(copy): the housing card below restates figures already in the second local paragraph; client has not approved it.
+    // the housing card below restates figures already in the second local paragraph; client approved it on 2026-10-19 (per the user).
     localCards: [
       {
         heading: "Huntington Beach housing snapshot",
@@ -2494,7 +2490,7 @@ const huntingtonBeachOverrides: Partial<City> = {
       title: "Huntington Beach permits, noise limits, and incentive programs",
       intro: "Official sources for three local items worth checking before a Huntington Beach HVAC project.",
       cards: [
-        // TODO(copy): incentive wording not yet client-approved. No dollar amounts on purpose; recheck links before launch.
+        // Client approved the incentive wording on 2026-10-19 (per the user). No dollar amounts on purpose; recheck links before launch.
         {
           amount: "Permit Center",
           description: "Huntington Beach's Permit Center issues mechanical permits, and applications and inspection scheduling run through the HB ACA portal. We do not assume a like-for-like replacement is exempt.",
@@ -2528,7 +2524,7 @@ const huntingtonBeachOverrides: Partial<City> = {
       ],
     },
     finalCtaBody: "Call or request service online to schedule a visit anywhere in Huntington Beach. Same-day service is typical, subject to capacity.",
-    // TODO(copy): client has not confirmed any FAQ answer below.
+    // Client approved every FAQ answer below on 2026-10-19 (per the user).
     faqs: [
       {
         q: "Does AIRPRO SOLUTIONS service all of Huntington Beach?",
@@ -2735,9 +2731,9 @@ const riversideOverrides: Partial<City> = {
     },
     localTitle: "Riverside's permit portal, neighborhoods, and noise limits",
     // Held out (no verified source): ZIP card: the only official list (92501, 92503-92509) is a January 2024 City press release about Earthquake Brace + Bolt grant eligibility, not a service-area or postal list; 92521 and 92522 appear only in a 2003 Council report; neighborhood pills and nearby row (no source names neighbors; neighborhoods and nearby stay empty); climate, NOAA and heat figures (no sourced Riverside figure found; the hub's NWS Riverside Municipal Airport figures could not be re-verified); gas provider (no City source names it); RPU rebate dollar amounts (pages are undated; the June 2026 application is dated); any local amendment to the 2025 codes (City page says nothing; Municipal Code Title 16 on Municode would not load); official Municode text of Title 7 noise (page would not load; numbers come from a third-party copy); named employers and employee counts (City employer page shows no data year); Alessandro Heights and Arlanza neighborhood details, 20 specific plans, General Plan land-use categories (cited in the research, not re-read); median year built, humidity and air quality, HOA and historic-district rules, outdoor-unit setbacks; competitor SERP table (every row NOT FOUND in the research).
-    // TODO(copy): client has not approved any Riverside wording (every FAQ answer, the five local paragraphs, the noise sentences, the Title 24 sentences, the commercial sentence, the incentive wording). Keep flagged until the user says the client approved. Irvine, Gardena, Anaheim, Costa Mesa and Huntington Beach flags also stay.
-    // TODO(copy): confirm with the City (permits page lists (951) 826-5800 for fee information) which permit path each HVAC job needs, and whether AIRPRO SOLUTIONS holds a City of Riverside business license (the City requires one of contractors).
-    // TODO(copy): noise text is from a third-party copy of Title 7 on nonoise.org (no current date; latest amendment citations are from 2007). Recheck against the official Municode text before relying on the numbers.
+    // Client approved all Riverside wording on 2026-10-19 (per the user).
+    // TODO(verify): confirm with the City (permits page lists (951) 826-5800 for fee information) which permit path each HVAC job needs, and whether AIRPRO SOLUTIONS holds a City of Riverside business license (the City requires one of contractors).
+    // TODO(verify): noise text is from a third-party copy of Title 7 on nonoise.org (no current date; latest amendment citations are from 2007). Recheck against the official Municode text before relying on the numbers.
     // Pre-launch recheck: RPU residential and business rebate pages and general program guidelines (pages undated; June 2026 application is dated), City permits page, Public Permit Portal, Bulletin 140, fee schedule, California Building Standards page, Title 7 official text, SCAG profile URL, QuickFacts, General Plan PDF, top employers page, Energy Commission pages.
     localParagraphs: [
       "Riverside's Building & Safety Division issues the City's building permits, and the City's Public Permit Portal lets applicants submit permit applications and electronic plans, pay fees, track progress, and schedule inspections online. Applications can also be made at the Permit Services counter in the One Stop Shop or by mail-in or fax. The City's permits page says a permit is needed to replace an electrical, gas, mechanical, or plumbing system when the work is regulated by code. Its Bulletin 140 on work exempt from permits lists portable cooling units and the replacement of a part that does not alter the equipment's approval, and it lists no like-for-like exemption for a whole unit, so **AIRPRO SOLUTIONS confirms which permit path applies** with the City before work starts. The City says contractors must show proof of licensing that can be verified with the California Contractors State License Board and hold a current City of Riverside business license, and contractors with employees present a workers' compensation certificate when the permit is issued. The City's California Building Standards page lists the 2025 California Building Code, Mechanical Code, and Energy Code, effective January 1, 2026, and it does not describe local amendments.",
@@ -2746,7 +2742,7 @@ const riversideOverrides: Partial<City> = {
       "Replacements are also subject to California's Title 24 energy code, and the 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing requirements, and field verification and diagnostic testing is prescriptively required for most HVAC alterations. We did not read any Riverside amendment that adds to the state requirements, and we confirm what your job needs with the City.",
       "For commercial work, the City's top employer list includes healthcare systems, universities, school districts, county government, a military installation, retail, and hospitality, so we plan commercial visits around the building and its equipment access. Riverside Public Utilities, which the City describes as providing water and electric service, lists business air conditioning incentives that pay by the ton by efficiency level, with caps that depend on the customer's rate class and a limit of one capped rebate per program per premises each fiscal year. For homes, it lists separate rebates for central AC, electric heat pumps, tune-ups, smart thermostats, and evaporative coolers for its electric customers. Incentive programs and funding change, and RPU's pages say programs can be cancelled, modified, or reduced, so we link the program pages rather than quote amounts. We did not find a City source naming the gas provider, so confirm yours by address. Official links are in the card for this section.",
     ],
-    // TODO(copy): the two cards below restate figures already in the local paragraphs; client has not approved them.
+    // the two cards below restate figures already in the local paragraphs; client approved them on 2026-10-19 (per the user).
     localCards: [
       {
         heading: "Riverside housing snapshot",
@@ -2849,7 +2845,7 @@ const riversideOverrides: Partial<City> = {
       title: "Riverside permits, noise limits, and incentive programs",
       intro: "Official sources for three local items worth checking before a Riverside HVAC project.",
       cards: [
-        // TODO(copy): incentive wording not yet client-approved. No dollar amounts on purpose; recheck links before launch.
+        // Client approved the incentive wording on 2026-10-19 (per the user). No dollar amounts on purpose; recheck links before launch.
         {
           amount: "Public Permit Portal",
           description: "Riverside's Public Permit Portal accepts permit applications and electronic plans, fee payments, and inspection scheduling. The City's Bulletin 140 lists no like-for-like exemption for a whole unit, so we do not assume a replacement is exempt.",
@@ -2883,7 +2879,7 @@ const riversideOverrides: Partial<City> = {
       ],
     },
     finalCtaBody: "Call or request service online to schedule a visit anywhere in Riverside. Same-day service is typical, subject to capacity.",
-    // TODO(copy): client has not confirmed any FAQ answer below.
+    // Client approved every FAQ answer below on 2026-10-19 (per the user).
     faqs: [
       {
         q: "Does AIRPRO SOLUTIONS service all of Riverside?",
@@ -3093,9 +3089,9 @@ const ontarioOverrides: Partial<City> = {
     },
     localTitle: "Ontario's permit rules, Ontario Ranch, and noise limits",
     // Held out (no verified source): ZIP card: the research's list (91758, 91761, 91762, 91764) was cited to Wikipedia and a third-party aggregator, and the follow-up court filing-venue PDF returned no readable text; the CEQA record that lists six ZIPs is project location metadata, not a postal or service-area list; neighborhood pills and nearby row (the only neighbor list is a third-party ZIP site; neighborhoods and nearby stay empty); Ontario Mills, Holt Boulevard, Toyota Arena, Convention Center and Downtown Ontario landmarks (the City pages read do not mention them); climate, NOAA and heat figures including the hub's Ontario 114F on September 6, 2024 and the 93 to 95F late-summer normals (no sourced Ontario figure found); South Coast AQMD and Ontario's air-basin membership (the AQMD page names San Bernardino County but not Ontario); City permit trigger for like-for-like replacement, any HVAC permit checklist, contractor and business-license requirement, local code amendments and the current adopted code edition (Applicable Codes page is undated and lists 2022 editions); official Municipal Code text of Chapter 29 noise (not found; numbers come from a third-party copy); fixed noise source definition for air conditioners; outdoor-unit setbacks, historic and HOA rules; median year built, humidity, decade-by-decade housing age (the SCAG chart values have no bin labels); single-family, multifamily and commercial split beyond the SCAG DOF table; SCE and SoCalGas rebate dollar amounts; competitor SERP table (gap analysis only).
-    // TODO(copy): client has not approved any Ontario wording (every FAQ answer, the five local paragraphs, the noise sentences, the Title 24 sentences, the commercial sentence, the incentive wording). Keep flagged until the user says the client approved.
-    // TODO(copy): confirm with the City which permit path each HVAC job needs (Building Department lists (909) 395-2023 for plan check and counter services).
-    // TODO(copy): noise text is from a third-party copy of Title 5, Chapter 29 on nonoise.org (undated; cites Ord. 2888, effective March 6, 2008). Recheck against the official Municipal Code before relying on the numbers.
+    // Client approved all Ontario wording on 2026-10-19 (per the user).
+    // TODO(verify): confirm with the City which permit path each HVAC job needs (Building Department lists (909) 395-2023 for plan check and counter services).
+    // TODO(verify): noise text is from a third-party copy of Title 5, Chapter 29 on nonoise.org (undated; cites Ord. 2888, effective March 6, 2008). Recheck against the official Municipal Code before relying on the numbers.
     // Pre-launch recheck: Applicable Codes page, fee schedule, online permitting portal, Building Permit FAQs, Chapter 5 (Aug 18, 2026 revision exists) and Chapter 6, Euclid plan guidelines, SCE and SoCalGas rebate pages, Ontario Ranch and logistics pages, SCAG profile URL, QuickFacts.
     localParagraphs: [
       "Ontario's Building Department provides plan review and inspection services, and the City's online permitting portal lets applicants apply for permits, upload plans, and pay fees after staff review. The Building Department also offers appointments and counter service at City Hall, 303 East B Street, and lists (909) 395-2023 for plan check and counter services. The City's Building Permit FAQs say no permit is required for portable comfort-cooling or evaporative cooler equipment, and the City's fee schedule, as of July 1, 2026, lists mechanical permit fees for furnaces, air handler units, evaporative coolers, wall heaters, and mini splits, with flat-fee reviews for single-family and multi-family homes. We did not find a City rule or exemption that addresses replacing a whole air conditioner or furnace like for like, so **AIRPRO SOLUTIONS confirms which permit path applies** with the City before work starts. The City's Applicable Codes page lists 2022 editions of the California Mechanical Code and Energy Code, among others, for plans filed on or after January 1, 2023, and the page is undated, so we confirm which edition applies to your project. We did not read any local amendments.",
@@ -3104,7 +3100,7 @@ const ontarioOverrides: Partial<City> = {
       "For equipment placement, the December 3, 2024 revision of Ontario's Development Code that we read sets screening standards for residential districts: for single-family dwellings, **new exterior roof-mounted mechanical, heating and air conditioning equipment is prohibited**, and for multiple-family development, roof-mounted equipment must be completely screened from public view by parapet walls or roof screens (Sec. 6.01.010). We did not confirm how those standards apply to replacing existing equipment, so we check placement with the City. Development Plan applications ask for the location of roof-mounted mechanical equipment and equipment screens, and the Euclid Mixed-Use Specific Plan in Ontario Ranch calls for screening ground- and roof-mounted mechanical equipment from public view. Replacements are also subject to California's Title 24 energy code, and the 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing requirements, and field verification and diagnostic testing is prescriptively required for most HVAC alterations.",
       "For commercial work, the City's economic development site reports that Ontario International Airport served 6.5 million passengers in 2023 and handled over 750,000 tons of freight, lists logistics and distribution among its target industries, and shows Ontario Ranch planning 12 million square feet of commercial and office space and 31 million square feet of industrial space, so we plan commercial visits around the building and its rooftop or ground equipment access. The City's contact pages name Southern California Edison for electric service and Southern California Gas Company for gas, and eligibility for a program follows your utility account, so confirm both on your bill. SCE's rebates page lists Golden State Rebates coupons for air conditioners and smart thermostats and a Smart Energy Program bill credit, and SoCalGas lists a rebate for qualifying gas furnaces. Programs and funding change, so we link the program pages rather than quote amounts. Official links are in the card for this section.",
     ],
-    // TODO(copy): the card below restates figures already in the second and fifth local paragraphs; client has not approved it.
+    // the card below restates figures already in the second and fifth local paragraphs; client approved it on 2026-10-19 (per the user).
     localCards: [
       {
         heading: "Ontario Ranch and the airport",
@@ -3119,7 +3115,7 @@ const ontarioOverrides: Partial<City> = {
         ],
         note: "From the City's economic development pages, which are undated. Figures are as the City reports them.",
       },
-      // TODO(copy): the housing card below restates figures already in the second local paragraph; client has not approved it.
+      // the housing card below restates figures already in the second local paragraph; client approved it on 2026-10-19 (per the user).
       {
         heading: "Ontario housing snapshot",
         rows: [
@@ -3226,7 +3222,7 @@ const ontarioOverrides: Partial<City> = {
       title: "Ontario permits, noise limits, and incentive programs",
       intro: "Official sources for three local items worth checking before an Ontario HVAC project.",
       cards: [
-        // TODO(copy): incentive wording not yet client-approved. No dollar amounts on purpose; recheck links before launch.
+        // Client approved the incentive wording on 2026-10-19 (per the user). No dollar amounts on purpose; recheck links before launch.
         {
           amount: "Permits and codes",
           description: "Ontario's Building Department provides plan review and inspection, and the City's fee schedule lists mechanical permit items. We found no City rule on replacing a whole unit like for like, so we do not assume a replacement is exempt.",
@@ -3259,7 +3255,7 @@ const ontarioOverrides: Partial<City> = {
       ],
     },
     finalCtaBody: "Call or request service online to schedule a visit anywhere in Ontario. Same-day service is typical, subject to capacity.",
-    // TODO(copy): client has not confirmed any FAQ answer below.
+    // Client approved every FAQ answer below on 2026-10-19 (per the user).
     faqs: [
       {
         q: "Does AIRPRO SOLUTIONS service all of Ontario?",
@@ -3483,7 +3479,7 @@ const coronaOverrides: Partial<City> = {
       "Corona had an estimated 161,734 residents on July 1, 2025, up from 157,136 in the 2020 U.S. Census, and QuickFacts reports a 63.8% owner-occupied housing rate for 2020-2024. SCAG's local profile, using California Department of Finance E-5 data for 2018, counts **49,277 housing units: 66.9% single-family detached, 4.3% attached, 4.5% in buildings of 2 to 4 units, 20.9% in buildings of 5 or more, and 3.4% mobile homes**. The same profile reports that **15.6% of housing was built before 1970**, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. Those figures are citywide and dated, so we confirm the equipment, roof or attic access, and ductwork at the property, and in a multi-unit building we confirm equipment access and placement. The City's list of specific plans, linked in the card for this section, names plan areas such as Dos Lagos, Eagle Glen, and Downtown Corona, but a plan name does not tell us a home's age or equipment, so we draw no conclusions from it.",
       "Corona has two electric providers. The City's new-resident page says a majority of Corona residents are served by Southern California Edison, and that small areas near Dos Lagos, The Crossings, Corona Pointe, and Princeland are served by the City's Department of Water & Power. The City's electric service page says its rebates are for City of Corona electric customers, who do not receive an electric bill from Southern California Edison, so **confirm your electric provider on your bill before counting on a program**. SCE's time-of-use plan page lists summer weekday peak hours of 4 to 9 p.m. for TOU-D 4-9 PM and 5 to 8 p.m. for TOU-D 5-8 PM. Those are SCE plans, and we did not read the City's electric rate schedules. The new-resident page also links SoCalGas assistance programs. SCE's rebates page lists Golden State Rebates coupons for air conditioners and smart thermostats and a Smart Energy Program bill credit, SoCalGas lists a rebate for qualifying gas furnaces, and the City's electric service page lists residential and commercial programs for its electric customers. Programs and funding change, so we link the program pages rather than quote amounts. For commercial work, the City's economic development site says Corona's largest industries include construction, manufacturing, health care, and retail services, and the page is undated, so we plan commercial visits around the building and its rooftop or ground equipment access. Official links are in the card for this section.",
     ],
-    // TODO(copy): client approved the Corona local paragraphs on 2026-10-18; this card restates the first paragraph and is new wording, so it is not approved yet.
+    // Client approved the Corona local paragraphs on 2026-10-18 and this card on 2026-10-19 (per the user); the card restates the first paragraph.
     // TODO(verify): Sec. 17.84.040 subsection letters and edition label come from the American Legal Publishing copy; recheck against the official code.
     localCards: [
       {
@@ -3863,7 +3859,7 @@ const glendaleOverrides: Partial<City> = {
     },
     localTitle: "Glendale's AC replacement code, noise limits, and electric service",
     // Held out (no verified source): ZIP card (the City finance dashboard list of 91020, 91201-91208, 91210 and 91214 is a tax heat map, not a postal list, includes 91020, and could not be read here; the California CSD list of 91201-91205 could not be read; the research's other ZIPs came from a third-party compilation); neighborhood names (Montrose, La Crescenta, Kenneth Village, Adams Square, Verdugo Woodlands and others came from the Chamber of Commerce site, a property-management blog and Wikipedia, none an official City source); nearby row (neighbors came from Wikipedia); climate, NOAA normals, marine layer, heat island and humidity (NCEI source not retrieved); City housing statements (most units built 1960-1979, 77,783 units in 2024, about 7 percent vacant, 222 new units since 2020: the City demographics pages could not be read); GWP Time-of-Use seasons, eligibility and business peak hours (GWP rate pages could not be read); the 'simple residential HVAC change-outs on the Glendale Permits Portal' claim (the City online-services page read does not mention it); Glendale gas provider (no service-territory source); GWP-serves-all-of-Glendale (no source); Permit Services Center hours (page text garbled); GMC 30.30.020 rooftop equipment rule (read only through a summary); zoning map, employers, hospitals, schools, shopping centers, industrial areas, HOA areas, historic-district equipment rules, setback rules (none found); all rebate dollar amounts; competitor SERP table (gap analysis only, never on the page).
-    // TODO(copy): client has not approved any Glendale wording (every FAQ answer, the five local paragraphs, the AC2HP, noise and construction-hour sentences, the utility and incentive sentences, the commercial sentence). Keep flagged until the user says the client approved.
+    // Client approved all Glendale wording on 2026-10-19 (per the user).
     // TODO(verify): AC2HP status. The City page says adopted in Fall 2025 and gives no effective date; the Permit Services page says the 2026 Glendale Reach Code took effect January 1, 2026; a third-party report dated August 7, 2026 says the ordinance was submitted to state agencies in December 2025 and the California Building Standards Commission is still reviewing it. Confirm with the City whether the ordinance is in force before launch.
     // TODO(verify): the City page says AC2HP covers single-family homes, duplexes and townhomes; the unsigned draft ordinance text (AAGLA-hosted copy) says existing single-family residential buildings only. The page follows the City page wording. Confirm against the adopted ordinance.
     // TODO(verify): Chapter 8.36 text is from the ecode360 publisher copy, which shows no edition date. Recheck against the official code before launch.
@@ -3903,7 +3899,7 @@ const glendaleOverrides: Partial<City> = {
         ],
         note: "From the City's AC2HP page, which gives no effective date. We confirm with the City how it applies to your home.",
       },
-      // TODO(copy): the housing card below restates figures already in the fourth local paragraph; client has not approved it.
+      // the housing card below restates figures already in the fourth local paragraph; client approved it on 2026-10-19 (per the user).
       {
         heading: "Glendale housing snapshot",
         rows: [
@@ -4296,7 +4292,7 @@ const burbankOverrides: Partial<City> = {
     },
     localTitle: "Burbank's permit tiers, codes, noise levels, and electric service",
     // Held out (no verified source): ZIP card: City 'Zip Code Areas' map lists 18 ZIPs including non-Burbank ZIPs; cannot tell which are inside the City.; Neighborhood list (Magnolia Park, Elmwood, Lake-Alameda, Peyton-Grismer, Verdugo Lake): not named in the cited Land Use Element.; Municipal Code 9-3-208 noise specifics: only a 2016 third-party copy was readable.; 2024 staff report '45 dBA most restrictive' figure: no code section or zone cited.; Gas provider: no service-territory page found.; Rebate dollar amounts (BWP heat pump, room AC, thermostat, business): link-only by rule.; BWP heat pump installer condition (licensed electrical contractor): kept off the page.; 9.9% BWP rate increase and TOU hours: not on the page read.; SoCalGas ESA no-cost furnace: research only.; Permit counter hours: conflict on the City page itself.; Outdoor-unit setbacks, historic rules, duct testing thresholds, employers, Valley-edge climate: no source.; Zoneomics rooftop-height rule: unofficial.
-    // TODO(copy): client has not approved any Burbank wording (every FAQ answer, the five local paragraphs, the two local cards, the permit, code, noise, work-hour, utility and incentive sentences, the commercial sentence). Keep flagged until the user says the client approved.
+    // Client approved all Burbank wording on 2026-10-19 (per the user).
     // TODO(verify): code editions. The building-codes page says 2025 but its Energy Standards link points to the 2022 standards; reach-code status was not stated on the City pages read; the full Title 9 amendments were not read.
     // TODO(verify): construction-hour section number (City ordinance says 9-1-1-105.10; third-party copies say 105.8). Municipal Code text is a publisher copy.
     // Pre-launch recheck: Building Permits page, Building Codes page, Ordinance 25-4,034, Noise Element Table N-4, BWP Electrify Your Home, residential and business rebate pages, SCAG profile, QuickFacts.
@@ -4683,7 +4679,7 @@ const santaMonicaOverrides: Partial<City> = {
     },
     localTitle: "Santa Monica's permit review, equipment noise rules, codes, and electric service",
     // Held out (no verified source): ZIP card: the only ZIP source is a Housing Authority payment-standard table (90401 to 90405) that does not say these are the City's ZIPs; SoCalGas lists 90402 and 90403 in a wildfire section without naming the City. | Neighborhood names (North of Montana, Wilshire-Montana, Pico, Sunset Park, Ocean Park, Mid-City, Northeast, Downtown): the City land use PDF (LUCE) would not load, so the names are unverified. | Climate, NOAA normals and heat-day counts: NOAA ICAC1 is a National Ocean Service water level and meteorological station, not a buoy and not a normals source; the Wikipedia 63 to 71F range is third-party. | Permit Services Center address, hours and paperless wording: the City page returned a bot-detection page. | Express Permit HVAC scopes: not named on the pages read. | MEP Plan Check Thresholds values: separate PDF not read. | Zero Emission Building Code status: City page says enforcement is paused (no date), a news report says Council replaced it in September 2024 with an Energy Performance Approach effective October 24, 2024. | SMMC 9.21.140 screening rule: seen only in a project approval. | Gas provider: no service-territory page found. | All rebate dollar amounts and wildfire-related SoCalGas items: link-only by rule. | SCE Smart Energy Program authorized-service-provider condition: kept off the page. | Outdoor-unit setbacks, historic-property rules, duct testing thresholds, zoning map, HOA areas: no source. | Competitor SERP table: never on the page.
-    // TODO(copy): client has not approved any Santa Monica wording (every FAQ answer, the five local paragraphs, the two local cards, the noise, permit, code, utility and incentive sentences, the commercial sentence). Keep flagged until the user says the client approved.
+    // Client approved all Santa Monica wording on 2026-10-19 (per the user).
     // TODO(verify): Sec. 4.12.130 applies to 'development project applications'. Whether the City applies it to a like-for-like AC replacement permit is unconfirmed. Chapter 4.12 text is the ecode360 publisher copy (core sections added by Ord. 2115CCS, 2/24/04; 4.12.020 and 4.12.050 amended by Ord. 2679CCS, 8/24/21); no overall edition date shown.
     // TODO(verify): code edition: the plan review page says 2025 California Standards Code effective January 1, 2026; reach-code and Zero Emission Building Code status are unresolved (see held out list) and are not on the page.
     // Pre-launch recheck: plan review page, Same-Day Review page, Permit Services Center page (hours, address; blocked here), noise program page, Chapter 4.12 (official code), SCE Golden State Rebates and Smart Energy Program pages, SoCalGas rebates page, City Clean Power Alliance post (2019), SCAG profile, QuickFacts, Principal Employers report.
@@ -5080,7 +5076,7 @@ const inglewoodOverrides: Partial<City> = {
     },
     localTitle: "Inglewood's permits, housing stock, and utility programs",
     // Held out (no verified source): Noise code: Municipal Code Chapter 5, Article 2 (Sec. 5-27 base levels, Sec. 5-39 machinery, equipment, fans and air conditioning) was read only in a third-party copy (nonoise.org, printed date 6/11/2016, no edition line, official code location not confirmed). Not published (user decision needed, see open-items). | ZIP card (90301 to 90312) and neighborhood names (Morningside Park, Downtown, Fairview Heights, Arbor Village, Hollypark Knolls, Centinela Heights, Century Heights, Inglewood Knolls, Lockhaven): Wikipedia only, no official City or USPS source. | Climate, NOAA normals, heat-day counts, humidity: no station verified for Inglewood. | Neighboring cities and the nearby row: no official source named them. | Building Safety address, phone, hours, QLESS appointments, the dedicated HVAC application and the January 5, 2026 engineer stamp rule: the City Building Safety page returned only an intro line and the applications and fees page would not load. | Electric and gas provider (SCE and SoCalGas): the City New to the City page would not load, so neither is stated for Inglewood. | Zoning Chapter 12, zoning map and overlay map: the City Zoning Codes and Map Gallery pages would not load. | South Coast AQMD: Inglewood is listed under Los Angeles County Western Region (verified), and the basin exceeded the 8-hour ozone standard on 124 days in 2022 (preliminary). No sourced HVAC tie, so not used on the page. | Employers, shopping centers, schools, hospitals, industrial areas, HOA areas, setbacks, historic-district rules, median year built: no source. | All rebate dollar amounts; federal Section 25C and 25D status; HEEHRA status; SCE older heat pump discounts and the TECH $1,000 incentive; SCE Building Electrification (closed); Clean Power Alliance room AC coupon (Inglewood account eligibility unconfirmed). | SoCalGas licensed-contractor and permit-closure conditions and SCE approved-contractor wording: kept off the page. | Competitor SERP table: never on the page.
-    // TODO(copy): client has not approved any Inglewood wording (every FAQ answer, the three local paragraphs, the permit card, the permit, rebate and assistance sentences, the commercial sentence). Keep flagged until the user says the client approved.
+    // Client approved all Inglewood wording on 2026-10-19 (per the user).
     // TODO(verify): General Information page (City page 237) was read through a fetch summary: it lists building, electrical, plumbing, sewer, mechanical, and grading permits, shows no date, and does not use the term HVAC. Re-read it directly.
     // TODO(verify): Online permit portal: only the navigation menu was readable (Building, Planning/Zoning, Public Works permits). It does not mention HVAC, inspections or fees.
     // TODO(verify): SoCalGas terms come from the 2026 residential application PDF (form code J087-228EEC 0926, no stated publication date). SCE Energy Savings Assistance page shows no publication date (income limits June 1, 2026 to May 31, 2027).
@@ -5403,7 +5399,7 @@ const manhattanBeachOverrides: Partial<City> = {
     },
     localTitle: "Manhattan Beach's permits, housing stock, and utility programs",
     // Held out (no verified source): Noise code: the only HVAC noise figures found (a 55 dBA daytime and 50 dBA nighttime threshold, nighttime 10 p.m. to 7 a.m., cited as MBMC 5.48.160 and Table 6) come from a January 19, 2021 consultant memo attached to a hotel project staff report, not from the code text. The official Municipal Code location was not readable. Not published (user decision needed, see open-items). | ZIP card (90266 appears only as the City Community Development street address, 90267 only on third-party lists): no official City or USPS list of Manhattan Beach ZIPs. | Neighborhood names and any flat, hillside or coastal labels: no official City source read. | Climate, NOAA normals, heat-day counts, humidity, marine layer: no station verified for Manhattan Beach. | Neighboring cities (adjacency): no official source named them, so the nearby row claims none. | 2025 California Mechanical Code and local amendment Ordinances 25-0009 and 25-0010: the City current-building-codes page could not be read, and the research says its amendments heading reads 2022. Only the permits page notice (2025 California Building Codes in effect January 1, 2026) is on the page. | Whether any like-for-like replacement is exempt, the HVAC Replacement Plan for Ground Units and plan check submittal requirements (listed by title only, PDFs not read), duct testing, coastal review of an HVAC job: not stated. | Natural gas provider (SoCalGas): no service-territory page read. | South Coast AQMD jurisdiction page: would not load. | General Plan EIR wording that the City is largely built out (2003 document, not read here) and the Census Reporter 15,281 housing units figure (aggregator): not used. | Employers, shopping centers, schools, hospitals, industrial areas, HOA areas, historic-district rules, median year built: no source. | All rebate dollar amounts; federal Section 25C and 25D status; HEEHRA status; SoCalGas wildfire thermostat; SCE Smart Energy Program credit. | SoCalGas licensed-contractor and permit-closure conditions and SCE approved-contractor wording: kept off the page. | Competitor SERP table: never on the page.
-    // TODO(copy): client has not approved any Manhattan Beach wording (every FAQ answer, the four local paragraphs, both local cards, the permit, placement, utility, rebate and assistance sentences, the commercial sentence). Keep flagged until the user says the client approved.
+    // Client approved all Manhattan Beach wording on 2026-10-19 (per the user).
     // TODO(verify): Mechanical Equipment Permit Requirements handout (showpublisheddocument/39726) is undated, cites the 2022 California Building Standards Codes, and was read through a fetch summary. The permits page lists a handout titled Mechanical Equipment Requirements without a URL, so it is not confirmed to be the same file. Re-read the PDF directly and confirm which handout is current.
     // TODO(verify): Municipal Code Sections 10.52.050, 10.60.050 and 10.60.090 are quoted only as the handout cites them. The official Municipal Code location (the City page labels a link View Manhattan Beach Municipal Code with no visible URL) was not read, and a publisher copy would not be the official code.
     // TODO(verify): Apply-for page lists Building Permit and Construction Permits as online with no date, and does not mention mechanical or HVAC permits. The building-permit page (services/apply-for/building-permit) and current-building-codes page returned fetch errors.

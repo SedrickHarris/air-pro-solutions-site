@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/content/site-config';
 import { publishedServices, serviceHref } from '@/content/services';
-import { wave1Cities } from '@/content/cities';
+import { cities } from '@/content/cities';
 import { builtAudiences } from '@/content/audiences';
 import { matrixPages } from '@/content/matrix';
 import { publishedCommercialPages } from '@/content/commercial';
@@ -13,12 +13,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // real `page` content block, not just `published`/`wave === 1`, or its own route sets noindex and
   // it would 404-equivalent in Search Console as "submitted but noindex". All four /service-areas/
   // region pages are now built; the four unbuilt audience pages are still noindex stubs.
+  // Cities: every city with a `page` is indexable (wave 1 or wave 2), so every one is listed. A city
+  // joins the sitemap automatically the moment it gets `page` content; noindex stubs stay out.
   const paths = [
     '/', '/services/', '/service-areas/', '/service-areas/los-angeles-county/', '/service-areas/south-bay/', '/service-areas/orange-county/', '/service-areas/inland-empire/',
     '/about/', '/contact/', '/reviews/', '/financing/', '/maintenance-plan/', '/faq/', '/careers/', '/privacy/', '/terms/', '/accessibility/', // thank-you is noindex, never list it
     ...builtAudiences.map((a) => `/${a}/`),
     ...publishedServices.filter((s) => s.page).map((s) => serviceHref(s.slug)),
-    ...wave1Cities.filter((c) => c.page).map((c) => `/service-areas/${c.slug}/`),
+    ...cities.filter((c) => c.page).map((c) => `/service-areas/${c.slug}/`),
     ...matrixPages.map((m) => `${serviceHref(m.service)}${m.city}/`),
     ...publishedCommercialPages.map((p) => `/commercial-hvac/${p.slug}/`),
   ];
