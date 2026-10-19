@@ -495,7 +495,8 @@ source so JSON-LD, visible text and TS match. Rancho Cucamonga is NOT in this re
 - Claim wording follows the approved list. Do not strengthen it.
 
 ## /service-areas/rancho-cucamonga/ (ranchoCucamongaOverrides in src/content/cities.ts)
-Built 2026-10-18, committed locally (push to main or PR not yet chosen). Reference artifact: claude/reference/rancho-cucamonga-location.html.
+Built 2026-10-18, pushed to main 2026-10-19 (user chose push to main). Reference artifact: claude/reference/rancho-cucamonga-location.html
+(https://claude.ai/artifact/V7LtietDBRq2hV5TKTGirj).
 Fourth Inland Empire wave-1 city page in this repo. Generated from one data source so JSON-LD, visible text and TS match.
 - Title: `cityTitle('Rancho Cucamonga')` ("HVAC Services in Rancho Cucamonga, CA | AIRPRO SOLUTIONS", 56 characters) needs no `distinctTitle`.
   H1 is `cityH1('Rancho Cucamonga')` (37 characters). The meta description is the hand-written `page.metaDescription`
