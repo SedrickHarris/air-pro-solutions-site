@@ -69,18 +69,18 @@ export const orangeCountyHub = {
     groups: [
       { label: 'North Orange County', cities: ['Anaheim', 'Fullerton'] },
       { label: 'Central Orange County', cities: ['Santa Ana', 'Costa Mesa', 'Tustin'] },
-      { label: 'Coastal', cities: ['Huntington Beach', 'Newport Beach'] },
+      { label: 'Coastal', cities: ['Huntington Beach'] },
     ],
     gettingAround:
       '**Getting around:** the north is served by I-5, SR-57, and SR-91, the central cities by I-5, SR-55, SR-22, and I-405, and the coast by I-405, SR-55, SR-73, and PCH. Arrival times vary with freeway traffic and appointment availability.',
-    source: 'Climate figures are from the National Weather Service Tustin MCAS historical summary, a single station, not 1991-2020 normals. City grouping follows OCTA planning areas and is general, not a climate-zone boundary.',
+    source: 'Climate figures are from the National Weather Service Tustin MCAS historical summary, a single station, not 1991-2020 normals. City grouping follows OCTA planning areas and is general, not a climate-zone boundary. Newport Beach is not grouped because no source was found for its grouping.',
   },
 
   // Source: SCAG local profiles using California Department of Finance E-5 data, 2018 (structure
-  // type only). Santa Ana's row and its 55% pre-1970 figure were removed on 2026-10-19: no source record was found and
+  // type only). Newport Beach's row (and its 40.1% pre-1970 figure) was removed on 2026-10-19 and Santa Ana's row and its 55% pre-1970 figure were removed on 2026-10-19: no source record was found and
   // the figures could not be re-verified (see the Santa Ana section of docs/open-items.md). Building-age figures: ACS 2019 countywide (60.4% pre-1980, 26.6% 1980-1999, 13.0%
   // 2000+); SCAG ACS 2017 for Costa Mesa (49.6% pre-1970),
-  // Newport Beach (40.1% pre-1970). Irvine's own 4.8% pre-1970 (SCAG, ACS 2017) is on its city page. Anaheim's own
+  // Irvine's own 4.8% pre-1970 (SCAG, ACS 2017) is on its city page. Anaheim's own
   // 44.6% pre-1970 (SCAG, ACS 2017) is on its city page. Huntington Beach's own 43.5% pre-1970 (SCAG, ACS 2017) is on its city page. No age figures were found for Fullerton or Tustin - none are claimed.
   housing: {
     eyebrow: 'Property types',
@@ -91,18 +91,17 @@ export const orangeCountyHub = {
       ['Irvine', '102,474', '38.9%', '16.4%', '6.2%', '37.4%', '43.6%'],
       ['Huntington Beach', '81,656', '47.9%', '11.6%', '11.8%', '24.9%', '36.7%'],
       ['Fullerton', '49,430', '49.6%', '10.0%', '8.2%', '30.4%', '38.6%'],
-      ['Newport Beach', '44,670', '45.1%', '15.7%', '11.3%', '25.4%', '36.7%'],
       ['Costa Mesa', '42,836', '39.6%', '10.2%', '13.3%', '34.7%', '48.0%'],
       ['Tustin', '28,118', '35.1%', '12.7%', '14.4%', '34.6%', '49.0%'],
     ],
     note: 'Share of housing units by structure type, from SCAG local profiles using California Department of Finance E-5 data for 2018. Figures measure structure type only, not condo ownership, HOA status, or renter status. The remainder is other unit types. Costa Mesa and Tustin have the highest multifamily shares, at 48.0% and 49.0%.',
     paragraphs: [
-      'Structure type shapes the job. Detached homes are the largest single category in every city in the table, but in Irvine and Tustin buildings with 5 or more units are within two points of them. Attached homes are 16.4% of Irvine and 15.7% of Newport Beach units, which can mean shared walls, shared roofs, and association rules.',
+      'Structure type shapes the job. Detached homes are the largest single category in every city in the table, but in Irvine and Tustin buildings with 5 or more units are within two points of them. Attached homes are 16.4% of Irvine units, which can mean shared walls, shared roofs, and association rules.',
       'Anaheim has the largest housing stock at 108,222 units, followed by Irvine at 102,474, and in both cities more than a third of units are in buildings of 5 or more.',
-      'Building age varies widely. Countywide, 60.4% of housing units were built before 1980, 26.6% between 1980 and 1999, and 13.0% in 2000 or later (ACS 2019). Homes built before 1970 are 49.6% of Costa Mesa (SCAG, 2017 American Community Survey), 43.5% of Huntington Beach (SCAG, 2017 American Community Survey), and 40.1% of Newport Beach.',
+      'Building age varies widely. Countywide, 60.4% of housing units were built before 1980, 26.6% between 1980 and 1999, and 13.0% in 2000 or later (ACS 2019). Homes built before 1970 are 49.6% of Costa Mesa (SCAG, 2017 American Community Survey) and 43.5% of Huntington Beach (SCAG, 2017 American Community Survey).',
       'Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     ],
-    pending: 'Housing age figures were not found for Fullerton and Tustin, so no age claim is made for them. The pre-1970 shares for Anaheim, Irvine, and Huntington Beach are on their city pages. Santa Ana is not in the table because its housing figures are not verified yet.',
+    pending: 'Housing age figures were not found for Fullerton and Tustin, so no age claim is made for them. The pre-1970 shares for Anaheim, Irvine, and Huntington Beach are on their city pages. Santa Ana and Newport Beach are not in the table because their housing figures are not verified yet.',
   },
 
   services: {
@@ -148,7 +147,7 @@ export const orangeCountyHub = {
   },
 
   // Sources: Irvine online residential replacement permit; Anaheim Form B713 (no exemption stated); Santa Ana City notice of June 12, 2026 (online permit portal); Costa Mesa
-  // Insta-Permit page and Mechanical - Residential application; Newport Beach express furnace permit and plan-check triggers;
+  // Insta-Permit page and Mechanical - Residential application; Newport Beach Residential Express Permits (City online permitting page);
   // Huntington Beach Permit Center, HB ACA portal and forms page (Mechanical Permit Application, Mechanical Plan Requirements, Mechanical Plan Check Waiver Request); Fullerton EasyDev portal / CF1R-ALT-HVAC; Tustin
   // 360-day permit expiration. Title 24: CEC 2025 Energy Code effective for permits submitted on or
   // after 2026-01-01; duct leakage limits (10% total / 7% to outside) and R-6 duct insulation, and
@@ -163,7 +162,7 @@ export const orangeCountyHub = {
       ['Anaheim', 'Mechanical permit', 'The Building Division issues mechanical permits through Form B713. Confirm with the Building Division, (714) 765-5153, which permits your replacement needs.'],
       ['Santa Ana', 'Online through the City permit portal', 'The City said on June 12, 2026 that plan reviews and permits moved online through the Accela Citizen Access portal, with electronic submittal required from July 1, 2026, and it lists mechanical permits among the online types. We confirm what your replacement needs with the City.'],
       ['Costa Mesa', 'Residential HVAC Insta-Permit, or Mechanical - Residential application', "The Insta-Permit is limited to a single-family dwelling on a single parcel, and exterior equipment must sit at ground level on the side or rear, out of public view. Work beyond that scope uses a Mechanical - Residential application in the City's TESSA portal."],
-      ['Newport Beach', 'Express permit path for furnace replacement', 'Furnace replacement often needs a permit. Plan check applies to systems over 7,000 square feet, mechanically ventilated basements or garages, standby generator exhaust, and VRF systems.'],
+      ['Newport Beach', 'Residential Express Permits through the City', "The City's online permitting page names furnace replacement as an example of a simple project for Residential Express Permits, which are not for projects that need multiple permits and plan review. The pages we read do not mention AC replacement, so we confirm what your job needs with the City."],
       ['Huntington Beach', 'Permit Center and HB ACA online portal', 'The Permit Center issues mechanical permits, and the City lists a Mechanical Permit Application, Mechanical Plan Requirements, and a Mechanical Plan Check Waiver Request. We did not find a published like-for-like exemption, so treat replacement as permit-required.'],
       ['Fullerton', 'EasyDev online portal', 'Submittals use the EasyDev portal with a CF1R-ALT-HVAC form. We did not find a published like-for-like exemption.'],
       ['Tustin', 'Building Division', 'Permits expire if work is not started within 360 days. We did not find a published like-for-like exemption.'],
@@ -187,7 +186,8 @@ export const orangeCountyHub = {
       ['Anaheim', "The City's Anaheim Resort page describes a 581-acre specific plan area of hotels, convention and conference facilities, restaurants, retail, and entertainment. Anaheim Municipal Code Sec. 6.70.010 sets a general 60 dB(A) property-line sound limit, so confirm placement and noise for the specific property."],
       ['Fullerton', 'Noise is regulated under Chapter 15.90. Construction is exempt from the noise limits from 7 a.m. to 8 p.m., except on Sundays and holidays.'],
       ['Costa Mesa', "Under the Insta-Permit, outdoor equipment goes at ground level on the side or rear of the home, out of public view, with no roof-top equipment. Municipal Code Sec. 13-280 sets residential exterior noise limits of 55 dB(A) by day and 50 dB(A) at night. We confirm placement for the specific property."],
-      ['Santa Ana, Newport Beach, Huntington Beach, Tustin', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
+      ['Santa Ana, Huntington Beach, Tustin', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
+      ['Newport Beach', 'We confirm placement and any noise conditions for the specific property with the City before recommending where equipment goes.'],
     ],
     note: "Based on each city's municipal code and planning materials. Code text changes, so current requirements are confirmed with the city.",
   },
@@ -201,7 +201,7 @@ export const orangeCountyHub = {
   rebates: {
     eyebrow: 'Utilities and rebates',
     title: 'Your utility accounts decide which programs to look at',
-    intro: 'Anaheim has its own municipal electric utility. The other seven cities are generally served by SCE, and natural gas is supplied by SoCalGas.',
+    intro: 'Anaheim has its own municipal electric utility. Six of the other seven cities are generally served by SCE, and natural gas is generally supplied by SoCalGas. We have not confirmed the electric or gas provider for Newport Beach from a City source, so confirm it by address.',
     cards: [
       {
         amount: 'Home incentives',
@@ -223,10 +223,10 @@ export const orangeCountyHub = {
     utilityCardTitle: 'Utilities in these cities',
     utilities: [
       'Anaheim electric: Anaheim Public Utilities',
-      'Other seven cities, electric: SCE',
-      'Natural gas: SoCalGas',
+      'Other cities except Newport Beach, electric: SCE',
+      'Natural gas: SoCalGas (not confirmed for Newport Beach)',
     ],
-    note: '**Confirm by address:** service territory can vary by address, so verify your utility directly before relying on any program. Gas service is directly confirmed for Irvine, Huntington Beach, and Santa Ana (City utilities page) and assumed for the other five cities.',
+    note: '**Confirm by address:** service territory can vary by address, so verify your utility directly before relying on any program. Gas service is directly confirmed for Irvine, Huntington Beach, and Santa Ana (City utilities page) and assumed for Anaheim, Costa Mesa, Fullerton, and Tustin. Neither electric nor gas provider is confirmed for Newport Beach.',
   },
 
   cities: {
@@ -279,10 +279,11 @@ export const orangeCountyHub = {
       },
       {
         name: 'Newport Beach',
-        note: 'About 40% of homes were built before 1970. Furnace replacement often needs a permit, and plan check applies to mechanically ventilated basements or garages, standby generator exhaust, and VRF systems.',
-        areas: 'Balboa Peninsula, Balboa Island, Newport Coast, Corona del Mar',
-        utility: 'Electric: SCE.',
-        zips: '92625, 92657-92663',
+        href: '/service-areas/newport-beach/',
+        note: "The City's online permitting page names furnace replacement as an example for Residential Express Permits. The pages we read do not mention AC replacement, so we confirm the steps with the City.",
+        areas: 'Balboa Peninsula, Balboa Island, Corona del Mar, Newport Center and Fashion Island, Newport Coast (City About the Community page)',
+        utility: 'Utilities: confirm by address.',
+        zips: '92657, 92660-92663 (City ZIP map, 05/19/2026)',
       },
       {
         name: 'Fullerton',
@@ -332,7 +333,7 @@ export const orangeCountyHub = {
     },
     {
       q: 'Which utility serves my home, and are there HVAC rebates?',
-      a: 'It depends on the city. Anaheim has its own municipal electric utility, Anaheim Public Utilities, while the other seven cities on this page are generally served by Southern California Edison (SCE). Natural gas is supplied by Southern California Gas Company (SoCalGas). Programs, amounts, and funding change, so confirm your utility by address and confirm current eligibility before installation.',
+      a: 'It depends on the city. Anaheim has its own municipal electric utility, Anaheim Public Utilities, while six of the other seven cities on this page are generally served by Southern California Edison (SCE). Natural gas is generally supplied by Southern California Gas Company (SoCalGas). We have not confirmed the electric or gas provider for Newport Beach from a City source. Programs, amounts, and funding change, so confirm your utility by address and confirm current eligibility before installation.',
     },
     {
       q: 'Are there noise or screening rules for outdoor equipment?',
@@ -348,7 +349,7 @@ export const orangeCountyHub = {
     },
     {
       q: 'Do older homes in Orange County need different HVAC work?',
-      a: 'Often, yes. Countywide, 60.4% of housing units were built before 1980. In Costa Mesa 49.6% of homes were built before 1970 (SCAG, 2017 American Community Survey), and in Newport Beach 40.1%. Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
+      a: 'Often, yes. Countywide, 60.4% of housing units were built before 1980. In Costa Mesa 49.6% of homes were built before 1970 (SCAG, 2017 American Community Survey). Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     },
     {
       q: 'How quickly can a technician reach me?',

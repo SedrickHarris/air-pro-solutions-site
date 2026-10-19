@@ -246,8 +246,9 @@ export default function Page() {
             <Link href="/service-areas/irvine/">Irvine page</Link>,{' '}
             <Link href="/service-areas/anaheim/">Anaheim page</Link>,{' '}
             <Link href="/service-areas/santa-ana/">Santa Ana page</Link>,{' '}
-            <Link href="/service-areas/costa-mesa/">Costa Mesa page</Link>, and{' '}
-            <Link href="/service-areas/huntington-beach/">Huntington Beach page</Link>, or browse{' '}
+            <Link href="/service-areas/costa-mesa/">Costa Mesa page</Link>,{' '}
+            <Link href="/service-areas/huntington-beach/">Huntington Beach page</Link>, and{' '}
+            <Link href="/service-areas/newport-beach/">Newport Beach page</Link>, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">

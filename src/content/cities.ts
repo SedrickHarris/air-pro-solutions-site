@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson and santa-ana have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson, santa-ana and newport-beach have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // The closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's and Santa Ana's local paragraphs use the new sentence from the start. The client approved all city page copy on 2026-10-19 (per the user).
+// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's, Santa Ana's and Newport Beach's local paragraphs use the new sentence from the start. The client approved all city page copy, including Newport Beach, on 2026-10-19 (per the user).
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
 // building that city page or its matrix pages. Never invent it.
@@ -7610,6 +7610,464 @@ const santaAnaOverrides: Partial<City> = {
   },
 };
 
+const newportBeachOverrides: Partial<City> = {
+  // Copy approval: the client approved the Newport Beach page copy on 2026-10-19 (per the user).
+  // TODO(data): add verified climate, housing-age and utility detail before treating this as a full local page.
+  neighborhoods: [], // list held out: the City About the Community villages are named in the copy; no City list of named neighborhoods was read (the Community Associations map shows association labels, not neighborhoods)
+  zips: [], // flat ZIP line not used: the five ZIPs on the City ZIP map are in a localCards entry with the map date and caveat
+  page: {
+    metaDescription: "HVAC for Newport Beach homes and businesses, from AC repair to installation. Know the City's Residential Express Permits for furnaces. Licensed, 4.8-star rated.",
+    lede: "AIRPRO SOLUTIONS provides HVAC services across Newport Beach, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's online permitting in mind.",
+    heroCaption: {
+      title: "Newport Beach, CA",
+      text: "Local service across Newport Beach",
+    },
+    heroProof: [
+      {
+        icon: "shield",
+        label: "Licensed, bonded & insured",
+      },
+      {
+        icon: "star",
+        label: "4.8-star rated",
+      },
+      {
+        icon: "bolt",
+        label: "24/7 emergency dispatch",
+      },
+      {
+        icon: "building",
+        label: "Residential and commercial",
+      },
+    ],
+    trustStats: [
+      {
+        num: "4.8★",
+        label: "Google rating, 40 reviews",
+      },
+      {
+        num: "C-20",
+        label: "California licensed",
+      },
+      {
+        num: "24/7",
+        label: "emergency dispatch",
+      },
+      {
+        num: "Same-day",
+        label: "service typical",
+      },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Newport Beach",
+      body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Newport Beach at a glance",
+      stats: [
+        {
+          num: "81,977",
+          label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "52.1%",
+          label: "owner-occupied housing unit rate, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "2.19",
+          label: "persons per household, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+        },
+      ],
+      source: "Source: U.S. Census Bureau QuickFacts for Newport Beach city, California.",
+    },
+    localTitle: "Newport Beach's villages, permit pages, and utility programs",
+    // Held out (no verified source or not allowed on the page): the Coastal Development Permit statement (only source read was newportbeachadu.org, a site produced by Community Planning Collaborative and Delve, not newportbeachca.gov); the HVAC noise limits of 50 and 55 dBA with a timing device, and the 55/50 dBA residential exterior limits (read only through a fetch summary of eCode360 section 10.26.045 and 10.26.025, host not confirmed as the City official Municipal Code, and the research cited a 2015 nonoise.org copy); the City noise page links codepublishing.com, which now redirects to eCode360; neighborhood list beyond the City About the Community villages; the Community Associations map (labels, not HOA declarations); climate and coastal or hillside labels (the research labels were not on the City pages read); utility service by SCE and SoCalGas (the City Utilities Department page names neither, and the SCE and SoCalGas program pages name no city); the SCE Smart Energy Program, Summer Discount Plan and any $75 credit (enrollment programs, dollar amounts, authorized-service-provider question); the SoCalGas furnace tiers ($1.40, $10, $25 per kBtuh), the $75 wildfire-only thermostat rebate and the Energy Savings Assistance program; Home Performance Plus; federal 25C and 25D; HEEHRA; the City business license tax amounts ($355, $225, $4 fee, 2026-27 rates) and the $1,000 CSLB figure; whether AIRPRO SOLUTIONS holds a Newport Beach business license (client question, not claimed); Hoag and Fashion Island commercial listings; median home value of $2,000,000+ (dollar amount); housing units (QuickFacts shows X); NWS climate data (portal showed no stations); the City permit counter and plan submittal phone numbers (the pages predate or sit beside the online CiViC account requirement).
+    // Copy approval: the client approved the Newport Beach page copy on 2026-10-19 (per the user).
+    // TODO(verify): City Plans, Permits and Inspections page (newportbeachca.gov, no date, 2026 footer) was read through a fetch summary: permit also needed in many cases for repair or replacement of existing fixtures such as replacing a furnace; plumbing, electrical or mechanical permit may be needed for changes to a building existing system; plot plan and plans; inspections by phone or online services; the page does not mention air conditioning; the plan submittal and inspection phone numbers are kept off the page.
+    // TODO(verify): City online permitting (iPermit) page (no date, 2026 footer) was read through a fetch summary: Residential Express Permits are listed, furnace replacement is named as an example of a simple single-scope project, express permits are not for projects that need multiple permits and plan review, and mechanical, HVAC or AC replacement are not listed as online permit types. The City CiViC flyer (document 76396, effective May 1, 2025) lists Gas Heaters or Furnace under Residential Express Permits, excludes multifamily of 3 or more units, and says a valid CiViC account is required for in-person and online permits; it was read through a fetch summary and is not on the page. The 7,000 square foot, mechanically ventilated basement or garage, standby generator exhaust and VRF plan check triggers on the Orange County hub were NOT found on it.
+    // TODO(verify): City About the Community page (no date, 2026 footer) was read through a fetch summary: Balboa Peninsula three-mile stretch bordered by Newport Harbor and the Pacific Ocean; Lido Marina Village; Lido Isle; Mariner's Mile; Balboa Island comprised of three islands; Corona del Mar; Newport Center and Fashion Island (high- and mid-rise office and residential buildings, hotels); Newport Coast (newer homes, upscale hotels and Pelican Hill Golf Course line the hillsides; annexed 2002); the page is inconsistent on island count (seven in one entry, eight in another) so no count is used.
+    // TODO(verify): City ZIP code map (nbgis.newportbeachca.gov zipcodes_11X17.pdf, City GIS Division, dated 05/19/2026) was read through a fetch summary: 92657, 92660, 92661, 92662, 92663 plus 92625, 92627 and 92707 areas, one labeled Costa Mesa and one labeled SAH West. Only the five Newport Beach ZIPs are on the page. The map does not state adjacency, so none is claimed. The Community Associations map (dated 05/19/2026) and the Map Catalog were read through summaries and are not used on the page.
+    // TODO(verify): Census QuickFacts for Newport Beach city (V2025) was read through a fetch summary: 81,977 residents on July 1, 2025; housing units shown as X; 52.1 percent owner-occupied housing unit rate, $2,000,000+ median owner-occupied value and 2.19 persons per household for 2020 to 2024. The research gave 53.1 percent for 2019 to 2023; the live 2020 to 2024 figure supersedes it.
+    // TODO(verify): City Utilities Department page (dated news 10/10/2026) was read through a fetch summary: water, wastewater, storm drain and tidal valve system, street sweeping, streetlights and oil and gas operations; it names no electric or gas residential provider, no SCE, no SoCalGas and no community choice aggregator. SoCalGas 2026 Home Energy Efficiency Rebate application PDF (read through a fetch summary): furnace tiers $1.40, $10 and $25 per kBtuh, limit one per household, program period January 1 to December 31, 2026, proof of permit closure before payment, $75 smart thermostat in the wildfire-only section with no Newport Beach ZIPs, no mention of Newport Beach. SCE marketplace page (no date): Golden State Rebates coupons for air conditioners, smart thermostats and heat pump water heaters, Comfortably California gives no direct customer incentives, no city named. The SoCalGas rebates page URL on the page is the same one used for Santa Ana and was not re-read in this session.
+    // TODO(verify): City business license page (2026-27 rates, valid through June 30, 2027) says businesses based outside Newport Beach conducting activity in the City, for example contractors, must also file; the FAQ says out-of-town businesses should carry a copy of the certificate and gives no date; CSLB finding-the-right-contractor page (no publication date) says a license number in an ad does not guarantee validity, ads must show the license number, and C-20 must carry workers compensation or a certification of self-insurance. All read through fetch summaries. The City Search for a Licensed Business description was not confirmed.
+    // TODO(client): Ask the client whether AIRPRO SOLUTIONS holds a Newport Beach business license. The page does not claim it.
+    // Pre-launch recheck: eCode360 host confirmation and the full text of sections 10.26.025 and 10.26.045 (noise and HVAC equipment), an official source for the electric and gas providers, Census ACS B25034 and B25035 for Newport Beach city, NWS climate station data, the SoCalGas rebates page, the City permit pages for AC replacement and the current CiViC account requirement, the City business license FAQ date, and whether the Santa Ana neighbor-style adjacency question applies (no adjacency is claimed in the nearby row).
+    localParagraphs: [
+      "The City's About the Community page describes Newport Beach by village and area, including **Balboa Peninsula, Balboa Island, Corona del Mar, Newport Center and Fashion Island, and Newport Coast**, along with Lido Marina Village and the islands of Newport Harbor. The City calls the Peninsula a three-mile stretch bordered by Newport Harbor on one side and the Pacific Ocean on the other, describes Newport Center as high- and mid-rise office and residential buildings, hotels, and Fashion Island, and describes Newport Coast as newer homes, upscale hotels, and the Pelican Hill Golf Course. The page gives no climate or housing-age labels for any of them, so we do not state any, and **AIRPRO SOLUTIONS confirms the building, equipment, and access at each property**.",
+      "The City's Plans, Permits and Inspections page says a permit is in many cases also needed to repair or replace existing fixtures, and gives replacing a furnace as its example. It adds that a plumbing, electrical, or mechanical permit may be needed for changes to a building's existing system, and it does not mention air conditioning. The City's online permitting page names furnace replacement as an example of a simple project for Residential Express Permits, which are not for projects that need multiple permits and plan review. Neither page shows a date, so **AIRPRO SOLUTIONS confirms the permit path for your job with the City** before work starts. We do not state permit fees, code editions, equipment placement rules, or noise limits, because we did not confirm them from the official code.",
+      "Newport Beach had an estimated 81,977 residents on July 1, 2025, and QuickFacts reports a **52.1% owner-occupied housing unit rate** and 2.19 persons per household for 2020 to 2024. That leaves 47.9% of occupied homes that are not owner-occupied, so when the person who calls is a tenant we work with the owner or property manager on access and approval. Ownership is a different measure from building type or age, so we do not guess how old the homes or ducts are in your part of the city, and **we confirm the equipment, roof or attic access, and ductwork at each property**.",
+      "The City's Utilities Department page covers water and sewer service and names neither Southern California Edison nor Southern California Gas Company, and the SoCalGas and SCE program pages we read name no city, so **your bill shows who supplies your electricity and gas**. SoCalGas lists a 2026 rebate for ENERGY STAR certified furnaces, with funds first come, first served until December 31, 2026 or until they run out. SCE lists Golden State Rebates coupons for air conditioners and smart thermostats at participating retailers. We do not quote amounts, and terms change, so check each program before you buy. Official links are in the card for this section.",
+    ],
+    localCards: [
+      {
+        heading: "Newport Beach permit pages",
+        rows: [
+          {
+            label: "Furnace replacement",
+            value: "Named as a permit example by the City",
+          },
+          {
+            label: "Residential Express Permits",
+            value: "Furnace replacement named as a simple-project example",
+          },
+          {
+            label: "Air conditioning",
+            value: "Not named on the pages we read",
+          },
+          {
+            label: "Page dates",
+            value: "None shown",
+          },
+        ],
+        note: "From the City's Plans, Permits and Inspections page and its online permitting page. We confirm current requirements with the City.",
+      },
+      {
+        heading: "Newport Beach ZIP codes",
+        rows: [
+          {
+            label: "ZIP codes on the City map",
+            value: "92657, 92660, 92661, 92662, 92663",
+          },
+        ],
+        note: "From the City's ZIP code map (City GIS Division, dated 05/19/2026). It also shows other ZIP areas, one labeled as another city, so we confirm your address.",
+      },
+    ],
+    neighborhoodsHeading: "Official Newport Beach resources",
+    officialResources: [
+      {
+        text: "About the Community",
+        href: "https://www.newportbeachca.gov/i-am-a/visitor/about-newport-beach/about-the-community",
+        note: "Villages and areas the City describes.",
+      },
+      {
+        text: "Plans, Permits and Inspections",
+        href: "https://www.newportbeachca.gov/government/departments/community-development/building-division/plan-checks-permits-inspections",
+        note: "Permit examples and plot plan notes.",
+      },
+      {
+        text: "Online permitting",
+        href: "https://www.newportbeachca.gov/government/departments/community-development/building-division/online-permitting-ipermit",
+        note: "Residential Express Permits and online services.",
+      },
+      {
+        text: "ZIP code map",
+        href: "http://nbgis.newportbeachca.gov/gispub/MapCatalog/pdf_maps/zipcodes_11X17.pdf",
+        note: "City GIS map of ZIP areas.",
+      },
+      {
+        text: "SoCalGas rebates",
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "ENERGY STAR furnace rebate and program period.",
+      },
+      {
+        text: "SCE Golden State Rebates",
+        href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+        note: "Air conditioner and smart thermostat coupons.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/newportbeachcitycalifornia",
+        note: "Population, owner-occupied rate, and household size cited on this page.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Newport Beach homes and businesses",
+    serviceCards: [
+      {
+        slug: "ac-repair",
+        name: "AC Repair",
+        body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises in Newport Beach homes and businesses.",
+      },
+      {
+        slug: "ac-installation",
+        name: "AC Installation & Replacement",
+        body: "New system sizing and installation for Newport Beach properties, planned around the City's permit process.",
+      },
+      {
+        slug: "ac-maintenance",
+        name: "AC Maintenance",
+        body: "Seasonal AC tune-ups that catch small issues early, for Newport Beach homes and for commercial rooftop and ground units.",
+      },
+      {
+        slug: "heating-repair",
+        name: "Heating Repair",
+        body: "Furnace and heating system diagnosis and repair for Newport Beach homes and businesses.",
+      },
+      {
+        slug: "furnace-installation",
+        name: "Furnace Installation & Replacement",
+        body: "Furnace sizing and installation, planned around the City's permit pages. SoCalGas lists a furnace rebate with its own terms.",
+      },
+      {
+        slug: "heat-pump-services",
+        name: "Heat Pump Services",
+        body: "Heat pump installation, repair, and maintenance, with the City's permit process and your utilities' program pages in mind.",
+      },
+      {
+        slug: "ductless-mini-split",
+        name: "Ductless Mini-Split",
+        body: "Ductless systems for Newport Beach additions, converted spaces, and rooms the existing ducts do not reach.",
+      },
+      {
+        slug: "ductwork",
+        name: "Ductwork Services",
+        body: "Duct repair, sealing, and replacement for Newport Beach homes and buildings.",
+      },
+      {
+        slug: "indoor-air-quality",
+        name: "Indoor Air Quality",
+        body: "Filtration, ventilation, and air-quality upgrades for Newport Beach homes and offices.",
+      },
+      {
+        slug: "emergency-hvac",
+        name: "Emergency HVAC",
+        body: "24/7 emergency dispatch for no-cool and no-heat problems in Newport Beach. If you smell gas, leave the building and call 911 or your gas utility.",
+      },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Newport Beach permits and incentive programs",
+      intro: "Official sources for three items worth checking before a Newport Beach HVAC project.",
+      cards: [
+        {
+          amount: "Permits and inspections",
+          description: "The City's Plans, Permits and Inspections page gives replacing a furnace as an example of work that in many cases needs a permit, and its online permitting page names furnace replacement as a Residential Express Permit example. The pages we read do not mention AC replacement, so we confirm the steps for your job with the City.",
+          linkLabel: "City permit page",
+          linkHref: "https://www.newportbeachca.gov/government/departments/community-development/building-division/plan-checks-permits-inspections",
+        },
+        {
+          amount: "Furnace rebate",
+          description: "SoCalGas lists a 2026 rebate for ENERGY STAR certified furnaces, with funds first come, first served until December 31, 2026 or until they run out. Check that your gas account is with SoCalGas, and we do not quote amounts.",
+          linkLabel: "SoCalGas rebates",
+          linkHref: "https://www.socalgas.com/savings/rebates-and-incentives",
+        },
+        {
+          amount: "AC and thermostat coupons",
+          description: "SCE lists Golden State Rebates instant coupons for air conditioners and smart thermostats at participating retailers, in store or online. The SCE page lists no amounts, so confirm current terms before you buy.",
+          linkLabel: "SCE Golden State Rebates",
+          linkHref: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+        },
+      ],
+    },
+    nearby: [
+      "costa-mesa",
+      "irvine",
+      "huntington-beach",
+      "santa-ana",
+    ],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Newport Beach",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        {
+          num: "4.8★",
+          label: "Google rating",
+        },
+        {
+          num: "40",
+          label: "Google reviews",
+        },
+        {
+          num: "C-20",
+          label: "California license class",
+        },
+        {
+          num: "24/7",
+          label: "Emergency dispatch",
+        },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Newport Beach. Same-day service is typical, subject to capacity.",
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Newport Beach?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Newport Beach as part of our Orange County coverage. The City runs its own permit process, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "Orange County coverage",
+            href: "/service-areas/orange-county/",
+          },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Newport Beach home?",
+        a: "Same-day service is typical in Newport Beach, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Newport Beach, subject to capacity.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an air conditioner in Newport Beach?",
+        a: "We confirm the permit path with the City. The City's Plans, Permits and Inspections page gives replacing a furnace as an example of work that in many cases needs a permit, but it does not mention air conditioning, so AIRPRO SOLUTIONS checks what your job needs before work starts, and we do not quote permit fees.",
+        boldLead: "We confirm the permit path with the City.",
+        links: [
+          {
+            text: "Plans, Permits and Inspections page",
+            href: "https://www.newportbeachca.gov/government/departments/community-development/building-division/plan-checks-permits-inspections",
+          },
+        ],
+      },
+      {
+        q: "Can a furnace replacement use a Newport Beach express permit?",
+        a: "The City names furnace replacement as an example. Its online permitting page lists furnace replacement as an example of a simple project for Residential Express Permits, which are not for projects that need multiple permits and plan review, so AIRPRO SOLUTIONS confirms with the City whether your job qualifies.",
+        boldLead: "The City names furnace replacement as an example.",
+        links: [
+          {
+            text: "online permitting page",
+            href: "https://www.newportbeachca.gov/government/departments/community-development/building-division/online-permitting-ipermit",
+          },
+        ],
+      },
+      {
+        q: "Where can an outdoor AC unit go on my Newport Beach property?",
+        a: "We confirm that with the City. We did not confirm the City's equipment placement, setback, or noise rules from the official code, so we do not state limits here, and AIRPRO SOLUTIONS checks the current rules and your property's layout with the City before choosing a location.",
+        boldLead: "We confirm that with the City.",
+      },
+      {
+        q: "Does the age of my Newport Beach home matter for HVAC?",
+        a: "Age is one factor we check. We did not find a verified citywide figure for the age of Newport Beach homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
+        boldLead: "Age is one factor we check.",
+      },
+      {
+        q: "Do you work on rental properties in Newport Beach?",
+        a: "Yes. QuickFacts reports a 52.1% owner-occupied housing unit rate for Newport Beach, so 47.9% of occupied homes are not owner-occupied. AIRPRO SOLUTIONS works with owners and property managers on access and approval before installation or replacement.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "QuickFacts",
+            href: "https://www.census.gov/quickfacts/newportbeachcitycalifornia",
+          },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Newport Beach?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Newport Beach, including rooftop units. The City describes Newport Center as high- and mid-rise office and residential buildings, hotels, and Fashion Island, so we plan rooftop access and equipment placement with the building owner or manager and confirm the permit path with the City before commercial work starts. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "Commercial HVAC page",
+            href: "/commercial-hvac/",
+          },
+        ],
+      },
+      {
+        q: "How do I check an HVAC contractor in Newport Beach?",
+        a: "Check the state license first. CSLB says a license number shown in an ad is not proof that the license is valid, so check its status on the CSLB site. AIRPRO SOLUTIONS' California license numbers are #1126691 and #50251 (C-20). Separately, the City's business license page says contractors based outside Newport Beach must also file a City application.",
+        boldLead: "Check the state license first.",
+        links: [
+          {
+            text: "CSLB site",
+            href: "https://www.cslb.ca.gov/consumers/hire_a_contractor/finding_the_right_contractor.aspx",
+          },
+          {
+            text: "business license page",
+            href: "https://www.newportbeachca.gov/i-am-a/business/business-license",
+          },
+        ],
+      },
+      {
+        q: "Which utility serves my Newport Beach address?",
+        a: "Your bill answers it. The City's Utilities Department page covers water and sewer service and names neither Southern California Edison nor Southern California Gas Company, so check your bill to see who supplies your electricity and gas.",
+        boldLead: "Your bill answers it.",
+        links: [
+          {
+            text: "Utilities Department page",
+            href: "https://www.newportbeachca.gov/government/departments/utilities",
+          },
+        ],
+      },
+      {
+        q: "Are there HVAC rebates for Newport Beach customers?",
+        a: "SoCalGas and SCE list programs. SoCalGas lists a rebate for ENERGY STAR certified furnaces, with funds first come, first served until December 31, 2026 or until they run out. SCE lists Golden State Rebates coupons for air conditioners and smart thermostats at participating retailers. Neither page names Newport Beach, terms and funding change, and we do not quote amounts, so check the current terms before you buy.",
+        boldLead: "SoCalGas and SCE list programs.",
+        links: [
+          {
+            text: "rebate for ENERGY STAR certified furnaces",
+            href: "https://www.socalgas.com/savings/rebates-and-incentives",
+          },
+          {
+            text: "Golden State Rebates coupons",
+            href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+          },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Newport Beach?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Newport Beach, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides",
+        links: [
+          {
+            text: "AC repair",
+            href: "/services/ac-repair/",
+          },
+          {
+            text: "AC installation and replacement",
+            href: "/services/ac-installation/",
+          },
+          {
+            text: "AC maintenance",
+            href: "/services/ac-maintenance/",
+          },
+          {
+            text: "heating repair",
+            href: "/services/heating-repair/",
+          },
+          {
+            text: "furnace installation and replacement",
+            href: "/services/furnace-installation/",
+          },
+          {
+            text: "heat pump services",
+            href: "/services/heat-pump-services/",
+          },
+          {
+            text: "ductless mini-splits",
+            href: "/services/ductless-mini-split/",
+          },
+          {
+            text: "ductwork",
+            href: "/services/ductwork/",
+          },
+          {
+            text: "indoor air quality",
+            href: "/services/indoor-air-quality/",
+          },
+          {
+            text: "emergency HVAC",
+            href: "/services/emergency-hvac/",
+          },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Newport Beach?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Newport Beach. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Newport Beach?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -7637,6 +8095,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'hawthorne' ? hawthorneOverrides
     : c.slug === 'carson' ? carsonOverrides
     : c.slug === 'santa-ana' ? santaAnaOverrides
+    : c.slug === 'newport-beach' ? newportBeachOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
