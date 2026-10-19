@@ -55,7 +55,7 @@ export const southBayHub = {
     eyebrow: 'Local knowledge',
     title: 'Beach cities to Carson: how the South Bay fits together',
     paragraphs: [
-      'The South Bay runs from the beach cities and El Segundo on the west and northwest to Carson on the southeast, and each part of it has a different mix of buildings and rules. The beach cities of Redondo Beach, Hermosa Beach, and Manhattan Beach sit west of the 405 and are reached from Pacific Coast Highway. Torrance and Hawthorne form the inland middle around the 405 corridor.',
+      'The South Bay runs from the beach cities and El Segundo on the west and northwest to Carson on the southeast, and each part of it has a different mix of buildings and rules. Torrance and Hawthorne form the inland middle around the 405 corridor.',
       'Carson is the southeast anchor, between Torrance and Long Beach, with direct access to the 110, 405, and 91. The city describes itself as about 16 miles south of Downtown Los Angeles. Cross-region driving commonly uses the 405, 110, 105, and 91, and actual travel time depends on traffic and the property’s location.',
       '**California’s Energy Code requirements can vary by a property’s physical location**, and the California Energy Commission provides an address-based climate-zone lookup. That is why we work from the property’s address, not from an assumption that the whole region behaves alike.',
     ],
@@ -129,7 +129,7 @@ export const southBayHub = {
     rows: [
       ['Torrance', 'Community Development, Building and Safety Division', 'Separate mechanical, electrical, and plumbing submittals, with zoning clearance required before permit application. All plan reviews and permit submittals are electronic as of January 5, 2026.'],
       ['Redondo Beach', 'Community Development, Building and Safety Division', 'The city’s code covers installation, alteration, repair, and replacement of heating and cooling systems, and permits must be obtained before work begins. Applications and inspections run through an electronic permit system.'],
-      ['Manhattan Beach', 'Community Development, Building and Safety', 'The city states permits are required for improvements to mechanical systems. Exterior equipment placement, architectural review, and noise conditions are confirmed with the city.'],
+      ['Manhattan Beach', 'Community Development, Building and Safety', 'Mechanical system work needs a permit, per the City\'s Mechanical Equipment Permit Requirements handout. Equipment placement and noise conditions are confirmed with the city.'],
       ['Hermosa Beach', 'Community Development, Building Safety Division', 'Separate building, mechanical, electrical, and plumbing applications. Beginning October 1, 2026, applications available through the city’s online portal are to be submitted online.'],
       ['El Segundo', 'Community Development, Building and Safety Division', 'The municipal code adopts the 2025 California Mechanical Code with local amendments, so amendments are checked before permit submittal.'],
       ['Gardena', 'Building & Safety Division', 'Lists New HVAC Permit and Forced Air Unit Permit among its over-the-counter permit types, and the in-person process requires completed CF1R forms.'],
@@ -151,7 +151,7 @@ export const southBayHub = {
         ['Torrance', 'Air conditioning and similar equipment may not raise noise at the property line of residential land by more than 5 decibels over ambient (Torrance Municipal Code 46.2.6). Mechanical equipment, ductwork, and plumbing lines must be screened in the applicable zoning context (91.38.4).'],
         ['Redondo Beach', 'Exterior noise limits depend on the receiving land use and the time of day, so there is no single citywide figure. In mixed-use projects, commercial equipment near residences may need acoustical and vibration controls.'],
         ['Carson', 'Chapter 5 of the municipal code adopts the Los Angeles County noise ordinance. In multifamily settings with shared walls or floors, equipment that transmits vibration may need vibration isolators, as determined by the Building Official.'],
-        ['Manhattan Beach, Hermosa Beach, El Segundo, Gardena, Hawthorne', 'We confirm zoning, screening, HOA or architectural approval, and noise conditions for the specific property before recommending where equipment goes.'],
+        ['Hermosa Beach, El Segundo, Gardena, Hawthorne', 'We confirm zoning, screening, HOA or architectural approval, and noise conditions for the specific property before recommending where equipment goes.'],
       ],
       note: "Based on each city's municipal code and planning materials. Code text and city procedures change, so current requirements are confirmed with the building department before permit submittal.",
     },
@@ -208,7 +208,7 @@ export const southBayHub = {
     items: [
       { name: 'Torrance', note: 'Office, retail, industrial, and condo settings, with a 290-acre industrial project area. Property-line noise and equipment screening rules apply.', href: '/service-areas/torrance/' },
       { name: 'Redondo Beach', note: 'Multiple-family zoning and a mixed-use overlay. Noise limits depend on the neighboring use. Clean Power Alliance supplies generation.', href: '/service-areas/redondo-beach/' },
-      { name: 'Manhattan Beach', note: 'Beach city with Clean Power Alliance generation. Mechanical work needs a permit, and exterior equipment placement is confirmed with the city.' },
+      { name: 'Manhattan Beach', note: 'Clean Power Alliance supplies generation. Mechanical system work needs a permit, and equipment placement is confirmed with the city.', href: '/service-areas/manhattan-beach/' },
       { name: 'Hermosa Beach', note: 'Beach city with separate mechanical applications, and online-only submittals beginning October 1, 2026.' },
       { name: 'El Segundo', note: 'Aerospace and deep-tech businesses, per the City’s economic-development site. The 2025 California Mechanical Code applies with local amendments.', href: '/service-areas/el-segundo/' },
       { name: 'Gardena', note: 'HVAC and forced-air unit permits are over-the-counter types and need CF1R forms.', href: '/service-areas/gardena/' },

@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica and inglewood have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood and manhattan-beach have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // TODO(copy): the closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale, Burbank, Santa Monica and Inglewood, because under 920px the card sits below the text. Several of these pages were client-approved,
+// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood and Manhattan Beach, because under 920px the card sits below the text. Several of these pages were client-approved,
 // so confirm the one-phrase change with the client.
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
@@ -5359,6 +5359,405 @@ const inglewoodOverrides: Partial<City> = {
   },
 };
 
+const manhattanBeachOverrides: Partial<City> = {
+  // TODO(data): add verified climate detail before treating this as a full local page.
+  neighborhoods: [], // neighborhood list held out: no official City source read, so no names are published
+  zips: [], // ZIP list held out: no official City or USPS list of Manhattan Beach ZIPs (see held out comment below)
+  page: {
+    metaDescription: "HVAC for Manhattan Beach homes and businesses, from AC repair to installation. Know the City's permit process and local housing. Licensed, 4.8-star rated.",
+    lede: "AIRPRO SOLUTIONS provides HVAC services across Manhattan Beach, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit process and mechanical equipment requirements in mind.",
+    heroCaption: { title: "Manhattan Beach, CA", text: "Local HVAC service across Manhattan Beach" },
+    heroProof: [
+      { icon: "shield", label: "Licensed, bonded & insured" },
+      { icon: "star", label: "4.8-star rated" },
+      { icon: "bolt", label: "24/7 emergency dispatch" },
+      { icon: "building", label: "Residential and commercial" },
+    ],
+    trustStats: [
+      { num: "4.8★", label: "Google rating, 40 reviews" },
+      { num: "C-20", label: "California licensed" },
+      { num: "24/7", label: "emergency dispatch" },
+      { num: "Same-day", label: "service typical" },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Manhattan Beach",
+      body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Manhattan Beach at a glance",
+      stats: [
+        {
+          num: "33,122",
+          label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "69.3%",
+          label: "of 15,059 housing units are single-family detached, and 16.3% are in buildings of 2 to 4 units (California Department of Finance E-5, 2018, per SCAG)",
+        },
+        {
+          num: "57.2%",
+          label: "of housing was built before 1970 (U.S. Census American Community Survey, 2017; Nielsen Co., per SCAG)",
+        },
+      ],
+      source: "Sources: U.S. Census Bureau QuickFacts and SCAG's 2019 Local Profile of Manhattan Beach.",
+    },
+    localTitle: "Manhattan Beach's permits, housing stock, and utility programs",
+    // Held out (no verified source): Noise code: the only HVAC noise figures found (a 55 dBA daytime and 50 dBA nighttime threshold, nighttime 10 p.m. to 7 a.m., cited as MBMC 5.48.160 and Table 6) come from a January 19, 2021 consultant memo attached to a hotel project staff report, not from the code text. The official Municipal Code location was not readable. Not published (user decision needed, see open-items). | ZIP card (90266 appears only as the City Community Development street address, 90267 only on third-party lists): no official City or USPS list of Manhattan Beach ZIPs. | Neighborhood names and any flat, hillside or coastal labels: no official City source read. | Climate, NOAA normals, heat-day counts, humidity, marine layer: no station verified for Manhattan Beach. | Neighboring cities (adjacency): no official source named them, so the nearby row claims none. | 2025 California Mechanical Code and local amendment Ordinances 25-0009 and 25-0010: the City current-building-codes page could not be read, and the research says its amendments heading reads 2022. Only the permits page notice (2025 California Building Codes in effect January 1, 2026) is on the page. | Whether any like-for-like replacement is exempt, the HVAC Replacement Plan for Ground Units and plan check submittal requirements (listed by title only, PDFs not read), duct testing, coastal review of an HVAC job: not stated. | Natural gas provider (SoCalGas): no service-territory page read. | South Coast AQMD jurisdiction page: would not load. | General Plan EIR wording that the City is largely built out (2003 document, not read here) and the Census Reporter 15,281 housing units figure (aggregator): not used. | Employers, shopping centers, schools, hospitals, industrial areas, HOA areas, historic-district rules, median year built: no source. | All rebate dollar amounts; federal Section 25C and 25D status; HEEHRA status; SoCalGas wildfire thermostat; SCE Smart Energy Program credit. | SoCalGas licensed-contractor and permit-closure conditions and SCE approved-contractor wording: kept off the page. | Competitor SERP table: never on the page.
+    // TODO(copy): client has not approved any Manhattan Beach wording (every FAQ answer, the four local paragraphs, both local cards, the permit, placement, utility, rebate and assistance sentences, the commercial sentence). Keep flagged until the user says the client approved.
+    // TODO(verify): Mechanical Equipment Permit Requirements handout (showpublisheddocument/39726) is undated, cites the 2022 California Building Standards Codes, and was read through a fetch summary. The permits page lists a handout titled Mechanical Equipment Requirements without a URL, so it is not confirmed to be the same file. Re-read the PDF directly and confirm which handout is current.
+    // TODO(verify): Municipal Code Sections 10.52.050, 10.60.050 and 10.60.090 are quoted only as the handout cites them. The official Municipal Code location (the City page labels a link View Manhattan Beach Municipal Code with no visible URL) was not read, and a publisher copy would not be the official code.
+    // TODO(verify): Apply-for page lists Building Permit and Construction Permits as online with no date, and does not mention mechanical or HVAC permits. The building-permit page (services/apply-for/building-permit) and current-building-codes page returned fetch errors.
+    // TODO(verify): SoCalGas terms come from the SoCalGas rebates page (no start date shown). The 2026 application PDF was not re-read for this page. SCE Energy Savings Assistance page shows income limits for June 1, 2026 to May 31, 2027.
+    // Pre-launch recheck: City permits-handouts-and-forms page, current-building-codes page, building-permit page, both HVAC handouts, Municipal Code Title 9 and Title 10 sections 10.52.050, 10.60.050, 10.60.090 and Chapter 5.48 (official code), inspection information page, Citizen Self Service, City electric utility and Clean Power Alliance pages, SCE community choice page, SoCalGas rebates page and 2026 application, SCE Energy Savings Assistance and rebate directory, SCAG profile, QuickFacts.
+    localParagraphs: [
+      "The City's Community Development Department publishes a Mechanical Equipment Permit Requirements handout that says **mechanical permits are required to install, alter, repair, replace, or remodel a mechanical system**. The handout shows no date and refers to the 2022 California Building Standards Codes, while the City's permits page says the 2025 California Building Codes took effect January 1, 2026, so **AIRPRO SOLUTIONS confirms the current requirements with the City** before work starts. The handout lists a site plan showing the equipment location and setbacks, and signed energy certificates (CF1R or NRCC). The City also posts an HVAC Replacement Plan for Ground Units handout, which we did not read, so we do not state what it requires. The City says Community Development accepts permit applications online. Inspections are requested through the City's Citizen Self Service portal by 3:00 p.m. on the business day before, and no work or inspections can take place until the permit has been approved and issued.",
+      "For outdoor equipment, the same handout cites Municipal Code Section 10.52.050, which says **mechanical equipment, platforms, and screening may not be located beyond the front building line or in the side yard setback or building separation yards**. It also cites Section 10.60.090 for screening from view on all sides, Section 10.60.050 for height limits, and a 30-inch working clear space in the California Mechanical Code. We read these through the City's handout, not the Municipal Code text, so we plan the equipment location around your property and confirm the current rules with the City. The City's Planning Division reviews proposals for compliance with the General Plan, Zoning Ordinance, and Local Coastal Program, and we did not find whether an HVAC replacement needs coastal review.",
+      "Manhattan Beach had an estimated 33,122 residents on July 1, 2025, and QuickFacts reports a 64.8% owner-occupied housing rate for 2020-2024. SCAG's 2019 Local Profile, using California Department of Finance E-5 data for 2018, counts **15,059 housing units: 69.3% single-family detached, 7.8% attached, 16.3% in buildings of 2 to 4 units, 6.5% in buildings of 5 or more, and 0.1% mobile homes**. The same profile reports that **57.2 percent of the housing stock was built before 1970**, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. Those figures are citywide and dated, so we confirm the equipment, roof or attic access, and ductwork at the property. In a multi-unit building we confirm equipment access and placement with the owner or manager, and for commercial work we plan rooftop access and equipment placement with the building owner or manager.",
+      "The City says Southern California Edison provides electric service in Manhattan Beach, and that Clean Power Alliance buys the electricity while SCE delivers it, so **SCE still handles delivery, billing, and service issues**. The City says customers can opt out of Clean Power Alliance. We did not confirm Manhattan Beach's natural gas provider from a service-territory page, so we ask which company serves the address before counting on a gas program. SoCalGas lists a 2026 rebate for ENERGY STAR furnaces in existing residential properties, with funding first come, first served until December 31, 2026 or until it runs out. SCE's Energy Savings Assistance program lists central AC or central heat pump replacement among its upgrades for income-qualified households, and says services may not be available in all areas and a co-payment may be required for some services. SCE's rebate directory lists Golden State Rebates coupons for air conditioners and smart thermostats at participating retailers, and Home Performance Plus for customers in disadvantaged or low-income communities, and we did not confirm whether a Manhattan Beach address qualifies. Terms and funding change, so we link the program pages rather than quote amounts, and **confirm your utility accounts on your bills before counting on a program**. Official links are in the card for this section.",
+    ],
+    localCards: [
+      {
+        heading: "Manhattan Beach permit path",
+        rows: [
+          { label: "Permit required", value: "To install, alter, repair, replace, or remodel a mechanical system" },
+          { label: "Application", value: "Submitted online through Community Development" },
+          { label: "Submittal items", value: "Site plan and signed energy certificates (CF1R or NRCC)" },
+          {
+            label: "Inspections",
+            value: "Request in the Citizen Self Service portal by 3:00 p.m. the business day before",
+          },
+          { label: "Before the permit", value: "No work or inspections until it is approved and issued" },
+        ],
+        note: "From the City's Mechanical Equipment Permit Requirements handout (shows no date, cites the 2022 codes), its apply-for page and its inspection page (no dates). We confirm current requirements with the City.",
+      },
+    ],
+    neighborhoodsHeading: "Official Manhattan Beach resources",
+    officialResources: [
+      {
+        text: "Permits, handouts and forms",
+        href: "https://www.manhattanbeach.gov/departments/community-development/building-and-safety/permits-handouts-and-forms",
+        note: "Handout list and the January 1, 2026 code notice.",
+      },
+      {
+        text: "Mechanical Equipment Permit Requirements",
+        href: "https://manhattanbeach.gov/home/showpublisheddocument/39726/638284064687370000",
+        note: "City handout cited on this page (PDF).",
+      },
+      {
+        text: "Apply for a permit",
+        href: "https://www.manhattanbeach.gov/services/apply-for",
+        note: "Online applications and Citizen Self Service.",
+      },
+      {
+        text: "Inspection information",
+        href: "https://www.manhattanbeach.gov/departments/community-development/building-and-safety/inspection-information",
+        note: "Portal, 3:00 p.m. cutoff and permit rule.",
+      },
+      {
+        text: "Planning and zoning",
+        href: "https://www.manhattanbeach.gov/departments/community-development/planning-zoning",
+        note: "Planning Division and Local Coastal Program review.",
+      },
+      {
+        text: "Electric utility services",
+        href: "https://www.manhattanbeach.gov/departments/public-works/utilities-division/electric-utility-services",
+        note: "City statement that SCE provides electric service.",
+      },
+      {
+        text: "Clean Power Alliance",
+        href: "https://manhattanbeach.gov/departments/environmental-sustainability/clean-power-alliance",
+        note: "City page on delivery, opt-out and rate options.",
+      },
+      {
+        text: "SoCalGas rebates",
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "ENERGY STAR furnace rebate and program period.",
+      },
+      {
+        text: "SCE Energy Savings Assistance",
+        href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+        note: "Income-qualified upgrades and eligibility.",
+      },
+      {
+        text: "SCAG Manhattan Beach local profile",
+        href: "https://sp.scag.ca.gov/sites/default/files/2024-05/manhattanbeach_localprofile.pdf",
+        note: "Housing counts and building age cited on this page.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/manhattanbeachcitycalifornia",
+        note: "Population and owner-occupied rate cited on this page.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Manhattan Beach homes and businesses",
+    serviceCards: [
+      {
+        slug: "ac-repair",
+        name: "AC Repair",
+        body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises in Manhattan Beach homes and businesses.",
+      },
+      {
+        slug: "ac-installation",
+        name: "AC Installation & Replacement",
+        body: "New system sizing and installation, planned around the City's mechanical permit requirements and equipment placement rules.",
+      },
+      {
+        slug: "ac-maintenance",
+        name: "AC Maintenance",
+        body: "Seasonal AC tune-ups that catch small issues early, for homes and for commercial rooftop and ground units.",
+      },
+      {
+        slug: "heating-repair",
+        name: "Heating Repair",
+        body: "Furnace and heating system diagnosis and repair for Manhattan Beach homes and businesses.",
+      },
+      {
+        slug: "furnace-installation",
+        name: "Furnace Installation & Replacement",
+        body: "Furnace sizing and installation, planned around the City's permit process. SoCalGas lists a furnace rebate with its own terms.",
+      },
+      {
+        slug: "heat-pump-services",
+        name: "Heat Pump Services",
+        body: "Heat pump installation, repair, and maintenance, with the City's permit process and your utilities' program pages in mind.",
+      },
+      {
+        slug: "ductless-mini-split",
+        name: "Ductless Mini-Split",
+        body: "Ductless systems for additions, converted spaces, and rooms the existing ducts do not reach.",
+      },
+      {
+        slug: "ductwork",
+        name: "Ductwork Services",
+        body: "Duct repair, sealing, and replacement for Manhattan Beach homes and buildings.",
+      },
+      {
+        slug: "indoor-air-quality",
+        name: "Indoor Air Quality",
+        body: "Filtration, ventilation, and air-quality upgrades for Manhattan Beach homes and offices.",
+      },
+      {
+        slug: "emergency-hvac",
+        name: "Emergency HVAC",
+        body: "24/7 emergency dispatch for no-cool and no-heat problems. If you smell gas, leave the building and call 911 or your gas utility.",
+      },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Manhattan Beach permits and incentive programs",
+      intro: "Official sources for three items worth checking before a Manhattan Beach HVAC project.",
+      cards: [
+        {
+          amount: "Permit requirements",
+          description: "The City's Mechanical Equipment Permit Requirements handout says mechanical permits are required to install, alter, repair, replace, or remodel a mechanical system. It shows no date and cites the 2022 codes, so we confirm current requirements with the City.",
+          linkLabel: "City handout",
+          linkHref: "https://manhattanbeach.gov/home/showpublisheddocument/39726/638284064687370000",
+        },
+        {
+          amount: "Furnace rebate",
+          description: "SoCalGas lists a 2026 rebate for ENERGY STAR furnaces in existing residential properties, with funding first come, first served until December 31, 2026 or until it runs out. We did not confirm Manhattan Beach's gas provider, and we do not quote amounts.",
+          linkLabel: "SoCalGas rebates",
+          linkHref: "https://www.socalgas.com/savings/rebates-and-incentives",
+        },
+        {
+          amount: "Income-qualified help",
+          description: "SCE's Energy Savings Assistance program lists central AC or central heat pump replacement among its upgrades for income-qualified households. It says services may not be available in all areas and a co-payment may be required for some services, so check eligibility with SCE.",
+          linkLabel: "SCE Energy Savings Assistance",
+          linkHref: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+        },
+      ],
+    },
+    nearby: ["redondo-beach", "el-segundo", "torrance", "gardena"],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Manhattan Beach",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        { num: "4.8★", label: "Google rating" },
+        { num: "40", label: "Google reviews" },
+        { num: "C-20", label: "California license class" },
+        { num: "24/7", label: "Emergency dispatch" },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Manhattan Beach. Same-day service is typical, subject to capacity.",
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Manhattan Beach?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Manhattan Beach as part of our South Bay coverage. The City's Community Development Department handles permits and inspections, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "South Bay coverage", href: "/service-areas/south-bay/" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Manhattan Beach home?",
+        a: "Same-day service is typical in Manhattan Beach, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Manhattan Beach, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an air conditioner in Manhattan Beach?",
+        a: "Plan on one. The City's Mechanical Equipment Permit Requirements handout says mechanical permits are required to install, alter, repair, replace, or remodel a mechanical system. The handout shows no date and cites the 2022 codes, and we did not find a City statement on whether any like-for-like replacement is exempt, so AIRPRO SOLUTIONS confirms the permit path with the City before work starts, and we do not quote permit fees.",
+        boldLead: "Plan on one.",
+        links: [
+          {
+            text: "Mechanical Equipment Permit Requirements handout",
+            href: "https://manhattanbeach.gov/home/showpublisheddocument/39726/638284064687370000",
+          },
+        ],
+      },
+      {
+        q: "What does the City ask for with a Manhattan Beach HVAC permit application?",
+        a: "Start with the City's online application process. The City says Community Development accepts permit applications online, and its handout lists a site plan showing the equipment location and setbacks and signed energy certificates (CF1R or NRCC). The City also posts an HVAC Replacement Plan for Ground Units handout that we did not read, so AIRPRO SOLUTIONS confirms what your job needs with the City.",
+        boldLead: "Start with the City's online application process.",
+        links: [
+          { text: "accepts permit applications online", href: "https://www.manhattanbeach.gov/services/apply-for" },
+          {
+            text: "HVAC Replacement Plan for Ground Units handout",
+            href: "https://www.manhattanbeach.gov/departments/community-development/building-and-safety/permits-handouts-and-forms",
+          },
+        ],
+      },
+      {
+        q: "How do inspections work in Manhattan Beach?",
+        a: "Inspections are requested through the City's Citizen Self Service portal. The City's inspection information page says requests must come in by 3:00 p.m. on the business day before the inspection, the requester must be an active contact listed on the permit, and no work or inspections can take place until the permit has been approved and issued.",
+        boldLead: "Inspections are requested through the City's Citizen Self Service portal.",
+        links: [
+          {
+            text: "inspection information page",
+            href: "https://www.manhattanbeach.gov/departments/community-development/building-and-safety/inspection-information",
+          },
+        ],
+      },
+      {
+        q: "Where can an outdoor AC unit go on my Manhattan Beach property?",
+        a: "Placement rules apply to outdoor equipment. The City's handout cites Municipal Code Section 10.52.050, which says mechanical equipment, platforms, and screening may not be located beyond the front building line or in the side yard setback or building separation yards, and Section 10.60.090 on screening from view on all sides. We read these through the handout, not the Municipal Code text, and the handout shows no date, so AIRPRO SOLUTIONS confirms the current rules and your property's layout with the City before choosing a location.",
+        boldLead: "Placement rules apply to outdoor equipment.",
+        links: [
+          { text: "handout", href: "https://manhattanbeach.gov/home/showpublisheddocument/39726/638284064687370000" },
+        ],
+      },
+      {
+        q: "Does the Local Coastal Program affect HVAC work in Manhattan Beach?",
+        a: "We did not find a City statement either way. The City's Planning Division reviews proposals for compliance with the General Plan, Zoning Ordinance, and Local Coastal Program. We did not find whether an HVAC replacement needs coastal review, so AIRPRO SOLUTIONS asks the City about your address before work starts.",
+        boldLead: "We did not find a City statement either way.",
+        links: [
+          {
+            text: "Planning Division",
+            href: "https://www.manhattanbeach.gov/departments/community-development/planning-zoning",
+          },
+        ],
+      },
+      {
+        q: "Does the age of my Manhattan Beach home matter for HVAC?",
+        a: "Age is one factor we check. SCAG's 2019 Local Profile reports that 57.2 percent of Manhattan Beach's housing stock was built before 1970, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. That is a citywide, dated figure, so we confirm the equipment, roof or attic access, and ductwork at your property.",
+        boldLead: "Age is one factor we check.",
+        links: [
+          {
+            text: "SCAG's 2019 Local Profile",
+            href: "https://sp.scag.ca.gov/sites/default/files/2024-05/manhattanbeach_localprofile.pdf",
+          },
+        ],
+      },
+      {
+        q: "What about HVAC in Manhattan Beach condos and apartment buildings?",
+        a: "Multi-unit buildings add access and placement questions. About 16.3% of Manhattan Beach's 15,059 housing units are in buildings of 2 to 4 units and 6.5% are in buildings of 5 or more, according to SCAG's 2019 Local Profile using California Department of Finance data for 2018, so we confirm equipment access and placement with the property owner or manager before installation or replacement.",
+        boldLead: "Multi-unit buildings add access and placement questions.",
+        links: [
+          {
+            text: "SCAG's 2019 Local Profile",
+            href: "https://sp.scag.ca.gov/sites/default/files/2024-05/manhattanbeach_localprofile.pdf",
+          },
+        ],
+      },
+      {
+        q: "Which utility serves my Manhattan Beach address?",
+        a: "Your bill answers it. The City says Southern California Edison provides electric service in Manhattan Beach, and that Clean Power Alliance buys the electricity while SCE delivers it. We did not confirm the natural gas provider from a service-territory page, so check your bill before counting on a gas program.",
+        boldLead: "Your bill answers it.",
+        links: [
+          {
+            text: "Southern California Edison",
+            href: "https://www.manhattanbeach.gov/departments/public-works/utilities-division/electric-utility-services",
+          },
+          {
+            text: "Clean Power Alliance",
+            href: "https://manhattanbeach.gov/departments/environmental-sustainability/clean-power-alliance",
+          },
+        ],
+      },
+      {
+        q: "Are there HVAC rebates for Manhattan Beach customers?",
+        a: "SoCalGas and SCE list programs. SoCalGas lists a rebate for ENERGY STAR furnaces in existing residential properties, with funding first come, first served until December 31, 2026 or until it runs out. SCE lists Golden State Rebates coupons for air conditioners and smart thermostats at participating retailers, and Home Performance Plus for customers in disadvantaged or low-income communities. We did not confirm the gas provider or whether a Manhattan Beach address qualifies for Home Performance Plus. Terms and funding change and we do not quote amounts, so check the current terms before you buy.",
+        boldLead: "SoCalGas and SCE list programs.",
+        links: [
+          { text: "rebate for ENERGY STAR furnaces", href: "https://www.socalgas.com/savings/rebates-and-incentives" },
+          {
+            text: "Golden State Rebates",
+            href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+          },
+          {
+            text: "Home Performance Plus",
+            href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace",
+          },
+        ],
+      },
+      {
+        q: "Is there HVAC help for income-qualified Manhattan Beach households?",
+        a: "Possibly, for income-qualified households. SCE's Energy Savings Assistance program lists central AC or central heat pump replacement among its upgrades, and says services may not be available in all areas, restrictions may apply, and a co-payment may be required for some services. Eligibility depends on household income and the property, so check with SCE before counting on it.",
+        boldLead: "Possibly, for income-qualified households.",
+        links: [
+          {
+            text: "Energy Savings Assistance program",
+            href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+          },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Manhattan Beach?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Manhattan Beach, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides",
+        links: [
+          { text: "AC repair", href: "/services/ac-repair/" },
+          { text: "AC installation and replacement", href: "/services/ac-installation/" },
+          { text: "AC maintenance", href: "/services/ac-maintenance/" },
+          { text: "heating repair", href: "/services/heating-repair/" },
+          { text: "furnace installation and replacement", href: "/services/furnace-installation/" },
+          { text: "heat pump services", href: "/services/heat-pump-services/" },
+          { text: "ductless mini-splits", href: "/services/ductless-mini-split/" },
+          { text: "ductwork", href: "/services/ductwork/" },
+          { text: "indoor air quality", href: "/services/indoor-air-quality/" },
+          { text: "emergency HVAC", href: "/services/emergency-hvac/" },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Manhattan Beach?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Manhattan Beach. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Manhattan Beach?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Manhattan Beach?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Manhattan Beach, including rooftop units. We confirm the permit path with the City before commercial work starts, and we plan rooftop access and equipment placement with the building owner or manager. The City posts separate plan check submittal requirements for multi-residential and commercial projects, and we did not confirm which HVAC jobs they apply to. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -5380,6 +5779,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'burbank' ? burbankOverrides
     : c.slug === 'santa-monica' ? santaMonicaOverrides
     : c.slug === 'inglewood' ? inglewoodOverrides
+    : c.slug === 'manhattan-beach' ? manhattanBeachOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;

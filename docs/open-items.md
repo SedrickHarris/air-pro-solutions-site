@@ -645,6 +645,47 @@ Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: 
 - Rancho Cucamonga: still only a noindex stub (flagged in Gate 0, not built here).
 - Carryovers still open: SCE "authorized service provider" client question (Santa Monica); Burbank BWP installer question.
 
+## /service-areas/manhattan-beach/ (manhattanBeachOverrides in src/content/cities.ts)
+
+Built 2026-10-19, committed locally on branch add-manhattan-beach-page (not pushed; user to choose push to main or PR). Reference artifact: claude/reference/manhattan-beach-location.html (https://claude.ai/artifact/CkeYGHgHd2pyzaqiaAsanR). Same single-data-source build as Glendale, Burbank, Santa Monica and Inglewood. Manhattan Beach was a wave 2 noindex stub before this.
+- Title: `cityTitle('Manhattan Beach')` ("HVAC Services in Manhattan Beach, CA | AIRPRO SOLUTIONS", 55 characters). H1 is `cityH1('Manhattan Beach')` (36 characters). Hand-written `page.metaDescription` is 154 characters and passes `assertDescription`.
+- TODO(copy): client has not approved any Manhattan Beach wording (every FAQ answer, the four local paragraphs, the local card, the permit, placement, utility, rebate and assistance sentences, the commercial sentence). Keep flagged until the user says the client approved.
+- DECISION `wave1` (user approved 2026-10-19, default kept): Manhattan Beach is wave 2, so its route is indexable by design (it has `page` content) and the hubs link it, but `sitemap.ts` lists only `wave1Cities.filter(page)`, so it is NOT in the sitemap. Not changed; the wave list is client-confirmed.
+- DECISION (user approved 2026-10-19): JSON-LD `containedInPlace` is "South Bay, CA", as the live route emits for every city, so the review artifact matches what ships. A sitewide change to "Los Angeles County, CA" would be a separate task.
+- DECISION (user approved 2026-10-19): the nearby row (Redondo Beach, El Segundo, Torrance, Gardena) is exempt from the "no other-city names" rule, which covers body copy and JSON-LD only. The page claims no adjacency.
+- Lead angle: the City's Mechanical Equipment Permit Requirements handout (showpublisheddocument/39726) first, then local housing (SCAG, QuickFacts) and utility programs. The handout is UNDATED and cites the 2022 California Building Standards Codes. The page says so and says we confirm current requirements with the City. Confirming it is the current handout is required before the page moves out of wave 2.
+- Beyond the Santa Monica, Burbank, Glendale and Inglewood structure: a Local Coastal Program FAQ and a commercial plan-check FAQ. The "Outdoor equipment placement" card was dropped to balance the local-knowledge band (card ends 21px short of the copy at 1280px).
+- Verified facts (accessed 2026-10-19): City permits-handouts-and-forms page (2025 California Building Codes in effect January 1, 2026, no page date); City inspection page (Citizen Self Service portal, 3:00 p.m. cutoff the business day before, no work or inspections until the permit is approved and issued); City CPA page (Clean Power Alliance generation) and electric page (SCE provides electric service); QuickFacts 33,122 residents (July 1, 2025); SCAG 2019 Local Profile 15,059 units, 69.3 percent single-family detached, 16.3 percent in 2 to 4 units, 57.2 percent built before 1970.
+- DECISION (default and chosen: link-only, no amounts): verified SoCalGas furnace rebate amounts, not published: 92 to 94% AFUE $1.40 per kBtuh, 95 to 96% $10 per kBtuh, 97% or higher $25 per kBtuh. SCE Energy Savings Assistance income limits (June 1, 2026 to May 31, 2027): $39,900 for one person, $54,100 for two, plus $14,200 per additional person; not published. Do not relabel SEER as SEER2.
+- DECISION (default and chosen: not on the page): federal Section 25C and 25D, HEEHRA, the SoCalGas wildfire-only $75 thermostat and the SCE $75 Smart Energy Program credit.
+- DECISION (default and chosen: held out): noise figures. The only HVAC noise numbers found (55 dBA daytime, 50 dBA nighttime, cited as MBMC 5.48.160 and Table 6) come from a January 19, 2021 consultant memo, not the code text. The official Municipal Code location was not readable.
+- DECISION (default and chosen: held out): ZIP card and neighborhoods. 90266 appears only as the Community Development street address and 90267 only on third-party lists. `zips: []`, `neighborhoods: []`. No "flat", "hillside" or "coastal" labels.
+- OPEN CLIENT QUESTIONS: (1) SCE Energy Savings Assistance says upgrades are delivered by SCE-approved contractors; ask whether Air Pro does that work. (2) The SoCalGas furnace form requires a licensed contractor and permit closure. Both conditions are kept off the page.
+- Held out (no verified source):
+  - 2025 California Mechanical Code and local amendment Ordinances 25-0009 and 25-0010: the current-building-codes page could not be read, and its amendments heading reads 2022 per the research. Only the permits-page notice is on the page.
+  - Whether any like-for-like replacement is exempt, the HVAC Replacement Plan for Ground Units and plan check submittal requirements (titles only, PDFs not read), duct testing, coastal review of an HVAC job.
+  - Natural gas provider (SoCalGas): no service-territory page read.
+  - South Coast AQMD jurisdiction page: would not load.
+  - Climate, NOAA normals, heat-day counts, humidity, marine layer: no station verified.
+  - Neighboring cities (adjacency), employers, schools, hospitals, HOA areas, historic-district rules, median year built.
+  - General Plan EIR "largely built out" wording (2003, not read) and the Census Reporter 15,281 units figure (aggregator).
+  - Competitor SERP table: never on the page.
+- Corrected research overstatements:
+  - The Building and Safety page as read covers only construction and demolition waste. It has no mechanical-permit sentence, code list or Title 9 mention.
+  - The research put the CPA statement on the electric-utility page. It is on the environmental-sustainability CPA page; the electric page says only that SCE provides electric service.
+  - The zoning page as read has no Titles 7/10 warning or ordinance dates.
+  - Ordinances 25-0009 and 25-0010 sit under a heading reading 2022, so they are unverified.
+  - SCE ESA "free" wording dropped: the page says a co-payment may be required. The "combining incentives" clause was dropped as unverified.
+  - The water-heater research was out of scope for this HVAC page.
+- Official Municipal Code: any copy on ecode360, American Legal, nonoise.org, Municode mirrors or GoCodebook is a publisher copy, not the official code. A General Plan table is not a Municipal Code limit.
+- Still needs pasted pages from the user: current-building-codes page, building-permit page (services/apply-for/building-permit), both HVAC handout PDFs (HVAC Replacement Plan for Ground Units; Mechanical Equipment Requirements), plan check submittal PDFs, official Municipal Code text (Title 9; 10.52.050, 10.60.050, 10.60.090; Chapter 5.48) and its location, AQMD jurisdiction page, SoCalGas service-territory confirmation, USPS or City ZIP list, the zoning page's Titles 7/10 note.
+- Pre-launch recheck: City permits-handouts-and-forms page, current-building-codes page, building-permit page, both HVAC handouts, Municipal Code Title 9 and Title 10 sections 10.52.050, 10.60.050, 10.60.090 and Chapter 5.48 (official code), inspection information page, Citizen Self Service, City electric utility and CPA pages, SCE community choice page, SoCalGas rebates page and 2026 application, SCE Energy Savings Assistance and rebate directory, SCAG profile, QuickFacts.
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list. Do not strengthen it.
+- Hub wiring done with this page: South Bay Manhattan Beach card now links /service-areas/manhattan-beach/; its note dropped "Beach city"; the permits row was reworded to the handout (mechanical system work needs a permit); the unverified "west of the 405, reached from Pacific Coast Highway" sentence was removed; Manhattan Beach was taken out of the shared noise row; the /service-areas/ chip condition and `hubCityIndexNote` list it; the South Bay "city pages are coming" sentence now links the Manhattan Beach page. The "Beach cities" group label is unchanged. Other pages that reach Manhattan Beach: the Torrance city page and the AC Repair x Torrance page via `nearby`; commercial-hvac.ts mentions it as text only. No LA County hub mention.
+- Rancho Cucamonga: still only a noindex stub, not built here. Hermosa Beach has no page.
+- Carryovers still open: SCE "authorized service provider" client question (Santa Monica and Inglewood: does Air Pro qualify for the Smart Energy Program, and do Energy Savings Assistance work); Burbank BWP installer question; client approval of all new city copy.
+
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
 - Hermosa Beach: permit applications become online-only through the city's portal starting
