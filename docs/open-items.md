@@ -812,7 +812,7 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference artifact
 
 ## /service-areas/carson/ (carsonOverrides in src/content/cities.ts)
 
-Built 2026-10-19, committed on branch add-carson-page. Reference: claude/reference/carson-location.html (review artifact: https://claude.ai/artifact/WrWhDD91JRhVFBrz5rjaji). Same single-data-source build as the other South Bay city pages. Carson was a wave 2 noindex stub before this.
+Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/reference/carson-location.html (review artifact: https://claude.ai/artifact/WrWhDD91JRhVFBrz5rjaji). Same single-data-source build as the other South Bay city pages. Carson was a wave 2 noindex stub before this.
 - Title: `cityTitle('Carson')` ("HVAC Services in Carson, CA | AIRPRO SOLUTIONS", 46 characters). H1 is `cityH1('Carson')` (27 characters). Hand-written `page.metaDescription` is 154 characters and passes `assertDescription`; it claims only "Licensed" and "4.8-star rated".
 - Copy approval: the client approved the Carson page copy on 2026-10-19 (reported by the user). The TODO(copy) flag is removed.
 - DECISION `wave1` (default kept): Carson is wave 2. The wave only means launch priority now; `sitemap.ts` lists built pages, so Carson enters the sitemap automatically. `sitemap.ts` and the `wave1` Set were not edited.
