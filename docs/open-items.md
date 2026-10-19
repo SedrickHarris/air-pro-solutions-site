@@ -501,9 +501,8 @@ Fourth Inland Empire wave-1 city page in this repo. Generated from one data sour
 - Title: `cityTitle('Rancho Cucamonga')` ("HVAC Services in Rancho Cucamonga, CA | AIRPRO SOLUTIONS", 56 characters) needs no `distinctTitle`.
   H1 is `cityH1('Rancho Cucamonga')` (37 characters). The meta description is the hand-written `page.metaDescription`
   (152 characters, validated by `assertDescription`).
-- TODO(copy): the client has NOT approved any Rancho Cucamonga wording (every FAQ answer, the five local paragraphs, the noise
-  sentences, the Title 24 sentences, the RCMU sentences, the commercial sentence, the incentive wording, and both local cards).
-  Keep flagged until the user says the client approved.
+- Client approved the Rancho Cucamonga copy on 2026-10-19 (per the user), so the blanket TODO(copy) flags were removed. Items that still need
+  checking against the City or the source are flagged TODO(verify).
 - TODO(verify): confirm with the City which permit path each HVAC job needs (permitting questions (909) 488-4668, call or text) and
   whether AIRPRO SOLUTIONS needs a City business license (not found on the City pages read).
 - TODO(verify): noise text is from a THIRD-PARTY copy of Development Code Section 17.66.050 on GoCodebook (labeled 2026-10 edition,
@@ -550,7 +549,7 @@ Fourth Inland Empire wave-1 city page in this repo. Generated from one data sour
   buildings; permits row and note now say every permit goes through the Online Permit Center, with the guide's no plan check
   mention hedged; utilities list, note, copy bullet and FAQ now name RCMU; commercial wording now follows RCMU's Victoria Gardens
   statement instead of "industrial employment areas and retail"; header TODO(verify) comments narrowed to the other cities.
-- Hero photo is still "Photo pending".
+- Hero photo is still "Photo pending"; the client will supply hero images later.
 - Claim wording follows the approved list. Do not strengthen it.
 
 ## /service-areas/glendale/ (glendaleOverrides in src/content/cities.ts)

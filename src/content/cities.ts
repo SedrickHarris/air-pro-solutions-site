@@ -6302,10 +6302,9 @@ const ranchoCucamongaOverrides: Partial<City> = {
     },
     localTitle: "Rancho Cucamonga's online permits, utilities, and noise limits",
     // Held out (no verified source): ZIP card (the research's 91701, 91730, 91737 and 91739 came from a third-party real-estate guide; the City pages read show only 91730 in the City Hall address); neighborhood pills and the nearby row (Alta Loma, Etiwanda, Terra Vista, Victoria, Caryn and Red Hill came from a third-party guide and the City General Plan would not load); climate, NOAA and heat figures (the timeanddate airport-station normals are third-party and not city data); HVAC self-certification inspection by photo or video (a March 2020 pandemic-era document that says interiors of existing single-family homes are not inspected at this time, with no evidence it is still in effect); dollar fee amounts (the research's 332, 50 and 395 figures are from the FY 2025-26 schedule, were mislabeled and are superseded; pairing in the newer schedule is not verifiable); RCMU and SoCalGas rebate amounts; the SCE Summer Discount Plan, Energy Savings Assistance, TECH Clean California and annual-credit claims (not read this session); city-specific condenser setbacks, screening rules, historic and HOA rules; named industrial areas, employers and employee counts; Municipal Code landing-page currency claims (through Ordinance 1029); official ecode360 noise text (only the table of contents loaded); the City At a Glance PDF figures (173,134 residents, Retail Coach source, conflicts with QuickFacts); competitor SERP table (gap analysis only).
-    // TODO(copy): client has not approved any Rancho Cucamonga wording (every FAQ answer, the five local paragraphs, the noise sentences, the Title 24 sentences, the RCMU sentences, the commercial sentence, the incentive wording). Keep flagged until the user says the client approved.
-    // TODO(copy): confirm with the City which permit path each HVAC job needs (permitting questions (909) 488-4668, call or text) and whether AIRPRO SOLUTIONS needs a City business license (not found on the City pages read).
-    // TODO(copy): noise text is from a THIRD-PARTY copy of Development Code Section 17.66.050 on GoCodebook (labeled 2026-10 edition, as of 2026-10-04, says it is not a substitute for the official code). Recheck against the official ecode360 text before publishing any limit.
-    // TODO(copy): Title 24 sentences are general because the Energy Commission HVAC page was permission-blocked this session. Recheck the page before adding leakage limits or the climate-zone list.
+    // TODO(verify): confirm with the City which permit path each HVAC job needs (permitting questions (909) 488-4668, call or text) and whether AIRPRO SOLUTIONS needs a City business license (not found on the City pages read).
+    // TODO(verify): noise text is from a THIRD-PARTY copy of Development Code Section 17.66.050 on GoCodebook (labeled 2026-10 edition, as of 2026-10-04, says it is not a substitute for the official code). Recheck against the official ecode360 text before publishing any limit.
+    // TODO(verify): Title 24 sentences are general because the Energy Commission HVAC page was permission-blocked this session. Recheck the page before adding leakage limits or the climate-zone list.
     // Pre-launch recheck: Building & Safety page, Online Permit Center guide (undated), Applicable Codes (undated), Ordinance 1048 and its Chapter 15.16, Community Development fee schedule (file name says eff 1-1-26, content says FY 2026-27), RCMU pages and rebate forms, SCE and SoCalGas rebate pages, GoCodebook vs official ecode360 Section 17.66.050, Energy Commission HVAC page, SCAG housing PDF, QuickFacts, economic development page, zoning viewer.
     localParagraphs: [
       "Rancho Cucamonga's Building & Safety page says all permits are applied for online and that the City does not issue permits over the counter, and it lists (909) 488-4668 for permitting questions by call or text. Applications can also be started at kiosks at City Hall, 10500 Civic Center Drive. The City's Online Permit Center guide, an older undated document, lists condenser, forced air unit, and HVAC replacement-only work among the **no plan check permits that can be processed and issued online**, including payment, and the City's fee schedule lists HVAC system and package or split system fee items. We did not find a current City page that states which HVAC jobs need a permit, so **AIRPRO SOLUTIONS confirms the permit path with the City** before work starts.",
@@ -6372,7 +6371,7 @@ const ranchoCucamongaOverrides: Partial<City> = {
         note: "Population and owner-occupied rate.",
       },
     ],
-    // TODO(copy): the local cards below restate figures already in the local paragraphs; client has not approved them.
+    // The local cards below restate figures already in the local paragraphs.
     localCards: [
       {
         heading: "Rancho Cucamonga housing snapshot",
@@ -6413,7 +6412,7 @@ const ranchoCucamongaOverrides: Partial<City> = {
       title: "Rancho Cucamonga permits, electric utilities, and incentive programs",
       intro: "Official sources for three local items worth checking before a Rancho Cucamonga HVAC project.",
       cards: [
-        // TODO(copy): incentive wording not yet client-approved. No dollar amounts on purpose; recheck links before launch.
+        // No dollar amounts on purpose; recheck links before launch.
         {
           amount: "Online permits",
           description: "Rancho Cucamonga does not issue permits over the counter, and applications go through the City's Online Permit Center. The City's guide lists condenser, forced air unit, and HVAC replacement-only work among the no plan check permits, but it is an older undated document, so confirm your job with the City.",
@@ -6446,7 +6445,6 @@ const ranchoCucamongaOverrides: Partial<City> = {
       ],
     },
     finalCtaBody: "Call or request service online to schedule a visit anywhere in Rancho Cucamonga. Same-day service is typical, subject to capacity.",
-    // TODO(copy): client has not confirmed any FAQ answer below.
     faqs: [
       {
         q: "Does AIRPRO SOLUTIONS service all of Rancho Cucamonga?",
