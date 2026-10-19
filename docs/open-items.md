@@ -978,7 +978,7 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
 
 ## /service-areas/chino/ (chinoOverrides in src/content/cities.ts)
 
-Built 2026-10-19 and committed locally on branch add-chino-page (not pushed yet). Reference: claude/reference/chino-location.html (review artifact: https://claude.ai/artifact/Po8eynS4o3ut3xzi6nYGjj). Same single-data-source build as Santa Ana, Newport Beach, Fullerton and Tustin. Chino was a wave 2 noindex stub before this.
+Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/reference/chino-location.html (review artifact: https://claude.ai/artifact/Po8eynS4o3ut3xzi6nYGjj). Same single-data-source build as Santa Ana, Newport Beach, Fullerton and Tustin. Chino was a wave 2 noindex stub before this.
 - Title: `cityTitle('Chino')` ("HVAC Services in Chino, CA | AIRPRO SOLUTIONS", 44 characters). H1 is `cityH1('Chino')`. Hand-written `page.metaDescription` is 146 characters and passes `assertDescription`; it claims only "Licensed" and "4.8-star rated". The literal phrase "hvac chino" is not used. 14 FAQs.
 - Copy approval: the client approved the Chino page copy on 2026-10-19 (per the user).
 - DECISION `wave1` (default kept): Chino is wave 2; `sitemap.ts` lists built pages, so it enters the sitemap automatically. `sitemap.ts` and the `wave1` Set were not edited.
