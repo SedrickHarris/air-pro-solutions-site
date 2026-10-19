@@ -836,7 +836,7 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
 
 ## /service-areas/santa-ana/ (santaAnaOverrides in src/content/cities.ts)
 
-Built 2026-10-19 on branch add-santa-ana-page (committed locally, not pushed yet). Reference: claude/reference/santa-ana-location.html (review artifact: https://claude.ai/artifact/GRA5wY1Q31EWa2RP8ypYqg). Same single-data-source build as Carson and Hawthorne. Santa Ana was a wave 2 noindex stub before this.
+Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/reference/santa-ana-location.html (review artifact: https://claude.ai/artifact/GRA5wY1Q31EWa2RP8ypYqg). Same single-data-source build as Carson and Hawthorne. Santa Ana was a wave 2 noindex stub before this.
 - Title: `cityTitle('Santa Ana')` ("HVAC Services in Santa Ana, CA | AIRPRO SOLUTIONS", 49 characters). H1 is `cityH1('Santa Ana')` (30 characters). Hand-written `page.metaDescription` is 160 characters and passes `assertDescription`; it claims only "Licensed" and "4.8-star rated". The literal phrase "hvac santa ana" is not used; "Santa Ana" appears once each in the title, description, H1 and lede, as on Carson.
 - Copy approval: the client approved the Santa Ana page copy on 2026-10-19 (reported by the user). The TODO(copy) flag was removed.
 - DECISION `wave1` (default kept): Santa Ana is wave 2; `sitemap.ts` lists built pages, so it enters the sitemap automatically. `sitemap.ts` and the `wave1` Set were not edited.
