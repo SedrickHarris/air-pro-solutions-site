@@ -777,6 +777,39 @@ Built 2026-10-19, pushed to main (user said the page should be pushed; read as p
 - Rancho Cucamonga: still only a noindex stub, not built here.
 - Carryovers still open: SCE "authorized service provider" client question (Santa Monica and Inglewood: does Air Pro qualify for the Smart Energy Program, and do Energy Savings Assistance work); Burbank BWP installer question; client approval of all city page copy was received 2026-10-19.
 
+## /service-areas/hawthorne/ (hawthorneOverrides in src/content/cities.ts)
+
+Built 2026-10-19 on branch add-hawthorne-page, committed locally and not yet pushed. Reference artifact: claude/reference/hawthorne-location.html (https://claude.ai/artifact/42N8pij3URqekXmvWEKhty). Same single-data-source build as the other South Bay city pages. Hawthorne was a wave 2 noindex stub before this.
+- Title: `cityTitle('Hawthorne')` ("HVAC Services in Hawthorne, CA | AIRPRO SOLUTIONS", 49 characters). H1 is `cityH1('Hawthorne')` (30 characters). Hand-written `page.metaDescription` is 150 characters and passes `assertDescription`.
+- Copy approval: the client approved the Hawthorne page copy on 2026-10-19 (reported by the user). The TODO(copy) flag is removed. The TODO(verify) items and the held-out facts below still stand.
+- DECISION `wave1` (default kept): Hawthorne is wave 2. The wave only means launch priority now; `sitemap.ts` lists built pages, so Hawthorne enters the sitemap automatically. `sitemap.ts` and the `wave1` Set were not edited.
+- DECISION (user approved 2026-10-19): JSON-LD `containedInPlace` is "South Bay, CA" and `areaServed` is City "Hawthorne". The nearby row (Torrance, El Segundo, Gardena, Redondo Beach) is exempt from the "no other-city names" rule and the page claims no adjacency.
+- Lead angle: the City Inspections page (Citizen Self Service scheduling), the Building & Safety Requirements page (new business location inspection), housing from SCAG's April 2021 Pre-Certified Local Housing Data (30,634 units, 52.5% in buildings of 5 or more units, 24.7% built 1950 to 1959) and Census QuickFacts (direct read: 82,741 residents on 2025-07-01, 27.2% owner-occupied, 2020 to 2024).
+- Clean Power Alliance: stated on the page from CPA's own site (member community since 2019). The City resident directory lists SCE and SoCalGas only. Added to the South Bay hub CPA lines with the user's approval on 2026-10-19.
+- DECISION (default and chosen: link-only, no amounts): verified amounts, not published. SoCalGas 2026 furnace rebate $1.40 per kBtuh (92 to 94% AFUE), $10 (95 to 96%), $25 (97% or higher), limit one per household, application postmarked by 2026-12-31. SCE Energy Savings Assistance is no cost to income-qualified customers. Golden State Rebates and Home Performance Plus are listed by SCE with no verified individual amounts. GO ZERO Phase 2 single-family amounts ($500 to $1,000, or $1,000 to $2,000 in overburdened communities) were announced 2026-10-02, but applications are paused. CPA Instant AC ($300 for CARE or FERA customers) is planned for December 2026 and not open. Do not publish these without a decision.
+- DECISION (default and chosen: not on the page): federal Section 25C and 25D, HEEHRA (single-family funding fully reserved, status notice dated 2026-02-24), the SoCalGas $75 thermostat (the 2026 application does not list ZIPs 90250 or 90251) and the SCE $75 Smart Energy Program credit.
+- DECISION (default and chosen: held out): ZIP card and neighborhoods. 90250 and 90251 appear only in a California Volunteers county table, which is not a City or USPS source. `zips: []`, `neighborhoods: []`. No "flat", "hillside", "coastal" or climate labels.
+- DECISION: the SCAG estimate years (E-5 year, ACS 2014 to 2018) were removed from the visible copy because they were read through a fetch summary and the E-5 year is not stated. Add them back after re-reading the PDF.
+- OPEN CLIENT QUESTIONS: (1) SCE Energy Savings Assistance says upgrades are delivered by approved contractors; ask whether Air Pro does that work. (2) The SoCalGas furnace rebate requires licensed-contractor installation and permit closure. Both conditions are kept off the page.
+- Held out (no verified source):
+  - Noise limits, the equipment setback and the vibration rule. The Zoneomics text was not on the page fetched, and Zoneomics is a publisher copy, not the official code.
+  - Any statement that an HVAC permit is required, plus permit and application details and the code edition. The page says we did not find a City statement either way and that we confirm with the City.
+  - City About page facts (population of nearly 87,000, six square miles, freeways, LAX, 1922) and Zoning page facts (Planning phone and email, Century Business Center, Green Line): both pages would not load, and the population conflicts with QuickFacts.
+  - Neighbors and adjacency (Wikipedia only), climate and NOAA normals, median year built (1972 is a third-party figure), SpaceX and other employers, HOA and historic-district facts.
+  - Water providers, SCE time-of-use rates and SCE or SoCalGas new-service steps (pasted research only), LADWP rebates (the City lists SCE).
+  - Competitor SERP table: never on the page.
+- Corrected research overstatements:
+  - The mechanical-permit and 24-hour call claim was commercial new business inspection content, not HVAC.
+  - "Nearly 87,000" residents could not be verified and conflicts with QuickFacts 82,741.
+  - The SoCalGas "bill-insert PDF" is a web page, and CPA's default product (100% Green Power) is not stated by CPA's page.
+- Still needs pasted pages from the user: the City About, Zoning and main Building & Safety department pages, the Citizen Self Service user guide, the official Municipal Code text on noise and equipment placement (no official location found), any City or USPS ZIP list, the SCAG PDF hawthorne-he-0421.pdf, and a re-read of the Inspections page for office hours and any HVAC content.
+- Pre-launch recheck: City Inspections page, Building & Safety Requirements page, Citizen Self Service, resident resources page, CPA member list, SoCalGas furnace rebate and 2026 application, SCE Energy Savings Assistance and rebate directory, SCAG housing data, QuickFacts.
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list. Do not strengthen it.
+- Hub wiring done with this page: the South Bay Hawthorne card links /service-areas/hawthorne/, the permits row was reworded, Hawthorne was taken out of the shared equipment-placement row and added to the Clean Power Alliance lines, the /service-areas/ chip, `hubCityIndexNote` and the South Bay city-page sentence include Hawthorne. commercial-hvac.ts and the Los Angeles County hub do not mention Hawthorne.
+- Rancho Cucamonga is already built on main (HEAD b1219f9, three commits past da0171d), contradicting the handoff.
+- Carryovers still open: SCE "authorized service provider" client question (Santa Monica and Inglewood); Burbank BWP installer question; Hermosa Beach 2022 vs 2025 code-edition conflict and its pending pastes.
+
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
 - Hermosa Beach: the "online-only starting 2026-10-01" claim was removed from the hub (no source on the City applications or online access pages). The hub permits row now follows the verified applications wording. See the Hermosa Beach section above.
@@ -792,8 +825,8 @@ Built 2026-10-19, pushed to main (user said the page should be pushed; read as p
 - Gardena: hub permit row names the Building & Safety Division (City's Schedule An Appointment page, 2026-08-05). Industrial, 405-corridor and 90248 wording was removed because no source supports it. See the Gardena section above. The 90250 sentence in the ZIP FAQ still needs a source.
 - Carson and Redondo Beach noise limits: deliberately left without dBA figures (medium-confidence
   planning-document sourcing for Carson). Do not add specific numbers without a stronger source.
-- Clean Power Alliance generation: confirmed for Redondo Beach, Manhattan Beach, Hermosa Beach (City CPA page) and Carson.
-  Do not add Hawthorne without a source.
+- Clean Power Alliance generation: confirmed for Redondo Beach, Manhattan Beach, Hermosa Beach (City CPA page), Carson and Hawthorne (Clean Power Alliance's own site lists Hawthorne as a member community since 2019; user approved adding it to the hub lines 2026-10-19). The Hawthorne City page lists SCE and SoCalGas only, so re-check that the City resident directory and CPA agree.
+- Hawthorne: the permits row now says residential inspections are scheduled in the Citizen Self Service portal (the old 24-hour, 9am-5pm wording was the new business location inspection, not HVAC). The card now links /service-areas/hawthorne/ and the unsourced Century Business Center and Green Line note was removed. Hawthorne was taken out of the shared El Segundo/Gardena equipment-placement row. Still unsourced and left alone: line 58 "Torrance and Hawthorne form the inland middle around the 405 corridor" and the ZIP FAQ sentence "ZIP 90250 includes Hawthorne and unincorporated communities". See the Hawthorne section above.
 - Housing age, attic/foundation/duct condition, and population figures were intentionally left off
   the South Bay hub. Do not add them without a source.
 

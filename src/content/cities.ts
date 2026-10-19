@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach and rancho-cucamonga have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga and hawthorne have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // The closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach and Hermosa Beach, because under 920px the card sits below the text. The client approved all city page copy on 2026-10-19 (per the user).
+// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. The client approved all city page copy on 2026-10-19 (per the user).
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
 // building that city page or its matrix pages. Never invent it.
@@ -6609,6 +6609,359 @@ const ranchoCucamongaOverrides: Partial<City> = {
   },
 };
 
+const hawthorneOverrides: Partial<City> = {
+  // TODO(data): add verified climate detail before treating this as a full local page.
+  neighborhoods: [], // neighborhood list held out: no official City source read, so no names are published
+  zips: [], // ZIP list held out: no official City or USPS list of Hawthorne ZIPs (see held out comment below)
+  page: {
+    metaDescription: "HVAC for Hawthorne homes and businesses, from AC repair to installation. Know the City's inspection steps and local housing. Licensed, 4.8-star rated.",
+    lede: "AIRPRO SOLUTIONS provides HVAC services across Hawthorne, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's inspection process and local housing in mind.",
+    heroCaption: { title: "Hawthorne, CA", text: "Local HVAC service across Hawthorne" },
+    heroProof: [
+      { icon: "shield", label: "Licensed, bonded & insured" },
+      { icon: "star", label: "4.8-star rated" },
+      { icon: "bolt", label: "24/7 emergency dispatch" },
+      { icon: "building", label: "Residential and commercial" },
+    ],
+    trustStats: [
+      { num: "4.8★", label: "Google rating, 40 reviews" },
+      { num: "C-20", label: "California licensed" },
+      { num: "24/7", label: "emergency dispatch" },
+      { num: "Same-day", label: "service typical" },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Hawthorne",
+      body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Hawthorne at a glance",
+      stats: [
+        {
+          num: "82,741",
+          label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "52.5%",
+          label: "of 30,634 housing units are in buildings of 5 or more units, and 29.4% are single-family detached (California Department of Finance E-5, per SCAG)",
+        },
+        {
+          num: "27.2%",
+          label: "owner-occupied housing unit rate, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+        },
+      ],
+      source: "Sources: U.S. Census Bureau QuickFacts and SCAG's April 2021 Pre-Certified Local Housing Data for Hawthorne.",
+    },
+    localTitle: "Hawthorne's inspections, housing stock, and utility programs",
+    // Held out (no verified source): Noise figures (5 dB over ambient, 50 dBA and 60 dBA) and the 20 foot setback and vibration isolation rules: the pasted research cited zoneomics.com chapter 13. The page as fetched shows only Chapter 17.05j, the billboard overlay (Ord. 2263, 6/23/2026), with no noise text, so the research's 2026-06-23 date belongs to the billboard chapter. Zoneomics is a publisher copy, not the official code. The official Municipal Code location was not found (search returned only a GoCodebook publisher copy). Not published. | Whether replacing an AC or furnace needs a permit, the permit application, plan check, fees and code edition: the City Building & Safety department page would not load here, and the pages that did load do not address HVAC permits. The page says we confirm with the City. | The research claim that HVAC and mechanical permits are handled through Building and Safety with inspection requests by phone 24 hours ahead: the Building & Safety Requirements page is about new business location code compliance inspections, and the Inspections page schedules through Citizen Self Service. Corrected. | City About page (population nearly 87,000, about six square miles, LAX and the I-405, I-110 and I-105 corridors, South Bay subregion, incorporation 1922) and Zoning page (Planning phone and email, zoning pattern, the Century Business Center and Green Line planning areas on the existing hub card): both pages would not load. Not on the page. | ZIP card (90250 and 90251): the only source read is a California Volunteers county-lookup table, a state program page read partially, not an official City or USPS list. ZIPs and neighborhoods held out. The fisherrealestate.com neighborhood list is a realtor page. | Neighboring cities and adjacency, flat, hillside, coastal or beach city labels: Wikipedia only, so the nearby row claims no adjacency. | Climate, NOAA normals, heat-day counts, humidity, marine layer, heat island: no station verified. | Median year built (1972 is a third-party figure), housing by neighborhood, commercial share of building stock: no Census table was readable. The SCAG document is used for housing instead. | SpaceX and other employers, shopping centers, hospitals, schools, industrial areas, HOA areas, historic-district rules: no source. | Water providers (Golden State Water, California Water Service) and the City water transition notice: not HVAC, address-level coverage not established. | SCE time-of-use plans including TOU-D-PRIME and SCE power-request or SoCalGas Builder Services application steps: pasted research only, not read, SCE-wide rather than Hawthorne-specific. Not published. | LADWP rebates (up to 120 per ton and the GO ZERO mention): the City lists SCE, not LADWP, so LADWP programs are off the page. | All rebate dollar amounts; federal Section 25C and 25D status; HEEHRA; SoCalGas wildfire thermostat (the 2026 application does not list 90250 or 90251); SCE Smart Energy Program credit; South Coast AQMD GO ZERO (applications paused, October 2, 2026 Phase 2 notice); Clean Power Alliance Instant AC (planned, not open). | SoCalGas licensed-contractor and permit-closure conditions and SCE approved-contractor wording: kept off the page. | Competitor SERP table: never on the page.
+    // Copy approval: the user confirmed on 2026-10-19 that the client approves the Hawthorne page copy. The estimate years for the SCAG figures were removed from the visible copy until the PDF is re-read.
+    // TODO(verify): The City Inspections page (departments/building-safety/request-for-inspection-form) was read through a fetch summary and shows no date. It appears to be only the Inspections section: no office hours, no forms, nothing on mechanical or HVAC inspections. The summary also said callers must phone before 9 a.m. on the inspection date to get a time slot; that is not on the page. Re-read directly.
+    // TODO(verify): The City Building & Safety Requirements page (departments/building-safety/building-safety-requirements) was read through a fetch summary and shows no date. It concerns the business license code compliance inspection for a NEW BUSINESS LOCATION, not HVAC permits. The 24 hour advance call and the 9:00 a.m. to 5:00 p.m. window are stated there in that commercial context only. The pasted research and the existing South Bay hub treated them as HVAC permit facts, which the page does not support.
+    // TODO(verify): The City resident resources page (residents/resident-resources) lists Southern California Edison and Southern California Gas Company. It was a partial fetch summary with no date for the utility listing. The SoCalGas served-cities page lists HAWTHORNE (undated web page, not a bill-insert PDF as the research called it).
+    // TODO(verify): Clean Power Alliance membership (joined 2019 to 2020, serving customers since 2019) comes from cleanpoweralliance.org and its residential-rate page through fetch summaries. No City page read names Clean Power Alliance, and the City Environmental Programs page says Hawthorne is going 100 percent green power without naming a supplier (undated). The page states only the CPA site's own listing and no default product.
+    // TODO(verify): SCAG April 2021 Pre-Certified Local Housing Data (hawthorne-he-0421.pdf) was read through a fetch summary of the full text. The E-5 year of the 30,634 units is not stated in the summary (the document compares 2000 to 2020), so the page does not give a year. Re-read the PDF directly and confirm the E-5 year and the ACS 2014 to 2018 build-period shares.
+    // TODO(verify): Census QuickFacts was read directly (full table): 82,741 population (July 1, 2025 estimate), owner-occupied housing unit rate 27.2 percent (2020 to 2024). The pasted research gave nearly 87,000 residents from the City About page, which would not load, so the QuickFacts figure is used.
+    // TODO(verify): SoCalGas rebate terms were read on the rebates page and on the 2026 application PDF (full document, form code J087-228EEC 0926). SCE Energy Savings Assistance (mostly complete page, no date, income limits June 1, 2026 to May 31, 2027) and the SCE rebate directory (full page, no date) were read through fetch summaries.
+    // Pre-launch recheck: City Inspections page, City Building & Safety Requirements page, City Building & Safety department page, Citizen Self Service and its user guide, City resident resources page, City About and Zoning pages, official Municipal Code (noise and equipment placement), SoCalGas served-cities page and rebates page with the 2026 application, SCE Energy Savings Assistance and rebate directory, Clean Power Alliance member list, SCAG housing data, QuickFacts.
+    localParagraphs: [
+      "The City's Building & Safety Department publishes an Inspections page that says **contractors and applicants can schedule an inspection through the Hawthorne Citizen Self Service web portal**. The page says permits issued before July 2022 must call the office, gives (310) 349-2990 for help if scheduling through the portal does not work, and says cancellations must be made 24 hours before the inspection day. It does not mention mechanical or HVAC inspections, and we did not find a City statement on whether replacing an air conditioner or furnace needs a permit, so **AIRPRO SOLUTIONS confirms the permit path and inspection steps with the City** before work starts. We also do not state permit fees, code editions, equipment placement rules, or noise limits, because we did not confirm them from a City source. The City pages we read show no date.",
+      "For commercial space, the City's Building & Safety Requirements page describes the inspection of a new business location as part of the business license code compliance process. It says the inspector lists violations of the City's Building, Electrical, Mechanical, and Plumbing codes that must be corrected, and it covers fees and how a Code Compliance Inspection application is approved or denied. **The page says to call 24 hours in advance to request an inspection and that inspections are conducted between 9:00 a.m. and 5:00 p.m.** If a space you are moving into has HVAC equipment that needs attention, we plan the work around that schedule and confirm with the City which corrections need permits.",
+      "Hawthorne had an estimated 82,741 residents on July 1, 2025, and QuickFacts reports a 27.2% owner-occupied housing unit rate for 2020 to 2024. SCAG's April 2021 pre-certified local housing data, using California Department of Finance E-5 estimates, counts **30,634 housing units: 29.4% single-family detached, 4.3% attached, 13.3% in buildings of 2 to 4 units, 52.5% in buildings of 5 or more, and 0.5% mobile homes**. The same document shows that **24.7 percent of housing was built from 1950 to 1959, the largest share of any period**. Those figures are citywide and dated, so we confirm the equipment, roof or attic access, and ductwork at the property. In a multi-unit building we confirm equipment access and placement with the owner or manager, and for commercial work we plan rooftop access and equipment placement with the building owner or manager.",
+      "The City's resident resources page lists **Southern California Edison for electricity and Southern California Gas Company for natural gas**, and shows no date. SoCalGas also lists Hawthorne among the cities in its service area, and Clean Power Alliance's own site lists Hawthorne among its member communities, serving customers since 2019, so we ask which company supplies the electricity on your bill. SoCalGas lists a 2026 rebate for ENERGY STAR furnaces in existing residential properties, with funding first come, first served until December 31, 2026 or until it runs out. SCE's Energy Savings Assistance program lists central AC or central heat pump replacement among its upgrades for income-qualified households, and says services may not be available in all areas and a co-payment may be required for some services. SCE's rebate directory lists Golden State Rebates coupons for air conditioners and smart thermostats at participating retailers, and Home Performance Plus for customers in disadvantaged or low-income communities, and we did not confirm whether a Hawthorne address qualifies. Terms and funding change, so we link the program pages rather than quote amounts, and **confirm your utility accounts on your bills before counting on a program**. Official links are in the card for this section.",
+    ],
+    localCards: [
+      {
+        heading: "Hawthorne inspection path",
+        rows: [
+          { label: "Residential inspections", value: "Scheduled in the Citizen Self Service portal" },
+          { label: "Permits issued before July 2022", value: "Call the office" },
+          { label: "Help scheduling", value: "Building & Safety, (310) 349-2990" },
+          { label: "New business location", value: "Code compliance inspection. Call 24 hours ahead, 9:00 a.m. to 5:00 p.m." },
+        ],
+        note: "From the City's Inspections page and Building & Safety Requirements page (neither shows a date). We confirm current requirements with the City.",
+      },
+      {
+        heading: "Hawthorne housing snapshot",
+        rows: [
+          { label: "Single-family detached", value: "29.4%" },
+          { label: "Buildings of 2 to 4 units", value: "13.3%" },
+          { label: "Buildings of 5 or more units", value: "52.5%" },
+          { label: "Largest build period", value: "1950 to 1959 (24.7%)" },
+        ],
+        note: "Unit mix and build periods are from SCAG's April 2021 Pre-Certified Local Housing Data. All figures are citywide.",
+      },
+    ],
+    neighborhoodsHeading: "Official Hawthorne resources",
+    officialResources: [
+      {
+        text: "Inspections",
+        href: "https://www.cityofhawthorne.org/departments/building-safety/request-for-inspection-form",
+        note: "Citizen Self Service scheduling and cancellations.",
+      },
+      {
+        text: "Building & Safety Requirements",
+        href: "https://www.cityofhawthorne.org/departments/building-safety/building-safety-requirements",
+        note: "New business location inspection.",
+      },
+      {
+        text: "Citizen Self Service",
+        href: "https://www.cityofhawthorne.org/residents/virtual-city-hall/citizen-self-service",
+        note: "City portal for permit and inspection processes.",
+      },
+      {
+        text: "Resident resources",
+        href: "https://www.cityofhawthorne.org/residents/resident-resources",
+        note: "City listing of electric and gas providers.",
+      },
+      {
+        text: "Clean Power Alliance",
+        href: "https://cleanpoweralliance.org/",
+        note: "Member communities and service area.",
+      },
+      {
+        text: "SoCalGas rebates",
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "ENERGY STAR furnace rebate and program period.",
+      },
+      {
+        text: "SCE Energy Savings Assistance",
+        href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+        note: "Income-qualified upgrades and eligibility.",
+      },
+      {
+        text: "SCAG Hawthorne housing data",
+        href: "https://scag.ca.gov/sites/default/files/old/file-attachments/hawthorne-he-0421.pdf",
+        note: "Housing counts and building age cited on this page.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/fact/table/hawthornecitycalifornia/PST045224",
+        note: "Population and owner-occupied rate cited on this page.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Hawthorne homes and businesses",
+    serviceCards: [
+      {
+        slug: "ac-repair",
+        name: "AC Repair",
+        body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises in Hawthorne homes and businesses.",
+      },
+      {
+        slug: "ac-installation",
+        name: "AC Installation & Replacement",
+        body: "New system sizing and installation, planned around the City's permit and inspection process.",
+      },
+      {
+        slug: "ac-maintenance",
+        name: "AC Maintenance",
+        body: "Seasonal AC tune-ups that catch small issues early, for homes and for commercial rooftop and ground units.",
+      },
+      {
+        slug: "heating-repair",
+        name: "Heating Repair",
+        body: "Furnace and heating system diagnosis and repair for Hawthorne homes and businesses.",
+      },
+      {
+        slug: "furnace-installation",
+        name: "Furnace Installation & Replacement",
+        body: "Furnace sizing and installation, planned around the City's permit process. SoCalGas lists a furnace rebate with its own terms.",
+      },
+      {
+        slug: "heat-pump-services",
+        name: "Heat Pump Services",
+        body: "Heat pump installation, repair, and maintenance, with the City's permit process and your utilities' program pages in mind.",
+      },
+      {
+        slug: "ductless-mini-split",
+        name: "Ductless Mini-Split",
+        body: "Ductless systems for additions, converted spaces, and rooms the existing ducts do not reach.",
+      },
+      {
+        slug: "ductwork",
+        name: "Ductwork Services",
+        body: "Duct repair, sealing, and replacement for Hawthorne homes and buildings.",
+      },
+      {
+        slug: "indoor-air-quality",
+        name: "Indoor Air Quality",
+        body: "Filtration, ventilation, and air-quality upgrades for Hawthorne homes and offices.",
+      },
+      {
+        slug: "emergency-hvac",
+        name: "Emergency HVAC",
+        body: "24/7 emergency dispatch for no-cool and no-heat problems. If you smell gas, leave the building and call 911 or your gas utility.",
+      },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Hawthorne inspections and incentive programs",
+      intro: "Official sources for three items worth checking before a Hawthorne HVAC project.",
+      cards: [
+        {
+          amount: "Inspections",
+          description: "The City's Inspections page says contractors and applicants can schedule an inspection through the Citizen Self Service portal. It shows no date and does not mention HVAC, so we confirm the steps for your job with the City.",
+          linkLabel: "City inspections page",
+          linkHref: "https://www.cityofhawthorne.org/departments/building-safety/request-for-inspection-form",
+        },
+        {
+          amount: "Furnace rebate",
+          description: "SoCalGas lists a 2026 rebate for ENERGY STAR furnaces in existing residential properties, with funding first come, first served until December 31, 2026 or until it runs out. The City's resident resources page lists SoCalGas for natural gas, and we do not quote amounts.",
+          linkLabel: "SoCalGas rebates",
+          linkHref: "https://www.socalgas.com/savings/rebates-and-incentives",
+        },
+        {
+          amount: "Income-qualified help",
+          description: "SCE's Energy Savings Assistance program lists central AC or central heat pump replacement among its upgrades for income-qualified households. It says services may not be available in all areas and a co-payment may be required for some services, so check eligibility with SCE.",
+          linkLabel: "SCE Energy Savings Assistance",
+          linkHref: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+        },
+      ],
+    },
+    nearby: ["torrance", "el-segundo", "gardena", "redondo-beach"],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Hawthorne",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        { num: "4.8★", label: "Google rating" },
+        { num: "40", label: "Google reviews" },
+        { num: "C-20", label: "California license class" },
+        { num: "24/7", label: "Emergency dispatch" },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Hawthorne. Same-day service is typical, subject to capacity.",
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Hawthorne?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Hawthorne as part of our South Bay coverage. The City's Building & Safety Department handles inspections, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "South Bay coverage", href: "/service-areas/south-bay/" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Hawthorne home?",
+        a: "Same-day service is typical in Hawthorne, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Hawthorne, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an air conditioner in Hawthorne?",
+        a: "We did not find a City statement either way. The City's Inspections page does not mention mechanical or HVAC work, and we did not find a City page that says whether replacing an air conditioner needs a permit, so AIRPRO SOLUTIONS confirms the permit path with the City before work starts, and we do not quote permit fees.",
+        boldLead: "We did not find a City statement either way.",
+        links: [
+          { text: "Inspections page", href: "https://www.cityofhawthorne.org/departments/building-safety/request-for-inspection-form" },
+        ],
+      },
+      {
+        q: "How do inspections work in Hawthorne?",
+        a: "Inspections are scheduled through the City's Citizen Self Service portal. The City's Inspections page says contractors and applicants can schedule through the portal, permits issued before July 2022 must call the office, and cancellations must be made 24 hours before the inspection day. The page does not mention HVAC inspections, so AIRPRO SOLUTIONS confirms the inspection steps for your job with the City.",
+        boldLead: "Inspections are scheduled through the City's Citizen Self Service portal.",
+        links: [
+          { text: "Inspections page", href: "https://www.cityofhawthorne.org/departments/building-safety/request-for-inspection-form" },
+        ],
+      },
+      {
+        q: "Does Hawthorne inspect a commercial space before a new business moves in?",
+        a: "Yes, the City inspects a new business location. The City's Building & Safety Requirements page says an inspection is performed of the new business location and that the inspector lists violations of the City's Building, Electrical, Mechanical, and Plumbing codes that must be corrected. It says to call 24 hours in advance to request an inspection and that inspections are conducted between 9:00 a.m. and 5:00 p.m. AIRPRO SOLUTIONS services commercial HVAC equipment and confirms with the City which corrections need permits.",
+        boldLead: "Yes, the City inspects a new business location.",
+        links: [
+          { text: "Building & Safety Requirements page", href: "https://www.cityofhawthorne.org/departments/building-safety/building-safety-requirements" },
+        ],
+      },
+      {
+        q: "Where can an outdoor AC unit go on my Hawthorne property?",
+        a: "We confirm that with the City. We did not confirm the City's equipment placement, setback, or noise rules from a City source, so we do not state limits here, and AIRPRO SOLUTIONS checks the current rules and your property's layout with the City before choosing a location.",
+        boldLead: "We confirm that with the City.",
+      },
+      {
+        q: "Does the age of my Hawthorne home matter for HVAC?",
+        a: "Age is one factor we check. SCAG's April 2021 housing data shows that 24.7 percent of Hawthorne's housing was built from 1950 to 1959, the largest share of any period. That is a citywide, dated figure, so we confirm the equipment, roof or attic access, and ductwork at your property.",
+        boldLead: "Age is one factor we check.",
+        links: [
+          { text: "SCAG's April 2021 housing data", href: "https://scag.ca.gov/sites/default/files/old/file-attachments/hawthorne-he-0421.pdf" },
+        ],
+      },
+      {
+        q: "What about HVAC in Hawthorne apartment buildings and condos?",
+        a: "Multi-unit buildings are the largest share of Hawthorne housing. About 52.5% of Hawthorne's 30,634 housing units are in buildings of 5 or more units and 13.3% are in buildings of 2 to 4 units, according to California Department of Finance E-5 estimates in SCAG's April 2021 housing data, so we confirm equipment access and placement with the property owner or manager before installation or replacement.",
+        boldLead: "Multi-unit buildings are the largest share of Hawthorne housing.",
+        links: [
+          { text: "SCAG's April 2021 housing data", href: "https://scag.ca.gov/sites/default/files/old/file-attachments/hawthorne-he-0421.pdf" },
+        ],
+      },
+      {
+        q: "Which utility serves my Hawthorne address?",
+        a: "Your bill answers it. The City's resident resources page lists Southern California Edison for electricity and Southern California Gas Company for natural gas. Clean Power Alliance's own site also lists Hawthorne among its member communities, so check your bill to see who supplies your electricity.",
+        boldLead: "Your bill answers it.",
+        links: [
+          { text: "resident resources page", href: "https://www.cityofhawthorne.org/residents/resident-resources" },
+          { text: "Clean Power Alliance's own site", href: "https://cleanpoweralliance.org/" },
+        ],
+      },
+      {
+        q: "Are there HVAC rebates for Hawthorne customers?",
+        a: "SoCalGas and SCE list programs. SoCalGas lists a rebate for ENERGY STAR furnaces in existing residential properties, with funding first come, first served until December 31, 2026 or until it runs out. SCE lists Golden State Rebates coupons for air conditioners and smart thermostats at participating retailers, and Home Performance Plus for customers in disadvantaged or low-income communities. We did not confirm whether a Hawthorne address qualifies for Home Performance Plus. Terms and funding change and we do not quote amounts, so check the current terms before you buy.",
+        boldLead: "SoCalGas and SCE list programs.",
+        links: [
+          { text: "rebate for ENERGY STAR furnaces", href: "https://www.socalgas.com/savings/rebates-and-incentives" },
+          { text: "Golden State Rebates", href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace" },
+          { text: "Home Performance Plus", href: "https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace" },
+        ],
+      },
+      {
+        q: "Is there HVAC help for income-qualified Hawthorne households?",
+        a: "Possibly, for income-qualified households. SCE's Energy Savings Assistance program lists central AC or central heat pump replacement among its upgrades, and says services may not be available in all areas, restrictions may apply, and a co-payment may be required for some services. Eligibility depends on household income and the property, so check with SCE before counting on it.",
+        boldLead: "Possibly, for income-qualified households.",
+        links: [
+          { text: "Energy Savings Assistance program", href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program" },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Hawthorne?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Hawthorne, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides",
+        links: [
+          { text: "AC repair", href: "/services/ac-repair/" },
+          { text: "AC installation and replacement", href: "/services/ac-installation/" },
+          { text: "AC maintenance", href: "/services/ac-maintenance/" },
+          { text: "heating repair", href: "/services/heating-repair/" },
+          { text: "furnace installation and replacement", href: "/services/furnace-installation/" },
+          { text: "heat pump services", href: "/services/heat-pump-services/" },
+          { text: "ductless mini-splits", href: "/services/ductless-mini-split/" },
+          { text: "ductwork", href: "/services/ductwork/" },
+          { text: "indoor air quality", href: "/services/indoor-air-quality/" },
+          { text: "emergency HVAC", href: "/services/emergency-hvac/" },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Hawthorne?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Hawthorne. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Hawthorne?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Hawthorne?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Hawthorne, including rooftop units. We confirm the permit path with the City before commercial work starts, and we plan rooftop access and equipment placement with the building owner or manager. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -6633,6 +6986,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'manhattan-beach' ? manhattanBeachOverrides
     : c.slug === 'hermosa-beach' ? hermosaBeachOverrides
     : c.slug === 'rancho-cucamonga' ? ranchoCucamongaOverrides
+    : c.slug === 'hawthorne' ? hawthorneOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
