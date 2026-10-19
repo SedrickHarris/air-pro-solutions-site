@@ -119,7 +119,7 @@ export const southBayHub = {
   // 2025 California Mechanical Code with amendments per ESMC 13-4-1, Ord. 1680, 12-3-2025); Gardena (Building & Safety Division, per the
   // City's Schedule An Appointment page dated 2026-08-05; New HVAC/Forced Air Unit over-the-counter permits, CF1R forms); Hawthorne (Department
   // of Building and Safety; residential inspections are scheduled in the Citizen Self Service portal per the City's Inspections page); Carson (Building and
-  // Safety Department; mechanical permit worksheet). Title 24 per the CEC Energy Code Support
+  // Safety Department; Carson Civic Access online portal). Title 24 per the CEC Energy Code Support
   // Center. See docs/open-items.md for the dated items.
   permits: {
     eyebrow: 'Permits and code',
@@ -134,15 +134,15 @@ export const southBayHub = {
       ['El Segundo', 'Community Development, Building and Safety Division', 'The municipal code adopts the 2025 California Mechanical Code with local amendments, so amendments are checked before permit submittal.'],
       ['Gardena', 'Building & Safety Division', 'Lists New HVAC Permit and Forced Air Unit Permit among its over-the-counter permit types, and the in-person process requires completed CF1R forms.'],
       ['Hawthorne', 'Department of Building and Safety', 'Residential inspections are scheduled in the City’s Citizen Self Service portal, so inspection timing belongs in the schedule.'],
-      ['Carson', 'Building and Safety Department', 'The city’s mechanical permit worksheet lists furnace, heater, boiler, mini-split, and AC condenser work.'],
+      ['Carson', 'Building and Safety Department', 'Permit applications go through Carson Civic Access, the City’s online portal, and inspections are scheduled through the City, so inspection timing belongs in the schedule.'],
     ],
     copyCols: [
       ['**Title 24 applies statewide.** California’s energy code is enforced through each city’s permit process. Many HVAC alterations need compliance documentation and third-party field verification and diagnostic testing, and duct sealing and testing can apply when an existing duct system is altered. The required tests are identified on the compliance forms for each job.'],
       ['**Unincorporated addresses are a different jurisdiction.** Communities next to these cities, such as West Carson, are not part of the incorporated city beside them. We confirm jurisdiction by address before quoting.'],
     ],
     // Sources: Torrance Municipal Code 46.2.6 (property-line noise) and 91.38.4 (screening); Redondo
-    // Beach noise-by-receiving-land-use; Carson Municipal Code Chapter 5 (adopts the LA County noise
-    // ordinance). No dBA figures are quoted for Carson or Redondo Beach (see docs/open-items.md).
+    // Beach noise-by-receiving-land-use; Carson noise rules are not stated here until the official Municipal Code text is read
+    // (see docs/open-items.md). No dBA figures are quoted for Carson or Redondo Beach.
     noise: {
       title: 'Noise and equipment placement',
       intro: 'Outdoor condensers, heat pumps, and rooftop units are handled differently from city to city.',
@@ -150,7 +150,7 @@ export const southBayHub = {
       rows: [
         ['Torrance', 'Air conditioning and similar equipment may not raise noise at the property line of residential land by more than 5 decibels over ambient (Torrance Municipal Code 46.2.6). Mechanical equipment, ductwork, and plumbing lines must be screened in the applicable zoning context (91.38.4).'],
         ['Redondo Beach', 'Exterior noise limits depend on the receiving land use and the time of day, so there is no single citywide figure. In mixed-use projects, commercial equipment near residences may need acoustical and vibration controls.'],
-        ['Carson', 'Chapter 5 of the municipal code adopts the Los Angeles County noise ordinance. In multifamily settings with shared walls or floors, equipment that transmits vibration may need vibration isolators, as determined by the Building Official.'],
+        ['Carson', 'We confirm the City’s current noise rules and equipment placement for the specific property before installation.'],
         ['El Segundo, Gardena', 'We confirm zoning, screening, HOA or architectural approval, and noise conditions for the specific property before recommending where equipment goes.'],
       ],
       note: "Based on each city's municipal code and planning materials. Code text and city procedures change, so current requirements are confirmed with the building department before permit submittal.",
@@ -213,7 +213,7 @@ export const southBayHub = {
       { name: 'El Segundo', note: 'Aerospace and deep-tech businesses, per the City’s economic-development site. The 2025 California Mechanical Code applies with local amendments.', href: '/service-areas/el-segundo/' },
       { name: 'Gardena', note: 'HVAC and forced-air unit permits are over-the-counter types and need CF1R forms.', href: '/service-areas/gardena/' },
       { name: 'Hawthorne', note: 'Residential inspections are scheduled in the City’s Citizen Self Service portal. Clean Power Alliance supplies generation.', href: '/service-areas/hawthorne/' },
-      { name: 'Carson', note: 'Industrial, commercial, and townhome settings. The County noise ordinance applies, and multifamily equipment may need vibration isolation.' },
+      { name: 'Carson', note: 'Permits go through the City’s online portal, Carson Civic Access. Clean Power Alliance supplies generation.', href: '/service-areas/carson/' },
     ],
   },
 
@@ -249,7 +249,7 @@ export const southBayHub = {
     },
     {
       q: 'Are there noise or screening rules for outdoor equipment?',
-      a: 'Yes, and they are not the same in every city. Torrance limits air conditioning noise at a residential property line to no more than 5 decibels over ambient and can require screening of mechanical equipment in some zones. Redondo Beach sets noise limits by receiving land use and time of day. Carson adopts the Los Angeles County noise ordinance. For the other cities, we confirm placement, screening, and noise conditions for the specific property.',
+      a: 'Yes, and they are not the same in every city. Torrance limits air conditioning noise at a residential property line to no more than 5 decibels over ambient and can require screening of mechanical equipment in some zones. Redondo Beach sets noise limits by receiving land use and time of day. For Carson and the other cities, we confirm placement, screening, and noise conditions for the specific property.',
     },
     {
       q: 'Do you work on condos, apartments, and HOA properties?',

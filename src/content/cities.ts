@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga and hawthorne have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne and carson have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // The closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. The client approved all city page copy on 2026-10-19 (per the user).
+// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's local paragraphs use the new sentence from the start. The client approved all city page copy on 2026-10-19 (per the user).
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
 // building that city page or its matrix pages. Never invent it.
@@ -459,7 +459,7 @@ const longBeachOverrides: Partial<City> = {
         },
       ],
     },
-    // Torrance, Los Angeles and Redondo Beach have live pages. TODO(data): Carson has no city page yet, so its card links to a noindex stub.
+    // Torrance, Los Angeles and Redondo Beach have live pages. Carson's page is live (carsonOverrides).
     nearby: ['torrance', 'los-angeles', 'carson', 'redondo-beach'],
     proof: {
       heading: 'Licensed, reviewed, and ready across Long Beach',
@@ -6962,6 +6962,320 @@ const hawthorneOverrides: Partial<City> = {
   },
 };
 
+const carsonOverrides: Partial<City> = {
+  // Copy approval: the client approved the Carson page copy on 2026-10-19 (per the user).
+  // TODO(data): add verified climate and housing-stock detail before treating this as a full local page.
+  neighborhoods: [], // neighborhood list held out: no City, county or Census source lists named neighborhoods
+  zips: [], // ZIP list held out: no official City or USPS list of Carson ZIPs (see held out comment below)
+  page: {
+    metaDescription: "HVAC for Carson homes and businesses, from AC repair to installation. Know the City's online permit portal and inspection steps. Licensed, 4.8-star rated.",
+    lede: "AIRPRO SOLUTIONS provides HVAC services across Carson, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's online permit portal and local housing in mind.",
+    heroCaption: { title: "Carson, CA", text: "Local HVAC service across Carson" },
+    heroProof: [
+      { icon: "shield", label: "Licensed, bonded & insured" },
+      { icon: "star", label: "4.8-star rated" },
+      { icon: "bolt", label: "24/7 emergency dispatch" },
+      { icon: "building", label: "Residential and commercial" },
+    ],
+    trustStats: [
+      { num: "4.8★", label: "Google rating, 40 reviews" },
+      { num: "C-20", label: "California licensed" },
+      { num: "24/7", label: "emergency dispatch" },
+      { num: "Same-day", label: "service typical" },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Carson",
+      body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Carson at a glance",
+      stats: [
+        { num: "90,808", label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)" },
+        { num: "74.0%", label: "owner-occupied housing unit rate among 26,974 households, 2020 to 2024 (U.S. Census Bureau QuickFacts)" },
+        { num: "3.35 billion", label: "dollars in 2022 transportation and warehousing receipts (U.S. Census Bureau QuickFacts, Economic Census)" },
+      ],
+      source: "Source: U.S. Census Bureau QuickFacts for Carson city, California.",
+    },
+    localTitle: "Carson's online permit portal, housing, and utility programs",
+    // Held out (no verified source): ZIP card and neighborhoods (CEQAnet shows 90745 only as the City lead agency's address on a state record; 90746 appears only on third-party maps; no City or USPS list was read) | Municipal Code noise limits, setbacks, vibration rule and the permit exemption list (read only through eCode360, a publisher copy, not the official code; the City's old codepublishing.com link now redirects there) | Mechanical permit worksheet (not found on the City pages read; the South Bay hub cites it) | 211LA permit listing (third party) | Housing stock by type and age, median year built (SCAG Carson data and the Housing Element were not retrievable; QuickFacts has no such field) | Climate, NOAA normals, marine layer, humidity, air quality | Neighbors and adjacency | Employers, schools, hospitals, shopping centers, HOA areas, historic districts | SCE and SoCalGas service confirmation for Carson from a City source | Median home value and rent (contain dollar amounts) | Competitor SERP table: never on the page.
+    // Copy approval: the client approved the Carson page copy on 2026-10-19 (per the user).
+    // TODO(verify): Census QuickFacts for Carson was read through a fetch summary of the table (V2025 vintage): 90,808 residents on July 1, 2025; 26,974 households, 74.0 percent owner-occupied and 2020 to 2024; 18.73 square miles of land and 2020 density 5,101.6; 2022 Economic Census receipts of 3,354,196 thousand (transportation and warehousing) and 2,841,373 thousand (retail). The pasted research gave older figures (91,358 on July 1, 2024; 26,406 households; 2019 to 2023), so the live page vintage is used.
+    // TODO(verify): City Building & Safety page (carsonca.gov, building_safety) and Building Permits page (ci.carson.ca.us, an older City domain) were read through fetch summaries and show no date. They give Civic Access (available since June 4, 2024), inspections through the portal, Monday to Thursday 7 a.m. to 6 p.m., 701 E. Carson Street, building@carsonca.gov, City Hall (310) 830-7600 and an automated line (310) 952-1700. The old-domain phone directory lists (310) 952-1786 for Building and Safety (footer 2006 to 2023), which conflicts, so no department phone number is on the page. Neither page mentions mechanical or HVAC.
+    // TODO(verify): City zoning page (carsonca.gov, zoning_code) read through a fetch summary, no date. Phase 1 adopted 2024-03-19; Phase 2 listed as in progress with public hearings planned for Q3 2026, which is now past, so the status may be stale.
+    // TODO(verify): Clean Power Alliance residential-rate page lists Carson under communities that joined in 2019 to 2020 (fetch summary). A City press release (carsonca.gov, press_release_24055) says Carson joined Clean Power Alliance but shows no date and does not say residents are served, and CPA's Carson fact sheets describe Community Solar only. No default product is stated. The page states only the CPA site's own listing.
+    // TODO(verify): SoCalGas rebates page and SCE Energy Savings Assistance page were read through fetch summaries (no dates). Amounts, the licensed-contractor and permit-closure conditions and the SCE approved-contractor delivery note are kept off the page.
+    // Pre-launch recheck: City Building & Safety and Building Permits pages, Civic Access portal, zoning page, official Municipal Code location (noise and equipment placement), Clean Power Alliance member list, SoCalGas furnace rebate and 2026 application, SCE Energy Savings Assistance, QuickFacts.
+    localParagraphs: [
+      "The City's Building & Safety Division says permit and plan check applications go through **Carson Civic Access, the City's online portal**, and that inspections are scheduled through the same portal and are available Monday to Thursday. A City Building Permits page says the portal has been available since June 4, 2024, that inspections for permits issued through it are scheduled from the permit dashboard, and that older permits use a separate inspection page. Permit issuance runs 7 a.m. to 6 p.m., Monday to Thursday, at 701 E. Carson Street, and permit questions go to building@carsonca.gov. The City pages we read do not mention mechanical or HVAC permits, and we did not find a City statement on whether replacing an air conditioner or furnace needs a permit, so **AIRPRO SOLUTIONS confirms the permit path and inspection steps with the City** before work starts. We do not state permit fees, code editions, equipment placement rules, or noise limits, because we did not confirm them from the official code. The City pages we read show no date.",
+      "For commercial space, QuickFacts lists **3.35 billion dollars in transportation and warehousing receipts and 2.84 billion dollars in retail sales for Carson in 2022**, from the Economic Census. The City's zoning page describes a Zoning Ordinance and Zoning Map update in two phases: Phase 1, for residential and mixed-use regulations, was adopted on March 19, 2024, and Phase 2, for commercial, industrial, flex, and other sections, is shown as in progress on a page that has no date. For warehouse, retail, and office buildings, we plan rooftop access and equipment placement with the building owner or manager and **confirm current zoning and the permit path with the City** before choosing where equipment goes.",
+      "Carson had an estimated 90,808 residents on July 1, 2025, and QuickFacts reports 26,974 households and a **74.0% owner-occupied housing unit rate** for 2020 to 2024, across 18.73 square miles of land area. Ownership is a different measure from building type or age, so we do not guess how old the homes or ducts are in your part of the city, and **we confirm the equipment, roof or attic access, and ductwork at each property**. In a multi-unit building, we confirm equipment access and placement with the owner or manager before installation or replacement.",
+      "Clean Power Alliance's own site lists Carson among its member communities that joined in 2019 to 2020, and says customers are enrolled in their community's preferred energy option, so **your bill shows who supplies your electricity**. SoCalGas lists a 2026 rebate for ENERGY STAR furnaces in existing residential properties, with funding first come, first served until December 31, 2026 or until it runs out. SCE's Energy Savings Assistance program lists air conditioners and heat pumps among its cooling options for income-qualified households and says availability varies by area and restrictions may apply. We do not quote amounts, and terms change, so check each program before you buy. Official links are in the card for this section.",
+    ],
+    localCards: [
+      {
+        heading: "Carson permit and inspection path",
+        rows: [
+          { label: "Applications", value: "Online through Carson Civic Access" },
+          { label: "Inspections", value: "Scheduled through the portal, Monday to Thursday" },
+          { label: "Permit hours", value: "7 a.m. to 6 p.m., Monday to Thursday" },
+          { label: "Permit questions", value: "building@carsonca.gov" },
+        ],
+        note: "From the City's Building & Safety and Building Permits pages (neither shows a date). We confirm current requirements with the City.",
+      },
+      {
+        heading: "Carson Census snapshot",
+        rows: [
+          { label: "Residents, July 1, 2025", value: "90,808 (estimate)" },
+          { label: "Households, 2020 to 2024", value: "26,974" },
+          { label: "Land area", value: "18.73 square miles" },
+        ],
+        note: "From U.S. Census Bureau QuickFacts. Households are 2020 to 2024 estimates and land area is from 2020. All figures are citywide.",
+      },
+    ],
+    neighborhoodsHeading: "Official Carson resources",
+    officialResources: [
+      {
+        text: "Building & Safety",
+        href: "https://carsonca.gov/services/community___economic_development/building_safety",
+        note: "Civic Access portal, hours, and permit contact.",
+      },
+      {
+        text: "Zoning Code update",
+        href: "https://carsonca.gov/services/community___economic_development/zoning_code",
+        note: "Two-phase zoning update and the Carson 2040 General Plan.",
+      },
+      {
+        text: "Clean Power Alliance",
+        href: "https://cleanpoweralliance.org/residential-rate/",
+        note: "Member communities and energy options.",
+      },
+      {
+        text: "SoCalGas rebates",
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "ENERGY STAR furnace rebate and program period.",
+      },
+      {
+        text: "SCE Energy Savings Assistance",
+        href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+        note: "Income-qualified upgrades and eligibility.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/fact/table/carsoncitycalifornia/PST045224",
+        note: "Population, households, owner-occupied rate, and receipts cited on this page.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Carson homes and businesses",
+    serviceCards: [
+      {
+        slug: "ac-repair",
+        name: "AC Repair",
+        body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises in Carson homes and businesses.",
+      },
+      {
+        slug: "ac-installation",
+        name: "AC Installation & Replacement",
+        body: "New system sizing and installation, planned around the City's online permit process.",
+      },
+      {
+        slug: "ac-maintenance",
+        name: "AC Maintenance",
+        body: "Seasonal AC tune-ups that catch small issues early, for homes and for commercial rooftop and ground units.",
+      },
+      {
+        slug: "heating-repair",
+        name: "Heating Repair",
+        body: "Furnace and heating system diagnosis and repair for Carson homes and businesses.",
+      },
+      {
+        slug: "furnace-installation",
+        name: "Furnace Installation & Replacement",
+        body: "Furnace sizing and installation, planned around the City's permit process. SoCalGas lists a furnace rebate with its own terms.",
+      },
+      {
+        slug: "heat-pump-services",
+        name: "Heat Pump Services",
+        body: "Heat pump installation, repair, and maintenance, with the City's permit process and your utilities' program pages in mind.",
+      },
+      {
+        slug: "ductless-mini-split",
+        name: "Ductless Mini-Split",
+        body: "Ductless systems for additions, converted spaces, and rooms the existing ducts do not reach.",
+      },
+      {
+        slug: "ductwork",
+        name: "Ductwork Services",
+        body: "Duct repair, sealing, and replacement for Carson homes and buildings.",
+      },
+      {
+        slug: "indoor-air-quality",
+        name: "Indoor Air Quality",
+        body: "Filtration, ventilation, and air-quality upgrades for Carson homes and offices.",
+      },
+      {
+        slug: "emergency-hvac",
+        name: "Emergency HVAC",
+        body: "24/7 emergency dispatch for no-cool and no-heat problems. If you smell gas, leave the building and call 911 or your gas utility.",
+      },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Carson permits and incentive programs",
+      intro: "Official sources for three items worth checking before a Carson HVAC project.",
+      cards: [
+        {
+          amount: "Permits and inspections",
+          description: "The City's Building & Safety Division says permit and plan check applications and inspections go through the Carson Civic Access portal. The City pages we read do not mention HVAC, so we confirm the steps for your job with the City.",
+          linkLabel: "City Building & Safety page",
+          linkHref: "https://carsonca.gov/services/community___economic_development/building_safety",
+        },
+        {
+          amount: "Furnace rebate",
+          description: "SoCalGas lists a 2026 rebate for ENERGY STAR furnaces in existing residential properties, with funding first come, first served until December 31, 2026 or until it runs out. Check that your gas account is with SoCalGas, and we do not quote amounts.",
+          linkLabel: "SoCalGas rebates",
+          linkHref: "https://www.socalgas.com/savings/rebates-and-incentives",
+        },
+        {
+          amount: "Income-qualified help",
+          description: "SCE's Energy Savings Assistance program lists air conditioners and heat pumps among its cooling options for income-qualified households. It says availability varies by area and restrictions may apply, so check eligibility with SCE.",
+          linkLabel: "SCE Energy Savings Assistance",
+          linkHref: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+        },
+      ],
+    },
+    nearby: ["torrance", "gardena", "hawthorne", "redondo-beach"],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Carson",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        { num: "4.8★", label: "Google rating" },
+        { num: "40", label: "Google reviews" },
+        { num: "C-20", label: "California license class" },
+        { num: "24/7", label: "Emergency dispatch" },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Carson. Same-day service is typical, subject to capacity.",
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Carson?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Carson as part of our South Bay coverage. The City's Building & Safety Division handles permits and inspections, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          { text: "South Bay coverage", href: "/service-areas/south-bay/" },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Carson home?",
+        a: "Same-day service is typical in Carson, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Carson, subject to capacity.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an air conditioner in Carson?",
+        a: "We did not find a City statement either way. The City's Building & Safety page covers applications and inspections through the Carson Civic Access portal but does not mention mechanical or HVAC work, so AIRPRO SOLUTIONS confirms the permit path with the City before work starts, and we do not quote permit fees.",
+        boldLead: "We did not find a City statement either way.",
+        links: [
+          { text: "Building & Safety page", href: "https://carsonca.gov/services/community___economic_development/building_safety" },
+        ],
+      },
+      {
+        q: "How do permits and inspections work in Carson?",
+        a: "Applications and inspections go through the Carson Civic Access portal. The City's Building Permits page says the portal has been available since June 4, 2024, that inspections for permits issued through it are scheduled from the permit dashboard, and that older permits use a separate inspection page. Permit issuance runs 7 a.m. to 6 p.m., Monday to Thursday, and permit questions go to building@carsonca.gov. The City pages do not mention HVAC, so AIRPRO SOLUTIONS confirms the steps for your job with the City.",
+        boldLead: "Applications and inspections go through the Carson Civic Access portal.",
+        links: [
+          { text: "Building Permits page", href: "https://ci.carson.ca.us/CommunityDevelopment/BuildingPermits.aspx" },
+        ],
+      },
+      {
+        q: "Where can an outdoor AC unit go on my Carson property?",
+        a: "We confirm that with the City. We did not confirm the City's equipment placement, setback, or noise rules from the official code, so we do not state limits here, and AIRPRO SOLUTIONS checks the current rules and your property's layout with the City before choosing a location.",
+        boldLead: "We confirm that with the City.",
+      },
+      {
+        q: "Does the age of my Carson home matter for HVAC?",
+        a: "Age is one factor we check. We did not find a verified citywide figure for the age of Carson homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
+        boldLead: "Age is one factor we check.",
+      },
+      {
+        q: "Is the Carson zoning code changing?",
+        a: "The City describes a two-phase update to its Zoning Ordinance and Zoning Map. Phase 1, for residential and mixed-use regulations, was adopted on March 19, 2024, and Phase 2, for commercial, industrial, flex, and other sections, is shown as in progress on a page that has no date. The City's zoning page has the details, and we confirm current zoning with the City before choosing where equipment goes.",
+        boldLead: "The City describes a two-phase update to its Zoning Ordinance and Zoning Map.",
+        links: [
+          { text: "zoning page", href: "https://carsonca.gov/services/community___economic_development/zoning_code" },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Carson?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Carson, including rooftop units. We confirm the permit path with the City before commercial work starts, and we plan rooftop access and equipment placement with the building owner or manager. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          { text: "Commercial HVAC page", href: "/commercial-hvac/" },
+        ],
+      },
+      {
+        q: "Which utility serves my Carson address?",
+        a: "Your bill answers it. Clean Power Alliance's own site lists Carson among its member communities and says customers are enrolled in their community's preferred energy option, so check your bill to see who supplies your electricity. We did not find a City page that lists Carson's electric and gas providers.",
+        boldLead: "Your bill answers it.",
+        links: [
+          { text: "Clean Power Alliance's own site", href: "https://cleanpoweralliance.org/residential-rate/" },
+        ],
+      },
+      {
+        q: "Are there HVAC rebates for Carson customers?",
+        a: "SoCalGas and SCE list programs. SoCalGas lists a rebate for ENERGY STAR furnaces in existing residential properties, with funding first come, first served until December 31, 2026 or until it runs out. SCE lists an income-qualified program that includes cooling equipment. Terms and funding change and we do not quote amounts, so check the current terms before you buy.",
+        boldLead: "SoCalGas and SCE list programs.",
+        links: [
+          { text: "rebate for ENERGY STAR furnaces", href: "https://www.socalgas.com/savings/rebates-and-incentives" },
+          { text: "income-qualified program", href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program" },
+        ],
+      },
+      {
+        q: "Is there HVAC help for income-qualified Carson households?",
+        a: "Possibly, for income-qualified households. SCE's Energy Savings Assistance program lists air conditioners and heat pumps among its cooling options, and says availability varies by area and restrictions may apply. Eligibility depends on household income and the property, so check with SCE before counting on it.",
+        boldLead: "Possibly, for income-qualified households.",
+        links: [
+          { text: "Energy Savings Assistance program", href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program" },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Carson?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Carson, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides",
+        links: [
+          { text: "AC repair", href: "/services/ac-repair/" },
+          { text: "AC installation and replacement", href: "/services/ac-installation/" },
+          { text: "AC maintenance", href: "/services/ac-maintenance/" },
+          { text: "heating repair", href: "/services/heating-repair/" },
+          { text: "furnace installation and replacement", href: "/services/furnace-installation/" },
+          { text: "heat pump services", href: "/services/heat-pump-services/" },
+          { text: "ductless mini-splits", href: "/services/ductless-mini-split/" },
+          { text: "ductwork", href: "/services/ductwork/" },
+          { text: "indoor air quality", href: "/services/indoor-air-quality/" },
+          { text: "emergency HVAC", href: "/services/emergency-hvac/" },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Carson?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Carson. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Carson?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          { text: "(323) 776-9047", href: "tel:+13237769047" },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -6987,6 +7301,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'hermosa-beach' ? hermosaBeachOverrides
     : c.slug === 'rancho-cucamonga' ? ranchoCucamongaOverrides
     : c.slug === 'hawthorne' ? hawthorneOverrides
+    : c.slug === 'carson' ? carsonOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;

@@ -32,7 +32,7 @@ this file is the index, not the source of truth.
   Fallback if you would rather not maintain a dollar figure: drop the "$75" credit and keep the coupon wording. Also confirm SCE is still the electric provider shown for Long Beach on an SCE territory page.
 - Long Beach Utilities gas: "nearly 150,000 accounts" covers Long Beach, Signal Hill and parts of nearby communities, so the glance card uses the pipeline-mileage figure with the Long Beach Utilities attribution rather than a Long Beach-only claim.
 - Client approved the "walk you through" permit wording on 2026-10-15.
-- Nearby row: Torrance, Los Angeles, Carson, Redondo Beach. Redondo Beach now links to its live page; Carson still links to a noindex stub until a real page exists.
+- Nearby row: Torrance, Los Angeles, Carson, Redondo Beach. Redondo Beach now links to its live page; Carson now links to its live page (/service-areas/carson/).
 - Port of Long Beach claims removed from /service-areas/los-angeles-county/ (Long Beach card note, the commercial paragraph and the "Port and logistics" chip). The "51,000 local jobs" figure was attributed to the City of Long Beach but comes from a Port-commissioned economic impact study (EDR Group, 2017 data, reported 2019). Re-add only with a current, correctly attributed source. The hub FAQ now notes that Long Beach has its own gas utility (SoCalGas serves most of the region).
 - Client approved the "& Replacement" service card names on 2026-10-15. The emergency card wording was not named in the approval, so confirm it separately.
 - Hero photo is still "Photo pending".
@@ -810,6 +810,30 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference artifact
 - Rancho Cucamonga is already built on main (HEAD b1219f9, three commits past da0171d), contradicting the handoff.
 - Carryovers still open: SCE "authorized service provider" client question (Santa Monica and Inglewood); Burbank BWP installer question; Hermosa Beach 2022 vs 2025 code-edition conflict and its pending pastes.
 
+## /service-areas/carson/ (carsonOverrides in src/content/cities.ts)
+
+Built 2026-10-19, committed on branch add-carson-page. Reference: claude/reference/carson-location.html (review artifact: https://claude.ai/artifact/WrWhDD91JRhVFBrz5rjaji). Same single-data-source build as the other South Bay city pages. Carson was a wave 2 noindex stub before this.
+- Title: `cityTitle('Carson')` ("HVAC Services in Carson, CA | AIRPRO SOLUTIONS", 46 characters). H1 is `cityH1('Carson')` (27 characters). Hand-written `page.metaDescription` is 154 characters and passes `assertDescription`; it claims only "Licensed" and "4.8-star rated".
+- Copy approval: the client approved the Carson page copy on 2026-10-19 (reported by the user). The TODO(copy) flag is removed.
+- DECISION `wave1` (default kept): Carson is wave 2. The wave only means launch priority now; `sitemap.ts` lists built pages, so Carson enters the sitemap automatically. `sitemap.ts` and the `wave1` Set were not edited.
+- DECISION: JSON-LD `containedInPlace` is "South Bay, CA" and `areaServed` is City "Carson". The nearby row (Torrance, Gardena, Hawthorne, Redondo Beach) is exempt from the "no other-city names" rule and the page claims no adjacency.
+- Lead angle: Carson Civic Access (the City's online permit portal) and inspection scheduling, plus Census QuickFacts (90,808 residents, 74.0% owner-occupied among 26,974 households) and the 2022 transportation and warehousing receipts figure. Two local cards: the permit and inspection path, and the Census snapshot (the second card keeps the local-knowledge band under the blank-space limit; 24px blank at 1280px).
+- Clean Power Alliance: stated from CPA's residential-rate page (the communities page fetch errored). Needs a dated City source.
+- DECISION (link-only, no amounts): verified amounts, not published. SoCalGas 2026 furnace rebate $1.40 per kBtuh (92 to 94% AFUE), $10 (95 to 96%), $25 (97% or higher), one per household, application postmarked by 2026-12-31, licensed contractor and permit closure required. SCE Energy Savings Assistance income limits for 2026-06-01 to 2027-05-31 ($39,900 for 1 person up to $139,300 for 8, plus $14,200 each additional). Not used: Golden State Rebates, Home Performance Plus, Comfortably California.
+- DECISION (not on the page): federal 25C and 25D, HEEHRA, the SoCalGas $75 thermostat (wildfire ZIPs; neither 90745 nor 90746 is listed) and the SCE $75 Smart Energy credit. No contractor or installer conditions are stated.
+- DECISION (held out): ZIP card and neighborhoods. 90745 appears only as the City's address on a state record and 90746 only on third-party maps. `zips: []`, `neighborhoods: []`. No "flat", "hillside", "coastal" or climate labels. No housing-stock-by-type-and-age card; the age FAQ is generic.
+- Held out (no verified source):
+  - Municipal Code text (noise, Chapter 5, building administration, vibration isolation). Publisher copies (eCode360 and others) are not the official code.
+  - Any City mechanical permit worksheet or HVAC permit statement, townhome wording, and "supplies generation" for CPA.
+  - City phone numbers (the sources conflict, so none is published), the 211LA listing, climate and NOAA normals, employers.
+- Corrected research overstatements: pasted older-vintage Census figures were superseded by live QuickFacts; the mechanical permit worksheet and vibration rule were unverified claims.
+- Still needs pasted pages from the user: the official Carson Municipal Code text (noise, building administration) or confirmation that eCode360 is the City's official host; any City mechanical or HVAC permit page or worksheet and the Building Inspection page; a City page naming Carson's electric and gas providers and a dated City source on CPA membership; SCAG Carson local housing data or the Housing Element's housing-stock tables; a City or USPS ZIP list; the CPA communities page.
+- Pre-launch recheck: Carson Civic Access and Building & Safety pages, CPA member list, SoCalGas furnace rebate and 2026 application, SCE Energy Savings Assistance, QuickFacts.
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list. Do not strengthen it.
+- Hub wiring done with this page: the South Bay Carson card links /service-areas/carson/ and its copy was rewritten, the permits row and noise row were reworded to verified facts only, the noise FAQ no longer says Carson adopts the County ordinance, the /service-areas/ chip, `hubCityIndexNote` and the South Bay city-page sentence include Carson. commercial-hvac.ts and the Los Angeles County hub were checked and need no change.
+- Carryovers still open (not fixed in this commit, each needs a source): Hermosa Beach 2022 vs 2025 code-edition conflict and its pending pastes (City inspections and maps pages, inspection scheduling page, the two permit application PDFs, the full applications page, the official Municipal Code, the CPA page date, a ZIP list); South Bay hub unsourced sentences (the 405 corridor line, the ZIP 90250 FAQ, the Gardena 90250 sentence, and the Carson driving-distance and freeway sentence, which was not verified); Hawthorne SCAG E-5 estimate years and its pending pastes (City About, Zoning and Building & Safety pages, the Citizen Self Service guide, the SCAG PDF, a ZIP list).
+
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
 - Hermosa Beach: the "online-only starting 2026-10-01" claim was removed from the hub (no source on the City applications or online access pages). The hub permits row now follows the verified applications wording. See the Hermosa Beach section above.
@@ -823,8 +847,7 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference artifact
   single-family funding fully reserved, later requests waitlisted). Re-verify before launch.
 - El Segundo: hub states the 2025 California Mechanical Code with local amendments (ESMC 13-4-1, Ord. 1680, 12-3-2025; checked 2026-10-15). See the El Segundo section above.
 - Gardena: hub permit row names the Building & Safety Division (City's Schedule An Appointment page, 2026-08-05). Industrial, 405-corridor and 90248 wording was removed because no source supports it. See the Gardena section above. The 90250 sentence in the ZIP FAQ still needs a source.
-- Carson and Redondo Beach noise limits: deliberately left without dBA figures (medium-confidence
-  planning-document sourcing for Carson). Do not add specific numbers without a stronger source.
+- Carson and Redondo Beach noise limits: deliberately left without dBA figures. The Carson noise row and FAQ no longer cite the County ordinance (publisher-copy sourcing only); see the Carson section. Do not add specific numbers without a stronger source.
 - Clean Power Alliance generation: confirmed for Redondo Beach, Manhattan Beach, Hermosa Beach (City CPA page), Carson and Hawthorne (Clean Power Alliance's own site lists Hawthorne as a member community since 2019; user approved adding it to the hub lines 2026-10-19). The Hawthorne City page lists SCE and SoCalGas only, so re-check that the City resident directory and CPA agree.
 - Hawthorne: the permits row now says residential inspections are scheduled in the Citizen Self Service portal (the old 24-hour, 9am-5pm wording was the new business location inspection, not HVAC). The card now links /service-areas/hawthorne/ and the unsourced Century Business Center and Green Line note was removed. Hawthorne was taken out of the shared El Segundo/Gardena equipment-placement row. Still unsourced and left alone: line 58 "Torrance and Hawthorne form the inland middle around the 405 corridor" and the ZIP FAQ sentence "ZIP 90250 includes Hawthorne and unincorporated communities". See the Hawthorne section above.
 - Housing age, attic/foundation/duct condition, and population figures were intentionally left off

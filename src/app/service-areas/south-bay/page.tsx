@@ -226,14 +226,15 @@ export default function Page() {
           <p className="eyebrow">{southBayHub.cities.eyebrow}</p>
           <h2>{southBayHub.cities.title}</h2>
           <p>
-            Individual city pages are coming for the rest. For now, see our{' '}
+            Every city on this page now has its own page. See our{' '}
             <Link href="/service-areas/torrance/">Torrance page</Link>,{' '}
             <Link href="/service-areas/redondo-beach/">Redondo Beach page</Link>,{' '}
             <Link href="/service-areas/manhattan-beach/">Manhattan Beach page</Link>,{' '}
             <Link href="/service-areas/hermosa-beach/">Hermosa Beach page</Link>,{' '}
             <Link href="/service-areas/el-segundo/">El Segundo page</Link>,{' '}
-            <Link href="/service-areas/gardena/">Gardena page</Link>, or{' '}
-            <Link href="/service-areas/hawthorne/">Hawthorne page</Link>, or browse{' '}
+            <Link href="/service-areas/gardena/">Gardena page</Link>,{' '}
+            <Link href="/service-areas/hawthorne/">Hawthorne page</Link>, or{' '}
+            <Link href="/service-areas/carson/">Carson page</Link>, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">
