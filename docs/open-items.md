@@ -940,7 +940,7 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
 
 ## /service-areas/tustin/ (tustinOverrides in src/content/cities.ts)
 
-Built 2026-10-19 and committed locally on branch add-tustin-page (not pushed yet). Reference: claude/reference/tustin-location.html (review artifact: https://claude.ai/artifact/1uqWNwRWWpNbUpAMe99TqE). Same single-data-source build as Santa Ana, Newport Beach and Fullerton. Tustin was a wave 2 noindex stub before this.
+Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/reference/tustin-location.html (review artifact: https://claude.ai/artifact/1uqWNwRWWpNbUpAMe99TqE). Same single-data-source build as Santa Ana, Newport Beach and Fullerton. Tustin was a wave 2 noindex stub before this.
 - Title: `cityTitle('Tustin')` ("HVAC Services in Tustin, CA | AIRPRO SOLUTIONS", 46 characters). H1 is `cityH1('Tustin')`. Hand-written `page.metaDescription` is 142 characters and passes `assertDescription`; it claims only "Licensed" and "4.8-star rated". The literal phrase "hvac tustin" is not used. 14 FAQs.
 - Copy approval: the client approved the Tustin page copy on 2026-10-19 (per the user).
 - DECISION `wave1` (default kept): Tustin is wave 2; `sitemap.ts` lists built pages, so it enters the sitemap automatically. `sitemap.ts` and the `wave1` Set were not edited.
