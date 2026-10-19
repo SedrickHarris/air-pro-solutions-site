@@ -869,7 +869,7 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
 
 ## /service-areas/newport-beach/ (newportBeachOverrides in src/content/cities.ts)
 
-Built 2026-10-19 on branch add-newport-beach-page (committed locally, not pushed yet). Reference: claude/reference/newport-beach-location.html (review artifact: https://claude.ai/artifact/Fdcn1dErnBo3hi51qz77iW). Same single-data-source build as Santa Ana. Newport Beach was a wave 2 noindex stub before this.
+Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/reference/newport-beach-location.html (review artifact: https://claude.ai/artifact/Fdcn1dErnBo3hi51qz77iW). Same single-data-source build as Santa Ana. Newport Beach was a wave 2 noindex stub before this.
 - Title: `cityTitle('Newport Beach')` ("HVAC Services in Newport Beach, CA | AIRPRO SOLUTIONS", 53 characters). H1 is `cityH1('Newport Beach')` (34 characters). Hand-written `page.metaDescription` is 160 characters and passes `assertDescription`; it claims only "Licensed" and "4.8-star rated". The literal phrase "hvac newport beach" is not used.
 - Copy approval: the client approved the Newport Beach page copy on 2026-10-19 (per the user).
 - DECISION `wave1` (default kept): Newport Beach is wave 2; `sitemap.ts` lists built pages, so it enters the sitemap automatically. `sitemap.ts` and the `wave1` Set were not edited.
