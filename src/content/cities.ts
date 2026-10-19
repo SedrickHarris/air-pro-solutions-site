@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson, santa-ana, newport-beach, fullerton and tustin have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson, santa-ana, newport-beach, fullerton, tustin and chino have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // The closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's, Santa Ana's, Newport Beach's, Fullerton's and Tustin's local paragraphs use the new sentence from the start. The client approved all city page copy, including Newport Beach, Fullerton and Tustin, on 2026-10-19 (per the user).
+// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's, Santa Ana's, Newport Beach's, Fullerton's, Tustin's and Chino's local paragraphs use the new sentence from the start. The client approved all city page copy, including Newport Beach, Fullerton, Tustin and Chino, on 2026-10-19 (per the user).
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
 // building that city page or its matrix pages. Never invent it.
@@ -9033,6 +9033,444 @@ const tustinOverrides: Partial<City> = {
     },
 };
 
+const chinoOverrides: Partial<City> = {
+  // Copy approval: the client approved the Chino page copy on 2026-10-19 (per the user).
+  // TODO(data): add verified climate, housing-age, ZIP and utility detail before treating this as a full local page.
+  neighborhoods: [], // list held out: the City Information page names no neighborhoods and the research list came from Wikipedia, which is not official
+  zips: [], // ZIP list held out: the research cited Wikipedia and then a 2021 City Athletic Field User Guide that could not be read, so the hub keeps "pending"
+  page: {
+      metaDescription: "HVAC service for Chino homes and businesses in the western Inland Empire, with the City's permit and code pages in mind. Licensed, 4.8-star rated.",
+      lede: "AIRPRO SOLUTIONS provides HVAC services across Chino, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit and code pages in mind.",
+      heroCaption: {
+        title: "Chino, CA",
+        text: "Local service across Chino",
+      },
+      heroProof: [
+        {
+          icon: "shield",
+          label: "Licensed, bonded & insured",
+        },
+        {
+          icon: "star",
+          label: "4.8-star rated",
+        },
+        {
+          icon: "bolt",
+          label: "24/7 emergency dispatch",
+        },
+        {
+          icon: "building",
+          label: "Residential and commercial",
+        },
+      ],
+      trustStats: [
+        {
+          num: "4.8★",
+          label: "Google rating, 40 reviews",
+        },
+        {
+          num: "C-20",
+          label: "California licensed",
+        },
+        {
+          num: "24/7",
+          label: "emergency dispatch",
+        },
+        {
+          num: "Same-day",
+          label: "service typical",
+        },
+      ],
+      answer: {
+        lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Chino",
+        body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+      },
+      glance: {
+        title: "Chino at a glance",
+        stats: [
+          {
+            num: "96,957",
+            label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)",
+          },
+          {
+            num: "64.0%",
+            label: "owner-occupied housing unit rate, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+          },
+          {
+            num: "3.25",
+            label: "persons per household, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+          },
+        ],
+        source: "Source: U.S. Census Bureau QuickFacts for Chino city, California.",
+      },
+      localTitle: "Chino's permit pages, code edition, and place in the Inland Empire",
+    // Copy approval: the client approved the Chino page copy on 2026-10-19 (per the user).
+    // Held out (no verified source or not allowed on the page): ZIP codes 91708 and 91710 (the research cited Wikipedia, which is not official, and then a 2021 City Athletic Field User Guide on cityofchino.org DocumentCenter that returned a server error twice, so it was never read and is not a ZIP list); neighborhood and area names (none on the City Information page); bordering and adjacent city names such as Chino Hills, Pomona, Montclair, Eastvale and Ontario (the research source was Wikipedia, and the City page names only two other counties); Chino Valley Medical Center and Chino Valley Unified School District (research source was homes.com, not official); employers, industrial areas, zoning pattern and Chino Preserve, agricultural, dairy or heat-day statements (no official source); Chino Airport (KCNO) climate station and any temperature normals, day counts, inland, marine layer, heat island or humidity statements (the NWS climate page read does not mention Chino or KCNO and shows no values); the 2025 California Building Code adoption claim (the Building Division page says the 2022 edition); Building Applications and Forms page contents, the Building Fee Schedule dated August 16, 2025 and its mechanical categories, the General Plan element list, the Housing Element Community Profile and the use-permit and site-approval checklists (cityofchino.org pages and DocumentCenter files returned ROBOTS_DISALLOWED or server errors on two attempts each, so they were not read, and fee, form, condenser-location and noise-compatibility statements are not used); the Chino 2045 General Plan planning area of 20,626 acres (CEQAnet read, but the area includes the Sphere of Influence and is not city land area, so it is not used); the 2018 ACS housing-age shares from the draft Housing Element (stale, unread, internally inconsistent in the research) and the RHNA allocation numbers (the Housing Element page read gives none); median household income, per capita income, rent, home value, owner costs, mover rate and other ACS dollar or share figures in the research (only the four QuickFacts values above were read); SCE and SoCalGas service at Chino addresses, SCE time-of-use plans, and every rebate amount, credit amount, AFUE-tier amount, deadline and funding statement (no City or utility page read names Chino, and rebates stay link-only without amounts); Golden State Rebates (the research reports a conflict: SDG&E says retail offers ended while SCE still describes them); SCE Energy Savings Assistance, Home Performance Plus and Comfortably California (not read, address eligibility unverified); permit counter and inspection phone numbers and email addresses.
+    // TODO(verify): City Information page (cityofchino.org/452, no page date) was read through a fetch summary on 2026-10-19: "Nestled in the western Inland Empire in San Bernardino County", "Chino borders Los Angeles and Riverside Counties", "is only 2 miles from the border of Orange County"; it lists no ZIP codes, neighborhoods or electric or gas utility.
+    // TODO(verify): City Building Division page (cityofchino.org/178, no page date) was read through a fetch summary on 2026-10-19: "The Building Division issues building permits and takes in plans for review"; it enforces "the Uniform Building, Plumbing, Mechanical, and National Electrical Codes"; "Currently, the City of Chino has adopted the 2022 Edition of the California Building Code with some amendments", with local amendments and adoption details in Chapter 15 of the Chino Municipal Code; it never mentions HVAC, permit types, fees or a 2025 edition. Source conflict: the research says the page shows the 2025 California Building Code adopted with local amendments; the page says 2022.
+    // TODO(verify): Census QuickFacts for Chino city (V2025, no publication date) was read through a fetch summary on 2026-10-19: 96,957 residents on July 1, 2025; 64.0 percent owner-occupied housing unit rate, 27,261 households and 3.25 persons per household for 2020 to 2024; housing units and building permits shown as X. Source conflict: two pasted research sets gave 62.9 percent owner-occupied, 26,866 households, 3.26 persons per household and 93,114 residents (V2023, ACS 2019 to 2023), which is an older release; the live page was used.
+    // TODO(verify): SCE Smart Energy Program page (sce.com, no page date) was read through a fetch summary on 2026-10-19: customers enroll a qualifying smart thermostat through an Authorized Service Provider and earn bill credits during energy events; the provider may raise the setting up to four degrees; it names no city, so it does not show that SCE serves Chino addresses. No credit amounts are used on the page.
+    // TODO(verify): SoCalGas rebates page (socalgas.com/savings/rebates-and-incentives, submission date 07/23/2024, no last-updated date) was read through a fetch summary on 2026-10-19: lists an ENERGY STAR certified furnace rebate (AFUE of at least 92 percent), "Must be installed by a licensed contractor with proof of permit closure", one per household, funds allocated until December 31, 2026 or until funds are no longer available; it does not mention Chino. No amounts, deadline or funding statement is used on the page.
+    // TODO(verify): CSLB Finding the Right Contractor page (no publication date) was read through a fetch summary on 2026-10-19: "Seeing a license number doesn't necessarily mean the license is valid"; license status can be checked online; the lookup shows the address of record and insurance information.
+    // TODO(verify): NWS climate page (weather.gov/wrh/climate?wfo=sgx, page metadata created August 3, 2026) was read through a fetch summary on 2026-10-19: it never mentions Chino or KCNO and shows no temperature values, so the research claim that Chino Airport (KCNO) is listed is not confirmed.
+    // TODO(verify): CEQAnet Chino 2045 General Plan Update notice (ceqanet.lci.ca.gov/2024090833/3, Notice of Determination posted September 5, 2025) was read through a fetch summary on 2026-10-19: the planning area is 20,626 acres (32.23 square miles) and includes the Sphere of Influence; not used on the page.
+    // TODO(verify): City Housing Element page (cityofchino.org/199, no page date) was read through a fetch summary on 2026-10-19: names no RHNA number, no adoption date and no housing age or type figures (the research gives 6,978 units and a November 19, 2024 adoption from sources that were not read).
+    // Pre-launch recheck: a readable City source for whether replacing an air conditioner or furnace needs a mechanical permit and how to apply (the Building Applications and Forms page was not readable), the current Building Fee Schedule and its effective date (research says August 16, 2025, not read), whether the City has moved from the 2022 California Building Code to the 2025 edition (the page read says 2022, the research says 2025), the text of Chino Municipal Code Chapter 15 and its code host (host needs your confirmation), outdoor unit placement and noise rules, an official ZIP source, Census ACS B25034, B25035 and B25024 for Chino city, a City or utility page naming Chino's electric and gas providers, whether SCE and SoCalGas programs apply at Chino addresses, a current Housing Element source, an official Chino Airport climate source, and an official source for Chino Valley Medical Center, Chino Valley Unified School District, employers and industrial areas.
+      localParagraphs: [
+        "The City Information page on the City's site says Chino is in the western Inland Empire in San Bernardino County, borders two other counties, and is only 2 miles from the Orange County border. It names no ZIP codes or neighborhoods and shows no date, so we do not list any, and **AIRPRO SOLUTIONS confirms the building, equipment, and access at each property** instead of assuming a pattern for the area.",
+        "The City's Building Division page says the Division issues building permits and takes in plans for review, and that it enforces the Uniform Building, Plumbing, Mechanical, and National Electrical Codes. It does not mention HVAC and does not say whether replacing an air conditioner or furnace needs a permit, and it shows no date, so **AIRPRO SOLUTIONS confirms the permit path for your job with the City** before work starts. We do not state permit fees or the steps for applying.",
+        "The same page says the City has adopted the 2022 Edition of the California Building Code with some amendments, and that the amendments and adoption details are in Chapter 15 of the Chino Municipal Code. It does not mention a 2025 edition, and we did not read the Municipal Code chapter, so **we confirm which code edition applies to your project with the City**, and we do not state local amendments or outdoor equipment rules.",
+        "QuickFacts estimates Chino had 96,957 residents on July 1, 2025, and reports a **64.0% owner-occupied housing unit rate** and 3.25 persons per household for 2020 to 2024. That leaves 36.0% of occupied homes that are not owner-occupied, so when the person who calls is a tenant we work with the owner or property manager on access and approval. Ownership and household size are different measures from building type or age, so we do not guess how old the homes or ducts are in your part of the city, and **we confirm the equipment, roof or attic access, and ductwork at each property**.",
+        "The City pages we read do not say which utility serves Chino addresses, so **your bill shows who supplies your electricity and gas**. Utilities publish their own program pages with their own terms and funding, such as Southern California Edison's Smart Energy Program for smart thermostats and Southern California Gas Company's furnace rebates, which require installation by a licensed contractor and proof of permit closure. Neither utility page names Chino, so we do not quote amounts or say a program applies at your address, and you should check each program with your utility before you buy. Official links are in the card for this section.",
+      ],
+      localCards: [
+        {
+          heading: "Chino permit and code pages",
+          rows: [
+            {
+              label: "Permits",
+              value: "The Building Division issues building permits and takes in plans for review",
+            },
+            {
+              label: "Codes enforced",
+              value: "Uniform Building, Plumbing, Mechanical, and National Electrical Codes, as the page names them",
+            },
+            {
+              label: "Code edition",
+              value: "2022 California Building Code with some amendments; no 2025 edition mentioned",
+            },
+            {
+              label: "Local amendments",
+              value: "In Chapter 15 of the Chino Municipal Code, per the page; not read",
+            },
+            {
+              label: "Replacement permit rule",
+              value: "Not stated on the page",
+            },
+            {
+              label: "Web page dates",
+              value: "None shown on the pages we read",
+            },
+          ],
+          note: "From the City's Building Division and City Information pages. We confirm current requirements with the City.",
+        },
+      ],
+      neighborhoodsHeading: "Official Chino resources",
+      officialResources: [
+        {
+          text: "Building Division",
+          href: "https://www.cityofchino.org/178/Building",
+          note: "Division role, codes enforced, and the 2022 California Building Code statement.",
+        },
+        {
+          text: "City Information",
+          href: "https://www.cityofchino.org/452/City-Information",
+          note: "Location in the western Inland Empire.",
+        },
+        {
+          text: "Census QuickFacts",
+          href: "https://www.census.gov/quickfacts/chinocitycalifornia",
+          note: "Population, owner-occupied rate, and household size cited on this page.",
+        },
+        {
+          text: "SCE Smart Energy Program",
+          href: "https://www.sce.com/save-money/savings-programs/enroll-in-savings-programs/smart-energy-program",
+          note: "Smart thermostat program terms. The page does not name Chino.",
+        },
+        {
+          text: "SoCalGas rebates",
+          href: "https://www.socalgas.com/savings/rebates-and-incentives",
+          note: "Furnace rebate requirements and funding. The page does not name Chino.",
+        },
+      ],
+      servicesTitle: "Everything we handle for Chino homes and businesses",
+      serviceCards: [
+        {
+          slug: "ac-repair",
+          name: "AC Repair",
+          body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises in Chino homes and businesses.",
+        },
+        {
+          slug: "ac-installation",
+          name: "AC Installation & Replacement",
+          body: "New system sizing and installation for Chino properties, planned around the City's permit pages.",
+        },
+        {
+          slug: "ac-maintenance",
+          name: "AC Maintenance",
+          body: "Seasonal AC tune-ups that catch small issues early, for Chino homes and for commercial rooftop and ground units.",
+        },
+        {
+          slug: "heating-repair",
+          name: "Heating Repair",
+          body: "Furnace and heating system diagnosis and repair for Chino homes and businesses.",
+        },
+        {
+          slug: "furnace-installation",
+          name: "Furnace Installation & Replacement",
+          body: "Furnace sizing and installation, planned around the City's permit pages.",
+        },
+        {
+          slug: "heat-pump-services",
+          name: "Heat Pump Services",
+          body: "Heat pump installation, repair, and maintenance, with the City's permit pages and your utilities' program pages in mind.",
+        },
+        {
+          slug: "ductless-mini-split",
+          name: "Ductless Mini-Split",
+          body: "Ductless systems for Chino additions, converted spaces, and rooms the existing ducts do not reach.",
+        },
+        {
+          slug: "ductwork",
+          name: "Ductwork Services",
+          body: "Duct repair, sealing, and replacement for Chino homes and buildings.",
+        },
+        {
+          slug: "indoor-air-quality",
+          name: "Indoor Air Quality",
+          body: "Filtration, ventilation, and air-quality upgrades for Chino homes and offices.",
+        },
+        {
+          slug: "emergency-hvac",
+          name: "Emergency HVAC",
+          body: "24/7 emergency dispatch for no-cool and no-heat problems in Chino. If you smell gas, leave the building and call 911 or your gas utility.",
+        },
+      ],
+      resources: {
+        eyebrow: "Know before you start",
+        title: "Chino permits, codes, and incentive programs",
+        intro: "Official sources for three items worth checking before a Chino HVAC project.",
+        cards: [
+          {
+            amount: "Permits and inspections",
+            description: "The City's Building Division page says the Division issues building permits and takes in plans for review, and that it enforces the Uniform Building, Plumbing, Mechanical, and National Electrical Codes. It does not say whether replacing an air conditioner or furnace needs a permit, and the page shows no date, so we confirm the permit path for your job with the City. We do not state permit fees.",
+            linkLabel: "City Building Division page",
+            linkHref: "https://www.cityofchino.org/178/Building",
+          },
+          {
+            amount: "Code edition",
+            description: "The Building Division page says the City has adopted the 2022 Edition of the California Building Code with some amendments, found in Chapter 15 of the Chino Municipal Code. It does not mention a 2025 edition, so we confirm the code edition for your project with the City.",
+            linkLabel: "City Building Division page",
+            linkHref: "https://www.cityofchino.org/178/Building",
+          },
+          {
+            amount: "Rebates and utilities",
+            description: "The City pages we read do not say which utility serves Chino addresses, so check your bill. Southern California Edison's Smart Energy Program page describes smart thermostat bill credits, and the Southern California Gas Company rebate page lists furnace rebates that require a licensed contractor and proof of permit closure. Neither page names Chino, so we do not quote amounts or say either program applies at your address. Check each program's terms with your utility before you buy.",
+            linkLabel: "SoCalGas rebate page",
+            linkHref: "https://www.socalgas.com/savings/rebates-and-incentives",
+          },
+        ],
+      },
+      nearby: [
+        "ontario",
+        "rancho-cucamonga",
+        "corona",
+        "riverside",
+      ],
+      proof: {
+        heading: "Licensed, reviewed, and ready across Chino",
+        body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+        stats: [
+          {
+            num: "4.8★",
+            label: "Google rating",
+          },
+          {
+            num: "40",
+            label: "Google reviews",
+          },
+          {
+            num: "C-20",
+            label: "California license class",
+          },
+          {
+            num: "24/7",
+            label: "Emergency dispatch",
+          },
+        ],
+      },
+      finalCtaBody: "Call or request service online to schedule a visit anywhere in Chino. Same-day service is typical, subject to capacity.",
+      faqs: [
+        {
+          q: "Does AIRPRO SOLUTIONS service all of Chino?",
+          a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Chino as part of our Inland Empire coverage. The City runs its own permit process, so we plan each visit around your specific address.",
+          boldLead: "Yes.",
+          links: [
+            {
+              text: "Inland Empire coverage",
+              href: "/service-areas/inland-empire/",
+            },
+          ],
+        },
+        {
+          q: "How fast can a technician reach my Chino home?",
+          a: "Same-day service is typical in Chino, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+          boldLead: "Same-day service is typical in Chino, subject to capacity.",
+          links: [
+            {
+              text: "(323) 776-9047",
+              href: "tel:+13237769047",
+            },
+          ],
+        },
+        {
+          q: "Do I need a permit to replace an air conditioner in Chino?",
+          a: "We confirm that with the City. The City's Building Division page says the Division issues building permits and takes in plans for review, but it does not say whether replacing an air conditioner needs a permit, so AIRPRO SOLUTIONS confirms the current permit path with the City before work starts, and we do not quote permit fees.",
+          boldLead: "We confirm that with the City.",
+          links: [
+            {
+              text: "Building Division page",
+              href: "https://www.cityofchino.org/178/Building",
+            },
+          ],
+        },
+        {
+          q: "Which building code edition applies to a Chino HVAC project?",
+          a: "We confirm that with the City. The City's Building Division page says Chino has adopted the 2022 Edition of the California Building Code with some amendments, and it does not mention a 2025 edition or show a date, so AIRPRO SOLUTIONS confirms which edition applies to your project with the City, and we do not state local amendments.",
+          boldLead: "We confirm that with the City.",
+          links: [
+            {
+              text: "Building Division page",
+              href: "https://www.cityofchino.org/178/Building",
+            },
+          ],
+        },
+        {
+          q: "Where can an outdoor AC unit go on my Chino property?",
+          a: "We confirm that with the City. We did not find a City page we could read that states setback, screening, or noise rules for outdoor HVAC equipment, so we do not state any here, and AIRPRO SOLUTIONS checks the current rules, how your property is zoned, and its layout with the City before choosing a location.",
+          boldLead: "We confirm that with the City.",
+        },
+        {
+          q: "Does the age of my Chino home matter for HVAC?",
+          a: "Age is one factor we check. We did not find a verified citywide figure for the age of Chino homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
+          boldLead: "Age is one factor we check.",
+        },
+        {
+          q: "Do you work on rental properties in Chino?",
+          a: "Yes. QuickFacts reports a 64.0% owner-occupied housing unit rate for Chino, so 36.0% of occupied homes are not owner-occupied. AIRPRO SOLUTIONS works with owners and property managers on access and approval before installation or replacement.",
+          boldLead: "Yes.",
+          links: [
+            {
+              text: "QuickFacts",
+              href: "https://www.census.gov/quickfacts/chinocitycalifornia",
+            },
+          ],
+        },
+        {
+          q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Chino?",
+          a: "Yes. AIRPRO SOLUTIONS services commercial properties in Chino, including rooftop units, and plans rooftop access and equipment placement with the building owner or manager before commercial work starts. We confirm how your property is zoned and the permit path with the City. See our Commercial HVAC page for the full scope.",
+          boldLead: "Yes.",
+          links: [
+            {
+              text: "Commercial HVAC page",
+              href: "/commercial-hvac/",
+            },
+          ],
+        },
+        {
+          q: "How do I check an HVAC contractor in Chino?",
+          a: "Check the state license first. CSLB says seeing a license number does not necessarily mean the license is valid, so check its status on the CSLB site, which also shows the address of record and insurance information. AIRPRO SOLUTIONS' California license numbers are #1126691 and #50251 (C-20).",
+          boldLead: "Check the state license first.",
+          links: [
+            {
+              text: "CSLB site",
+              href: "https://www.cslb.ca.gov/consumers/hire_a_contractor/finding_the_right_contractor.aspx",
+            },
+          ],
+        },
+        {
+          q: "Which utility serves my Chino address?",
+          a: "Your bill answers it. The City pages we read do not name Chino's electric or gas provider, so check your bill to see who supplies your electricity and gas.",
+          boldLead: "Your bill answers it.",
+        },
+        {
+          q: "Are there HVAC rebates for Chino customers?",
+          a: "Check with your utility. We did not find a City page on HVAC rebates, and neither Southern California Edison's Smart Energy Program page nor the Southern California Gas Company rebate page names Chino. Utility programs have their own terms and funding, and we do not quote amounts, so check each program with your utility before you buy.",
+          boldLead: "Check with your utility.",
+          links: [
+            {
+              text: "Smart Energy Program page",
+              href: "https://www.sce.com/save-money/savings-programs/enroll-in-savings-programs/smart-energy-program",
+            },
+            {
+              text: "rebate page",
+              href: "https://www.socalgas.com/savings/rebates-and-incentives",
+            },
+          ],
+        },
+        {
+          q: "What HVAC services are available in Chino?",
+          a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Chino, for both residential and commercial properties.",
+          boldLead: "AIRPRO SOLUTIONS provides",
+          links: [
+            {
+              text: "AC repair",
+              href: "/services/ac-repair/",
+            },
+            {
+              text: "AC installation and replacement",
+              href: "/services/ac-installation/",
+            },
+            {
+              text: "AC maintenance",
+              href: "/services/ac-maintenance/",
+            },
+            {
+              text: "heating repair",
+              href: "/services/heating-repair/",
+            },
+            {
+              text: "furnace installation and replacement",
+              href: "/services/furnace-installation/",
+            },
+            {
+              text: "heat pump services",
+              href: "/services/heat-pump-services/",
+            },
+            {
+              text: "ductless mini-splits",
+              href: "/services/ductless-mini-split/",
+            },
+            {
+              text: "ductwork",
+              href: "/services/ductwork/",
+            },
+            {
+              text: "indoor air quality",
+              href: "/services/indoor-air-quality/",
+            },
+            {
+              text: "emergency HVAC",
+              href: "/services/emergency-hvac/",
+            },
+          ],
+        },
+        {
+          q: "Is emergency HVAC service available in Chino?",
+          a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Chino. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+          boldLead: "Yes.",
+          links: [
+            {
+              text: "(323) 776-9047",
+              href: "tel:+13237769047",
+            },
+          ],
+        },
+        {
+          q: "How much does HVAC service cost in Chino?",
+          a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+          boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+          links: [
+            {
+              text: "(323) 776-9047",
+              href: "tel:+13237769047",
+            },
+          ],
+        },
+      ],
+    },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -9063,6 +9501,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'newport-beach' ? newportBeachOverrides
     : c.slug === 'fullerton' ? fullertonOverrides
     : c.slug === 'tustin' ? tustinOverrides
+    : c.slug === 'chino' ? chinoOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;

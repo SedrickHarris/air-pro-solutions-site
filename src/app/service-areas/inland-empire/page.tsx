@@ -251,8 +251,9 @@ export default function Page() {
             Individual Inland Empire city pages are coming. For now, see our{' '}
             <Link href="/service-areas/riverside/">Riverside</Link>,{' '}
             <Link href="/service-areas/ontario/">Ontario</Link>,{' '}
-            <Link href="/service-areas/corona/">Corona</Link>, and{' '}
-            <Link href="/service-areas/rancho-cucamonga/">Rancho Cucamonga</Link> pages, or browse{' '}
+            <Link href="/service-areas/corona/">Corona</Link>,{' '}
+            <Link href="/service-areas/rancho-cucamonga/">Rancho Cucamonga</Link>, and{' '}
+            <Link href="/service-areas/chino/">Chino</Link> pages, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">

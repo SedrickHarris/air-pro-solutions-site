@@ -1,0 +1,1240 @@
+<title>AirPro Chino</title>
+<!-- SEO (apply in Next.js metadata export, not rendered by the artifact wrapper)
+  title:       HVAC Services in Chino, CA | AIRPRO SOLUTIONS
+  description: HVAC service for Chino homes and businesses in the western Inland Empire, with the City&#x27;s permit and code pages in mind. Licensed, 4.8-star rated.
+  canonical:   https://airprosolutionsheatingandcooling.com/service-areas/chino/
+  h1:          HVAC Services in Chino, CA
+  primary kw:  hvac chino
+  Region: Inland Empire (regions.ts, inland-empire.ts, service-area-hub.ts). Repo: chinoOverrides in src/content/cities.ts. Chino was a wave 2 noindex stub before this page.
+  Copy approval: the client approved the Chino page copy on 2026-10-19 (per the user).
+  Held out (no verified source or not allowed on the page): ZIP codes 91708 and 91710 (the research cited Wikipedia, which is not official, and then a 2021 City Athletic Field User Guide on cityofchino.org DocumentCenter that returned a server error twice, so it was never read and is not a ZIP list); neighborhood and area names (none on the City Information page); bordering and adjacent city names such as Chino Hills, Pomona, Montclair, Eastvale and Ontario (the research source was Wikipedia, and the City page names only two other counties); Chino Valley Medical Center and Chino Valley Unified School District (research source was homes.com, not official); employers, industrial areas, zoning pattern and Chino Preserve, agricultural, dairy or heat-day statements (no official source); Chino Airport (KCNO) climate station and any temperature normals, day counts, inland, marine layer, heat island or humidity statements (the NWS climate page read does not mention Chino or KCNO and shows no values); the 2025 California Building Code adoption claim (the Building Division page says the 2022 edition); Building Applications and Forms page contents, the Building Fee Schedule dated August 16, 2025 and its mechanical categories, the General Plan element list, the Housing Element Community Profile and the use-permit and site-approval checklists (cityofchino.org pages and DocumentCenter files returned ROBOTS_DISALLOWED or server errors on two attempts each, so they were not read, and fee, form, condenser-location and noise-compatibility statements are not used); the Chino 2045 General Plan planning area of 20,626 acres (CEQAnet read, but the area includes the Sphere of Influence and is not city land area, so it is not used); the 2018 ACS housing-age shares from the draft Housing Element (stale, unread, internally inconsistent in the research) and the RHNA allocation numbers (the Housing Element page read gives none); median household income, per capita income, rent, home value, owner costs, mover rate and other ACS dollar or share figures in the research (only the four QuickFacts values above were read); SCE and SoCalGas service at Chino addresses, SCE time-of-use plans, and every rebate amount, credit amount, AFUE-tier amount, deadline and funding statement (no City or utility page read names Chino, and rebates stay link-only without amounts); Golden State Rebates (the research reports a conflict: SDG&E says retail offers ended while SCE still describes them); SCE Energy Savings Assistance, Home Performance Plus and Comfortably California (not read, address eligibility unverified); permit counter and inspection phone numbers and email addresses.
+  TODO(verify): City Information page (cityofchino.org/452, no page date) was read through a fetch summary on 2026-10-19: "Nestled in the western Inland Empire in San Bernardino County", "Chino borders Los Angeles and Riverside Counties", "is only 2 miles from the border of Orange County"; it lists no ZIP codes, neighborhoods or electric or gas utility.
+  TODO(verify): City Building Division page (cityofchino.org/178, no page date) was read through a fetch summary on 2026-10-19: "The Building Division issues building permits and takes in plans for review"; it enforces "the Uniform Building, Plumbing, Mechanical, and National Electrical Codes"; "Currently, the City of Chino has adopted the 2022 Edition of the California Building Code with some amendments", with local amendments and adoption details in Chapter 15 of the Chino Municipal Code; it never mentions HVAC, permit types, fees or a 2025 edition. Source conflict: the research says the page shows the 2025 California Building Code adopted with local amendments; the page says 2022.
+  TODO(verify): Census QuickFacts for Chino city (V2025, no publication date) was read through a fetch summary on 2026-10-19: 96,957 residents on July 1, 2025; 64.0 percent owner-occupied housing unit rate, 27,261 households and 3.25 persons per household for 2020 to 2024; housing units and building permits shown as X. Source conflict: two pasted research sets gave 62.9 percent owner-occupied, 26,866 households, 3.26 persons per household and 93,114 residents (V2023, ACS 2019 to 2023), which is an older release; the live page was used.
+  TODO(verify): SCE Smart Energy Program page (sce.com, no page date) was read through a fetch summary on 2026-10-19: customers enroll a qualifying smart thermostat through an Authorized Service Provider and earn bill credits during energy events; the provider may raise the setting up to four degrees; it names no city, so it does not show that SCE serves Chino addresses. No credit amounts are used on the page.
+  TODO(verify): SoCalGas rebates page (socalgas.com/savings/rebates-and-incentives, submission date 07/23/2024, no last-updated date) was read through a fetch summary on 2026-10-19: lists an ENERGY STAR certified furnace rebate (AFUE of at least 92 percent), "Must be installed by a licensed contractor with proof of permit closure", one per household, funds allocated until December 31, 2026 or until funds are no longer available; it does not mention Chino. No amounts, deadline or funding statement is used on the page.
+  TODO(verify): CSLB Finding the Right Contractor page (no publication date) was read through a fetch summary on 2026-10-19: "Seeing a license number doesn't necessarily mean the license is valid"; license status can be checked online; the lookup shows the address of record and insurance information.
+  TODO(verify): NWS climate page (weather.gov/wrh/climate?wfo=sgx, page metadata created August 3, 2026) was read through a fetch summary on 2026-10-19: it never mentions Chino or KCNO and shows no temperature values, so the research claim that Chino Airport (KCNO) is listed is not confirmed.
+  TODO(verify): CEQAnet Chino 2045 General Plan Update notice (ceqanet.lci.ca.gov/2024090833/3, Notice of Determination posted September 5, 2025) was read through a fetch summary on 2026-10-19: the planning area is 20,626 acres (32.23 square miles) and includes the Sphere of Influence; not used on the page.
+  TODO(verify): City Housing Element page (cityofchino.org/199, no page date) was read through a fetch summary on 2026-10-19: names no RHNA number, no adoption date and no housing age or type figures (the research gives 6,978 units and a November 19, 2024 adoption from sources that were not read).
+  Pre-launch recheck: a readable City source for whether replacing an air conditioner or furnace needs a mechanical permit and how to apply (the Building Applications and Forms page was not readable), the current Building Fee Schedule and its effective date (research says August 16, 2025, not read), whether the City has moved from the 2022 California Building Code to the 2025 edition (the page read says 2022, the research says 2025), the text of Chino Municipal Code Chapter 15 and its code host (host needs your confirmation), outdoor unit placement and noise rules, an official ZIP source, Census ACS B25034, B25035 and B25024 for Chino city, a City or utility page naming Chino's electric and gas providers, whether SCE and SoCalGas programs apply at Chino addresses, a current Housing Element source, an official Chino Airport climate source, and an official source for Chino Valley Medical Center, Chino Valley Unified School District, employers and industrial areas.
+-->
+<meta name="description" content="HVAC service for Chino homes and businesses in the western Inland Empire, with the City&#x27;s permit and code pages in mind. Licensed, 4.8-star rated.">
+<link rel="canonical" href="https://airprosolutionsheatingandcooling.com/service-areas/chino/">
+
+<style>
+  :root{
+    --navy-950:#071638;
+    --navy-900:#0c2456;
+    --navy-800:#123670;
+    --navy-700:#1a478c;
+    --sky-500:#2ba9e0;
+    --sky-400:#5cc4ee;
+    --amber-500:#f0791f;
+    --amber-600:#d1620f;
+    --amber-100:#fdece0;
+    --paper:#f6f7f9;
+    --paper-dim:#eceff3;
+    --ink:#0e1a2b;
+    --ink-soft:#4c5a6c;
+    --line:#dbe0e7;
+    --card-bg:#ffffff;
+    --good:#2f7a4d;
+    --shadow:0 1px 2px rgba(7,22,56,.07), 0 8px 24px -12px rgba(7,22,56,.2);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#081020;
+      --paper-dim:#0b1526;
+      --ink:#eef1f4;
+      --ink-soft:#a7b5c6;
+      --line:#1f2f47;
+      --card-bg:#0e1a30;
+      --navy-950:#050e22;
+      --amber-100:#2c1a0c;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#081020;
+    --paper-dim:#0b1526;
+    --ink:#eef1f4;
+    --ink-soft:#a7b5c6;
+    --line:#1f2f47;
+    --card-bg:#0e1a30;
+    --navy-950:#050e22;
+    --amber-100:#2c1a0c;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Manrope", -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:"Barlow Condensed", "Manrope", sans-serif;
+    margin:0;
+    text-wrap:balance;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding-inline:20px;}
+  .eyebrow{
+    font-family:"Manrope",sans-serif;
+    font-weight:700;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--amber-600);
+  }
+  :root[data-theme="dark"] .eyebrow{color:var(--amber-500);}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .eyebrow{color:var(--amber-500);}}
+  section{padding-block:56px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:"Manrope",sans-serif;font-weight:700;font-size:.95rem;
+    padding:13px 22px;border-radius:6px;border:1px solid transparent;
+    cursor:pointer;text-decoration:none;white-space:nowrap;
+  }
+  .btn-primary{background:var(--amber-500);color:#1a0e02;}
+  .btn-primary:hover{background:var(--amber-600);}
+  .btn-ghost{background:transparent;border-color:rgba(255,255,255,.4);color:#fff;}
+  .btn-ghost:hover{background:rgba(255,255,255,.08);}
+  .btn-outline{background:transparent;border-color:var(--navy-700);color:var(--navy-800);}
+  :root[data-theme="dark"] .btn-outline{border-color:var(--ink-soft);color:var(--ink);}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-outline{border-color:var(--ink-soft);color:var(--ink);}}
+
+  /* ANNOUNCEMENT BAR */
+  .announce{
+    background:var(--navy-950);color:#dce6f0;
+    font-size:.82rem;text-align:center;padding:8px 20px;
+  }
+  .announce b{color:#fff;}
+
+  /* HEADER */
+  header.site{
+    background:var(--navy-900);
+    color:#fff;
+    padding-block:14px;
+    position:relative;
+  }
+  .header-row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.15rem;color:#fff;text-decoration:none;}
+  .logo img.mark{width:36px;height:36px;object-fit:contain;flex:none;}
+  nav.primary{display:flex;gap:26px;font-size:.92rem;font-weight:600;}
+  nav.primary a{text-decoration:none;color:#cddaea;}
+  nav.primary a:hover{color:#fff;}
+  .header-actions{display:flex;align-items:center;gap:18px;}
+  .phone-link{font-weight:800;font-size:1rem;color:#fff;text-decoration:none;white-space:nowrap;}
+  .phone-link span{display:block;font-weight:600;font-size:.68rem;color:#9fb2c8;letter-spacing:.04em;text-transform:uppercase;}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(160deg, var(--navy-900) 0%, var(--navy-800) 55%, var(--navy-700) 100%);
+    color:#fff;
+    padding-block:64px 0;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;
+  }
+  .hero h1{font-size:clamp(1.9rem, 3.4vw, 2.8rem);line-height:1.08;color:#fff;}
+  .hero h1 em{font-style:normal;color:var(--amber-500);}
+  .hero p.lede{margin-top:16px;font-size:1.05rem;line-height:1.55;color:#cfdcea;max-width:46ch;}
+  .hero-ctas{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;}
+  .hero-proof{
+    display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;
+    margin-top:28px;max-width:38ch;
+  }
+  .hero-proof span{display:flex;align-items:center;gap:9px;font-size:.87rem;color:#cfdcea;}
+  .hero-proof .ic{
+    flex:none;width:22px;height:22px;border-radius:6px;background:rgba(240,121,31,.16);
+    display:flex;align-items:center;justify-content:center;color:var(--amber-500);font-size:.72rem;
+  }
+  .hero-photo{
+    position:relative;border-radius:14px;overflow:hidden;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(232,134,43,.35), transparent 55%),
+      linear-gradient(135deg, #24405f, #0e2038);
+    aspect-ratio:4/3.1;
+    display:flex;align-items:flex-end;padding:22px;
+    box-shadow:var(--shadow);
+  }
+  .hero-photo .cap{
+    background:rgba(10,18,32,.55);backdrop-filter:blur(6px);
+    padding:12px 16px;border-radius:8px;font-size:.82rem;color:#e6edf5;
+  }
+  .hero-photo .cap b{display:block;color:#fff;font-size:.92rem;}
+  .hero-photo svg{position:absolute;inset:0;width:100%;height:100%;opacity:.5;}
+
+  /* TRUST STRIP */
+  .trust-strip{
+    background:var(--navy-950);color:#fff;
+    padding-block:0;
+    margin-top:56px;
+  }
+  .trust-inner{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border-top:1px solid rgba(255,255,255,.1);
+  }
+  .trust-item{
+    padding:20px 18px;border-right:1px solid rgba(255,255,255,.1);
+    text-align:center;
+  }
+  .trust-item:last-child{border-right:none;}
+  .trust-item .num{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.5rem;color:#fff;}
+  .trust-item .lbl{font-size:.76rem;color:#a9bad0;margin-top:2px;}
+
+  /* DECISION MODULE */
+  .section-head{max-width:640px;margin-bottom:32px;}
+  .section-head h2{font-size:clamp(1.5rem,2.4vw,2rem);color:var(--ink);margin-top:8px;}
+  .section-head p{margin-top:10px;color:var(--ink-soft);font-size:1rem;line-height:1.5;}
+
+  .decision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .decision-card{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    padding:20px;display:flex;flex-direction:column;gap:10px;
+    text-decoration:none;color:var(--ink);
+    box-shadow:var(--shadow);
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .decision-card:hover{transform:translateY(-2px);border-color:var(--amber-500);}
+  .decision-card .ic{
+    width:38px;height:38px;border-radius:8px;background:var(--amber-100);
+    display:flex;align-items:center;justify-content:center;color:var(--amber-600);
+  }
+  .decision-card b{font-family:"Barlow Condensed",sans-serif;font-size:1rem;}
+  .decision-card span{font-size:.86rem;color:var(--ink-soft);}
+  .decision-card .arrow{margin-top:auto;font-size:.82rem;font-weight:700;color:var(--amber-600);}
+
+  /* RES/COMM SPLIT */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .split-card{
+    border-radius:14px;overflow:hidden;position:relative;min-height:300px;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:28px;color:#fff;
+  }
+  .split-card.res{background:linear-gradient(160deg,#2c4a6e,#132639);}
+  .split-card.com{background:linear-gradient(160deg,#3a3226,#1d1712);}
+  .split-card .tag{
+    align-self:flex-start;background:rgba(255,255,255,.14);
+    font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:5px 10px;border-radius:5px;margin-bottom:auto;
+  }
+  .split-card h3{color:#fff;font-size:1.4rem;margin-top:14px;}
+  .split-card p{color:#d8e0ea;font-size:.92rem;margin-top:8px;max-width:36ch;}
+  .split-card .btn{margin-top:18px;width:fit-content;}
+  .split-card ul{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
+  .split-card li{font-size:.76rem;background:rgba(255,255,255,.09);padding:4px 9px;border-radius:5px;color:#e4ebf1;}
+
+  /* SERVICE CARDS */
+  .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .svc-card{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;box-shadow:var(--shadow);
+  }
+  .svc-card-img{
+    aspect-ratio:4/3;position:relative;
+    background:linear-gradient(140deg, var(--navy-800), var(--navy-950));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .svc-card-img::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 70% 25%, rgba(240,121,31,.28), transparent 60%);
+  }
+  .svc-card-img .ic{position:relative;font-size:1.3rem;color:rgba(255,255,255,.55);}
+  .svc-card-img .tag{
+    position:absolute;left:9px;bottom:9px;
+    font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    color:rgba(255,255,255,.6);background:rgba(0,0,0,.28);padding:3px 7px;border-radius:4px;
+  }
+  .svc-card-body{padding:16px 18px 18px;}
+  .svc-card h4{font-family:"Barlow Condensed",sans-serif;font-size:1rem;margin-bottom:6px;}
+  .svc-card p{font-size:.85rem;color:var(--ink-soft);line-height:1.45;}
+  .svc-card a{display:inline-block;margin-top:10px;font-size:.83rem;font-weight:700;color:var(--amber-600);text-decoration:none;}
+
+  /* LOCAL CONTEXT MODULE */
+  .local-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;}
+  .local-copy p{font-size:.96rem;line-height:1.65;color:var(--ink-soft);}
+  .local-copy p + p{margin-top:14px;}
+  .local-copy p b{color:var(--ink);}
+  .nbhd-card{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    padding:22px 24px;box-shadow:var(--shadow);
+  }
+  .nbhd-card h5{font-family:"Manrope",sans-serif;font-size:.9rem;text-transform:uppercase;letter-spacing:.06em;color:var(--navy-800);margin-bottom:12px;}
+  :root[data-theme="dark"] .nbhd-card h5{color:var(--sky-400);}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .nbhd-card h5{color:var(--sky-400);}}
+  .nbhd-list{display:flex;flex-wrap:wrap;gap:8px;}
+  .nbhd-list span{
+    font-size:.82rem;background:var(--paper-dim);border:1px solid var(--line);
+    padding:6px 12px;border-radius:999px;color:var(--ink);
+  }
+  .nbhd-card .zip{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);font-size:.82rem;color:var(--ink-soft);}
+  .nbhd-card .zip b{color:var(--ink);}
+
+  /* SERVICE AREAS */
+  .region-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .region-card{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;box-shadow:var(--shadow);
+  }
+  .region-card-img{
+    aspect-ratio:16/9;position:relative;
+    background:linear-gradient(140deg, var(--navy-800), var(--navy-950));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .region-card-img::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 75% 20%, rgba(240,121,31,.28), transparent 60%);
+  }
+  .region-card-img .pin{
+    position:relative;font-size:1.4rem;color:rgba(255,255,255,.55);
+  }
+  .region-card-img .tag{
+    position:absolute;left:10px;bottom:10px;
+    font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:rgba(255,255,255,.6);background:rgba(0,0,0,.28);padding:3px 8px;border-radius:4px;
+  }
+  .region-card-body{padding:16px 20px 20px;}
+  .region-card h4{font-family:"Barlow Condensed",sans-serif;font-size:1.02rem;color:var(--navy-800);}
+  :root[data-theme="dark"] .region-card h4{color:#dce6f0;}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .region-card h4{color:#dce6f0;}}
+  .region-card .cities{font-size:.82rem;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  .region-card a.more{display:inline-block;margin-top:12px;font-size:.82rem;font-weight:700;color:var(--amber-600);text-decoration:none;}
+
+  /* PROOF / STATS */
+  .proof{
+    background:var(--navy-900);color:#fff;border-radius:16px;
+    padding:44px 40px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;
+  }
+  .proof h3{color:#fff;font-size:1.5rem;}
+  .proof p{color:#c6d3e2;font-size:.95rem;margin-top:10px;line-height:1.55;max-width:44ch;}
+  .proof-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .proof-stats .stat{border-left:2px solid var(--amber-500);padding-left:14px;}
+  .proof-stats .stat .n{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.7rem;color:#fff;font-variant-numeric:tabular-nums;}
+  .proof-stats .stat .l{font-size:.78rem;color:#a9bad0;margin-top:2px;}
+
+  /* REBATE MODULE */
+  .rebate-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .rebate-card{
+    background:var(--amber-100);border:1px solid var(--amber-500);border-radius:10px;
+    padding:20px;
+  }
+  :root[data-theme="dark"] .rebate-card{border-color:var(--amber-600);}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rebate-card{border-color:var(--amber-600);}}
+  .rebate-card .amt{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.5rem;color:var(--amber-600);}
+  .rebate-card .desc{font-size:.86rem;color:var(--ink-soft);margin-top:4px;}
+  .rebate-card a{display:inline-block;margin-top:12px;font-size:.82rem;font-weight:700;color:var(--navy-800);text-decoration:none;}
+  :root[data-theme="dark"] .rebate-card a{color:#dce6f0;}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rebate-card a{color:#dce6f0;}}
+
+  /* FAQ */
+  .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start;}
+  .faq-item{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    padding:18px 20px;
+  }
+  .faq-item summary{
+    cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;
+    font-family:"Manrope",sans-serif;font-weight:700;font-size:.98rem;gap:14px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .plus{font-size:1.2rem;color:var(--amber-600);flex:none;font-weight:400;}
+  .faq-item[open] summary .plus{transform:rotate(45deg);}
+  .faq-item p{margin-top:12px;font-size:.92rem;color:var(--ink-soft);line-height:1.6;}
+  .faq-item p b{color:var(--ink);}
+
+  /* FINAL CTA */
+  .final-cta{
+    background:linear-gradient(120deg, var(--navy-950), var(--navy-800));
+    color:#fff;border-radius:16px;padding:44px 36px;text-align:center;
+  }
+  .final-cta h2{color:#fff;font-size:clamp(1.5rem,2.6vw,2.1rem);}
+  .final-cta p{color:#c6d3e2;margin-top:10px;font-size:1rem;}
+  .final-cta .hero-ctas{justify-content:center;margin-top:22px;}
+
+  /* FOOTER */
+  footer{background:var(--navy-950);color:#9fb2c8;padding-block:44px 90px;font-size:.87rem;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;}
+  .foot-grid h5{color:#fff;font-family:"Manrope",sans-serif;font-size:.86rem;margin-bottom:12px;letter-spacing:.02em;}
+  .foot-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .foot-grid a{text-decoration:none;color:#9fb2c8;}
+  .foot-grid a:hover{color:#fff;}
+  .foot-bottom{
+    margin-top:34px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.78rem;color:#7e93ab;
+  }
+
+  /* MOBILE STICKY BAR */
+  .sticky-mobile{
+    position:fixed;left:0;right:0;bottom:0;
+    display:none;
+    background:var(--navy-950);
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));
+    gap:10px;z-index:40;box-shadow:0 -6px 18px rgba(0,0,0,.25);
+  }
+  .sticky-mobile a{flex:1;text-align:center;}
+
+  /* copy note badges (mockup annotation) */
+  .mockup-tag{
+    display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--amber-600);background:var(--amber-100);
+    padding:3px 8px;border-radius:5px;margin-bottom:10px;
+  }
+
+  /* BREADCRUMBS */
+  .breadcrumbs{
+    background:var(--navy-950);padding-block:12px;
+  }
+  .breadcrumbs .wrap{display:flex;gap:8px;align-items:center;font-size:.82rem;color:#9fb2c8;flex-wrap:wrap;}
+  .breadcrumbs a{color:#b9c9db;text-decoration:none;}
+  .breadcrumbs a:hover{color:#fff;}
+  .breadcrumbs .sep{color:#5c7290;}
+  .breadcrumbs .current{color:#fff;font-weight:600;}
+
+  /* DIRECT ANSWER BLOCK */
+  .answer-block{
+    background:var(--card-bg);border:1px solid var(--line);border-left:4px solid var(--amber-500);
+    border-radius:0 10px 10px 0;padding:24px 26px;
+  }
+  .answer-block .label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-600);}
+  .answer-block p{margin-top:10px;font-size:1.02rem;line-height:1.62;color:var(--ink);max-width:70ch;}
+  .answer-block p b{color:var(--navy-800);}
+  :root[data-theme="dark"] .answer-block p b{color:var(--sky-400);}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .answer-block p b{color:var(--sky-400);}}
+
+  /* SYMPTOM GRID */
+  .symptom-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .symptom-card{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    padding:16px 18px;display:flex;gap:12px;align-items:flex-start;box-shadow:var(--shadow);
+  }
+  .symptom-card .flag{
+    flex:none;width:26px;height:26px;border-radius:50%;background:var(--amber-100);
+    color:var(--amber-600);font-weight:800;font-size:.78rem;display:flex;align-items:center;justify-content:center;
+  }
+  .symptom-card p{font-size:.9rem;line-height:1.45;color:var(--ink-soft);}
+  .symptom-card p b{color:var(--ink);}
+
+  /* PROCESS STEPS */
+  .process-list{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:step;}
+  .process-step{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    padding:18px 16px;position:relative;box-shadow:var(--shadow);
+  }
+  .process-step .n{
+    font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.3rem;color:var(--amber-500);
+    font-variant-numeric:tabular-nums;
+  }
+  .process-step h5{font-family:"Barlow Condensed",sans-serif;font-size:.92rem;margin-top:8px;}
+  .process-step p{font-size:.82rem;color:var(--ink-soft);margin-top:6px;line-height:1.45;}
+
+  /* REPAIR VS REPLACE TABLE */
+  .compare-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--line);}
+  table.compare{width:100%;border-collapse:collapse;font-size:.88rem;background:var(--card-bg);}
+  table.compare th{
+    text-align:left;background:var(--navy-900);color:#fff;padding:14px 16px;
+    font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.85rem;
+  }
+  table.compare th:first-child{border-radius:0;}
+  table.compare td{padding:13px 16px;border-top:1px solid var(--line);color:var(--ink-soft);vertical-align:top;}
+  table.compare tr td:first-child{color:var(--ink);font-weight:600;}
+
+  /* APPLICABILITY CHIPS */
+  .applies-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .applies-chip{
+    display:flex;align-items:center;justify-content:center;gap:8px;background:var(--card-bg);border:1px solid var(--line);
+    border-radius:999px;padding:11px 16px;font-size:.86rem;font-weight:600;box-shadow:var(--shadow);
+  }
+  .applies-chip .chk{color:var(--good);font-weight:800;}
+
+  /* RELATED LINKS ROW */
+  .related-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .related-card{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);
+  }
+  .related-card-img{
+    aspect-ratio:4/3;position:relative;
+    background:linear-gradient(140deg, var(--navy-800), var(--navy-950));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .related-card-img::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 70% 25%, rgba(43,169,224,.28), transparent 60%);
+  }
+  .related-card-img .ic{position:relative;font-size:1.2rem;color:rgba(255,255,255,.55);}
+  .related-card-img .tag{
+    position:absolute;left:8px;bottom:8px;
+    font-size:.58rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    color:rgba(255,255,255,.6);background:rgba(0,0,0,.28);padding:2px 7px;border-radius:4px;
+  }
+  .related-card-body{padding:14px 16px 16px;}
+  .related-card b{font-family:"Barlow Condensed",sans-serif;font-size:.92rem;display:block;}
+  .related-card span{font-size:.8rem;color:var(--amber-600);font-weight:700;display:block;margin-top:8px;}
+
+  @media (max-width:920px){
+    .symptom-grid{grid-template-columns:1fr 1fr;}
+    .process-list{grid-template-columns:repeat(2,1fr);}
+    .related-row{grid-template-columns:1fr 1fr;}
+    .applies-row{grid-template-columns:1fr 1fr;}
+    .local-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:520px){
+    .symptom-grid{grid-template-columns:1fr;}
+    .process-list{grid-template-columns:1fr;}
+    .related-row{grid-template-columns:1fr;}
+    .applies-row{grid-template-columns:1fr;}
+  }
+
+  @media (max-width:920px){
+    nav.primary{display:none;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo{aspect-ratio:16/10;}
+    .trust-inner{grid-template-columns:repeat(2,1fr);}
+    .trust-item:nth-child(2){border-right:none;}
+    .decision-grid{grid-template-columns:repeat(2,1fr);}
+    .split{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .region-grid{grid-template-columns:repeat(2,1fr);}
+    .proof{grid-template-columns:1fr;padding:32px 24px;}
+    .proof-stats{grid-template-columns:repeat(2,1fr);}
+    .rebate-strip{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .sticky-mobile{display:flex;}
+    body{padding-bottom:64px;}
+    .faq-list{grid-template-columns:1fr;}
+  }
+  @media (max-width:520px){
+    .decision-grid{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:1fr;}
+    .region-grid{grid-template-columns:1fr;}
+    .trust-inner{grid-template-columns:repeat(2,1fr);}
+    .foot-grid{grid-template-columns:1fr;}
+  }
+
+  /* LA additions */
+  .local-links{margin-top:14px;font-size:.88rem;line-height:1.7;}
+  .hero-photo .tag{position:absolute;top:12px;right:12px;font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);background:rgba(0,0,0,.32);padding:3px 8px;border-radius:4px;}
+  .local-copy a,.nbhd-card .zip a{color:var(--navy-700);font-weight:700;}
+  :root[data-theme="dark"] .local-copy a,:root[data-theme="dark"] .nbhd-card .zip a{color:var(--sky-400);}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .local-copy a,:root:not([data-theme="light"]) .nbhd-card .zip a{color:var(--sky-400);}}
+  .nbhd-list span em{font-style:normal;color:var(--ink-soft);margin-left:6px;font-size:.76rem;}
+  .nbhd-card .grp{margin-top:12px;}
+  .nbhd-card .grp-label{font-size:.72rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;}
+  .nbhd-card .zip .nbhd-list span{font-size:.74rem;padding:3px 8px;}
+  .nbhd-card details.grp{margin-top:8px;border-top:1px solid var(--line);padding-top:8px;}
+  .nbhd-card details.grp summary{cursor:pointer;font-size:.82rem;font-weight:700;color:var(--ink);list-style:none;display:flex;gap:6px;align-items:center;}
+  .nbhd-card details.grp summary::-webkit-details-marker{display:none;}
+  .nbhd-card details.grp summary::before{content:"+";color:var(--amber-500);font-weight:800;width:12px;}
+  .nbhd-card details.grp[open] summary::before{content:"2";}
+  .nbhd-card details.grp summary em{font-style:normal;font-weight:500;color:var(--ink-soft);font-size:.76rem;}
+  .nbhd-card details.grp .nbhd-list{margin-top:8px;}
+  .nbhd-card .zip + .zip{margin-top:12px;padding-top:12px;}
+  .rebate-card .amt{font-size:1.45rem;}
+  .hero-proof{max-width:none;grid-template-columns:repeat(2,max-content);gap:12px 32px;}
+  .hero-proof span{white-space:nowrap;}
+  @media (max-width:420px){.hero-proof{grid-template-columns:1fr;}.hero-proof span{white-space:normal;}}
+  .trust-strip{margin-top:0;}
+  .answer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:stretch;}
+  .answer-grid > *{min-width:0;}
+  .glance{background:var(--card-bg);border:1px solid var(--line);border-radius:10px;padding:22px 24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;}
+  .glance h5{margin:0;font-family:"Manrope",sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--navy-800);}
+  :root[data-theme="dark"] .glance h5{color:var(--sky-400);}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .glance h5{color:var(--sky-400);}}
+  .glance-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .glance-stats .stat{border-left:2px solid var(--amber-500);padding-left:12px;}
+  .glance-stats .n{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.7rem;line-height:1.1;color:var(--ink);font-variant-numeric:tabular-nums;}
+  .glance-stats .l{font-size:.78rem;color:var(--ink-soft);margin-top:4px;line-height:1.35;}
+  .glance-src{font-size:.72rem;color:var(--ink-soft);margin-top:auto;}
+  @media (max-width:920px){.answer-grid{grid-template-columns:1fr;}}
+  @media (max-width:520px){.glance-stats{grid-template-columns:1fr;}}
+  .services-grid{grid-template-columns:repeat(5,1fr);}
+  .services-grid .svc-card h4{font-size:1.05rem;}
+  @media (max-width:1040px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:520px){.services-grid{grid-template-columns:1fr;}}
+  .foot-grid li .mockup-tag{margin:0;}
+  .mockup-tag{margin-bottom:0;}
+
+
+  /* Location page additions */
+  .nbhd-card ul.res{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;}
+  .nbhd-card ul.res li{padding-top:14px;border-top:1px solid var(--line);font-size:.86rem;color:var(--ink-soft);line-height:1.5;}
+  .nbhd-card ul.res li:first-child{padding-top:0;border-top:none;}
+  .nbhd-card ul.res a{display:block;font-weight:700;color:var(--navy-700);margin-bottom:2px;}
+  :root[data-theme="dark"] .nbhd-card ul.res a{color:var(--sky-400);}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .nbhd-card ul.res a{color:var(--sky-400);}}
+
+  /* Local cards (page.localCards) */
+  .nbhd-card .lc{padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--line);}
+  .nbhd-card dl.lc-rows{margin:0;display:flex;flex-direction:column;}
+  .nbhd-card dl.lc-rows > div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:.86rem;line-height:1.45;}
+  .nbhd-card dl.lc-rows > div:first-child{border-top:none;padding-top:0;}
+  .nbhd-card dl.lc-rows dt{font-weight:700;color:var(--ink);}
+  .nbhd-card dl.lc-rows dd{margin:0;color:var(--ink-soft);}
+  .nbhd-card .lc-note{margin:10px 0 0;font-size:.8rem;line-height:1.5;color:var(--ink-soft);}
+  @media (max-width:520px){.nbhd-card dl.lc-rows > div{grid-template-columns:1fr;gap:2px;}}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "HVAC Services",
+  "name": "HVAC Services in Chino, CA",
+  "description": "AIRPRO SOLUTIONS provides HVAC services across Chino, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit and code pages in mind.",
+  "url": "https://airprosolutionsheatingandcooling.com/service-areas/chino/",
+  "provider": {
+    "@id": "https://airprosolutionsheatingandcooling.com/#organization"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Chino",
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": "San Bernardino County, CA"
+    }
+  },
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "AC Repair"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "AC Installation & Replacement"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "AC Maintenance"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Heating Repair"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Furnace Installation & Replacement"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Heat Pump Services"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Ductless Mini-Split"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Ductwork Services"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Indoor Air Quality"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Emergency HVAC"
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://airprosolutionsheatingandcooling.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Service Areas",
+      "item": "https://airprosolutionsheatingandcooling.com/service-areas/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Chino",
+      "item": "https://airprosolutionsheatingandcooling.com/service-areas/chino/"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does AIRPRO SOLUTIONS service all of Chino?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. AIRPRO SOLUTIONS serves homes and businesses across Chino as part of our Inland Empire coverage. The City runs its own permit process, so we plan each visit around your specific address."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast can a technician reach my Chino home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Same-day service is typical in Chino, subject to capacity. Call (323) 776-9047 to confirm a window for your address."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a permit to replace an air conditioner in Chino?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We confirm that with the City. The City's Building Division page says the Division issues building permits and takes in plans for review, but it does not say whether replacing an air conditioner needs a permit, so AIRPRO SOLUTIONS confirms the current permit path with the City before work starts, and we do not quote permit fees."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which building code edition applies to a Chino HVAC project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We confirm that with the City. The City's Building Division page says Chino has adopted the 2022 Edition of the California Building Code with some amendments, and it does not mention a 2025 edition or show a date, so AIRPRO SOLUTIONS confirms which edition applies to your project with the City, and we do not state local amendments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can an outdoor AC unit go on my Chino property?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We confirm that with the City. We did not find a City page we could read that states setback, screening, or noise rules for outdoor HVAC equipment, so we do not state any here, and AIRPRO SOLUTIONS checks the current rules, how your property is zoned, and its layout with the City before choosing a location."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the age of my Chino home matter for HVAC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Age is one factor we check. We did not find a verified citywide figure for the age of Chino homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work on rental properties in Chino?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. QuickFacts reports a 64.0% owner-occupied housing unit rate for Chino, so 36.0% of occupied homes are not owner-occupied. AIRPRO SOLUTIONS works with owners and property managers on access and approval before installation or replacement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does AIRPRO SOLUTIONS handle commercial HVAC in Chino?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. AIRPRO SOLUTIONS services commercial properties in Chino, including rooftop units, and plans rooftop access and equipment placement with the building owner or manager before commercial work starts. We confirm how your property is zoned and the permit path with the City. See our Commercial HVAC page for the full scope."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I check an HVAC contractor in Chino?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check the state license first. CSLB says seeing a license number does not necessarily mean the license is valid, so check its status on the CSLB site, which also shows the address of record and insurance information. AIRPRO SOLUTIONS' California license numbers are #1126691 and #50251 (C-20)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which utility serves my Chino address?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your bill answers it. The City pages we read do not name Chino's electric or gas provider, so check your bill to see who supplies your electricity and gas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there HVAC rebates for Chino customers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check with your utility. We did not find a City page on HVAC rebates, and neither Southern California Edison's Smart Energy Program page nor the Southern California Gas Company rebate page names Chino. Utility programs have their own terms and funding, and we do not quote amounts, so check each program with your utility before you buy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What HVAC services are available in Chino?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Chino, for both residential and commercial properties."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is emergency HVAC service available in Chino?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Chino. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does HVAC service cost in Chino?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system."
+      }
+    }
+  ]
+}
+</script>
+<div class="announce">
+  <b>Same-day service typical</b> across LA County, South Bay, Orange County &amp; the Inland Empire &nbsp;·&nbsp; Licensed, bonded &amp; insured · LIC #1126691, #50251
+</div>
+
+<header class="site">
+  <div class="wrap header-row">
+    <a class="logo" href="#">
+      <img class="mark" src="data:image/webp;base64,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" alt="Air Pro Solutions logo">
+      Air Pro Solutions
+    </a>
+    <nav class="primary">
+      <a href="#services">Services</a>
+      <a href="#commercial">Commercial</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#resources">Resources</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="phone-link" href="#"><span>Call Now</span>(323) 776-9047</a>
+      <a class="btn btn-primary" href="#">Schedule Service</a>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumbs">
+  <div class="wrap">
+    <a href="#">Home</a><span class="sep">/</span>
+    <a href="#">Service Areas</a><span class="sep">/</span>
+    <span class="current">Chino</span>
+  </div>
+</div>
+
+<main>
+  <section class="hero" style="padding-bottom:44px;">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <h1>HVAC Services in <em>Chino</em>, CA</h1>
+          <p class="lede">AIRPRO SOLUTIONS provides HVAC services across Chino, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City&#x27;s permit and code pages in mind.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#">Schedule Service in Chino</a>
+            <a class="btn btn-ghost" href="#">Call (323) 776-9047</a>
+          </div>
+          <div class="hero-proof">
+            <span><i class="ic">✓</i>Licensed, bonded &amp; insured</span>
+            <span><i class="ic">★</i>4.8-star rated</span>
+            <span><i class="ic">⚡</i>24/7 emergency dispatch</span>
+            <span><i class="ic">⌂</i>Residential and commercial</span>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <circle cx="330" cy="55" r="130" fill="#f0791f" opacity=".16"/>
+            <circle cx="70" cy="260" r="110" fill="#2ba9e0" opacity=".14"/>
+            <rect x="40" y="120" width="70" height="110" rx="4" fill="#0e2038" opacity=".7"/>
+            <rect x="120" y="150" width="70" height="80" rx="4" fill="#16304f" opacity=".7"/>
+          </svg>
+          <span class="tag">Photo pending</span>
+          <div class="cap"><b>Chino, CA</b>Local service across Chino</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="trust-strip">
+    <div class="wrap trust-inner">
+      <div class="trust-item"><div class="num">4.8★</div><div class="lbl">Google rating, 40 reviews</div></div>
+      <div class="trust-item"><div class="num">C-20</div><div class="lbl">California licensed</div></div>
+      <div class="trust-item"><div class="num">24/7</div><div class="lbl">emergency dispatch</div></div>
+      <div class="trust-item"><div class="num">Same-day</div><div class="lbl">service typical</div></div>
+    </div>
+  </div>
+  <section class="wrap" style="padding-bottom:0;">
+    <div class="answer-grid">
+      <div class="answer-block">
+        <div class="label">Quick answer</div>
+        <p><b>AIRPRO SOLUTIONS is a licensed HVAC contractor serving Chino</b>, providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.</p>
+      </div>
+      <aside class="glance" aria-label="Chino at a glance">
+        <h5>Chino at a glance</h5>
+        <div class="glance-stats">
+          <div class="stat"><div class="n">96,957</div><div class="l">residents in the Census Bureau&#x27;s July 1, 2025 estimate (U.S. Census Bureau QuickFacts)</div></div>
+          <div class="stat"><div class="n">64.0%</div><div class="l">owner-occupied housing unit rate, 2020 to 2024 (U.S. Census Bureau QuickFacts)</div></div>
+          <div class="stat"><div class="n">3.25</div><div class="l">persons per household, 2020 to 2024 (U.S. Census Bureau QuickFacts)</div></div>
+        </div>
+        <p class="glance-src">Source: U.S. Census Bureau QuickFacts for Chino city, California.</p>
+      </aside>
+    </div>
+  </section>
+  <!-- Copy approval: the client approved the Chino page copy on 2026-10-19 (per the user). -->
+  <section class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Local knowledge</span>
+      <h2>Chino&#x27;s permit pages, code edition, and place in the Inland Empire</h2>
+    </div>
+    <div class="local-grid">
+      <div class="local-copy">
+        <p>The City Information page on the City&#x27;s site says Chino is in the western Inland Empire in San Bernardino County, borders two other counties, and is only 2 miles from the Orange County border. It names no ZIP codes or neighborhoods and shows no date, so we do not list any, and <b>AIRPRO SOLUTIONS confirms the building, equipment, and access at each property</b> instead of assuming a pattern for the area.</p>
+        <p>The City&#x27;s Building Division page says the Division issues building permits and takes in plans for review, and that it enforces the Uniform Building, Plumbing, Mechanical, and National Electrical Codes. It does not mention HVAC and does not say whether replacing an air conditioner or furnace needs a permit, and it shows no date, so <b>AIRPRO SOLUTIONS confirms the permit path for your job with the City</b> before work starts. We do not state permit fees or the steps for applying.</p>
+        <p>The same page says the City has adopted the 2022 Edition of the California Building Code with some amendments, and that the amendments and adoption details are in Chapter 15 of the Chino Municipal Code. It does not mention a 2025 edition, and we did not read the Municipal Code chapter, so <b>we confirm which code edition applies to your project with the City</b>, and we do not state local amendments or outdoor equipment rules.</p>
+        <p>QuickFacts estimates Chino had 96,957 residents on July 1, 2025, and reports a <b>64.0% owner-occupied housing unit rate</b> and 3.25 persons per household for 2020 to 2024. That leaves 36.0% of occupied homes that are not owner-occupied, so when the person who calls is a tenant we work with the owner or property manager on access and approval. Ownership and household size are different measures from building type or age, so we do not guess how old the homes or ducts are in your part of the city, and <b>we confirm the equipment, roof or attic access, and ductwork at each property</b>.</p>
+        <p>The City pages we read do not say which utility serves Chino addresses, so <b>your bill shows who supplies your electricity and gas</b>. Utilities publish their own program pages with their own terms and funding, such as Southern California Edison&#x27;s Smart Energy Program for smart thermostats and Southern California Gas Company&#x27;s furnace rebates, which require installation by a licensed contractor and proof of permit closure. Neither utility page names Chino, so we do not quote amounts or say a program applies at your address, and you should check each program with your utility before you buy. Official links are in the card for this section.</p>
+      </div>
+      <div class="nbhd-card">
+        <div class="lc">
+          <h5>Chino permit and code pages</h5>
+          <dl class="lc-rows">
+            <div><dt>Permits</dt><dd>The Building Division issues building permits and takes in plans for review</dd></div>
+            <div><dt>Codes enforced</dt><dd>Uniform Building, Plumbing, Mechanical, and National Electrical Codes, as the page names them</dd></div>
+            <div><dt>Code edition</dt><dd>2022 California Building Code with some amendments; no 2025 edition mentioned</dd></div>
+            <div><dt>Local amendments</dt><dd>In Chapter 15 of the Chino Municipal Code, per the page; not read</dd></div>
+            <div><dt>Replacement permit rule</dt><dd>Not stated on the page</dd></div>
+            <div><dt>Web page dates</dt><dd>None shown on the pages we read</dd></div>
+          </dl>
+          <p class="lc-note">From the City&#x27;s Building Division and City Information pages. We confirm current requirements with the City.</p>
+        </div>
+        <h5>Official Chino resources</h5>
+        <ul class="res">
+          <li><a href="https://www.cityofchino.org/178/Building" target="_blank" rel="noopener">Building Division</a>Division role, codes enforced, and the 2022 California Building Code statement.</li>
+          <li><a href="https://www.cityofchino.org/452/City-Information" target="_blank" rel="noopener">City Information</a>Location in the western Inland Empire.</li>
+          <li><a href="https://www.census.gov/quickfacts/chinocitycalifornia" target="_blank" rel="noopener">Census QuickFacts</a>Population, owner-occupied rate, and household size cited on this page.</li>
+          <li><a href="https://www.sce.com/save-money/savings-programs/enroll-in-savings-programs/smart-energy-program" target="_blank" rel="noopener">SCE Smart Energy Program</a>Smart thermostat program terms. The page does not name Chino.</li>
+          <li><a href="https://www.socalgas.com/savings/rebates-and-incentives" target="_blank" rel="noopener">SoCalGas rebates</a>Furnace rebate requirements and funding. The page does not name Chino.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="wrap" id="services">
+    <div class="section-head">
+      <span class="eyebrow">Services in Chino</span>
+      <h2>Everything we handle for Chino homes and businesses</h2>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">❄</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>AC Repair</h4>
+          <p>Diagnosis and repair for cooling failures, weak airflow, and unusual noises in Chino homes and businesses.</p>
+          <a href="/services/ac-repair/">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">⊕</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>AC Installation &amp; Replacement</h4>
+          <p>New system sizing and installation for Chino properties, planned around the City&#x27;s permit pages.</p>
+          <a href="/services/ac-installation/">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">✓</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>AC Maintenance</h4>
+          <p>Seasonal AC tune-ups that catch small issues early, for Chino homes and for commercial rooftop and ground units.</p>
+          <a href="/services/ac-maintenance/">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">🔥</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>Heating Repair</h4>
+          <p>Furnace and heating system diagnosis and repair for Chino homes and businesses.</p>
+          <a href="/services/heating-repair/">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">♦</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>Furnace Installation &amp; Replacement</h4>
+          <p>Furnace sizing and installation, planned around the City&#x27;s permit pages.</p>
+          <a href="/services/furnace-installation/">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">♨</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>Heat Pump Services</h4>
+          <p>Heat pump installation, repair, and maintenance, with the City&#x27;s permit pages and your utilities&#x27; program pages in mind.</p>
+          <a href="/services/heat-pump-services/">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">▦</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>Ductless Mini-Split</h4>
+          <p>Ductless systems for Chino additions, converted spaces, and rooms the existing ducts do not reach.</p>
+          <a href="/services/ductless-mini-split/">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">≡</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>Ductwork Services</h4>
+          <p>Duct repair, sealing, and replacement for Chino homes and buildings.</p>
+          <a href="/services/ductwork/">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">✦</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>Indoor Air Quality</h4>
+          <p>Filtration, ventilation, and air-quality upgrades for Chino homes and offices.</p>
+          <a href="/services/indoor-air-quality/">Learn more →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><span class="ic">⚡</span><span class="tag">Photo pending</span></div>
+        <div class="svc-card-body">
+          <h4>Emergency HVAC</h4>
+          <p>24/7 emergency dispatch for no-cool and no-heat problems in Chino. If you smell gas, leave the building and call 911 or your gas utility.</p>
+          <a href="/services/emergency-hvac/">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Know before you start</span>
+      <h2>Chino permits, codes, and incentive programs</h2>
+      <p>Official sources for three items worth checking before a Chino HVAC project.</p>
+    </div>
+    <div class="rebate-strip">
+      <div class="rebate-card">
+        <div class="amt">Permits and inspections</div>
+        <div class="desc">The City&#x27;s Building Division page says the Division issues building permits and takes in plans for review, and that it enforces the Uniform Building, Plumbing, Mechanical, and National Electrical Codes. It does not say whether replacing an air conditioner or furnace needs a permit, and the page shows no date, so we confirm the permit path for your job with the City. We do not state permit fees.</div>
+        <a href="https://www.cityofchino.org/178/Building" target="_blank" rel="noopener">City Building Division page →</a>
+      </div>
+      <div class="rebate-card">
+        <div class="amt">Code edition</div>
+        <div class="desc">The Building Division page says the City has adopted the 2022 Edition of the California Building Code with some amendments, found in Chapter 15 of the Chino Municipal Code. It does not mention a 2025 edition, so we confirm the code edition for your project with the City.</div>
+        <a href="https://www.cityofchino.org/178/Building" target="_blank" rel="noopener">City Building Division page →</a>
+      </div>
+      <div class="rebate-card">
+        <div class="amt">Rebates and utilities</div>
+        <div class="desc">The City pages we read do not say which utility serves Chino addresses, so check your bill. Southern California Edison&#x27;s Smart Energy Program page describes smart thermostat bill credits, and the Southern California Gas Company rebate page lists furnace rebates that require a licensed contractor and proof of permit closure. Neither page names Chino, so we do not quote amounts or say either program applies at your address. Check each program&#x27;s terms with your utility before you buy.</div>
+        <a href="https://www.socalgas.com/savings/rebates-and-incentives" target="_blank" rel="noopener">SoCalGas rebate page →</a>
+      </div>
+    </div>
+  </section>
+  <section class="wrap" id="areas">
+    <div class="section-head">
+      <span class="eyebrow">Nearby areas</span>
+      <h2>Also serving the rest of Inland Empire</h2>
+      <p>AIRPRO SOLUTIONS also serves the surrounding Inland Empire cities.</p>
+    </div>
+    <div class="related-row">
+      <a class="related-card" href="/service-areas/ontario/">
+        <div class="related-card-img"><span class="ic">📍</span><span class="tag">Photo pending</span></div>
+        <div class="related-card-body"><b>Ontario</b><span>View area →</span></div>
+      </a>
+      <a class="related-card" href="/service-areas/rancho-cucamonga/">
+        <div class="related-card-img"><span class="ic">📍</span><span class="tag">Photo pending</span></div>
+        <div class="related-card-body"><b>Rancho Cucamonga</b><span>View area →</span></div>
+      </a>
+      <a class="related-card" href="/service-areas/corona/">
+        <div class="related-card-img"><span class="ic">📍</span><span class="tag">Photo pending</span></div>
+        <div class="related-card-body"><b>Corona</b><span>View area →</span></div>
+      </a>
+      <a class="related-card" href="/service-areas/riverside/">
+        <div class="related-card-img"><span class="ic">📍</span><span class="tag">Photo pending</span></div>
+        <div class="related-card-body"><b>Riverside</b><span>View area →</span></div>
+      </a>
+    </div>
+    <p style="margin-top:18px;"><a class="btn btn-outline" href="/service-areas/inland-empire/">View the Inland Empire service area</a></p>
+  </section>
+  <section class="wrap">
+    <div class="proof">
+      <div>
+        <span class="eyebrow" style="color:var(--amber-500);">Why Air Pro</span>
+        <h3>Licensed, reviewed, and ready across Chino</h3>
+        <p>AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.</p>
+        <a class="btn btn-ghost" style="margin-top:16px;" href="#">Read our reviews</a>
+      </div>
+      <div class="proof-stats">
+        <div class="stat"><div class="n">4.8★</div><div class="l">Google rating</div></div>
+        <div class="stat"><div class="n">40</div><div class="l">Google reviews</div></div>
+        <div class="stat"><div class="n">C-20</div><div class="l">California license class</div></div>
+        <div class="stat"><div class="n">24/7</div><div class="l">Emergency dispatch</div></div>
+      </div>
+    </div>
+  </section>
+  <!-- Copy approval: the client approved the Chino page copy on 2026-10-19 (per the user). -->
+  <section class="wrap" id="resources">
+    <div class="section-head">
+      <span class="eyebrow">Direct answers</span>
+      <h2>Chino HVAC questions we hear most</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Does AIRPRO SOLUTIONS service all of Chino? <span class="plus">+</span></summary>
+        <p><b>Yes.</b> AIRPRO SOLUTIONS serves homes and businesses across Chino as part of our <a href="/service-areas/inland-empire/">Inland Empire coverage</a>. The City runs its own permit process, so we plan each visit around your specific address.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How fast can a technician reach my Chino home? <span class="plus">+</span></summary>
+        <p><b>Same-day service is typical in Chino, subject to capacity.</b> Call <a href="tel:+13237769047">(323) 776-9047</a> to confirm a window for your address.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need a permit to replace an air conditioner in Chino? <span class="plus">+</span></summary>
+        <p><b>We confirm that with the City.</b> The City&#x27;s <a href="https://www.cityofchino.org/178/Building">Building Division page</a> says the Division issues building permits and takes in plans for review, but it does not say whether replacing an air conditioner needs a permit, so AIRPRO SOLUTIONS confirms the current permit path with the City before work starts, and we do not quote permit fees.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Which building code edition applies to a Chino HVAC project? <span class="plus">+</span></summary>
+        <p><b>We confirm that with the City.</b> The City&#x27;s <a href="https://www.cityofchino.org/178/Building">Building Division page</a> says Chino has adopted the 2022 Edition of the California Building Code with some amendments, and it does not mention a 2025 edition or show a date, so AIRPRO SOLUTIONS confirms which edition applies to your project with the City, and we do not state local amendments.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Where can an outdoor AC unit go on my Chino property? <span class="plus">+</span></summary>
+        <p><b>We confirm that with the City.</b> We did not find a City page we could read that states setback, screening, or noise rules for outdoor HVAC equipment, so we do not state any here, and AIRPRO SOLUTIONS checks the current rules, how your property is zoned, and its layout with the City before choosing a location.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does the age of my Chino home matter for HVAC? <span class="plus">+</span></summary>
+        <p><b>Age is one factor we check.</b> We did not find a verified citywide figure for the age of Chino homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you work on rental properties in Chino? <span class="plus">+</span></summary>
+        <p><b>Yes.</b> <a href="https://www.census.gov/quickfacts/chinocitycalifornia">QuickFacts</a> reports a 64.0% owner-occupied housing unit rate for Chino, so 36.0% of occupied homes are not owner-occupied. AIRPRO SOLUTIONS works with owners and property managers on access and approval before installation or replacement.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does AIRPRO SOLUTIONS handle commercial HVAC in Chino? <span class="plus">+</span></summary>
+        <p><b>Yes.</b> AIRPRO SOLUTIONS services commercial properties in Chino, including rooftop units, and plans rooftop access and equipment placement with the building owner or manager before commercial work starts. We confirm how your property is zoned and the permit path with the City. See our <a href="/commercial-hvac/">Commercial HVAC page</a> for the full scope.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I check an HVAC contractor in Chino? <span class="plus">+</span></summary>
+        <p><b>Check the state license first.</b> CSLB says seeing a license number does not necessarily mean the license is valid, so check its status on the <a href="https://www.cslb.ca.gov/consumers/hire_a_contractor/finding_the_right_contractor.aspx">CSLB site</a>, which also shows the address of record and insurance information. AIRPRO SOLUTIONS&#x27; California license numbers are #1126691 and #50251 (C-20).</p>
+      </details>
+      <details class="faq-item">
+        <summary>Which utility serves my Chino address? <span class="plus">+</span></summary>
+        <p><b>Your bill answers it.</b> The City pages we read do not name Chino&#x27;s electric or gas provider, so check your bill to see who supplies your electricity and gas.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are there HVAC rebates for Chino customers? <span class="plus">+</span></summary>
+        <p><b>Check with your utility.</b> We did not find a City page on HVAC rebates, and neither Southern California Edison&#x27;s <a href="https://www.sce.com/save-money/savings-programs/enroll-in-savings-programs/smart-energy-program">Smart Energy Program page</a> nor the Southern California Gas Company <a href="https://www.socalgas.com/savings/rebates-and-incentives">rebate page</a> names Chino. Utility programs have their own terms and funding, and we do not quote amounts, so check each program with your utility before you buy.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What HVAC services are available in Chino? <span class="plus">+</span></summary>
+        <p><b>AIRPRO SOLUTIONS provides</b> <a href="/services/ac-repair/">AC repair</a>, <a href="/services/ac-installation/">AC installation and replacement</a>, <a href="/services/ac-maintenance/">AC maintenance</a>, <a href="/services/heating-repair/">heating repair</a>, <a href="/services/furnace-installation/">furnace installation and replacement</a>, <a href="/services/heat-pump-services/">heat pump services</a>, <a href="/services/ductless-mini-split/">ductless mini-splits</a>, <a href="/services/ductwork/">ductwork</a>, <a href="/services/indoor-air-quality/">indoor air quality</a>, and <a href="/services/emergency-hvac/">emergency HVAC</a> throughout Chino, for both residential and commercial properties.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is emergency HVAC service available in Chino? <span class="plus">+</span></summary>
+        <p><b>Yes.</b> AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Chino. Call <a href="tel:+13237769047">(323) 776-9047</a> and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How much does HVAC service cost in Chino? <span class="plus">+</span></summary>
+        <p><b>Cost depends on the problem, the equipment, and how accessible the system is.</b> We do not publish one flat price, so call <a href="tel:+13237769047">(323) 776-9047</a> or request service and we will quote your specific system.</p>
+      </details>
+    </div>
+  </section>
+  <section class="wrap">
+    <div class="final-cta">
+      <h2>Get HVAC service in Chino</h2>
+      <p>Call or request service online to schedule a visit anywhere in Chino. Same-day service is typical, subject to capacity.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#">Call (323) 776-9047</a>
+        <a class="btn btn-ghost" href="#">Schedule Service in Chino</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="logo" style="margin-bottom:12px;"><img class="mark" src="data:image/webp;base64,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" alt="Air Pro Solutions logo">Air Pro Solutions</div>
+      <p style="max-width:32ch;color:#8fa2b8;font-size:.85rem;line-height:1.55;">Licensed HVAC contractor serving Los Angeles and Southern California.</p>
+    </div>
+    <div>
+      <h5>Services</h5>
+      <ul>
+        <li><a href="/services/ac-repair/">AC Repair</a></li>
+        <li><a href="/services/ac-installation/">AC Installation</a></li>
+        <li><a href="/services/heating-repair/">Heating Repair</a></li>
+        <li><a href="/services/ductless-mini-split/">Ductless Mini-Split</a></li>
+        <li><a href="/residential-hvac/">Residential HVAC</a></li>
+        <li><a href="/commercial-hvac/">Commercial HVAC</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/about/">About Us</a></li>
+        <li><a href="/service-areas/">Service Areas</a></li>
+        <li><a href="/financing/">Financing</a></li>
+        <li><a href="/reviews/">Reviews</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/careers/">Careers</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul>
+        <li>(323) 776-9047</li>
+        <li>contact@airprosolutionsheatingandcooling.com</li>
+        <li>Mon-Fri 7a-7p · Sat 8a-4p</li>
+        <li>24/7 emergency dispatch</li>
+        <li>LIC #1126691 · LIC #50251</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Air Pro Solutions. All rights reserved.</span>
+    <span>Privacy Policy · Terms · Accessibility</span>
+  </div>
+</footer>
+
+<div class="sticky-mobile">
+  <a class="btn btn-primary" href="#">Call Now</a>
+  <a class="btn btn-ghost" href="#" style="border-color:rgba(255,255,255,.5);">Schedule Service</a>
+</div>

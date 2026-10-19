@@ -976,6 +976,44 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
   - Kept, unchanged, carryover: the permit FAQ line "Plan on it in all eight cities" predates this page and was not changed here.
 - Carryovers listed in the Santa Ana and Fullerton entries above remain open and were not fixed in this commit.
 
+## /service-areas/chino/ (chinoOverrides in src/content/cities.ts)
+
+Built 2026-10-19 and committed locally on branch add-chino-page (not pushed yet). Reference: claude/reference/chino-location.html (review artifact: https://claude.ai/artifact/Po8eynS4o3ut3xzi6nYGjj). Same single-data-source build as Santa Ana, Newport Beach, Fullerton and Tustin. Chino was a wave 2 noindex stub before this.
+- Title: `cityTitle('Chino')` ("HVAC Services in Chino, CA | AIRPRO SOLUTIONS", 44 characters). H1 is `cityH1('Chino')`. Hand-written `page.metaDescription` is 146 characters and passes `assertDescription`; it claims only "Licensed" and "4.8-star rated". The literal phrase "hvac chino" is not used. 14 FAQs.
+- Copy approval: the client approved the Chino page copy on 2026-10-19 (per the user).
+- DECISION `wave1` (default kept): Chino is wave 2; `sitemap.ts` lists built pages, so it enters the sitemap automatically. `sitemap.ts` and the `wave1` Set were not edited.
+- DECISION: primary keyword "hvac chino" (from CLAUDE.md; the research had no keyword data and no SERP data).
+- DECISION: glance stats are Census QuickFacts V2025: 96,957 residents (July 1, 2025), 64.0% owner-occupied housing unit rate and 3.25 persons per household (2020 to 2024). A pasted research set gave 62.9%, 3.26 and 93,114 (V2023, ACS 2019 to 2023), an older release; it was not used.
+- DECISION: JSON-LD `containedInPlace` is "San Bernardino County, CA" and `areaServed` is City "Chino". The nearby row (Ontario, Rancho Cucamonga, Corona, Riverside) is exempt from the "no other-city names" rule; all four are live pages and the page claims no adjacency.
+- DECISION (code edition): the page states the 2022 California Building Code with some amendments, as the Building Division page says. The researched 2025 edition claim is not used.
+- DECISION (permits): the Building Division page does not say whether replacing an air conditioner needs a permit, so the page says so and points to the City. No fees, no forms, no City phone numbers or email addresses.
+- DECISION (utilities and rebates): link-only SCE Smart Energy and SoCalGas rebate pages, with the note that the page does not name Chino. No amounts, no provider statement for Chino.
+- DECISION (Municipal Code host): not decided. Chino Municipal Code Chapter 15 is not read and no Code host is linked until the user confirms whether a Code host counts as official.
+- Held out (no verified source or not allowed on the page): ZIP codes 91708 and 91710 (the research cited Wikipedia, which is not official, and then a 2021 City Athletic Field User Guide on cityofchino.org DocumentCenter that returned a server error twice, so it was never read and is not a ZIP list); neighborhood and area names (none on the City Information page); bordering and adjacent city names such as Chino Hills, Pomona, Montclair, Eastvale and Ontario (the research source was Wikipedia, and the City page names only two other counties); Chino Valley Medical Center and Chino Valley Unified School District (research source was homes.com, not official); employers, industrial areas, zoning pattern and Chino Preserve, agricultural, dairy or heat-day statements (no official source); Chino Airport (KCNO) climate station and any temperature normals, day counts, inland, marine layer, heat island or humidity statements (the NWS climate page read does not mention Chino or KCNO and shows no values); the 2025 California Building Code adoption claim (the Building Division page says the 2022 edition); Building Applications and Forms page contents, the Building Fee Schedule dated August 16, 2025 and its mechanical categories, the General Plan element list, the Housing Element Community Profile and the use-permit and site-approval checklists (cityofchino.org pages and DocumentCenter files returned ROBOTS_DISALLOWED or server errors on two attempts each, so they were not read, and fee, form, condenser-location and noise-compatibility statements are not used); the Chino 2045 General Plan planning area of 20,626 acres (CEQAnet read, but the area includes the Sphere of Influence and is not city land area, so it is not used); the 2018 ACS housing-age shares from the draft Housing Element (stale, unread, internally inconsistent in the research) and the RHNA allocation numbers (the Housing Element page read gives none); median household income, per capita income, rent, home value, owner costs, mover rate and other ACS dollar or share figures in the research (only the four QuickFacts values above were read); SCE and SoCalGas service at Chino addresses, SCE time-of-use plans, and every rebate amount, credit amount, AFUE-tier amount, deadline and funding statement (no City or utility page read names Chino, and rebates stay link-only without amounts); Golden State Rebates (the research reports a conflict: SDG&E says retail offers ended while SCE still describes them); SCE Energy Savings Assistance, Home Performance Plus and Comfortably California (not read, address eligibility unverified); permit counter and inspection phone numbers and email addresses.
+- Source conflicts: code edition (research 2025, Building Division page 2022); QuickFacts vintage (V2025 read vs V2023 pasted, 64.0% vs 62.9%); NWS climate page (research says Chino Airport KCNO is listed, the page read does not mention it); utilities (no Chino page names the provider); Golden State Rebates (SDG&E says retail offers ended, SCE still describes them; not used).
+- Sources were read through fetch summaries, not full reads: City Information, Building Division, QuickFacts, SCE Smart Energy, SoCalGas rebates, CSLB, NWS climate, CEQAnet and the Housing Element page. Each carries a TODO(verify) in `cities.ts`.
+- Still needs pasted pages from the user:
+  - City of Chino Building Applications and Forms page (cityofchino.org/180): form titles and any like-for-like or mechanical permit language (ROBOTS_DISALLOWED on two URLs).
+  - City of Chino Building Fee Schedule PDF (DocumentCenter 6510): title, effective date and mechanical category names only (ROBOTS_DISALLOWED on two URLs).
+  - City of Chino General Plan page (cityofchino.org/1673): element names and dates (ROBOTS_DISALLOWED on two URLs).
+  - City of Chino use-permit and site-approval checklists (DocumentCenter 4522, 4525, 4527): the condenser, furnace and water heater location wording (ROBOTS_DISALLOWED).
+  - An official source for ZIP codes 91708 and 91710 (the cited Athletic Field User Guide, DocumentCenter 1587, returned a server error twice).
+  - NWS or NOAA station page for Chino Airport (KCNO) showing the station name and normals, if you want climate on the page.
+  - Census ACS B25034, B25035 and B25024 for Chino city, if you want a housing age or type statement.
+  - A City of Chino or utility page that states Chino's electric and gas providers.
+  - Your confirmation of whether a Municipal Code host (eCode360, codepublishing, Municode or GoCodebook) counts as official, if you want Chapter 15 read.
+- Pre-launch recheck: a readable City source for whether replacing an air conditioner or furnace needs a mechanical permit and how to apply (the Building Applications and Forms page was not readable), the current Building Fee Schedule and its effective date (research says August 16, 2025, not read), whether the City has moved from the 2022 California Building Code to the 2025 edition (the page read says 2022, the research says 2025), the text of Chino Municipal Code Chapter 15 and its code host (host needs your confirmation), outdoor unit placement and noise rules, an official ZIP source, Census ACS B25034, B25035 and B25024 for Chino city, a City or utility page naming Chino's electric and gas providers, whether SCE and SoCalGas programs apply at Chino addresses, a current Housing Element source, an official Chino Airport climate source, and an official source for Chino Valley Medical Center, Chino Valley Unified School District, employers and industrial areas.
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list. Do not strengthen it.
+- Known quirk, not changed here: the nearby heading reads "Also serving the rest of Inland Empire" (no "the"); it is shared component behavior, same as Riverside.
+- Hub wiring done with this page: the Inland Empire Chino card links /service-areas/chino/; the /service-areas/ chip and `hubCityIndexNote` include Chino; the Inland Empire city-page sentence now reads "...Corona, Rancho Cucamonga, and Chino pages". regions.ts already listed Chino.
+- Hub copy audit (every Chino statement in src/content/inland-empire.ts was checked against sources actually read):
+  - Removed: the Chino row of the housing table (18.9% built before 1970, no source read), the card's "SR-60 corridor" areas, "Electric: generally SCE." and the warehouse, retail and restaurant claim, and Chino from the warehouse and logistics commercial copy (four places).
+  - Replaced with verified text: the permits row, note and FAQ (the Building Division page does not say whether replacement needs a permit), the card note, a separate placement row for Chino, and the utilities intro, list, gas line and FAQ (Chino's electric and gas providers are not confirmed).
+  - Reworded: the structure and age paragraphs (Eastvale and Fontana, Upland only) and the housing "pending" note (Chino listed as not in the table).
+  - Needs a source before it can return: Chino's housing table row and pre-1970 share, card neighborhoods, the ZIP list, a Chino utility provider statement, commercial evidence.
+- Carryovers listed in the Santa Ana and Fullerton entries above remain open and were not fixed in this commit.
+
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
 - Hermosa Beach: the "online-only starting 2026-10-01" claim was removed from the hub (no source on the City applications or online access pages). The hub permits row now follows the verified applications wording. See the Hermosa Beach section above.
@@ -1031,10 +1069,10 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
 - Rebate programs (Riverside Public Utilities, SCE thermostat credit, TECH Clean California) and
   their funding status: no dollar amounts were found/verified, so none are shown. Verify before
   launch and decide whether amounts can be added.
-- Electric utility per city for Ontario, Chino, Fontana, Upland, and Eastvale is
-  medium-to-low confidence ("generally SCE"). Verify directly before launch. Rancho Cucamonga is confirmed on the City's utilities and RCMU pages (SCE main, RCMU in limited areas).
+- Electric utility per city for Ontario, Fontana, Upland, and Eastvale is
+  medium-to-low confidence ("generally SCE"). Chino's providers are shown as not confirmed. Verify directly before launch. Rancho Cucamonga is confirmed on the City's utilities and RCMU pages (SCE main, RCMU in limited areas).
 - Like-for-like permit rules for Corona, Ontario, Upland, and Eastvale were not
-  confirmed in the sources reviewed (confirmed only for Chino and Fontana; Riverside lists no like-for-like exemption for a whole unit; Rancho Cucamonga takes every permit online and its older guide lists replacement-only HVAC as no plan check). Verify with
+  confirmed in the sources reviewed (confirmed only for Fontana; the Chino Building Division page does not say; Riverside lists no like-for-like exemption for a whole unit; Rancho Cucamonga takes every permit online and its older guide lists replacement-only HVAC as no plan check). Verify with
   each city, and re-verify current Title 24 code dates.
 - This page does not say "we handle permits" - the research does not support that claim. Do not
   add it without client sign-off.
@@ -1049,6 +1087,7 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
 - Climate figures are from nearby weather stations (Riverside Municipal Airport 1991-2020 normals;
   Norton AFB 1980-1990 record), not city averages, and not found at all for six of the eight
   cities. Keep that context, don't strengthen it into a city-level claim.
+- Chino ZIP list is unverified (no official source read) and shown as "pending," not a list.
 - When city pages exist for any of the eight cities, turn its "City page coming soon" card into a
   link and add the city to sitemap.ts.
 
