@@ -647,7 +647,7 @@ Built 2026-10-18, pushed to main (user chose push to main). Reference artifact: 
 
 ## /service-areas/manhattan-beach/ (manhattanBeachOverrides in src/content/cities.ts)
 
-Built 2026-10-19, committed locally on branch add-manhattan-beach-page (not pushed; user to choose push to main or PR). Reference artifact: claude/reference/manhattan-beach-location.html (https://claude.ai/artifact/CkeYGHgHd2pyzaqiaAsanR). Same single-data-source build as Glendale, Burbank, Santa Monica and Inglewood. Manhattan Beach was a wave 2 noindex stub before this.
+Built 2026-10-19, pushed to main (user chose push to main). Reference artifact: claude/reference/manhattan-beach-location.html (https://claude.ai/artifact/CkeYGHgHd2pyzaqiaAsanR). Same single-data-source build as Glendale, Burbank, Santa Monica and Inglewood. Manhattan Beach was a wave 2 noindex stub before this.
 - Title: `cityTitle('Manhattan Beach')` ("HVAC Services in Manhattan Beach, CA | AIRPRO SOLUTIONS", 55 characters). H1 is `cityH1('Manhattan Beach')` (36 characters). Hand-written `page.metaDescription` is 154 characters and passes `assertDescription`.
 - TODO(copy): client has not approved any Manhattan Beach wording (every FAQ answer, the four local paragraphs, the local card, the permit, placement, utility, rebate and assistance sentences, the commercial sentence). Keep flagged until the user says the client approved.
 - DECISION `wave1` (user approved 2026-10-19, default kept): Manhattan Beach is wave 2, so its route is indexable by design (it has `page` content) and the hubs link it, but `sitemap.ts` lists only `wave1Cities.filter(page)`, so it is NOT in the sitemap. Not changed; the wave list is client-confirmed.
