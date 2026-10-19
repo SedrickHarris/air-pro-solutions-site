@@ -902,7 +902,7 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
 
 ## /service-areas/fullerton/ (fullertonOverrides in src/content/cities.ts)
 
-Built 2026-10-19 on branch add-fullerton-page, committed locally and not pushed yet. Reference: claude/reference/fullerton-location.html (review artifact: https://claude.ai/artifact/C46hWcASPdA98hZNoDj3xZ). Same single-data-source build as Santa Ana and Newport Beach. Fullerton was a wave 2 noindex stub before this.
+Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/reference/fullerton-location.html (review artifact: https://claude.ai/artifact/C46hWcASPdA98hZNoDj3xZ). Same single-data-source build as Santa Ana and Newport Beach. Fullerton was a wave 2 noindex stub before this.
 - Title: `cityTitle('Fullerton')` ("HVAC Services in Fullerton, CA | AIRPRO SOLUTIONS", 49 characters). H1 is `cityH1('Fullerton')`. Hand-written `page.metaDescription` is 144 characters and passes `assertDescription`; it claims only "Licensed" and "4.8-star rated". The literal phrase "hvac fullerton" is not used.
 - Copy approval: the client approved the Fullerton page copy on 2026-10-19 (per the user).
 - DECISION `wave1` (default kept): Fullerton is wave 2; `sitemap.ts` lists built pages, so it enters the sitemap automatically. `sitemap.ts` and the `wave1` Set were not edited.
