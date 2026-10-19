@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson, santa-ana, newport-beach, fullerton, tustin and chino have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson, santa-ana, newport-beach, fullerton, tustin, chino and fontana have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // The closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's, Santa Ana's, Newport Beach's, Fullerton's, Tustin's and Chino's local paragraphs use the new sentence from the start. The client approved all city page copy, including Newport Beach, Fullerton, Tustin and Chino, on 2026-10-19 (per the user).
+// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's, Santa Ana's, Newport Beach's, Fullerton's, Tustin's, Chino's and Fontana's local paragraphs use the new sentence from the start. The client approved all city page copy, including Newport Beach, Fullerton, Tustin, Chino and Fontana, on 2026-10-19 (per the user).
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
 // building that city page or its matrix pages. Never invent it.
@@ -9471,6 +9471,469 @@ const chinoOverrides: Partial<City> = {
     },
 };
 
+const fontanaOverrides: Partial<City> = {
+  // Copy approval: the client approved the Fontana page copy on 2026-10-19 (per the user).
+  // TODO(data): add verified climate, housing-age, ZIP and utility detail before treating this as a full local page.
+  neighborhoods: [], // list held out: no official neighborhood list was read; the research names came from a Midas shop page and the hub's "Sierra Lakes, Southridge" has no source
+  zips: [], // ZIP list held out: the research cited Wikipedia, which is not official, so the hub keeps "pending"
+  page: {
+    metaDescription: "HVAC service for Fontana homes and businesses, with the City's permit and 2025 code pages in mind. Licensed, 4.8-star rated. Call or request service online.",
+    lede: "AIRPRO SOLUTIONS provides HVAC services across Fontana, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit and code pages in mind.",
+    heroCaption: {
+      title: "Fontana, CA",
+      text: "Local service across Fontana",
+    },
+    heroProof: [
+      {
+        icon: "shield",
+        label: "Licensed, bonded & insured",
+      },
+      {
+        icon: "star",
+        label: "4.8-star rated",
+      },
+      {
+        icon: "bolt",
+        label: "24/7 emergency dispatch",
+      },
+      {
+        icon: "building",
+        label: "Residential and commercial",
+      },
+    ],
+    trustStats: [
+      {
+        num: "4.8★",
+        label: "Google rating, 40 reviews",
+      },
+      {
+        num: "C-20",
+        label: "California licensed",
+      },
+      {
+        num: "24/7",
+        label: "emergency dispatch",
+      },
+      {
+        num: "Same-day",
+        label: "service typical",
+      },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Fontana",
+      body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Fontana at a glance",
+      stats: [
+        {
+          num: "221,223",
+          label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "66.8%",
+          label: "owner-occupied housing unit rate, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "3.66",
+          label: "persons per household, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+        },
+      ],
+      source: "Source: U.S. Census Bureau QuickFacts for Fontana city, California.",
+    },
+    localTitle: "Fontana's permit pages, code edition, and utility programs",
+    // Copy approval: the client approved the Fontana page copy on 2026-10-19 (per the user).
+    // Held out (no verified source or not allowed on the page): ZIP codes 92331, 92334, 92335, 92336 and 92337 (the research cited Wikipedia, which is not official, and said to confirm against USPS or City GIS); neighborhood and area names including North Fontana and Southridge Village (the research source was a Midas auto shop page, not official; the hub card's "Sierra Lakes, Southridge" has no source either); neighboring community names such as Bloomington, Rialto, Colton and Rancho Cucamonga (the research source was zipcode.org, not official); Kaiser Permanente Fontana Medical Center, its 6,000 employee count and the "one of the largest medical facilities" wording, and the City's statement on residential, commercial and industrial development (the City About Us page returned ROBOTS_DISALLOWED on two URLs, so it was not read; the Kaiser facility page was not read); NOAA station FONTANA 5 N (GHCND:USC00043118), every temperature normal, summer high, winter low and days above 90 or 100 degrees (the research itself marks them NOT FOUND), marine layer, heat island and any inland-climate comparison; the research claim that Fontana is in the South Coast Air Basin (the AQMD page read names San Bernardino County but not Fontana); housing unit count 61,759 (Census Reporter, not Census.gov, and QuickFacts shows housing units as X); median home value (a dollar figure, not used); the 1970 to 1989 and 37.2 percent older-housing figures from a City archive document (historical, based on the 2000 Census and 2006 to 2008 ACS, not read); the hub's 22.3 percent built before 1970 figure and the "predominantly detached single-family" statement (no Fontana source read; a SCAG profile search returned nothing readable); the Build Fontana page (fontanaca.gov/3589), the Residential Alterations and Additions and Tenant Improvement plan submittal checklists (DocumentCenter 43919 and 43923) and the 2025-26 user fee schedule (DocumentCenter 46631), all ROBOTS_DISALLOWED on two attempts each, so no fee, mechanical permit category, checklist, rooftop line-of-sight shielding or HVAC submittal statement is used, and the hub's rooftop screening review claim was removed; Building & Safety counter hours (the FAQ page read says Monday to Thursday, the research says a different closing time from a Directory page that was not read); the City permit counter telephone number and email address (not allowed on the page); SCE and SoCalGas service at Fontana addresses and SCE time-of-use plans (no page read names Fontana); every rebate amount, credit amount, income limit, per-kBtuh figure, deadline and funding statement from the research, including the SCE Smart Energy credits, SCE Energy Savings Assistance income limits, TECH Clean California incentive and the SoCalGas furnace rebate range (rebates stay link-only without amounts); Golden State Rebates (SDG&E says retail offers ended while SCE still describes them), SCE Home Performance Plus and Comfortably California (not read, address eligibility unverified); Municipal Code hosts (none linked until the user confirms whether a Code host counts as official).
+    // TODO(verify): Census QuickFacts for Fontana city (V2025, no publication date) was read through a fetch summary on 2026-10-19: 221,223 residents on July 1, 2025; 66.8 percent owner-occupied housing unit rate, 3.66 persons per household and $586,800 median value of owner-occupied units for 2020 to 2024; housing units shown as X. Source conflict: the pasted research gave the July 1, 2024 vintage with 67.2 percent owner-occupied and $558,500 (2019 to 2023); the live page was used.
+    // TODO(verify): City Building & Safety page (fontanaca.gov/136, no page date seen) was read through a fetch summary on 2026-10-19: the department "will continue to accept permit /plan check applications at our customer service counter"; the page encourages creating an account on the Build Fontana Public Portal to submit applications and download plans; it lists eTRAKiT under the Build Fontana name to "apply for permits, projects, pay fees, schedule inspections"; it does not mention HVAC replacement permits and does not name the 2025 California Mechanical Code or Energy Code (it links to a Codes and Local Amendments section). Source conflict: the research attributes the code editions to this page; the Codes page carries them.
+    // TODO(verify): City Permits page (fontanaca.gov/142, no page date seen) was read through a fetch summary on 2026-10-19: three stages (application and plan submission, authorization and verification, permit generation); the invoice is paid at the cashier when the permit is generated; "only the contractor on record or the owner of the site can sign for the permit" and anyone else needs written, notarized permission; it does not mention HVAC, mechanical, replacement or like-for-like, and the summary did not mention over-the-counter versus plan check. Source conflict: the research says the page says some reviews can be completed over the counter; that is not used.
+    // TODO(verify): City Codes and Local Amendments page (fontanaca.gov/145, no page date seen) was read through a fetch summary on 2026-10-19: 2025 California Building Code (based on the 2024 International Building Code), 2025 California Mechanical Code (based on the 2024 Uniform Mechanical Code, IAPMO), 2025 California Energy Code, 2025 California Plumbing Code (2024 Uniform Plumbing Code), 2025 California Electrical Code (2023 National Electrical Code) and 2025 California Residential Code (2024 International Residential Code); it does not mention local amendments. This agrees with the research (Chino's page said 2022, Fontana's lists 2025).
+    // TODO(verify): City FAQ page (fontanaca.gov/faq, no page date seen) was read through a fetch summary on 2026-10-19: Building & Safety counter at the Development Services Building, 8353 Sierra Ave., 1st Floor, where plans and revisions are submitted; hours listed as Monday through Thursday; applications status through E-TRAKiT by PIN; Build Fontana described for planning applications; it does not address HVAC replacement permits. Hours are not used on the page.
+    // TODO(verify): South Coast AQMD air quality page (aqmd.gov/home/air-quality, no page date) was read through a fetch summary on 2026-10-19: the district is the air pollution control agency for "major portions of" San Bernardino County; for ozone it lists "Inland areas and valleys" as the most affected areas; it does not mention Fontana.
+    // TODO(verify): SCE Smart Energy Program page (sce.com, no page date) was read through a fetch summary on 2026-10-19: qualifying smart thermostat enrolled in SCE's program, bill credits, thermostat may be set up to four degrees higher during energy events; it names no city. No credit amounts are used.
+    // TODO(verify): SCE Energy Savings Assistance page (sce.com, no page date) was read through a fetch summary on 2026-10-19: income-qualified upgrades at no cost, including "Central AC or Central Heat Pump Replacement"; the ESA Whole Home pilot is closed to new projects and the Building Electrification Program is closed to new enrollments as of September 2026, while the main ESA program still shows an Apply Now option; it does not mention Fontana. No income limits or phone numbers are used. This agrees with the correction in the later research paste.
+    // TODO(verify): SoCalGas rebates page (socalgas.com/savings/rebates-and-incentives, no page date) was read through a fetch summary on 2026-10-19: the ENERGY STAR certified furnace entry requires an AFUE of at least 92 percent and installation by a licensed contractor with proof of permit closure; it does not mention Fontana. No amounts or deadlines are used.
+    // TODO(verify): CSLB Finding the Right Contractor page (no publication date) was read through a fetch summary on 2026-10-19: "Seeing a license number doesn't necessarily mean the license is valid"; license status can be checked online; the lookup shows the address of record and insurance information is on the license history page.
+    // Pre-launch recheck: a readable City source for whether replacing an air conditioner or furnace needs a mechanical permit and how to apply (the Build Fontana page, the plan submittal checklists and the 2025-26 user fee schedule were not readable), the City About Us page for the Kaiser Permanente and development statements, an official ZIP source, outdoor unit placement and noise rules, NOAA normals for FONTANA 5 N if you want climate on the page, Census ACS B25034, B25035 and B25024 for Fontana city (or the SCAG local profile) if you want a housing age or type statement, a City or utility page naming Fontana's electric and gas providers, whether SCE and SoCalGas programs apply at Fontana addresses, the Building & Safety counter hours, and your confirmation of whether a Municipal Code host counts as official.
+    localParagraphs: [
+      "The City's Building & Safety page says the department keeps accepting permit and plan check applications at its customer service counter, and it encourages applicants to create an account on the Build Fontana Public Portal to submit applications and download plans online. The same page lists eTRAKiT under the Build Fontana name as an online portal for applying for permits, paying fees, and scheduling inspections. The City's FAQ page puts the counter at the Development Services Building, 8353 Sierra Ave., 1st Floor. We do not state counter hours or permit fees.",
+      "None of the City pages we read (Building & Safety, Permits, and the FAQ) says whether replacing an air conditioner or furnace needs a permit, so **AIRPRO SOLUTIONS confirms the permit path for your job with the City** before work starts. The Permits page describes three stages, application and plan submission, authorization and verification, and permit generation, and says the permit invoice is paid at the cashier when the permit is generated. It also says that once fees are paid, only the contractor on record or the owner of the site can sign for the permit, and anyone else needs written, notarized permission.",
+      "The City's Codes and Local Amendments page lists the 2025 California Mechanical Code, based on the 2024 Uniform Mechanical Code, and the 2025 California Energy Code, along with 2025 editions of the building, plumbing, electrical, and residential codes. The page does not mention local amendments, and we did not find outdoor equipment placement or noise rules on the City pages we could read, so **we confirm which requirements apply to your project with the City** and do not state local amendments or equipment rules.",
+      "QuickFacts estimates Fontana had 221,223 residents on July 1, 2025, and reports a **66.8% owner-occupied housing unit rate** and 3.66 persons per household for 2020 to 2024. That leaves 33.2% of occupied homes that are not owner-occupied, so when the person who calls is a tenant we work with the owner or property manager on access and approval. Ownership and household size are different measures from building type or age, so we do not guess how old the homes or ducts are in your part of the city, and **we confirm the equipment, roof or attic access, and ductwork at each property**.",
+      "South Coast AQMD's air quality page says the district is the air pollution control agency for major portions of San Bernardino County, and it lists inland areas and valleys among the areas most affected by ozone. It does not name Fontana, so we make no claim about air quality at Fontana addresses, and filtration and ventilation are options we can go over at a visit.",
+      "The City pages we read do not say which utility serves Fontana addresses, so **your bill shows who supplies your electricity and gas**. Utilities publish their own program pages with their own terms and funding, such as Southern California Edison's Smart Energy Program for smart thermostats, Edison's Energy Savings Assistance program for income-qualified households, and Southern California Gas Company's furnace rebates, which require installation by a licensed contractor and proof of permit closure. None of these pages names Fontana, so we do not quote amounts or say a program applies at your address, and you should check each program with your utility before you buy. Official links are in the card for this section.",
+    ],
+    localCards: [
+      {
+        heading: "Fontana permit and code pages",
+        rows: [
+          {
+            label: "Applications",
+            value: "Customer service counter, or the Build Fontana Public Portal (eTRAKiT is listed under that name), per the Building & Safety page",
+          },
+          {
+            label: "Permit stages",
+            value: "Application and plan submission, authorization and verification, permit generation, per the Permits page",
+          },
+          {
+            label: "Who signs",
+            value: "The contractor on record or the site owner, after fees are paid, per the Permits page",
+          },
+          {
+            label: "Mechanical code",
+            value: "2025 California Mechanical Code, based on the 2024 Uniform Mechanical Code",
+          },
+          {
+            label: "Energy code",
+            value: "2025 California Energy Code",
+          },
+          {
+            label: "Local amendments",
+            value: "Not mentioned on the Codes and Local Amendments page",
+          },
+          {
+            label: "Replacement permit rule",
+            value: "Not stated on the pages we read",
+          },
+        ],
+        note: "From the City's Building & Safety, Permits, FAQ, and Codes and Local Amendments pages. We confirm current requirements with the City.",
+      },
+    ],
+    neighborhoodsHeading: "Official Fontana resources",
+    officialResources: [
+      {
+        text: "Building & Safety",
+        href: "https://www.fontanaca.gov/136/Building-Safety",
+        note: "Counter, Build Fontana Public Portal, and eTRAKiT.",
+      },
+      {
+        text: "Permits",
+        href: "https://www.fontanaca.gov/142/Permits",
+        note: "Permit stages, fee payment, and who may sign.",
+      },
+      {
+        text: "Codes and Local Amendments",
+        href: "https://www.fontanaca.gov/145/Codes-Local-Amendments",
+        note: "Adopted 2025 California code editions.",
+      },
+      {
+        text: "City FAQ",
+        href: "https://www.fontanaca.gov/faq",
+        note: "Development Services Building counter location.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/fact/table/fontanacitycalifornia/POP010210",
+        note: "Population, owner-occupied rate, household size.",
+      },
+      {
+        text: "South Coast AQMD air quality",
+        href: "https://www.aqmd.gov/home/air-quality",
+        note: "District coverage and ozone wording. Does not name Fontana.",
+      },
+      {
+        text: "SCE Smart Energy Program",
+        href: "https://www.sce.com/save-money/savings-programs/enroll-in-savings-programs/smart-energy-program",
+        note: "Smart thermostat terms. Does not name Fontana.",
+      },
+      {
+        text: "SCE Energy Savings Assistance",
+        href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+        note: "Income-qualified program. Does not name Fontana.",
+      },
+      {
+        text: "SoCalGas rebates",
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "Furnace rebate terms. Does not name Fontana.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Fontana homes and businesses",
+    serviceCards: [
+      {
+        slug: "ac-repair",
+        name: "AC Repair",
+        body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises in Fontana homes and businesses.",
+      },
+      {
+        slug: "ac-installation",
+        name: "AC Installation & Replacement",
+        body: "New system sizing and installation for Fontana properties, planned around the City's permit pages.",
+      },
+      {
+        slug: "ac-maintenance",
+        name: "AC Maintenance",
+        body: "Seasonal AC tune-ups that catch small issues early, for Fontana homes and for commercial rooftop and ground units.",
+      },
+      {
+        slug: "heating-repair",
+        name: "Heating Repair",
+        body: "Furnace and heating system diagnosis and repair for Fontana homes and businesses.",
+      },
+      {
+        slug: "furnace-installation",
+        name: "Furnace Installation & Replacement",
+        body: "Furnace sizing and installation, planned around the City's permit pages.",
+      },
+      {
+        slug: "heat-pump-services",
+        name: "Heat Pump Services",
+        body: "Heat pump installation, repair, and maintenance, with the City's permit pages and your utilities' program pages in mind.",
+      },
+      {
+        slug: "ductless-mini-split",
+        name: "Ductless Mini-Split",
+        body: "Ductless systems for Fontana additions, converted spaces, and rooms the existing ducts do not reach.",
+      },
+      {
+        slug: "ductwork",
+        name: "Ductwork Services",
+        body: "Duct repair, sealing, and replacement for Fontana homes and buildings.",
+      },
+      {
+        slug: "indoor-air-quality",
+        name: "Indoor Air Quality",
+        body: "Filtration, ventilation, and air-quality upgrades for Fontana homes and offices.",
+      },
+      {
+        slug: "emergency-hvac",
+        name: "Emergency HVAC",
+        body: "24/7 emergency dispatch for no-cool and no-heat problems in Fontana. If you smell gas, leave the building and call 911 or your gas utility.",
+      },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Fontana permits, codes, and incentive programs",
+      intro: "Official sources for three items worth checking before a Fontana HVAC project.",
+      cards: [
+        {
+          amount: "Permits and inspections",
+          description: "The City's Building & Safety page says the department accepts permit and plan check applications at its customer service counter and encourages applicants to use the Build Fontana Public Portal. None of the City pages we read says whether replacing an air conditioner or furnace needs a permit, so we confirm the permit path for your job with the City. We do not state permit fees or counter hours.",
+          linkLabel: "City Building & Safety page",
+          linkHref: "https://www.fontanaca.gov/136/Building-Safety",
+        },
+        {
+          amount: "Code edition",
+          description: "The City's Codes and Local Amendments page lists the 2025 California Mechanical Code, based on the 2024 Uniform Mechanical Code, and the 2025 California Energy Code. It does not mention local amendments, so we confirm what applies to your project with the City.",
+          linkLabel: "City Codes page",
+          linkHref: "https://www.fontanaca.gov/145/Codes-Local-Amendments",
+        },
+        {
+          amount: "Rebates and utilities",
+          description: "The City pages we read do not say which utility serves Fontana addresses, so check your bill. Southern California Edison's Smart Energy Program page describes smart thermostat bill credits, and the Southern California Gas Company rebate page lists furnace rebates that require a licensed contractor and proof of permit closure. Neither page names Fontana, so we do not quote amounts or say either program applies at your address. Check each program's terms with your utility before you buy.",
+          linkLabel: "SoCalGas rebate page",
+          linkHref: "https://www.socalgas.com/savings/rebates-and-incentives",
+        },
+      ],
+    },
+    nearby: ["rancho-cucamonga", "ontario", "corona", "riverside"],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Fontana",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        {
+          num: "4.8★",
+          label: "Google rating",
+        },
+        {
+          num: "40",
+          label: "Google reviews",
+        },
+        {
+          num: "C-20",
+          label: "California license class",
+        },
+        {
+          num: "24/7",
+          label: "Emergency dispatch",
+        },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Fontana. Same-day service is typical, subject to capacity.",
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Fontana?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Fontana as part of our Inland Empire coverage. The City runs its own permit process, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "Inland Empire coverage",
+            href: "/service-areas/inland-empire/",
+          },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Fontana home?",
+        a: "Same-day service is typical in Fontana, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Fontana, subject to capacity.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an air conditioner in Fontana?",
+        a: "We confirm that with the City. The City's Building & Safety page says the department accepts permit and plan check applications at its customer service counter and through the Build Fontana Public Portal, but none of the City pages we read says whether replacing an air conditioner needs a permit, so AIRPRO SOLUTIONS confirms the current permit path with the City before work starts, and we do not quote permit fees.",
+        boldLead: "We confirm that with the City.",
+        links: [
+          {
+            text: "Building & Safety page",
+            href: "https://www.fontanaca.gov/136/Building-Safety",
+          },
+        ],
+      },
+      {
+        q: "Which building code edition applies to a Fontana HVAC project?",
+        a: "We confirm that with the City. The City's Codes and Local Amendments page lists the 2025 California Mechanical Code, based on the 2024 Uniform Mechanical Code, and the 2025 California Energy Code, and it does not mention local amendments, so AIRPRO SOLUTIONS confirms which requirements apply to your project with the City, and we do not state local amendments.",
+        boldLead: "We confirm that with the City.",
+        links: [
+          {
+            text: "Codes and Local Amendments page",
+            href: "https://www.fontanaca.gov/145/Codes-Local-Amendments",
+          },
+        ],
+      },
+      {
+        q: "Where can an outdoor AC unit go on my Fontana property?",
+        a: "We confirm that with the City. We did not find a City page we could read that states setback, screening, or noise rules for outdoor HVAC equipment, so we do not state any here, and AIRPRO SOLUTIONS checks the current rules, how your property is zoned, and its layout with the City before choosing a location.",
+        boldLead: "We confirm that with the City.",
+      },
+      {
+        q: "Does the age of my Fontana home matter for HVAC?",
+        a: "Age is one factor we check. We did not find a verified citywide figure for the age of Fontana homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
+        boldLead: "Age is one factor we check.",
+      },
+      {
+        q: "Do you work on rental properties in Fontana?",
+        a: "Yes. QuickFacts reports a 66.8% owner-occupied housing unit rate for Fontana, so 33.2% of occupied homes are not owner-occupied. AIRPRO SOLUTIONS works with owners and property managers on access and approval before installation or replacement.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "QuickFacts",
+            href: "https://www.census.gov/quickfacts/fact/table/fontanacitycalifornia/POP010210",
+          },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Fontana?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Fontana, including rooftop units, and plans rooftop access and equipment placement with the building owner or manager before commercial work starts. We confirm how your property is zoned and the permit path with the City. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "Commercial HVAC page",
+            href: "/commercial-hvac/",
+          },
+        ],
+      },
+      {
+        q: "How do I check an HVAC contractor in Fontana?",
+        a: "Check the state license first. CSLB says seeing a license number does not necessarily mean the license is valid, so check its status on the CSLB site, which also shows the address of record and insurance information. AIRPRO SOLUTIONS' California license numbers are #1126691 and #50251 (C-20).",
+        boldLead: "Check the state license first.",
+        links: [
+          {
+            text: "CSLB site",
+            href: "https://www.cslb.ca.gov/consumers/hire_a_contractor/finding_the_right_contractor.aspx",
+          },
+        ],
+      },
+      {
+        q: "Which utility serves my Fontana address?",
+        a: "Your bill answers it. The City pages we read do not name Fontana's electric or gas provider, so check your bill to see who supplies your electricity and gas.",
+        boldLead: "Your bill answers it.",
+      },
+      {
+        q: "Are there HVAC rebates for Fontana customers?",
+        a: "Check with your utility. We did not find a City page on HVAC rebates, and none of Southern California Edison's Smart Energy Program page, its Energy Savings Assistance page, or the Southern California Gas Company rebate page names Fontana. Utility programs have their own terms and funding, and we do not quote amounts, so check each program with your utility before you buy.",
+        boldLead: "Check with your utility.",
+        links: [
+          {
+            text: "Smart Energy Program page",
+            href: "https://www.sce.com/save-money/savings-programs/enroll-in-savings-programs/smart-energy-program",
+          },
+          {
+            text: "Energy Savings Assistance page",
+            href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+          },
+          {
+            text: "rebate page",
+            href: "https://www.socalgas.com/savings/rebates-and-incentives",
+          },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Fontana?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Fontana, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides",
+        links: [
+          {
+            text: "AC repair",
+            href: "/services/ac-repair/",
+          },
+          {
+            text: "AC installation and replacement",
+            href: "/services/ac-installation/",
+          },
+          {
+            text: "AC maintenance",
+            href: "/services/ac-maintenance/",
+          },
+          {
+            text: "heating repair",
+            href: "/services/heating-repair/",
+          },
+          {
+            text: "furnace installation and replacement",
+            href: "/services/furnace-installation/",
+          },
+          {
+            text: "heat pump services",
+            href: "/services/heat-pump-services/",
+          },
+          {
+            text: "ductless mini-splits",
+            href: "/services/ductless-mini-split/",
+          },
+          {
+            text: "ductwork",
+            href: "/services/ductwork/",
+          },
+          {
+            text: "indoor air quality",
+            href: "/services/indoor-air-quality/",
+          },
+          {
+            text: "emergency HVAC",
+            href: "/services/emergency-hvac/",
+          },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Fontana?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Fontana. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Fontana?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -9502,6 +9965,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'fullerton' ? fullertonOverrides
     : c.slug === 'tustin' ? tustinOverrides
     : c.slug === 'chino' ? chinoOverrides
+    : c.slug === 'fontana' ? fontanaOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
