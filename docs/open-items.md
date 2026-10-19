@@ -779,7 +779,7 @@ Built 2026-10-19, pushed to main (user said the page should be pushed; read as p
 
 ## /service-areas/hawthorne/ (hawthorneOverrides in src/content/cities.ts)
 
-Built 2026-10-19 on branch add-hawthorne-page, committed locally and not yet pushed. Reference artifact: claude/reference/hawthorne-location.html (https://claude.ai/artifact/42N8pij3URqekXmvWEKhty). Same single-data-source build as the other South Bay city pages. Hawthorne was a wave 2 noindex stub before this.
+Built 2026-10-19 and pushed to main (user said push to main). Reference artifact: claude/reference/hawthorne-location.html (https://claude.ai/artifact/42N8pij3URqekXmvWEKhty). Same single-data-source build as the other South Bay city pages. Hawthorne was a wave 2 noindex stub before this.
 - Title: `cityTitle('Hawthorne')` ("HVAC Services in Hawthorne, CA | AIRPRO SOLUTIONS", 49 characters). H1 is `cityH1('Hawthorne')` (30 characters). Hand-written `page.metaDescription` is 150 characters and passes `assertDescription`.
 - Copy approval: the client approved the Hawthorne page copy on 2026-10-19 (reported by the user). The TODO(copy) flag is removed. The TODO(verify) items and the held-out facts below still stand.
 - DECISION `wave1` (default kept): Hawthorne is wave 2. The wave only means launch priority now; `sitemap.ts` lists built pages, so Hawthorne enters the sitemap automatically. `sitemap.ts` and the `wave1` Set were not edited.
