@@ -900,6 +900,44 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
   - Kept, unchanged, carryover: the permit FAQ line "Plan on it in all eight cities" still implies a permit for Newport Beach; it predates this page and was not changed here.
 - Carryovers listed in the Santa Ana entry above remain open and were not fixed in this commit.
 
+## /service-areas/fullerton/ (fullertonOverrides in src/content/cities.ts)
+
+Built 2026-10-19 on branch add-fullerton-page, committed locally and not pushed yet. Reference: claude/reference/fullerton-location.html (review artifact: https://claude.ai/artifact/C46hWcASPdA98hZNoDj3xZ). Same single-data-source build as Santa Ana and Newport Beach. Fullerton was a wave 2 noindex stub before this.
+- Title: `cityTitle('Fullerton')` ("HVAC Services in Fullerton, CA | AIRPRO SOLUTIONS", 49 characters). H1 is `cityH1('Fullerton')`. Hand-written `page.metaDescription` is 144 characters and passes `assertDescription`; it claims only "Licensed" and "4.8-star rated". The literal phrase "hvac fullerton" is not used.
+- Copy approval: the client approved the Fullerton page copy on 2026-10-19 (per the user).
+- DECISION `wave1` (default kept): Fullerton is wave 2; `sitemap.ts` lists built pages, so it enters the sitemap automatically. `sitemap.ts` and the `wave1` Set were not edited.
+- DECISION: primary keyword "hvac fullerton" (from CLAUDE.md; the research had no keyword data).
+- DECISION: population is 138,675 (Census QuickFacts, July 1, 2025 estimate), not the 143,617 count from the 2020 Census. Owner-occupied share 51.8% (2020-2024) and 2.86 persons per household are from QuickFacts.
+- DECISION: JSON-LD `containedInPlace` is "Orange County, CA" and `areaServed` is City "Fullerton". The nearby row (Anaheim, Santa Ana, Costa Mesa, Irvine) is exempt from the "no other-city names" rule; all four are live pages and the page claims no adjacency.
+- DECISION (utilities): the page says to confirm the provider by address and quotes the City's partnership statement. It does not say "Electric: SCE". No City page I read names the electric or gas provider for an address.
+- DECISION (permits): copy uses the City Building and Safety page (EasyDev portal), the FAQ (mechanical items need a permit; no construction until the permit is issued), the current building codes page (2025 codes for applications on or after January 1, 2026) and the fee schedule mechanical categories. A fee category is not an exemption list, so the page states no exemption and no fee. City permit counter phone numbers are off the page.
+- DECISION (contractor check FAQ): points to CSLB and the City business registration certificate rule. It does not claim AIRPRO SOLUTIONS holds a Fullerton business registration certificate (client question below).
+- DECISION (link-only, no amounts): SoCalGas rebates and Census QuickFacts are linked with no dollar amounts.
+- Held out (no verified source, or not allowed on the page):
+  - ZIP codes (research sources were zip-codes.com, third-party, and a 2018 qualitycountsca.net PDF, neither official).
+  - Housing units (52,304, from data.census.gov, which needs JavaScript; QuickFacts shows X), median owner-occupied value in dollars, and the 2013 housing-age figures.
+  - Neighborhoods and districts such as Downtown and Sunny Hills (the City About Fullerton page could not be fetched); inland, climate, marine layer, heat island, humidity and air quality labels; NWS Fullerton Municipal Airport station data (portal is dynamic).
+  - Text of Municipal Code Chapter 15.90 and any HVAC equipment noise or setback rule (only the FAQ's construction-hours exemption is on the page; the Code host is not confirmed as official).
+  - That SCE and SoCalGas serve Fullerton addresses; SCE time-of-use plans; CARE, ESA and Climate Credit details; rebate amounts.
+  - CF-1R-ALT-HVAC and Residential HVAC Requirements (the City permits-licenses page failed to fetch twice); St. Jude Medical Center (not on the Specific Plans page).
+- Research errors found: the research said the City energy page mentions SCE time-of-use plans, says SCE and SoCalGas serve Fullerton, and directs residents to them for rebates (it does none of these; it lists ENERGY STAR). Five attachments in the research set were Newport Beach research and were not used.
+- Source conflict: the Permit Processing Information page references the 2022 code cycle; the current building codes page says 2025. The page uses 2025 (current building codes page).
+- Sources were read through fetch summaries, not full reads: City Building and Safety page, FAQ, current building codes page, fee schedule, Specific Plans page, energy conservation page, maps and GIS page, SoCalGas rebates page, Census QuickFacts. Each carries a TODO(verify) in `cities.ts`.
+- Client question: does AIRPRO SOLUTIONS hold a Fullerton business registration certificate? The page does not claim it.
+- Still needs pasted pages from the user: the City permits-licenses page (CF-1R-ALT-HVAC, Residential HVAC Requirements); an official ZIP source; Census ACS B25034, B25035 and B25024 for Fullerton city; the City About Fullerton page; a City page naming the electric and gas providers; Chapter 15.90 text plus confirmation of the Code host; NWS station data; the SCAG local profile if the hub housing row should return.
+- Pre-launch recheck: the City permits page, how EasyDev handles mechanical permits and like-for-like replacement, the 2025 vs 2022 code cycle conflict, the City utility provider page, Chapter 15.90, QuickFacts, the SoCalGas rebates page.
+- Hero photo is still "Photo pending".
+- Claim wording follows the approved list. Do not strengthen it.
+- Hub wiring done with this page: the Orange County Fullerton card links /service-areas/fullerton/; the /service-areas/ chip, `hubCityIndexNote` and the Orange County city-page sentence include Fullerton. commercial-hvac.ts lists only five illustrative cities and regions.ts only lists names, so neither changed.
+- Hub copy audit (every Fullerton statement in src/content/orange-county.ts was checked against sources actually read):
+  - Removed: the Fullerton row of the housing table (49,430 units and its structure shares; the SCAG source was not read and its 49.6% detached share equals Costa Mesa's pre-1970 share), the card's "Downtown, Sunny Hills, Amerige Heights" areas, "Electric: SCE." and the "Highest detached-home share" note, and CF1R-ALT-HVAC from the permits row.
+  - Replaced with verified text: the permits row, the placement row (City FAQ construction-hours exemption, with "City-recognized holidays"), the card note and utility line, the electric-provider lines in the utilities list, rebates intro, utilities note and utility FAQ (now five of the other seven cities are generally served by SCE; Fullerton's electric provider is not confirmed), and the permit FAQ and noise FAQ sentences about Fullerton.
+  - Reworded: the housing "pending" note now lists Fullerton with Santa Ana and Newport Beach as not in the table.
+  - Kept, flagged: the "North Orange County" group (Anaheim, Fullerton) was not re-verified. Gas for Fullerton stays "assumed" because no City page says who serves an address.
+  - Needs a source before it can return: Fullerton's housing table row and pre-1970 share (SCAG local profile or Census B25034), the card neighborhoods (City About Fullerton page), the ZIP list, and the "North Orange County" grouping.
+  - Kept, unchanged, carryover: the permit FAQ line "Plan on it in all eight cities" predates this page and was not changed here.
+- Carryovers listed in the Santa Ana entry above remain open and were not fixed in this commit.
+
 ## /service-areas/south-bay/ (src/content/south-bay.ts)
 
 - Hermosa Beach: the "online-only starting 2026-10-01" claim was removed from the hub (no source on the City applications or online access pages). The hub permits row now follows the verified applications wording. See the Hermosa Beach section above.

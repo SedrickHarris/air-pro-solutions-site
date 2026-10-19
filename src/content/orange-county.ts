@@ -81,7 +81,7 @@ export const orangeCountyHub = {
   // the figures could not be re-verified (see the Santa Ana section of docs/open-items.md). Building-age figures: ACS 2019 countywide (60.4% pre-1980, 26.6% 1980-1999, 13.0%
   // 2000+); SCAG ACS 2017 for Costa Mesa (49.6% pre-1970),
   // Irvine's own 4.8% pre-1970 (SCAG, ACS 2017) is on its city page. Anaheim's own
-  // 44.6% pre-1970 (SCAG, ACS 2017) is on its city page. Huntington Beach's own 43.5% pre-1970 (SCAG, ACS 2017) is on its city page. No age figures were found for Fullerton or Tustin - none are claimed.
+  // 44.6% pre-1970 (SCAG, ACS 2017) is on its city page. Huntington Beach's own 43.5% pre-1970 (SCAG, ACS 2017) is on its city page. No age figures were found for Fullerton or Tustin - none are claimed. Fullerton's structure-type row (49,430 units, SCAG) was removed 2026-10-19: the SCAG source was not read and its 49.6% detached share equals Costa Mesa's pre-1970 share. See docs/open-items.md.
   housing: {
     eyebrow: 'Property types',
     title: 'Housing mix by city: detached homes lead, but multifamily is close to half in two cities',
@@ -90,7 +90,6 @@ export const orangeCountyHub = {
       ['Anaheim', '108,222', '41.7%', '8.6%', '10.5%', '34.9%', '45.4%'],
       ['Irvine', '102,474', '38.9%', '16.4%', '6.2%', '37.4%', '43.6%'],
       ['Huntington Beach', '81,656', '47.9%', '11.6%', '11.8%', '24.9%', '36.7%'],
-      ['Fullerton', '49,430', '49.6%', '10.0%', '8.2%', '30.4%', '38.6%'],
       ['Costa Mesa', '42,836', '39.6%', '10.2%', '13.3%', '34.7%', '48.0%'],
       ['Tustin', '28,118', '35.1%', '12.7%', '14.4%', '34.6%', '49.0%'],
     ],
@@ -101,7 +100,7 @@ export const orangeCountyHub = {
       'Building age varies widely. Countywide, 60.4% of housing units were built before 1980, 26.6% between 1980 and 1999, and 13.0% in 2000 or later (ACS 2019). Homes built before 1970 are 49.6% of Costa Mesa (SCAG, 2017 American Community Survey) and 43.5% of Huntington Beach (SCAG, 2017 American Community Survey).',
       'Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     ],
-    pending: 'Housing age figures were not found for Fullerton and Tustin, so no age claim is made for them. The pre-1970 shares for Anaheim, Irvine, and Huntington Beach are on their city pages. Santa Ana and Newport Beach are not in the table because their housing figures are not verified yet.',
+    pending: 'Housing age figures were not found for Fullerton and Tustin, so no age claim is made for them. The pre-1970 shares for Anaheim, Irvine, and Huntington Beach are on their city pages. Santa Ana, Newport Beach, and Fullerton are not in the table because their housing figures are not verified yet.',
   },
 
   services: {
@@ -148,7 +147,7 @@ export const orangeCountyHub = {
 
   // Sources: Irvine online residential replacement permit; Anaheim Form B713 (no exemption stated); Santa Ana City notice of June 12, 2026 (online permit portal); Costa Mesa
   // Insta-Permit page and Mechanical - Residential application; Newport Beach Residential Express Permits (City online permitting page);
-  // Huntington Beach Permit Center, HB ACA portal and forms page (Mechanical Permit Application, Mechanical Plan Requirements, Mechanical Plan Check Waiver Request); Fullerton EasyDev portal / CF1R-ALT-HVAC; Tustin
+  // Huntington Beach Permit Center, HB ACA portal and forms page (Mechanical Permit Application, Mechanical Plan Requirements, Mechanical Plan Check Waiver Request); Fullerton Building and Safety page, FAQ and current building codes page (read through fetch summaries 2026-10-19); Tustin
   // 360-day permit expiration. Title 24: CEC 2025 Energy Code effective for permits submitted on or
   // after 2026-01-01; duct leakage limits (10% total / 7% to outside) and R-6 duct insulation, and
   // heat pump refrigerant charge verification, per the CEC Energy Code Support Center.
@@ -164,7 +163,7 @@ export const orangeCountyHub = {
       ['Costa Mesa', 'Residential HVAC Insta-Permit, or Mechanical - Residential application', "The Insta-Permit is limited to a single-family dwelling on a single parcel, and exterior equipment must sit at ground level on the side or rear, out of public view. Work beyond that scope uses a Mechanical - Residential application in the City's TESSA portal."],
       ['Newport Beach', 'Residential Express Permits through the City', "The City's online permitting page names furnace replacement as an example of a simple project for Residential Express Permits, which are not for projects that need multiple permits and plan review. The pages we read do not mention AC replacement, so we confirm what your job needs with the City."],
       ['Huntington Beach', 'Permit Center and HB ACA online portal', 'The Permit Center issues mechanical permits, and the City lists a Mechanical Permit Application, Mechanical Plan Requirements, and a Mechanical Plan Check Waiver Request. We did not find a published like-for-like exemption, so treat replacement as permit-required.'],
-      ['Fullerton', 'EasyDev online portal', 'Submittals use the EasyDev portal with a CF1R-ALT-HVAC form. We did not find a published like-for-like exemption.'],
+      ['Fullerton', 'Building and Safety, with applications through the EasyDev online portal', "The City's FAQ lists new, expanded, or replaced mechanical items among work that needs a permit and says no construction is allowed until the permit is issued. Applications submitted on or after January 1, 2026 follow the 2025 California Building Codes with Fullerton amendments. We confirm which permit your replacement needs with the City."],
       ['Tustin', 'Building Division', 'Permits expire if work is not started within 360 days. We did not find a published like-for-like exemption.'],
     ],
     note: "Based on each city's published permit pages. Procedures change, so current requirements are confirmed with the city before permit submittal.",
@@ -176,7 +175,7 @@ export const orangeCountyHub = {
 
   // Sources: Irvine screening/noise standard (parapet height / eave-line visibility; 5 dB(A) above
   // ambient or the land-use standard, whichever is higher) and HOA map; Anaheim Resort Specific Plan
-  // (581 acres); Fullerton Municipal Code Chapter 15.90 and its construction-hours exemption; Costa Mesa Insta-Permit page and Municipal Code Sec. 13-280 (GoCodebook).
+  // (581 acres); Fullerton Building and Safety FAQ (construction-hours exemption; Chapter 15.90 text not read); Costa Mesa Insta-Permit page and Municipal Code Sec. 13-280 (GoCodebook).
   placement: {
     eyebrow: 'Placement and noise',
     title: 'Where the outdoor unit can go depends on the city',
@@ -184,7 +183,7 @@ export const orangeCountyHub = {
     rows: [
       ['Irvine', 'Rooftop and ground equipment must be screened: no higher than the parapet on a flat roof, and not visible from the eave line on a pitched roof. Air conditioning noise is capped at the higher of the land-use noise standard or 5 dB(A) above ambient. The city publishes an HOA map.'],
       ['Anaheim', "The City's Anaheim Resort page describes a 581-acre specific plan area of hotels, convention and conference facilities, restaurants, retail, and entertainment. Anaheim Municipal Code Sec. 6.70.010 sets a general 60 dB(A) property-line sound limit, so confirm placement and noise for the specific property."],
-      ['Fullerton', 'Noise is regulated under Chapter 15.90. Construction is exempt from the noise limits from 7 a.m. to 8 p.m., except on Sundays and holidays.'],
+      ['Fullerton', 'The City FAQ points construction noise to Municipal Code Chapter 15.90 and exempts it between 7 a.m. and 8 p.m. on any day except Sunday or a City-recognized holiday. We did not read the chapter, so we confirm placement and noise conditions for the specific property with the City.'],
       ['Costa Mesa', "Under the Insta-Permit, outdoor equipment goes at ground level on the side or rear of the home, out of public view, with no roof-top equipment. Municipal Code Sec. 13-280 sets residential exterior noise limits of 55 dB(A) by day and 50 dB(A) at night. We confirm placement for the specific property."],
       ['Santa Ana, Huntington Beach, Tustin', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
       ['Newport Beach', 'We confirm placement and any noise conditions for the specific property with the City before recommending where equipment goes.'],
@@ -201,7 +200,7 @@ export const orangeCountyHub = {
   rebates: {
     eyebrow: 'Utilities and rebates',
     title: 'Your utility accounts decide which programs to look at',
-    intro: 'Anaheim has its own municipal electric utility. Six of the other seven cities are generally served by SCE, and natural gas is generally supplied by SoCalGas. We have not confirmed the electric or gas provider for Newport Beach from a City source, so confirm it by address.',
+    intro: 'Anaheim has its own municipal electric utility. Five of the other seven cities are generally served by SCE, and natural gas is generally supplied by SoCalGas. We have not confirmed the electric or gas provider for Newport Beach, or the electric provider for Fullerton, from a City source, so confirm it by address.',
     cards: [
       {
         amount: 'Home incentives',
@@ -223,10 +222,10 @@ export const orangeCountyHub = {
     utilityCardTitle: 'Utilities in these cities',
     utilities: [
       'Anaheim electric: Anaheim Public Utilities',
-      'Other cities except Newport Beach, electric: SCE',
-      'Natural gas: SoCalGas (not confirmed for Newport Beach)',
+      'Other cities except Newport Beach and Fullerton, electric: SCE',
+      'Natural gas: SoCalGas (not confirmed for Newport Beach; assumed for Fullerton)',
     ],
-    note: '**Confirm by address:** service territory can vary by address, so verify your utility directly before relying on any program. Gas service is directly confirmed for Irvine, Huntington Beach, and Santa Ana (City utilities page) and assumed for Anaheim, Costa Mesa, Fullerton, and Tustin. Neither electric nor gas provider is confirmed for Newport Beach.',
+    note: '**Confirm by address:** service territory can vary by address, so verify your utility directly before relying on any program. Gas service is directly confirmed for Irvine, Huntington Beach, and Santa Ana (City utilities page) and assumed for Anaheim, Costa Mesa, Fullerton, and Tustin. Neither electric nor gas provider is confirmed for Newport Beach, and the electric provider is not confirmed for Fullerton.',
   },
 
   cities: {
@@ -287,11 +286,12 @@ export const orangeCountyHub = {
       },
       {
         name: 'Fullerton',
-        note: 'Highest detached-home share in this group at 49.6%. Permits run through the EasyDev portal with a CF1R-ALT-HVAC form, and the noise code is Chapter 15.90.',
-        areas: 'Downtown, Sunny Hills, Amerige Heights',
-        utility: 'Electric: SCE.',
+        href: '/service-areas/fullerton/',
+        note: "The City's Building and Safety page names its EasyDev online portal for permits, and its FAQ says no construction is allowed until the permit is issued. We confirm which permit your replacement needs with the City.",
+        areas: 'Pending verification (no City neighborhood list read)',
+        utility: 'Utilities: confirm by address.',
         zips: 'pending',
-        pending: 'ZIP list pending verification. Housing age figures pending.',
+        pending: 'ZIP list pending verification (no official source read).',
       },
       {
         name: 'Tustin',
@@ -325,7 +325,7 @@ export const orangeCountyHub = {
     },
     {
       q: 'Do I need a permit to replace my AC in Orange County?',
-      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Orange County. Irvine offers an online residential replacement permit, and Anaheim\'s Building Division issues mechanical permits through a published application, Form B713. Huntington Beach issues mechanical permits through its Permit Center and HB ACA portal. For Huntington Beach, Fullerton, and Tustin we did not find a published like-for-like exemption. Confirm the local permit path before work begins.',
+      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Orange County. Irvine offers an online residential replacement permit, and Anaheim\'s Building Division issues mechanical permits through a published application, Form B713. Huntington Beach issues mechanical permits through its Permit Center and HB ACA portal. For Huntington Beach and Tustin we did not find a published like-for-like exemption, and Fullerton\'s Building and Safety FAQ lists replaced mechanical items among the work that needs a permit. Confirm the local permit path before work begins.',
     },
     {
       q: 'What is Title 24 and how does it affect an HVAC replacement?',
@@ -333,11 +333,11 @@ export const orangeCountyHub = {
     },
     {
       q: 'Which utility serves my home, and are there HVAC rebates?',
-      a: 'It depends on the city. Anaheim has its own municipal electric utility, Anaheim Public Utilities, while six of the other seven cities on this page are generally served by Southern California Edison (SCE). Natural gas is generally supplied by Southern California Gas Company (SoCalGas). We have not confirmed the electric or gas provider for Newport Beach from a City source. Programs, amounts, and funding change, so confirm your utility by address and confirm current eligibility before installation.',
+      a: 'It depends on the city. Anaheim has its own municipal electric utility, Anaheim Public Utilities, while five of the other seven cities on this page are generally served by Southern California Edison (SCE). Natural gas is generally supplied by Southern California Gas Company (SoCalGas). We have not confirmed the electric or gas provider for Newport Beach, or the electric provider for Fullerton, from a City source. Programs, amounts, and funding change, so confirm your utility by address and confirm current eligibility before installation.',
     },
     {
       q: 'Are there noise or screening rules for outdoor equipment?',
-      a: 'Yes, and they are not the same in every city. Irvine requires screening of rooftop and ground equipment and caps air conditioning noise at the higher of the land-use noise standard or 5 dB(A) above ambient. Fullerton regulates noise under Chapter 15.90. Anaheim Municipal Code Sec. 6.70.010 sets a general sound limit of 60 decibels on the A-scale at the property line. For the other cities, confirm placement, screening, and noise conditions for the specific property.',
+      a: 'Yes, and they are not the same in every city. Irvine requires screening of rooftop and ground equipment and caps air conditioning noise at the higher of the land-use noise standard or 5 dB(A) above ambient. Fullerton\'s Building and Safety FAQ points construction noise to Municipal Code Chapter 15.90. Anaheim Municipal Code Sec. 6.70.010 sets a general sound limit of 60 decibels on the A-scale at the property line. For the other cities, confirm placement, screening, and noise conditions for the specific property.',
     },
     {
       q: 'Do you work on condos, apartments, and HOA properties?',

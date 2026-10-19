@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson, santa-ana and newport-beach have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson, santa-ana, newport-beach and fullerton have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // The closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's, Santa Ana's and Newport Beach's local paragraphs use the new sentence from the start. The client approved all city page copy, including Newport Beach, on 2026-10-19 (per the user).
+// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's, Santa Ana's, Newport Beach's and Fullerton's local paragraphs use the new sentence from the start. The client approved all city page copy, including Newport Beach and Fullerton, on 2026-10-19 (per the user).
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
 // building that city page or its matrix pages. Never invent it.
@@ -8068,6 +8068,498 @@ const newportBeachOverrides: Partial<City> = {
   },
 };
 
+const fullertonOverrides: Partial<City> = {
+  // Copy approval: the client approved the Fullerton page copy on 2026-10-19 (per the user).
+  // TODO(data): add verified climate, housing-age, ZIP and utility detail before treating this as a full local page.
+  neighborhoods: [], // list held out: no City neighborhood list was read (the City About Fullerton page could not be fetched); the Specific Plans page names plan districts, which are named in the copy and are not neighborhoods
+  zips: [], // ZIP list held out: no official source was read (the research sources were third party), so the hub keeps "pending"
+  page: {
+      metaDescription: "HVAC for Fullerton homes and businesses, from AC repair to installation. Know the City's EasyDev online permit portal. Licensed, 4.8-star rated.",
+      lede: "AIRPRO SOLUTIONS provides HVAC services across Fullerton, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's online permit portal in mind.",
+      heroCaption: {
+        title: "Fullerton, CA",
+        text: "Local service across Fullerton",
+      },
+      heroProof: [
+        {
+          icon: "shield",
+          label: "Licensed, bonded & insured",
+        },
+        {
+          icon: "star",
+          label: "4.8-star rated",
+        },
+        {
+          icon: "bolt",
+          label: "24/7 emergency dispatch",
+        },
+        {
+          icon: "building",
+          label: "Residential and commercial",
+        },
+      ],
+      trustStats: [
+        {
+          num: "4.8★",
+          label: "Google rating, 40 reviews",
+        },
+        {
+          num: "C-20",
+          label: "California licensed",
+        },
+        {
+          num: "24/7",
+          label: "emergency dispatch",
+        },
+        {
+          num: "Same-day",
+          label: "service typical",
+        },
+      ],
+      answer: {
+        lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Fullerton",
+        body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+      },
+      glance: {
+        title: "Fullerton at a glance",
+        stats: [
+          {
+            num: "138,675",
+            label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)",
+          },
+          {
+            num: "51.8%",
+            label: "owner-occupied housing unit rate, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+          },
+          {
+            num: "2.86",
+            label: "persons per household, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+          },
+        ],
+        source: "Source: U.S. Census Bureau QuickFacts for Fullerton city, California.",
+      },
+      localTitle: "Fullerton's permit portal, specific plan districts, and utility programs",
+    // Copy approval: the client approved the Fullerton page copy on 2026-10-19 (per the user).
+    // Held out (no verified source or not allowed on the page): ZIP codes (the research sources were zip-codes.com, a third-party site dated 2026-10-01, and a 2018 qualitycountsca.net PDF, neither official, so the hub keeps "pending"); the 52,304 housing-unit figure (data.census.gov profile needs JavaScript and could not be read, and QuickFacts shows X for housing units); the $902,600 median owner-occupied value (dollar amount); neighborhoods and districts such as Downtown and Sunny Hills (the City About Fullerton page could not be fetched, so no City neighborhood list was read); "North Orange County", inland, climate, marine layer, heat island, humidity and air quality statements (no source read); the NWS Fullerton Municipal Airport station and any normals (the NWS climate portal is a dynamic page, no station data was read); the statement that SCE and SoCalGas serve Fullerton addresses (the City energy page names both only as partners in the North Orange County Cities Energy Partnership and does not say who serves an address); SCE time-of-use plans (the research said the City page mentions them, the page read does not); the SoCalGas CARE 20 percent discount, the SCE Energy Savings Assistance program, the SCE Building Electrification closure and the California Climate Credit (income-qualified or amount-based program details, not city-specific); the St. Jude Medical Center statement (the Specific Plans page read does not mention it); housing-age figures (current ACS tables B25034 and B25035 returned no readable Fullerton values, and the only figures found were historical Census SF3 H34 counts in a July 2013 tracked-change draft Housing Element hosted on hcd.ca.gov, with the Census year unverified, so no median year built and no pre-1980 claim is made); other employers, shopping centers and hospitals (none found); the CF1R-ALT-HVAC form and the Residential HVAC Requirements document (the research says the City permits page at cityoffullerton.com/business/permits-licenses lists them, but that page failed to fetch twice, so neither was read and neither is used); the City Permit Processing Information page (it says the City is under the 2022 code cycle, which conflicts with the City current building codes page, so it is not used); the City Building and Safety address, permit inquiry and inspection line phone numbers and inspection codes (not read here, kept off the page); the statement that plans by an architect or engineer are needed (not used); the text of Municipal Code Chapter 15.90 and any HVAC equipment noise, setback or placement rule (only the City FAQ summary was read, no code host was read or confirmed); whether AIRPRO SOLUTIONS holds a Fullerton business license (client question, not claimed); the City permit counter phone numbers; nearby cities named by third-party listing sites (Placentia and Yorba Linda have no live page, and no official adjacency source was read); the Fullerton Plan contents (the page lists elements only).
+    // TODO(verify): City Building and Safety FAQ (cityoffullerton.com, no page date) was read through a fetch summary on 2026-10-19: lists "New, expanded, or replaced mechanical items" among permit-required work and does not name HVAC, air conditioners or furnaces; property owners, licensed contractors or authorized agents may apply for a building permit; contractors supply a Certificate of Workers Compensation Insurance and owner-builders sign an Owner-Builder Verification; the 2025 California building codes became effective January 1, 2026 and earlier-filed applications may use the 2022 codes; construction must comply with Fullerton Municipal Code Chapter 15.90 and is exempt "provided they take place between the hours of 7 a.m. and 8 p.m. on any day except Sunday or a City-recognized holiday"; it does not give the text of Chapter 15.90, does not define City-recognized holidays and names no online portal, no form numbers and no CF1R. A second fetch of the same FAQ on 2026-10-19 also found: the City "requires any person conducting, managing, carrying on or engaging in any business" in Fullerton to "obtain a business registration certificate from the City prior to beginning any business activity" (it does not say business license and does not name contractors); "no construction is allowed until the permit is issued". The research said the same noise window.
+    // TODO(verify): City Current Building Codes page (cityoffullerton.com, no page date) was read through a fetch summary on 2026-10-19: "The 2025 California Building Codes and City of Fullerton Amendments are enforceable for all residential and non-residential construction projects submitted on or after January 1, 2026"; projects submitted before that date comply with the 2022 codes; the 2025 California Mechanical Code is listed among the adopted codes; the Fullerton amendments are described as addressing local topographic, climatic and geologic conditions and their content is not given; it does not say what submitted means. The Permit Processing Information page says the City is under the 2022 cycle, which conflicts with this page and the FAQ (read on 2026-10-19, not used).
+    // TODO(verify): City Adopted Schedule of Fees and Charges, Fiscal Year 2025 - 2026 (cityoffullerton.com showpublisheddocument 10011, no adoption date or resolution number) was read through a fetch summary on 2026-10-19: the Mechanical Permit section has categories for the installation or relocation of each forced air or gravity-type furnace or burner, for each fan coil, heat pump or wall air conditioner, for the repair of, alteration of, or addition to each heating appliance, refrigeration unit or cooling unit, and for relocating existing duct work; no dollar amounts are used on the page; the categories are not an exemption list and say nothing about like-for-like replacement.
+    // TODO(verify): City Building and Safety page (cityoffullerton.com, no page date) was read through a fetch summary on 2026-10-19: names the Customer Self Service Portal EasyDev for residential and commercial online permits; lists a Building Permit Reservation System, an Application Worksheet for New Permits and a "NEW CA Building Code 2025 - Effective 01/01/2026" notice; the words mechanical, HVAC and CF1R do not appear.
+    // TODO(verify): City Energy Conservation page (cityoffullerton.com, no page date) was read through a fetch summary on 2026-10-19: the City is "collaborating with Southern California Edison and SoCalGas through the North Orange County Cities Energy Partnership"; both utilities are named as partners and in their income-qualified bill programs; ENERGY STAR is listed as a way to find rebates and special offers by ZIP code; it does not say which utility serves an address, does not mention time-of-use plans, any community choice aggregator or rebate amounts.
+    // TODO(verify): City Specific Plans page (cityoffullerton.com, no page date) was read through a fetch summary on 2026-10-19: lists mixed-use districts (600 W. Commonwealth, Amerige Heights Specific Plan District, Harbor Walk, Jefferson Commons/University House, SOCO Walk/Fullerton Transit Village, Fullerton Transportation Center, The HUB Fullerton) and residential districts (including Citrus Park, Hawks Pointe, Imperial Parkhurst, Orangefaire, Roosevelt Fullerton, University Heights, Valencia and Woods, Williamson Avenue, Willow); the Commercial Districts heading has no entries; no dates, standards or building details; it does not mention St. Jude Medical Center; plan names may differ from neighborhood names.
+    // TODO(verify): City Maps and GIS page (cityoffullerton.com, dated only by "address points updated through August 29, 2019") and The Fullerton Plan page (adopted May 1, 2012, no page date) were read through fetch summaries on 2026-10-19: the Maps page lists "GoZone - Zoning and General Plan Land Use" and a zoning and General Plan shapefile and does not describe GoZone; the General Plan page names six elements (land use, circulation, housing, open space, conservation, safety and noise), no HVAC, climate or energy content. Both are linked only.
+    // TODO(verify): Census QuickFacts for Fullerton city (V2025, no publication date) was read through a fetch summary on 2026-10-19: 138,675 residents on July 1, 2025 (2020 Census count 143,617); 51.8 percent owner-occupied housing unit rate, $902,600 median owner-occupied value and 2.86 persons per household for 2020 to 2024; housing units for July 1, 2025 shown as X. The research gave 52,304 housing units from the data.census.gov 2024 ACS 1-year profile, which could not be read (needs JavaScript), and said no latest population estimate was found; QuickFacts has one.
+    // TODO(verify): SoCalGas rebates and incentives page (no last-updated date, submitted 2024-07-23 and revised since) was read through a fetch summary on 2026-10-19: ENERGY STAR Certified Furnace rebate, one per household, installed by a licensed contractor with proof of permit closure; funds first come, first served until December 31, 2026 or until funds are no longer available; program may be modified or terminated without notice; names no city. The page table shows a per-kBtuh dollar range for the furnace rebate and the AFUE minimum, which are not quoted on the page (no amounts).
+    // TODO(verify): CSLB Finding the Right Contractor page (no publication date) was read through a fetch summary on 2026-10-19: seeing a license number does not necessarily mean the license is valid; check the status online or by phone; ads must show the license number.
+    // TODO(client): Ask the client whether AIRPRO SOLUTIONS holds a Fullerton business registration certificate. The City FAQ says a business must obtain one before beginning business activity in the City. The page states that rule and does not claim Air Pro holds one.
+    // Pre-launch recheck: the City permits page at cityoffullerton.com/business/permits-licenses (failed to fetch twice; the research says it lists a Residential HVAC Requirements document and CF-1R-ALT-HVAC), how EasyDev handles mechanical permits and whether it covers like-for-like replacement, the code cycle conflict between the current building codes page (2025) and the Permit Processing Information page (2022), the City page naming Fullerton's electric and gas providers, the text of Municipal Code Chapter 15.90 and any HVAC equipment rule (and confirmation of the Code host), Census ACS B25024, B25034 and B25035 for Fullerton city, an official ZIP source, the NWS Fullerton Municipal Airport station data, the City About Fullerton page (could not be fetched), the SoCalGas rebates page, and whether the City-recognized holiday list matters for scheduling.
+      localParagraphs: [
+        "The City's Specific Plans page lists mixed-use districts including **Amerige Heights, The HUB Fullerton, SOCO Walk/Fullerton Transit Village, and the Fullerton Transportation Center**, and residential districts including Citrus Park, Orangefaire, and University Heights. The page shows no dates, building details, or standards for any of them, and it notes that plan names may differ from neighborhood names, so we do not describe the districts or the homes in them, and **AIRPRO SOLUTIONS confirms the building, equipment, and access at each property**.",
+        "The City's Building and Safety page names **EasyDev**, its Customer Self Service Portal, for residential and commercial online permits. The City's Building and Safety FAQ lists new, expanded, or replaced mechanical items among the work that needs a permit, says property owners, licensed contractors, or authorized agents may apply, and says no construction is allowed until the permit is issued. The City's fee schedule for fiscal year 2025-2026 has a Mechanical Permit section with categories for installing or relocating furnaces, heat pumps, and wall air conditioners and for repairing or altering cooling units, but a fee category is not an exemption list, and the web pages show no revision dates, so **AIRPRO SOLUTIONS confirms the permit path for your job with the City** before work starts. We do not state permit fees or how EasyDev handles a mechanical permit, because the pages we read do not say.",
+        "The City's current building codes page says the 2025 California Building Codes and Fullerton amendments are enforceable for projects submitted on or after January 1, 2026, and lists the 2025 California Mechanical Code, but it does not say what the amendments contain. The FAQ says construction must comply with Fullerton Municipal Code Chapter 15.90 and is exempt from its noise standards between 7 a.m. and 8 p.m. on any day except Sunday or a City-recognized holiday. We did not read the text of Chapter 15.90, and the FAQ does not say what applies to outdoor HVAC equipment, so **we confirm placement and noise conditions for your property with the City** and plan installation visits with that window in mind.",
+        "Fullerton had an estimated 138,675 residents on July 1, 2025, and QuickFacts reports a **51.8% owner-occupied housing unit rate** and 2.86 persons per household for 2020 to 2024. That leaves 48.2% of occupied homes that are not owner-occupied, so when the person who calls is a tenant we work with the owner or property manager on access and approval. Ownership is a different measure from building type or age, so we do not guess how old the homes or ducts are in your part of the city, and **we confirm the equipment, roof or attic access, and ductwork at each property**.",
+        "The City's energy conservation page says Fullerton is collaborating with Southern California Edison and SoCalGas through the North Orange County Cities Energy Partnership, but it does not say which utility serves each address, so **your bill shows who supplies your electricity and gas**. The page lists ENERGY STAR as a way to find rebates by ZIP code, and SoCalGas lists a 2026 rebate for ENERGY STAR certified furnaces, with funds first come, first served until December 31, 2026 or until they run out. We do not quote amounts, and terms change, so check each program before you buy. Official links are in the card for this section.",
+      ],
+      localCards: [
+        {
+          heading: "Fullerton permit and code pages",
+          rows: [
+            {
+              label: "Online permit portal",
+              value: "EasyDev, named by the City",
+            },
+            {
+              label: "Mechanical items",
+              value: "New, expanded, or replaced items listed as permit work",
+            },
+            {
+              label: "Fee schedule categories",
+              value: "Furnaces, heat pumps, wall air conditioners, and cooling unit repair or alteration",
+            },
+            {
+              label: "Exemption list",
+              value: "None read on the pages we found",
+            },
+            {
+              label: "Code edition",
+              value: "2025 California Building Codes, for projects submitted on or after January 1, 2026",
+            },
+            {
+              label: "Construction noise window",
+              value: "7 a.m. to 8 p.m., except Sundays and City-recognized holidays",
+            },
+            {
+              label: "Web page dates",
+              value: "None shown",
+            },
+          ],
+          note: "From the City's Building and Safety page, FAQ, current building codes page, and fee schedule. We confirm current requirements with the City.",
+        },
+      ],
+      neighborhoodsHeading: "Official Fullerton resources",
+      officialResources: [
+        {
+          text: "Building and Safety",
+          href: "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety",
+          note: "EasyDev portal and the 2025 code notice.",
+        },
+        {
+          text: "Building and Safety FAQ",
+          href: "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety/faqs",
+          note: "Permit work list, business registration, and construction noise hours.",
+        },
+        {
+          text: "Current building codes",
+          href: "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety/current-building-codes",
+          note: "Code edition and the submission date it applies to.",
+        },
+        {
+          text: "Fee schedule, fiscal year 2025-2026",
+          href: "https://www.cityoffullerton.com/home/showpublisheddocument/10011/638900771868670000",
+          note: "Mechanical Permit categories. We do not quote fees.",
+        },
+        {
+          text: "Specific Plans",
+          href: "https://www.cityoffullerton.com/government/departments/community-and-economic-development/planning-zoning/zoning/specific-plans",
+          note: "Mixed-use and residential specific plan districts.",
+        },
+        {
+          text: "Energy conservation",
+          href: "https://www.cityoffullerton.com/government/departments/public-works/environmental-services/energy-conservation",
+          note: "Energy partnership and ENERGY STAR rebate pointer.",
+        },
+        {
+          text: "Maps and GIS",
+          href: "https://www.cityoffullerton.com/about-us/maps-gis",
+          note: "Lists the GoZone zoning and General Plan land use map.",
+        },
+        {
+          text: "SoCalGas rebates",
+          href: "https://www.socalgas.com/savings/rebates-and-incentives",
+          note: "ENERGY STAR furnace rebate and program period.",
+        },
+        {
+          text: "Census QuickFacts",
+          href: "https://www.census.gov/quickfacts/fullertoncitycalifornia",
+          note: "Population, owner-occupied rate, and household size cited on this page.",
+        },
+      ],
+      servicesTitle: "Everything we handle for Fullerton homes and businesses",
+      serviceCards: [
+        {
+          slug: "ac-repair",
+          name: "AC Repair",
+          body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises in Fullerton homes and businesses.",
+        },
+        {
+          slug: "ac-installation",
+          name: "AC Installation & Replacement",
+          body: "New system sizing and installation for Fullerton properties, planned around the City's permit process.",
+        },
+        {
+          slug: "ac-maintenance",
+          name: "AC Maintenance",
+          body: "Seasonal AC tune-ups that catch small issues early, for Fullerton homes and for commercial rooftop and ground units.",
+        },
+        {
+          slug: "heating-repair",
+          name: "Heating Repair",
+          body: "Furnace and heating system diagnosis and repair for Fullerton homes and businesses.",
+        },
+        {
+          slug: "furnace-installation",
+          name: "Furnace Installation & Replacement",
+          body: "Furnace sizing and installation, planned around the City's permit pages. SoCalGas lists a furnace rebate with its own terms.",
+        },
+        {
+          slug: "heat-pump-services",
+          name: "Heat Pump Services",
+          body: "Heat pump installation, repair, and maintenance, with the City's permit process and your utilities' program pages in mind.",
+        },
+        {
+          slug: "ductless-mini-split",
+          name: "Ductless Mini-Split",
+          body: "Ductless systems for Fullerton additions, converted spaces, and rooms the existing ducts do not reach.",
+        },
+        {
+          slug: "ductwork",
+          name: "Ductwork Services",
+          body: "Duct repair, sealing, and replacement for Fullerton homes and buildings.",
+        },
+        {
+          slug: "indoor-air-quality",
+          name: "Indoor Air Quality",
+          body: "Filtration, ventilation, and air-quality upgrades for Fullerton homes and offices.",
+        },
+        {
+          slug: "emergency-hvac",
+          name: "Emergency HVAC",
+          body: "24/7 emergency dispatch for no-cool and no-heat problems in Fullerton. If you smell gas, leave the building and call 911 or your gas utility.",
+        },
+      ],
+      resources: {
+        eyebrow: "Know before you start",
+        title: "Fullerton permits, codes, and incentive programs",
+        intro: "Official sources for three items worth checking before a Fullerton HVAC project.",
+        cards: [
+          {
+            amount: "Permits and inspections",
+            description: "The City's Building and Safety page names EasyDev for residential and commercial online permits, and its FAQ lists new, expanded, or replaced mechanical items among work that needs a permit and says no construction is allowed until the permit is issued. The City's fee schedule lists mechanical permit categories for furnaces, heat pumps, and cooling units. A fee category is not an exemption list, so we confirm the steps for your job with the City.",
+            linkLabel: "City Building and Safety page",
+            linkHref: "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety",
+          },
+          {
+            amount: "Code edition and work hours",
+            description: "The City's current building codes page says the 2025 California Building Codes and Fullerton amendments are enforceable for projects submitted on or after January 1, 2026. The City's FAQ says construction noise under Chapter 15.90 is exempt between 7 a.m. and 8 p.m. on any day except Sunday or a City-recognized holiday. We did not read the chapter or the amendments, so we confirm outdoor equipment noise rules with the City.",
+            linkLabel: "City current building codes page",
+            linkHref: "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety/current-building-codes",
+          },
+          {
+            amount: "Energy partnership and rebates",
+            description: "The City's energy page names SCE and SoCalGas as partners in the North Orange County Cities Energy Partnership and lists ENERGY STAR as a way to find rebates by ZIP code. SoCalGas lists a 2026 furnace rebate, first come, first served until December 31, 2026 or until funds run out. We do not quote amounts, so check current terms before you buy.",
+            linkLabel: "City energy page",
+            linkHref: "https://www.cityoffullerton.com/government/departments/public-works/environmental-services/energy-conservation",
+          },
+        ],
+      },
+      nearby: [
+        "anaheim",
+        "santa-ana",
+        "costa-mesa",
+        "irvine",
+      ],
+      proof: {
+        heading: "Licensed, reviewed, and ready across Fullerton",
+        body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+        stats: [
+          {
+            num: "4.8★",
+            label: "Google rating",
+          },
+          {
+            num: "40",
+            label: "Google reviews",
+          },
+          {
+            num: "C-20",
+            label: "California license class",
+          },
+          {
+            num: "24/7",
+            label: "Emergency dispatch",
+          },
+        ],
+      },
+      finalCtaBody: "Call or request service online to schedule a visit anywhere in Fullerton. Same-day service is typical, subject to capacity.",
+      faqs: [
+        {
+          q: "Does AIRPRO SOLUTIONS service all of Fullerton?",
+          a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Fullerton as part of our Orange County coverage. The City runs its own permit process, so we plan each visit around your specific address.",
+          boldLead: "Yes.",
+          links: [
+            {
+              text: "Orange County coverage",
+              href: "/service-areas/orange-county/",
+            },
+          ],
+        },
+        {
+          q: "How fast can a technician reach my Fullerton home?",
+          a: "Same-day service is typical in Fullerton, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+          boldLead: "Same-day service is typical in Fullerton, subject to capacity.",
+          links: [
+            {
+              text: "(323) 776-9047",
+              href: "tel:+13237769047",
+            },
+          ],
+        },
+        {
+          q: "Do I need a permit to replace an air conditioner in Fullerton?",
+          a: "We confirm the permit path with the City. The City's Building and Safety FAQ lists new, expanded, or replaced mechanical items among the work that needs a permit and says no construction is allowed until the permit is issued, and the City's fee schedule lists mechanical permit categories for heat pumps and for repairing or altering cooling units, but neither names a central air conditioner replacement, so AIRPRO SOLUTIONS checks what your job needs before work starts, and we do not quote permit fees.",
+          boldLead: "We confirm the permit path with the City.",
+          links: [
+            {
+              text: "Building and Safety FAQ",
+              href: "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety/faqs",
+            },
+            {
+              text: "fee schedule",
+              href: "https://www.cityoffullerton.com/home/showpublisheddocument/10011/638900771868670000",
+            },
+          ],
+        },
+        {
+          q: "Can I get a Fullerton HVAC permit online?",
+          a: "The City names EasyDev. Its Building and Safety page says residential and commercial online permits go through EasyDev, its Customer Self Service Portal, but the page does not say which permit types EasyDev covers or how to submit a mechanical permit, so AIRPRO SOLUTIONS confirms the steps with the City before work starts.",
+          boldLead: "The City names EasyDev.",
+          links: [
+            {
+              text: "Building and Safety page",
+              href: "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety",
+            },
+          ],
+        },
+        {
+          q: "Where can an outdoor AC unit go on my Fullerton property?",
+          a: "We confirm that with the City. The City's FAQ points construction noise to Fullerton Municipal Code Chapter 15.90 and exempts it between 7 a.m. and 8 p.m. on any day except Sunday or a City-recognized holiday, but we did not read the chapter itself, so we do not state equipment placement, setback, or noise limits here, and AIRPRO SOLUTIONS checks the current rules and your property's layout with the City before choosing a location.",
+          boldLead: "We confirm that with the City.",
+          links: [
+            {
+              text: "FAQ",
+              href: "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety/faqs",
+            },
+          ],
+        },
+        {
+          q: "Does the age of my Fullerton home matter for HVAC?",
+          a: "Age is one factor we check. We did not find a verified citywide figure for the age of Fullerton homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
+          boldLead: "Age is one factor we check.",
+        },
+        {
+          q: "Do you work on rental properties in Fullerton?",
+          a: "Yes. QuickFacts reports a 51.8% owner-occupied housing unit rate for Fullerton, so 48.2% of occupied homes are not owner-occupied. AIRPRO SOLUTIONS works with owners and property managers on access and approval before installation or replacement.",
+          boldLead: "Yes.",
+          links: [
+            {
+              text: "QuickFacts",
+              href: "https://www.census.gov/quickfacts/fullertoncitycalifornia",
+            },
+          ],
+        },
+        {
+          q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Fullerton?",
+          a: "Yes. AIRPRO SOLUTIONS services commercial properties in Fullerton, including rooftop units, and plans rooftop access and equipment placement with the building owner or manager before commercial work starts. The City's Specific Plans page lists mixed-use districts, and its Maps and GIS page lists GoZone for zoning and General Plan land use, so we confirm the permit path and how your property is zoned with the City. See our Commercial HVAC page for the full scope.",
+          boldLead: "Yes.",
+          links: [
+            {
+              text: "Specific Plans page",
+              href: "https://www.cityoffullerton.com/government/departments/community-and-economic-development/planning-zoning/zoning/specific-plans",
+            },
+            {
+              text: "Maps and GIS page",
+              href: "https://www.cityoffullerton.com/about-us/maps-gis",
+            },
+            {
+              text: "Commercial HVAC page",
+              href: "/commercial-hvac/",
+            },
+          ],
+        },
+        {
+          q: "How do I check an HVAC contractor in Fullerton?",
+          a: "Check the state license first. CSLB says seeing a license number does not necessarily mean the license is valid, so check its status on the CSLB site. AIRPRO SOLUTIONS' California license numbers are #1126691 and #50251 (C-20). Separately, the City's Building and Safety FAQ says a business must obtain a business registration certificate from the City before beginning business activity in Fullerton, and that licensed contractors may apply for a building permit, so ask who will apply for yours.",
+          boldLead: "Check the state license first.",
+          links: [
+            {
+              text: "CSLB site",
+              href: "https://www.cslb.ca.gov/consumers/hire_a_contractor/finding_the_right_contractor.aspx",
+            },
+            {
+              text: "Building and Safety FAQ",
+              href: "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety/faqs",
+            },
+          ],
+        },
+        {
+          q: "Which utility serves my Fullerton address?",
+          a: "Your bill answers it. The City's energy conservation page names Southern California Edison and SoCalGas as partners in the North Orange County Cities Energy Partnership but does not say which utility serves each address, so check your bill to see who supplies your electricity and gas.",
+          boldLead: "Your bill answers it.",
+          links: [
+            {
+              text: "energy conservation page",
+              href: "https://www.cityoffullerton.com/government/departments/public-works/environmental-services/energy-conservation",
+            },
+          ],
+        },
+        {
+          q: "Are there HVAC rebates for Fullerton customers?",
+          a: "SoCalGas lists a furnace rebate. The rebate for ENERGY STAR certified furnaces has funds first come, first served until December 31, 2026 or until they run out, and the City's energy page lists ENERGY STAR as a way to find rebates by ZIP code. The SoCalGas page names no city, terms and funding change, and we do not quote amounts, so check the current terms before you buy.",
+          boldLead: "SoCalGas lists a furnace rebate.",
+          links: [
+            {
+              text: "rebate for ENERGY STAR certified furnaces",
+              href: "https://www.socalgas.com/savings/rebates-and-incentives",
+            },
+            {
+              text: "energy page",
+              href: "https://www.cityoffullerton.com/government/departments/public-works/environmental-services/energy-conservation",
+            },
+          ],
+        },
+        {
+          q: "What HVAC services are available in Fullerton?",
+          a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Fullerton, for both residential and commercial properties.",
+          boldLead: "AIRPRO SOLUTIONS provides",
+          links: [
+            {
+              text: "AC repair",
+              href: "/services/ac-repair/",
+            },
+            {
+              text: "AC installation and replacement",
+              href: "/services/ac-installation/",
+            },
+            {
+              text: "AC maintenance",
+              href: "/services/ac-maintenance/",
+            },
+            {
+              text: "heating repair",
+              href: "/services/heating-repair/",
+            },
+            {
+              text: "furnace installation and replacement",
+              href: "/services/furnace-installation/",
+            },
+            {
+              text: "heat pump services",
+              href: "/services/heat-pump-services/",
+            },
+            {
+              text: "ductless mini-splits",
+              href: "/services/ductless-mini-split/",
+            },
+            {
+              text: "ductwork",
+              href: "/services/ductwork/",
+            },
+            {
+              text: "indoor air quality",
+              href: "/services/indoor-air-quality/",
+            },
+            {
+              text: "emergency HVAC",
+              href: "/services/emergency-hvac/",
+            },
+          ],
+        },
+        {
+          q: "Is emergency HVAC service available in Fullerton?",
+          a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Fullerton. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+          boldLead: "Yes.",
+          links: [
+            {
+              text: "(323) 776-9047",
+              href: "tel:+13237769047",
+            },
+          ],
+        },
+        {
+          q: "How much does HVAC service cost in Fullerton?",
+          a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+          boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+          links: [
+            {
+              text: "(323) 776-9047",
+              href: "tel:+13237769047",
+            },
+          ],
+        },
+      ],
+    },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -8096,6 +8588,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'carson' ? carsonOverrides
     : c.slug === 'santa-ana' ? santaAnaOverrides
     : c.slug === 'newport-beach' ? newportBeachOverrides
+    : c.slug === 'fullerton' ? fullertonOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
