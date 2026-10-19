@@ -1016,7 +1016,7 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
 
 ## /service-areas/fontana/ (fontanaOverrides in src/content/cities.ts)
 
-Built 2026-10-19 on branch add-fontana-page and committed locally, not pushed. Reference: claude/reference/fontana-location.html (review artifact: https://claude.ai/artifact/3xpkeqvWNWqiPLEvkspQBT). Same single-data-source build as Santa Ana, Newport Beach, Fullerton, Tustin and Chino. Fontana was a wave 2 noindex stub before this.
+Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/reference/fontana-location.html (review artifact: https://claude.ai/artifact/3xpkeqvWNWqiPLEvkspQBT). Same single-data-source build as Santa Ana, Newport Beach, Fullerton, Tustin and Chino. Fontana was a wave 2 noindex stub before this.
 - Title: `cityTitle('Fontana')` ("HVAC Services in Fontana, CA | AIRPRO SOLUTIONS", 47 characters). H1 is `cityH1('Fontana')`. Hand-written `page.metaDescription` is 156 characters and passes `assertDescription`; it claims only "Licensed" and "4.8-star rated". The literal phrase "hvac fontana" is not used. 14 FAQs.
 - Copy approval: the client approved the Fontana page copy on 2026-10-19 (per the user).
 - DECISION `wave1` (default kept, per the user, 2026-10-19): Fontana is wave 2. Indexability and the sitemap follow the `page` block, so it is indexable and enters the sitemap automatically. `sitemap.ts` and the `wave1` Set were not edited. The user also said every built page is to be indexable and in the sitemap: an audit of the 113-page scratch build found every indexable page in the sitemap and no noindex page listed; the 53 noindex pages are unbuilt stubs and stay noindex.
