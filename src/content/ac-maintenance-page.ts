@@ -11,13 +11,14 @@ import { siteConfig } from '@/content/site-config';
 // because ductless, heat pump, packaged, and rooftop capability is unconfirmed.
 // TODO(data): stats use siteConfig.rating/reviewCount (4.8/40) and the region count (4, matching
 // regions.ts) rather than hard-coded figures.
-// TODO(copy): client review of every FAQ answer below before launch.
+// RESOLVED (2026-10-20, client approved page copy, confirmed by user): client review of every FAQ answer below.
 //
-// No prices, visit duration, plan tiers/membership benefits, same-day/24-7/emergency-availability
-// wording, warranty terms, technician certifications, or a commercial maintenance program appear
-// anywhere on this page - none are confirmed. See CLAUDE.md "Claims that must not ship".
+// No prices, visit duration, plan tiers/membership benefits, same-day/24-7/emergency-availability wording, warranty terms,
+// technician certifications, or a commercial maintenance program are written on this page. The one appearance of 24/7 wording is the
+// Emergency HVAC related card's description from services.ts, an approved claim (24/7 emergency dispatch). This page itself states no
+// response time, after-hours or availability, and must not add any. See CLAUDE.md "Claims that must not ship".
 
-// TODO(copy): group labels are new (migration), confirm on review. Group order is the display order of the references row.
+// RESOLVED (2026-10-20, client approved page copy, confirmed by user): group labels are new (migration). Group order is the display order of the references row.
 const acMaintenanceSources: { label: string; url: string; group: string }[] = [
   { label: 'ENERGY STAR - Maintenance checklist', url: 'https://www.energystar.gov/saveathome/heating-cooling/maintenance-checklist', group: 'Maintenance and efficiency' },
   { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons', group: 'Refrigerant' },
@@ -57,8 +58,8 @@ const acMaintenanceBase: ServicePage = {
     src: '/images/services/ac-maintenance/hero.webp',
     alt: 'Technician with gloved hands brushing the coil of an air handler in a home utility closet during a system inspection',
   },
-  // TODO(copy): the old caption was one string, "Pre-season AC tune-ups across Southern California." Proposed two-part caption uses the
-  // same words with no trailing period and no new claim. Needs approval. Alternative, not built: { title: 'AC maintenance', text: 'for
+  // RESOLVED (2026-10-20, client approved page copy, confirmed by user): the old caption was one string, "Pre-season AC tune-ups across Southern California." Two-part caption uses the
+  // same words with no trailing period and no new claim. Approved (D1). Alternative, not built: { title: 'AC maintenance', text: 'for
   // homes and businesses across Southern California' } (matches AC Installation, but restates the residential and commercial scope
   // already shown in the hero chips). Centered, like AC Installation (no `heroCaptionAlign`).
   heroCaption: { title: 'Pre-season AC tune-ups', text: 'across Southern California' },
@@ -80,7 +81,7 @@ const acMaintenanceBase: ServicePage = {
   finalCtaTitle: 'Get your AC maintenance scheduled',
   finalCtaBody: 'Call us or request service online.',
   answer: {
-    // TODO(copy): trimmed from 87 words to 43 (migration). Cut (a) "It is not a repair." because `decision` card 2 and `catches.afterText`
+    // RESOLVED (2026-10-20, client approved page copy, confirmed by user): trimmed from 87 words to 43 (migration), all three cuts approved (D2). Cut (a) "It is not a repair." because `decision` card 2 and `catches.afterText`
     // already say a fault is a repair, not a tune-up. Cut (b) "If the visit turns up a failed part, a leak, or a drainage problem, that
     // work is explained and quoted separately." and moved it nowhere: it is the unconfirmed repair-cost process in the file header
     // TODO(data), and it stays on the page in process step 5, FAQ 2, `visitExtraNote` and `pricingClosing`. Cut (c) "ENERGY STAR
@@ -335,11 +336,11 @@ const acMaintenanceBase: ServicePage = {
       links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
     },
   ],
-  // TODO(copy): client review of every FAQ answer above before launch.
+  // RESOLVED (2026-10-20, client approved page copy, confirmed by user): client review of every FAQ answer above.
 };
 
 // Location-style migration (docs/open-items.md "Service page migration"). Setting `glance` marks this service as migrated.
-// TODO(copy): all strings in this block are new (glance labels, fact card, proof stats). Client approval for AC Maintenance has not been given.
+// RESOLVED (2026-10-20, client approved page copy, confirmed by user): all strings in this block are new (glance labels, fact card, proof stats).
 // GlanceCard keys on `num`: the three numbers must stay different (3, 6, 8 today). Fail the build if they collide.
 const glanceStats = [
   { num: count(acMaintenanceBase.timing!.cards), label: 'timing points for AC maintenance explained' },
