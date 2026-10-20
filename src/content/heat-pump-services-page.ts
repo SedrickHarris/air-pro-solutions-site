@@ -1,12 +1,9 @@
 import type { ServicePage } from '@/content/services';
 import { siteConfig } from '@/content/site-config';
 
-// TODO(data): Refrigerant installation-date wording conflicts with EPA's May 2026 final rule. Decision pending.
-// The callout (`refrigerant.introBody`) and FAQ 9 say a whole new split system installed after January 1, 2026 must use
-// a refrigerant below 700 GWP. EPA's May 2026 fact sheet (page 2) says the final rule removes that installation
-// compliance date for pre-2025 inventory, while the EPA HFC FAQ (last updated September 14, 2026) still carries the
-// older wording. Held, not edited: see docs/open-items.md "Service page migration" for the findings and the proposed
-// replacement. The fact-card rows added by the migration deliberately carry no installation date.
+// RESOLVED (2026-10-20): refrigerant installation-date wording. The callout (`refrigerant.introBody`) and FAQ 9 now state no
+// installation date and no GWP limit. See docs/open-items.md "Service page migration" (Blockers) for the details and the
+// reason the wording stays date-free until EPA's own pages agree.
 // TODO(data): confirm the primary keyword. The keyword-selection doc suggests "heat pump repair los
 // angeles" as the higher-intent term; this build uses the broader "heat pump services los angeles"
 // per the approved brief, since this one page intentionally covers repair, replacement, and

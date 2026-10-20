@@ -1378,32 +1378,35 @@ already held AC Repair, Furnace Installation, AC Installation and Indoor Air Qua
 answer trimmed from 85 to 43 words, hero caption split into title and text, glance card, "Across Southern California" band
 and fact card, `proofStats`, 6 source groups, the linked refrigerant source line and three Photo pending tiles (refrigerant
 callout, warranty callout, region intro; TODO(design): real photos). `refrigerant` now takes an optional `sources` list and
-`warranty` an optional `media`, both rendered only on migrated pages. Counts derive from arrays (glance 3 / 6 / 13, proof
-4.8 star / 40 / 12 / 5, References row 13); the "6" process-step stat is hardcoded with a sync comment. Fact card has 3 rows
+`warranty` an optional `media`, both rendered only on migrated pages. Counts derive from arrays (glance 3 / 6 / 9 after the manufacturer sources were
+held out, proof 4.8 star / 40 / 12 / 5, References row 9 in 5 groups); the "6" process-step stat is hardcoded with a sync comment. Fact card has 3 rows
 (Existing R-410A systems, Energy code, Coast and inland), all restating existing page copy, no License row, no dollar amounts,
 no installation-date row. Measured at 1280px (headless Chromium with fallback fonts, so close but not exact): copy 441px,
 card 428px, blankInCard 29px. The card ends 13px short of the copy, inside the 50px target, so no row was dropped.
 - Cut sentences: (a) "Because one system does both jobs, a heat pump that cools fine but will not heat needs a different
   diagnostic path than a standard AC problem." moved word for word to the end of `diagnosisIntro`. (b) "If you are comparing
   repair with replacement, the findings and options should come before any decision." dropped; `comparisonTable.note` and
-  decision card 3 already cover it. DECISION PENDING: client to confirm both.
-- Hero caption: DECISION PENDING. The old caption was one sentence; the proposed two-part caption ("Heat pump service" plus
-  "for year-round comfort across Southern California") needs approval. The alternative that matches the sibling pages
+  decision card 3 already cover it. RESOLVED (2026-10-20, approved by user): both cuts stand.
+- Hero caption: RESOLVED (2026-10-20, approved by user). The old caption was one sentence; the two-part caption ("Heat pump
+  service" plus "for year-round comfort across Southern California") stays. The alternative that matches the sibling pages
   ("for homes and businesses across Southern California") restates commercial scope that is still unconfirmed, so it was not built.
 - DOE label change: the References entry "DOE and CPUC - Air-source heat pumps guide" now reads "U.S. DOE - Air-source heat
-  pumps (Energy Saver printout filed with the CPUC)", URL unchanged. The file at docs.cpuc.ca.gov is a 10-page printout of the
+  pumps (Energy Saver printout filed with the CPUC)", URL unchanged. RESOLVED (2026-10-20): label and URL stay. The file at docs.cpuc.ca.gov is a 10-page printout of the
   Department of Energy's Energy Saver page (printed 8/26/25) and does not mention the CPUC. The candidate replacement
   `https://www.energy.gov/energysaver/air-source-heat-pumps` returns 404, so it is not a candidate. The printout supports the
-  reversing-valve and defrost-cycle framing (page 2) but never uses the words "frost" or "ice".
-- Manufacturer sources: DECISION PENDING with the user. Trane, Carrier (2) and Bryant guides are kept in the References row
-  under "Manufacturer service guides" (TODO(data)); migration shows their brand names publicly for the first time, and CLAUDE.md
-  says never link to or name a competitor. Recommended: move all four, URLs unchanged, to a `heatPumpManufacturerSources`
-  array, as Furnace did with its contractor sources. The visible sentences stay, unattributed.
-- Refrigerant flag: see Blockers. `refrigerant.introBody`, `refrigerant.body`, `refrigerant.boldLead` and every FAQ answer
-  are untouched, and the new fact card carries no installation date.
-- `moreLinks` Emergency HVAC contradiction (flagged, not changed): the file-level TODO says not to link to
-  /services/emergency-hvac/ from this page until the client confirms always-on availability, but `moreLinks` still lists
-  "Emergency HVAC". Decide whether to drop it.
+  reversing-valve and defrost-cycle framing (page 2) but never uses the words "frost" or "ice". TODO(data): the defrost sentences
+  (`basics` Defrost card, FAQ 4, urgency item 5, diagnosis row 3) therefore have no public source; find a neutral government or
+  utility source before launch. Those sentences are unchanged.
+- Manufacturer sources: RESOLVED (2026-10-20, approved by user, branch `heat-pump-decisions`). The Trane, Carrier (2) and Bryant
+  guides moved, URLs unchanged and `group` removed, into `heatPumpManufacturerSources` (TODO(data)), as Furnace did with
+  `furnaceContractorSources`, because CLAUDE.md says never to link to or name a competitor. The visible sentences stay,
+  unattributed. To show them again, move them back into `heatPumpServicesSources` with `group: 'Manufacturer service guides'`.
+  New counts: glance 3 / 6 / 9 (still different, GlanceCard keys on `num`), References row 9 sources in 5 groups (Refrigerant
+  and rules, Energy code and licensing, Heat pump basics, Heat and climate, Rebates and incentives).
+- Refrigerant flag: RESOLVED (2026-10-20), see Blockers. `refrigerant.introBody` and FAQ 9 now state no installation date and
+  no GWP limit, and the new fact card carries no installation date.
+- `moreLinks` Emergency HVAC: RESOLVED (2026-10-20, confirmed by user). The link stays; 24/7 emergency dispatch is an approved
+  claim. This page itself still states no response time, after-hours or availability, and must not add any.
 - URL check (Claude in Chrome on the user's computer, 2026-10-20): 200 with no redirects and no certificate warnings for
   the EPA HFC FAQ, EPA SNAP table, CSLB C-20, NASA JPL, Trane, Bryant, LADWP, SCE and TECH Clean California. The DOE printout
   at docs.cpuc.ca.gov opens as a PDF. Not opened in a browser: the California Energy Commission page and both Carrier pages
@@ -1425,7 +1428,26 @@ Blockers:
 - Emergency HVAC has an unconfirmed availability placeholder, so its cards carry no response-time facts. Do not add any
   to a glance card or fact card until the client confirms.
 - Ductless Mini-Split has no `sources` entries yet, so it cannot show source links or a Sources section.
-- Refrigerant installation-date wording conflicts with EPA's May 2026 final rule. Decision pending. EPA's fact sheet (May
+- RESOLVED (2026-10-20, branch `heat-pump-decisions`): refrigerant installation-date wording conflicted with EPA's May 2026
+  final rule. Every January 1, 2026 and "below 700 GWP" refrigerant statement now states no installation date and no GWP
+  limit, in 13 places: heat-pump-services-page (`refrigerant.introBody`, FAQ 9), emergency-hvac-page (refrigerant body, FAQ),
+  ac-installation-page (refrigerant body, FAQ), furnace-installation-page (`body2`), ac-maintenance-page (r410a body, FAQ),
+  ductless-mini-split-page (refrigerant body), indoor-air-quality-page (`replacementNote.body`), services.ts AC Repair
+  (refrigerant body, FAQ). Wording used: S1 "EPA's rules on which refrigerants may be used in new residential and light-commercial
+  installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported."
+  (Heat Pump says "heat pump installations"), S2 "Ask your contractor which rules apply to the equipment in your proposal."
+  Heat Pump FAQ 9: "Existing R-410A systems are not automatically required to be replaced and can still be repaired. EPA's rules
+  for new installations have changed, so the refrigerant allowed for a new system depends on the equipment and when it was made
+  or imported. Ask your contractor which rules apply to the equipment in your proposal." Short FAQs use S1 alone. The Energy Code
+  and permit January 1, 2026 statements are a different rule (Energy Commission) and were not touched. A2L clause: "which is
+  classed A2L, meaning low toxicity and mildly flammable" (Heat Pump `refrigerant.body`, the only place) became "which EPA lists
+  in safety class A2L"; no cited source defines A2L that way. Task 1 finding: the Federal Register final rule (2026-10387,
+  published May 26, 2026, effective July 27, 2026; read through govinfo, not a real browser) matches the fact sheet. It removes
+  the January 1, 2026 installation date for equipment manufactured in or imported into the U.S. before January 1, 2025; the
+  component detail sits in sections not read. The wording is deliberately date-free until EPA's own pages agree. Revisit it
+  after the EPA HFC FAQ is updated. Unmatched claims left alone: R-454B on AC Installation, "A2L-classified" on Ductless,
+  "classified A2L (lower flammability)" and "Both are A2L" on Heating Repair, and "lower-GWP" phrasing on AC Installation and Heat
+  Pump (`priceFactors`). Original finding: EPA's fact sheet (May
   2026, page 2) says the final rule removes the January 1, 2026 installation compliance date for residential and
   light-commercial AC and heat pump equipment made or imported before January 1, 2025, and lets pre-2025 inventory be
   installed until supply runs out. The EPA HFC FAQ (last updated September 14, 2026) still says a new split system installed
