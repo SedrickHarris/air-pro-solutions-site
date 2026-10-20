@@ -298,7 +298,8 @@ const emergencyHvacBase: ServicePage = {
     { text: 'Ductless mini-split repair', href: '/services/ductless-mini-split/' },
     { text: 'Ductwork and airflow problems', href: '/services/ductwork/' },
     { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
-    { text: 'HVAC maintenance after a repair', href: '/services/ac-maintenance/' },
+    // RESOLVED (2026-10-20, recommended default from the planning chat): relabeled from "HVAC maintenance after a repair". The target is cooling-side AC maintenance only, this page also covers furnaces, and a noindex level-2 stub hvac-maintenance exists in services.ts. Same fix as Heating Repair and Ductwork.
+    { text: 'AC maintenance after a repair', href: '/services/ac-maintenance/' },
   ],
   sourcesEyebrow: 'References',
   sourcesColumns: 2,
