@@ -21,13 +21,13 @@ import { siteConfig } from '@/content/site-config';
 // service card label, and that its content actually covers heating maintenance.
 // RESOLVED (2026-10-20, confirmed by user): the link to /services/emergency-hvac/ is allowed; 24/7 emergency dispatch is an
 // approved claim. This page itself states no response time, after-hours or availability, and must not add any.
-// TODO(copy): client review of every FAQ answer below before launch.
+// RESOLVED (2026-10-20, client approved page copy, confirmed by user): client review of every FAQ answer below.
 //
 // No prices, appointment windows, warranty terms, technician certifications, or same-day/24-7/
 // emergency-availability wording appear anywhere on this page - none are confirmed. See CLAUDE.md
 // "Claims that must not ship".
 
-// TODO(copy): the source group labels are new (migration).
+// RESOLVED (2026-10-20, client approved page copy, confirmed by user): the source group labels are new (migration).
 const heatingRepairSources: { label: string; url: string; group: string }[] = [
   { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20', group: 'Licensing and permits' },
   { label: 'California CSLB - C-20 permit guidance', url: 'https://www.cslb.ca.gov/Resources/Newsroom/C-20_Permit_Enforcement_Letter.pdf', group: 'Licensing and permits' },
@@ -84,7 +84,7 @@ const heatingRepairBase: ServicePage = {
     src: '/images/services/heating-repair/hero.webp',
     alt: 'Gas furnace in a home utility closet with the access panel removed and a multimeter resting nearby during a diagnostic check',
   },
-  // TODO(copy): DECISION PENDING. The old caption was one sentence; this splits it into title and text with no new words and no
+  // RESOLVED (2026-10-20, client approved page copy, confirmed by user), hero caption approved as built. The old caption was one sentence; this splits it into title and text with no new words and no
   // new claim. Alternative, not built: { title: 'Heating repair', text: 'for homes and businesses across Southern California' }
   // (matches the sibling pages and restates scope already shown in the hero chips).
   heroCaption: { title: 'Heating system diagnostics', text: 'identify the source of heating problems' },
@@ -109,11 +109,11 @@ const heatingRepairBase: ServicePage = {
   finalCtaBody: 'Call us or request service online.',
   answer: {
     lead: 'Heating repair',
-    // TODO(copy): trimmed from 85 words to 39 (migration). Cut (a) "Common problems include ignition and flame-sensing faults,
+    // RESOLVED (2026-10-20, client approved page copy, confirmed by user): trimmed from 85 words to 39 (migration). Cut (a) "Common problems include ignition and flame-sensing faults,
     // failed capacitors and blower motors, control-board and thermostat faults, airflow restrictions, and heat-pump defrost
     // issues." because `symptomsNoteText`, the `diagnosis` rows and the `systems` grid already cover it. Cut (b) "Cold air, short
     // cycling, and no airflow can each have several causes, so the right repair depends on the equipment and what testing finds."
-    // moved word for word to the end of `diagnosisIntro`. DECISION PENDING: client to confirm both.
+    // moved word for word to the end of `diagnosisIntro`. Both cuts approved.
     // The kept sentences still say "customer-approved" and "once you approve the price", the unconfirmed repair-cost process
     // tracked in the header TODO(data). No new claim was added.
     body:
@@ -331,11 +331,11 @@ const heatingRepairBase: ServicePage = {
       a: 'It depends on your utility, address, equipment ratings, program rules, permits, and current funding. LADWP and SoCalGas list qualifying incentives. Statewide TECH and HEEHRA single-family funding was listed as fully reserved in 2026, so confirm current eligibility before you count on an incentive.',
     },
   ],
-  // TODO(copy): client review of every FAQ answer above before launch.
+  // RESOLVED (2026-10-20, client approved page copy, confirmed by user): client review of every FAQ answer above.
 };
 
 // Location-style migration (docs/open-items.md "Service page migration"). Setting `glance` marks this service as migrated.
-// TODO(copy): all strings in this block are new.
+// RESOLVED (2026-10-20, client approved page copy, confirmed by user): all strings in this block are new (glance labels, fact card, proof stats).
 // GlanceCard keys on `num`: the three numbers must stay different (8, 6, 4 today). Fail the build if they collide.
 const glanceStats = [
   { num: count(heatingRepairBase.diagnosis), label: 'common heating symptoms explained' },
