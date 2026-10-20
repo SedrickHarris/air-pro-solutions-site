@@ -1380,3 +1380,12 @@ Blockers:
 - Emergency HVAC has an unconfirmed availability placeholder, so its cards carry no response-time facts. Do not add any
   to a glance card or fact card until the client confirms.
 - Ductless Mini-Split has no `sources` entries yet, so it cannot show source links or a Sources section.
+- Refrigerant installation-date wording conflicts with EPA's May 2026 final rule. Decision pending. EPA's fact sheet (May
+  2026, page 2) says the final rule removes the January 1, 2026 installation compliance date for residential and
+  light-commercial AC and heat pump equipment made or imported before January 1, 2025, and lets pre-2025 inventory be
+  installed until supply runs out. The EPA HFC FAQ (last updated September 14, 2026) still says a new split system installed
+  after January 1, 2026 must use a refrigerant below 700 GWP, so EPA's own two pages disagree. Heat Pump `refrigerant.introBody`
+  and FAQ 9 follow the FAQ. The same January 1, 2026 refrigerant wording is in ac-installation-page (2 places),
+  furnace-installation-page, ac-maintenance-page (2), ductless-mini-split-page, emergency-hvac-page (2),
+  indoor-air-quality-page and services.ts (AC Repair, 2 FAQs). None was edited. Confirm against the Federal Register text of the
+  May 2026 rule before changing any of them, and change every page and its JSON-LD in one pass.
