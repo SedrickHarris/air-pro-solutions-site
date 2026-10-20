@@ -20,6 +20,32 @@ import type { ServicePage } from '@/content/services';
 // (see CLAUDE.md doorway-page rule).
 // TODO(copy): client review of every FAQ answer below before launch.
 
+// TODO(copy): group labels are new, confirm on review.
+const acInstallationSources: { label: string; url: string; group: string }[] = [
+  { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20', group: 'Licensing' },
+  { label: 'California CSLB - Finding the right licensed contractor', url: 'https://www.cslb.ca.gov/consumers/hire_a_contractor/finding_the_right_contractor.aspx', group: 'Licensing' },
+  { label: 'California Energy Commission - HVAC requirements', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/energy-code-support-center/hvac-0', group: 'Energy Code and efficiency' },
+  { label: 'California Energy Commission - 2025 Energy Code effective January 1, 2026', url: 'https://www.energy.ca.gov/news/2026-01/californias-energy-code-update-guides-construction-cleaner-healthier-buildings', group: 'Energy Code and efficiency' },
+  { label: 'U.S. DOE - 2023 central AC standards FAQ', url: 'https://www1.eere.energy.gov/buildings/appliance_standards/pdfs/2023_CAC_Standards_FAQ_10-5-2022_Final.pdf', group: 'Energy Code and efficiency' },
+  { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons', group: 'Refrigerant' },
+  { label: 'U.S. DOE Building America - HVAC equipment sizing', url: 'https://www1.eere.energy.gov/buildings/publications/pdfs/building_america/strategy_guide_hvac_sizing.pdf', group: 'Sizing and installation' },
+  { label: 'ENERGY STAR - HVAC quality installation', url: 'https://www.energystar.gov/saveathome/heating-cooling/hvac-quality-installation', group: 'Sizing and installation' },
+  // TODO(data): names a retailer that also sells installation. CLAUDE.md says never name a competitor. Client decision: keep, or replace with an official source for the "completed in a day" timeline wording.
+  { label: 'The Home Depot - Heating and air conditioning installation in Los Angeles (installation timing)', url: 'https://www.homedepot.com/services/l/ca/los-angeles/heating-air-conditioning-installation/c16fbb4b7', group: 'Sizing and installation' },
+  { label: 'ENERGY STAR - When is it time to replace?', url: 'https://www.energystar.gov/saveathome/heating-cooling/replace', group: 'Repair or replace' },
+  { label: 'ENERGY STAR - Repair or replace', url: 'https://www.energystar.gov/ia/home_improvement/Replace_or_Repair.pdf', group: 'Repair or replace' },
+  { label: 'ENERGY STAR - Clean heating and cooling', url: 'https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling', group: 'Incentives and heat pumps' },
+  { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program', group: 'Incentives and heat pumps' },
+  { label: 'Southern California Edison - Rebates and marketplace', url: 'https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace', group: 'Incentives and heat pumps' },
+  { label: 'TECH Clean California - HEEHRA rebates', url: 'https://techcleanca.com/incentives/heehrarebates/', group: 'Incentives and heat pumps' },
+];
+
+const acInstallationSource = (urlPart: string) => {
+  const found = acInstallationSources.find((s) => s.url.includes(urlPart));
+  if (!found) throw new Error(`Unknown AC installation source: ${urlPart}`);
+  return found;
+};
+
 // Full template content for /services/ac-installation/. Reuses the same ServicePage shape and shared section
 // components already built out for /services/ac-repair/ - see the build report for why a second, parallel
 // content shape (src/content/service-pages/) was not introduced.
@@ -119,8 +145,8 @@ export const acInstallationPage: ServicePage = {
     title: 'New AC systems and the refrigerant change',
     body:
       'The EPA states that a wholly new split system installed on or after January 1, 2026 must use a refrigerant with a global-warming potential below 700. New lower-GWP systems may use A2L refrigerants such as R-454B, depending on the manufacturer and model, and installation must follow the manufacturer, the equipment listing, and the local authority. Existing R-410A systems can still be repaired through their useful life, so this rule is not a reason to replace a working system.',
-    sourceLabel: 'U.S. EPA, HFC Phasedown FAQ.',
-    sourceHref: 'https://www.epa.gov/climate-hfcs-reduction/frequent-questions-phasedown-hydrofluorocarbons',
+    sourceLabel: 'U.S. EPA, HFC Phasedown FAQ',
+    sourceHref: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons',
   },
   pricingTitle: 'What affects AC installation cost',
   pricingIntro:
@@ -195,23 +221,7 @@ export const acInstallationPage: ServicePage = {
     { text: 'Compare a heat pump with a central AC replacement', href: '/services/heat-pump-services/' },
   ],
   sourcesColumns: 2,
-  sources: [
-    { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20' },
-    { label: 'California CSLB - Finding the right licensed contractor', url: 'https://www.cslb.ca.gov/consumers/hire_a_contractor/finding_the_right_contractor.aspx' },
-    { label: 'California Energy Commission - HVAC requirements', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/energy-code-support-center/hvac-0' },
-    { label: 'California Energy Commission - 2025 Energy Code effective January 1, 2026', url: 'https://www.energy.ca.gov/news/2026-01/californias-energy-code-update-guides-construction-cleaner-healthier-buildings' },
-    { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/climate-hfcs-reduction/frequent-questions-phasedown-hydrofluorocarbons' },
-    { label: 'U.S. DOE - 2023 central AC standards FAQ', url: 'https://www1.eere.energy.gov/buildings/appliance_standards/pdfs/2023_CAC_Standards_FAQ_10-5-2022_Final.pdf' },
-    { label: 'U.S. DOE Building America - HVAC equipment sizing', url: 'https://www1.eere.energy.gov/buildings/publications/pdfs/building_america/strategy_guide_hvac_sizing.pdf' },
-    { label: 'ENERGY STAR - When is it time to replace?', url: 'https://www.energystar.gov/saveathome/heating-cooling/replace' },
-    { label: 'ENERGY STAR - HVAC quality installation', url: 'https://www.energystar.gov/saveathome/heating-cooling/hvac-quality-installation' },
-    { label: 'ENERGY STAR - Clean heating and cooling', url: 'https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling' },
-    { label: 'ENERGY STAR - Repair or replace', url: 'https://www.energystar.gov/ia/home_improvement/Replace_or_Repair.pdf' },
-    { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program' },
-    { label: 'Southern California Edison - Rebates and marketplace', url: 'https://www.sce.com/save-money/rebates-financial-assistance/rebates-sce-marketplace' },
-    { label: 'TECH Clean California - HEEHRA rebates', url: 'https://techcleanca.com/incentives/heehrarebates/' },
-    { label: 'The Home Depot - Heating and air conditioning installation in Los Angeles (installation timing)', url: 'https://www.homedepot.com/services/l/ca/los-angeles/heating-air-conditioning-installation/c16fbb4b7' },
-  ],
+  sources: acInstallationSources,
   faqs: [
     {
       q: 'Should I repair or replace my air conditioner?',
