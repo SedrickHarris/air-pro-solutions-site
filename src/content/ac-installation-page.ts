@@ -305,7 +305,6 @@ export const acInstallationPage: ServicePage = {
       rows: [
         { label: 'Sizing', value: 'Set by a heating and cooling load calculation, not by square footage or the size of the old unit' },
         { label: 'Energy Code', value: "California's 2025 Energy Code took effect January 1, 2026. Split-system central AC must meet at least 14.3 SEER2" },
-        { label: 'New systems', value: 'A wholly new split system installed on or after January 1, 2026 must use a refrigerant with a global-warming potential below 700' },
         { label: 'Incentives', value: 'LADWP, Southern California Edison, and TECH Clean California list programs. Eligibility and funding change, and no rebate is guaranteed' },
       ],
       sources: [
