@@ -1373,8 +1373,53 @@ heat-pump-services and emergency-hvac (fix when each migrates).
   heat-wave and wildfire-smoke parts of the LA County paragraph, not "fine-particle"; that part is backed by the 2022 AQMP
   Appendix II (p. 8). Open the link by hand once to confirm.
 
-Remaining six, in rollout order: Heat Pump Services, Heating Repair, AC Maintenance, Ductwork, Emergency HVAC,
-Ductless Mini-Split.
+Heat Pump Services is migrated (2026-10-20, branch `heat-pump-services-migration`, based on `origin/main` 3e2a664, which
+already held AC Repair, Furnace Installation, AC Installation and Indoor Air Quality). New strings are TODO(copy): quick
+answer trimmed from 85 to 43 words, hero caption split into title and text, glance card, "Across Southern California" band
+and fact card, `proofStats`, 6 source groups, the linked refrigerant source line and three Photo pending tiles (refrigerant
+callout, warranty callout, region intro; TODO(design): real photos). `refrigerant` now takes an optional `sources` list and
+`warranty` an optional `media`, both rendered only on migrated pages. Counts derive from arrays (glance 3 / 6 / 13, proof
+4.8 star / 40 / 12 / 5, References row 13); the "6" process-step stat is hardcoded with a sync comment. Fact card has 3 rows
+(Existing R-410A systems, Energy code, Coast and inland), all restating existing page copy, no License row, no dollar amounts,
+no installation-date row. Measured at 1280px (headless Chromium with fallback fonts, so close but not exact): copy 441px,
+card 428px, blankInCard 29px. The card ends 13px short of the copy, inside the 50px target, so no row was dropped.
+- Cut sentences: (a) "Because one system does both jobs, a heat pump that cools fine but will not heat needs a different
+  diagnostic path than a standard AC problem." moved word for word to the end of `diagnosisIntro`. (b) "If you are comparing
+  repair with replacement, the findings and options should come before any decision." dropped; `comparisonTable.note` and
+  decision card 3 already cover it. DECISION PENDING: client to confirm both.
+- Hero caption: DECISION PENDING. The old caption was one sentence; the proposed two-part caption ("Heat pump service" plus
+  "for year-round comfort across Southern California") needs approval. The alternative that matches the sibling pages
+  ("for homes and businesses across Southern California") restates commercial scope that is still unconfirmed, so it was not built.
+- DOE label change: the References entry "DOE and CPUC - Air-source heat pumps guide" now reads "U.S. DOE - Air-source heat
+  pumps (Energy Saver printout filed with the CPUC)", URL unchanged. The file at docs.cpuc.ca.gov is a 10-page printout of the
+  Department of Energy's Energy Saver page (printed 8/26/25) and does not mention the CPUC. The candidate replacement
+  `https://www.energy.gov/energysaver/air-source-heat-pumps` returns 404, so it is not a candidate. The printout supports the
+  reversing-valve and defrost-cycle framing (page 2) but never uses the words "frost" or "ice".
+- Manufacturer sources: DECISION PENDING with the user. Trane, Carrier (2) and Bryant guides are kept in the References row
+  under "Manufacturer service guides" (TODO(data)); migration shows their brand names publicly for the first time, and CLAUDE.md
+  says never link to or name a competitor. Recommended: move all four, URLs unchanged, to a `heatPumpManufacturerSources`
+  array, as Furnace did with its contractor sources. The visible sentences stay, unattributed.
+- Refrigerant flag: see Blockers. `refrigerant.introBody`, `refrigerant.body`, `refrigerant.boldLead` and every FAQ answer
+  are untouched, and the new fact card carries no installation date.
+- `moreLinks` Emergency HVAC contradiction (flagged, not changed): the file-level TODO says not to link to
+  /services/emergency-hvac/ from this page until the client confirms always-on availability, but `moreLinks` still lists
+  "Emergency HVAC". Decide whether to drop it.
+- URL check (Claude in Chrome on the user's computer, 2026-10-20): 200 with no redirects and no certificate warnings for
+  the EPA HFC FAQ, EPA SNAP table, CSLB C-20, NASA JPL, Trane, Bryant, LADWP, SCE and TECH Clean California. The DOE printout
+  at docs.cpuc.ca.gov opens as a PDF. Not opened in a browser: the California Energy Commission page and both Carrier pages
+  (Claude in Chrome is not permitted on those domains here); their text was read through a fetch tool, which does not report
+  status or redirects. Still to open by hand: those three.
+- Attribution findings (nothing edited): the NASA JPL article is about the 2020 heat waves (plural) and the page's singular
+  "a regional heat wave" and "a Southern California heat wave" wording was not found verbatim; the EPA SNAP table lists HFC-32 as
+  A2L with a GWP of 675 but does not define A2L, so "low toxicity and mildly flammable" is unsupported by any cited source; the
+  CSLB C-20 definition begins "warm-air heating, ventilating and air-conditioning contractor" and covers water heating heat
+  pumps, and the `rules` Licensing card drops "warm-air"; the Energy Commission page supports the January 1, 2026 date but does
+  not mention alterations to existing buildings, so FAQ 8 and the `rules` Permits card are unverified from that page.
+- Incentives (untouched, recheck at launch): LADWP's page says "up to $2,500 per ton" for heat pump HVAC in one place and "up
+  to $2,500 per unit" in a table row; TECH's page confirms single-family funds fully reserved as of February 24, 2026 and now
+  also reports multifamily funds fully reserved as of September 1, 2026.
+
+Remaining five: Heating Repair, AC Maintenance, Ductwork, Emergency HVAC, Ductless Mini-Split.
 
 Blockers:
 - Emergency HVAC has an unconfirmed availability placeholder, so its cards carry no response-time facts. Do not add any
