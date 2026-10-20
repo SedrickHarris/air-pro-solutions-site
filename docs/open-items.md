@@ -1422,7 +1422,55 @@ card 428px, blankInCard 29px. The card ends 13px short of the copy, inside the 5
   to $2,500 per unit" in a table row; TECH's page confirms single-family funds fully reserved as of February 24, 2026 and now
   also reports multifamily funds fully reserved as of September 1, 2026.
 
-Remaining five: Heating Repair, AC Maintenance, Ductwork, Emergency HVAC, Ductless Mini-Split.
+Heating Repair is migrated (2026-10-20, branch `heating-repair-migration`, based on `origin/main` 32027da, which already held AC Repair,
+Furnace Installation, AC Installation, Indoor Air Quality and Heat Pump Services with its decisions). New strings are TODO(copy):
+quick answer trimmed from 85 to 39 words, hero caption split into title and text, glance card, "Across Southern California" band
+and fact card, `proofStats`, 5 source groups, the linked refrigerant source line and three Photo pending tiles (refrigerant,
+repair-or-replace, region intro; TODO(design): real photos). No component, CSS, `page.tsx` or `services.ts` change: the export name is
+unchanged and `glance` is the only switch. Counts derive from arrays (glance 8 / 6 / 9, proof 4.8 star / 40 / 10 / 6, References row
+9 in 5 groups: Licensing and permits, Energy code, Refrigerant, Rebates and incentives, Cost context); the "6" process-step stat is
+hardcoded with a sync comment, and a build-time guard throws if the three glance numbers collide. Fact card has 3 rows (Existing
+R-410A equipment, Energy code, Incentives), all restating existing page copy, no License row, no dollar amounts, no installation date,
+no permit or alteration claim. Measured at 1280px (headless Chromium, mocked fonts, selectors `.local-knowledge-dark .local-grid`,
+`.local-copy`, `.nbhd-card`): copy 492px, card 469px, blankInCard 38px. The card ends 23px short of the copy, inside the 50px target,
+so no row was dropped.
+- Cut sentences: (a) "Common problems include ignition and flame-sensing faults, ... and heat-pump defrost issues." dropped from the quick answer
+  because `symptomsNoteText`, the `diagnosis` rows and the `systems` grid already cover it. (b) "Cold air, short cycling, and no airflow
+  can each have several causes, ..." moved word for word to the end of `diagnosisIntro`. DECISION PENDING: client to confirm both. The kept
+  sentences still say "customer-approved" and "once you approve the price", the unconfirmed repair-cost process in the file header.
+- Hero caption: DECISION PENDING. The old caption was one sentence; the proposed two-part caption ("Heating system diagnostics" plus
+  "identify the source of heating problems") adds no words. Alternative, not built: "Heating repair" plus "for homes and businesses
+  across Southern California" (matches sibling pages, restates scope already in the hero chips). Left-aligned, unchanged.
+- Bosch source: held out (2026-10-20) into `heatingRepairManufacturerSources` (TODO(data)) because CLAUDE.md says never to link to or
+  name a competitor. The refrigerant source line on the page now shows NAHB only, so Bosch is no longer named. `sourceText` stays in
+  the data for the unmigrated markup. To show it again, move it back into `heatingRepairSources` with `group: 'Manufacturer service guides'`.
+- Angi price range: DECISION PENDING, kept as built (pricing note, FAQ 3, JSON-LD and the Angi source untouched). If removed, FAQ 3 and
+  its JSON-LD change together, the source count drops to 8 and the glance numbers collide (8 / 6 / 8), so swap the third glance stat to
+  `count(faqs)` and the fourth proof stat to `count(priceFactors)`.
+- `moreLinks` Emergency HVAC: DECISION PENDING, not added; the header TODO stays open.
+- Attribution findings (nothing edited): NAHB says "the primary two refrigerants that you should expect in the market are R-32 and
+  R-454B" and "reclassified as Class 2L (lower flammability)", so R-454B and the gloss are supported by NAHB in substance, but NAHB is not a
+  government source and the page says "A2L" where NAHB says "Class 2L"; the EPA SNAP table supports R-32 only. NAHB says existing equipment
+  "is not subject to EPA regulations" and servicing components are exempt, and that old and new equipment "will not be compatible unless
+  specifically stated by the manufacturer" (qualified, the page states it flatly). The CSLB C-20 definition begins "A warm-air heating,
+  ventilating and air-conditioning contractor" and the `rules` Licensing card drops "warm-air". The CSLB permit letter is dated February 1,
+  2010 and covers new installs, change-outs, relocation, removal and added ducting; it does not discuss repairs. The Energy Commission page
+  supports the January 1, 2026 date but says nothing about alterations, so the `rules` Energy code sentence "can affect system replacement
+  and major alterations" is unverified from it. LADWP "up to $2,500 per ton", SoCalGas furnace rebate (permit closure, funds through
+  December 31, 2026) and TECH (HEEHRA fully reserved as of February 24, 2026, later requests waitlisted) match the incentive cards; the FAQ 10
+  "fully reserved in 2026" is dated only by the source.
+- Quick answer and other kept wording unchanged: the header TODOs for the repair-cost process, safety wording, diagnostic fee, "HVAC
+  Maintenance" link target and the Angi range all stay open.
+- URL check (headless Chromium via Playwright, not Claude in Chrome): 200 with no redirects for CSLB C-20, Energy Commission, NAHB, LADWP,
+  SoCalGas, both TECH pages and the held-out Bosch guide. The CSLB permit PDF starts a download (served, not opened). Angi returns 403 to a
+  script (likely bot blocking); open it by hand to confirm $179-$802 and about $490.
+- Adjacent sections: the dark quick-answer band follows the hero and trust strip and the Southern California band follows it, then "Is
+  this an emergency?". The refrigerant block (alt) sits between "Systems we diagnose" and "What affects heating repair cost", and
+  "Repair or replace?" (alt) between the pricing block and the rules section, so neither touches another alt band. The region intro tile sits
+  in the existing alt region section before the proof block. Pre-existing and unchanged: "Common signs" and "What your heating symptoms can
+  mean" are two alt sections back to back.
+
+Remaining four: AC Maintenance, Ductwork, Emergency HVAC, Ductless Mini-Split.
 
 Blockers:
 - Emergency HVAC has an unconfirmed availability placeholder, so its cards carry no response-time facts. Do not add any
