@@ -405,6 +405,8 @@ export const furnaceInstallationPage: ServicePage = {
       sources: [furnaceSource('https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards')],
     },
   },
+  // TODO(design): replace with real photo, /images/services/furnace-installation/regions.webp (1200x900)
+  regionMedia: { icon: 'pin' },
   // Service-specific, not a repeat of the trust strip (the AC Repair pilot repeated rating and reviews; this page does not).
   proofStats: [
     { num: String(siteConfig.licenses.length), label: 'license numbers on file' },

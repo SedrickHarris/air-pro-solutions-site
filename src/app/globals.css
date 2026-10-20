@@ -590,6 +590,9 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
    body copy instead of a repeated city list - see CLAUDE.md doorway-page rule). */
 .region-grid-intro p { max-width: 75ch; line-height: 1.65; color: var(--ink-soft); }
 .region-grid-intro p + p { margin-top: 0.75rem; }
+.region-grid-intro-split .region-grid-intro p { max-width: none; }
+.region-grid-intro-split .region-grid-intro p:first-child { margin-top: 0; }
+.region-grid-intro-split { margin-bottom: 1.5rem; }
 .region-grid-closing { margin-top: 1.5rem; font-size: 0.92rem; color: var(--ink-soft); }
 
 /* More-on-this-topic text-link row under RelatedRow's cards. */

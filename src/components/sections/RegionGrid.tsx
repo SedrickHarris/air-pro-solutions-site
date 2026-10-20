@@ -9,6 +9,7 @@ export function RegionGrid({
   eyebrow = 'Service areas',
   title = 'Serving four Southern California regions',
   intro,
+  media,
   linkLabel = () => 'View region',
   // When false, renders `bodyFor(slug)` copy instead of the region's city list. Used by pages (e.g.
   // /services/ac-repair/) that need genuinely different, conditional per-region copy rather than a repeated
@@ -23,6 +24,7 @@ export function RegionGrid({
   eyebrow?: string;
   title?: string;
   intro?: ReactNode;
+  media?: ReactNode; // optional tile rendered to the right of `intro`
   linkLabel?: (regionName: string) => string;
   showCities?: boolean;
   bodyFor?: (regionSlug: string) => string;
@@ -34,7 +36,14 @@ export function RegionGrid({
       <div className="wrap">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
-        {intro && <div className="region-grid-intro">{intro}</div>}
+        {intro && media ? (
+          <div className="split-media region-grid-intro-split">
+            <div className="region-grid-intro">{intro}</div>
+            {media}
+          </div>
+        ) : (
+          intro && <div className="region-grid-intro">{intro}</div>
+        )}
         <div className="region-grid">
           {regions.map((r) => (
             <Link key={r.slug} href={`/service-areas/${r.slug}/`} className="region-card">

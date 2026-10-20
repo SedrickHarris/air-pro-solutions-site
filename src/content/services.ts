@@ -87,6 +87,7 @@ export type ServicePage = {
   // Per-region conditional copy for the "where we work" section. Deliberately does not list cities
   // (see CLAUDE.md doorway-page rule) - each region gets genuinely different, source-backed copy.
   regionIntro?: string[];
+  regionMedia?: { icon: string; image?: ServiceImage }; // migrated pages only; no `image` means a "Photo pending" tile beside regionIntro
   regionConditions?: { regionSlug: string; body: string }[];
   regionClosing?: string;
   moreLinks?: { text: string; href: string }[];

@@ -806,6 +806,8 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           }
           return `${page.regionLinkVerb} in ${name}`;
         }}
+        // TODO(design): replace with real photo
+        media={migrated && page.regionMedia ? <MediaTile icon={page.regionMedia.icon} image={page.regionMedia.image} /> : undefined}
         footer={page.regionClosing}
         id={page.regionSectionId}
       />
