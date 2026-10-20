@@ -343,7 +343,13 @@ const indoorAirQualityBase: ServicePage = {
     'Outdoor air explains why the question comes up. It does not tell a technician what is wrong with your system. We assess the property and the equipment, not the ZIP code.',
   ],
   regionConditions: [
-    { regionSlug: 'los-angeles-county', body: 'The county sits in a region with serious ozone and fine-particle problems, and heat waves and wildfires can add smoke exposure. Indoor air planning here can include a smoke-event filtration plan, filter access, a ventilation review, and source control.' },
+    // Sources for this paragraph (verified 2026-10-20, PDF page numbers):
+    // - fine-particle: South Coast AQMD 2022 AQMP Appendix II, p. 8 (printed II-S-1): the Basin "is designated nonattainment for
+    //   current and former federal and State ozone standards, as well as the current PM2.5 standards." The Basin includes the
+    //   non-desert part of Los Angeles County. The county report below does not discuss PM2.5.
+    // - ozone, heat waves, smoke: LA County Public Health, Strategies for Action, p. 10 (2020 heat waves, Woolsey and Bobcat smoke).
+    // - "serious": the AQMP uses "extreme" for the Basin's ozone nonattainment classification (Table 2-1, p. 37) and "serious" for PM2.5.
+        { regionSlug: 'los-angeles-county', body: 'The county sits in a region with serious ozone and fine-particle problems, and heat waves and wildfires can add smoke exposure. Indoor air planning here can include a smoke-event filtration plan, filter access, a ventilation review, and source control.' },
     { regionSlug: 'south-bay', body: "Coastal areas feel the marine influence, and conditions differ from inland areas. An assessment can consider coastal moisture, marine-layer conditions, building ventilation, and the equipment's filtration needs. We do not assume a cause before inspecting." },
     { regionSlug: 'orange-county', body: 'Wildfire smoke and poor air quality have reached Orange County during regional events. Filter upgrades, portable-cleaner planning, ventilation, and smoke-event operation are the practical topics, and homes and equipment vary widely.' },
     { regionSlug: 'inland-empire', body: 'South Coast AQMD expected higher smoke impacts near fires and in the Inland Empire during a September 2024 extreme-heat event. Hot-weather load, dust, smoke preparation, and easy filter access are practical topics here.' },
