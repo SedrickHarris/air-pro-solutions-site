@@ -1,10 +1,7 @@
 import type { ServicePage } from '@/content/services';
 import { siteConfig } from '@/content/site-config';
 
-// TODO(data): confirm the CSLB license classification for licenses 1126691 and 50251 (the hero stat,
-// trust strip, proof block, and "Licensing" rule card all say "C-20"). If C-20 is not confirmed on the
-// live CSLB record, remove that stat before launch. Same open item already flagged on every other
-// service page.
+// RESOLVED (2026-10-19, confirmed by user): the CSLB record for licenses #1126691 and #50251 shows C-20.
 // TODO(data): FAQ 10 cites a Carrier-published whole-house air purifier price example ($1,000-$3,000).
 // Verify the figure and the source, or cut the price example, before launch. No Air Pro price is
 // stated anywhere on this page and none should be added.

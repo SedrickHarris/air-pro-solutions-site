@@ -1340,8 +1340,36 @@ on indoor-air-quality, ac-maintenance, heat-pump-services and emergency-hvac (ou
   redirects, no certificate warnings.
 - Not changed, flagged: the AC Repair "License" fact-card row and C-20 glance stat (out of scope).
 
-Remaining seven, in rollout order: Indoor Air Quality, Heat Pump Services, Heating Repair, AC Maintenance, Ductwork,
-Emergency HVAC, Ductless Mini-Split.
+Indoor Air Quality is migrated (2026-10-20, branch `indoor-air-quality-migration`, based on `origin/main` 591503c, which
+already held AC Repair, Furnace Installation and AC Installation). New strings are TODO(copy): quick answer trimmed from 99 to
+40 words, hero caption split into title and text, glance card, "Across Southern California" band and fact card, `proofStats`,
+6 source groups, the two linked source lines (MERV callout, replacement note) and two Photo pending tiles (replacement note
+and rebates note; TODO(design): real photos). `callouts` items and `replacementNote` now take optional `sourceLabel` and
+`sourceHref`, and `replacementNote` and `rebatesNote` take an optional `media`, all rendered only on migrated pages. Counts
+derive from arrays (glance 3 / 6 / 15, proof 4.8 star / 40 / 10 / 7, References row 15); the "6" process-step stat is hardcoded
+with a sync comment. Fact card has 3 rows (Air quality data, Smoke days, Humidity), all restating existing page copy, no
+License row. Measured at 1280px (real Google Fonts, not the mock): copy 416px, card 450px, blankInCard 1px. The card runs
+34px past the copy, inside the 50px target, so no row was dropped. The EPA HFC URL now uses
+`/hfcs/frequent-questions-phasedown-hydrofluorocarbons`; the old `/climate-hfcs-reduction/` URL is still on ac-maintenance,
+heat-pump-services and emergency-hvac (fix when each migrates).
+- Cut sentences: (a) "A technician looks at filtration... optional upgrades" was dropped from the quick answer because
+  `lede`, `visitIncludes` and `proofBody` already cover it. (b) "No single device fixes every problem, and a smell or a
+  symptom alone does not identify mold, an allergen, or a medical cause." moved word for word to the end of
+  `decision.intro`. DECISION PENDING: client to confirm both.
+- Carrier source: DECISION PENDING with the user. FAQ 10 quotes a Carrier price estimate and the Carrier page is its source
+  in the References row (TODO(data) on both). If the figure is cut or unverified, remove the Carrier source in the same
+  change; the row count and glance stat then become 14. CLAUDE.md says never name a competitor; a manufacturer page is
+  probably fine, but confirm.
+- Hero caption: DECISION PENDING. The old caption was one sentence; the proposed two-part caption needs approval.
+- URL check (headless Chrome via Playwright, not Claude in Chrome): all 15 return 200 with no redirects and no certificate
+  warnings. The LA County Public Health link is `http://` and loads over plain http with no upgrade to https (a browser may
+  show "Not secure"); try `https://` and update the URL if it works.
+- Flagged, not fixed: `replacementNote` and `rebatesNote` render as alt-background sections back to back. Also, AC Repair's
+  `southcoastaqmd.gov` link failed certificate validation in an earlier check; test swapping it to
+  `https://www.aqmd.gov/home/air-quality` (loads cleanly here) when AC Repair is next touched.
+
+Remaining six, in rollout order: Heat Pump Services, Heating Repair, AC Maintenance, Ductwork, Emergency HVAC,
+Ductless Mini-Split.
 
 Blockers:
 - Emergency HVAC has an unconfirmed availability placeholder, so its cards carry no response-time facts. Do not add any
