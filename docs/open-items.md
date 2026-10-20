@@ -1279,6 +1279,8 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
   PARTLY RESOLVED 2026-10-14: "licensed, bonded & insured" (CA license #1126691 and #50251) is now
   client-approved (CLAUDE.md "Approved claims"); this page's copy was not changed. The CSLB C-20
   check above is still open.
+  RESOLVED (2026-10-19, confirmed by user): the C-20 classification is confirmed, so the C-20 stat on the
+  service pages stays as is. The TODO(data) comment above the service route's TrustStrip was removed.
 - Commercial and rooftop capability, mini-split, heat pump, and PTAC scope are unconfirmed. PTAC
   and multifamily through-wall units are left off the systems list.
 - City lists under each region are left out until the client confirms coverage. No region-level
@@ -1289,3 +1291,19 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
   built page.
 - Internal links (heat pump, mini-split, ductwork, IAQ, maintenance) appear once those pages
   exist - they now do, so no action needed here.
+
+## Service page migration (location-style)
+
+Pilot: /services/ac-repair/ is migrated (2026-10-19). A service counts as migrated when its `page.glance` is set in
+`src/content/services.ts`; the service route then renders the dark quick-answer band with CTAs and a glance card, the
+Southern California band (`regionBand`, paragraphs from `regionConditions`), source lines under the refrigerant/callout
+notes, per-service `proofStats`, and a non-alt Sources section after the FAQ. Services without `glance` render as before.
+All new AC Repair strings are TODO(copy): client approved 2026-10-19, confirm final wording on review.
+
+Remaining nine, in rollout order: Furnace Installation, AC Installation, Indoor Air Quality, Heat Pump Services, Heating
+Repair, AC Maintenance, Ductwork, Emergency HVAC, Ductless Mini-Split.
+
+Blockers:
+- Emergency HVAC has an unconfirmed availability placeholder, so its cards carry no response-time facts. Do not add any
+  to a glance card or fact card until the client confirms.
+- Ductless Mini-Split has no `sources` entries yet, so it cannot show source links or a Sources section.
