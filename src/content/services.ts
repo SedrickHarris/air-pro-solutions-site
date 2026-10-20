@@ -1,4 +1,5 @@
 import type { Faq } from '@/content/faq';
+import { siteConfig } from '@/content/site-config';
 import { acInstallationPage } from '@/content/ac-installation-page';
 import { acMaintenancePage } from '@/content/ac-maintenance-page';
 import { heatingRepairPage } from '@/content/heating-repair-page';
@@ -465,6 +466,29 @@ const l2 = make(2, false); // second-level pages: noindex stubs until real copy 
 // public/images/services/service-cards). Alt text describes the picture only; these are not job photos.
 const card = (slug: string, alt: string): ServiceImage => ({ src: `/images/services/cards/${slug}.webp`, alt });
 
+// AC Repair source list. Declared ahead of the page so the glance card, fact card and the "sources cited"
+// stat all read from the same entries (the Sources section renders `page.sources`).
+const acRepairSources: { label: string; url: string }[] = [
+  { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/climate-hfcs-reduction/frequent-questions-phasedown-hydrofluorocarbons' },
+  { label: 'ENERGY STAR - When is it time to replace?', url: 'https://www.energystar.gov/saveathome/heating-cooling/replace' },
+  { label: 'ENERGY STAR - Repair or replace', url: 'https://www.energystar.gov/ia/home_improvement/Replace_or_Repair.pdf' },
+  { label: 'U.S. DOE - Airflow and refrigerant charge diagnostics', url: 'https://www.energy.gov/sites/prod/files/2013/12/f5/issue3_airflow_charge.pdf' },
+  { label: 'U.S. DOE Building America - AC diagnostics, maintenance, and repair', url: 'https://www1.eere.energy.gov/buildings/publications/pdfs/building_america/measure_guide_air_cond_diagnostics.pdf' },
+  { label: 'U.S. DOE Building America - HVAC fault detection and diagnosis', url: 'https://www1.eere.energy.gov/buildings/publications/pdfs/building_america/emr-hvac-fault-detection-diagnosis-repair.pdf' },
+  { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20' },
+  { label: 'California CSLB - Get licensed', url: 'https://www.cslb.ca.gov/getlicensed' },
+  { label: 'Energy Code Ace - Refrigerant charge', url: 'https://energycodeace.com/content/48-refrigerant-charge' },
+  { label: 'NASA JPL - Southern California heat-wave differences', url: 'https://www.jpl.nasa.gov/news/nasa-maps-key-heat-wave-differences-in-southern-california/' },
+  { label: 'NOAA Climate.gov - September 2024 heat wave', url: 'https://www.climate.gov/news-features/event-tracker/heat-wave-southern-california-and-southwest-early-september-2024' },
+  { label: 'California ISO - 2024 Summer Loads and Resources Assessment', url: 'https://www.caiso.com/Documents/2024-Summer-Loads-and-Resources-Assessment.pdf' },
+  { label: 'South Coast AQMD - Air quality', url: 'https://www.southcoastaqmd.gov/home/air-quality' },
+];
+const acRepairSource = (urlPart: string) => {
+  const found = acRepairSources.find((src) => src.url.includes(urlPart));
+  if (!found) throw new Error(`Unknown AC repair source: ${urlPart}`);
+  return found;
+};
+
 // Full template content for /services/ac-repair/. Locked copy - see CLAUDE.md "Claims that must not ship"
 // before adding anything here: no pricing, timing, brand-list, or availability claims.
 const acRepairPage: ServicePage = {
@@ -478,7 +502,8 @@ const acRepairPage: ServicePage = {
     src: '/images/services/ac-repair/hero.webp',
     alt: 'Outdoor AC condenser unit beside a stucco home with palm and succulent landscaping',
   },
-  heroCaption: 'AC repair for homes and businesses across Southern California',
+  // TODO(copy): client approved 2026-10-19, confirm final wording on review
+  heroCaption: { title: 'AC repair', text: 'for homes and businesses across Southern California' },
   heroProof: [
     { icon: 'shield', label: 'Licensed HVAC contractor' },
     { icon: 'building', label: 'Residential and commercial' },
@@ -496,10 +521,12 @@ const acRepairPage: ServicePage = {
   faqTitle: 'AC repair questions Southern Californians ask',
   finalCtaTitle: 'Get your AC repair scheduled',
   finalCtaBody: 'Call us or request service online.',
+  // TODO(copy): client approved 2026-10-19, confirm final wording on review. Trimmed from 81 words; the
+  // "common problems" list moved verbatim into the fact card's "Common faults" row (regionBand.card).
   answer: {
     lead: 'Air conditioning repair',
     body:
-      ' is a diagnostic service followed by customer-approved corrective work. A technician identifies why the system is not cooling, not draining, not moving enough air, or not running reliably, explains the cause, and repairs it once you approve the price. Common problems include failed capacitors and contactors, refrigerant leaks, fan and blower motor faults, dirty or frozen coils, thermostat faults, and condensate drain clogs. The right repair depends on the equipment, the fault, and the condition of the system.',
+      ' is a diagnostic service followed by customer-approved corrective work. A technician finds why the system is not cooling, draining, moving enough air, or running reliably, explains the cause, and repairs it once you approve the price.',
   },
   // TODO(data): safety wording pending Air Pro safety policy review
   urgency: {
@@ -625,6 +652,41 @@ const acRepairPage: ServicePage = {
     { regionSlug: 'inland-empire', body: 'Inland valleys run hotter and drier in heat events, so a breakdown is urgent, but temperature alone does not identify the fault. Dust, construction, and outdoor debris can contribute to filter and coil loading, and South Coast AQMD has issued windblown-dust advisories that include East Riverside County.' },
   ],
   regionClosing: "Don't see your city? Call us and we will confirm coverage.",
+  // Location-style blocks (a set `glance` marks this service as migrated).
+  // TODO(copy): client approved 2026-10-19, confirm final wording on review
+  glance: {
+    title: 'AC repair at a glance',
+    stats: [
+      { num: '6', label: 'steps in our AC repair process' }, // = the ac-repair `process` array length below
+      { num: 'C-20', label: 'California contractor license class' },
+      { num: String(acRepairSources.length), label: 'sources cited on this page' },
+    ],
+    sources: [acRepairSource('Class=C20')],
+  },
+  // TODO(copy): client approved 2026-10-19, confirm final wording on review
+  regionBand: {
+    eyebrow: 'Across Southern California',
+    title: 'How local conditions shape AC repair',
+    card: {
+      heading: 'AC repair facts',
+      rows: [
+        { label: 'Visit type', value: 'Diagnosis first, repair after you approve the price' },
+        { label: 'Common faults', value: 'Failed capacitors and contactors, refrigerant leaks, fan and blower motor faults, dirty or frozen coils, thermostat faults, and condensate drain clogs' },
+        { label: 'R-410A systems', value: 'Existing R-410A systems can still be serviced' },
+        { label: 'Repair or replace', value: 'ENERGY STAR advises considering replacement when a system is more than 10 years old, but it is not a hard rule' },
+        { label: 'License', value: `California C-20 contractor, license #${siteConfig.licenses[0]} and #${siteConfig.licenses[1]}` },
+      ],
+      sources: [acRepairSource('frequent-questions-phasedown'), acRepairSource('Replace_or_Repair'), acRepairSource('Class=C20')],
+    },
+  },
+  // TODO(copy): client approved 2026-10-19, confirm final wording on review. Replaces the Proof section's
+  // copy of the trust strip stats.
+  proofStats: [
+    { num: `${siteConfig.rating}★`, label: 'Google rating' },
+    { num: String(siteConfig.reviewCount), label: 'Google reviews' },
+    { num: '6', label: 'steps in our AC repair process' }, // = the ac-repair `process` array length
+    { num: String(siteConfig.licenses.length), label: 'license numbers on file' },
+  ],
   // TODO(data): "Thermostat troubleshooting and upgrades" has no matching route yet (no /thermostats/
   // service exists in services.ts); omitted here rather than linked as a dead or placeholder page.
   // "Financing" is omitted until the client confirms a financing offer exists.
@@ -635,21 +697,7 @@ const acRepairPage: ServicePage = {
     { text: 'Air filtration and indoor air quality options', href: '/services/indoor-air-quality/' },
     { text: 'Address airflow and duct problems', href: '/services/duct-repair/' },
   ],
-  sources: [
-    { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/climate-hfcs-reduction/frequent-questions-phasedown-hydrofluorocarbons' },
-    { label: 'ENERGY STAR - When is it time to replace?', url: 'https://www.energystar.gov/saveathome/heating-cooling/replace' },
-    { label: 'ENERGY STAR - Repair or replace', url: 'https://www.energystar.gov/ia/home_improvement/Replace_or_Repair.pdf' },
-    { label: 'U.S. DOE - Airflow and refrigerant charge diagnostics', url: 'https://www.energy.gov/sites/prod/files/2013/12/f5/issue3_airflow_charge.pdf' },
-    { label: 'U.S. DOE Building America - AC diagnostics, maintenance, and repair', url: 'https://www1.eere.energy.gov/buildings/publications/pdfs/building_america/measure_guide_air_cond_diagnostics.pdf' },
-    { label: 'U.S. DOE Building America - HVAC fault detection and diagnosis', url: 'https://www1.eere.energy.gov/buildings/publications/pdfs/building_america/emr-hvac-fault-detection-diagnosis-repair.pdf' },
-    { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20' },
-    { label: 'California CSLB - Get licensed', url: 'https://www.cslb.ca.gov/getlicensed' },
-    { label: 'Energy Code Ace - Refrigerant charge', url: 'https://energycodeace.com/content/48-refrigerant-charge' },
-    { label: 'NASA JPL - Southern California heat-wave differences', url: 'https://www.jpl.nasa.gov/news/nasa-maps-key-heat-wave-differences-in-southern-california/' },
-    { label: 'NOAA Climate.gov - September 2024 heat wave', url: 'https://www.climate.gov/news-features/event-tracker/heat-wave-southern-california-and-southwest-early-september-2024' },
-    { label: 'California ISO - 2024 Summer Loads and Resources Assessment', url: 'https://www.caiso.com/Documents/2024-Summer-Loads-and-Resources-Assessment.pdf' },
-    { label: 'South Coast AQMD - Air quality', url: 'https://www.southcoastaqmd.gov/home/air-quality' },
-  ],
+  sources: acRepairSources,
   faqs: [
     {
       q: 'Why is my AC running but not cooling?',
