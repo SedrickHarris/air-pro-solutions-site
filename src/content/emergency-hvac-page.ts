@@ -33,7 +33,32 @@ import { siteConfig } from '@/content/site-config';
 // grid on this page uses per-region body copy instead of cards with photos, per RegionGrid's
 // `showCities=false` mode already used by every other core service page).
 // TODO(copy): client review of every FAQ answer below before launch.
-export const emergencyHvacPage: ServicePage = {
+
+// TODO(copy): group labels are new (migration). Group order is the display order of the references row.
+const emergencyHvacSources: { label: string; url: string; group: string }[] = [
+  { label: 'U.S. EPA - Carbon monoxide and combustion appliance safety', url: 'https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=30006LZL.TXT', group: 'Safety and diagnostics' },
+  { label: 'U.S. DOE - Common air conditioner problems', url: 'https://www.energy.gov/sites/prod/files/2016/11/f34/Energy%20Saver%20101%20Infographic%20Home%20Cooling_0.pdf', group: 'Safety and diagnostics' },
+  { label: 'U.S. DOE Building America - AC diagnostics', url: 'https://www1.eere.energy.gov/buildings/publications/pdfs/building_america/measure_guide_air_cond_diagnostics.pdf', group: 'Safety and diagnostics' },
+  { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons', group: 'Refrigerant' },
+  { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency', group: 'Energy code and licensing' },
+  { label: 'California Energy Commission - HVAC alterations in existing homes', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/energy-code-support-center/hvac-0', group: 'Energy code and licensing' },
+  { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20', group: 'Energy code and licensing' },
+  { label: 'NASA JPL - Southern California heat-wave differences', url: 'https://www.jpl.nasa.gov/news/nasa-maps-key-heat-wave-differences-in-southern-california/', group: 'Heat and climate' },
+];
+// No manufacturer, contractor or marketplace source is on this page (checked 2026-10-20), so there is no hold-out array.
+
+const count = (items?: readonly unknown[]): string => {
+  if (!items?.length) throw new Error('emergency-hvac-page: empty array used for a derived count');
+  return String(items.length);
+};
+
+const emergencyHvacSource = (urlPart: string) => {
+  const found = emergencyHvacSources.find((s) => s.url.includes(urlPart));
+  if (!found) throw new Error(`Unknown emergency-hvac source: ${urlPart}`);
+  return found;
+};
+
+const emergencyHvacBase: ServicePage = {
   primaryKeyword: 'emergency hvac los angeles',
   // metaServiceName ("Emergency HVAC Repair") feeds serviceTitle()/serviceH1() in src/lib/seo.ts so
   // the built title/H1 match the approved copy exactly: "Emergency HVAC Repair in Los Angeles |
@@ -231,6 +256,7 @@ export const emergencyHvacPage: ServicePage = {
     'Weather tells you how much of an emergency a breakdown feels like. It does not tell a technician which part failed. Inland properties can face dangerous indoor heat sooner, so a total cooling failure there is worth a call right away.',
   ],
   regionConditions: [
+    // TODO(data): "heat warnings can cover both inland communities and some coastal areas" no longer has a cited source. The National Weather Service forecast discussion that was listed (issued October 14, 2026, a heat advisory for coastal areas) was removed from the references because it is a dated snapshot. Find a stable NWS or Cal OES page, or confirm the sentence with the client. NWS calls the product a "Heat Advisory"; the sentence says "warnings".
     { regionSlug: 'los-angeles-county', body: 'The county runs from the coast to inland valleys and foothills, and heat warnings can cover both inland communities and some coastal areas. When cooling fails during a heat advisory, we work through electrical, combustion, and drainage safety first, then the repair.' },
     { regionSlug: 'south-bay', body: 'Coastal influence keeps many days milder, but heat waves can still reach the area. Cooling failures in condos, coastal homes, townhomes, and small commercial spaces still need an accurate diagnosis of airflow, electrical, drainage, and refrigerant issues.' },
     { regionSlug: 'orange-county', body: 'Coastal and inland Orange County differ during heat events, with coastal moisture moderating some areas. We handle no-cooling, no-heat, drainage, and control failures based on the actual equipment and access.' },
@@ -266,17 +292,7 @@ export const emergencyHvacPage: ServicePage = {
   ],
   sourcesEyebrow: 'References',
   sourcesColumns: 2,
-  sources: [
-    { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/climate-hfcs-reduction/frequent-questions-phasedown-hydrofluorocarbons' },
-    { label: 'U.S. EPA - Carbon monoxide and combustion appliance safety', url: 'https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=30006LZL.TXT' },
-    { label: 'U.S. DOE - Common air conditioner problems', url: 'https://www.energy.gov/sites/prod/files/2016/11/f34/Energy%20Saver%20101%20Infographic%20Home%20Cooling_0.pdf' },
-    { label: 'U.S. DOE Building America - AC diagnostics', url: 'https://www1.eere.energy.gov/buildings/publications/pdfs/building_america/measure_guide_air_cond_diagnostics.pdf' },
-    { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20' },
-    { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency' },
-    { label: 'California Energy Commission - HVAC alterations in existing homes', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/energy-code-support-center/hvac-0' },
-    { label: 'NASA JPL - Southern California heat-wave differences', url: 'https://www.nasa.gov/centers-and-facilities/jpl/nasa-maps-key-heat-wave-differences-in-southern-california/' },
-    { label: 'National Weather Service - Southern California forecast discussion', url: 'https://forecast.weather.gov/product.php?site=SGX&issuedby=LOX&product=AFD&format=CI&version=48&glossary=1' },
-  ],
+  sources: emergencyHvacSources,
   faqs: [
     {
       q: 'Is no air conditioning an emergency?',
@@ -331,3 +347,5 @@ export const emergencyHvacPage: ServicePage = {
     },
   ],
 };
+
+export const emergencyHvacPage: ServicePage = { ...emergencyHvacBase };
