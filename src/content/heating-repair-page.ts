@@ -17,8 +17,7 @@ import { siteConfig } from '@/content/site-config';
 // for this service area).
 // TODO(data): city lists per region stay out of the "Where we work" section until the client confirms
 // coverage (see CLAUDE.md doorway-page rule).
-// TODO(copy): confirm "/services/ac-maintenance/" is the right link target for the "HVAC Maintenance" related-
-// service card label, and that its content actually covers heating maintenance.
+// RESOLVED (2026-10-20, confirmed by user): relabeled "AC maintenance". The target covers cooling-side maintenance only; heating-season maintenance is not covered there (its heat pump row says it is a separate visit).
 // RESOLVED (2026-10-20, confirmed by user): the link to /services/emergency-hvac/ is allowed; 24/7 emergency dispatch is an
 // approved claim. This page itself states no response time, after-hours or availability, and must not add any.
 // RESOLVED (2026-10-20, client approved page copy, confirmed by user): client review of every FAQ answer below.
@@ -273,10 +272,9 @@ const heatingRepairBase: ServicePage = {
   // lede, hero chip, process steps 4 and 5, proof block, FAQ 1, pricing lead).
   proofHeading: 'A technician who explains what is actually wrong',
   proofBody: 'You get the diagnosis and the repair option explained before you approve any work, and a walkthrough of what was fixed and why.',
-  // TODO(copy): confirm "/services/ac-maintenance/" is the right target for the "HVAC Maintenance" label and
-  // that its content covers heating.
+  // RESOLVED (2026-10-20, confirmed by user): relabeled "AC maintenance". The target covers cooling-side maintenance only; heating-season maintenance is not covered there (its heat pump row says it is a separate visit).
   relatedLabels: {
-    'ac-maintenance': 'HVAC Maintenance',
+    'ac-maintenance': 'AC maintenance',
   },
   // RESOLVED (2026-10-20, confirmed by user): the Emergency HVAC link is allowed. This page itself states no response time,
   // after-hours or availability, and must not add any.
