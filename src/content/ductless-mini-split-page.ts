@@ -1,4 +1,5 @@
 import type { ServicePage } from '@/content/services';
+import { siteConfig } from '@/content/site-config';
 
 // TODO(data): never fabricate business data. No prices, install durations, warranty terms, brand
 // names, or same-day/24-7/emergency-availability wording appear anywhere on this page.
@@ -65,7 +66,8 @@ const ductlessMiniSplitBase: ServicePage = {
     src: '/images/services/ductless-mini-split/hero.webp',
     alt: 'Wall-mounted ductless mini-split indoor unit in a converted garage living space with large windows onto a drought-tolerant garden',
   },
-  heroCaption: 'Ductless comfort for ADUs and homes without ducts.',
+  // TODO(copy): split word for word from the old one-sentence caption "Ductless comfort for ADUs and homes without ducts." No new words; the trailing period is dropped. Recommended default from the planning chat, client to approve. Centered (no `heroCaptionAlign`).
+  heroCaption: { title: 'Ductless comfort', text: 'for ADUs and homes without ducts' },
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
@@ -209,6 +211,7 @@ const ductlessMiniSplitBase: ServicePage = {
       ' EPA\'s rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. Existing R-410A systems can still be serviced. Newer refrigerants can be A2L-classified, and safety requirements vary by matched equipment, so the refrigerant should follow the manufacturer\'s instructions for the exact system. Ask your contractor which rules apply to the equipment in your proposal.',
     // TODO(copy): restore "listed under Sources below" wording once the Sources section is built.
     sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ.',
+    // TODO(data): the Source line on the migrated page lists the EPA FAQ and the EPA SNAP table (see `refrigerant.sources` below). `sourceText` stays for the unmigrated markup.
   },
   pricingTitle: 'What affects mini-split cost',
   pricingIntro:
@@ -363,4 +366,68 @@ const ductlessMiniSplitBase: ServicePage = {
   // TODO(copy): client review of every FAQ answer above before launch.
 };
 
-export const ductlessMiniSplitPage: ServicePage = { ...ductlessMiniSplitBase };
+// Location-style migration (docs/open-items.md "Service page migration"). Setting `glance` marks this service as migrated.
+// TODO(copy): all strings in this block are new (glance labels, fact card, proof stats, caption split).
+// GlanceCard keys on `num`: the three numbers must stay different (3, 6, 7 today). Fail the build if they collide.
+// Alternates if one ever collides: count(ductlessMiniSplitBase.priceFactors) is 8, count(ductlessMiniSplitBase.decision.cards) is 4.
+const glanceStats = [
+  { num: count(ductlessMiniSplitBase.layoutTable!.rows), label: 'layouts compared' },
+  { num: '6', label: 'steps from request to handoff' }, // = the ductless-mini-split `process` array length in services.ts; keep in sync
+  { num: count(ductlessMiniSplitBase.diagnosis), label: 'symptoms and what they can mean' },
+];
+if (new Set(glanceStats.map((x) => x.num)).size !== glanceStats.length) {
+  throw new Error('ductless-mini-split-page: glance stat numbers must be unique (GlanceCard keys on num)');
+}
+
+export const ductlessMiniSplitPage: ServicePage = {
+  ...ductlessMiniSplitBase,
+  glance: {
+    title: 'Ductless mini-split at a glance',
+    stats: glanceStats,
+    // TODO(data): all three stats are page counts, not claims from a source, so no source line is shown (SourceLinks renders nothing for an empty array).
+    sources: [],
+  },
+  regionBand: {
+    eyebrow: 'Across Southern California',
+    title: 'How Southern California conditions shape ductless mini-split planning',
+    card: {
+      heading: 'Ductless mini-split facts',
+      // Rows are in drop-order priority for the 1280px balance check: the last row goes first. Never go below two rows without asking.
+      // Rows restate existing page copy or a source's own wording: no License row, no dollar amounts, no rolling dates, no installation date
+      // and no permit or alteration claim.
+      // Not built: row "Coast and inland" (regionIntro paragraph 1, "marine air covering the coastal plain much of the year, with the coastal
+      // ranges buffering the interior"), because no NOAA document with that wording was read (NWS Western Region memo 261 is a scanned PDF
+      // with no text layer). Restore it with a NOAA source once the memo is read.
+      // Row 3 (Energy code) was the reserve row, added because two rows left the card 186px short of the copy at 1280px. Energy Commission:
+      // "Buildings whose permit applications are applied for on or after January 1, 2026, must comply with the 2025 Energy Code." Date sentence only.
+      rows: [
+        { label: 'Existing R-410A systems', value: 'Existing R-410A systems can still be serviced' },
+        { label: 'Air quality', value: "South Coast AQMD names ozone and particulate matter as the region's primary air pollutants" },
+        { label: 'Energy code', value: 'The 2025 California Building Energy Efficiency Standards apply to permit applications submitted on or after January 1, 2026' },
+      ],
+      sources: [
+        ductlessMiniSplitSource('frequent-questions-phasedown'),
+        ductlessMiniSplitSource('aqmd.gov/home/air-quality'),
+        ductlessMiniSplitSource('2025-building-energy-efficiency'),
+      ],
+    },
+  },
+  proofStats: [
+    { num: `${siteConfig.rating}★`, label: 'Google rating' },
+    { num: String(siteConfig.reviewCount), label: 'Google reviews' },
+    { num: count(ductlessMiniSplitBase.faqs), label: 'mini-split questions answered' },
+    { num: count(ductlessMiniSplitBase.priceFactors), label: 'cost factors explained' },
+  ],
+  // TODO(design): real photos (1200x900) to replace the "Photo pending" tiles (refrigerant and region intro).
+  regionMedia: { icon: 'pin' },
+  refrigerant: {
+    ...ductlessMiniSplitBase.refrigerant!,
+    media: { icon: 'snowflake' },
+    sources: [
+      ductlessMiniSplitSource('frequent-questions-phasedown'),
+      ductlessMiniSplitSource('snap/substitutes-residential'),
+    ],
+  },
+  // Not built: repairReplaceExtra.media ({ icon: 'refresh' }). This page's repairReplaceExtra.paragraphs is empty, so the 330px Photo pending tile sat beside a
+  // single link line with about 300px of blank space under it at 1280px. Restore it if paragraphs are ever added.
+};
