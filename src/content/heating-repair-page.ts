@@ -19,8 +19,8 @@ import { siteConfig } from '@/content/site-config';
 // coverage (see CLAUDE.md doorway-page rule).
 // TODO(copy): confirm "/services/ac-maintenance/" is the right link target for the "HVAC Maintenance" related-
 // service card label, and that its content actually covers heating maintenance.
-// TODO(data): do not link to /services/emergency-hvac/ from this page until the client confirms real
-// always-on availability.
+// RESOLVED (2026-10-20, confirmed by user): the link to /services/emergency-hvac/ is allowed; 24/7 emergency dispatch is an
+// approved claim. This page itself states no response time, after-hours or availability, and must not add any.
 // TODO(copy): client review of every FAQ answer below before launch.
 //
 // No prices, appointment windows, warranty terms, technician certifications, or same-day/24-7/
@@ -278,11 +278,12 @@ const heatingRepairBase: ServicePage = {
   relatedLabels: {
     'ac-maintenance': 'HVAC Maintenance',
   },
-  // TODO(data): do not link to /services/emergency-hvac/ from this page until the client confirms real
-  // availability.
+  // RESOLVED (2026-10-20, confirmed by user): the Emergency HVAC link is allowed. This page itself states no response time,
+  // after-hours or availability, and must not add any.
   moreLinks: [
     { text: 'Ductless mini-split', href: '/services/ductless-mini-split/' },
     { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
+    { text: 'Emergency HVAC', href: '/services/emergency-hvac/' },
     { text: 'Commercial HVAC', href: '/commercial-hvac/' },
     { text: 'Service areas', href: '/service-areas/' },
   ],
