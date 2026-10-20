@@ -176,11 +176,13 @@ export type ServicePage = {
     body: string;
     boldLead?: string;
     sourceText?: string;
+    sourceLabel?: string; // linked "Source:" line on migrated pages; sourceText is the plain fallback
+    sourceHref?: string;
   }[];
   // Plain rebates/incentives callout: one body paragraph plus a short list of external links.
   // Distinct from `incentives` (three RebateCards with dollar-free per-program summaries), because
   // this page's approved copy is a single paragraph with two links, not three cards.
-  rebatesNote?: { title: string; body: string; links: { text: string; href: string }[] };
+  rebatesNote?: { title: string; body: string; links: { text: string; href: string }[]; media?: { icon: string; image?: ServiceImage } }; // media: migrated pages only; no `image` = "Photo pending" tile
   // Per-region link label overrides for RegionGrid, keyed by region slug (from src/content/regions.ts).
   // Falls back to the default "{regionLinkVerb} in {region name}" formula when unset, so every other
   // service page is unaffected.
@@ -368,7 +370,7 @@ export type ServicePage = {
   // from the `refrigerant` and `timeline` fields above because both of those are bound to earlier
   // fixed positions in page.tsx than this page needs (right before the `rebatesNote` incentives
   // section, not right after SystemsGrid or VisitScope).
-  replacementNote?: { title: string; body: string; sourceText?: string };
+  replacementNote?: { title: string; body: string; sourceText?: string; sourceLabel?: string; sourceHref?: string; media?: { icon: string; image?: ServiceImage } };
   // Anchor-id overrides for internal linking (e.g. this page's "#filtration"/"#areas"/"#resources").
   // Unset by default so every other service page's SystemsGrid/RegionGrid/FaqList is unaffected.
   systemsSectionId?: string;

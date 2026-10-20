@@ -585,6 +585,8 @@ export default async function Page({ params }: { params: Promise<{ service: stri
                   title={c.title}
                   body={c.body}
                   boldLead={c.boldLead}
+                  sourceLabel={c.sourceLabel}
+                  sourceHref={c.sourceHref}
                   sourceText={c.sourceText}
                   showSource={migrated}
                 />
@@ -709,8 +711,12 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         <RefrigerantNote
           title={page.replacementNote.title}
           body={page.replacementNote.body}
+          sourceLabel={page.replacementNote.sourceLabel}
+          sourceHref={page.replacementNote.sourceHref}
           sourceText={page.replacementNote.sourceText}
           showSource={migrated}
+          // TODO(design): real photo (1200x900) to replace the "Photo pending" tile
+          media={migrated && page.replacementNote.media ? <MediaTile icon={page.replacementNote.media.icon} image={page.replacementNote.media.image} /> : undefined}
         />
       )}
 
@@ -751,22 +757,36 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       {/* Plain rebates callout (ac-maintenance): a single body paragraph plus a short external-link
           list, distinct from the three-card `incentives` block above (used by ac-installation). */}
-      {page.rebatesNote && (
-        <section className="alt">
-          <div className="wrap">
-            <h2>{page.rebatesNote.title}</h2>
-            <p className="compare-intro">{page.rebatesNote.body}</p>
+      {page.rebatesNote && (() => {
+        const rebates = page.rebatesNote;
+        const text = (
+          <>
+            <h2>{rebates.title}</h2>
+            <p className="compare-intro">{rebates.body}</p>
             <p className="table-note">
-              {page.rebatesNote.links.map((l, i) => (
+              {rebates.links.map((l, i) => (
                 <span key={l.href}>
                   <a className="link" href={l.href} target="_blank" rel="noopener noreferrer">{l.text}</a>
-                  {i < page.rebatesNote!.links.length - 1 ? ' · ' : ''}
+                  {i < rebates.links.length - 1 ? ' · ' : ''}
                 </span>
               ))}
             </p>
-          </div>
-        </section>
-      )}
+          </>
+        );
+        return (
+          <section className="alt">
+            <div className="wrap">
+              {migrated && rebates.media ? (
+                // TODO(design): real photo (1200x900) to replace the "Photo pending" tile
+                <div className="split-media">
+                  <div>{text}</div>
+                  <MediaTile icon={rebates.media.icon} image={rebates.media.image} />
+                </div>
+              ) : text}
+            </div>
+          </section>
+        );
+      })()}
 
       <AppliesRow
         items={page.appliesTo}
