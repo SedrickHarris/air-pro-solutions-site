@@ -1455,7 +1455,8 @@ so no row was dropped.
   because 8 sources would collide with the 8 symptoms). JSON-LD changed for FAQ 3 only and matches the visible answer.
 - `moreLinks` Emergency HVAC: RESOLVED (2026-10-20, confirmed by user). The link was added after Indoor air quality; 24/7 emergency
   dispatch is an approved claim. This page itself states no response time, after-hours or availability, and must not add any.
-- Still open: the `ac-maintenance` target for the "HVAC Maintenance" label (decide when AC Maintenance migrates); the unconfirmed
+- RESOLVED (2026-10-20, confirmed by user): the Heating Repair related card is relabeled "AC maintenance" (it was "HVAC Maintenance").
+- Still open: the unconfirmed
   repair-cost process (the kept quick-answer sentences say "customer-approved" and "once you approve the price"); and the refrigerant
   wording. NAHB supports R-454B and "lower flammability" in substance but writes "Class 2L" where the page says "A2L", and only R-32 is
   backed by EPA, so FAQ 5 and the refrigerant body should be neutralized in one pass with their JSON-LD once the client signs off.
@@ -1482,8 +1483,8 @@ so no row was dropped.
   mean" are two alt sections back to back.
 
 AC Maintenance is migrated (2026-10-20, branch `ac-maintenance-migration`, based on `origin/main` 06c20dc, which already held AC Repair,
-Furnace Installation, AC Installation, Indoor Air Quality, Heat Pump Services and Heating Repair). New strings are TODO(copy): client copy
-approval for AC Maintenance has NOT been given (unlike Heating Repair). Quick answer trimmed from 87 to 43 words, hero caption split into
+Furnace Installation, AC Installation, Indoor Air Quality, Heat Pump Services and Heating Repair). New strings: RESOLVED (2026-10-20, client approved
+page copy, confirmed by user). Quick answer trimmed from 87 to 43 words, hero caption split into
 title and text, glance card, "Across Southern California" band and fact card, `proofStats`, 5 source groups (9 sources: Maintenance and
 efficiency, Refrigerant, Codes and licensing, Heat and air quality, Rebates and incentives), the two linked callout source lines (efficiency,
 R-410A) and two Photo pending tiles (rebates band and region intro; TODO(design): real photos). No component, CSS, `page.tsx` or `services.ts`
@@ -1496,16 +1497,16 @@ glance numbers collide (checked by forcing a collision). The C-20 header TODO(da
   `.local-knowledge-dark .local-grid`, `.local-copy`, `.nbhd-card`): copy 391px, card 427px, blankInCard 1px. The card runs 36px past the copy,
   inside the 50px target, so no row was dropped and the reserve "Filters" row (ENERGY STAR: inspect and clean or change filters monthly) was
   not added; it would push the card further past the copy.
-- Cut sentences (all DECISION PENDING with the user): (a) "It is not a repair." dropped, `decision` card 2 and `catches.afterText` already say a
+- Cut sentences (RESOLVED 2026-10-20, approved by user, D2: all three cuts stand): (a) "It is not a repair." dropped, `decision` card 2 and `catches.afterText` already say a
   fault is a repair. (b) "If the visit turns up a failed part, a leak, or a drainage problem, that work is explained and quoted separately."
   dropped, not moved: it is the unconfirmed repair-cost process, still on the page in process step 5, FAQ 2, `visitExtraNote` and
   `pricingClosing`. (c) "ENERGY STAR recommends a professional checkup once a year, and spring is the practical time for cooling equipment."
   dropped, `timing` card 1 and FAQ 1 already carry it. Alternative not built: keep "It is not a repair." and the ENERGY STAR sentence (41
   words) and drop the technician checklist sentence instead.
-- Hero caption: DECISION PENDING. Built `{ title: 'Pre-season AC tune-ups', text: 'across Southern California' }` (same words as the old
+- Hero caption: RESOLVED (2026-10-20, approved by user, D1). Built `{ title: 'Pre-season AC tune-ups', text: 'across Southern California' }` (same words as the old
   string, no trailing period, centered). Alternative not built: "AC maintenance" plus "for homes and businesses across Southern California".
 - Glance source: TODO(data). All three stats are page counts; the ENERGY STAR checklist supports the visit items in substance only and does not
-  support the six-step Air Pro visit or the three timing points. Alternative third stat: `count(sources)` (9), giving 3 / 6 / 9.
+  support the six-step Air Pro visit or the three timing points. The third stat stays `visitIncludes` (8), approved 2026-10-20; no Filters reserve row.
 - EPA source URL now uses `/hfcs/frequent-questions-phasedown-hydrofluorocarbons`. The old `/climate-hfcs-reduction/` URL redirects once to
   the new one (200). It is now only in `emergency-hvac-page.ts` (fix when that page migrates).
 - Attribution findings (nothing edited): the EPA FAQ supports row 1 ("Consumers will be able to continue using their equipment until the
@@ -1530,10 +1531,10 @@ glance numbers collide (checked by forcing a collision). The C-20 header TODO(da
 - Related cards: the page renders AC Repair, AC Installation, Emergency HVAC and Commercial HVAC (auto-appended). The Emergency HVAC card
   reads "24/7 dispatch for no-cool and no-heat emergencies that can't wait for a scheduled appointment." (from `services.ts`, states no response
   time). 24/7 emergency dispatch is an approved claim, but the file header sentence "No ... same-day/24-7/emergency-availability wording appear
-  anywhere on this page" is untrue on the rendered page. Not edited; decide whether to reword the header.
-- Heating Repair label: DECISION PENDING. Heating Repair's related card reads "HVAC Maintenance" and links to `/services/ac-maintenance/`, but this
+  anywhere on this page" is untrue on the rendered page. RESOLVED (2026-10-20, confirmed by user): the header sentence was reworded (comment only) to name the one 24/7 appearance, the Emergency HVAC card, as an approved claim.
+- Heating Repair label: RESOLVED (2026-10-20, confirmed by user): relabeled "AC maintenance" in `heating-repair-page.ts` (`relatedLabels`). It read "HVAC Maintenance" and linked to `/services/ac-maintenance/`, but this
   page is cooling-side maintenance ("Heating-season maintenance is a separate visit" in the heat pump row), and a noindex level-2 stub
-  `hvac-maintenance` exists in `services.ts`. If the user agrees, change `relatedLabels` in `heating-repair-page.ts` to `'AC maintenance'`.
+  `hvac-maintenance` exists in `services.ts`. Only that label changed.
 - `/maintenance-plan/` is still a "content coming" stub and its visible text includes "Do not publish prices until supplied."; the
   "Maintenance plan options" link in `moreLinks` points to it. Not edited.
 - URL check (headless Chromium via Playwright, not Claude in Chrome): 200 for all 9 sources, both `rebatesNote` links (same URLs as the LADWP and
@@ -1545,8 +1546,9 @@ glance numbers collide (checked by forcing a collision). The C-20 header TODO(da
   catches, systems alt, callouts, pricing alt, rules, rebates alt, applies, regions alt), then the proof band, related cards (plain) and the
   FAQ (alt). No two alt bands touch.
 - Still open: the unconfirmed repair-cost process (kept in process step 5, FAQ 2, `visitExtraNote`, `pricingClosing`), the `visitIncludes`
-  checklist versus ENERGY STAR, the Heating Repair label, the `/maintenance-plan/` stub, the Emergency HVAC card versus the header sentence,
-  the LADWP and SCE recheck before launch, and every TODO(copy) above.
+  checklist versus ENERGY STAR, the `/maintenance-plan/` stub, the attribution gaps above (nothing edited), the EPA FAQ versus May 2026 rule
+  conflict (see Blockers), and the LADWP and SCE rebate recheck before launch (SCE's page says the ESA Whole Home pilot sunsets at the end of
+  2026; the standard ESA continues).
 
 Remaining three: Ductwork, Emergency HVAC, Ductless Mini-Split.
 
