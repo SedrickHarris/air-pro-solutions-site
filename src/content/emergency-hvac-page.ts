@@ -348,4 +348,65 @@ const emergencyHvacBase: ServicePage = {
   ],
 };
 
-export const emergencyHvacPage: ServicePage = { ...emergencyHvacBase };
+// Location-style migration (docs/open-items.md "Service page migration"). Setting `glance` marks this service as migrated.
+// TODO(copy): all strings in this block are new (glance labels, fact card, proof stats).
+// GlanceCard keys on `num`: the three numbers must stay different (3, 6, 8 today). Fail the build if they collide.
+// Alternates if one ever collides: count(emergencyHvacBase.priceFactors) is 7, count(emergencyHvacBase.visitIncludes) is 5. Do not use
+// count(sources) (8 today, it would collide with the diagnosis count).
+const glanceStats = [
+  { num: count(emergencyHvacBase.triage!.cards), label: 'situations sorted, from life safety to scheduled' },
+  { num: '6', label: 'steps an emergency visit commonly involves' }, // = the emergency-hvac `process` array length in services.ts; keep in sync
+  { num: count(emergencyHvacBase.diagnosis), label: 'symptoms and what they can mean' },
+];
+if (new Set(glanceStats.map((x) => x.num)).size !== glanceStats.length) {
+  throw new Error('emergency-hvac-page: glance stat numbers must be unique (GlanceCard keys on num)');
+}
+
+export const emergencyHvacPage: ServicePage = {
+  ...emergencyHvacBase,
+  glance: {
+    title: 'Emergency HVAC at a glance',
+    stats: glanceStats,
+    // TODO(data): all three stats are page counts. The DOE Building America guide supports the fault families in the diagnosis rows (icing from low airflow and low charge, restricted airflow, failed contactors, capacitors and compressors), not the three triage tiers or the six-step visit. Confirm this source line reads correctly.
+    sources: [emergencyHvacSource('measure_guide_air_cond_diagnostics')],
+  },
+  regionBand: {
+    eyebrow: 'Across Southern California',
+    title: 'How Southern California conditions shape emergency HVAC repair',
+    card: {
+      heading: 'Emergency HVAC facts',
+      // Rows are in drop-order priority for the 1280px balance check: the last row goes first. Never go below two rows without
+      // asking. Rows restate existing page copy or a source's own wording: no License row, no dollar amounts, no rolling dates, no
+      // installation date, no permit or alteration claim, and no availability, 24/7 or response-time fact (docs/open-items.md Blockers).
+      // Reserve row, not built (restore it if a row above is dropped): label "Energy code", value "The 2025 California Building Energy
+      // Efficiency Standards apply to permit applications submitted on or after January 1, 2026" (date sentence only; source: the
+      // Energy Commission 2025 standards page, "Buildings whose permit applications are applied for on or after January 1, 2026, must
+      // comply with the 2025 Energy Code.").
+      rows: [
+        { label: 'Carbon monoxide alarm', value: 'Get everyone outside immediately and call 911 or your local emergency number from outside' },
+        { label: 'Coast and valley', value: "NASA JPL's analysis of two heat waves in the summer of 2020 found southern LA County and Orange County stayed cooler, given their proximity to the Pacific Ocean and coastal moisture, while valley regions including San Fernando and Riverside skewed drier and hotter" },
+        { label: 'Existing R-410A systems', value: 'The EPA allows R-410A components to be used to service existing systems' },
+      ],
+      sources: [
+        emergencyHvacSource('nepis.epa.gov'),
+        emergencyHvacSource('nasa-maps-key-heat-wave'),
+        emergencyHvacSource('frequent-questions-phasedown'),
+      ],
+    },
+  },
+  proofStats: [
+    { num: `${siteConfig.rating}★`, label: 'Google rating' },
+    { num: String(siteConfig.reviewCount), label: 'Google reviews' },
+    { num: count(emergencyHvacBase.faqs), label: 'emergency HVAC questions answered' },
+    { num: count(emergencyHvacBase.repairReplaceTable!.rows), label: 'repair-or-replace factors compared' },
+  ],
+  // TODO(design): real photos (1200x900) to replace the two "Photo pending" tiles (refrigerant callout and region intro).
+  regionMedia: { icon: 'pin' },
+  refrigerant: {
+    ...emergencyHvacBase.refrigerant!,
+    media: { icon: 'snowflake' },
+    // Linked source line on migrated pages. `sourceText` is left in place and is used by the unmigrated markup only.
+    sources: [emergencyHvacSource('frequent-questions-phasedown')],
+  },
+  // No heroCaption and no heroImage (recommended default from the planning chat): the hero keeps its "Photo pending" tile.
+};
