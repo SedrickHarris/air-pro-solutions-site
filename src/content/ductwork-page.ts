@@ -10,8 +10,8 @@ import { siteConfig } from '@/content/site-config';
 // education only.
 // TODO(data): permit handling is not promised. Upgrade the Permits card and FAQ 8 only if Air Pro
 // actually coordinates permits and energy-code documentation.
-// TODO(data): verify the CSLB record for #1126691 and #50251 shows C-20, active status, bond, and
-// workers' compensation before keeping "Licensed HVAC contractor" and the C-20 tile.
+// RESOLVED (2026-10-19, confirmed by user): the CSLB record for licenses 1126691 and 50251 shows C-20, and "licensed, bonded and insured" is an approved claim (hero proof "Licensed HVAC contractor", trust strip, proof block, footer).
+// TODO(data): workers' compensation is not an approved claim. Do not state it anywhere until the client confirms it.
 // TODO(data): the base-scope list (included/can-add-to-cost) is a typical scope, not Air Pro's
 // confirmed estimate template. Confirm inclusions and extras.
 // TODO(data): no Air Pro price, range, or duration appears anywhere on this page. Third-party ranges
