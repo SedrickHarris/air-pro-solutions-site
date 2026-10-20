@@ -1068,7 +1068,7 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
 
 ## /service-areas/upland/ (uplandOverrides in src/content/cities.ts)
 
-Built 2026-10-19 on branch add-upland-page (not pushed yet). Reference: claude/reference/upland-location.html (review artifact: https://claude.ai/artifact/LrNGKU4DiVFWesdP58eVEY). Same single-data-source build as Santa Ana, Newport Beach, Fullerton, Tustin, Chino and Fontana. Upland was a wave 2 noindex stub before this.
+Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/reference/upland-location.html (review artifact: https://claude.ai/artifact/LrNGKU4DiVFWesdP58eVEY). Same single-data-source build as Santa Ana, Newport Beach, Fullerton, Tustin, Chino and Fontana. Upland was a wave 2 noindex stub before this.
 - Title: `cityTitle('Upland')` ("HVAC Services in Upland, CA | AIRPRO SOLUTIONS", 46 characters). H1 is `cityH1('Upland')`. Hand-written `page.metaDescription` is 157 characters and passes `assertDescription`; it claims only "Licensed" and "4.8-star rated". The literal phrase "hvac upland" is not used. 14 FAQs.
 - Copy approval: the client approved the Upland page copy on 2026-10-19 (per the user).
 - DECISION `wave1` (same default as Fontana): Upland is wave 2. Indexability and the sitemap follow the `page` block, so it is indexable and enters the sitemap automatically. `sitemap.ts` and the `wave1` Set were not edited.
