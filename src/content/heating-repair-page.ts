@@ -77,7 +77,10 @@ const heatingRepairBase: ServicePage = {
     src: '/images/services/heating-repair/hero.webp',
     alt: 'Gas furnace in a home utility closet with the access panel removed and a multimeter resting nearby during a diagnostic check',
   },
-  heroCaption: 'Heating system diagnostics identify the source of heating problems',
+  // TODO(copy): DECISION PENDING. The old caption was one sentence; this splits it into title and text with no new words and no
+  // new claim. Alternative, not built: { title: 'Heating repair', text: 'for homes and businesses across Southern California' }
+  // (matches the sibling pages and restates scope already shown in the hero chips).
+  heroCaption: { title: 'Heating system diagnostics', text: 'identify the source of heating problems' },
   heroCaptionAlign: 'left',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
