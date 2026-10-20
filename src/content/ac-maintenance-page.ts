@@ -17,13 +17,37 @@ import { siteConfig } from '@/content/site-config';
 // wording, warranty terms, technician certifications, or a commercial maintenance program appear
 // anywhere on this page - none are confirmed. See CLAUDE.md "Claims that must not ship".
 
+// TODO(copy): group labels are new (migration), confirm on review. Group order is the display order of the references row.
+const acMaintenanceSources: { label: string; url: string; group: string }[] = [
+  { label: 'ENERGY STAR - Maintenance checklist', url: 'https://www.energystar.gov/saveathome/heating-cooling/maintenance-checklist', group: 'Maintenance and efficiency' },
+  { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons', group: 'Refrigerant' },
+  { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency', group: 'Codes and licensing' },
+  { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20', group: 'Codes and licensing' },
+  { label: 'South Coast AQMD - July 2025 ozone advisory', url: 'https://www.aqmd.gov/docs/default-source/news-archive/2025/south-coast-aqmd-issues-ozone-advisory-due-to-heat-wave---july-7-2025.pdf', group: 'Heat and air quality' },
+  { label: 'South Coast AQMD - August 2025 ozone advisory', url: 'https://www.aqmd.gov/docs/default-source/news-archive/2025/ozone-adv_080725.pdf', group: 'Heat and air quality' },
+  { label: 'California Energy Commission - Los Angeles regional climate report', url: 'https://www.energy.ca.gov/sites/default/files/2019-11/Reg%20Report-%20SUM-CCCA4-2018-007%20LosAngeles_ADA.pdf', group: 'Heat and air quality' },
+  { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program', group: 'Rebates and incentives' },
+  { label: 'Southern California Edison - Energy Savings Assistance Program', url: 'https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program', group: 'Rebates and incentives' },
+];
+
+const count = (items?: readonly unknown[]): string => {
+  if (!items?.length) throw new Error('ac-maintenance-page: empty array used for a derived count');
+  return String(items.length);
+};
+
+const acMaintenanceSource = (urlPart: string) => {
+  const found = acMaintenanceSources.find((s) => s.url.includes(urlPart));
+  if (!found) throw new Error(`Unknown AC maintenance source: ${urlPart}`);
+  return found;
+};
+
 // Full template content for /services/ac-maintenance/. Reuses the same ServicePage shape and shared section
 // components already built out for /services/ac-repair/ and /services/ac-installation/ - see the build report for why a
 // second, parallel content shape (src/content/service-pages/) was not introduced. A handful of new
 // optional ServicePage fields (decision, timing, catches, callouts, rebatesNote, regionLinkLabels,
 // trustStripLicenseLabel) were added for sections that don't exist on the other two service pages;
 // every one of them is optional so ac-repair and ac-installation are unaffected.
-export const acMaintenancePage: ServicePage = {
+const acMaintenanceBase: ServicePage = {
   primaryKeyword: 'ac maintenance los angeles',
   metaDescription:
     'Get AC maintenance for homes and businesses across Los Angeles and Southern California. Coils, drains, airflow, and controls checked. Schedule service.',
@@ -162,6 +186,9 @@ export const acMaintenancePage: ServicePage = {
       title: 'Can maintenance lower my energy costs?',
       body: 'It can address problems that reduce efficiency. ENERGY STAR says dirty coils can make a system run longer, incorrect refrigerant levels reduce efficiency, and airflow problems can cut efficiency by up to 15 percent. Whether a visit lowers your bill depends on what the inspection finds, and a specific bill increase can have other causes such as thermostat use, the building envelope, or rate changes.',
       sourceText: 'Source: ENERGY STAR maintenance checklist.',
+      // TODO(copy): linked source line, replaces the plain sourceText on migrated pages
+      sourceLabel: 'ENERGY STAR, Maintenance checklist',
+      sourceHref: acMaintenanceSource('energystar.gov/saveathome/heating-cooling/maintenance-checklist').url,
     },
     {
       id: 'r410a',
@@ -170,6 +197,9 @@ export const acMaintenancePage: ServicePage = {
       boldLead: 'No.',
       body: ' The EPA states that existing equipment can stay in use through its useful life. EPA\'s rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. An older R-410A system can still be maintained, and replacement is a decision based on condition, repair history, and your plans for the property. Ask your contractor which rules apply to the equipment in your proposal.',
       sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ.',
+      // TODO(copy): linked source line, replaces the plain sourceText on migrated pages
+      sourceLabel: 'U.S. EPA, HFC Phasedown FAQ',
+      sourceHref: acMaintenanceSource('frequent-questions-phasedown').url,
     },
   ],
   pricingTitle: 'What affects AC maintenance cost',
@@ -248,17 +278,7 @@ export const acMaintenancePage: ServicePage = {
     { text: 'Maintenance plan options', href: '/maintenance-plan/' },
   ],
   sourcesColumns: 2,
-  sources: [
-    { label: 'ENERGY STAR - Maintenance checklist', url: 'https://www.energystar.gov/saveathome/heating-cooling/maintenance-checklist' },
-    { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/climate-hfcs-reduction/frequent-questions-phasedown-hydrofluorocarbons' },
-    { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency' },
-    { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20' },
-    { label: 'South Coast AQMD - July 2025 ozone advisory', url: 'https://www.aqmd.gov/docs/default-source/news-archive/2025/south-coast-aqmd-issues-ozone-advisory-due-to-heat-wave---july-7-2025.pdf' },
-    { label: 'South Coast AQMD - August 2025 ozone advisory', url: 'https://www.aqmd.gov/docs/default-source/news-archive/2025/ozone-adv_080725.pdf' },
-    { label: 'California Energy Commission - Los Angeles regional climate report', url: 'https://www.energy.ca.gov/sites/default/files/2019-11/Reg%20Report-%20SUM-CCCA4-2018-007%20LosAngeles_ADA.pdf' },
-    { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program' },
-    { label: 'Southern California Edison - Energy Savings Assistance Program', url: 'https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program' },
-  ],
+  sources: acMaintenanceSources,
   faqs: [
     {
       q: 'How often should I schedule AC maintenance?',
@@ -306,4 +326,9 @@ export const acMaintenancePage: ServicePage = {
     },
   ],
   // TODO(copy): client review of every FAQ answer above before launch.
+};
+
+// Location-style migration (docs/open-items.md "Service page migration"). Setting `glance` marks this service as migrated.
+export const acMaintenancePage: ServicePage = {
+  ...acMaintenanceBase,
 };
