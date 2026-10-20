@@ -1684,11 +1684,72 @@ and each equals its visible answer.
   "Checked September 2026."; the `ductwork` versus `ductwork-services` overlap; workers' compensation. The "after-hours work" and "if
   required or offered" wording is unchanged.
 
-Remaining two: Emergency HVAC, Ductless Mini-Split.
+Emergency HVAC is migrated (2026-10-20, branch `emergency-hvac-migration`, based on `origin/main` dceec78; client copy approval NOT given,
+so every new string is TODO(copy)). 6 code commits. Only `services/emergency-hvac/index.html` changed on the 114 built pages, and its JSON-LD is
+byte-identical to the baseline at every commit (no FAQ or `lede` edit).
+- Template: `page.glance` set, base object renamed `emergencyHvacBase`, `count()`, a typed `emergencyHvacSources` array (8 sources, 4 groups:
+  Safety and diagnostics, Refrigerant, Energy code and licensing, Heat and climate) and a throwing `emergencyHvacSource()` lookup. No component,
+  CSS, `page.tsx` or `services.ts` change. Forced failures checked and reverted: colliding glance numbers, `count([])` and an unknown source all
+  throw at build time.
+- Glance: 3 (triage tiers), 6 (visit steps, keep in sync with `process` in services.ts), 8 (diagnosis rows). Source line: DOE Building America,
+  which supports the fault families only (TODO(data)). Proof stats: 4.8, 40, 10 FAQs, 4 repair-or-replace factors.
+- Fact card rows: Carbon monoxide alarm, Coast and valley, Existing R-410A systems. Reserve row (Energy code, date sentence only) is recorded in a
+  code comment. 1280px: copy 441px, card 447px, 6px past the copy. Not sticky.
+- Quick answer: 99 words cut to 50 (lead plus sentences 1, 4 and 5). Cut sentence 2 (unconfirmed phone screening and approval process) and sentence 3
+  (triggers already in triage card 2 and the diagnosis table). Both cuts need client approval.
+- Hero caption: none built (no `heroCaption`, no `heroImage`), so the hero keeps its "Photo pending" tile. Band buttons render as filled
+  "Call (323) 776-9047" (`tel:`) and ghost "Request Emergency Service" (`/contact/`).
+- Sources: EPA HFC FAQ URL fixed to `/hfcs/frequent-questions-phasedown-hydrofluorocarbons` (the old `/climate-hfcs-reduction/` URL 301-redirects
+  there and is gone from `src`). JPL URL aligned to the jpl.nasa.gov one (both URLs return 200 with the same article). National Weather Service
+  forecast discussion removed (a dated snapshot); the LA County "heat warnings can cover both inland communities and some coastal areas"
+  sentence now has no cited source (TODO(data) above it). No manufacturer, contractor or marketplace source, so nothing held out.
+- `moreLinks` relabeled to "AC maintenance after a repair". Header C-20 TODO split: C-20 and licensed, bonded and insured RESOLVED; workers'
+  compensation stays TODO(data). Header TODOs added for the 24/7 PendingNote conflict and the unsourced Permits card and FAQ 8.
+- Adjacent sections (rendered): trust strip, dark quick answer, dark Southern California band, triage (plain), diagnosis (alt), process (plain),
+  visit (alt), availability (plain), systems (plain), refrigerant (alt), pricing (plain), repair-or-replace (alt), rules (plain), applies (plain),
+  regions (alt), proof, related (plain), FAQ (alt). No two alt bands touch. The page has no `#symptoms` or `#options`; its only ids are `#areas`
+  and `#resources`, there are no in-page `#` links, and nothing links to `/services/emergency-hvac/#...`.
+- URL check (headless Chromium, 2026-10-20): all 8 sources, the refrigerant source link, both JPL URLs and the old EPA URL return 200 with no
+  certificate warning (old EPA: one 301). A human still needs to open the two DOE PDFs, the EPA NEPIS booklet (JS redirect to ZyNET), the
+  Energy Commission pages and the JPL page.
+- Related cards rendered: AC Repair, Heating Repair, AC Installation, Commercial HVAC. None says 24/7, same-day or a response time. The core card
+  description ("24/7 dispatch ...") is not rendered on this page.
+- serviceTree: Emergency HVAC is listed under `ac-repair`, and a noindex level-2 stub `hvac-repair` exists; the title "Emergency HVAC Repair in
+  Los Angeles" contains "HVAC Repair". Resolve before publishing. services.ts unchanged.
+- Still open: client copy approval (quick-answer cuts, glance labels and source, fact-card rows, group labels, proof labels, relabels); whether the
+  page may now state 24/7 emergency dispatch (see Blockers); "gas utility" wording versus the NEPIS booklet; Energy code card, Permits card and
+  FAQ 8 sourcing; "vulnerable occupants" (triage card 2, FAQ 1) has no cited source; the hedged after-hours wording (`visitExtra`,
+  `visitExtraNote`, the "Time of call" factor, FAQ 6, `pricingClosing`, the `process` step in services.ts that mentions price and warranty
+  terms); the removed NWS source; workers' compensation; every header TODO(data).
+
+Emergency HVAC attribution corrections (2026-10-20, approved by user, same branch, one commit). Only the page HTML changed; JSON-LD identical.
+- DONE, `regionIntro` paragraph 1: "two heat waves in the summer of 2020", vulnerable-groups clause dropped. Source (JPL): "compared two heat
+  waves that affected the Greater Los Angeles area in the summer of 2020", "Southern L.A. County and Orange County stayed cooler, given their
+  proximity to the Pacific Ocean and coastal moisture", "Valley regions, including San Fernando and Riverside, skewed drier and hotter", "Both
+  the coastal and inland areas experienced increased nighttime heat stress during the muggy August heat wave". No wording on older adults,
+  infants or medically vulnerable people.
+- DONE, Licensing card: CSLB nouns restored ("ducts, registers, flues, humidity and thermostatic controls and air filters in connection with any
+  of these systems"; verbs "fabricates, installs, maintains, services and repairs").
+- DONE, labels: NEPIS is "Help Yourself to a Healthy Home" (printed title), DOE infographic is "Energy Saver 101: Everything You Need to Know
+  About Home Cooling" (printed title; "Common Air Conditioner Problems" is one section of it).
+- Report only, nothing edited: NEPIS says "If you smell gas or if the smoke detector or the carbon monoxide alarm goes off, leave the building
+  right away and call 9-1-1" and "Call 9-1-1 or your local emergency number from a phone outside your home" (pp. 26 and 27). It never mentions
+  the gas utility, and it says "Don't go back home until all problems have been fixed", not FAQ 4's "until emergency responders say it is
+  clear". The Energy Commission HVAC page supports the Energy code card in substance and says installing a space conditioning appliance
+  "requires a building permit" (equipment only). The DOE guide does not cover breaker trips, water overflow or furnace rows. The EPA FAQ (last
+  updated September 14, 2026) says "A homeowner can replace a faulty component ... with a similar R-410A component", and "Technology Transitions
+  Program allows for the continued sale and distribution of condensing units, indoor coils ... that use R-410A so long as they are used to
+  service legacy R-410A systems", so "R-410A components ... service existing systems" is supported. No FAQ or refrigerant correction is needed.
+
+Remaining one: Ductless Mini-Split.
 
 Blockers:
 - Emergency HVAC has an unconfirmed availability placeholder, so its cards carry no response-time facts. Do not add any
   to a glance card or fact card until the client confirms.
+- Emergency HVAC 24/7 conflict: the Availability PendingNote renders "Nothing about 24/7 or same-day service is stated on this page until Air
+  Pro confirms it", but 24/7 emergency dispatch has been approved since 2026-10-14. The PendingNote, the header sentence "No 24/7 or same-day
+  wording appears anywhere else on this page" (still true on the rendered page: the only hits are inside the PendingNote) and the services.ts
+  card description need a client decision. Unchanged by this migration.
 - Ductless Mini-Split has no `sources` entries yet, so it cannot show source links or a Sources section.
 - RESOLVED (2026-10-20, branch `heat-pump-decisions`): refrigerant installation-date wording conflicted with EPA's May 2026
   final rule. Every January 1, 2026 and "below 700 GWP" refrigerant statement now states no installation date and no GWP
