@@ -1300,7 +1300,26 @@ Southern California band (`regionBand`, paragraphs from `regionConditions`), sou
 notes, per-service `proofStats`, and a non-alt Sources section after the FAQ. Services without `glance` render as before.
 All new AC Repair strings are TODO(copy): client approved 2026-10-19, confirm final wording on review.
 
-Remaining nine, in rollout order: Furnace Installation, AC Installation, Indoor Air Quality, Heat Pump Services, Heating
+Furnace Installation is migrated (2026-10-19, branch `furnace-installation-migration`). New strings are TODO(copy) (client
+approved editing 2026-10-19): quick answer trimmed from 100 to 41 words, hero caption split into title and text, glance card,
+"Across Southern California" band and fact card, `proofStats`, source group labels, the linked EPA source line and the
+Photo pending tile on the "Furnace only, or the whole system?" callout (TODO(design): real photo). All counts derive from
+arrays (glance 8 / 3 / 12, proof 2 / 9 / 6 / 10, References row 12). Fact card rows: "Complete job covers" (the cut quick-answer
+sentence) and "Energy code"; measured at 1280px: copy 365px, card 332px, no fallback row needed. C-20 is confirmed, so both
+C-20 TODO(data) comments in the Furnace file are RESOLVED (2026-10-19, confirmed by user).
+- Contractor sources held out: J Martin Indoor Air Quality, Eagle Air, MightyServ and Air Comfort Experts moved, URLs unchanged,
+  to `furnaceContractorSources` (TODO(data)) because the repo rule is never to link or name competitors. Their evidence
+  supports the pricing and timing ranges, which remain pending client approval. To show them, move them back into `sources`
+  with `group: 'Published cost estimates'`. DECISION PENDING with the user.
+- Incentive re-verification: the incentive cards, the comparison table row, FAQ 6 and FAQ 7 were left byte-identical. The
+  SoCalGas window ends December 31, 2026, and the TECH status date is February 24, 2026, while the table row and FAQs say
+  "currently" and "is fully reserved" with no date. Re-verify the week the page ships; if any figure changes, change the
+  cards, table row, FAQ 6, FAQ 7 and JSON-LD together in one commit.
+- URL check (curl, not a real browser): 200 for all except mightyserv.com, aircomfortexperts.com and angi.com, which return
+  403 to a script (likely bot blocking). No redirects, no certificate errors. Still to open by hand: the `aqmd.gov` host, the
+  `nasa.gov` JPL path, the SoCalGas HEER link ending `.pdf.pdf`, and the 2019 CEC Los Angeles climate report PDF.
+
+Remaining eight, in rollout order: AC Installation, Indoor Air Quality, Heat Pump Services, Heating
 Repair, AC Maintenance, Ductwork, Emergency HVAC, Ductless Mini-Split.
 
 Blockers:

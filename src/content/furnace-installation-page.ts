@@ -10,8 +10,8 @@ import { siteConfig } from '@/content/site-config';
 // TODO(data): confirm Air Pro actually performs the on-site assessment, written proposal, and
 // customer walkthrough described in the process, scope, and proposal-checklist sections below - the
 // copy is written as guidance for the reader, not a stated Air Pro workflow.
-// TODO(data): confirm the CSLB record for licenses #1126691 and #50251 shows the C-20 classification
-// before launch (trust strip, proof block, rules section).
+// RESOLVED (2026-10-19, confirmed by user): the CSLB record for licenses #1126691 and #50251 shows the C-20
+// classification (trust strip, proof block, rules section).
 // TODO(data): the safety wording in "Safety comes before scheduling" needs Air Pro safety-policy
 // review before launch.
 // TODO(data): confirm Air Pro actually installs heat pumps, dual-fuel systems, and ducted/ductless
@@ -286,7 +286,7 @@ const furnaceBase: ServicePage = {
     'orange-county': 'Orange County service area',
     'inland-empire': 'Inland Empire service area',
   },
-  // TODO(data): confirm the CSLB record for #1126691 and #50251 shows C-20 before launch.
+  // RESOLVED (2026-10-19, confirmed by user): the CSLB record for #1126691 and #50251 shows C-20.
   proofHeading: 'A licensed local contractor with a 4.8 Google rating',
   proofBody: 'AIRPRO SOLUTIONS holds California contractor licenses #1126691 and #50251 and serves homes and businesses across four Southern California regions.',
   // Icon overrides for the related-service cards below: heat-pump-services and ductwork otherwise
