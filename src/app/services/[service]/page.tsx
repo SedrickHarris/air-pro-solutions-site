@@ -460,7 +460,14 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       )}
 
       {page.timeline && (
-        <RefrigerantNote title={page.timeline.heading} body={page.timeline.body} />
+        <RefrigerantNote
+          title={page.timeline.heading}
+          body={page.timeline.body}
+          media={migrated && page.timeline.media && (
+            // TODO(design): replace with real photo
+            <MediaTile icon={page.timeline.media.icon} image={page.timeline.media.image} />
+          )}
+        />
       )}
 
       {/* "How fast can someone come out?" (/services/emergency-hvac/): a plain paragraph plus the shared

@@ -117,7 +117,7 @@ export type ServicePage = {
   diagnosisTitle?: string;
   diagnosisEyebrow?: string;
   visitEyebrow?: string; // overrides VisitScope's default "What to expect" eyebrow
-  timeline?: { heading: string; body: string }; // plain callout rendered via RefrigerantNote with no source line
+  timeline?: { heading: string; body: string; media?: { icon: string; image?: ServiceImage } }; // plain callout rendered via RefrigerantNote with no source line
   rulesEyebrow?: string; // overrides RulesNote's default "Good to know" eyebrow
   incentives?: {
     eyebrow: string;
