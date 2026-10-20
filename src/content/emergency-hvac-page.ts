@@ -94,9 +94,19 @@ const emergencyHvacBase: ServicePage = {
   finalCtaTitle: 'Get emergency HVAC help',
   finalCtaBody: 'Call us or request service online.',
   answer: {
+    // TODO(copy): trimmed from 99 words to 50 (migration, recommended default from the planning chat), client to approve both cuts.
+    // Lead is 3 words, sentence 1 is 23, the two life-safety sentences are 13 and 11.
+    // Cut (a), sentence 2 (25 words, "A technician screens for safety, finds the cause of the failure, explains your options, and repairs or stabilizes the
+    //   system once you approve the work."): dropped, not reworded. It states the unconfirmed process in the header TODO(data) (phone safety
+    //   screening, approval before repair).
+    // Cut (b), sentence 3 (24 words, "Common triggers include total loss of cooling in dangerous heat ... severe equipment noises."): dropped. Triage card 2
+    //   and the diagnosis table cover it.
+    // Sentences 4 and 5 stay (they are also in triage card 1, the hero chip, FAQ 3 and FAQ 4).
+    // Over the 37 to 43 word band the other migrated pages use. Not built: lead plus sentences 1 and 4 (39 words, in the band, but it drops
+    //   the 911 instruction from the band) and lead plus sentences 1 and 5 (37 words, an instruction with no reason).
     lead: 'Emergency HVAC repair',
     body:
-      ' is a fast-tracked diagnosis and repair when a cooling or heating system fails at a time or in a way that cannot wait. A technician screens for safety, finds the cause of the failure, explains your options, and repairs or stabilizes the system once you approve the work. Common triggers include total loss of cooling in dangerous heat, no heat for vulnerable occupants, water overflow, repeated breaker trips, and severe equipment noises. Suspected gas leaks, smoke or fire, and carbon monoxide alarms are life-safety events. Leave the building and call 911 or the gas utility first.',
+      ' is a fast-tracked diagnosis and repair when a cooling or heating system fails at a time or in a way that cannot wait. Suspected gas leaks, smoke or fire, and carbon monoxide alarms are life-safety events. Leave the building and call 911 or the gas utility first.',
   },
   triage: {
     eyebrow: 'Start here',
