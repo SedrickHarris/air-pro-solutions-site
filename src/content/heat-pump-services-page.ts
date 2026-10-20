@@ -5,7 +5,7 @@ import { siteConfig } from '@/content/site-config';
 // angeles" as the higher-intent term; this build uses the broader "heat pump services los angeles"
 // per the approved brief, since this one page intentionally covers repair, replacement, and
 // maintenance together to avoid cannibalizing three separate URLs.
-// TODO(data): confirm the CSLB record for licenses #1126691 and #50251 shows C-20 before launch
+// RESOLVED (2026-10-19, confirmed by user): the CSLB record for licenses #1126691 and #50251 shows C-20
 // (hero proof, trust strip, proof block, rules section).
 // TODO(data): "Findings explained before repairs" (hero proof) and "repairs are quoted and approved
 // before work begins" (process step 5) are the same unconfirmed-process status as every other service
@@ -53,7 +53,7 @@ export const heatPumpServicesPage: ServicePage = {
   },
   heroCaption: 'Heat pump service for year-round comfort.',
   heroProof: [
-    // TODO(data): confirm CSLB record shows C-20 for both license numbers.
+    // RESOLVED (2026-10-19, confirmed by user): CSLB record shows C-20 for both license numbers.
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
     // TODO(data): confirm this is real Air Pro practice.
@@ -298,7 +298,7 @@ export const heatPumpServicesPage: ServicePage = {
   ],
   sourcesColumns: 2,
   sources: [
-    { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/climate-hfcs-reduction/frequent-questions-phasedown-hydrofluorocarbons' },
+    { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons' },
     { label: 'U.S. EPA - SNAP substitutes for residential and light-commercial AC and heat pumps', url: 'https://www.epa.gov/snap/substitutes-residential-and-light-commercial-air-conditioning-and-heat-pumps' },
     { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency' },
     { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20' },
