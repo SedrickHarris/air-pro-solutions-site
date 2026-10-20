@@ -61,6 +61,10 @@ Note: where these claims may appear in metadata is narrower than on-page copy an
   (paper `#f6f7f9`, ink `#0e1a2b`, ink-soft `#4c5a6c`, line `#dbe0e7`).
   Full light/dark mode: base tokens on `:root`, dark overrides under both
   `@media (prefers-color-scheme: dark)` and `[data-theme="dark"]`.
+  **Dark is the default theme site-wide:** `<html data-theme="dark">` in `src/app/layout.tsx`, plus `viewport`
+  `colorScheme: 'dark'` and `themeColor: '#081020'`. The light tokens and rules stay in `globals.css` so
+  `data-theme="light"` still works if light mode is re-enabled later. There is no theme toggle. Keep every dark rule
+  in both selector forms; `@media print` restores the light token values so printed pages stay readable.
 - **Photo placeholders**: until real photography exists, use the
   established pattern - gradient tile (navy gradient + amber/sky radial
   accent) with a small icon and a "Photo pending" corner tag. Applies to

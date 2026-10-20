@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Barlow_Condensed, Manrope } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/content/site-config';
@@ -22,9 +22,16 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', images: [siteConfig.ogImage] },
 };
 
+// Dark is the site-wide default (client request). colorScheme darkens native controls and scrollbars;
+// themeColor is the dark --paper value so the mobile browser bar matches the page.
+export const viewport: Viewport = {
+  colorScheme: 'dark',
+  themeColor: '#081020',
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${barlow.variable} ${manrope.variable}`}>
+    <html lang="en" data-theme="dark" className={`${barlow.variable} ${manrope.variable}`}>
       <body>
         <AnnouncementBar />
         <Header />
