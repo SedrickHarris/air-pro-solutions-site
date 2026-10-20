@@ -31,6 +31,37 @@ import { siteConfig } from '@/content/site-config';
 // emergency-availability wording appear anywhere on this page - none are confirmed. See CLAUDE.md
 // "Claims that must not ship".
 
+// TODO(copy): group labels are new, confirm on review.
+// Order is the order the old flat list used; the References row groups them in first-seen order.
+const heatPumpServicesSources: { label: string; url: string; group: string }[] = [
+  { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons', group: 'Refrigerant and rules' },
+  { label: 'U.S. EPA - SNAP substitutes for residential and light-commercial AC and heat pumps', url: 'https://www.epa.gov/snap/substitutes-residential-and-light-commercial-air-conditioning-and-heat-pumps', group: 'Refrigerant and rules' },
+  { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency', group: 'Energy code and licensing' },
+  { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20', group: 'Energy code and licensing' },
+  // TODO(data): relabeled. The file at docs.cpuc.ca.gov is a 10-page printout of the U.S. Department of Energy's
+  // Energy Saver page (dated 8/26/25), not a CPUC guide, so "DOE and CPUC" misattributed it. URL unchanged.
+  // https://www.energy.gov/energysaver/air-source-heat-pumps is a candidate replacement (not swapped, see Task 4).
+  { label: 'U.S. DOE - Air-source heat pumps (Energy Saver printout filed with the CPUC)', url: 'https://docs.cpuc.ca.gov/PublishedDocs/SupDoc/A2209006/8462/577938159.pdf', group: 'Heat pump basics' },
+  // TODO(data): decision pending on the four manufacturer service guides (Trane, Carrier x2, Bryant). They are kept
+  // in place and become public in the References row on migration. CLAUDE.md says never link to or name a competitor.
+  // Recommended: move all four, URLs unchanged, into a `heatPumpManufacturerSources` array (as Furnace did with
+  // `furnaceContractorSources`). Do not remove until the client decides.
+  { label: "Trane - Homeowner's heat pump repair guide", url: 'https://www.trane.com/residential/en/products/heat-pumps/heat-pump-repair-guide/', group: 'Manufacturer service guides' },
+  { label: 'Carrier - Heat pump troubleshooting', url: 'https://www.carrier.com/us/en/residential/hvac-resources/heat-pumps/heat-pump-troubleshooting/', group: 'Manufacturer service guides' },
+  { label: 'Carrier - Heat pump service checklist', url: 'https://www.carrier.com/residential/en/ca/products/heat-pumps/heat-pump-service/', group: 'Manufacturer service guides' },
+  { label: 'Bryant - Reversing valve guide', url: 'https://www.bryant.com/en/us/products/heat-pumps/reversing-valve/', group: 'Manufacturer service guides' },
+  { label: 'NASA JPL - Southern California heat-wave differences', url: 'https://www.nasa.gov/centers-and-facilities/jpl/nasa-maps-key-heat-wave-differences-in-southern-california/', group: 'Heat and climate' },
+  { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program', group: 'Rebates and incentives' },
+  { label: 'Southern California Edison - Home electrification', url: 'https://www.sce.com/clean-energy-efficiency/home/electrification', group: 'Rebates and incentives' },
+  { label: 'TECH Clean California - Incentives', url: 'https://techcleanca.com/incentives/', group: 'Rebates and incentives' },
+];
+
+const heatPumpSource = (urlPart: string) => {
+  const found = heatPumpServicesSources.find((s) => s.url.includes(urlPart));
+  if (!found) throw new Error(`Unknown heat pump source: ${urlPart}`);
+  return found;
+};
+
 // Full template content for /services/heat-pump-services/. Reuses the same ServicePage shape and shared
 // section components already built out for /services/ac-repair/, /services/ac-installation/, /services/ac-maintenance/,
 // /services/heating-repair/, /services/furnace-installation/, and /services/ductless-mini-split/ - see the build report for why a
@@ -41,7 +72,7 @@ import { siteConfig } from '@/content/site-config';
 // express; every one of them is optional so the other five service pages are unaffected. See the
 // build report for the repairVsReplace and symptoms shape-reconciliation decisions (both left off the
 // Service object; the page renders the fuller content instead).
-export const heatPumpServicesPage: ServicePage = {
+const heatPumpServicesBase: ServicePage = {
   primaryKeyword: 'heat pump services los angeles',
   metaDescription:
     'Heat pump services for homes and businesses across Los Angeles and Southern California: repair, replacement, and ductless systems. Schedule service.',
@@ -51,7 +82,11 @@ export const heatPumpServicesPage: ServicePage = {
     src: '/images/services/heat-pump/hero.webp',
     alt: 'Wall-mounted indoor heat pump unit in a bright living room, with the outdoor unit visible through a sliding glass door',
   },
-  heroCaption: 'Heat pump service for year-round comfort.',
+  // TODO(copy): DECISION PENDING. The old caption was one sentence ("Heat pump service for year-round comfort."); this
+  // two-part caption keeps "year-round comfort" and adds only the shared region phrase. Alternative (not built):
+  // text 'for homes and businesses across Southern California', which matches the sibling pages but restates
+  // commercial scope that is still unconfirmed (see the file-level TODO above).
+  heroCaption: { title: 'Heat pump service', text: 'for year-round comfort across Southern California' },
   heroProof: [
     // RESOLVED (2026-10-19, confirmed by user): CSLB record shows C-20 for both license numbers.
     { icon: 'check', label: 'Licensed HVAC contractor' },
@@ -73,8 +108,14 @@ export const heatPumpServicesPage: ServicePage = {
   finalCtaBody: 'Call us or request service online.',
   answer: {
     lead: 'Heat pump services',
+    // TODO(copy): trimmed from 85 words to 43. DECISION PENDING, client to confirm both cuts:
+    // (a) "Because one system does both jobs, a heat pump that cools fine but will not heat needs a different
+    //     diagnostic path than a standard AC problem." moved word for word to the end of `diagnosisIntro`.
+    // (b) "If you are comparing repair with replacement, the findings and options should come before any decision."
+    //     dropped. `comparisonTable.note` and decision card 3 already cover it, and removing it keeps the quick
+    //     answer from reinforcing the unconfirmed "findings explained before repairs" practice.
     body:
-      ' cover diagnosing, repairing, replacing, and maintaining a system that both heats and cools. A heat pump moves heat between your building and the outdoors. To cool, it moves indoor heat out. To heat, a reversing valve flips the refrigerant flow. Because one system does both jobs, a heat pump that cools fine but will not heat needs a different diagnostic path than a standard AC problem. If you are comparing repair with replacement, the findings and options should come before any decision.',
+      ' cover diagnosing, repairing, replacing, and maintaining a system that both heats and cools. A heat pump moves heat between your building and the outdoors. To cool, it moves indoor heat out. To heat, a reversing valve flips the refrigerant flow.',
   },
   decision: {
     eyebrow: 'Start here',
@@ -119,7 +160,8 @@ export const heatPumpServicesPage: ServicePage = {
   },
   diagnosisEyebrow: 'Symptoms',
   diagnosisTitle: 'What you notice and what it can mean',
-  diagnosisIntro: 'Symptoms can share causes, so none of these is a diagnosis. A technician confirms the fault before recommending work.',
+  // TODO(copy): the last sentence moved here word for word from the quick answer (see `answer`).
+  diagnosisIntro: 'Symptoms can share causes, so none of these is a diagnosis. A technician confirms the fault before recommending work. Because one system does both jobs, a heat pump that cools fine but will not heat needs a different diagnostic path than a standard AC problem.',
   diagnosisColumns: ['What you notice', 'What can be behind it'],
   diagnosis: [
     { notices: 'Runs but does not heat or cool enough', causes: 'Airflow restriction, refrigerant issue, compressor or fan problem, controls, thermostat settings, or a reversing-valve fault. A diagnostic identifies which.' },
@@ -297,21 +339,7 @@ export const heatPumpServicesPage: ServicePage = {
     { text: 'Maintenance plan options', href: '/maintenance-plan/' },
   ],
   sourcesColumns: 2,
-  sources: [
-    { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons' },
-    { label: 'U.S. EPA - SNAP substitutes for residential and light-commercial AC and heat pumps', url: 'https://www.epa.gov/snap/substitutes-residential-and-light-commercial-air-conditioning-and-heat-pumps' },
-    { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency' },
-    { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20' },
-    { label: 'DOE and CPUC - Air-source heat pumps guide', url: 'https://docs.cpuc.ca.gov/PublishedDocs/SupDoc/A2209006/8462/577938159.pdf' },
-    { label: "Trane - Homeowner's heat pump repair guide", url: 'https://www.trane.com/residential/en/products/heat-pumps/heat-pump-repair-guide/' },
-    { label: 'Carrier - Heat pump troubleshooting', url: 'https://www.carrier.com/us/en/residential/hvac-resources/heat-pumps/heat-pump-troubleshooting/' },
-    { label: 'Carrier - Heat pump service checklist', url: 'https://www.carrier.com/residential/en/ca/products/heat-pumps/heat-pump-service/' },
-    { label: 'Bryant - Reversing valve guide', url: 'https://www.bryant.com/en/us/products/heat-pumps/reversing-valve/' },
-    { label: 'NASA JPL - Southern California heat-wave differences', url: 'https://www.nasa.gov/centers-and-facilities/jpl/nasa-maps-key-heat-wave-differences-in-southern-california/' },
-    { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program' },
-    { label: 'Southern California Edison - Home electrification', url: 'https://www.sce.com/clean-energy-efficiency/home/electrification' },
-    { label: 'TECH Clean California - Incentives', url: 'https://techcleanca.com/incentives/' },
-  ],
+  sources: heatPumpServicesSources,
   faqs: [
     {
       q: 'What does a heat pump do?',
@@ -366,4 +394,65 @@ export const heatPumpServicesPage: ServicePage = {
     },
   ],
   // TODO(copy): client review of every FAQ answer above before launch.
+};
+
+// Location-style migration (docs/open-items.md "Service page migration"). Setting `glance` marks this service as migrated.
+// TODO(copy): all strings in this block are new.
+const count = (items?: readonly unknown[]): string => {
+  if (!items?.length) throw new Error('heat-pump-services-page: empty array used for a derived count');
+  return String(items.length);
+};
+
+export const heatPumpServicesPage: ServicePage = {
+  ...heatPumpServicesBase,
+  glance: {
+    title: 'Heat pump service at a glance',
+    stats: [
+      { num: count(heatPumpServicesBase.basics!.cards), label: 'operating modes explained: cooling, heating, and defrost' },
+      { num: '6', label: 'steps in a heat pump service visit' }, // = the heat-pump-services process array length in services.ts; keep in sync
+      { num: count(heatPumpServicesBase.sources), label: 'sources cited on this page' },
+    ],
+    // GlanceCard keys on `num`: the three numbers must stay different (3, 6, 13 today).
+    // TODO(data): stats 2 and 3 are page counts; the DOE guide supports only the cooling, heating and defrost framing.
+    // Confirm this source line reads correctly.
+    sources: [heatPumpSource('docs.cpuc.ca.gov')],
+  },
+  regionBand: {
+    eyebrow: 'Across Southern California',
+    title: 'How Southern California climate shapes heat pump service',
+    card: {
+      heading: 'Heat pump facts',
+      // Rows are in drop-order priority for the 1280px balance check: Energy code goes first, then Coast and inland.
+      // Never go below two rows without asking. Rows restate existing page copy only: no License row, no dollar
+      // amounts, no rolling dates, and no refrigerant installation-date row (see the refrigerant TODO(data) above).
+      rows: [
+        { label: 'Existing R-410A systems', value: 'Not banned. They can stay in service and be repaired, subject to applicable rules and refrigerant availability' },
+        { label: 'Energy code', value: 'The 2025 California Energy Code applies to permit applications filed on or after January 1, 2026' },
+        { label: 'Coast and inland', value: 'The coast is generally cooler and inland valleys such as Riverside are drier and hotter. Humid heat can still raise nighttime heat stress in both' },
+      ],
+      sources: [
+        heatPumpSource('frequent-questions-phasedown'),
+        heatPumpSource('2025-building-energy-efficiency'),
+        heatPumpSource('nasa-maps-key-heat-wave'),
+      ],
+    },
+  },
+  proofStats: [
+    { num: `${siteConfig.rating}★`, label: 'Google rating' },
+    { num: String(siteConfig.reviewCount), label: 'Google reviews' },
+    { num: count(heatPumpServicesBase.faqs), label: 'heat pump questions answered' },
+    { num: count(heatPumpServicesBase.comparisonTable!.rows), label: 'questions that decide repair or replace' },
+  ],
+  // TODO(design): real photos (1200x900) to replace the three "Photo pending" tiles.
+  regionMedia: { icon: 'pin' },
+  refrigerant: {
+    ...heatPumpServicesBase.refrigerant!,
+    media: { icon: 'snowflake' },
+    // Linked source line on migrated pages. `sourceText` is left in place and is used by the unmigrated markup only.
+    sources: [heatPumpSource('frequent-questions-phasedown'), heatPumpSource('substitutes-residential-and-light-commercial')],
+  },
+  warranty: {
+    ...heatPumpServicesBase.warranty!,
+    media: { icon: 'doc-check' },
+  },
 };
