@@ -28,6 +28,9 @@ const indoorAirQualitySources: { label: string; url: string; group: string }[] =
   { label: 'South Coast AQMD - Air Quality', url: 'https://www.aqmd.gov/home/air-quality', group: 'Wildfire smoke and local air quality' },
   { label: 'South Coast AQMD - 2022 Air Quality Management Plan, Appendix II', url: 'https://www.aqmd.gov/docs/default-source/clean-air-plans/air-quality-management-plans/2022-air-quality-management-plan/final-2022-aqmp/appendix-ii.pdf?sfvrsn=6', group: 'Wildfire smoke and local air quality' },
   { label: 'South Coast AQMD - September 2024 smoke and ozone advisory', url: 'https://www.aqmd.gov/docs/default-source/news-archive/2024/ext-smoke--september-9-2024.pdf', group: 'Wildfire smoke and local air quality' },
+  // TODO(data): confirm an https URL exists for this report. Tested 2026-10-20 in Chromium: the https form 302-redirects back to
+  // http, and the http URL returns 200 but serves the site's "file, page, or address could not be found" page (a soft 404), so the
+  // report itself may have moved. The URL is kept unchanged until a working one is found.
   { label: 'LA County Public Health - Climate change and health equity report', url: 'http://publichealth.lacounty.gov/eh/docs/about/climate-change-health-equity-report-executive-summary.pdf', group: 'Wildfire smoke and local air quality' },
   { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency', group: 'Codes, permits and licensing' },
   { label: 'California CSLB - Get Licensed to Build guide', url: 'https://www.cslb.ca.gov/getlicensed', group: 'Codes, permits and licensing' },
