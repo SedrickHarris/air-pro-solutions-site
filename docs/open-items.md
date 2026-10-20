@@ -1119,7 +1119,7 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
 
 ## /service-areas/eastvale/ (eastvaleOverrides in src/content/cities.ts)
 
-Built 2026-10-19, not pushed yet. Reference: claude/reference/eastvale-location.html (review artifact: link added when published). Same single-data-source build as Chino, Fontana and Upland. Eastvale (Riverside County) was a wave 2 noindex stub before this and is the last Inland Empire city without a page.
+Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/reference/eastvale-location.html (review artifact: https://claude.ai/artifact/621BLi15WLLJqNMkB3y84N). Same single-data-source build as Chino, Fontana and Upland. Eastvale (Riverside County) was a wave 2 noindex stub before this and is the last Inland Empire city without a page.
 - Title: `cityTitle('Eastvale')` ("HVAC Services in Eastvale, CA | AIRPRO SOLUTIONS", 48 characters). H1 is `cityH1('Eastvale')`. Hand-written `page.metaDescription` is 154 characters and passes `assertDescription`; it claims only "Licensed" and "4.8-star rated". The literal phrase "hvac eastvale" is not used. 14 FAQs.
 - Copy approval: the client approved the Eastvale page copy on 2026-10-19 (per the user).
 - DECISION `wave1`: Eastvale stays wave 2. Indexability and the sitemap follow the `page` block, so it is indexable and enters the sitemap automatically. `sitemap.ts` and the `wave1` Set were not edited. Eastvale is the 32nd city with a `page` block.
