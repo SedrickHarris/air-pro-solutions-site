@@ -11,13 +11,18 @@ import { siteConfig } from '@/content/site-config';
 // TODO(data): live answering hours, dispatch model, after-hours coverage, and any response-time
 // commitment are unconfirmed - see the Availability PendingNote below. No 24/7 or same-day wording
 // appears anywhere else on this page.
+// TODO(data): the Availability PendingNote says nothing about 24/7 or same-day service is stated "until Air Pro confirms it", but 24/7
+// emergency dispatch was approved on 2026-10-14. The PendingNote, the sentence above ("No 24/7 or same-day wording appears anywhere else
+// on this page") and the services.ts card description need a client decision. Left unchanged here.
+// TODO(data): the Permits card and FAQ 8 have no linked source. The Energy Commission HVAC alterations page says installing a space
+// conditioning appliance requires a building permit, which supports equipment change-outs only, not duct alterations or electrical changes.
 // TODO(data): the six-step process is framed as what emergency service "commonly involves," not
 // confirmed Air Pro policy. Confirm written repair options, phone safety screening, and the listed
 // testing before reframing any step as company policy.
 // TODO(data): diagnostic fee, after-hours surcharge, fee credit toward an approved repair, and
 // warranty terms are unconfirmed and not stated. No dollar figures appear anywhere on this page.
-// TODO(data): verify the CSLB record for #1126691 and #50251 shows C-20 before the class appears in
-// the trust strip and licensing card. "Insured" is not claimed anywhere on this page.
+// RESOLVED (2026-10-19, confirmed by user): the CSLB record for licenses 1126691 and 50251 shows C-20, and "licensed, bonded and insured" is an approved claim. On this page the license class shows in the hero proof "Licensed HVAC contractor", the trust strip C-20 stat, the Licensing card, the proof block C-20 stat and the footer. "Bonded" and "insured" are not stated on this page.
+// TODO(data): workers' compensation is not an approved claim. Do not state it anywhere until the client confirms it.
 // TODO(data): commercial and rooftop capability, mini-split, heat pump, and PTAC scope are
 // unconfirmed. PTAC and multifamily through-wall units are intentionally left off the systems list.
 // TODO(data): region city lists are omitted until the client confirms coverage (see CLAUDE.md
