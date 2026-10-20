@@ -1,4 +1,5 @@
 import type { ServicePage } from '@/content/services';
+import { siteConfig } from '@/content/site-config';
 
 // TODO(data): confirm Air Pro actually performs an on-site load calculation on every replacement,
 // gives a written proposal before work, coordinates permits and inspections, handles Energy Code
@@ -49,7 +50,7 @@ const acInstallationSource = (urlPart: string) => {
 // Full template content for /services/ac-installation/. Reuses the same ServicePage shape and shared section
 // components already built out for /services/ac-repair/ - see the build report for why a second, parallel
 // content shape (src/content/service-pages/) was not introduced.
-export const acInstallationPage: ServicePage = {
+const acInstallationBase: ServicePage = {
   primaryKeyword: 'ac installation los angeles',
   metaDescription:
     'Central AC installation and replacement for Los Angeles and Southern California properties, sized to your load. Request an installation estimate.',
@@ -59,7 +60,9 @@ export const acInstallationPage: ServicePage = {
     src: '/images/services/ac-installation/hero.webp',
     alt: 'Commercial rooftop AC package unit with ductwork on a flat roof, with palm trees and hills in the distance',
   },
-  heroCaption: 'Commercial AC installation for Southern California homes and businesses.',
+  // TODO(copy): the old caption read "Commercial AC installation for Southern California homes and businesses."
+  // "Commercial" next to "homes" looks like a copy bug. Proposed two-part caption mirrors AC Repair. Needs approval.
+  heroCaption: { title: 'AC installation', text: 'for homes and businesses across Southern California' },
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
@@ -77,10 +80,12 @@ export const acInstallationPage: ServicePage = {
   faqTitle: 'AC installation questions Southern Californians ask',
   finalCtaTitle: 'Get your AC installation estimate',
   finalCtaBody: 'Call us or request an on-site evaluation online.',
+  // TODO(copy): trimmed from 91 words to 37 (client approved editing content). The cut sentences are not moved:
+  // the load calculation is in process step 3, the scope is in visitIncludes and steps 6-8, the system options are in `systems`.
   answer: {
     lead: 'AC installation',
     body:
-      ' is a planned project that starts with an on-site evaluation, not an equipment price. A technician inspects the current equipment, ducts, electrical, drainage, and placement, calculates the heating and cooling load, and recommends a system sized to the property. You then review a written proposal before work starts. The work covers equipment installation, refrigerant connections, controls, startup, airflow and charge verification, and the permit and inspection steps your city requires. The right system depends on the property: central AC, a heat pump, a packaged unit, or a ductless mini-split.',
+      ' is a planned project that starts with an on-site evaluation, not an equipment price. A technician inspects the property and recommends a system sized to it, and you review a written proposal before work starts.',
   },
   symptomsIntro:
     'These are reasons to schedule an evaluation, not a diagnosis. A technician has to inspect the system before recommending repair or replacement.',
@@ -101,6 +106,8 @@ export const acInstallationPage: ServicePage = {
     ],
     linkText: 'Not sure whether to repair or replace your AC?',
     linkHref: '/services/ac-repair/',
+    // TODO(design): replace with real photo (1200x900)
+    media: { icon: 'refresh' },
   },
   visitEyebrow: 'The project',
   visitTitle: 'What is included and what can cost extra',
@@ -129,6 +136,8 @@ export const acInstallationPage: ServicePage = {
     heading: 'How long does installation take?',
     body:
       'Many straightforward replacements can be completed in a day once equipment, permits, and site conditions are ready. Projects involving ducts, electrical upgrades, rooftop access, multi-zone systems, or plan review may take longer.',
+    // TODO(design): replace with real photo (1200x900)
+    media: { icon: 'clock' },
   },
   systemsTitle: 'Systems we install',
   systemsIntro:
@@ -147,6 +156,8 @@ export const acInstallationPage: ServicePage = {
       'The EPA states that a wholly new split system installed on or after January 1, 2026 must use a refrigerant with a global-warming potential below 700. New lower-GWP systems may use A2L refrigerants such as R-454B, depending on the manufacturer and model, and installation must follow the manufacturer, the equipment listing, and the local authority. Existing R-410A systems can still be repaired through their useful life, so this rule is not a reason to replace a working system.',
     sourceLabel: 'U.S. EPA, HFC Phasedown FAQ',
     sourceHref: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons',
+    // TODO(design): replace with real photo (1200x900)
+    media: { icon: 'snowflake' },
   },
   pricingTitle: 'What affects AC installation cost',
   pricingIntro:
@@ -263,5 +274,51 @@ export const acInstallationPage: ServicePage = {
       q: 'Are rebates available for a new AC or heat pump?',
       a: 'Possibly, but eligibility depends on your utility account, address, equipment, contractor, program funding, and program rules. LADWP lists rebates for qualifying HVAC and heat pump HVAC systems, while statewide TECH Clean California single-family funding was reported fully reserved when we last checked. Check live eligibility before you sign a contract.',
     },
+  ],
+};
+
+// Location-style migration (docs/open-items.md "Service page migration"). Setting `glance` marks this service as migrated.
+// TODO(copy): all strings in this block are new.
+const count = (items?: readonly unknown[]): string => {
+  if (!items?.length) throw new Error('ac-installation-page: empty array used for a derived count');
+  return String(items.length);
+};
+
+export const acInstallationPage: ServicePage = {
+  ...acInstallationBase,
+  glance: {
+    title: 'AC installation at a glance',
+    stats: [
+      { num: '8', label: 'steps in our AC installation process' }, // = the ac-installation `process` array length in services.ts; keep in sync
+      { num: count(acInstallationBase.priceFactors), label: 'factors that change the quote' },
+      { num: count(acInstallationBase.sources), label: 'sources cited on this page' },
+    ],
+    // GlanceCard keys on `num`: the three numbers must stay different (8, 7, 15 today).
+    // TODO(data): the stats are page counts. Confirm this source line reads as support for the process framing.
+    sources: [acInstallationSource('hvac-quality-installation')],
+  },
+  regionBand: {
+    eyebrow: 'Across Southern California',
+    title: 'How local conditions shape AC installation',
+    card: {
+      heading: 'AC installation facts',
+      rows: [
+        { label: 'Sizing', value: 'Set by a heating and cooling load calculation, not by square footage or the size of the old unit' },
+        { label: 'Energy Code', value: "California's 2025 Energy Code took effect January 1, 2026. Split-system central AC must meet at least 14.3 SEER2" },
+        { label: 'New systems', value: 'A wholly new split system installed on or after January 1, 2026 must use a refrigerant with a global-warming potential below 700' },
+        { label: 'Incentives', value: 'LADWP, Southern California Edison, and TECH Clean California list programs. Eligibility and funding change, and no rebate is guaranteed' },
+      ],
+      sources: [
+        acInstallationSource('frequent-questions-phasedown'),
+        acInstallationSource('californias-energy-code-update'),
+        acInstallationSource('strategy_guide_hvac_sizing'),
+      ],
+    },
+  },
+  proofStats: [
+    { num: `${siteConfig.rating}★`, label: 'Google rating' },
+    { num: String(siteConfig.reviewCount), label: 'Google reviews' },
+    { num: count(acInstallationBase.faqs), label: 'installation questions answered' },
+    { num: count(acInstallationBase.rules), label: 'rule areas explained on this page' },
   ],
 };
