@@ -1,4 +1,5 @@
 import type { ServicePage } from '@/content/services';
+import { siteConfig } from '@/content/site-config';
 
 // TODO(data): confirm the CSLB license classification for licenses 1126691 and 50251 (the hero stat,
 // trust strip, proof block, and "Licensing" rule card all say "C-20"). If C-20 is not confirmed on the
@@ -67,7 +68,9 @@ const indoorAirQualityBase: ServicePage = {
     src: '/images/services/indoor-air-quality/hero.webp',
     alt: 'Pleated air filter leaning against a wall beside a return air grille in a bright hallway, with a small air quality monitor on a shelf',
   },
-  heroCaption: 'Indoor air quality assessment for homes and businesses.',
+  // TODO(copy): the old caption was one string, "Indoor air quality assessment for homes and businesses." Proposed two-part
+  // caption mirrors AC Repair. Needs approval.
+  heroCaption: { title: 'Indoor air quality', text: 'assessment for homes and businesses' },
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
@@ -86,9 +89,12 @@ const indoorAirQualityBase: ServicePage = {
   finalCtaTitle: 'Get your indoor air quality question answered',
   finalCtaBody: 'Call us or request service online.',
   answer: {
+    // TODO(copy): trimmed from 99 words to 40 (client approved editing content). Sentence (a), "A technician looks at
+    // filtration... optional upgrades", is dropped: lede, visitIncludes and proofBody already cover it. Sentence (b), "No single
+    // device fixes every problem...", moved word for word to the end of `decision.intro`.
     lead: 'Indoor air quality service',
     body:
-      ' is an HVAC visit that works out why the air in a building feels dusty, stale, damp, or smoky, and then addresses the part of the system involved. The EPA names three ways to reduce indoor pollution: control the source, ventilate, and clean the air. A technician looks at filtration, ventilation, humidity, ducts, and how the equipment is set up, then gives you written options that separate required fixes from optional upgrades. No single device fixes every problem, and a smell or a symptom alone does not identify mold, an allergen, or a medical cause.',
+      ' is an HVAC visit that works out why the air in a building feels dusty, stale, damp, or smoky. The EPA names three ways to reduce indoor pollution: control the source, ventilate, and clean the air.',
   },
   // "What is the air problem?" - four self-triage cards. The first two link to the equipment section
   // (#filtration) since that one section covers filtration, ventilation, and humidity together; the
@@ -97,7 +103,8 @@ const indoorAirQualityBase: ServicePage = {
   decision: {
     eyebrow: 'Start here',
     title: 'What is the air problem?',
-    intro: 'Pick the line that sounds like your building today.',
+    // TODO(copy): sentence moved here from the quick answer.
+    intro: 'Pick the line that sounds like your building today. No single device fixes every problem, and a smell or a symptom alone does not identify mold, an allergen, or a medical cause.',
     columns: 4,
     cards: [
       { icon: 'air', title: 'Dust and filter loading', body: 'Dust returns fast or filters clog early. Start with filter fit, return leaks, and duct condition.', ctaLabel: 'See filtration options', href: '#filtration' },
@@ -303,6 +310,8 @@ const indoorAirQualityBase: ServicePage = {
     // TODO(copy): linked source line, replaces the plain sourceText
     sourceLabel: 'U.S. EPA, HFC Phasedown FAQ',
     sourceHref: indoorAirQualitySource('frequent-questions-phasedown').url,
+    // TODO(design): replace with real photo (1200x900)
+    media: { icon: 'snowflake' },
   },
   // "Rebates and incentives" - plain rebates callout, same shape /services/ac-maintenance/ introduced.
   rebatesNote: {
@@ -312,6 +321,8 @@ const indoorAirQualityBase: ServicePage = {
       { text: 'LADWP Consumer Rebate Program', href: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program' },
       { text: 'SCE Energy Savings Assistance Program', href: 'https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program' },
     ],
+    // TODO(design): replace with real photo (1200x900)
+    media: { icon: 'dollar' },
   },
   appliesTo: [
     { label: 'Single-family homes', icon: 'home' },
@@ -408,4 +419,48 @@ const indoorAirQualityBase: ServicePage = {
   // TODO(copy): client review of every FAQ answer above before launch.
 };
 
-export const indoorAirQualityPage: ServicePage = { ...indoorAirQualityBase };
+// Location-style migration (docs/open-items.md "Service page migration"). Setting `glance` marks this service as migrated.
+// TODO(copy): all strings in this block are new.
+const count = (items?: readonly unknown[]): string => {
+  if (!items?.length) throw new Error('indoor-air-quality-page: empty array used for a derived count');
+  return String(items.length);
+};
+
+export const indoorAirQualityPage: ServicePage = {
+  ...indoorAirQualityBase,
+  glance: {
+    title: 'Indoor air quality at a glance',
+    stats: [
+      { num: count(indoorAirQualityBase.timing!.cards), label: 'approaches the EPA names to reduce indoor pollution' },
+      { num: '6', label: 'steps in an air quality visit' }, // = the indoor-air-quality `process` array length in services.ts; keep in sync
+      { num: count(indoorAirQualityBase.sources), label: 'sources cited on this page' },
+    ],
+    // GlanceCard keys on `num`: the three numbers must stay different (3, 6, 15 today).
+    // This EPA page names the three approaches (verified 2026-10-20). "Protect Indoor Air Quality in Your Home" does not.
+    sources: [indoorAirQualitySource('sources-indoor-particulate-matter-pm')],
+  },
+  regionBand: {
+    eyebrow: 'Across Southern California',
+    title: 'How Southern California air and smoke shape indoor air quality work',
+    card: {
+      heading: 'Indoor air quality facts',
+      // Rows are in drop-order priority for the 1280px balance check: Humidity goes first, then Smoke days.
+      rows: [
+        { label: 'Air quality data', value: 'South Coast AQMD publishes current and forecast air quality for Orange County and parts of Los Angeles, Riverside, and San Bernardino Counties' },
+        { label: 'Smoke days', value: 'Keep windows and doors closed, set the system to recirculate or close the outdoor-air damper if it has one, and use the most efficient filter it can hold' },
+        { label: 'Humidity', value: 'The EPA advises keeping relative humidity below 60 percent, ideally between 30 and 50 percent' },
+      ],
+      sources: [
+        indoorAirQualitySource('aqmd.gov/home/air-quality'),
+        indoorAirQualitySource('wildfires-and-indoor-air-quality'),
+        indoorAirQualitySource('sources-indoor-particulate-matter-pm'),
+      ],
+    },
+  },
+  proofStats: [
+    { num: `${siteConfig.rating}★`, label: 'Google rating' },
+    { num: String(siteConfig.reviewCount), label: 'Google reviews' },
+    { num: count(indoorAirQualityBase.faqs), label: 'air quality questions answered' },
+    { num: count(indoorAirQualityBase.signsTable!.rows), label: 'warning signs explained' },
+  ],
+};
