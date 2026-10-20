@@ -13,6 +13,7 @@ import { Icon } from '@/components/ui/Icon';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { TrustStrip } from '@/components/sections/TrustStrip';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
+import { GlanceCard } from '@/components/sections/GlanceCard';
 import { LocalKnowledge } from '@/components/sections/LocalKnowledge';
 import { ServicesGrid, type Card } from '@/components/sections/ServicesGrid';
 import { RebateCards } from '@/components/sections/RebateCards';
@@ -197,20 +198,7 @@ export default async function Page({ params }: { params: Promise<{ city: string 
         }}
         image={page.glance ? undefined : getService('ac-repair')?.image}
         aside={
-          page.glance && (
-            <aside className="glance" aria-label={page.glance.title}>
-              <h3>{page.glance.title}</h3>
-              <div className="glance-stats">
-                {page.glance.stats.map((st) => (
-                  <div key={st.num}>
-                    <span className="glance-num">{st.num}</span>
-                    <span className="glance-label">{st.label}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="glance-src">{page.glance.source}</p>
-            </aside>
-          )
+          page.glance && <GlanceCard title={page.glance.title} stats={page.glance.stats} source={page.glance.source} />
         }
       />
 
