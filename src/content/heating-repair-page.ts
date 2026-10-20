@@ -10,8 +10,8 @@ import { siteConfig } from '@/content/site-config';
 // review before launch.
 // TODO(data): the diagnostic/service-call fee, any fee waiver, and which visit-scope "extras" Air Pro
 // actually bills separately are unconfirmed. Do not state them.
-// TODO(data): the Angi Los Angeles furnace-repair cost range ($179-$802, average ~$490) needs client
-// approval before it ships. If declined, remove it here (pricing note) and in FAQ 3.
+// RESOLVED (2026-10-20, removed pending client approval): the Angi Los Angeles furnace-repair cost range ($179-$802,
+// average ~$490) is out of the pricing note and FAQ 3. See `heatingRepairMarketplaceSources`.
 // TODO(data): LADWP, SoCalGas, and TECH/HEEHRA rebate status must be rechecked immediately before
 // launch - program funding and terms change. SDG&E is intentionally omitted (not a confirmed utility
 // for this service area).
@@ -38,7 +38,14 @@ const heatingRepairSources: { label: string; url: string; group: string }[] = [
   { label: 'SoCalGas - Rebates and incentives', url: 'https://www.socalgas.com/savings/rebates-and-incentives', group: 'Rebates and incentives' },
   { label: 'TECH Clean California - Single-family incentives status', url: 'https://techcleanca.com/incentives/single-family-incentives/', group: 'Rebates and incentives' },
   { label: 'TECH Clean California - HEEHRA rebate status', url: 'https://techcleanca.com/incentives/heehrarebates/', group: 'Rebates and incentives' },
-  { label: 'Angi - Los Angeles furnace repair cost guide', url: 'https://www.angi.com/articles/how-much-does-common-furnace-repair-cost/ca/los-angeles', group: 'Cost context' },
+];
+
+// TODO(data): marketplace cost guide, held out because the Los Angeles furnace repair range ($179-$802, average ~$490) needs client
+// approval and the source is a lead-generation marketplace. To show it again, restore the two Angi sentences in `pricingClosing` and
+// FAQ 3 (and the matching JSON-LD, which derives from `faqs`) and move this entry back into `heatingRepairSources` with
+// `group: 'Cost context'`.
+export const heatingRepairMarketplaceSources: { label: string; url: string }[] = [
+  { label: 'Angi - Los Angeles furnace repair cost guide', url: 'https://www.angi.com/articles/how-much-does-common-furnace-repair-cost/ca/los-angeles' },
 ];
 
 // TODO(data): manufacturer service guide, held out of the References row because CLAUDE.md says never to link to or name a
@@ -191,10 +198,10 @@ const heatingRepairBase: ServicePage = {
     { item: 'Heat exchanger or another complex repair', drivers: 'Furnace age, safety condition, replacement cost, compatible parts, efficiency, permits, and replacement scope' },
     { item: 'Rooftop or commercial unit repair', drivers: 'Roof access, lift or crane needs, scheduling, and building controls' },
   ],
-  // TODO(data): get client approval before keeping the Angi figure. If declined, remove it here and
-  // in FAQ 3. Never show competitor diagnostic fees.
+  // RESOLVED (2026-10-20, removed pending client approval): the Angi range was cut from this note and from FAQ 3. Never show
+  // competitor diagnostic fees.
   pricingClosing:
-    'For market context only, one Los Angeles cost guide from Angi reports typical furnace repairs of about $179-$802, with an average around $490. That range is third-party data, not an Air Pro quote. Your price depends on the failed part, labor, access, urgency, and equipment condition.',
+    'Your price depends on the failed part, labor, access, urgency, and equipment condition.',
   repairReplaceExtra: {
     paragraphs: [
       'There is no single age or dollar threshold that applies to every system, so fixed rules of thumb can mislead. A qualified technician should evaluate the equipment and the project scope before recommending either path.',
@@ -292,7 +299,7 @@ const heatingRepairBase: ServicePage = {
     },
     {
       q: 'How much does furnace repair cost in Los Angeles?',
-      a: 'Price depends on the failed part, labor, access, urgency, and equipment condition. One Los Angeles cost guide from Angi reports typical furnace repairs of about $179-$802, with an average around $490. That is market context, not an Air Pro quote. Ask for a written repair option with the total before you approve any work.',
+      a: 'Price depends on the failed part, labor, access, urgency, and equipment condition. Ask for a written repair option with the total before you approve any work.',
     },
     {
       q: 'Can my R-410A heat pump still be repaired?',
@@ -328,11 +335,11 @@ const heatingRepairBase: ServicePage = {
 
 // Location-style migration (docs/open-items.md "Service page migration"). Setting `glance` marks this service as migrated.
 // TODO(copy): all strings in this block are new.
-// GlanceCard keys on `num`: the three numbers must stay different (8, 6, 9 today). Fail the build if they collide.
+// GlanceCard keys on `num`: the three numbers must stay different (8, 6, 4 today). Fail the build if they collide.
 const glanceStats = [
   { num: count(heatingRepairBase.diagnosis), label: 'common heating symptoms explained' },
   { num: '6', label: 'steps in a heating repair visit' }, // = the heating-repair process array length in services.ts; keep in sync
-  { num: count(heatingRepairBase.sources), label: 'sources cited on this page' },
+  { num: count(heatingRepairBase.priceFactors), label: 'repair cost factors explained' },
 ];
 if (new Set(glanceStats.map((x) => x.num)).size !== glanceStats.length) {
   throw new Error('heating-repair-page: glance stat numbers must be unique (GlanceCard keys on num)');
