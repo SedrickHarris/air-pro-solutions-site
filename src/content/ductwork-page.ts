@@ -37,6 +37,41 @@ import { siteConfig } from '@/content/site-config';
 // cards).
 // TODO(copy): client review of every FAQ answer below before launch.
 
+// TODO(copy): group labels are new (migration). Group order is the display order of the references row.
+const ductworkSources: { label: string; url: string; group: string }[] = [
+  { label: 'ENERGY STAR - Duct sealing', url: 'https://www.energystar.gov/saveathome/heating-cooling/duct-sealing', group: 'Duct sealing and design' },
+  { label: 'ACCA - Manual D residential duct design', url: 'https://www.acca.org/standards/technical-manuals/manual-d', group: 'Duct sealing and design' },
+  // TODO(data): the post is dated November 16, 2018 and is written by Rob "Doc" Falke, president of National Comfort Institute, an HVAC
+  // training company and membership organization (the author box on the page). It is published on the ACCA HVAC blog (hvac-blog.acca.org).
+  // FAQ 7 says "ACCA explains", which reads as an ACCA position; the post is one author's article. Attribution gap, FAQ 7 wording untouched.
+  { label: 'ACCA - Using static pressure measurement to pinpoint duct deficiencies', url: 'https://hvac-blog.acca.org/use-static-pressure-measurement-pinpoint-duct-deficiencies/', group: 'Duct sealing and design' },
+  { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency', group: 'Energy code and licensing' },
+  // TODO(data): the PDF read for this build (July 2025, CEC-400-2025-010-F) does not state the January 1, 2026 date. The CEC web page above
+  // does. The fact-card Energy code row cites the web page.
+  { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards (full text, PDF)', url: 'https://www.energy.ca.gov/sites/default/files/2026-07/CEC-400-2025-010-F.pdf', group: 'Energy code and licensing' },
+  { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20', group: 'Energy code and licensing' },
+  { label: 'NASA JPL - Key heat-wave differences in Southern California', url: 'https://www.jpl.nasa.gov/news/nasa-maps-key-heat-wave-differences-in-southern-california/', group: 'Heat and housing' },
+  // TODO(data): the page itself is titled "SOLACHAN Housing Supply 2026" and its copyright line reads "Neighborhood Data for Social Change
+  // (NDSC)"; the authors are listed under USC Lusk Center for Real Estate and USC Price School. The name in the label below does not appear
+  // on the page. Label left as is until the client decides. The same page is the source of the LA County "58 years" sentence in
+  // regionConditions (it says "median age of the county's housing stock is 58 years old (built in 1966)", calculated from 2024).
+  { label: 'Southern California Association of Non Profit Housing - 2026 housing supply', url: 'https://la.myneighborhooddata.org/solachan-2026-housing-supply/', group: 'Heat and housing' },
+  { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program', group: 'Rebates and incentives' },
+  { label: 'Southern California Edison - Energy Savings Assistance Program', url: 'https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program', group: 'Rebates and incentives' },
+];
+// No manufacturer, contractor or marketplace source is on this page (checked 2026-10-20), so there is no hold-out array.
+
+const count = (items?: readonly unknown[]): string => {
+  if (!items?.length) throw new Error('ductwork-page: empty array used for a derived count');
+  return String(items.length);
+};
+
+const ductworkSource = (urlPart: string) => {
+  const found = ductworkSources.find((s) => s.url.includes(urlPart));
+  if (!found) throw new Error(`Unknown ductwork source: ${urlPart}`);
+  return found;
+};
+
 // Full template content for /services/ductwork/. Reuses the same ServicePage shape and shared section
 // components already built out for /services/ac-repair/, /services/ac-installation/, /services/ac-maintenance/, and
 // /services/heating-repair/ - see the build report for why a second, parallel content shape
@@ -44,7 +79,7 @@ import { siteConfig } from '@/content/site-config';
 // (metaServiceName, relatedIcons, optionsTable, equipmentTable, sourcesEyebrow) were added for
 // pieces of this page the existing fields couldn't already express; every one of them is optional
 // so every other service page is unaffected.
-export const ductworkPage: ServicePage = {
+const ductworkBase: ServicePage = {
   primaryKeyword: 'ductwork services los angeles',
   // "Ductwork Services" (not the plain service name "Ductwork") is the display string this page's
   // title/H1 are built from - see metaServiceName below and the build report for why.
@@ -233,8 +268,12 @@ export const ductworkPage: ServicePage = {
       title: 'Can sealing or replacing ducts lower my energy bill?',
       body: 'It can reduce waste when leakage is part of the problem. ENERGY STAR estimates that 20 to 30 percent of the air in a typical duct system can be lost through leaks, holes, and poor connections, and says leaky ducts can raise utility bills and make rooms hard to keep comfortable. Savings are not guaranteed, because bills also depend on equipment condition, thermostat settings, insulation, weather, and energy rates.',
       sourceText: 'Source: ENERGY STAR duct sealing guidance.',
+      // TODO(copy): linked source line, replaces the plain sourceText on migrated pages
+      sourceLabel: 'ENERGY STAR, Duct sealing',
+      sourceHref: ductworkSource('energystar.gov/saveathome/heating-cooling/duct-sealing').url,
     },
     {
+      // TODO(data): no source for this callout's claims (SEER2 applies to equipment, ducts contain no refrigerant, the quote should name the refrigerant platform). No source line on purpose.
       id: 'seer-rating',
       accent: 'amber',
       title: "Do new ducts change my air conditioner's efficiency rating?",
@@ -336,15 +375,8 @@ export const ductworkPage: ServicePage = {
   ],
   sourcesColumns: 2,
   sourcesEyebrow: 'References',
-  sources: [
-    { label: 'ENERGY STAR - Duct sealing', url: 'https://www.energystar.gov/saveathome/heating-cooling/duct-sealing' },
-    { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20' },
-    { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/sites/default/files/2026-07/CEC-400-2025-010-F.pdf' },
-    { label: 'ACCA - Manual D residential duct design', url: 'https://www.acca.org/standards/technical-manuals/manual-d' },
-    { label: 'ACCA - Using static pressure measurement to pinpoint duct deficiencies', url: 'https://hvac-blog.acca.org/use-static-pressure-measurement-pinpoint-duct-deficiencies/' },
-    { label: 'NASA JPL - Key heat-wave differences in Southern California', url: 'https://www.jpl.nasa.gov/news/nasa-maps-key-heat-wave-differences-in-southern-california/' },
-    { label: 'Southern California Association of Non Profit Housing - 2026 housing supply', url: 'https://la.myneighborhooddata.org/solachan-2026-housing-supply/' },
-    { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program' },
-    { label: 'Southern California Edison - Energy Savings Assistance Program', url: 'https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program' },
-  ],
+  sources: ductworkSources,
 };
+
+// Temporary until the migration block lands; keeps the export valid.
+export const ductworkPage: ServicePage = { ...ductworkBase };
