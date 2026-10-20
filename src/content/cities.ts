@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson, santa-ana, newport-beach, fullerton, tustin, chino, fontana and upland have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson, santa-ana, newport-beach, fullerton, tustin, chino, fontana, upland and eastvale have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // The closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's, Santa Ana's, Newport Beach's, Fullerton's, Tustin's, Chino's, Fontana's and Upland's local paragraphs use the new sentence from the start. The client approved all city page copy, including Newport Beach, Fullerton, Tustin, Chino, Fontana and Upland, on 2026-10-19 (per the user).
+// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's, Santa Ana's, Newport Beach's, Fullerton's, Tustin's, Chino's, Fontana's, Upland's and Eastvale's local paragraphs use the new sentence from the start. The client approved all city page copy, including Newport Beach, Fullerton, Tustin, Chino, Fontana, Upland and Eastvale, on 2026-10-19 (per the user).
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
 // building that city page or its matrix pages. Never invent it.
@@ -10416,6 +10416,494 @@ const uplandOverrides: Partial<City> = {
   },
 };
 
+const eastvaleOverrides: Partial<City> = {
+  // Copy approval: the client approved the Eastvale page copy on 2026-10-19 (per the user).
+  // TODO(data): add verified climate, ZIP, neighborhood and utility detail before treating this as a full local page.
+  neighborhoods: [], // list held out: no City neighborhood list was read; the 2022 Planning Commission report names Downtown, corridors, a Riverfront and the Chandler Area only as themes of a proposal, and the hub's "Hamner Avenue and Limonite Avenue corridors" has no City source
+  zips: [], // the two ZIPs (91752, 92880) are stated as attributed page text from the City's ZIP code page; this field stays empty so the services pages do not print an unattributed ZIP line, see docs/open-items.md DECISION
+  page: {
+    metaDescription: "HVAC service for Eastvale homes and businesses, with the City's permit and zoning pages in mind. Licensed, 4.8-star rated. Call or request service online.",
+    lede: "AIRPRO SOLUTIONS provides HVAC services across Eastvale, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit portal and zoning pages in mind.",
+    heroCaption: {
+      title: "Eastvale, CA",
+      text: "Local service across Eastvale",
+    },
+    heroProof: [
+      {
+        icon: "shield",
+        label: "Licensed, bonded & insured",
+      },
+      {
+        icon: "star",
+        label: "4.8-star rated",
+      },
+      {
+        icon: "bolt",
+        label: "24/7 emergency dispatch",
+      },
+      {
+        icon: "building",
+        label: "Residential and commercial",
+      },
+    ],
+    trustStats: [
+      {
+        num: "4.8★",
+        label: "Google rating, 40 reviews",
+      },
+      {
+        num: "C-20",
+        label: "California licensed",
+      },
+      {
+        num: "24/7",
+        label: "emergency dispatch",
+      },
+      {
+        num: "Same-day",
+        label: "service typical",
+      },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Eastvale",
+      body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Eastvale at a glance",
+      stats: [
+        {
+          num: "70,594",
+          label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "78.0%",
+          label: "owner-occupied housing unit rate, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "3.89",
+          label: "persons per household, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+        },
+      ],
+      source: "Source: U.S. Census Bureau QuickFacts for Eastvale city, California.",
+    },
+    localTitle: "Eastvale's permit portal, zoning pages, and utility programs",
+    // Copy approval: the client approved the Eastvale page copy on 2026-10-19 (per the user).
+    // Held out (no verified source or not allowed on the page): the ZIP code page's description of pending federal ZIP bills (H.R. 672, S. 1455 and H.R. 1225), the former Mira Loma community, and the cities that share each ZIP code (the page uses only ZIP codes 91752 and 92880, that each is shared with other communities, and the January 1, 2024 USPS designation of 92880, with no other city named); the CEQAnet planning-area boundaries, Norco and every neighboring city (Chino, Ontario, Jurupa Valley, Norco and Corona came from the research; the CEQAnet page names only Norco, and the page names no other city); Downtown at Limonite and Hamner, business-commercial corridors, the Santa Ana Riverfront and the Chandler Area (a June 15, 2022 Planning Commission staff report on a proposed preferred land use plan, read through a fetch summary, lists them as themes of a proposal, not adopted plan text, and the pasted research called them planning or character areas; held out, and the hub's "Hamner Avenue and Limonite Avenue corridors" is removed); the County of Riverside Eastvale Area Plan (revised 2021-09-28; a County document that says it has extremely limited application since Eastvale incorporated on October 1, 2010, so its Medium Density Residential, light industrial, agriculture and river corridor land use statements are not used); the City of Eastvale's Building Division, inspections and permits phone number and email addresses, the Planning phone number and the Sheriff dispatch number (not allowed on the page); Municipal Code Chapter 8.18.030 entry (39) and the Chapter 8.52 text (no Code host linked); the Municipal Code host (GoCodebook appeared in search; not linked until the user confirms whether a Code host counts as official); the Eastvale Permit Portal URL and the Accela host aca-prod.accela.com/EASTVALE named in the permits paste (the fetch of the Accela landing page and of the City Forms and Standard Plans page returned an error, and the building-safety-copy URL returned an error on one attempt each; none was read, so "Residential Mechanical", "Start a New Application" and "Request an Inspection" are not used and the hub's "Accela" wording is replaced), the Electronic Plan Review submittal standards PDF and the Inspection Schedule tool (not read), the 2025 California Energy Code January 1, 2026 effective date from the permits paste (a state page not read), and the paste's permits, inspections and building email addresses and 951-703-4450; counter hours and fees; the City's adopted Building, Mechanical and Energy Code editions (no City page read names one); NOAA station, summer highs, winter lows, days above 90 or 100 degrees, humidity, marine layer, heat island and inland-versus-coastal climate statements (no official comparative source read; the CEQAnet page says nothing about climate); median year built, structure type shares, neighborhood housing age, HOA prevalence, historic districts, employers, shopping centers, industrial areas, schools and hospitals (no official source read); the hub's 0.7 percent built before 1970 and "predominantly detached single-family" (2018 data, no source read); median home value, median rent, income, education, labor force, commute and demographic shares from the Census paste (only population, owner-occupied rate and persons per household are used); SCE and SoCalGas service at Eastvale addresses and every utility amount, income limit, deadline, per-kBtuh figure, HEEHRA status, Summer Discount Plan, Golden State Rebates, TECH and wildfire ZIP restriction from the rebate paste (no page read names Eastvale, rebates stay link-only); the federal Section 25C credit (expired for equipment placed in service after 2025 per the IRS page; a tax topic, not stated on the page).
+    // TODO(verify): Census QuickFacts for Eastvale city (V2025, no publication date) was read through a fetch summary on 2026-10-19: 70,594 residents on July 1, 2025 (V2025); 69,757 in the April 1, 2020 Census; 78.0 percent owner-occupied housing unit rate, 3.89 persons per household, 18,168 households and $831,900 median value of owner-occupied units for 2020 to 2024 (ACS 5-year). The pasted research gave older figures (V2023 estimate 70,510; ACS 2019 to 2023: 80.2 percent, 3.94, 17,824 households, $752,000); the live page is used. Households, value, income, rent and demographic shares are not used.
+    // TODO(verify): City Building Safety page (eastvaleca.gov, no page date seen) was read through a fetch summary on 2026-10-19: most permit types can be submitted online through the "Eastvale Permit Portal"; applicants can "check in" with the front counter or make an appointment; a PDF of Electronic Plan Review Plans Submittal Standards Instructions and an Inspection Schedule tool are linked (not read); projects are reviewed to accommodate "construction codes adopted by the State of California"; it names no Building, Mechanical or Energy Code edition and does not say whether replacing an air conditioner or furnace needs a permit. The summary did not return the portal URL, so the portal is not linked.
+    // TODO(verify): City Building Safety FAQ (eastvaleca.gov/government/community-development-department/building-safety/frequently-asked-questions, no page date seen) was read through a fetch summary on 2026-10-19: permits are required to "replace any electrical, gas, mechanical or plumbing system"; "Water heaters and HVAC are generally reviewed and issued over the counter" when there are "no special design requirements or circumstances"; it refers to "Section R105.2 for exemptions" without listing them; it does not name air conditioners or furnaces, so the page does not say that replacing one needs a permit. Only the general permit statement, the over-the-counter statement and the unlisted exemptions are used.
+    // TODO(verify): City zoning page (eastvaleca.gov, no page date seen; the Zoning Map is updated April 2025) was read through a fetch summary on 2026-10-19: the Zoning Code applies to all property in the City except federal, state, or City-owned property; the Zoning Map "identifies the zoning district for every parcel"; it does not mention air conditioner or mechanical equipment placement and mentions setbacks only for Planned Residential Developments.
+    // TODO(verify): City noise page (eastvaleca.gov, no page date seen) was read through a fetch summary on 2026-10-19: lists Municipal Code Chapter 8.52, "Noise Regulation", and a Chapter 8.18.030 entry marked (39) that the page does not explain; states no quiet hours or decibel limits; says many other sections exist; sends most noise reports to the My Eastvale App and loud parties to the Riverside County Sheriff. Only the Chapter 8.52 title and the absence of limits are used.
+    // TODO(verify): State CEQAnet record for the Eastvale 2040 General Plan Update (SCH 2022080090, Final document received 2024-03-15; ceqanet.lci.ca.gov/2022080090/3) was read through a fetch summary on 2026-10-19: Eastvale is located in northwestern Riverside County, within the Inland Empire region of Southern California; the planning area boundaries run from Hellman Avenue and Philadelphia Avenue to the Santa Ana River and Norco and Interstate 15; it names Norco only, lists no other neighboring cities and says nothing about climate. Only the county and region statement is used.
+    // TODO(verify): City ZIP code advocacy page (eastvaleca.gov/our-city/independent-zip-code-advocacy-project, no page date seen) was read through a fetch summary on 2026-10-19: states ZIP codes 91752 and 92880 for Eastvale; says 91752 covers the former Mira Loma community shared with Jurupa Valley and 92880 is shared with other communities; says the USPS designation of 92880 as Eastvale took effect on January 1, 2024. Only the two ZIP codes, that each is shared with other communities, and the January 1, 2024 designation are used; no other city is named on the page.
+    // TODO(verify): South Coast AQMD air quality page (aqmd.gov/home/air-quality, no page date) was read through a fetch summary on 2026-10-19: the district is the air pollution control agency for "all of Orange County and major portions of Los Angeles, Riverside and San Bernardino Counties"; for ozone it lists "Inland areas and valleys" as most affected; it does not mention Eastvale.
+    // TODO(verify): SCE Smart Energy Program page (sce.com, no page date) was read through a fetch summary on 2026-10-19: smart thermostat bill credits tied to energy events and a summer period, with the thermostat adjustable up to four degrees during events; it names no city. This summary showed credit amounts that the Upland summary did not; none are used.
+    // TODO(verify): SCE Energy Savings Assistance page (sce.com, no page date) was read through a fetch summary on 2026-10-19: income-qualified upgrades including central AC or central heat pump replacement; services may not be available in all areas and are first-come, first-served while funding lasts; the ESA Whole Home pilot is closed to new projects and the Building Electrification Program is closed to new enrollments as of September 2026; it names no city.
+    // TODO(verify): SoCalGas rebates page (socalgas.com/savings/rebates-and-incentives, no page date) was read through a fetch summary on 2026-10-19: the ENERGY STAR certified furnace entry requires an AFUE of at least 92 percent, installation by a licensed contractor with proof of permit closure, and one per household; the only city on the page is a Los Angeles mailing address; it does not mention Eastvale. No amounts or deadlines are used.
+    // TODO(verify): CSLB Finding the Right Contractor page (no publication date) was read through a fetch summary on 2026-10-19: license status can be checked online or by phone; "Seeing a license number doesn't necessarily mean the license is valid"; insurance information is on the license history page.
+    // TODO(verify): IRS Energy Efficient Home Improvement Credit page (irs.gov, "Page Last Reviewed or Updated: 28-Apr-2026") was read through a fetch summary on 2026-10-19: the credit applies to property placed in service on or after Jan. 1, 2023, and before December 31, 2025 (the page also says improvements made through December 31, 2025). Not used on the page: it is a tax credit, not a utility or City program, and the pasted wording ("after December 31, 2025") differs slightly from the page.
+    // Pre-launch recheck: Your confirmation of whether a Municipal Code host (eCode360, Municode, codepublishing or GoCodebook; GoCodebook came up in search for Eastvale) counts as official, plus the Municipal Code text on mechanical equipment and Chapter 8.52 noise limits if you want them on the page. The City's adopted California Building, Mechanical and Energy Code editions on one City page (the Building Safety page names none). A City page that names air conditioner or furnace replacement and lists the Section R105.2 exemptions (the FAQ gives a general answer only), and the Eastvale Permit Portal page or URL (the Building Safety summary returned no portal URL, and the Accela portal, the Forms and Standard Plans page and the building-safety-copy URL all errored). The Zoning Code text on outdoor equipment, setbacks and screening, if you want placement rules on the page. An official neighborhood list, if you want neighborhoods on the page (the 2022 Planning Commission report names Downtown, corridors, a Riverfront and the Chandler Area as proposal themes only). Building Safety counter hours and the plan review submittal standards PDF, if you want counter or submittal detail. NOAA normals for an Eastvale-area station (Climate Normals Quick Access), if you want climate on the page. Census ACS B25034, B25035 and B25024 for Eastvale city, if you want an age or structure type statement. A City or utility page that names Eastvale's electric and gas providers, and whether SCE and SoCalGas programs apply at Eastvale addresses. Any readable source on commercial and industrial HVAC context in Eastvale (none was read).
+    localParagraphs: [
+      "The City's Building Safety page says most permit types can be submitted online through the Eastvale Permit Portal, and that applicants can also check in at the front counter or make an appointment. It also links an Inspection Schedule tool and a PDF of electronic plan review submittal standards, which we did not read. We do not state counter hours or permit fees.",
+      "The City's Building Safety FAQ says permits are required to replace any electrical, gas, mechanical, or plumbing system, and that water heaters and HVAC are generally reviewed and issued over the counter when there are no special design requirements. It does not name air conditioner or furnace replacement, and it points to Section R105.2 for exemptions without listing them, so **AIRPRO SOLUTIONS confirms the permit path for your job with the City** before work starts. The Building Safety page says projects are reviewed to accommodate construction codes adopted by the State of California, and it does not name a Building, Mechanical, or Energy Code edition, so **we confirm which code editions apply to your project with the City** and do not state local amendments.",
+      "The City's zoning page says the Zoning Code applies to all property in Eastvale except federal, state, or City-owned property, and that the Zoning Map, updated in April 2025, identifies the zoning district for every parcel. It does not mention air conditioner or other mechanical equipment placement. The City's noise page lists Municipal Code Chapter 8.52, Noise Regulation, and gives no hours or decibel limits, so we do not state equipment placement or noise rules, and **we check how your property is zoned and its layout before choosing a location for outdoor equipment**.",
+      "QuickFacts estimates Eastvale had 70,594 residents on July 1, 2025, and reports a **78.0% owner-occupied housing unit rate** and 3.89 persons per household for 2020 to 2024. That leaves 22.0% of occupied homes that are not owner-occupied, so when the person who calls is a tenant we work with the owner or property manager on access and approval. Ownership and household size are different measures from building type or age, so we do not guess how old the homes or ducts are in your part of the city, and **we confirm the equipment, roof or attic access, and ductwork at each property**.",
+      "The state's CEQAnet record for the City's Eastvale 2040 General Plan update describes Eastvale as located in northwestern Riverside County, within the Inland Empire. It says nothing about climate, so we make no climate claim, and we size equipment from the building, not from a regional assumption. The City's ZIP code page names 91752 and 92880 as ZIP codes for Eastvale and says each is shared with other communities, and that the USPS designation of 92880 as Eastvale took effect on January 1, 2024, so a ZIP code alone does not settle whether an address is in Eastvale, and **we confirm the service address**.",
+      "South Coast AQMD's air quality page says the district is the air pollution control agency for major portions of Riverside County, among other counties, and it lists inland areas and valleys among the areas most affected by ozone. It does not name Eastvale, so we make no claim about air quality at Eastvale addresses, and filtration and ventilation are options we can go over at a visit.",
+      "The City pages we read do not say which utility serves Eastvale addresses, so **your bill shows who supplies your electricity and gas**. Utilities publish their own program pages with their own terms and funding, such as Southern California Edison's Smart Energy Program for smart thermostats, Edison's Energy Savings Assistance program for income-qualified households, and Southern California Gas Company's furnace rebates, which require installation by a licensed contractor and proof of permit closure. None of these pages names Eastvale, so we do not quote amounts or say a program applies at your address, and you should check each program with your utility before you buy. Official links are in the card for this section.",
+    ],
+    localCards: [
+      {
+        heading: "Eastvale permit, zoning, and noise pages",
+        rows: [
+          {
+            label: "Applications",
+            value: "Eastvale Permit Portal for most permit types; counter or appointment",
+          },
+          {
+            label: "Permits",
+            value: "FAQ: replacing mechanical systems needs a permit; HVAC generally over the counter; exemptions not listed",
+          },
+          {
+            label: "Codes",
+            value: "State construction codes; no edition named",
+          },
+          {
+            label: "Zoning",
+            value: "Citywide except federal, state, and City-owned property; map updated April 2025",
+          },
+          {
+            label: "Noise",
+            value: "Chapter 8.52; no hours or decibel limits listed",
+          },
+          {
+            label: "ZIP codes",
+            value: "91752 and 92880, each shared with other communities",
+          },
+          {
+            label: "Not stated",
+            value: "AC replacement by name, Mechanical and Energy Code editions",
+          },
+        ],
+        note: "From the City's Building Safety, FAQ, zoning, noise, and ZIP code pages. Not stated means not on the pages we read. We confirm requirements with the City.",
+      },
+    ],
+    neighborhoodsHeading: "Official Eastvale resources",
+    officialResources: [
+      {
+        text: "Building Safety",
+        href: "https://www.eastvaleca.gov/government/community-development-department/building-safety",
+        note: "Eastvale Permit Portal, counter, and inspections.",
+      },
+      {
+        text: "Building Safety FAQ",
+        href: "https://www.eastvaleca.gov/government/community-development-department/building-safety/frequently-asked-questions",
+        note: "What requires a permit, in general terms.",
+      },
+      {
+        text: "Zoning Code",
+        href: "https://www.eastvaleca.gov/government/community-development/planning/eastvale-zoning-code",
+        note: "Zoning Code and Zoning Map.",
+      },
+      {
+        text: "Noise ordinances",
+        href: "https://www.eastvaleca.gov/government/community-safety-department/code-enforcement/additional-information-forms/eastvale-noise-ordinances",
+        note: "Municipal Code Chapter 8.52 and complaint routes.",
+      },
+      {
+        text: "CEQAnet record",
+        href: "https://ceqanet.lci.ca.gov/2022080090/3",
+        note: "2040 General Plan update and location.",
+      },
+      {
+        text: "City ZIP code page",
+        href: "https://www.eastvaleca.gov/our-city/independent-zip-code-advocacy-project",
+        note: "ZIP codes 91752 and 92880.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://census.gov/quickfacts/fact/table/eastvalecitycalifornia/SBO030222",
+        note: "Population and owner-occupied rate.",
+      },
+      {
+        text: "South Coast AQMD air quality",
+        href: "https://www.aqmd.gov/home/air-quality",
+        note: "Ozone wording. Does not name Eastvale.",
+      },
+      {
+        text: "SCE Smart Energy Program",
+        href: "https://www.sce.com/save-money/savings-programs/enroll-in-savings-programs/smart-energy-program",
+        note: "Thermostat terms. Does not name Eastvale.",
+      },
+      {
+        text: "SCE Energy Savings Assistance",
+        href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+        note: "Income-qualified. Does not name Eastvale.",
+      },
+      {
+        text: "SoCalGas rebates",
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "Furnace rebates. Does not name Eastvale.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Eastvale homes and businesses",
+    serviceCards: [
+      {
+        slug: "ac-repair",
+        name: "AC Repair",
+        body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises in Eastvale homes and businesses.",
+      },
+      {
+        slug: "ac-installation",
+        name: "AC Installation & Replacement",
+        body: "New system sizing and installation for Eastvale properties, planned around the City's permit pages.",
+      },
+      {
+        slug: "ac-maintenance",
+        name: "AC Maintenance",
+        body: "Seasonal AC tune-ups that catch small issues early, for Eastvale homes and for commercial rooftop and ground units.",
+      },
+      {
+        slug: "heating-repair",
+        name: "Heating Repair",
+        body: "Furnace and heating system diagnosis and repair for Eastvale homes and businesses.",
+      },
+      {
+        slug: "furnace-installation",
+        name: "Furnace Installation & Replacement",
+        body: "Furnace sizing and installation, planned around the City's permit pages.",
+      },
+      {
+        slug: "heat-pump-services",
+        name: "Heat Pump Services",
+        body: "Heat pump installation, repair, and maintenance, with the City's permit pages and your utilities' program pages in mind.",
+      },
+      {
+        slug: "ductless-mini-split",
+        name: "Ductless Mini-Split",
+        body: "Ductless systems for Eastvale additions, converted spaces, and rooms the existing ducts do not reach.",
+      },
+      {
+        slug: "ductwork",
+        name: "Ductwork Services",
+        body: "Duct repair, sealing, and replacement for Eastvale homes and buildings.",
+      },
+      {
+        slug: "indoor-air-quality",
+        name: "Indoor Air Quality",
+        body: "Filtration, ventilation, and air-quality upgrades for Eastvale homes and offices.",
+      },
+      {
+        slug: "emergency-hvac",
+        name: "Emergency HVAC",
+        body: "24/7 emergency dispatch for no-cool and no-heat problems in Eastvale. If you smell gas, leave the building and call 911 or your gas utility.",
+      },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Eastvale permits, zoning, and incentive programs",
+      intro: "Official sources for three items worth checking before an Eastvale HVAC project.",
+      cards: [
+        {
+          amount: "Permits and inspections",
+          description: "The City's Building Safety page says most permit types can be submitted online through the Eastvale Permit Portal, and its FAQ says permits are required to replace mechanical systems and that HVAC is generally issued over the counter when there are no special design requirements. Neither names air conditioner replacement or a code edition, so we confirm the permit path and code requirements for your job with the City. We do not state permit fees or counter hours.",
+          linkLabel: "City Building Safety page",
+          linkHref: "https://www.eastvaleca.gov/government/community-development-department/building-safety",
+        },
+        {
+          amount: "Zoning and noise",
+          description: "The City's zoning page says the Zoning Code applies to all property in Eastvale except federal, state, or City-owned property, and its Zoning Map identifies the zoning district for every parcel. The City's noise page lists Municipal Code Chapter 8.52 without hours or decibel limits. Neither page mentions outdoor HVAC equipment, so we check your property's zoning and layout with the City.",
+          linkLabel: "City zoning page",
+          linkHref: "https://www.eastvaleca.gov/government/community-development/planning/eastvale-zoning-code",
+        },
+        {
+          amount: "Rebates and utilities",
+          description: "The City pages we read do not say which utility serves Eastvale addresses, so check your bill. Southern California Edison's Smart Energy Program page describes smart thermostat bill credits, and the Southern California Gas Company rebate page lists furnace rebates that require a licensed contractor and proof of permit closure. Neither page names Eastvale, so we do not quote amounts or say either program applies at your address. Check each program's terms with your utility before you buy.",
+          linkLabel: "SoCalGas rebate page",
+          linkHref: "https://www.socalgas.com/savings/rebates-and-incentives",
+        },
+      ],
+    },
+    nearby: [
+      "corona",
+      "riverside",
+      "chino",
+      "ontario",
+    ],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Eastvale",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        {
+          num: "4.8★",
+          label: "Google rating",
+        },
+        {
+          num: "40",
+          label: "Google reviews",
+        },
+        {
+          num: "C-20",
+          label: "California license class",
+        },
+        {
+          num: "24/7",
+          label: "Emergency dispatch",
+        },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Eastvale. Same-day service is typical, subject to capacity.",
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Eastvale?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Eastvale as part of our Inland Empire coverage. The City runs its own permit process, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "Inland Empire coverage",
+            href: "/service-areas/inland-empire/",
+          },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Eastvale home?",
+        a: "Same-day service is typical in Eastvale, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Eastvale, subject to capacity.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an air conditioner in Eastvale?",
+        a: "We confirm that with the City. The City's Building Safety FAQ says permits are required to replace any electrical, gas, mechanical, or plumbing system, and that HVAC is generally reviewed and issued over the counter when there are no special design requirements, but it does not name air conditioner replacement and points to Section R105.2 for exemptions without listing them, so AIRPRO SOLUTIONS confirms the current permit path with the City before work starts, and we do not quote permit fees.",
+        boldLead: "We confirm that with the City.",
+        links: [
+          {
+            text: "Building Safety FAQ",
+            href: "https://www.eastvaleca.gov/government/community-development-department/building-safety/frequently-asked-questions",
+          },
+        ],
+      },
+      {
+        q: "Which building code edition applies to an Eastvale HVAC project?",
+        a: "We confirm that with the City. The City's Building Safety page says projects are reviewed to accommodate construction codes adopted by the State of California, but it does not name a Building, Mechanical, or Energy Code edition, so AIRPRO SOLUTIONS confirms which requirements apply to your project with the City, and we do not state local amendments.",
+        boldLead: "We confirm that with the City.",
+        links: [
+          {
+            text: "Building Safety page",
+            href: "https://www.eastvaleca.gov/government/community-development-department/building-safety",
+          },
+        ],
+      },
+      {
+        q: "Where can an outdoor AC unit go on my Eastvale property?",
+        a: "We confirm that with the City. The City's zoning page says the Zoning Code applies to all property in Eastvale except federal, state, or City-owned property and that the Zoning Map identifies the zoning district for every parcel, but it does not mention outdoor HVAC equipment, and we did not find a City page we could read that states setback, screening, or noise limits for it, so we do not state any here. AIRPRO SOLUTIONS checks the current rules, how your property is zoned, and its layout with the City before choosing a location.",
+        boldLead: "We confirm that with the City.",
+        links: [
+          {
+            text: "zoning page",
+            href: "https://www.eastvaleca.gov/government/community-development/planning/eastvale-zoning-code",
+          },
+        ],
+      },
+      {
+        q: "Does the age of my Eastvale home matter for HVAC?",
+        a: "Age is one factor we check. We did not find a verified citywide figure for the age of Eastvale homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
+        boldLead: "Age is one factor we check.",
+      },
+      {
+        q: "Do you work on rental properties in Eastvale?",
+        a: "Yes. QuickFacts reports a 78.0% owner-occupied housing unit rate for Eastvale, so 22.0% of occupied homes are not owner-occupied. AIRPRO SOLUTIONS works with owners and property managers on access and approval before installation or replacement.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "QuickFacts",
+            href: "https://census.gov/quickfacts/fact/table/eastvalecitycalifornia/SBO030222",
+          },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Eastvale?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Eastvale, including rooftop units, and plans rooftop access and equipment placement with the building owner or manager before commercial work starts. We confirm how your property is zoned and the permit path with the City. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "Commercial HVAC page",
+            href: "/commercial-hvac/",
+          },
+        ],
+      },
+      {
+        q: "How do I check an HVAC contractor in Eastvale?",
+        a: "Check the state license first. CSLB says seeing a license number does not necessarily mean the license is valid, so check its status on the CSLB site, which also shows the address of record and insurance information. AIRPRO SOLUTIONS' California license numbers are #1126691 and #50251 (C-20).",
+        boldLead: "Check the state license first.",
+        links: [
+          {
+            text: "CSLB site",
+            href: "https://www.cslb.ca.gov/consumers/hire_a_contractor/finding_the_right_contractor.aspx",
+          },
+        ],
+      },
+      {
+        q: "Which utility serves my Eastvale address?",
+        a: "Your bill answers it. The City pages we read do not name Eastvale's electric or gas provider, so check your bill to see who supplies your electricity and gas.",
+        boldLead: "Your bill answers it.",
+      },
+      {
+        q: "Are there HVAC rebates for Eastvale customers?",
+        a: "Check with your utility. We did not find a City page on HVAC rebates, and none of Southern California Edison's Smart Energy Program page, its Energy Savings Assistance page, or the Southern California Gas Company rebate page names Eastvale. Utility programs have their own terms and funding, and we do not quote amounts, so check each program with your utility before you buy.",
+        boldLead: "Check with your utility.",
+        links: [
+          {
+            text: "Smart Energy Program page",
+            href: "https://www.sce.com/save-money/savings-programs/enroll-in-savings-programs/smart-energy-program",
+          },
+          {
+            text: "Energy Savings Assistance page",
+            href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+          },
+          {
+            text: "rebate page",
+            href: "https://www.socalgas.com/savings/rebates-and-incentives",
+          },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Eastvale?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Eastvale, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides",
+        links: [
+          {
+            text: "AC repair",
+            href: "/services/ac-repair/",
+          },
+          {
+            text: "AC installation and replacement",
+            href: "/services/ac-installation/",
+          },
+          {
+            text: "AC maintenance",
+            href: "/services/ac-maintenance/",
+          },
+          {
+            text: "heating repair",
+            href: "/services/heating-repair/",
+          },
+          {
+            text: "furnace installation and replacement",
+            href: "/services/furnace-installation/",
+          },
+          {
+            text: "heat pump services",
+            href: "/services/heat-pump-services/",
+          },
+          {
+            text: "ductless mini-splits",
+            href: "/services/ductless-mini-split/",
+          },
+          {
+            text: "ductwork",
+            href: "/services/ductwork/",
+          },
+          {
+            text: "indoor air quality",
+            href: "/services/indoor-air-quality/",
+          },
+          {
+            text: "emergency HVAC",
+            href: "/services/emergency-hvac/",
+          },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Eastvale?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Eastvale. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Eastvale?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -10449,6 +10937,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'chino' ? chinoOverrides
     : c.slug === 'fontana' ? fontanaOverrides
     : c.slug === 'upland' ? uplandOverrides
+    : c.slug === 'eastvale' ? eastvaleOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;

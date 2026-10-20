@@ -10,9 +10,9 @@ import type { RebateCard } from '@/components/sections/RebateCards';
 //
 // TODO(verify): rebate programs and funding (Riverside Public Utilities, SCE thermostat credit,
 // TECH Clean California) and whether to add dollar amounts.
-// TODO(verify): electric utility per city for Chino, Fontana, Upland, and Eastvale (SCE is
-// medium-to-low confidence). Rancho Cucamonga is confirmed on the City's utilities and RCMU pages.
-// TODO(verify): like-for-like permit rules for Eastvale (the Upland Building & Safety page read on 2026-10-19 does not say), and current Title 24 code
+// TODO(verify): electric utility per city for Chino, Fontana, Upland, and Eastvale (none is
+// confirmed from a City source). Rancho Cucamonga is confirmed on the City's utilities and RCMU pages.
+// TODO(verify): like-for-like permit rules for Corona and Ontario (the Eastvale Building Safety FAQ and the Upland Building & Safety page read on 2026-10-19 do not name air conditioner replacement), and current Title 24 code
 // dates. Rancho Cucamonga: the City page says all permits are online-only; no whole-unit rule found.
 // TODO(client): the research does not support saying "we handle permits", so this page does not.
 // TODO(client): real photos, city-tagged reviews, business hours, and the confirmed Inland Empire
@@ -92,7 +92,7 @@ export const inlandEmpireHub = {
   // Cities are listed highest share to lowest; "age group" is a general grouping, not a ranking.
   housing: {
     eyebrow: 'Property types',
-    title: 'Older neighborhoods in Riverside and Ontario, newer housing in Eastvale and Rancho Cucamonga',
+    title: 'Older neighborhoods in Riverside and Ontario, newer housing in Rancho Cucamonga',
     columns: ['City', 'Built before 1970', 'Age group', 'Housing mix'],
     numericCols: [1],
     rows: [
@@ -100,14 +100,13 @@ export const inlandEmpireHub = {
       ['Ontario', '36.1%', 'Older, established', 'Mix of detached homes and multifamily'],
       ['Corona', '15.6%', 'Middle', 'Mostly detached single-family homes (66.9%), with 20.9% of homes in buildings of 5 or more units'],
       ['Rancho Cucamonga', '9.6%', 'Newer', 'Mostly detached single-family homes (62.5%), with 24.0% of homes in buildings of 5 or more units'],
-      ['Eastvale', '0.7%', 'Newer', 'Predominantly detached single-family'],
     ],
     note: 'Share of homes built before 1970, 2018 data. Cities are listed from the highest share to the lowest, and the age group is a general grouping, not a ranking of city size.',
     paragraphs: [
-      '**Structure type shapes the job.** Eastvale is a predominantly detached single-family market, while Corona, Riverside, Upland, Ontario, and Rancho Cucamonga have a heavier mix of multifamily buildings. Attached and multifamily properties can mean shared roofs, limited equipment locations, and association rules.',
+      '**Structure type shapes the job.** Corona, Riverside, Upland, Ontario, and Rancho Cucamonga have a heavier mix of multifamily buildings. Attached and multifamily properties can mean shared roofs, limited equipment locations, and association rules.',
       '**Age is only a starting point.** SCAG’s local profile for Upland says 1970 to 1979 is the decade with the highest share of its housing units. Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     ],
-    pending: 'Chino and Fontana are not in the table because their housing figures are not verified yet, and Upland is not in the table because the SCAG profile read does not state a before-1970 share (it gives the 1970 to 1979 peak decade and a housing type split, shown on the Upland page). Attic, foundation, ductwork, and home-size data were not found for any city.',
+    pending: 'Chino, Fontana, and Eastvale are not in the table because their housing figures are not verified yet (QuickFacts gives Eastvale’s owner-occupied rate and household size, shown on the Eastvale page), and Upland is not in the table because the SCAG profile read does not state a before-1970 share (it gives the 1970 to 1979 peak decade and a housing type split, shown on the Upland page). Attic, foundation, ductwork, and home-size data were not found for any city.',
   },
 
   services: {
@@ -117,7 +116,7 @@ export const inlandEmpireHub = {
       { slug: 'ac-repair', body: 'Diagnosis for cooling failures in a region where the July normal high at Riverside Municipal Airport is 90.6°F and September 2024 heat reached 115°F in Riverside.' },
       { slug: 'heating-repair', body: 'Nights get cold enough to matter, with 66 days a year below 40°F in one San Bernardino-area station record. Furnace work starts with the city permit and SoCalGas service.' },
       { slug: 'heat-pump-services', body: 'Heat pump work starts with your electric utility, Riverside Public Utilities or SCE, and with state incentive programs whose funding is limited.' },
-      { slug: 'residential-hvac', name: 'Residential HVAC', body: "Detached homes, townhomes, condos, and apartments, from Riverside's older neighborhoods to newer housing in Eastvale and Rancho Cucamonga.", icon: 'home' },
+      { slug: 'residential-hvac', name: 'Residential HVAC', body: "Detached homes, townhomes, condos, and apartments, from Riverside's older neighborhoods to newer housing in Rancho Cucamonga.", icon: 'home' },
       { slug: 'commercial-hvac', name: 'Commercial HVAC', body: 'Commercial and industrial developments around Victoria Gardens in Rancho Cucamonga, Downtown Riverside, and rooftop units that may need screening review.', icon: 'building' },
       { slug: 'services', name: 'All HVAC Services', body: 'See the full list of repair, installation, and maintenance services.', icon: 'check' },
     ] satisfies ServiceCardSpec[],
@@ -133,7 +132,7 @@ export const inlandEmpireHub = {
     residential: {
       tag: 'Residential',
       title: 'Homes, condos, and apartments',
-      body: 'From older Riverside neighborhoods to newer housing in Eastvale, Corona, and Rancho Cucamonga, with access, placement, and association rules checked first.',
+      body: 'From older Riverside neighborhoods to newer housing in Corona and Rancho Cucamonga, with access, placement, and association rules checked first.',
       chips: ['Single-family homes', 'Condos and townhomes', 'Apartments'],
       ctaLabel: 'Residential HVAC',
       href: '/residential-hvac/',
@@ -154,8 +153,8 @@ export const inlandEmpireHub = {
   },
 
   // Sources: each city's published permit/fee pages where available. Like-for-like requirement
-  // not confirmed for any city (Riverside lists no like-for-like exemption for a whole unit); the Chino Building Division page, the Fontana Building & Safety, Permits and FAQ pages and the Upland Building & Safety page read on 2026-10-19 do not say whether replacement needs a permit (Corona via
-  // eTRAKiT; Rancho Cucamonga and Eastvale online-only/Accela portals). Title 24 refrigerant charge
+  // not confirmed for any city (Riverside lists no like-for-like exemption for a whole unit); the Chino Building Division page, the Fontana Building & Safety, Permits and FAQ pages, the Upland Building & Safety page and the Eastvale Building Safety page and FAQ read on 2026-10-19 do not say whether replacing an air conditioner needs a permit (Corona via
+  // eTRAKiT; Rancho Cucamonga online-only; Eastvale through the Eastvale Permit Portal named on its Building Safety page). Title 24 refrigerant charge
   // verification zones and duct sealing/testing per the CEC Energy Code Support Center.
   permits: {
     eyebrow: 'Permits and code',
@@ -170,9 +169,9 @@ export const inlandEmpireHub = {
       ['Chino', 'Building Division', "The City's Building Division page says it issues building permits and takes in plans for review, and that the City has adopted the 2022 California Building Code with some amendments. It does not say whether replacing an air conditioner needs a permit, so we confirm the permit path with the City."],
       ['Fontana', 'Build Fontana Public Portal or the Building & Safety counter', "The City's Building & Safety page says it accepts permit and plan check applications at its counter and encourages applicants to use the Build Fontana Public Portal. The City pages we read do not say whether replacing an air conditioner needs a permit, so we confirm the permit path with the City."],
       ['Upland', 'Citizen Self Service (CSS) Portal, online', "The City's Building & Safety page says all Building and Safety permit applications must be submitted online through the Citizen Self Service (CSS) Portal. It does not say whether replacing an air conditioner needs a permit, so we confirm the permit path with the City."],
-      ['Eastvale', 'Generally a city mechanical permit', "Submittals go through the city's Accela portal. We confirm the requirement with the city."],
+      ['Eastvale', 'Eastvale Permit Portal, online, or the front counter', "The City's Building Safety page says most permit types can be submitted online through the Eastvale Permit Portal. Its FAQ says permits are required to replace mechanical systems and that HVAC is generally reviewed and issued over the counter when there are no special design requirements, but it does not name air conditioner replacement, so we confirm the permit path with the City."],
     ],
-    note: "Based on each city's published permit and fee pages where available. The City of Fontana's Building & Safety, Permits, and FAQ pages, the City of Chino's Building Division page, and the City of Upland's Building & Safety page do not say whether replacing an air conditioner needs a permit. For Riverside, the City lists no like-for-like exemption for a whole unit, for Ontario the City lists mechanical permit fee items but we found no whole-unit replacement rule, and Rancho Cucamonga takes every permit through its Online Permit Center. For the other two cities it was not confirmed in the sources we reviewed, so we confirm with the city before work begins. Procedures change.",
+    note: "Based on each city's published permit and fee pages where available. The City of Fontana's Building & Safety, Permits, and FAQ pages, the City of Chino's Building Division page, and the City of Upland's Building & Safety page do not say whether replacing an air conditioner needs a permit, and the City of Eastvale's Building Safety page and FAQ do not name air conditioner replacement. For Riverside, the City lists no like-for-like exemption for a whole unit, for Ontario the City lists mechanical permit fee items but we found no whole-unit replacement rule, and Rancho Cucamonga takes every permit through its Online Permit Center. For Corona it was not confirmed in the sources we reviewed, so we confirm with the city before work begins. Procedures change.",
     paragraphs: [
       '**Title 24 checks depend on the job.** Refrigerant charge verification applies to air conditioners in Climate Zones 2 and 8 through 15 and to heat pumps everywhere. Duct sealing and testing may apply, and a setback thermostat upgrade can be required when a refrigerant component is replaced.',
       '**Climate zone is set by address.** Which checks apply depends on the climate zone for your property, so we confirm it by address rather than by city. Not every job needs every test.',
@@ -185,8 +184,8 @@ export const inlandEmpireHub = {
     title: 'Where the outdoor unit can go depends on the building',
     columns: ['Cities', 'Placement and screening'],
     rows: [
-      ['Riverside, Corona, Rancho Cucamonga, Eastvale', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
-      ['Chino, Fontana, and Upland', 'We did not find a City page we could read that states placement, screening, or noise rules for outdoor HVAC equipment, so we confirm zoning, screening, HOA approval, and noise conditions for the specific property with the City before recommending where equipment goes.'],
+      ['Riverside, Corona, and Rancho Cucamonga', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
+      ['Chino, Fontana, Upland, and Eastvale', 'We did not find a City page we could read that states placement, screening, or noise rules for outdoor HVAC equipment, so we confirm zoning, screening, HOA approval, and noise conditions for the specific property with the City before recommending where equipment goes.'],
     ],
     note: 'Code text changes, so current requirements are confirmed with the city before installation.',
   },
@@ -229,12 +228,11 @@ export const inlandEmpireHub = {
       'Corona electric: mostly SCE',
       'Ontario electric: SCE',
       'Rancho Cucamonga electric: SCE, with Rancho Cucamonga Municipal Utility in limited areas',
-      'Eastvale electric: generally SCE',
-      'Chino, Fontana, and Upland electric and gas: not confirmed from a City source, so check your bill',
+      'Chino, Fontana, Upland, and Eastvale electric and gas: not confirmed from a City source, so check your bill',
       'Ontario and Rancho Cucamonga gas: SoCalGas',
-      'Natural gas: SoCalGas outside Riverside, Chino, Fontana, and Upland, where we confirm the provider by address',
+      'Natural gas: SoCalGas outside Riverside, Chino, Fontana, Upland, and Eastvale, where we confirm the provider by address',
     ],
-    note: '**Confirm by address:** SCE service for Eastvale is not directly confirmed, and the electric and gas providers for Chino, Fontana, and Upland are not confirmed from a City source, so verify your utility before relying on any program.',
+    note: '**Confirm by address:** the electric and gas providers for Chino, Fontana, Upland, and Eastvale are not confirmed from a City source, so verify your utility before relying on any program.',
   },
 
   cities: {
@@ -295,9 +293,11 @@ export const inlandEmpireHub = {
       },
       {
         name: 'Eastvale',
-        note: 'The newest housing here: only 0.7% of homes were built before 1970, and detached single-family homes predominate. Permits go through the city’s Accela portal.',
-        areas: 'Hamner Avenue and Limonite Avenue corridors',
-        utility: 'Electric: generally SCE.',
+        href: '/service-areas/eastvale/',
+        note: "The City's Building Safety page says most permit types can be submitted online through the Eastvale Permit Portal, and its FAQ says permits are required to replace mechanical systems but does not name air conditioner replacement. QuickFacts reports a 78.0% owner-occupied housing unit rate for 2020 to 2024.",
+        areas: 'Pending verification (no City neighborhood list read)',
+        utility: 'Utilities: confirm by address.',
+        pending: "ZIP codes, per the City's ZIP code page: 91752 and 92880, each shared with other communities.",
       },
     ] satisfies CityCardSpec[],
     note: 'Area names are general references, not permit or jurisdiction boundaries. Housing figures are 2018 estimates.',
@@ -323,7 +323,7 @@ export const inlandEmpireHub = {
     },
     {
       q: 'Do I need a permit to replace my AC in the Inland Empire?',
-      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Riverside County or San Bernardino County. The City of Fontana’s Building & Safety, Permits, and FAQ pages, the City of Chino’s Building Division page, and the City of Upland’s Building & Safety page do not say whether replacing an air conditioner needs a permit. Riverside lists no like-for-like exemption for a whole unit, Ontario lists mechanical permit fee items but no whole-unit rule we found, and Rancho Cucamonga takes every permit through its Online Permit Center, so we confirm each path with the City. For the other two cities, replacement generally requires a city mechanical permit, and we confirm the path with your city before work begins.',
+      a: 'Plan on it in all eight cities. Mechanical permits are issued by each city, not by Riverside County or San Bernardino County. The City of Fontana’s Building & Safety, Permits, and FAQ pages, the City of Chino’s Building Division page, the City of Upland’s Building & Safety page, and the City of Eastvale’s Building Safety page and FAQ do not say whether replacing an air conditioner needs a permit (the Eastvale FAQ says permits are required to replace mechanical systems but does not name air conditioners). Riverside lists no like-for-like exemption for a whole unit, Ontario lists mechanical permit fee items but no whole-unit rule we found, and Rancho Cucamonga takes every permit through its Online Permit Center, so we confirm each path with the City. For Corona, we did not confirm a whole-unit rule in the sources we reviewed, so we confirm the path with the City before work begins.',
     },
     {
       q: 'What is Title 24 and how does it affect an HVAC replacement?',
@@ -331,7 +331,7 @@ export const inlandEmpireHub = {
     },
     {
       q: 'Which utility serves my home, and are there HVAC rebates?',
-      a: 'It depends on your address. Riverside is served by Riverside Public Utilities. Corona is mostly Southern California Edison (SCE), with small city electric areas. In Rancho Cucamonga, SCE is the main electric provider and Rancho Cucamonga Municipal Utility serves limited areas. Eastvale is generally SCE, and we have not confirmed Chino’s, Fontana’s, or Upland’s electric or gas provider from a City source. Outside Riverside, Chino, Fontana, and Upland, natural gas is supplied by Southern California Gas Company (SoCalGas), and in Riverside, Chino, Fontana, and Upland we confirm the gas provider by address. Programs, amounts, and funding change, so confirm your utility by address and confirm current eligibility before installation.',
+      a: 'It depends on your address. Riverside is served by Riverside Public Utilities. Corona is mostly Southern California Edison (SCE), with small city electric areas. In Rancho Cucamonga, SCE is the main electric provider and Rancho Cucamonga Municipal Utility serves limited areas. We have not confirmed Chino’s, Fontana’s, Upland’s, or Eastvale’s electric or gas provider from a City source. Outside Riverside, Chino, Fontana, Upland, and Eastvale, natural gas is supplied by Southern California Gas Company (SoCalGas), and in Riverside, Chino, Fontana, Upland, and Eastvale we confirm the gas provider by address. Programs, amounts, and funding change, so confirm your utility by address and confirm current eligibility before installation.',
     },
     {
       q: 'How hot does it get, and does that change equipment sizing?',
@@ -343,7 +343,7 @@ export const inlandEmpireHub = {
     },
     {
       q: 'Do older homes in the Inland Empire need different HVAC work?',
-      a: 'Often, yes. Homes built before 1970 are 39.5% of Riverside, against 0.7% in Eastvale (2018 data), and SCAG’s local profile for Upland says 1970 to 1979 is the decade with the highest share of its housing units. Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
+      a: 'Often, yes. Homes built before 1970 are 39.5% of Riverside (2018 data), and SCAG’s local profile for Upland says 1970 to 1979 is the decade with the highest share of its housing units. Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
     },
     {
       q: 'How quickly can a technician reach me?',
