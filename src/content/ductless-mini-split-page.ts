@@ -92,9 +92,19 @@ const ductlessMiniSplitBase: ServicePage = {
   finalCtaTitle: 'Get your mini-split service scheduled',
   finalCtaBody: 'Call us or request service online.',
   answer: {
+    // TODO(copy): trimmed from 88 words to 42 (migration), client to approve both cuts. Recommended default from the planning chat. Lead is 3 words,
+    // sentence 1 is 29, sentence 2 is 10.
+    // Cut (a), sentence 3 (25 words, "It suits ADUs, garage conversions, additions, older homes, and rooms the central system does not reach well, and it can
+    //   serve one room or several."): dropped, not reworded. It stays on the page in the `fitGrid` (ADU or garage conversion, older home without ducts,
+    //   a room the central system misses), the first `decision` card, the `appliesTo` row and FAQ 7.
+    // Cut (b), sentence 4 (21 words, "The right design depends on the property: the room load, the layout, electrical capacity, permits, and where the
+    //   equipment can go."): dropped. It stays on the page in the `priceFactors` table (electrical, permits and code, line-set and access), the process step
+    //   "Assess" and "Scope and permit" in services.ts, and `appliesParagraph`.
+    // Inside the 37 to 43 word band the other migrated pages use. Not built: lead plus sentences 2 and 3 (38 words) and lead plus sentences 2 and 4 (34
+    //   words, under the band). Lead plus sentences 1 and 3 loses the heat pump fact.
     lead: 'A ductless mini-split',
     body:
-      ' is a heating and cooling system with an outdoor unit and one or more indoor units connected by refrigerant lines, so it conditions rooms without a full duct system. Many models are heat pumps that both cool and heat. It suits ADUs, garage conversions, additions, older homes, and rooms the central system does not reach well, and it can serve one room or several. The right design depends on the property: the room load, the layout, electrical capacity, permits, and where the equipment can go.',
+      ' is a heating and cooling system with an outdoor unit and one or more indoor units connected by refrigerant lines, so it conditions rooms without a full duct system. Many models are heat pumps that both cool and heat.',
   },
   decision: {
     eyebrow: 'Start here',
