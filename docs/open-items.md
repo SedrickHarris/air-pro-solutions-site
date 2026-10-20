@@ -1319,8 +1319,29 @@ C-20 TODO(data) comments in the Furnace file are RESOLVED (2026-10-19, confirmed
   403 to a script (likely bot blocking). No redirects, no certificate errors. Still to open by hand: the `aqmd.gov` host, the
   `nasa.gov` JPL path, the SoCalGas HEER link ending `.pdf.pdf`, and the 2019 CEC Los Angeles climate report PDF.
 
-Remaining eight, in rollout order: AC Installation, Indoor Air Quality, Heat Pump Services, Heating
-Repair, AC Maintenance, Ductwork, Emergency HVAC, Ductless Mini-Split.
+AC Installation is migrated (2026-10-19, branch `ac-installation-migration`, based on `origin/main` 8b87858 which already
+held Furnace Installation). New strings are TODO(copy): quick answer trimmed from 91 to 37 words, hero caption split into
+title and text, glance card, "Across Southern California" band and fact card, `proofStats`, 6 source groups, and three
+Photo pending tiles (timeline, refrigerant, repair-or-replace; TODO(design): real photos). The `timeline` field now takes an
+optional `media`, rendered only on migrated pages. Counts derive from arrays (glance 8 / 7 / 15, proof 4.8 star / 40 / 10 / 3,
+References row 15); the "8" process-step stat is hardcoded with a sync comment. Fact card has 3 rows (Sizing, Energy Code,
+Incentives): the 4th row "New systems" pushed the card 93px past the copy at 1280px and was dropped (the refrigerant callout
+covers it). Measured at 1280px: copy 416px, card 410px, blankInCard 21px. The EPA source URL now uses
+`/hfcs/frequent-questions-phasedown-hydrofluorocarbons` on this page only; the old `/climate-hfcs-reduction/` URL is still
+on indoor-air-quality, ac-maintenance, heat-pump-services and emergency-hvac (out of scope, fix when each migrates).
+- Home Depot source: DECISION PENDING with the user. It names a retailer that sells installation (CLAUDE.md: never name a
+  competitor) and backs the "completed in a day" timeline wording. Kept (TODO(data)) until decided; it returns 403 to a
+  headless browser (likely bot blocking).
+- Hero caption: DECISION PENDING. The old caption said "Commercial AC installation for ... homes"; the proposed two-part
+  caption needs approval.
+- The hero photo shows a commercial rooftop unit while rooftop capability is still unconfirmed (TODO(data) at the top of
+  `src/content/ac-installation-page.ts`).
+- URL check (headless Chrome via Playwright, not Claude in Chrome): 200 for 14 of 15; homedepot.com returns 403. No
+  redirects, no certificate warnings.
+- Not changed, flagged: the AC Repair "License" fact-card row and C-20 glance stat (out of scope).
+
+Remaining seven, in rollout order: Indoor Air Quality, Heat Pump Services, Heating Repair, AC Maintenance, Ductwork,
+Emergency HVAC, Ductless Mini-Split.
 
 Blockers:
 - Emergency HVAC has an unconfirmed availability placeholder, so its cards carry no response-time facts. Do not add any
