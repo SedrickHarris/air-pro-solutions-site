@@ -253,10 +253,10 @@ const heatPumpServicesBase: ServicePage = {
   refrigerant: {
     title: 'Can a new heat pump still use R-410A?',
     introBody:
-      'After January 1, 2026, a whole new split-system installation must use a refrigerant with a global warming potential below 700, and new R-410A components cannot be used to install a new R-410A system.',
+      "EPA's rules on which refrigerants may be used in new residential and light-commercial heat pump installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. Ask your contractor which rules apply to the equipment in your proposal.",
     boldLead: 'Existing R-410A systems are not banned.',
     body:
-      ' They can stay in service and be repaired, subject to applicable rules and refrigerant availability. Newer systems commonly use refrigerants such as R-32, which is classed A2L, meaning low toxicity and mildly flammable. Handling and installation requirements differ from older R-410A equipment, and the refrigerant depends on the brand and model selected.',
+      ' They can stay in service and be repaired, subject to applicable rules and refrigerant availability. Newer systems commonly use refrigerants such as R-32, which EPA lists in safety class A2L. Handling and installation requirements differ from older R-410A equipment, and the refrigerant depends on the brand and model selected.',
     sourceText: 'Sources: U.S. EPA HFC phasedown FAQ and EPA SNAP substitutes table.',
     accent: 'amber',
   },
@@ -382,7 +382,7 @@ const heatPumpServicesBase: ServicePage = {
     },
     {
       q: 'Can a new heat pump still use R-410A?',
-      a: 'For a whole new split-system installation after January 1, 2026, the refrigerant must have a global warming potential below 700. Existing R-410A systems are not automatically required to be replaced, but new R-410A components cannot be used to install a new R-410A system after that date.',
+      a: "Existing R-410A systems are not automatically required to be replaced and can still be repaired. EPA's rules for new installations have changed, so the refrigerant allowed for a new system depends on the equipment and when it was made or imported. Ask your contractor which rules apply to the equipment in your proposal.",
     },
     {
       q: 'Are there heat pump rebates in Los Angeles?',

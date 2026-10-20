@@ -153,7 +153,7 @@ const acInstallationBase: ServicePage = {
   refrigerant: {
     title: 'New AC systems and the refrigerant change',
     body:
-      'The EPA states that a wholly new split system installed on or after January 1, 2026 must use a refrigerant with a global-warming potential below 700. New lower-GWP systems may use A2L refrigerants such as R-454B, depending on the manufacturer and model, and installation must follow the manufacturer, the equipment listing, and the local authority. Existing R-410A systems can still be repaired through their useful life, so this rule is not a reason to replace a working system.',
+      'EPA\'s rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. New lower-GWP systems may use A2L refrigerants such as R-454B, depending on the manufacturer and model, and installation must follow the manufacturer, the equipment listing, and the local authority. Existing R-410A systems can still be repaired through their useful life, so this rule is not a reason to replace a working system. Ask your contractor which rules apply to the equipment in your proposal.',
     sourceLabel: 'U.S. EPA, HFC Phasedown FAQ',
     sourceHref: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons',
     // TODO(design): replace with real photo (1200x900)
@@ -260,7 +260,7 @@ const acInstallationBase: ServicePage = {
     },
     {
       q: 'Can I still repair an R-410A system?',
-      a: 'Yes. Existing R-410A systems can be maintained and repaired through their useful life, including replacing a faulty component with a similar one. A wholly new split system installed on or after January 1, 2026 must use a refrigerant with a global-warming potential below 700.',
+      a: 'Yes. Existing R-410A systems can be maintained and repaired through their useful life, including replacing a faulty component with a similar one. EPA\'s rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported.',
     },
     {
       q: 'What does SEER2 mean?',

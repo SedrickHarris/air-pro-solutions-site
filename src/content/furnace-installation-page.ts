@@ -168,7 +168,7 @@ const furnaceBase: ServicePage = {
     boldLead: 'A like-for-like furnace replacement is not automatically a full HVAC replacement.',
     body: ' The blower, evaporator coil, controls, ducts, and existing air conditioner still need to be checked for compatibility, along with venting, electrical, and gas piping.',
     body2:
-      'Refrigerant rules matter only when the project includes cooling equipment. The EPA states that a newly installed split system on or after January 1, 2026 must use a refrigerant with a global-warming potential below 700. Existing R-410A equipment can still be serviced, and a furnace-only replacement is not automatically a refrigerant project. If the work includes a new split AC or heat pump, confirm the equipment and installation requirements in the proposal.',
+      'Refrigerant rules matter only when the project includes cooling equipment. EPA\'s rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. Existing R-410A equipment can still be serviced, and a furnace-only replacement is not automatically a refrigerant project. If the work includes a new split AC or heat pump, confirm the equipment and installation requirements in the proposal.',
     sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ.',
     // TODO(copy): linked source line, replaces the unrendered plain sourceText on the migrated page
     sourceLabel: 'U.S. EPA - HFC phasedown FAQ',

@@ -169,7 +169,7 @@ export const acMaintenancePage: ServicePage = {
       accent: 'amber',
       title: 'Do I have to replace my R-410A air conditioner?',
       boldLead: 'No.',
-      body: ' The EPA states that existing equipment can stay in use through its useful life. The refrigerant change applies to new installations: a split system installed after January 1, 2026 must use a refrigerant with a global warming potential below 700. An older R-410A system can still be maintained, and replacement is a decision based on condition, repair history, and your plans for the property.',
+      body: ' The EPA states that existing equipment can stay in use through its useful life. EPA\'s rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. An older R-410A system can still be maintained, and replacement is a decision based on condition, repair history, and your plans for the property. Ask your contractor which rules apply to the equipment in your proposal.',
       sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ.',
     },
   ],
@@ -297,7 +297,7 @@ export const acMaintenancePage: ServicePage = {
     },
     {
       q: 'Do I have to replace my R-410A air conditioner in 2026?',
-      a: 'No. The EPA says existing equipment can stay in use through its useful life. The change applies to new installations: a split system installed after January 1, 2026 must use a refrigerant with a global warming potential below 700. Whether to replace an existing system depends on its condition, repair history, and your plans.',
+      a: 'No. The EPA says existing equipment can stay in use through its useful life. EPA\'s rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. Whether to replace an existing system depends on its condition, repair history, and your plans.',
       boldLead: 'No. The EPA says existing equipment can stay in use through its useful life.',
     },
     {

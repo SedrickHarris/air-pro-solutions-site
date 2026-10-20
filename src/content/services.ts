@@ -604,7 +604,7 @@ const acRepairPage: ServicePage = {
   refrigerant: {
     title: 'Can an R-410A air conditioner still be repaired?',
     body:
-      'Yes. The EPA states that the new-system limit on refrigerant global-warming potential applies to systems installed on or after January 1, 2026. A wholly new split system installed after that date must use a refrigerant below 700 GWP. Existing R-410A systems can still be serviced, and an R-410A system does not have to be replaced only because of that rule. If a repair is major, a technician can walk you through the repair option and a replacement comparison so you decide with real numbers.',
+      'Yes. EPA\'s rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. Existing R-410A systems can still be serviced, and an R-410A system does not have to be replaced only because of that rule. If a repair is major, a technician can walk you through the repair option and a replacement comparison so you decide with real numbers. Ask your contractor which rules apply to the equipment in your proposal.',
     sourceLabel: 'U.S. EPA, HFC Phasedown FAQ',
     sourceHref: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons',
     // TODO(design): replace with real photo, /images/services/ac-repair/refrigerant.webp (1200x900)
@@ -725,7 +725,7 @@ const acRepairPage: ServicePage = {
     },
     {
       q: 'Can an R-410A air conditioner still be repaired?',
-      a: "Yes. The EPA's limit on refrigerant global-warming potential applies to new systems installed on or after January 1, 2026. Existing R-410A systems can still be serviced, and they do not have to be replaced only because of that rule.",
+      a: "Yes. EPA's rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. Existing R-410A systems can still be serviced, and they do not have to be replaced only because of that rule.",
     },
     {
       q: 'How much does AC repair cost in Los Angeles?',

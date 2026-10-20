@@ -304,7 +304,7 @@ const indoorAirQualityBase: ServicePage = {
   // why this isn't the `refrigerant` or `timeline` field instead).
   replacementNote: {
     title: 'If an upgrade turns into a replacement',
-    body: "If replacement is recommended, we identify your system's refrigerant, explain whether repair components are available for the existing equipment, and give you options that meet current requirements. Under EPA rules, a new split system installed after January 1, 2026 must use a refrigerant with a global warming potential below 700, and existing R-410A equipment can still be serviced.",
+    body: "If replacement is recommended, we identify your system's refrigerant, explain whether repair components are available for the existing equipment, and give you options that meet current requirements. EPA's rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. Existing R-410A equipment can still be serviced. Ask your contractor which rules apply to the equipment in your proposal.",
     // TODO(copy): linked source line, replaces the plain sourceText
     sourceLabel: 'U.S. EPA, HFC Phasedown FAQ',
     sourceHref: indoorAirQualitySource('frequent-questions-phasedown').url,

@@ -174,7 +174,7 @@ export const ductlessMiniSplitPage: ServicePage = {
     title: 'Which refrigerant will a new mini-split use?',
     boldLead: 'It depends on the equipment.',
     body:
-      ' The EPA states that the limit on refrigerant global-warming potential applies to new residential and light-commercial air-conditioning and heat-pump systems installed on or after January 1, 2026, and requires a refrigerant below 700 GWP. Existing R-410A systems can still be serviced. Newer refrigerants can be A2L-classified, and safety requirements vary by matched equipment, so the refrigerant should follow the manufacturer\'s instructions for the exact system.',
+      ' EPA\'s rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. Existing R-410A systems can still be serviced. Newer refrigerants can be A2L-classified, and safety requirements vary by matched equipment, so the refrigerant should follow the manufacturer\'s instructions for the exact system. Ask your contractor which rules apply to the equipment in your proposal.',
     // TODO(copy): restore "listed under Sources below" wording once the Sources section is built.
     sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ.',
   },

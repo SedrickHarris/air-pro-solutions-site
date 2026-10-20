@@ -168,7 +168,7 @@ export const emergencyHvacPage: ServicePage = {
     title: 'Can an R-410A air conditioner still be repaired?',
     boldLead: 'Yes.',
     body:
-      ' The EPA allows R-410A components to be used to service existing systems. What changed on January 1, 2026 is that a newly installed residential split system must use a refrigerant with a global-warming potential below 700, and R-410A components cannot be used to install a new R-410A system. An existing R-410A system does not have to be replaced only because of that rule. If a repair is major, a technician can walk you through the repair option and a replacement comparison.',
+      ' The EPA allows R-410A components to be used to service existing systems. EPA\'s rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. An existing R-410A system does not have to be replaced only because of that rule. If a repair is major, a technician can walk you through the repair option and a replacement comparison. Ask your contractor which rules apply to the equipment in your proposal.',
     sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ.',
   },
   pricingTitle: 'What affects the cost of an emergency repair',
@@ -306,7 +306,7 @@ export const emergencyHvacPage: ServicePage = {
     {
       q: 'Can my older R-410A air conditioner still be repaired?',
       boldLead: 'Yes.',
-      a: 'Yes. Existing R-410A systems can still be serviced. The EPA allows R-410A components to be used to service legacy systems, but they cannot be used to install a new R-410A system after January 1, 2026.',
+      a: 'Yes. Existing R-410A systems can still be serviced. The EPA allows R-410A components to be used to service legacy systems. EPA\'s rules for new installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported.',
     },
     {
       q: 'Does an emergency repair require a permit?',
