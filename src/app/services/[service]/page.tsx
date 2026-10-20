@@ -774,7 +774,8 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           </>
         );
         return (
-          <section className="alt">
+          // On migrated pages a rebates block that directly follows the replacement note continues its alt band (no doubled padding).
+          <section className={migrated && page.replacementNote ? 'alt alt-joined' : 'alt'}>
             <div className="wrap">
               {migrated && rebates.media ? (
                 // TODO(design): real photo (1200x900) to replace the "Photo pending" tile

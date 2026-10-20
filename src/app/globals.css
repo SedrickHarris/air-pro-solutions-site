@@ -146,6 +146,8 @@ section { padding-block: 56px; }
 
 /* Homepage + shell */
 section.alt { background: var(--paper-dim); }
+/* Second alt block directly after another (migrated IAQ: replacement note then rebates): read as one continuous band. */
+section.alt + section.alt-joined { padding-top: 0; }
 .announce { background: var(--navy-950); color: #fff; text-align: center; font-size: 0.82rem; padding: 8px 20px; }
 .site-header { background: var(--navy-900); color: #fff; }
 .header-inner { display: flex; align-items: center; gap: 24px; padding-block: 12px; }
