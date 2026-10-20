@@ -26,6 +26,39 @@ import type { ServicePage } from '@/content/services';
 // emergency-availability wording appear anywhere on this page - none are confirmed. See CLAUDE.md
 // "Claims that must not ship".
 
+// TODO(copy): the source group labels are new (migration).
+const heatingRepairSources: { label: string; url: string; group: string }[] = [
+  { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20', group: 'Licensing and permits' },
+  { label: 'California CSLB - C-20 permit guidance', url: 'https://www.cslb.ca.gov/Resources/Newsroom/C-20_Permit_Enforcement_Letter.pdf', group: 'Licensing and permits' },
+  { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency', group: 'Energy code' },
+  { label: 'NAHB - New refrigerants', url: 'https://www.nahb.org/blog/2024/05/new-refrigerants-hvac', group: 'Refrigerant' },
+  // TODO(data): the Bosch Home Comfort guide is held out of this list. See `heatingRepairManufacturerSources` below.
+  { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program', group: 'Rebates and incentives' },
+  { label: 'SoCalGas - Rebates and incentives', url: 'https://www.socalgas.com/savings/rebates-and-incentives', group: 'Rebates and incentives' },
+  { label: 'TECH Clean California - Single-family incentives status', url: 'https://techcleanca.com/incentives/single-family-incentives/', group: 'Rebates and incentives' },
+  { label: 'TECH Clean California - HEEHRA rebate status', url: 'https://techcleanca.com/incentives/heehrarebates/', group: 'Rebates and incentives' },
+  { label: 'Angi - Los Angeles furnace repair cost guide', url: 'https://www.angi.com/articles/how-much-does-common-furnace-repair-cost/ca/los-angeles', group: 'Cost context' },
+];
+
+// TODO(data): manufacturer service guide, held out of the References row because CLAUDE.md says never to link to or name a
+// competitor. The visible sentence it supported (the refrigerant note) stays on the page, unattributed. To show it again, move
+// it back into `heatingRepairSources` with `group: 'Manufacturer service guides'`. Same trade-off Heat Pump made with
+// `heatPumpManufacturerSources`.
+export const heatingRepairManufacturerSources: { label: string; url: string }[] = [
+  { label: 'Bosch Home Comfort - A2L refrigerant change guide', url: 'https://www.bosch-homecomfort.com/us/en/residential/knowledge/a2l-refrigerant-change-guide/' },
+];
+
+const count = (items?: readonly unknown[]): string => {
+  if (!items?.length) throw new Error('heating-repair-page: empty array used for a derived count');
+  return String(items.length);
+};
+
+const heatingRepairSource = (urlPart: string) => {
+  const found = heatingRepairSources.find((s) => s.url.includes(urlPart));
+  if (!found) throw new Error(`Unknown heating repair source: ${urlPart}`);
+  return found;
+};
+
 // Full template content for /services/heating-repair/. Reuses the same ServicePage shape and shared section
 // components already built out for /services/ac-repair/, /services/ac-installation/, and /services/ac-maintenance/ - see the
 // build report for why a second, parallel content shape (src/content/service-pages/) was not
@@ -33,7 +66,7 @@ import type { ServicePage } from '@/content/services';
 // diagnosisEyebrow, refrigerant.boldLead/sourceText, relatedLabels) were added for pieces of this page
 // that the existing fields couldn't already express; every one of them is optional so ac-repair,
 // ac-installation, and ac-maintenance are unaffected.
-export const heatingRepairPage: ServicePage = {
+const heatingRepairBase: ServicePage = {
   primaryKeyword: 'heating repair los angeles',
   metaDescription:
     'Heating repair for homes and businesses across Los Angeles, the South Bay, Orange County, and the Inland Empire. Furnaces, heat pumps, and more. Call today.',
@@ -236,18 +269,7 @@ export const heatingRepairPage: ServicePage = {
     { text: 'Service areas', href: '/service-areas/' },
   ],
   sourcesColumns: 2,
-  sources: [
-    { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20' },
-    { label: 'California CSLB - C-20 permit guidance', url: 'https://www.cslb.ca.gov/Resources/Newsroom/C-20_Permit_Enforcement_Letter.pdf' },
-    { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency' },
-    { label: 'NAHB - New refrigerants', url: 'https://www.nahb.org/blog/2024/05/new-refrigerants-hvac' },
-    { label: 'Bosch Home Comfort - A2L refrigerant change guide', url: 'https://www.bosch-homecomfort.com/us/en/residential/knowledge/a2l-refrigerant-change-guide/' },
-    { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program' },
-    { label: 'SoCalGas - Rebates and incentives', url: 'https://www.socalgas.com/savings/rebates-and-incentives' },
-    { label: 'TECH Clean California - Single-family incentives status', url: 'https://techcleanca.com/incentives/single-family-incentives/' },
-    { label: 'TECH Clean California - HEEHRA rebate status', url: 'https://techcleanca.com/incentives/heehrarebates/' },
-    { label: 'Angi - Los Angeles furnace repair cost guide', url: 'https://www.angi.com/articles/how-much-does-common-furnace-repair-cost/ca/los-angeles' },
-  ],
+  sources: heatingRepairSources,
   faqs: [
     {
       q: 'Why is my furnace blowing cold air?',
@@ -292,3 +314,5 @@ export const heatingRepairPage: ServicePage = {
   ],
   // TODO(copy): client review of every FAQ answer above before launch.
 };
+
+export const heatingRepairPage: ServicePage = { ...heatingRepairBase };
