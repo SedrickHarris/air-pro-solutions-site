@@ -1,4 +1,5 @@
 import type { ServicePage } from '@/content/services';
+import { siteConfig } from '@/content/site-config';
 
 // TODO(data): the Southern California market price range ($3,000-$12,000 installed) and the Los
 // Angeles/Orange County/Inland Empire cost-guide figures in FAQ 2 are published third-party market
@@ -31,7 +32,7 @@ import type { ServicePage } from '@/content/services';
 // sourcesEyebrow, relatedIconOverrides, refrigerant.accent/body2, incentives.items[].headline,
 // incentives.closingNote) were added for pieces of this page the existing fields couldn't already
 // express; every one of them is optional so the other four service pages are unaffected.
-export const furnaceInstallationPage: ServicePage = {
+const furnaceBase: ServicePage = {
   primaryKeyword: 'furnace installation los angeles',
   metaDescription:
     'Furnace installation in Los Angeles, the South Bay, Orange County, and the Inland Empire. See what affects cost and timing, then request an estimate.',
@@ -41,7 +42,8 @@ export const furnaceInstallationPage: ServicePage = {
     src: '/images/services/furnace-installation/hero.webp',
     alt: 'Gas furnace installed in a home utility closet with finished vent, gas, and condensate connections and ductwork above',
   },
-  heroCaption: 'Clean, professional furnace installation',
+  // TODO(copy): was the string 'Clean, professional furnace installation'
+  heroCaption: { title: 'Furnace installation', text: 'and replacement across Southern California' },
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Furnace replacement for homes' },
@@ -65,8 +67,10 @@ export const furnaceInstallationPage: ServicePage = {
   finalCtaBody: 'Call us or request an estimate online.',
   answer: {
     lead: 'Furnace installation',
-    body:
-      ' is the removal of an aging or failed furnace, or the first installation of a new one, followed by connection, startup, and testing of the replacement. A complete job covers the furnace itself and the parts around it: duct transitions, gas and electrical connections, venting, drainage where needed, controls, and any permit or inspection the city requires. Replacement should follow an on-site diagnosis, because the same symptom can come from a repairable fault. The right equipment depends on the home, its ducts, and whether you also plan to change the air conditioner or move to a heat pump.',
+    // TODO(copy): trimmed from 100 words to 41. Cut sentence 2 moved verbatim to the fact card row "Complete job covers".
+    // Cut sentence 3 ("The right equipment depends on...") stays covered by the "Gas furnace or heat pump" note and the
+    // "Furnace only, or the whole system?" callout; optional fact card row "Equipment choice" below.
+    body: ' is the removal of an aging or failed furnace, or the first installation of a new one, followed by connection, startup, and testing. Replacement should follow an on-site diagnosis, because the same symptom can come from a repairable fault.',
   },
   // TODO(data): this safety wording needs Air Pro safety policy review before launch.
   urgency: {
@@ -347,4 +351,53 @@ export const furnaceInstallationPage: ServicePage = {
     },
   ],
   // TODO(copy): client review of every FAQ answer above before launch.
+};
+
+// Location-style migration (docs/open-items.md "Service page migration"). Setting `glance` marks this service as migrated.
+// TODO(copy): all strings in this block are new.
+const count = (items?: readonly unknown[]): string => {
+  if (!items?.length) throw new Error('furnace-installation-page: empty array used for a derived count');
+  return String(items.length);
+};
+const furnaceSource = (url: string) => {
+  const found = furnaceBase.sources?.find((s) => s.url === url);
+  if (!found) throw new Error(`Unknown furnace installation source: ${url}`);
+  return found;
+};
+
+export const furnaceInstallationPage: ServicePage = {
+  ...furnaceBase,
+  glance: {
+    title: 'Furnace installation at a glance',
+    stats: [
+      { num: count(furnaceBase.visitIncludes), label: 'items in a clear installation scope' },
+      { num: count(furnaceBase.incentives?.items), label: 'rebate programs explained below' },
+      { num: count(furnaceBase.sources), label: 'sources cited on this page' },
+    ],
+    // GlanceCard keys on `num`: the three numbers must stay different (8, 3, 12 today).
+    sources: [
+      furnaceSource('https://www.socalgas.com/savings/rebates-and-incentives'),
+      furnaceSource('https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program'),
+      furnaceSource('https://techcleanca.com/incentives/single-family-incentives/'),
+    ],
+  },
+  regionBand: {
+    eyebrow: 'Across Southern California',
+    title: 'How local conditions shape furnace installation',
+    card: {
+      heading: 'Furnace installation facts',
+      rows: [
+        { label: 'Complete job covers', value: 'The furnace itself and the parts around it: duct transitions, gas and electrical connections, venting, drainage where needed, controls, and any permit or inspection the city requires' },
+        { label: 'Energy code', value: "California's 2025 Building Energy Efficiency Standards took effect January 1, 2026" },
+      ],
+      sources: [furnaceSource('https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards')],
+    },
+  },
+  // Service-specific, not a repeat of the trust strip (the AC Repair pilot repeated rating and reviews; this page does not).
+  proofStats: [
+    { num: String(siteConfig.licenses.length), label: 'license numbers on file' },
+    { num: count(furnaceBase.checklist?.includes), label: 'items your written proposal should show' },
+    { num: count(furnaceBase.systems), label: 'system types compared' },
+    { num: count(furnaceBase.faqs), label: 'questions answered below' },
+  ],
 };
