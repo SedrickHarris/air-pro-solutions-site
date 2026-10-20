@@ -5,6 +5,10 @@ import type { ServicePage } from '@/content/services';
 // TODO(data): Sources list for ductless-mini-split never arrived from the client-side prompt; add
 // once provided. Do not invent citations. (See the omitted `sources` field below - every other
 // published service page sets one; this one deliberately does not, pending real citations.)
+// RESOLVED (2026-10-19, confirmed by user): the CSLB record for licenses 1126691 and 50251 shows C-20, and "licensed, bonded and insured" is an approved claim. On this page the license class shows in the hero proof "Licensed HVAC contractor", the trust strip C-20 stat, the Licensing card, the proof block and the footer. "Bonded" and "insured" are not stated in the page copy.
+// TODO(data): workers' compensation is not an approved claim. Do not state it anywhere until the client confirms it.
+// TODO(data): the rebate card dollar amounts and dates (LADWP "$1,500 to $2,500 per ton", SCE "Varies", CEC with its February 24, 2026 and November 14, 2025 dates) and FAQ 10's figures are rolling facts. Recheck them against the program pages at launch. Report only; not edited in the migration run.
+// TODO(data): the Permits card has no linked source. See the task 2 findings on the Energy Commission pages (HVAC alterations page: installing a space conditioning appliance other than a plug-in room appliance requires a building permit; it does not cover electrical or panel work).
 // TODO(copy): confirm this Final CTA heading/body wording once the original client copy is available
 // (see `finalCtaTitle`/`finalCtaBody` below - substituted from the established five-page pattern
 // because the original client copy for this page's final CTA never arrived).
