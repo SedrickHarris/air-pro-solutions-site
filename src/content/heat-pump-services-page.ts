@@ -21,8 +21,9 @@ import { siteConfig } from '@/content/site-config';
 // separately.
 // TODO(data): no Air Pro price, diagnostic fee, visit length, financing term, plan tier, or labor
 // warranty is stated anywhere on this page. Third-party price ranges were intentionally left out.
-// TODO(data): response time, after-hours, and emergency availability are not stated. Do not link to
-// /services/emergency-hvac/ from this page until the client confirms real always-on availability.
+// RESOLVED (2026-10-20, confirmed by user): the link to /services/emergency-hvac/ is allowed; 24/7 emergency dispatch is an
+// approved claim.
+// TODO(data): this page itself still states no response time, after-hours or availability, and must not add any.
 // TODO(data): commercial rooftop, ductless, and packaged capability (systems grid, audience chips) is
 // unconfirmed. A2L technician training and manufacturer credentials are not claimed anywhere.
 // TODO(data): re-check the LADWP rebate amount and the TECH Clean California reservation date at
@@ -96,7 +97,7 @@ const heatPumpServicesBase: ServicePage = {
     src: '/images/services/heat-pump/hero.webp',
     alt: 'Wall-mounted indoor heat pump unit in a bright living room, with the outdoor unit visible through a sliding glass door',
   },
-  // TODO(copy): DECISION PENDING. The old caption was one sentence ("Heat pump service for year-round comfort."); this
+  // RESOLVED (2026-10-20, approved by user): caption stays as built. The old caption was one sentence ("Heat pump service for year-round comfort."); this
   // two-part caption keeps "year-round comfort" and adds only the shared region phrase. Alternative (not built):
   // text 'for homes and businesses across Southern California', which matches the sibling pages but restates
   // commercial scope that is still unconfirmed (see the file-level TODO above).
@@ -122,7 +123,7 @@ const heatPumpServicesBase: ServicePage = {
   finalCtaBody: 'Call us or request service online.',
   answer: {
     lead: 'Heat pump services',
-    // TODO(copy): trimmed from 85 words to 43. DECISION PENDING, client to confirm both cuts:
+    // TODO(copy): trimmed from 85 words to 43. RESOLVED (2026-10-20, approved by user): both cuts stand:
     // (a) "Because one system does both jobs, a heat pump that cools fine but will not heat needs a different
     //     diagnostic path than a standard AC problem." moved word for word to the end of `diagnosisIntro`.
     // (b) "If you are comparing repair with replacement, the findings and options should come before any decision."
@@ -341,9 +342,9 @@ const heatPumpServicesBase: ServicePage = {
   },
   proofHeading: 'A technician who explains what they found',
   proofBody: 'You get a plain-language summary of what was checked, what the cause looks like, and what your options are, so you can decide what to do next.',
-  // TODO(data): do not promote /services/emergency-hvac/ from this row until the client confirms real
-  // always-on availability (see the file-level TODO above). /maintenance-plan/ is still a "content
-  // coming" stub.
+  // RESOLVED (2026-10-20, confirmed by user): the link is allowed; 24/7 emergency dispatch is an approved claim. This page
+  // itself still states no response time, after-hours or availability (see the file-level TODO above). /maintenance-plan/ is
+  // still a "content coming" stub.
   moreLinks: [
     { text: 'AC maintenance', href: '/services/ac-maintenance/' },
     { text: 'AC installation', href: '/services/ac-installation/' },
