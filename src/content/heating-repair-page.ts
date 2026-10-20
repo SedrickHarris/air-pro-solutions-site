@@ -99,8 +99,15 @@ const heatingRepairBase: ServicePage = {
   finalCtaBody: 'Call us or request service online.',
   answer: {
     lead: 'Heating repair',
+    // TODO(copy): trimmed from 85 words to 39 (migration). Cut (a) "Common problems include ignition and flame-sensing faults,
+    // failed capacitors and blower motors, control-board and thermostat faults, airflow restrictions, and heat-pump defrost
+    // issues." because `symptomsNoteText`, the `diagnosis` rows and the `systems` grid already cover it. Cut (b) "Cold air, short
+    // cycling, and no airflow can each have several causes, so the right repair depends on the equipment and what testing finds."
+    // moved word for word to the end of `diagnosisIntro`. DECISION PENDING: client to confirm both.
+    // The kept sentences still say "customer-approved" and "once you approve the price", the unconfirmed repair-cost process
+    // tracked in the header TODO(data). No new claim was added.
     body:
-      ' is a diagnostic service followed by customer-approved corrective work. A technician identifies why a furnace, heat pump, or other heating system is not producing reliable heat, explains the cause, and repairs it once you approve the price. Common problems include ignition and flame-sensing faults, failed capacitors and blower motors, control-board and thermostat faults, airflow restrictions, and heat-pump defrost issues. Cold air, short cycling, and no airflow can each have several causes, so the right repair depends on the equipment and what testing finds.',
+      ' is a diagnostic service followed by customer-approved corrective work. A technician identifies why a furnace, heat pump, or other heating system is not producing reliable heat, explains the cause, and repairs it once you approve the price.',
   },
   // TODO(data): this safety wording needs Air Pro safety policy review before launch.
   urgency: {
@@ -119,7 +126,7 @@ const heatingRepairBase: ServicePage = {
     'Many heating problems first appear when the system is turned on after months of limited use. A diagnostic visit can identify whether the issue involves ignition, airflow, controls, safety switches, a heat-pump defrost cycle, or another component.',
   diagnosisEyebrow: 'Diagnosis',
   diagnosisTitle: 'What your heating symptoms can mean',
-  diagnosisIntro: 'A symptom rarely points to one part. These are the faults a technician tests for, not a diagnosis.',
+  diagnosisIntro: 'A symptom rarely points to one part. These are the faults a technician tests for, not a diagnosis. Cold air, short cycling, and no airflow can each have several causes, so the right repair depends on the equipment and what testing finds.',
   diagnosis: [
     { notices: 'Runs but blows cold air', causes: 'Thermostat and controls, ignition, flame sensing, gas supply, limit switches, and airflow. Cold air has several possible causes and needs diagnosis. One failed part should not be assumed.' },
     { notices: 'No airflow from vents', causes: 'Blower motor, capacitor, control board, power, thermostat, filter, and ducts. A no-airflow complaint can involve electrical controls, the blower assembly, or an airflow restriction.' },
