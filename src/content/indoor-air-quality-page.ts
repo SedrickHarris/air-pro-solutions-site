@@ -346,6 +346,8 @@ const indoorAirQualityBase: ServicePage = {
     "Southern California is not one climate. South Coast AQMD covers all of Orange County and major parts of Los Angeles, Riverside, and San Bernardino Counties, and describes the South Coast Air Basin as having some of the worst air quality in the U.S. Daytime sea breezes can carry pollutants from the coast toward inland valleys.",
     'Outdoor air explains why the question comes up. It does not tell a technician what is wrong with your system. We assess the property and the equipment, not the ZIP code.',
   ],
+  // TODO(design): replace with real photo (1200x900, /images/services/indoor-air-quality/region.webp); no `image` shows a "Photo pending" tile.
+  regionMedia: { icon: 'pin' },
   regionConditions: [
     // TODO(copy): client review. First sentence reworded 2026-10-20 (was "serious ozone and fine-particle problems"; "serious" is the
     // AQMP's PM2.5 classification, and its ozone classification is "extreme"). Sources, PDF page numbers:
