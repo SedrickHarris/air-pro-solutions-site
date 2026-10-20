@@ -69,7 +69,7 @@ export type ServicePage = {
   // new-install rule first, then bolds "Existing R-410A systems are not banned." as its own leading
   // sentence, then continues - one paragraph more than boldLead+body alone can express. Optional so
   // every other caller (whose boldLead already opens the panel) is unaffected.
-  refrigerant?: { title: string; introBody?: string; body: string; boldLead?: string; body2?: string; sourceLabel?: string; sourceHref?: string; sourceText?: string; accent?: 'sky' | 'amber' };
+  refrigerant?: { title: string; introBody?: string; body: string; boldLead?: string; body2?: string; sourceLabel?: string; sourceHref?: string; sourceText?: string; accent?: 'sky' | 'amber'; media?: { icon: string; image?: ServiceImage } };
   pricingTitle?: string;
   pricingIntro?: string;
   priceFactors?: { item: string; drivers: string }[];
@@ -78,7 +78,8 @@ export type ServicePage = {
   pricingNotes?: string[]; // additional closing paragraphs, rendered after pricingClosing
   // Extra prose rendered after the repair-vs-replace table/note (ENERGY STAR guidance + a link to
   // the replacement comparison page).
-  repairReplaceExtra?: { paragraphs: string[]; linkText: string; linkHref: string };
+  // `media`: optional tile rendered to the right (migrated pages only); no `image` = "Photo pending" tile.
+  repairReplaceExtra?: { paragraphs: string[]; linkText: string; linkHref: string; media?: { icon: string; image?: ServiceImage } };
   rulesTitle?: string;
   rules?: { title: string; body: string }[];
   appliesParagraph?: string;
@@ -602,6 +603,8 @@ const acRepairPage: ServicePage = {
       'Yes. The EPA states that the new-system limit on refrigerant global-warming potential applies to systems installed on or after January 1, 2026. A wholly new split system installed after that date must use a refrigerant below 700 GWP. Existing R-410A systems can still be serviced, and an R-410A system does not have to be replaced only because of that rule. If a repair is major, a technician can walk you through the repair option and a replacement comparison so you decide with real numbers.',
     sourceLabel: 'U.S. EPA, HFC Phasedown FAQ',
     sourceHref: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons',
+    // TODO(design): replace with real photo, /images/services/ac-repair/refrigerant.webp (1200x900)
+    media: { icon: 'snowflake' },
   },
   pricingTitle: 'What affects AC repair cost',
   pricingIntro:
@@ -621,6 +624,8 @@ const acRepairPage: ServicePage = {
     ],
     linkText: 'Compare AC repair and replacement options',
     linkHref: '/services/ac-installation/',
+    // TODO(design): replace with real photo, /images/services/ac-repair/repair-or-replace.webp (1200x900)
+    media: { icon: 'wrench' },
   },
   rulesTitle: 'Licensing, permits, and energy-code basics',
   rules: [

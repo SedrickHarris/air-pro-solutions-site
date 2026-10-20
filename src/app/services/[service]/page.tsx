@@ -6,6 +6,7 @@ import { siteConfig } from '@/content/site-config';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { PendingNote } from '@/components/ui/PendingNote';
 import { Icon } from '@/components/ui/Icon';
+import { MediaTile } from '@/components/ui/MediaTile';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { TrustStrip } from '@/components/sections/TrustStrip';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
@@ -140,6 +141,20 @@ export default async function Page({ params }: { params: Promise<{ service: stri
     breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url }))),
   ];
 
+  // Media tiles beside text-only blocks apply to migrated pages only.
+  const repairReplaceMedia = migrated ? page.repairReplaceExtra?.media : undefined;
+  const refrigerantMedia = migrated ? page.refrigerant?.media : undefined;
+  const repairReplaceText = page.repairReplaceExtra && (
+    <>
+      {page.repairReplaceExtra.paragraphs.map((p) => (
+        <p className="compare-note" key={p}>{p}</p>
+      ))}
+      <p className="compare-note">
+        <Link className="link" href={page.repairReplaceExtra.linkHref}>{page.repairReplaceExtra.linkText}</Link>
+      </p>
+    </>
+  );
+
   // Rendered either right after the symptoms section or after pricing - see `page.compareEarly`.
   const compareBlock = s.repairVsReplace && (
     <CompareTable
@@ -150,14 +165,15 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       title={page.compareTitle ?? 'Repair or replace?'}
       afterNote={
         page.repairReplaceExtra && (
-          <>
-            {page.repairReplaceExtra.paragraphs.map((p) => (
-              <p className="compare-note" key={p}>{p}</p>
-            ))}
-            <p className="compare-note">
-              <Link className="link" href={page.repairReplaceExtra.linkHref}>{page.repairReplaceExtra.linkText}</Link>
-            </p>
-          </>
+          repairReplaceMedia ? (
+            <div className="split-media split-media-below">
+              <div>{repairReplaceText}</div>
+              {/* TODO(design): replace with real photo */}
+              <MediaTile icon={repairReplaceMedia.icon} image={repairReplaceMedia.image} />
+            </div>
+          ) : (
+            repairReplaceText
+          )
         )
       }
     />
@@ -540,6 +556,10 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           sourceText={page.refrigerant.sourceText}
           accent={page.refrigerant.accent}
           showSource={migrated}
+          media={refrigerantMedia && (
+            // TODO(design): replace with real photo
+            <MediaTile icon={refrigerantMedia.icon} image={refrigerantMedia.image} />
+          )}
         />
       )}
 

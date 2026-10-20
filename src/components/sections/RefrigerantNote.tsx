@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { SourceLinks } from '@/components/ui/SourceLinks';
 
 // Single-question explainer panel with an optional cited government source line. Used for the
@@ -34,6 +35,7 @@ export function RefrigerantNote({
   accent,
   showSource = false,
   bare = false,
+  media,
 }: {
   title: string;
   introBody?: string;
@@ -46,6 +48,8 @@ export function RefrigerantNote({
   accent?: 'sky' | 'amber';
   showSource?: boolean;
   bare?: boolean;
+  // Optional tile (e.g. <MediaTile />) rendered to the right of the panel in a `.split-media` grid.
+  media?: ReactNode;
 }) {
   const panel = (
     <div className={`refrigerant-note${accent ? ` refrigerant-note-${accent}` : ''}`}>
@@ -65,7 +69,9 @@ export function RefrigerantNote({
 
   return (
     <section className="alt">
-      <div className="wrap">{panel}</div>
+      <div className="wrap">
+        {media ? <div className="split-media">{panel}{media}</div> : panel}
+      </div>
     </section>
   );
 }
