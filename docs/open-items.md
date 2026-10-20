@@ -1363,9 +1363,13 @@ heat-pump-services and emergency-hvac (fix when each migrates).
 - URL check (headless Chrome via Playwright, not Claude in Chrome): all 15 return 200 with no redirects and no certificate
   warnings. The LA County Public Health link is `http://` and loads over plain http with no upgrade to https (a browser may
   show "Not secure"); try `https://` and update the URL if it works.
-- Flagged, not fixed: `replacementNote` and `rebatesNote` render as alt-background sections back to back. Also, AC Repair's
-  `southcoastaqmd.gov` link failed certificate validation in an earlier check; test swapping it to
-  `https://www.aqmd.gov/home/air-quality` (loads cleanly here) when AC Repair is next touched.
+- Flagged: `replacementNote` and `rebatesNote` render as alt-background sections back to back (see the follow-up fix below).
+- AC Repair's `southcoastaqmd.gov` link: RESOLVED (2026-10-20). It failed certificate-name validation in Chromium
+  (ERR_CERT_COMMON_NAME_INVALID), so AC Repair now uses `https://www.aqmd.gov/home/air-quality` (200, no warning). No other
+  page used `southcoastaqmd.gov`.
+- LA County Public Health source (IAQ References row): the https form 302-redirects back to http, and the http URL returns 200
+  but serves a "could not be found" page (soft 404). Kept unchanged with a TODO(data); find a working URL for the report or
+  replace the source.
 
 Remaining six, in rollout order: Heat Pump Services, Heating Repair, AC Maintenance, Ductwork, Emergency HVAC,
 Ductless Mini-Split.

@@ -486,9 +486,9 @@ const acRepairSources: { label: string; url: string; group?: string }[] = [
   { label: 'NASA JPL - Southern California heat-wave differences', url: 'https://www.jpl.nasa.gov/news/nasa-maps-key-heat-wave-differences-in-southern-california/', group: 'Heat and air quality' },
   { label: 'NOAA Climate.gov - September 2024 heat wave', url: 'https://www.climate.gov/news-features/event-tracker/heat-wave-southern-california-and-southwest-early-september-2024', group: 'Heat and air quality' },
   { label: 'California ISO - 2024 Summer Loads and Resources Assessment', url: 'https://www.caiso.com/Documents/2024-Summer-Loads-and-Resources-Assessment.pdf', group: 'Heat and air quality' },
-  // TODO(data): confirm this URL loads without a certificate warning in a normal browser; if it warns, switch to the
-  // non-www host or another official AQMD air-quality page (failed certificate-name validation from the build sandbox).
-  { label: 'South Coast AQMD - Air quality', url: 'https://www.southcoastaqmd.gov/home/air-quality', group: 'Heat and air quality' },
+  // RESOLVED (2026-10-20): www.southcoastaqmd.gov fails certificate-name validation in Chromium (ERR_CERT_COMMON_NAME_INVALID),
+  // so this uses the aqmd.gov host the Indoor Air Quality page already uses (200, no warning, lands on "Air Quality").
+  { label: 'South Coast AQMD - Air quality', url: 'https://www.aqmd.gov/home/air-quality', group: 'Heat and air quality' },
 ];
 const acRepairSource = (urlPart: string) => {
   const found = acRepairSources.find((src) => src.url.includes(urlPart));
