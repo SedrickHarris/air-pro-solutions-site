@@ -48,19 +48,27 @@ const heatPumpServicesSources: { label: string; url: string; group: string }[] =
   // Energy Saver page (dated 8/26/25), not a CPUC guide, so "DOE and CPUC" misattributed it. URL unchanged.
   // https://www.energy.gov/energysaver/air-source-heat-pumps is a candidate replacement (not swapped, see Task 4).
   { label: 'U.S. DOE - Air-source heat pumps (Energy Saver printout filed with the CPUC)', url: 'https://docs.cpuc.ca.gov/PublishedDocs/SupDoc/A2209006/8462/577938159.pdf', group: 'Heat pump basics' },
-  // TODO(data): decision pending on the four manufacturer service guides (Trane, Carrier x2, Bryant). They are kept
-  // in place and become public in the References row on migration. CLAUDE.md says never link to or name a competitor.
-  // Recommended: move all four, URLs unchanged, into a `heatPumpManufacturerSources` array (as Furnace did with
-  // `furnaceContractorSources`). Do not remove until the client decides.
-  { label: "Trane - Homeowner's heat pump repair guide", url: 'https://www.trane.com/residential/en/products/heat-pumps/heat-pump-repair-guide/', group: 'Manufacturer service guides' },
-  { label: 'Carrier - Heat pump troubleshooting', url: 'https://www.carrier.com/us/en/residential/hvac-resources/heat-pumps/heat-pump-troubleshooting/', group: 'Manufacturer service guides' },
-  { label: 'Carrier - Heat pump service checklist', url: 'https://www.carrier.com/residential/en/ca/products/heat-pumps/heat-pump-service/', group: 'Manufacturer service guides' },
-  { label: 'Bryant - Reversing valve guide', url: 'https://www.bryant.com/en/us/products/heat-pumps/reversing-valve/', group: 'Manufacturer service guides' },
+  // RESOLVED (2026-10-20, approved by user): the four manufacturer service guides (Trane, Carrier x2, Bryant) are held out of
+  // this list because CLAUDE.md says never to link to or name a competitor. See `heatPumpManufacturerSources` below.
   { label: 'NASA JPL - Southern California heat-wave differences', url: 'https://www.nasa.gov/centers-and-facilities/jpl/nasa-maps-key-heat-wave-differences-in-southern-california/', group: 'Heat and climate' },
   { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program', group: 'Rebates and incentives' },
   { label: 'Southern California Edison - Home electrification', url: 'https://www.sce.com/clean-energy-efficiency/home/electrification', group: 'Rebates and incentives' },
   { label: 'TECH Clean California - Incentives', url: 'https://techcleanca.com/incentives/', group: 'Rebates and incentives' },
 ];
+
+// TODO(data): manufacturer service guides, held out of the References row because CLAUDE.md says never to link to or name a
+// competitor. The visible sentences they supported stay on the page, unattributed. To show them again, move these back into
+// `heatPumpServicesSources` with `group: 'Manufacturer service guides'`. Same trade-off Furnace made with `furnaceContractorSources`.
+export const heatPumpManufacturerSources: { label: string; url: string }[] = [
+  { label: "Trane - Homeowner's heat pump repair guide", url: 'https://www.trane.com/residential/en/products/heat-pumps/heat-pump-repair-guide/' },
+  { label: 'Carrier - Heat pump troubleshooting', url: 'https://www.carrier.com/us/en/residential/hvac-resources/heat-pumps/heat-pump-troubleshooting/' },
+  { label: 'Carrier - Heat pump service checklist', url: 'https://www.carrier.com/residential/en/ca/products/heat-pumps/heat-pump-service/' },
+  { label: 'Bryant - Reversing valve guide', url: 'https://www.bryant.com/en/us/products/heat-pumps/reversing-valve/' },
+];
+
+// TODO(data): the defrost sentences (the `basics` Defrost card, FAQ 4, urgency item 5, diagnosis row 3) now have no public
+// source, because the DOE printout never mentions frost or ice. Find a neutral government or utility source before launch.
+// Do not change those sentences.
 
 const heatPumpSource = (urlPart: string) => {
   const found = heatPumpServicesSources.find((s) => s.url.includes(urlPart));
@@ -418,7 +426,7 @@ export const heatPumpServicesPage: ServicePage = {
       { num: '6', label: 'steps in a heat pump service visit' }, // = the heat-pump-services process array length in services.ts; keep in sync
       { num: count(heatPumpServicesBase.sources), label: 'sources cited on this page' },
     ],
-    // GlanceCard keys on `num`: the three numbers must stay different (3, 6, 13 today).
+    // GlanceCard keys on `num`: the three numbers must stay different (3, 6, 9 today).
     // TODO(data): stats 2 and 3 are page counts; the DOE guide supports only the cooling, heating and defrost framing.
     // Confirm this source line reads correctly.
     sources: [heatPumpSource('docs.cpuc.ca.gov')],
