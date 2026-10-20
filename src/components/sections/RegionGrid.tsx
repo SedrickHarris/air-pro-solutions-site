@@ -43,7 +43,11 @@ export function RegionGrid({
               </div>
               <div className="region-card-body">
                 <h3>{r.name}</h3>
-                <p>{showCities ? r.cities.map((c) => getCity(c)?.name).filter(Boolean).join(', ') : bodyFor?.(r.slug)}</p>
+                {(() => {
+                  const text = showCities ? r.cities.map((c) => getCity(c)?.name).filter(Boolean).join(', ') : bodyFor?.(r.slug);
+                  // A page that passes `bodyFor={() => ''}` wants image + name + link only, so skip the empty <p>.
+                  return bodyFor && !showCities && text === '' ? null : <p>{text}</p>;
+                })()}
                 <span className="card-arrow">{linkLabel(r.name)} <Icon name="arrow" size={16} /></span>
               </div>
             </Link>

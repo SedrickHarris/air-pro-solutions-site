@@ -21,7 +21,7 @@ export type ServicePage = {
   metaDescription: string;
   lede: string; // also the Service JSON-LD description - must stay word-for-word identical to the visible copy
   heroImage?: ServiceImage; // 1200x900 hero photo; falls back to the "photo pending" tile when absent
-  heroCaption?: string; // shown on the hero photo caption band when heroImage is set
+  heroCaption?: string | { title: string; text: string }; // hero photo caption band; object form renders `<strong>title</strong> text` like the city hero
   heroCaptionAlign?: 'left'; // caption text alignment; centered when unset
   heroProof: { icon: string; label: string }[];
   serviceType: string; // schema.org Service.serviceType, e.g. "Air Conditioning Repair"
@@ -89,6 +89,16 @@ export type ServicePage = {
   regionClosing?: string;
   moreLinks?: { text: string; href: string }[];
   sources?: { label: string; url: string }[];
+  // Location-style migration (see docs/open-items.md "Service page migration"). Setting `glance` marks a
+  // service as migrated; the route only renders the blocks below, and the source lines, when it is set.
+  glance?: { title: string; stats: { num: string; label: string }[]; sources: { label: string; url: string }[] };
+  regionBand?: {
+    eyebrow: string;
+    title: string;
+    intro?: string;
+    card: { heading: string; rows: { label: string; value: string }[]; sources: { label: string; url: string }[] };
+  }; // paragraphs come from `regionConditions`
+  proofStats?: { num: string; label: string }[]; // replaces the Proof section's copy of the trust strip stats
   sourcesColumns?: 1 | 2; // 2 for a longer source list (e.g. ac-installation); defaults to 1 (ac-repair)
 
   // --- Additional fields used by the /services/ac-installation/ template. Optional so ac-repair (and every

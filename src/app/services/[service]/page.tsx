@@ -9,6 +9,10 @@ import { Icon } from '@/components/ui/Icon';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { TrustStrip } from '@/components/sections/TrustStrip';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
+import { GlanceCard } from '@/components/sections/GlanceCard';
+import { ServiceLocalBand } from '@/components/sections/ServiceLocalBand';
+import { SourcesList } from '@/components/sections/SourcesList';
+import { SourceLinks } from '@/components/ui/SourceLinks';
 import { UrgencyBox } from '@/components/sections/UrgencyBox';
 import { DecisionGrid } from '@/components/sections/DecisionGrid';
 import { TriageGrid } from '@/components/sections/TriageGrid';
@@ -94,6 +98,10 @@ export default async function Page({ params }: { params: Promise<{ service: stri
   }
 
   const { page } = s;
+  // `page.glance` marks a service as migrated to the location-style template (dark quick-answer band with
+  // glance card, Southern California band, source lines, Sources section). Every new block below is gated
+  // on it so services that have not migrated render exactly as before.
+  const migrated = Boolean(page.glance);
   const h1 = serviceH1(page.metaServiceName ?? s.name);
   assertH1(h1);
 
@@ -238,7 +246,9 @@ export default async function Page({ params }: { params: Promise<{ service: stri
                 priority
               />
               {page.heroCaption && (
-                <span className={`photo-caption photo-caption-band${page.heroCaptionAlign === 'left' ? ' photo-caption-band-left' : ''} photo-caption-silver`}>{page.heroCaption}</span>
+                <span className={`photo-caption photo-caption-band${page.heroCaptionAlign === 'left' ? ' photo-caption-band-left' : ''} photo-caption-silver`}>
+                  {typeof page.heroCaption === 'string' ? page.heroCaption : <><strong>{page.heroCaption.title}</strong> {page.heroCaption.text}</>}
+                </span>
               )}
             </div>
           ) : (
@@ -250,8 +260,6 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         </div>
       </section>
 
-      {/* TODO(data): confirm the C-20 classification against the live CSLB record for #1126691 and
-          #50251 before launch. If it does not match, replace this cell with the classification on file. */}
       <TrustStrip
         stats={[
           { num: `${siteConfig.rating}★`, label: 'Google rating' },
@@ -261,7 +269,36 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         ]}
       />
 
-      <AnswerBlock lead={page.answer.lead} body={page.answer.body} />
+      {page.glance ? (
+        <>
+          <AnswerBlock
+            lead={page.answer.lead}
+            body={page.answer.body}
+            dark
+            ctas={
+              page.heroCallPrimary
+                ? { primaryLabel: `Call ${siteConfig.phone}`, primaryHref: siteConfig.phoneHref, phoneLabel: page.ctaLabel, phoneHref: '/contact/' }
+                : { primaryLabel: page.ctaLabel, primaryHref: '/contact/', phoneLabel: `Call ${siteConfig.phone}`, phoneHref: siteConfig.phoneHref }
+            }
+            aside={<GlanceCard title={page.glance.title} stats={page.glance.stats} source={<SourceLinks sources={page.glance.sources} />} />}
+          />
+          {page.regionBand && page.regionConditions && (
+            <ServiceLocalBand
+              eyebrow={page.regionBand.eyebrow}
+              title={page.regionBand.title}
+              intro={page.regionBand.intro}
+              paragraphs={page.regionConditions.map((c) => {
+                const region = regions.find((r) => r.slug === c.regionSlug);
+                if (!region) throw new Error(`Unknown region slug on ${serviceHref(s.slug)}: ${c.regionSlug}`);
+                return `**${region.name}.** ${c.body}`;
+              })}
+              card={page.regionBand.card}
+            />
+          )}
+        </>
+      ) : (
+        <AnswerBlock lead={page.answer.lead} body={page.answer.body} />
+      )}
 
       {page.decision && (
         <DecisionGrid
@@ -502,6 +539,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           sourceHref={page.refrigerant.sourceHref}
           sourceText={page.refrigerant.sourceText}
           accent={page.refrigerant.accent}
+          showSource={migrated}
         />
       )}
 
@@ -521,6 +559,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
                   body={c.body}
                   boldLead={c.boldLead}
                   sourceText={c.sourceText}
+                  showSource={migrated}
                 />
               ))}
             </div>
@@ -633,7 +672,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       {/* Single-paragraph warranty callout (heat-pump-services), rendered as a plain (no accent, no
           source) RefrigerantNote panel between licensing/permits and rebates. */}
       {page.warranty && (
-        <RefrigerantNote title={page.warranty.heading} body={page.warranty.body} />
+        <RefrigerantNote title={page.warranty.heading} body={page.warranty.body} showSource={migrated} />
       )}
 
       {/* "If an upgrade turns into a replacement" (indoor-air-quality): a single RefrigerantNote-shaped
@@ -644,6 +683,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           title={page.replacementNote.title}
           body={page.replacementNote.body}
           sourceText={page.replacementNote.sourceText}
+          showSource={migrated}
         />
       )}
 
@@ -724,7 +764,9 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         eyebrow="Where we work"
         title={page.regionTitle}
         showCities={!page.regionConditions}
-        bodyFor={page.regionConditions ? (slug) => page.regionConditions?.find((c) => c.regionSlug === slug)?.body ?? '' : undefined}
+        // Migrated pages show the per-region copy in the Southern California band instead, so the cards
+        // here are image + region name + link only.
+        bodyFor={migrated ? () => '' : page.regionConditions ? (slug) => page.regionConditions?.find((c) => c.regionSlug === slug)?.body ?? '' : undefined}
         intro={
           page.regionIntro ? (
             <>
@@ -754,7 +796,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         body={page.proofBody ?? 'Every quote is itemized before we touch a tool. Every repair includes a walkthrough of exactly what was fixed and why.'}
         ctaLabel="Read our reviews"
         ctaHref="/reviews/"
-        stats={[
+        stats={page.proofStats ?? [
           { num: `${siteConfig.rating}★`, label: 'Google rating' },
           { num: String(siteConfig.reviewCount), label: 'Google reviews' },
           { num: 'C-20', label: 'California license class' },
@@ -765,6 +807,9 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       <RelatedRow items={related} title="Explore related services" alt={false} moreLinks={page.moreLinks} />
 
       <FaqList faqs={page.faqs} eyebrow="Direct answers" title={page.faqTitle} alt firstOpen boldFirstSentence id={page.faqSectionId} />
+
+      {/* FaqList is alt, so Sources is non-alt to keep the section rhythm into the final CTA. */}
+      {migrated && page.sources?.length ? <SourcesList items={page.sources} columns={page.sourcesColumns ?? 1} alt={false} /> : null}
 
       <FinalCta title={page.finalCtaTitle} body={page.finalCtaBody} ghostLabel={page.ctaLabel} />
     </>
