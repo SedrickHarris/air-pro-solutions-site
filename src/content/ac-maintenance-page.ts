@@ -4,8 +4,7 @@ import { siteConfig } from '@/content/site-config';
 // TODO(data): "Findings explained before repairs" (hero proof), plus the statements that repair work
 // is "explained and quoted separately" and approved before work begins (quick answer, process step 5
 // in services.ts, FAQ 2, cost note) are the same unconfirmed-process status as the AC Repair page.
-// TODO(data): "Licensed HVAC contractor" and the "C-20" tile (announcement bar, hero proof, trust
-// strip, proof block, footer) - confirm the CSLB record for licenses 1126691 and 50251 shows C-20.
+// RESOLVED (2026-10-19, confirmed by user): the CSLB record for licenses 1126691 and 50251 shows C-20 (announcement bar, hero proof, trust strip, proof block, footer).
 // TODO(data): the visit checklist under "A typical AC maintenance visit may include" follows the
 // ENERGY STAR professional checklist, not a confirmed Air Pro checklist.
 // TODO(data): the systems section says "Tell us what you have and we will confirm we can service it"
