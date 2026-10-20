@@ -57,7 +57,11 @@ const acMaintenanceBase: ServicePage = {
     src: '/images/services/ac-maintenance/hero.webp',
     alt: 'Technician with gloved hands brushing the coil of an air handler in a home utility closet during a system inspection',
   },
-  heroCaption: 'Pre-season AC tune-ups across Southern California.',
+  // TODO(copy): the old caption was one string, "Pre-season AC tune-ups across Southern California." Proposed two-part caption uses the
+  // same words with no trailing period and no new claim. Needs approval. Alternative, not built: { title: 'AC maintenance', text: 'for
+  // homes and businesses across Southern California' } (matches AC Installation, but restates the residential and commercial scope
+  // already shown in the hero chips). Centered, like AC Installation (no `heroCaptionAlign`).
+  heroCaption: { title: 'Pre-season AC tune-ups', text: 'across Southern California' },
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
