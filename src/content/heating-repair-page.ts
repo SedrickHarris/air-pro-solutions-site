@@ -1,4 +1,5 @@
 import type { ServicePage } from '@/content/services';
+import { siteConfig } from '@/content/site-config';
 
 // TODO(data): confirm the CSLB record for licenses 1126691 and 50251 shows C-20 before launch
 // (trust strip, proof block, footer).
@@ -315,4 +316,69 @@ const heatingRepairBase: ServicePage = {
   // TODO(copy): client review of every FAQ answer above before launch.
 };
 
-export const heatingRepairPage: ServicePage = { ...heatingRepairBase };
+// Location-style migration (docs/open-items.md "Service page migration"). Setting `glance` marks this service as migrated.
+// TODO(copy): all strings in this block are new.
+// GlanceCard keys on `num`: the three numbers must stay different (8, 6, 9 today). Fail the build if they collide.
+const glanceStats = [
+  { num: count(heatingRepairBase.diagnosis), label: 'common heating symptoms explained' },
+  { num: '6', label: 'steps in a heating repair visit' }, // = the heating-repair process array length in services.ts; keep in sync
+  { num: count(heatingRepairBase.sources), label: 'sources cited on this page' },
+];
+if (new Set(glanceStats.map((x) => x.num)).size !== glanceStats.length) {
+  throw new Error('heating-repair-page: glance stat numbers must be unique (GlanceCard keys on num)');
+}
+
+export const heatingRepairPage: ServicePage = {
+  ...heatingRepairBase,
+  glance: {
+    title: 'Heating repair at a glance',
+    stats: glanceStats,
+    // TODO(data): all three stats are page counts, and none of the cited sources supports the symptom list or the six-step
+    // visit. The CSLB C-20 page is only the most neutral government source on this page. Confirm this source line reads correctly.
+    sources: [heatingRepairSource('Class=C20')],
+  },
+  regionBand: {
+    eyebrow: 'Across Southern California',
+    title: 'How Southern California conditions shape heating repair',
+    card: {
+      heading: 'Heating repair facts',
+      // Rows are in drop-order priority for the 1280px balance check: the last row goes first. Never go below two rows without
+      // asking. Rows restate existing page copy only: no License row, no dollar amounts, no rolling dates, no installation date,
+      // and no permit or alteration claim (the Energy Commission page does not mention alterations to existing buildings).
+      rows: [
+        { label: 'Existing R-410A equipment', value: 'Can still be serviced and repaired. Owners are not required to replace a working system only because it uses R-410A' },
+        { label: 'Energy code', value: 'The 2025 Building Energy Efficiency Standards apply to building permit applications submitted on or after January 1, 2026' },
+        { label: 'Incentives', value: 'Availability depends on your utility, address, equipment ratings, permits, and current funding. TECH and HEEHRA funding may be reserved or waitlisted' },
+      ],
+      sources: [
+        heatingRepairSource('nahb.org'),
+        heatingRepairSource('2025-building-energy-efficiency'),
+        heatingRepairSource('ladwp.com'),
+        heatingRepairSource('socalgas.com'),
+        heatingRepairSource('single-family-incentives'),
+      ],
+    },
+  },
+  proofStats: [
+    { num: `${siteConfig.rating}★`, label: 'Google rating' },
+    { num: String(siteConfig.reviewCount), label: 'Google reviews' },
+    { num: count(heatingRepairBase.faqs), label: 'heating repair questions answered' },
+    { num: count(heatingRepairBase.systems), label: 'heating system types we diagnose' },
+  ],
+  // TODO(design): real photos (1200x900) to replace the three "Photo pending" tiles.
+  regionMedia: { icon: 'pin' },
+  // TODO(data): attribution gap, wording deliberately untouched. The refrigerant body ("R-454B and R-32, which are classified
+  // A2L (lower flammability)") and FAQ 5 ("commonly R-454B or R-32 ... Both are A2L") cite NAHB, which is not a government source.
+  // The EPA SNAP table supports R-32 as A2L; R-454B is not in any government source cited on this page. Heat Pump and the other
+  // pages moved to neutral wording. Decide whether to match them.
+  refrigerant: {
+    ...heatingRepairBase.refrigerant!,
+    media: { icon: 'snowflake' },
+    // Linked source line on migrated pages. `sourceText` is left in place and is used by the unmigrated markup only.
+    sources: [heatingRepairSource('nahb.org')],
+  },
+  repairReplaceExtra: {
+    ...heatingRepairBase.repairReplaceExtra!,
+    media: { icon: 'refresh' },
+  },
+};
