@@ -338,8 +338,12 @@ const indoorAirQualityBase: ServicePage = {
   ],
   // "#areas" anchor for internal linking, per the build spec's anchor list.
   regionSectionId: 'areas',
+  // TODO(copy): client review. The AQMD attribution now follows the 2022 AQMP Appendix II, p. 15: "The unfavorable combination of
+  // meteorology, topography, and emissions from the nation's second largest urban area results in the Basin having some of the
+  // worst air quality in the U.S." The old wording ("greater Los Angeles area ... nation's highest ozone and fine-particle
+  // burdens") is not in the AQMP, the AQMD Air Quality page or the September 2024 advisory. Sea-breeze sentence: same p. 15.
   regionIntro: [
-    "Southern California is not one climate. South Coast AQMD covers all of Orange County and major parts of Los Angeles, Riverside, and San Bernardino Counties, and describes the greater Los Angeles area as having some of the nation's highest ozone and fine-particle burdens. Daytime sea breezes can carry pollutants from the coast toward inland valleys.",
+    "Southern California is not one climate. South Coast AQMD covers all of Orange County and major parts of Los Angeles, Riverside, and San Bernardino Counties, and describes the South Coast Air Basin as having some of the worst air quality in the U.S. Daytime sea breezes can carry pollutants from the coast toward inland valleys.",
     'Outdoor air explains why the question comes up. It does not tell a technician what is wrong with your system. We assess the property and the equipment, not the ZIP code.',
   ],
   regionConditions: [
