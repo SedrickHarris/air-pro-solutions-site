@@ -378,5 +378,58 @@ const ductworkBase: ServicePage = {
   sources: ductworkSources,
 };
 
-// Temporary until the migration block lands; keeps the export valid.
-export const ductworkPage: ServicePage = { ...ductworkBase };
+// Location-style migration (docs/open-items.md "Service page migration"). Setting `glance` marks this service as migrated.
+// TODO(copy): all strings in this block are new (glance labels, fact card, proof stats).
+// GlanceCard keys on `num`: the three numbers must stay different (4, 6, 7 today). Fail the build if they collide.
+const glanceStats = [
+  { num: count(ductworkBase.optionsTable!.rows), label: 'ways to fix a duct problem compared' },
+  { num: '6', label: 'steps in a ductwork visit' }, // = the ductwork `process` array length in services.ts; keep in sync
+  { num: count(ductworkBase.visitIncludes), label: 'items a ductwork scope often includes' },
+];
+if (new Set(glanceStats.map((x) => x.num)).size !== glanceStats.length) {
+  throw new Error('ductwork-page: glance stat numbers must be unique (GlanceCard keys on num)');
+}
+
+export const ductworkPage: ServicePage = {
+  ...ductworkBase,
+  glance: {
+    title: 'Ductwork at a glance',
+    stats: glanceStats,
+    // TODO(data): all three stats are page counts. ENERGY STAR supports the sealing guidance and the signs of leaky ducts, not the four approaches, the six-step visit or the seven scope items. Confirm this source line reads correctly.
+    sources: [ductworkSource('energystar.gov/saveathome/heating-cooling/duct-sealing')],
+  },
+  regionBand: {
+    eyebrow: 'Across Southern California',
+    title: 'How Southern California conditions shape ductwork service',
+    card: {
+      heading: 'Ductwork facts',
+      // Rows are in drop-order priority for the 1280px balance check: the last row goes first. Never go below two rows without
+      // asking. Rows restate existing page copy only: no License row, no dollar amounts, no rolling dates, no home-age figure, no
+      // installation date, and no permit or alteration claim (the Energy Commission page does not mention alterations to existing buildings).
+      // Row 1 follows ENERGY STAR's "typical house"; the quick answer, callout and FAQs say "typical home duct system" and "typical duct
+      // system". Existing wording untouched.
+      // Dropped for the 1280px balance check (copy 340px, card 487px with three rows, 328px with two): row 3, label "Coast and valley",
+      // "NASA JPL's analysis of Southern California's 2020 heat waves found southern Los Angeles County and Orange County stayed cooler
+      // because of their proximity to the Pacific, while valley areas including Riverside skewed drier and hotter" (checked against the
+      // JPL article, which covers two 2020 heat waves). It differs on purpose from `regionIntro`, which says "a Southern California heat
+      // wave" (singular); `regionIntro` is untouched (report only). Restore it with the JPL source if the copy grows.
+      rows: [
+        { label: 'Duct leakage', value: 'ENERGY STAR estimates that in a typical house about 20 to 30 percent of the air moving through the duct system is lost through leaks, holes, and poorly connected ducts' },
+        { label: 'Energy code', value: 'The 2025 California Energy Code applies to permits applied for on or after January 1, 2026' },
+      ],
+      sources: [
+        ductworkSource('energystar.gov/saveathome/heating-cooling/duct-sealing'),
+        ductworkSource('2025-building-energy-efficiency'),
+      ],
+    },
+  },
+  proofStats: [
+    { num: `${siteConfig.rating}★`, label: 'Google rating' },
+    { num: String(siteConfig.reviewCount), label: 'Google reviews' },
+    { num: count(ductworkBase.faqs), label: 'ductwork questions answered' },
+    { num: count(ductworkBase.systems), label: 'duct system parts explained' },
+  ],
+  // TODO(design): real photos (1200x900) to replace the two "Photo pending" tiles (rebates band and region intro).
+  regionMedia: { icon: 'pin' },
+  rebatesNote: { ...ductworkBase.rebatesNote!, media: { icon: 'dollar' } },
+};
