@@ -24,6 +24,16 @@ import { siteConfig } from '@/content/site-config';
 // emergency-availability wording appear anywhere on this page - none are confirmed. See CLAUDE.md
 // "Claims that must not ship".
 
+// TODO(data): research evidence for the cost and timing ranges, held out of the References row because the repo rule is
+// not to link or name competitors. Show only if the user decides to. To show them, move these back into `sources` with
+// `group: 'Published cost estimates'`.
+export const furnaceContractorSources: { label: string; url: string }[] = [
+  { label: 'J Martin Indoor Air Quality - Orange County heating page', url: 'https://www.jmartiniaq.com/heating' },
+  { label: 'Eagle Air - Inland Empire furnace replacement', url: 'https://eagleairco.com/heating-contractor/furnace-replacement/' },
+  { label: 'MightyServ - Los Angeles furnace installation', url: 'https://mightyserv.com/heating/furnace-installation/' },
+  { label: 'Air Comfort Experts - Pasadena furnace installation', url: 'https://www.aircomfortexperts.com/heating/furnace-installation/' },
+];
+
 // Full template content for /services/furnace-installation/. Reuses the same ServicePage shape and shared
 // section components already built out for /services/ac-repair/, /services/ac-installation/, /services/ac-maintenance/, and
 // /services/heating-repair/ - see the build report for why a second, parallel content shape
@@ -160,6 +170,11 @@ const furnaceBase: ServicePage = {
     body2:
       'Refrigerant rules matter only when the project includes cooling equipment. The EPA states that a newly installed split system on or after January 1, 2026 must use a refrigerant with a global-warming potential below 700. Existing R-410A equipment can still be serviced, and a furnace-only replacement is not automatically a refrigerant project. If the work includes a new split AC or heat pump, confirm the equipment and installation requirements in the proposal.',
     sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ.',
+    // TODO(copy): linked source line, replaces the unrendered plain sourceText on the migrated page
+    sourceLabel: 'U.S. EPA - HFC phasedown FAQ',
+    sourceHref: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons',
+    // TODO(design): replace with real photo, /images/services/furnace-installation/whole-system.webp (1200x900)
+    media: { icon: 'furnace' },
   },
   pricingTitle: 'What affects furnace installation cost',
   // TODO(data): the $3,000-$12,000 range is published market data, not an Air Pro quote. Needs client
@@ -290,23 +305,20 @@ const furnaceBase: ServicePage = {
     { text: 'AC maintenance', href: '/services/ac-maintenance/' },
   ],
   sourcesColumns: 2,
+  // TODO(copy): `group` labels the collapsed References row on the migrated page (docs/open-items.md "Service page migration").
   sources: [
-    { label: 'California Energy Commission - Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards' },
-    { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20' },
-    { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons' },
-    { label: 'SoCalGas - Rebates and incentives', url: 'https://www.socalgas.com/savings/rebates-and-incentives' },
-    { label: 'SoCalGas - 2026 Home Energy Efficiency Rebate application', url: 'https://www.socalgas.com/sites/default/files/2026-03/SCG-HEER-Application.pdf.pdf' },
-    { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program' },
-    { label: 'TECH Clean California - Single-family incentive status', url: 'https://techcleanca.com/incentives/single-family-incentives/' },
-    { label: 'California Energy Commission - IRA residential rebate programs', url: 'https://www.energy.ca.gov/programs-and-topics/programs/inflation-reduction-act-residential-energy-rebate-programs' },
-    { label: 'NASA JPL - Southern California heat-wave differences', url: 'https://www.nasa.gov/centers-and-facilities/jpl/nasa-maps-key-heat-wave-differences-in-southern-california/' },
-    { label: 'California Energy Commission - Los Angeles regional climate report', url: 'https://www.energy.ca.gov/sites/default/files/2019-11/Reg%20Report-%20SUM-CCCA4-2018-007%20LosAngeles_ADA.pdf' },
-    { label: 'South Coast AQMD - Wildfire smoke tips', url: 'https://www.aqmd.gov/home/air-quality/wildfire-health-info-smoke-tips' },
-    { label: 'Angi - Los Angeles furnace installation cost guide', url: 'https://www.angi.com/articles/how-much-does-it-cost-install-new-furnace/ca/los-angeles' },
-    { label: 'J Martin Indoor Air Quality - Orange County heating page', url: 'https://www.jmartiniaq.com/heating' },
-    { label: 'Eagle Air - Inland Empire furnace replacement', url: 'https://eagleairco.com/heating-contractor/furnace-replacement/' },
-    { label: 'MightyServ - Los Angeles furnace installation', url: 'https://mightyserv.com/heating/furnace-installation/' },
-    { label: 'Air Comfort Experts - Pasadena furnace installation', url: 'https://www.aircomfortexperts.com/heating/furnace-installation/' },
+    { label: 'California Energy Commission - Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards', group: 'Codes, licensing, and refrigerant' },
+    { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20', group: 'Codes, licensing, and refrigerant' },
+    { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons', group: 'Codes, licensing, and refrigerant' },
+    { label: 'SoCalGas - Rebates and incentives', url: 'https://www.socalgas.com/savings/rebates-and-incentives', group: 'Rebates and incentives' },
+    { label: 'SoCalGas - 2026 Home Energy Efficiency Rebate application', url: 'https://www.socalgas.com/sites/default/files/2026-03/SCG-HEER-Application.pdf.pdf', group: 'Rebates and incentives' },
+    { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program', group: 'Rebates and incentives' },
+    { label: 'TECH Clean California - Single-family incentive status', url: 'https://techcleanca.com/incentives/single-family-incentives/', group: 'Rebates and incentives' },
+    { label: 'California Energy Commission - IRA residential rebate programs', url: 'https://www.energy.ca.gov/programs-and-topics/programs/inflation-reduction-act-residential-energy-rebate-programs', group: 'Rebates and incentives' },
+    { label: 'NASA JPL - Southern California heat-wave differences', url: 'https://www.nasa.gov/centers-and-facilities/jpl/nasa-maps-key-heat-wave-differences-in-southern-california/', group: 'Climate and air quality' },
+    { label: 'California Energy Commission - Los Angeles regional climate report', url: 'https://www.energy.ca.gov/sites/default/files/2019-11/Reg%20Report-%20SUM-CCCA4-2018-007%20LosAngeles_ADA.pdf', group: 'Climate and air quality' },
+    { label: 'South Coast AQMD - Wildfire smoke tips', url: 'https://www.aqmd.gov/home/air-quality/wildfire-health-info-smoke-tips', group: 'Climate and air quality' },
+    { label: 'Angi - Los Angeles furnace installation cost guide', url: 'https://www.angi.com/articles/how-much-does-it-cost-install-new-furnace/ca/los-angeles', group: 'Published cost estimates' },
   ],
   faqs: [
     {
