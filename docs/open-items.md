@@ -1650,6 +1650,40 @@ fourth `moreLinks` label is relabeled "AC maintenance and seasonal system checks
   update, city lists, logo, photos, copy review), the attribution gaps above (nothing edited), the `ductwork` versus `ductwork-services`
   overlap, and the LADWP and SCE rebate recheck before launch.
 
+Ductwork attribution corrections (2026-10-20, approved by user, branch `ductwork-migration`, 2 code commits after the migration; client copy
+approval still NOT given, so every changed string is TODO(copy)). Each string was re-checked against the source's own text. Only
+`services/ductwork/index.html` changed against the pre-correction build; its JSON-LD differs only in the FAQPage answers for FAQ 1, 4 and 7,
+and each equals its visible answer.
+- DONE, housing label: now "Neighborhood Data for Social Change - SOLACHAN 2026 Chapter - Housing Supply" (the browser title reads
+  "SOLACHAN 2026 Chapter - Housing Supply - Neighborhood Data for Social Change"; the copyright line names Neighborhood Data for Social Change).
+- DONE, LA County sentence: "median age of LA County's housing stock at 58 years, measured in 2024". Source: "The median age of the county's
+  housing stock is 58 years old (built in 1966)", "Median age is calculated by subtracting the median year built from 2024". The header
+  TODO(data) about the 58-year figure stays.
+- DONE, `regionIntro`: "two Southern California heat waves in 2020 ... skewed drier and hotter. Muggy August nights raised nighttime heat
+  stress in both coastal and inland areas". Source: "compared two heat waves ... in the summer of 2020", "Southern L.A. County and Orange County
+  stayed cooler, given their proximity to the Pacific Ocean", "Valley regions, including San Fernando and Riverside, skewed drier and hotter",
+  "Both the coastal and inland areas experienced increased nighttime heat stress during the muggy August heat wave".
+- DONE, Licensing card: "warm-air heating, ventilating and air-conditioning systems, including the ducts, registers, plenum chambers, and air
+  filters connected to them". Source: "A warm-air heating, ventilating and air-conditioning contractor ... ventilating systems complete with
+  blowers and plenum chambers ... the ducts, registers, flues, humidity and thermostatic controls and air filters in connection with any of
+  these systems". Note: CSLB ties "plenum chambers" to ventilating systems and lists flues and controls, which the card does not.
+- DONE, Permits card: the unsourced city list clause removed. The permit TODO(data) stays.
+- DONE, Seal row, FAQ 4: "mastic sealant or metal tape ... duct tape is not long-lasting". Source: "using mastic sealant or metal tape. Never use
+  duct tape, as it is not long-lasting." (a do-it-yourself paragraph).
+- DONE, Redesign row: "duct airflow, blower airflow, and the pressure drops of system components". Source (Manual D page): "duct system
+  physics, duct airflow, blower airflow" and "the relationship to pressure drops of varying types of system components".
+- DONE, `energy-bill` callout and FAQ 1: "the duct system in a typical house". Source: "In a typical house, however, about 20 to 30 percent of
+  the air that moves through the duct system is lost".
+- DONE, FAQ 7 and source label: "A post on the ACCA blog explains ..." and "ACCA blog - Using static pressure measurement ...". Source:
+  posted on hvac-blog.acca.org, author Rob "Doc" Falke, president of National Comfort Institute; "If static pressure is too high, the blower
+  cannot move the required system airflow".
+- Fact card re-measured at 1280px: copy 365px (the longer LA County sentence added a line), card 309px, blankInCard 72px, so the card ends
+  56px short of the copy. No rows added or dropped.
+- Still open: client copy approval (all new strings); the Energy code card ("third-party" wording versus the ECC-Rater text in the CEC PDF);
+  the sourcing for FAQ 8 and the rest of the Permits card (the unsourced city list is gone; FAQ 8 itself is unchanged and still has no source beyond the January 1, 2026 date); the LADWP and SCE rebate recheck at launch and
+  "Checked September 2026."; the `ductwork` versus `ductwork-services` overlap; workers' compensation. The "after-hours work" and "if
+  required or offered" wording is unchanged.
+
 Remaining two: Emergency HVAC, Ductless Mini-Split.
 
 Blockers:
