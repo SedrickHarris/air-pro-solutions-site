@@ -517,6 +517,7 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 .refrigerant-note { max-width: 75ch; }
 .refrigerant-note h2 { margin: 0 0 0.75rem; }
 .refrigerant-note p { line-height: 1.65; color: var(--ink-soft); }
+.refrigerant-note .refrigerant-src { margin: 0.9rem 0 0; font-size: 0.82rem; line-height: 1.5; }
 .refrigerant-source { margin-top: 1rem; font-size: 0.85rem; }
 .refrigerant-source a { color: var(--navy-700); font-weight: 600; }
 @media (prefers-color-scheme: dark) {

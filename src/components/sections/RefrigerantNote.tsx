@@ -1,3 +1,5 @@
+import { SourceLinks } from '@/components/ui/SourceLinks';
+
 // Single-question explainer panel with an optional cited government source line. Used for the
 // refrigerant note (source always supplied) and reused as a plain callout (e.g. an installation
 // timeline blurb) when sourceLabel/sourceHref are omitted.
@@ -10,6 +12,8 @@
 //   used instead of the sourceLabel/sourceHref anchor when there is no direct URL to link to.
 // - `accent`: adds a colored left border (sky/amber) for a two-up callout grid; omitted keeps the
 //   existing plain panel look.
+// - `showSource`: renders the source line (linked sourceLabel/sourceHref, or plain sourceText) under the body.
+//   Off by default so pages that have not migrated to the location-style template keep their existing markup.
 // - `bare`: renders just the inner panel with no wrapping <section>/<div class="wrap">, so callers
 //   can place two of these inside one shared section/grid wrapper.
 export function RefrigerantNote({
@@ -28,6 +32,7 @@ export function RefrigerantNote({
   sourceHref,
   sourceText,
   accent,
+  showSource = false,
   bare = false,
 }: {
   title: string;
@@ -39,6 +44,7 @@ export function RefrigerantNote({
   sourceHref?: string;
   sourceText?: string;
   accent?: 'sky' | 'amber';
+  showSource?: boolean;
   bare?: boolean;
 }) {
   const panel = (
@@ -47,8 +53,11 @@ export function RefrigerantNote({
       {introBody && <p>{introBody}</p>}
       <p>{boldLead ? <><strong>{boldLead}</strong>{body}</> : body}</p>
       {body2 && <p>{body2}</p>}
-      {/* Inline source lines (sourceLabel/sourceHref/sourceText) are intentionally not rendered: the client removed all source
-          references from the service pages. The props are still accepted so the content data does not need to change. */}
+      {showSource && (sourceLabel && sourceHref ? (
+        <p className="refrigerant-src"><SourceLinks sources={[{ label: sourceLabel, url: sourceHref }]} /></p>
+      ) : (
+        sourceText && <p className="refrigerant-src">{sourceText}</p>
+      ))}
     </div>
   );
 
