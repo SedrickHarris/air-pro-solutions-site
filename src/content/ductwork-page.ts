@@ -159,7 +159,7 @@ const ductworkBase: ServicePage = {
   faqs: [
     {
       q: 'How do I know if my ductwork is leaking?',
-      a: 'High utility bills, rooms that are hard to heat or cool, stuffy rooms, ducts running through an attic, crawlspace, or garage, and kinked or tangled flex duct are common warning signs. ENERGY STAR estimates that 20 to 30 percent of the air moving through a typical duct system can be lost through leaks, holes, and poor connections. These are warning signs, not a diagnosis, so an inspection is how you confirm it.',
+      a: 'High utility bills, rooms that are hard to heat or cool, stuffy rooms, ducts running through an attic, crawlspace, or garage, and kinked or tangled flex duct are common warning signs. ENERGY STAR estimates that 20 to 30 percent of the air moving through the duct system in a typical house can be lost through leaks, holes, and poor connections. These are warning signs, not a diagnosis, so an inspection is how you confirm it.',
     },
     {
       q: 'Can bad ductwork cause one room to be hotter or colder than the rest of the house?',
@@ -171,7 +171,7 @@ const ductworkBase: ServicePage = {
     },
     {
       q: 'What is duct sealing, and what materials should be used?',
-      a: 'Duct sealing closes leaks at connections, joints, and accessible gaps to reduce air loss. ENERGY STAR recommends mastic, metal-backed tape, or an aerosol-based sealant, and says ordinary duct tape is not long-lasting.',
+      a: 'Duct sealing closes leaks at connections, joints, and accessible gaps to reduce air loss. ENERGY STAR recommends mastic sealant or metal tape, and says duct tape is not long-lasting.',
     },
     {
       q: 'Do I need my ductwork checked when I replace my AC, furnace, or heat pump?',
@@ -183,7 +183,7 @@ const ductworkBase: ServicePage = {
     },
     {
       q: 'What is static pressure, and why does it matter?',
-      a: "Static pressure is resistance to airflow in the HVAC system. ACCA explains that high static pressure can keep the blower from moving the airflow the system needs, which reduces performance. A qualified technician can compare a measured reading with the equipment manufacturer's rated limit when that test is part of the diagnosis.",
+      a: "Static pressure is resistance to airflow in the HVAC system. A post on the ACCA blog explains that high static pressure can keep the blower from moving the airflow the system needs, which reduces performance. A qualified technician can compare a measured reading with the equipment manufacturer's rated limit when that test is part of the diagnosis.",
     },
     {
       q: 'Are permits required for ductwork in California?',
