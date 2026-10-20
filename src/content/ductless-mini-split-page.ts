@@ -2,9 +2,6 @@ import type { ServicePage } from '@/content/services';
 
 // TODO(data): never fabricate business data. No prices, install durations, warranty terms, brand
 // names, or same-day/24-7/emergency-availability wording appear anywhere on this page.
-// TODO(data): Sources list for ductless-mini-split never arrived from the client-side prompt; add
-// once provided. Do not invent citations. (See the omitted `sources` field below - every other
-// published service page sets one; this one deliberately does not, pending real citations.)
 // RESOLVED (2026-10-19, confirmed by user): the CSLB record for licenses 1126691 and 50251 shows C-20, and "licensed, bonded and insured" is an approved claim. On this page the license class shows in the hero proof "Licensed HVAC contractor", the trust strip C-20 stat, the Licensing card, the proof block and the footer. "Bonded" and "insured" are not stated in the page copy.
 // TODO(data): workers' compensation is not an approved claim. Do not state it anywhere until the client confirms it.
 // TODO(data): the rebate card dollar amounts and dates (LADWP "$1,500 to $2,500 per ton", SCE "Varies", CEC with its February 24, 2026 and November 14, 2025 dates) and FAQ 10's figures are rolling facts. Recheck them against the program pages at launch. Report only; not edited in the migration run.
@@ -17,6 +14,37 @@ import type { ServicePage } from '@/content/services';
 // program names already stated in each card's body/link text, not new data - added only because the
 // RebateCards component requires a caption label alongside the dollar-amount headline.
 
+// TODO(copy): group labels are new (migration). Group order is the display order of the references row.
+// Sources built 2026-10-20 in the migration run, each read in full before it was added (see docs/open-items.md "Ductless Mini-Split is migrated").
+const ductlessMiniSplitSources: { label: string; url: string; group: string }[] = [
+  { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons', group: 'Refrigerant' },
+  // TODO(data): the SNAP table lists HFC-32 as safety class A2L and "Acceptable with Use Conditions: See rules for detailed conditions." It supports "A2L-classified", not the clause about requirements varying by matched equipment. Neither EPA page mentions A2L for R-410A replacements.
+  { label: 'U.S. EPA - SNAP substitutes for residential and light-commercial AC and heat pumps', url: 'https://www.epa.gov/snap/substitutes-residential-and-light-commercial-air-conditioning-and-heat-pumps', group: 'Refrigerant' },
+  { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency', group: 'Energy code and licensing' },
+  // TODO(data): the Permits card has no linked source. This page says installing a space conditioning appliance (other than a plug-in room appliance) requires a building permit, and that field verification and diagnostic testing is prescriptively required for most HVAC additions and alterations. It does not cover electrical, disconnect or panel work, and it does not say the city or county issues the permit.
+  { label: 'California Energy Commission - HVAC alterations in existing homes', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/energy-code-support-center/hvac-0', group: 'Energy code and licensing' },
+  { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20', group: 'Energy code and licensing' },
+  // TODO(copy): label is new, the title of the CSLB release (CSLB #24-21, December 30, 2024). It is a dated press release; replace it if CSLB publishes a current page that states the threshold.
+  { label: 'California CSLB - Handyperson exemption to increase to $1,000 in 2025', url: 'https://www.cslb.ca.gov/Resources/PressReleases/2024/AB2622.FINAL.pdf', group: 'Energy code and licensing' },
+  // TODO(data): supports regionIntro paragraph 2's "California reliability reporting also cites extreme-weather demand during summer heat": "During summer, temperature is a key driver of load conditions, especially when there are extreme and widespread heat events." It is a 2024 assessment.
+  { label: 'California ISO - 2024 Summer Loads and Resources Assessment', url: 'https://www.caiso.com/Documents/2024-Summer-Loads-and-Resources-Assessment.pdf', group: 'Heat and air quality' },
+  // The aqmd.gov host is used because www.southcoastaqmd.gov fails certificate-name validation in Chromium (same as AC Repair).
+  { label: 'South Coast AQMD - Air quality', url: 'https://www.aqmd.gov/home/air-quality', group: 'Heat and air quality' },
+];
+// No manufacturer, contractor or marketplace source is on this page (checked 2026-10-20), so there is no hold-out array.
+// TODO(data): no source was read for "NOAA's Los Angeles climate documentation" (regionIntro paragraph 1). The likely document is NWS Western Region Technical Memorandum 261, "Climate of Los Angeles, California", but its PDF is a scanned image with no text layer and was not read. No NOAA entry is listed and the sentence is not used in the fact card.
+
+const count = (items?: readonly unknown[]): string => {
+  if (!items?.length) throw new Error('ductless-mini-split-page: empty array used for a derived count');
+  return String(items.length);
+};
+
+const ductlessMiniSplitSource = (urlPart: string) => {
+  const found = ductlessMiniSplitSources.find((s) => s.url.includes(urlPart));
+  if (!found) throw new Error(`Unknown ductless-mini-split source: ${urlPart}`);
+  return found;
+};
+
 // Full template content for /services/ductless-mini-split/. Reuses the same ServicePage shape and shared
 // section components already built out for /services/ac-repair/, /services/ac-installation/, /services/ac-maintenance/,
 // /services/heating-repair/, and /services/furnace-installation/ - see the build report for why a second, parallel
@@ -27,7 +55,7 @@ import type { ServicePage } from '@/content/services';
 // compareTitle/compareEyebrow) for pieces of this page the existing fields still couldn't express;
 // every one of them is optional so every other service page is unaffected. See the build report for
 // the full reconciliation notes.
-export const ductlessMiniSplitPage: ServicePage = {
+const ductlessMiniSplitBase: ServicePage = {
   primaryKeyword: 'ductless mini split los angeles',
   metaDescription:
     'Ductless mini-split service for homes and businesses across Los Angeles and Southern California, from ADUs to older homes. Schedule with AIRPRO SOLUTIONS.',
@@ -287,10 +315,9 @@ export const ductlessMiniSplitPage: ServicePage = {
     { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
     { text: 'Commercial HVAC', href: '/commercial-hvac/' },
   ],
-  // TODO(data): Sources list for ductless-mini-split never arrived from the client-side prompt; add
-  // once provided. Do not invent citations. `sources` is intentionally left unset below, so the
-  // SourcesList section does not render (see the `{page.sources && <SourcesList .../>}` guard in
-  // src/app/services/[service]/page.tsx).
+  sourcesColumns: 2,
+  sourcesEyebrow: 'References',
+  sources: ductlessMiniSplitSources,
   faqs: [
     {
       q: 'What is a ductless mini-split?',
@@ -335,3 +362,5 @@ export const ductlessMiniSplitPage: ServicePage = {
   ],
   // TODO(copy): client review of every FAQ answer above before launch.
 };
+
+export const ductlessMiniSplitPage: ServicePage = { ...ductlessMiniSplitBase };
