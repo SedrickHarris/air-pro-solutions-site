@@ -10,14 +10,21 @@
 type Source = { label: string; url: string; group?: string };
 
 function ExternalLink({ item }: { item: Source }) {
+  // The last word and the icon share a nowrap span so the icon never wraps alone onto its own line.
+  const cut = item.label.lastIndexOf(' ');
+  const head = cut > 0 ? item.label.slice(0, cut + 1) : '';
+  const tail = cut > 0 ? item.label.slice(cut + 1) : item.label;
   return (
     <a href={item.url} target="_blank" rel="noopener noreferrer">
-      {item.label}
-      <svg className="ext-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M14 4h6v6" />
-        <path d="M20 4l-9 9" />
-        <path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
-      </svg>
+      {head}
+      <span className="ext-tail">
+        {tail}
+        <svg className="ext-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M14 4h6v6" />
+          <path d="M20 4l-9 9" />
+          <path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
+        </svg>
+      </span>
       <span className="visually-hidden"> (opens in a new tab)</span>
     </a>
   );

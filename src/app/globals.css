@@ -705,6 +705,7 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 .sources-details li { font-size: 0.85rem; line-height: 1.45; }
 .sources-details a { color: var(--navy-700); font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--line); }
 .sources-details a:hover, .sources-details a:focus-visible { text-decoration-color: currentColor; }
+.sources-details .ext-tail { white-space: nowrap; }
 .sources-details .ext-icon { display: inline-block; margin-left: 4px; vertical-align: -1px; opacity: 0.75; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 @media (prefers-color-scheme: dark) {
