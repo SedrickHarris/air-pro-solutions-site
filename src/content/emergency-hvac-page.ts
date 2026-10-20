@@ -36,8 +36,10 @@ import { siteConfig } from '@/content/site-config';
 
 // TODO(copy): group labels are new (migration). Group order is the display order of the references row.
 const emergencyHvacSources: { label: string; url: string; group: string }[] = [
-  { label: 'U.S. EPA - Carbon monoxide and combustion appliance safety', url: 'https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=30006LZL.TXT', group: 'Safety and diagnostics' },
-  { label: 'U.S. DOE - Common air conditioner problems', url: 'https://www.energy.gov/sites/prod/files/2016/11/f34/Energy%20Saver%20101%20Infographic%20Home%20Cooling_0.pdf', group: 'Safety and diagnostics' },
+  // TODO(copy): label is new, the title the booklet prints ("Help Yourself to a Healthy Home", NEPIS lists it as 2004). It was "U.S. EPA - Carbon monoxide and combustion appliance safety".
+  { label: 'U.S. EPA - Help Yourself to a Healthy Home', url: 'https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=30006LZL.TXT', group: 'Safety and diagnostics' },
+  // TODO(copy): label is new, the title the PDF prints ("Energy Saver 101: Everything You Need to Know About Home Cooling"). It was "U.S. DOE - Common air conditioner problems", which is one section of the infographic.
+  { label: 'U.S. DOE - Energy Saver 101: Everything You Need to Know About Home Cooling', url: 'https://www.energy.gov/sites/prod/files/2016/11/f34/Energy%20Saver%20101%20Infographic%20Home%20Cooling_0.pdf', group: 'Safety and diagnostics' },
   { label: 'U.S. DOE Building America - AC diagnostics', url: 'https://www1.eere.energy.gov/buildings/publications/pdfs/building_america/measure_guide_air_cond_diagnostics.pdf', group: 'Safety and diagnostics' },
   { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons', group: 'Refrigerant' },
   { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency', group: 'Energy code and licensing' },
@@ -243,7 +245,8 @@ const emergencyHvacBase: ServicePage = {
   rulesEyebrow: 'The rules',
   rulesTitle: 'Licensing, permits, and energy-code basics',
   rules: [
-    { title: 'Licensing', body: "California's C-20 classification covers the fabrication, installation, maintenance, service, and repair of warm-air heating, ventilating, and air-conditioning systems and their ducts, flues, controls, and filters. You can verify any contractor's license on the CSLB website." },
+    // TODO(copy): first sentence corrected to CSLB's nouns (2026-10-20, approved by user). CSLB lists "the ducts, registers, flues, humidity and thermostatic controls and air filters in connection with any of these systems". Second sentence unchanged.
+    { title: 'Licensing', body: "California's C-20 classification covers fabricating, installing, maintaining, servicing, and repairing warm-air heating systems, ventilating systems, air-conditioning systems, and the ducts, registers, flues, humidity and thermostatic controls, and air filters in connection with any of these systems. You can verify any contractor's license on the CSLB website." },
     { title: 'Permits', body: 'An emergency repair does not automatically remove local permit requirements. Equipment change-outs, duct alterations, and electrical changes can require a permit, and the city or county sets the rule for your project scope.' },
     { title: 'Energy code', body: 'The 2025 California Building Energy Efficiency Standards apply to permit applications submitted on or after January 1, 2026. HVAC alterations to existing homes must meet the applicable Energy Code sections, which can include field verification and diagnostic testing.' },
   ],
@@ -262,7 +265,10 @@ const emergencyHvacBase: ServicePage = {
     { label: 'Residential HVAC', href: '/residential-hvac/' },
   ],
   regionIntro: [
-    'Southern California is not one climate. NASA analysis of a regional heat wave found southern LA County and Orange County were cooler because of the Pacific and coastal moisture, while the San Fernando Valley and Riverside areas were drier and hotter. Heat events can also bring nighttime heat stress, which matters most for older adults, infants, and medically vulnerable occupants.',
+    // TODO(copy): paragraph 1 corrected (2026-10-20, approved by user). The JPL article compares two 2020 heat waves, so "a regional heat wave"
+    // became "two heat waves in the summer of 2020", and the clause about older adults, infants and medically vulnerable occupants is dropped
+    // because the article does not say it. "Vulnerable occupants" still appears unsourced in triage card 2 and FAQ 1 (report only).
+    "Southern California is not one climate. In NASA JPL's analysis of two heat waves in the summer of 2020, southern LA County and Orange County stayed cooler because of their proximity to the Pacific Ocean and coastal moisture, while valley regions including San Fernando and Riverside skewed drier and hotter. Muggy August nights raised nighttime heat stress in both coastal and inland areas.",
     'Weather tells you how much of an emergency a breakdown feels like. It does not tell a technician which part failed. Inland properties can face dangerous indoor heat sooner, so a total cooling failure there is worth a call right away.',
   ],
   regionConditions: [
