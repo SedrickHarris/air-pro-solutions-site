@@ -419,6 +419,8 @@ export const emergencyHvacPage: ServicePage = {
   ],
   // TODO(design): real photos (1200x900) to replace the two "Photo pending" tiles (refrigerant callout and region intro).
   regionMedia: { icon: 'pin' },
+  // TODO(design): real photo (1200x900) for the availability tile
+  availability: { ...emergencyHvacBase.availability!, media: { icon: 'clock' } },
   refrigerant: {
     ...emergencyHvacBase.refrigerant!,
     media: { icon: 'snowflake' },

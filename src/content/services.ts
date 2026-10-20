@@ -392,7 +392,7 @@ export type ServicePage = {
   // after the timeline slot (i.e. after VisitScope, before the systems/equipment grid). Distinct from
   // `timeline` above (a single RefrigerantNote-shaped callout with no PendingNote) because this page
   // needs the actual PendingNote component's "Coming soon:" treatment, not just callout body text.
-  availability?: { eyebrow: string; title: string; body: string; pendingNote: string };
+  availability?: { eyebrow: string; title: string; body: string; pendingNote: string; media?: { icon: string; image?: ServiceImage } };
   // Lead paragraph rendered above ProcessList's numbered steps (see the `intro` prop added there).
   // Distinct from the existing `processNote` field, which renders BELOW the steps - this page's
   // approved copy needs a lead-in sentence before the six numbered steps instead. Optional so every

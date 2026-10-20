@@ -476,10 +476,25 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       {page.availability && (
         <section>
           <div className="wrap">
-            <p className="eyebrow">{page.availability.eyebrow}</p>
-            <h2>{page.availability.title}</h2>
-            <p className="compare-intro">{page.availability.body}</p>
-            <PendingNote>{page.availability.pendingNote}</PendingNote>
+            {migrated && page.availability.media ? (
+              <div className="split-media">
+                <div>
+                  <p className="eyebrow">{page.availability.eyebrow}</p>
+                  <h2>{page.availability.title}</h2>
+                  <p className="compare-intro">{page.availability.body}</p>
+                  <PendingNote>{page.availability.pendingNote}</PendingNote>
+                </div>
+                {/* TODO(design): replace with real photo */}
+                <MediaTile icon={page.availability.media.icon} image={page.availability.media.image} />
+              </div>
+            ) : (
+              <>
+                <p className="eyebrow">{page.availability.eyebrow}</p>
+                <h2>{page.availability.title}</h2>
+                <p className="compare-intro">{page.availability.body}</p>
+                <PendingNote>{page.availability.pendingNote}</PendingNote>
+              </>
+            )}
           </div>
         </section>
       )}
