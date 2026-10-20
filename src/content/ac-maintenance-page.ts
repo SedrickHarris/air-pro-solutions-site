@@ -76,9 +76,15 @@ const acMaintenanceBase: ServicePage = {
   finalCtaTitle: 'Get your AC maintenance scheduled',
   finalCtaBody: 'Call us or request service online.',
   answer: {
+    // TODO(copy): trimmed from 87 words to 43 (migration). Cut (a) "It is not a repair." because `decision` card 2 and `catches.afterText`
+    // already say a fault is a repair, not a tune-up. Cut (b) "If the visit turns up a failed part, a leak, or a drainage problem, that
+    // work is explained and quoted separately." and moved it nowhere: it is the unconfirmed repair-cost process in the file header
+    // TODO(data), and it stays on the page in process step 5, FAQ 2, `visitExtraNote` and `pricingClosing`. Cut (c) "ENERGY STAR
+    // recommends a professional checkup once a year, and spring is the practical time for cooling equipment." because `timing` card 1
+    // and FAQ 1 already carry it.
     lead: 'AC maintenance',
     body:
-      ' is a scheduled, preventive visit that checks how your cooling system is running before something fails. A technician looks at the controls, electrical connections, airflow, coils, condensate drain, and refrigerant level, cleans what is accessible, and tells you what they found. It is not a repair. If the visit turns up a failed part, a leak, or a drainage problem, that work is explained and quoted separately. ENERGY STAR recommends a professional checkup once a year, and spring is the practical time for cooling equipment.',
+      ' is a scheduled, preventive visit that checks how your cooling system is running before something fails. A technician looks at the controls, electrical connections, airflow, coils, condensate drain, and refrigerant level, cleans what is accessible, and tells you what they found.',
   },
   // "Maintenance, repair, or replacement?" decision cards - new content, rendered right after the
   // quick-answer AnswerBlock via DecisionGrid.
