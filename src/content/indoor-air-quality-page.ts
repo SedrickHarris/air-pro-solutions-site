@@ -2,9 +2,9 @@ import type { ServicePage } from '@/content/services';
 import { siteConfig } from '@/content/site-config';
 
 // RESOLVED (2026-10-19, confirmed by user): the CSLB record for licenses #1126691 and #50251 shows C-20.
-// TODO(data): FAQ 10 cites a Carrier-published whole-house air purifier price example ($1,000-$3,000).
-// Verify the figure and the source, or cut the price example, before launch. No Air Pro price is
-// stated anywhere on this page and none should be added.
+// RESOLVED (2026-10-20, price example cut): FAQ 10 used to cite a Carrier-published whole-house air
+// purifier price example ($1,000-$3,000), unverified. The example and the Carrier source are gone. No
+// Air Pro price is stated anywhere on this page and none should be added.
 // TODO(data): confirm whether Air Pro sells or installs specific equipment brands, performs air
 // testing, or offers warranties. None is claimed anywhere on this page; keep it that way until
 // documented.
@@ -33,8 +33,6 @@ const indoorAirQualitySources: { label: string; url: string; group: string }[] =
   { label: 'California CSLB - Get Licensed to Build guide', url: 'https://www.cslb.ca.gov/getlicensed', group: 'Codes, permits and licensing' },
   { label: 'LA Department of Building and Safety - Mechanical HVAC permits', url: 'https://dbs.lacity.gov/services/plan-review-permitting/mechanical-hvac-permits', group: 'Codes, permits and licensing' },
   { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons', group: 'Refrigerant' },
-  // TODO(data): Carrier source backs FAQ 10's price example. If that figure is cut or not verified, remove this source in the same change.
-  { label: 'Carrier - Whole-house air purifiers', url: 'https://www.carrier.com/us/en/residential/air-purifiers/', group: 'Equipment reference' },
   { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program', group: 'Rebates and incentives' },
   { label: 'Southern California Edison - Energy Savings Assistance Program', url: 'https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program', group: 'Rebates and incentives' },
 ];
@@ -407,10 +405,11 @@ const indoorAirQualityBase: ServicePage = {
       a: 'The EPA advises keeping relative humidity below 60 percent, ideally between 30 and 50 percent. Humidity that stays high is a moisture-source question as well as an equipment one.',
     },
     {
-      // TODO(data): verify the Carrier figure and source, or cut the price example (see the file-top
-      // TODO(data) note). No Air Pro price is stated.
+      // RESOLVED (2026-10-20, price example cut): the Carrier estimate and its framing sentence were removed
+      // (see the file-top note). No Air Pro price is stated.
+      // TODO(copy): trimmed answer, client to confirm.
       q: 'How much does a whole-home air purifier cost?',
-      a: "Carrier estimates about $1,000 to $3,000 for a typical whole-house air purifier installation. That is a manufacturer's general estimate, not an Air Pro quote. System type, home size, compatibility, and installation complexity all move the price, so an on-site quote is needed.",
+      a: 'System type, home size, compatibility, and installation complexity all move the price, so an on-site quote is needed.',
     },
   ],
   // TODO(copy): client review of every FAQ answer above before launch.

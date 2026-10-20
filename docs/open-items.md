@@ -1346,7 +1346,7 @@ already held AC Repair, Furnace Installation and AC Installation). New strings a
 6 source groups, the two linked source lines (MERV callout, replacement note) and two Photo pending tiles (replacement note
 and rebates note; TODO(design): real photos). `callouts` items and `replacementNote` now take optional `sourceLabel` and
 `sourceHref`, and `replacementNote` and `rebatesNote` take an optional `media`, all rendered only on migrated pages. Counts
-derive from arrays (glance 3 / 6 / 15, proof 4.8 star / 40 / 10 / 7, References row 15); the "6" process-step stat is hardcoded
+derive from arrays (glance 3 / 6 / 14, proof 4.8 star / 40 / 10 / 7, References row 14 (15 before the Carrier source was removed)); the "6" process-step stat is hardcoded
 with a sync comment. Fact card has 3 rows (Air quality data, Smoke days, Humidity), all restating existing page copy, no
 License row. Measured at 1280px (real Google Fonts, not the mock): copy 416px, card 450px, blankInCard 1px. The card runs
 34px past the copy, inside the 50px target, so no row was dropped. The EPA HFC URL now uses
@@ -1356,10 +1356,9 @@ heat-pump-services and emergency-hvac (fix when each migrates).
   `lede`, `visitIncludes` and `proofBody` already cover it. (b) "No single device fixes every problem, and a smell or a
   symptom alone does not identify mold, an allergen, or a medical cause." moved word for word to the end of
   `decision.intro`. DECISION PENDING: client to confirm both.
-- Carrier source: DECISION PENDING with the user. FAQ 10 quotes a Carrier price estimate and the Carrier page is its source
-  in the References row (TODO(data) on both). If the figure is cut or unverified, remove the Carrier source in the same
-  change; the row count and glance stat then become 14. CLAUDE.md says never name a competitor; a manufacturer page is
-  probably fine, but confirm.
+- Carrier source: RESOLVED (2026-10-20, price example cut). FAQ 10 no longer quotes the Carrier price estimate, and the
+  Carrier source and its "Equipment reference" group were removed. The References row and glance stat now read 14 (both
+  derive from the array).
 - Hero caption: DECISION PENDING. The old caption was one sentence; the proposed two-part caption needs approval.
 - URL check (headless Chrome via Playwright, not Claude in Chrome): all 15 return 200 with no redirects and no certificate
   warnings. The LA County Public Health link is `http://` and loads over plain http with no upgrade to https (a browser may
