@@ -253,8 +253,9 @@ export default function Page() {
             <Link href="/service-areas/ontario/">Ontario</Link>,{' '}
             <Link href="/service-areas/corona/">Corona</Link>,{' '}
             <Link href="/service-areas/rancho-cucamonga/">Rancho Cucamonga</Link>,{' '}
-            <Link href="/service-areas/chino/">Chino</Link>, and{' '}
-            <Link href="/service-areas/fontana/">Fontana</Link> pages, or browse{' '}
+            <Link href="/service-areas/chino/">Chino</Link>,{' '}
+            <Link href="/service-areas/fontana/">Fontana</Link>, and{' '}
+            <Link href="/service-areas/upland/">Upland</Link> pages, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">

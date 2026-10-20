@@ -59,13 +59,13 @@ export type City = {
   zips: string[];
   housingNotes: string;
   wave: 1 | 2; // 1 = highest-priority launch city (16); 2 = first expansion (the other 16), built as noindex stubs until real content exists.
-  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson, santa-ana, newport-beach, fullerton, tustin, chino and fontana have this so far
+  page?: CityPage; // full template content; torrance, los-angeles, long-beach, pasadena, culver-city, redondo-beach, el-segundo, gardena, irvine, anaheim, costa-mesa, huntington-beach, riverside, ontario, corona, glendale, burbank, santa-monica, inglewood, manhattan-beach, hermosa-beach, rancho-cucamonga, hawthorne, carson, santa-ana, newport-beach, fullerton, tustin, chino, fontana and upland have this so far
   cardImage?: ServiceImage; // 800x600 card image used when this city appears in a nearby-areas row
 };
 
 // The closing sentence "Official links are in the card for this section." replaced "...beside this text." in the local
 // paragraphs of Culver City, Redondo Beach, El Segundo, Gardena, Irvine, Anaheim, Costa Mesa, Huntington Beach, Riverside, Ontario,
-// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's, Santa Ana's, Newport Beach's, Fullerton's, Tustin's, Chino's and Fontana's local paragraphs use the new sentence from the start. The client approved all city page copy, including Newport Beach, Fullerton, Tustin, Chino and Fontana, on 2026-10-19 (per the user).
+// Corona (two places), Glendale, Burbank, Santa Monica, Inglewood, Manhattan Beach, Hermosa Beach and Hawthorne, because under 920px the card sits below the text. Carson's, Santa Ana's, Newport Beach's, Fullerton's, Tustin's, Chino's, Fontana's and Upland's local paragraphs use the new sentence from the start. The client approved all city page copy, including Newport Beach, Fullerton, Tustin, Chino, Fontana and Upland, on 2026-10-19 (per the user).
 // TODO(data): neighborhoods, zips and housingNotes are intentionally empty for every city below
 // except the overrides applied after generation. Fill each with real, verified local data before
 // building that city page or its matrix pages. Never invent it.
@@ -9934,6 +9934,488 @@ const fontanaOverrides: Partial<City> = {
   },
 };
 
+const uplandOverrides: Partial<City> = {
+  // Copy approval: the client approved the Upland page copy on 2026-10-19 (per the user).
+  // TODO(data): add verified climate, ZIP, neighborhood and utility detail before treating this as a full local page.
+  neighborhoods: [], // list held out: no official neighborhood list was read; the City historical districts map text and the pasted list do not match, and the hub's "Euclid Avenue, Downtown Upland" has no source
+  zips: [], // ZIP list held out: the research cited City Clerk campaign filings, which are not an official ZIP source, so the hub keeps "pending"
+  page: {
+    metaDescription: "HVAC service for Upland homes and businesses, with the City's permit portal and code pages in mind. Licensed, 4.8-star rated. Call or request service online.",
+    lede: "AIRPRO SOLUTIONS provides HVAC services across Upland, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's online permit portal and code pages in mind.",
+    heroCaption: {
+      title: "Upland, CA",
+      text: "Local service across Upland",
+    },
+    heroProof: [
+      {
+        icon: "shield",
+        label: "Licensed, bonded & insured",
+      },
+      {
+        icon: "star",
+        label: "4.8-star rated",
+      },
+      {
+        icon: "bolt",
+        label: "24/7 emergency dispatch",
+      },
+      {
+        icon: "building",
+        label: "Residential and commercial",
+      },
+    ],
+    trustStats: [
+      {
+        num: "4.8★",
+        label: "Google rating, 40 reviews",
+      },
+      {
+        num: "C-20",
+        label: "California licensed",
+      },
+      {
+        num: "24/7",
+        label: "emergency dispatch",
+      },
+      {
+        num: "Same-day",
+        label: "service typical",
+      },
+    ],
+    answer: {
+      lead: "AIRPRO SOLUTIONS is a licensed HVAC contractor serving Upland",
+      body: ", providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Same-day service is typical, subject to capacity, and 24/7 emergency dispatch is available. Call or request service online to schedule a visit.",
+    },
+    glance: {
+      title: "Upland at a glance",
+      stats: [
+        {
+          num: "79,446",
+          label: "residents in the Census Bureau's July 1, 2025 estimate (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "57.1%",
+          label: "owner-occupied housing unit rate, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+        },
+        {
+          num: "2.85",
+          label: "persons per household, 2020 to 2024 (U.S. Census Bureau QuickFacts)",
+        },
+      ],
+      source: "Source: U.S. Census Bureau QuickFacts for Upland city, California.",
+    },
+    localTitle: "Upland's permit portal, housing profile, and utility programs",
+    // Copy approval: the client approved the Upland page copy on 2026-10-19 (per the user).
+    // Held out (no verified source or not allowed on the page): ZIP codes 91784, 91785 and 91786 (the research cited City Clerk campaign filings, not an official ZIP source; the Building & Safety page shows 91786 only inside the counter address, which the page states without a ZIP); neighborhood and district names including the historic districts (the research list from a pasted summary and the City's Historical Districts map as read through a fetch summary do not match: the map showed Arrow/Laurel Bungalow, Citrus & Transportation, Civic Center East, Euclid Avenue, Old Magnolia, Old Town, Pleasant View, Stowell and Victorian Row, with truncated labels and no dates, and the hub's "Euclid Avenue, Downtown Upland" has no source); San Antonio Heights and other nearby community names (the county page is not a City source, and the pasted research itself says San Antonio Heights is unincorporated); College Park (a shopping center name from a City development report, not a neighborhood); the 34.5 percent built before 1970 hub figure (the SCAG profile does not state a before-1970 share, and the 35.3 percent sum is our own addition from chart values, ACS 2014 to 2018, so it is not used); median year built, median home value, median rent and every dollar figure; Building & Safety counter hours (the page read shows Monday to Thursday 8:00 a.m. to 5:00 p.m. in one block and 8:00 am to 6:00 pm in another, closed Fridays); the City permit counter telephone number and email address (not allowed on the page); the Municipal Code host (the Building & Safety and zoning pages link ecode360.com; it is not linked until the user confirms whether a Code host counts as official) and the Title 15 and noise chapter text; the outdoor equipment, setback and noise rules (the zoning page read does not mention them); NOAA normals, summer highs, marine layer, heat island and any inland-climate comparison (no source read; the page states only the elevation and climate zone the City page lists); SCE and SoCalGas service at Upland addresses (no page read names Upland); every rebate amount, credit amount, income limit, per-kBtuh figure, deadline and funding statement from the research, including the SCE Smart Energy credit amounts, the SoCalGas furnace rebate schedule, HEEHRA, CARE and FERA (rebates stay link-only without amounts); Golden State Rebates, SCE Home Performance Plus and Comfortably California (not read, address eligibility unverified); the SoCalGas thermostat offer ZIP restriction (the application read lists wildfire ZIPs; not stated on the page); Historic Downtown Upland acreage and uses (a 2009 CEQAnet record, not a City page read).
+    // TODO(verify): Census QuickFacts for Upland city (V2025, no publication date) was read through a fetch summary on 2026-10-19: 79,446 residents on July 1, 2025; 57.1 percent owner-occupied housing unit rate, 2.85 persons per household and $739,400 median value of owner-occupied units for 2020 to 2024; housing units shown as X. The pasted research agreed on 57.1 percent, 2.85 and 27,402 households (2020 to 2024); households are not used.
+    // TODO(verify): City Building & Safety page (uplandca.gov/development_services/building_safety, no page date seen) was read through a fetch summary on 2026-10-19: "has adopted the 2025 CALIFORNIA BUILDING CODE"; "Elevation: 1500 feet"; "Climate Zone: 10"; "All Building and Safety permit applications must be submitted online through the" Citizen Self Service (CSS) Portal; counter at 460 N Euclid Ave, Upland, CA 91786; counter hours Monday to Thursday 8:00 a.m. to 5:00 p.m. in one block and Monday to Thursday 8:00 am to 6:00 pm in another, closed Fridays; it makes no statement about replacing HVAC equipment and does not name a Mechanical Code, Energy Code or utility. Hours and the ZIP are not used on the page.
+    // TODO(verify): City Codes in Effect page (uplandca.gov/codes-in-effect, no page date; "Copyright 2026 by City of Upland") was read through a fetch summary on 2026-10-19: "2025 California Building Code" as the City's building construction standard, with link hover text reading "2022 California Building Code"; Title 15 of the Upland Municipal Code holds the building and construction codes; no local amendments or effective dates stated. The legacy copy (legacy.uplandca.gov/codes-in-effect) lists only the "2022 California Building Code". Source conflict: 2025 (Building & Safety page, Codes in Effect body) vs 2022 (hover text, legacy page). The page names 2025 and says an older version still shows 2022.
+    // TODO(verify): City General Plan, Zoning Map and Zoning Code page (uplandca.gov/development_services/planning/general_plan_zoning_codes_maps.php, no page date) was read through a fetch summary on 2026-10-19: users "identify" the "land use designation" in the General Plan, then review the Zoning Map and Zoning Code for "permitted uses and development standards"; interactive maps at upland.geoviewer.io; it does not mention outdoor equipment, setbacks, noise or HVAC; the Municipal Code and Zoning Code links point to ecode360.com (not linked here).
+    // TODO(verify): SCAG "Upland Profile 2021" PDF (posted by the City with the 2021 to 2029 housing element materials; link carries ?t=202604011153020) was read through a fetch summary on 2026-10-19: 1970 to 1979 is the decade with "the highest share of Upland's housing units"; 28,000 housing units in 2020 (CA DOF E-5); single-family detached 16,164 (57.7%), single-family attached 1,762 (6.3%), multifamily 2 to 4 units 2,915 (10.4%), multifamily 5 or more units 6,294 (22.5%), mobile homes 865 (3.1%); 2000 to 2020 growth of 1,615 single-family, 898 multifamily and 20 mobile units. The year-built chart is ACS 2014 to 2018 and gives percentages only; the profile does not state a before-1970 total (the 35.3 percent is our own sum of chart values and is not used). The tenure section reports 26,875 units (ACS 2014 to 2018), a different source and year from the 28,000.
+    // TODO(verify): South Coast AQMD air quality page (aqmd.gov/home/air-quality, no page date) was read through a fetch summary on 2026-10-19: the district is the air pollution control agency for "all of Orange County" and "major portions of Los Angeles, Riverside and San Bernardino Counties"; for ozone it lists "Inland areas and valleys" as the most affected areas; it does not mention Upland.
+    // TODO(verify): SCE Smart Energy Program page (sce.com, no page date) was read through a fetch summary on 2026-10-19: qualifying smart thermostat enrolled in SCE's program, bill credits tied to energy events and a summer period, thermostat may be set up to four degrees higher during energy events; it names no city. The pasted research gave a $75 enrollment credit and up to $50 a year; the fetch summary did not show amounts, so none are used.
+    // TODO(verify): SCE Energy Savings Assistance page (sce.com, no page date) was read through a fetch summary on 2026-10-19: income-qualified upgrades including "Central AC or Central Heat Pump Replacement"; the ESA Whole Home pilot is closed to new projects and the Building Electrification Program is closed to new enrollments as of September 2026; services "may not be available in all areas"; it does not mention Upland. The pasted research used a different SCE URL for ESA; the repo URL above was the one read.
+    // TODO(verify): SoCalGas rebates page (socalgas.com/savings/rebates-and-incentives, no page date) was read through a fetch summary on 2026-10-19: the ENERGY STAR certified furnace entry requires "AFUE >= 92% required" (page wording uses the symbol), installation by a licensed contractor with proof of permit closure, and one per household; it does not mention Upland. No amounts or deadlines are used.
+    // TODO(verify): CSLB Finding the Right Contractor page (no publication date) was read through a fetch summary on 2026-10-19: "Seeing a license number doesn't necessarily mean the license is valid"; license status can be checked online or by phone; the lookup shows the address of record and insurance information is on the license history page.
+    // Pre-launch recheck: a readable City source for whether replacing an air conditioner or furnace needs a mechanical permit and how to apply, the City's current California Building Code edition (2025 on the Building & Safety page and Codes in Effect body, 2022 in hover text and the legacy page) and its Mechanical and Energy Code editions, the Municipal Code Title 15 and noise chapter text and your confirmation of whether a Municipal Code host counts as official, the zoning code rules for outdoor equipment, an official ZIP source, an official neighborhood or district list, the Building & Safety counter hours, NOAA normals for an Upland station if you want climate on the page, Census ACS B25034, B25035 and B25024 for Upland city (or a SCAG statement of the before-1970 share) if you want an age statement beyond the peak decade, a City or utility page naming Upland's electric and gas providers, whether SCE and SoCalGas programs apply at Upland addresses, and commercial context for Upland (none was read).
+    localParagraphs: [
+      "The City's Building & Safety page says all Building and Safety permit applications must be submitted online through the Citizen Self Service (CSS) Portal, and it lists the counter at 460 N Euclid Ave. The same page gives the City's elevation as 1500 feet and lists Climate Zone 10. We do not state counter hours or permit fees.",
+      "The Building & Safety page does not say whether replacing an air conditioner or furnace needs a permit, so **AIRPRO SOLUTIONS confirms the permit path for your job with the City** before work starts. The page says the City has adopted the 2025 California Building Code, and the Codes in Effect page names the same edition and says Title 15 of the Upland Municipal Code holds the City's building and construction codes. Neither page names a Mechanical Code or an Energy Code, and an older version of the Codes in Effect page still shows the 2022 edition, so **we confirm which code editions apply to your project with the City** and do not state local amendments.",
+      "The City's zoning page points to the Zoning Code and Zoning Map for permitted uses and development standards, and to its interactive maps for a property's zoning. It does not mention outdoor equipment, setbacks, or noise, and we did not find equipment placement or noise rules on the City pages we could read, so **we check how your property is zoned and its layout before choosing a location for outdoor equipment**.",
+      "SCAG's local profile for Upland, posted with the City's housing element materials, says the 1970 to 1979 decade has the highest share of the City's housing units. It counts 28,000 housing units in 2020, from California Department of Finance estimates, with 57.7% single-family detached and 22.5% in buildings of five or more units, and it shows 1,615 more single-family units and 898 more multifamily units from 2000 to 2020. Those are citywide counts, not a statement about any one block, so **we confirm the equipment, roof or attic access, and ductwork at each property**.",
+      "QuickFacts estimates Upland had 79,446 residents on July 1, 2025, and reports a **57.1% owner-occupied housing unit rate** and 2.85 persons per household for 2020 to 2024. That leaves 42.9% of occupied homes that are not owner-occupied, so when the person who calls is a tenant we work with the owner or property manager on access and approval.",
+      "South Coast AQMD's air quality page says the district is the air pollution control agency for major portions of San Bernardino County, and it lists inland areas and valleys among the areas most affected by ozone. It does not name Upland, so we make no claim about air quality at Upland addresses, and filtration and ventilation are options we can go over at a visit.",
+      "The City pages we read do not say which utility serves Upland addresses, so **your bill shows who supplies your electricity and gas**. Utilities publish their own program pages with their own terms and funding, such as Southern California Edison's Smart Energy Program for smart thermostats, Edison's Energy Savings Assistance program for income-qualified households, and Southern California Gas Company's furnace rebates, which require installation by a licensed contractor and proof of permit closure. None of these pages names Upland, so we do not quote amounts or say a program applies at your address, and you should check each program with your utility before you buy. Official links are in the card for this section.",
+    ],
+    localCards: [
+      {
+        heading: "Upland permit and code pages",
+        rows: [
+          {
+            label: "Applications",
+            value: "Online CSS Portal; counter at 460 N Euclid Ave",
+          },
+          {
+            label: "Elevation, climate zone",
+            value: "1500 feet, Climate Zone 10, per the Building & Safety page",
+          },
+          {
+            label: "Building code",
+            value: "2025 California Building Code; Title 15 holds the codes",
+          },
+          {
+            label: "Not stated",
+            value: "Mechanical and Energy Codes, replacement permit rule",
+          },
+        ],
+        note: "From the City's Building & Safety and Codes in Effect pages (CSS is its Citizen Self Service Portal). Not stated means not on the pages we read. We confirm requirements with the City.",
+      },
+      {
+        heading: "Upland housing snapshot",
+        rows: [
+          {
+            label: "Housing units",
+            value: "28,000 in 2020, with 1970 to 1979 the decade with the highest share",
+          },
+          {
+            label: "Unit types",
+            value: "57.7% single-family detached, 22.5% in 5+ unit buildings",
+          },
+          {
+            label: "Growth, 2000 to 2020",
+            value: "1,615 single-family and 898 multifamily units added",
+          },
+        ],
+        note: "From SCAG's local profile for Upland (units from California Department of Finance estimates). Citywide figures.",
+      },
+    ],
+    neighborhoodsHeading: "Official Upland resources",
+    officialResources: [
+      {
+        text: "Building & Safety",
+        href: "https://www.uplandca.gov/development_services/building_safety/index.php",
+        note: "Online permit portal and counter.",
+      },
+      {
+        text: "Codes in Effect",
+        href: "https://uplandca.gov/codes-in-effect",
+        note: "Building code edition.",
+      },
+      {
+        text: "Zoning and General Plan",
+        href: "https://www.uplandca.gov/development_services/planning/general_plan_zoning_codes_maps.php",
+        note: "Zoning Code and Zoning Map.",
+      },
+      {
+        text: "SCAG local profile",
+        href: "https://www.uplandca.gov/Documents/Development%20Services/Planning/2021%20to%202029%20Housing%20Element%20Updates/SCAG%20-%20Upland%20Profile%202021.pdf?t=202604011153020",
+        note: "Housing units by decade and type.",
+      },
+      {
+        text: "Census QuickFacts",
+        href: "https://www.census.gov/quickfacts/fact/table/uplandcitycalifornia/LFE046224",
+        note: "Population and owner-occupied rate.",
+      },
+      {
+        text: "South Coast AQMD air quality",
+        href: "https://www.aqmd.gov/home/air-quality",
+        note: "Ozone wording. Does not name Upland.",
+      },
+      {
+        text: "SCE Smart Energy Program",
+        href: "https://www.sce.com/save-money/savings-programs/enroll-in-savings-programs/smart-energy-program",
+        note: "Thermostat terms. Does not name Upland.",
+      },
+      {
+        text: "SCE Energy Savings Assistance",
+        href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+        note: "Income-qualified. Does not name Upland.",
+      },
+      {
+        text: "SoCalGas rebates",
+        href: "https://www.socalgas.com/savings/rebates-and-incentives",
+        note: "Furnace rebates. Does not name Upland.",
+      },
+    ],
+    servicesTitle: "Everything we handle for Upland homes and businesses",
+    serviceCards: [
+      {
+        slug: "ac-repair",
+        name: "AC Repair",
+        body: "Diagnosis and repair for cooling failures, weak airflow, and unusual noises in Upland homes and businesses.",
+      },
+      {
+        slug: "ac-installation",
+        name: "AC Installation & Replacement",
+        body: "New system sizing and installation for Upland properties, planned around the City's permit pages.",
+      },
+      {
+        slug: "ac-maintenance",
+        name: "AC Maintenance",
+        body: "Seasonal AC tune-ups that catch small issues early, for Upland homes and for commercial rooftop and ground units.",
+      },
+      {
+        slug: "heating-repair",
+        name: "Heating Repair",
+        body: "Furnace and heating system diagnosis and repair for Upland homes and businesses.",
+      },
+      {
+        slug: "furnace-installation",
+        name: "Furnace Installation & Replacement",
+        body: "Furnace sizing and installation, planned around the City's permit pages.",
+      },
+      {
+        slug: "heat-pump-services",
+        name: "Heat Pump Services",
+        body: "Heat pump installation, repair, and maintenance, with the City's permit pages and your utilities' program pages in mind.",
+      },
+      {
+        slug: "ductless-mini-split",
+        name: "Ductless Mini-Split",
+        body: "Ductless systems for Upland additions, converted spaces, and rooms the existing ducts do not reach.",
+      },
+      {
+        slug: "ductwork",
+        name: "Ductwork Services",
+        body: "Duct repair, sealing, and replacement for Upland homes and buildings.",
+      },
+      {
+        slug: "indoor-air-quality",
+        name: "Indoor Air Quality",
+        body: "Filtration, ventilation, and air-quality upgrades for Upland homes and offices.",
+      },
+      {
+        slug: "emergency-hvac",
+        name: "Emergency HVAC",
+        body: "24/7 emergency dispatch for no-cool and no-heat problems in Upland. If you smell gas, leave the building and call 911 or your gas utility.",
+      },
+    ],
+    resources: {
+      eyebrow: "Know before you start",
+      title: "Upland permits, codes, and incentive programs",
+      intro: "Official sources for three items worth checking before an Upland HVAC project.",
+      cards: [
+        {
+          amount: "Permits and inspections",
+          description: "The City's Building & Safety page says all Building and Safety permit applications must be submitted online through the Citizen Self Service (CSS) Portal. It does not say whether replacing an air conditioner or furnace needs a permit, so we confirm the permit path for your job with the City. We do not state permit fees or counter hours.",
+          linkLabel: "City Building & Safety page",
+          linkHref: "https://www.uplandca.gov/development_services/building_safety/index.php",
+        },
+        {
+          amount: "Code edition",
+          description: "The City's Building & Safety page says the City has adopted the 2025 California Building Code, and its Codes in Effect page points to Title 15 of the Municipal Code. Neither names a Mechanical Code or an Energy Code, so we confirm what applies to your project with the City.",
+          linkLabel: "City Codes in Effect page",
+          linkHref: "https://uplandca.gov/codes-in-effect",
+        },
+        {
+          amount: "Rebates and utilities",
+          description: "The City pages we read do not say which utility serves Upland addresses, so check your bill. Southern California Edison's Smart Energy Program page describes smart thermostat bill credits, and the Southern California Gas Company rebate page lists furnace rebates that require a licensed contractor and proof of permit closure. Neither page names Upland, so we do not quote amounts or say either program applies at your address. Check each program's terms with your utility before you buy.",
+          linkLabel: "SoCalGas rebate page",
+          linkHref: "https://www.socalgas.com/savings/rebates-and-incentives",
+        },
+      ],
+    },
+    nearby: ["rancho-cucamonga", "ontario", "fontana", "chino"],
+    proof: {
+      heading: "Licensed, reviewed, and ready across Upland",
+      body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
+      stats: [
+        {
+          num: "4.8★",
+          label: "Google rating",
+        },
+        {
+          num: "40",
+          label: "Google reviews",
+        },
+        {
+          num: "C-20",
+          label: "California license class",
+        },
+        {
+          num: "24/7",
+          label: "Emergency dispatch",
+        },
+      ],
+    },
+    finalCtaBody: "Call or request service online to schedule a visit anywhere in Upland. Same-day service is typical, subject to capacity.",
+    faqs: [
+      {
+        q: "Does AIRPRO SOLUTIONS service all of Upland?",
+        a: "Yes. AIRPRO SOLUTIONS serves homes and businesses across Upland as part of our Inland Empire coverage. The City runs its own permit process, so we plan each visit around your specific address.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "Inland Empire coverage",
+            href: "/service-areas/inland-empire/",
+          },
+        ],
+      },
+      {
+        q: "How fast can a technician reach my Upland home?",
+        a: "Same-day service is typical in Upland, subject to capacity. Call (323) 776-9047 to confirm a window for your address.",
+        boldLead: "Same-day service is typical in Upland, subject to capacity.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+      {
+        q: "Do I need a permit to replace an air conditioner in Upland?",
+        a: "We confirm that with the City. The City's Building & Safety page says all Building and Safety permit applications must be submitted online through the Citizen Self Service (CSS) Portal, but it does not say whether replacing an air conditioner needs a permit, so AIRPRO SOLUTIONS confirms the current permit path with the City before work starts, and we do not quote permit fees.",
+        boldLead: "We confirm that with the City.",
+        links: [
+          {
+            text: "Building & Safety page",
+            href: "https://www.uplandca.gov/development_services/building_safety/index.php",
+          },
+        ],
+      },
+      {
+        q: "Which building code edition applies to an Upland HVAC project?",
+        a: "We confirm that with the City. The City's Codes in Effect page names the 2025 California Building Code and points to Title 15 of the Municipal Code, but neither it nor the Building & Safety page names a Mechanical Code or an Energy Code, and an older version of that page still shows the 2022 edition, so AIRPRO SOLUTIONS confirms which requirements apply to your project with the City, and we do not state local amendments.",
+        boldLead: "We confirm that with the City.",
+        links: [
+          {
+            text: "Codes in Effect page",
+            href: "https://uplandca.gov/codes-in-effect",
+          },
+        ],
+      },
+      {
+        q: "Where can an outdoor AC unit go on my Upland property?",
+        a: "We confirm that with the City. The City's zoning page points to the Zoning Code and Zoning Map for development standards but does not mention outdoor HVAC equipment, and we did not find a City page we could read that states setback, screening, or noise rules, so we do not state any here. AIRPRO SOLUTIONS checks the current rules, how your property is zoned, and its layout with the City before choosing a location.",
+        boldLead: "We confirm that with the City.",
+        links: [
+          {
+            text: "zoning page",
+            href: "https://www.uplandca.gov/development_services/planning/general_plan_zoning_codes_maps.php",
+          },
+        ],
+      },
+      {
+        q: "Does the age of my Upland home matter for HVAC?",
+        a: "Age is one factor we check. SCAG's local profile says the 1970 to 1979 decade has the highest share of Upland's housing units, but that is a citywide figure, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
+        boldLead: "Age is one factor we check.",
+        links: [
+          {
+            text: "SCAG's local profile",
+            href: "https://www.uplandca.gov/Documents/Development%20Services/Planning/2021%20to%202029%20Housing%20Element%20Updates/SCAG%20-%20Upland%20Profile%202021.pdf?t=202604011153020",
+          },
+        ],
+      },
+      {
+        q: "Do you work on rental properties in Upland?",
+        a: "Yes. QuickFacts reports a 57.1% owner-occupied housing unit rate for Upland, so 42.9% of occupied homes are not owner-occupied. AIRPRO SOLUTIONS works with owners and property managers on access and approval before installation or replacement.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "QuickFacts",
+            href: "https://www.census.gov/quickfacts/fact/table/uplandcitycalifornia/LFE046224",
+          },
+        ],
+      },
+      {
+        q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Upland?",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Upland, including rooftop units, and plans rooftop access and equipment placement with the building owner or manager before commercial work starts. We confirm how your property is zoned and the permit path with the City. See our Commercial HVAC page for the full scope.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "Commercial HVAC page",
+            href: "/commercial-hvac/",
+          },
+        ],
+      },
+      {
+        q: "How do I check an HVAC contractor in Upland?",
+        a: "Check the state license first. CSLB says seeing a license number does not necessarily mean the license is valid, so check its status on the CSLB site, which also shows the address of record and insurance information. AIRPRO SOLUTIONS' California license numbers are #1126691 and #50251 (C-20).",
+        boldLead: "Check the state license first.",
+        links: [
+          {
+            text: "CSLB site",
+            href: "https://www.cslb.ca.gov/consumers/hire_a_contractor/finding_the_right_contractor.aspx",
+          },
+        ],
+      },
+      {
+        q: "Which utility serves my Upland address?",
+        a: "Your bill answers it. The City pages we read do not name Upland's electric or gas provider, so check your bill to see who supplies your electricity and gas.",
+        boldLead: "Your bill answers it.",
+      },
+      {
+        q: "Are there HVAC rebates for Upland customers?",
+        a: "Check with your utility. We did not find a City page on HVAC rebates, and none of Southern California Edison's Smart Energy Program page, its Energy Savings Assistance page, or the Southern California Gas Company rebate page names Upland. Utility programs have their own terms and funding, and we do not quote amounts, so check each program with your utility before you buy.",
+        boldLead: "Check with your utility.",
+        links: [
+          {
+            text: "Smart Energy Program page",
+            href: "https://www.sce.com/save-money/savings-programs/enroll-in-savings-programs/smart-energy-program",
+          },
+          {
+            text: "Energy Savings Assistance page",
+            href: "https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program",
+          },
+          {
+            text: "rebate page",
+            href: "https://www.socalgas.com/savings/rebates-and-incentives",
+          },
+        ],
+      },
+      {
+        q: "What HVAC services are available in Upland?",
+        a: "AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Upland, for both residential and commercial properties.",
+        boldLead: "AIRPRO SOLUTIONS provides",
+        links: [
+          {
+            text: "AC repair",
+            href: "/services/ac-repair/",
+          },
+          {
+            text: "AC installation and replacement",
+            href: "/services/ac-installation/",
+          },
+          {
+            text: "AC maintenance",
+            href: "/services/ac-maintenance/",
+          },
+          {
+            text: "heating repair",
+            href: "/services/heating-repair/",
+          },
+          {
+            text: "furnace installation and replacement",
+            href: "/services/furnace-installation/",
+          },
+          {
+            text: "heat pump services",
+            href: "/services/heat-pump-services/",
+          },
+          {
+            text: "ductless mini-splits",
+            href: "/services/ductless-mini-split/",
+          },
+          {
+            text: "ductwork",
+            href: "/services/ductwork/",
+          },
+          {
+            text: "indoor air quality",
+            href: "/services/indoor-air-quality/",
+          },
+          {
+            text: "emergency HVAC",
+            href: "/services/emergency-hvac/",
+          },
+        ],
+      },
+      {
+        q: "Is emergency HVAC service available in Upland?",
+        a: "Yes. AIRPRO SOLUTIONS offers 24/7 emergency dispatch for no-cool and no-heat problems in Upland. Call (323) 776-9047 and tell us your system is down. If you smell gas, leave the home and call 911 or your gas utility.",
+        boldLead: "Yes.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+      {
+        q: "How much does HVAC service cost in Upland?",
+        a: "Cost depends on the problem, the equipment, and how accessible the system is. We do not publish one flat price, so call (323) 776-9047 or request service and we will quote your specific system.",
+        boldLead: "Cost depends on the problem, the equipment, and how accessible the system is.",
+        links: [
+          {
+            text: "(323) 776-9047",
+            href: "tel:+13237769047",
+          },
+        ],
+      },
+    ],
+  },
+};
+
 export const cities: City[] = baseCities.map((c) => {
   const overrides =
     c.slug === 'torrance' ? torranceOverrides
@@ -9966,6 +10448,7 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'tustin' ? tustinOverrides
     : c.slug === 'chino' ? chinoOverrides
     : c.slug === 'fontana' ? fontanaOverrides
+    : c.slug === 'upland' ? uplandOverrides
     : undefined;
   const withOverrides = overrides ? { ...c, ...overrides } : c;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
