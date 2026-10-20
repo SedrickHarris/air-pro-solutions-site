@@ -92,7 +92,11 @@ const ductworkBase: ServicePage = {
     src: '/images/services/ductwork/hero.webp',
     alt: 'Insulated flexible ducts and a galvanized plenum suspended by straps in a residential attic over blown-in insulation',
   },
-  heroCaption: 'Ductwork inspection for leaks, airflow, and damage.',
+  // TODO(copy): the old caption was one string, "Ductwork inspection for leaks, airflow, and damage." The two-part caption uses the same words with no
+  // trailing period and no new claim. Client to approve. Alternative, not built: { title: 'Ductwork service', text: 'for homes and businesses across
+  // Southern California' } (matches AC Repair and AC Installation, but adds words and restates the residential and commercial scope already in the
+  // hero chips). Centered (no `heroCaptionAlign`).
+  heroCaption: { title: 'Ductwork inspection', text: 'for leaks, airflow, and damage' },
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
