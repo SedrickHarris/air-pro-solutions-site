@@ -1426,7 +1426,7 @@ Heating Repair is migrated (2026-10-20, branch `heating-repair-migration`, based
 Furnace Installation, AC Installation, Indoor Air Quality and Heat Pump Services with its decisions). New strings: RESOLVED (2026-10-20,
 client approved page copy, confirmed by user). Still open: every TODO(data) (the unconfirmed "repair cost explained before any work begins"
 process, the safety wording review, the diagnostic fee and extras, the rebate recheck at launch, city lists, the held-out Bosch and
-Angi sources, the glance source line), every TODO(design) and the `ac-maintenance` target for the "HVAC Maintenance" label.
+Angi sources, the glance source line) and every TODO(design).
 Quick answer trimmed from 85 to 39 words, hero caption split into title and text, glance card, "Across Southern California" band
 and fact card, `proofStats`, 4 source groups, the linked refrigerant source line and three Photo pending tiles (refrigerant,
 repair-or-replace, region intro; TODO(design): real photos). No component, CSS, `page.tsx` or `services.ts` change: the export name is
@@ -1550,7 +1550,107 @@ glance numbers collide (checked by forcing a collision). The C-20 header TODO(da
   conflict (see Blockers), and the LADWP and SCE rebate recheck before launch (SCE's page says the ESA Whole Home pilot sunsets at the end of
   2026; the standard ESA continues).
 
-Remaining three: Ductwork, Emergency HVAC, Ductless Mini-Split.
+Ductwork is migrated (2026-10-20, branch `ductwork-migration`, based on `origin/main` 44934d9, which already held AC Repair, Furnace
+Installation, AC Installation, Indoor Air Quality, Heat Pump Services, Heating Repair and AC Maintenance). New strings are all TODO(copy):
+client copy approval for Ductwork has NOT been given. Quick answer trimmed from 96 to 30 words (the lead plus sentence 1 only), hero caption
+split into title and text, glance card, "Across Southern California" band and fact card, `proofStats`, 4 source groups (Duct sealing and
+design, Energy code and licensing, Heat and housing, Rebates and incentives), the new Energy Commission web-page source (References 9 to 10;
+the PDF stays, relabeled "(full text, PDF)"), the linked ENERGY STAR source line on the `energy-bill` callout and two Photo pending tiles
+(rebates band and region intro; TODO(design): real photos). The second callout (`seer-rating`) has no source line on purpose, because no
+source exists for its claims. No component, CSS, `page.tsx` or `services.ts` change: the export name is unchanged and `glance` is the only
+switch. Every other page's markup and JSON-LD is identical to the baseline build (114 files compared, including the 404), and this page's
+JSON-LD is byte-identical at every step (no FAQ answer or `lede` changed). Counts derive from arrays (glance 4 / 6 / 7, proof 4.8 star / 40 /
+10 / 6, References row 10); the "6" process-step stat is hardcoded with a sync comment (it matches the 6 `process` steps in `services.ts`),
+and two build-time guards were checked by forcing them (the glance numbers colliding, and `count()` on an empty array). The C-20 header
+TODO(data) is RESOLVED (2026-10-19, confirmed by user); workers' compensation stays a TODO(data) because it is not an approved claim. The
+fourth `moreLinks` label is relabeled "AC maintenance and seasonal system checks" (approved by user), the same fix as Heating Repair.
+- Fact card: 2 rows (Duct leakage, Energy code), each checked against its source text. Tried three rows first: the third, "Coast and valley"
+  (NASA JPL, 2020 heat waves), was supported by the article but measured at 1280px (headless Chromium, mocked fonts, selectors
+  `.local-knowledge-dark .local-grid`, `.local-copy`, `.nbhd-card`): copy 340px, card 487px, blankInCard 1px, so the card ran 147px past the
+  copy, over the 60px limit. Dropped it (and its JPL source from the card; the source stays in References). Final: copy 340px, card 309px,
+  blankInCard 46px, so the card ends 31px short of the copy, inside the 50px target. The dropped row is recorded in a code comment so it can
+  be restored. No License row, no dollar amounts, no home-age figure, no installation date, no permit or alteration claim.
+- Cut sentences: (a) sentence 2 (39 words, "A hot room, weak airflow, or a high bill can come from ... whether repair, sealing, replacement, or
+  redesign fits.") was dropped, not reworded: it says "we inspect first and then explain", the unconfirmed process in the header TODO(data), and
+  the causes it lists are covered by `decision` card 1, `symptomsIntro`, FAQ 2 and the `optionsTable` lead. (b) sentence 3 (27 words, the
+  ENERGY STAR 20 to 30 percent sentence) was dropped: it stays in the `energy-bill` callout, FAQ 1 and FAQ 10. The 30-word result is under
+  the 37 to 43 word band the other migrated pages use, because no sentence-only cut reaches it. Not built: lead plus sentence 1 plus a new
+  sentence (new copy), and lead plus sentences 1 and 3 (57 words). Client to approve both cuts.
+- Hero caption: built { title: 'Ductwork inspection', text: 'for leaks, airflow, and damage' }, the old caption's words with no period and
+  no new claim, centered. Not built: { title: 'Ductwork service', text: 'for homes and businesses across Southern California' }.
+- Glance source line (ENERGY STAR duct sealing) supports the sealing guidance and the signs of leaky ducts, not the four approaches, the
+  six-step visit or the seven scope items (all three stats are page counts). TODO(data): confirm this source line reads correctly.
+- Source findings (each source's own text read in headless Chromium, PDFs through the request API and `pdftotext`; nothing was edited):
+  - ENERGY STAR duct sealing says "In a typical house" and "about 20 to 30 percent ... is lost due to leaks, holes, and poorly connected ducts".
+    The quick answer, callout and FAQs say "typical home duct system" and "typical duct system"; the fact-card row follows the source. For
+    sealing it says "mastic sealant or metal tape" and "Never use duct tape, as it is not long-lasting" (in a do-it-yourself paragraph). It does
+    not say "aerosol-based sealant" or "metal-backed" tape, so FAQ 4 and the `optionsTable` Seal row attribute those materials to ENERGY STAR
+    without support. The Energy Commission code text (Section 120.4) does list "mastic, tape, aerosol sealant or other duct-closure system", so
+    the materials are real, but the attribution on the page is not accurate. The signs list matches `symptomsIntro` and FAQ 1.
+  - CSLB C-20 reads "A warm-air heating, ventilating and air-conditioning contractor ... ducts, registers, flues, humidity and thermostatic
+    controls and air filters". The Licensing card drops "warm-air" and says "HVAC systems, including ducts, registers, plenums, ventilation,
+    and the filters"; CSLB ties "plenum chambers" to ventilating systems. A paraphrase, not a quote.
+  - Energy Commission web page: "Buildings whose permit applications are applied for on or after January 1, 2026, must comply with the 2025
+    Energy Code." It does not mention alterations, duct sealing, HERS or third-party verification (it links an "Acceptance Testing, Field
+    Verification and Diagnostic Testing" page).
+  - Energy Commission PDF (CEC-400-2025-010-F, July 2025): it does not state the January 1, 2026 date. It does define duct sealing ("Minimum
+    specifications for installation procedures, materials, diagnostic testing and field verification"), and Section 150.2(b)1D and 1E require
+    altered residential duct systems (more than 25 feet of new or replacement ducts, or replaced equipment) to be sealed as "confirmed through
+    field verification and diagnostic testing", with a certified ECC-Rater for the smoke-test path. So the Energy code card is supported in
+    substance, but the PDF says ECC-Rater and field verification, not "third-party" verification, and the date is only on the web page.
+    (An earlier planning read reported no duct-sealing text in the PDF; that was wrong.) No new block restates any of this.
+  - Permits card and FAQ 8 ("differ across Los Angeles, Torrance, Orange County cities, Riverside, and unincorporated areas"): no source.
+    Unverified.
+  - ACCA Manual D page: it mentions "blower airflow" (Sections 1 and 2) and "pressure drops" of system components (Section 4), but not
+    "available static pressure", which is in the `optionsTable` Redesign row. ACCA is a trade and standards body, not a competitor, and it sells
+    the manual ("PURCHASE MANUAL D").
+  - ACCA static-pressure post: posted November 16, 2018 on the ACCA HVAC blog, written by Rob "Doc" Falke, president of National Comfort
+    Institute, an HVAC training company. FAQ 7 says "ACCA explains"; the post is one author's article. Its wording ("If static pressure is
+    too high, the blower cannot move the required system airflow", compare to the "manufacturer's rated TESP") does support the FAQ's
+    content. It stays in References with a TODO(data) on its attribution (decision 8).
+  - NASA JPL article (dated Aug. 22, 2023): it covers two 2020 heat waves (a humid August one and a dry September one), so the fact-card row
+    that was dropped said "2020 heat waves". `regionIntro` says "a Southern California heat wave" (singular), says valley areas "were
+    hotter and drier" (the article says "skewed drier and hotter") and says humid nights raised heat stress in both coastal and inland
+    areas (the article says that for the August heat wave). Untouched.
+  - Housing source: the page is titled "SOLACHAN Housing Supply 2026", its copyright line reads "Neighborhood Data for Social Change (NDSC)",
+    and the authors are at the USC Lusk Center for Real Estate and the USC Price School. The label "Southern California Association of Non
+    Profit Housing" does not appear on it (the page cites the Southern California Association of Governments only as a reference). The 58-year
+    figure is "The median age of the county's housing stock is 58 years old (built in 1966)", calculated against 2024, for housing units, not
+    "homes". Label and `regionConditions` sentence unchanged; the header TODO(data) stays. The sentence now sits in the dark band, which makes
+    it more prominent.
+  - LADWP lists heat-pump HVAC and central or split HVAC rebates and does not mention ductwork or duct sealing. SCE's income-qualified ESA page
+    does not mention ductwork either, and says the ESA Whole Home pilot no longer accepts new applications (sunset at the end of 2026) and
+    that the Building Electrification program closed in September 2026. Neither page shows an update date, so "Checked September 2026." in
+    `rebatesNote` cannot be confirmed from the pages and is unchanged. Recheck both before launch.
+  - Existing hedged wording, not changed: the `commercial access` pricing factor says "after-hours work" and `visitExtra` says "Diagnostic
+    testing, verification, or air balancing, if required or offered".
+- Source classes and recommendation: ENERGY STAR, Energy Commission (web page and PDF), CSLB and NASA JPL are government sources (keep);
+  ACCA Manual D is a trade-body publisher (keep); the ACCA blog post is a trade-body host with a training-company author (keep with the
+  TODO(data) above); the housing page is a university-affiliated research project (keep, fix the label when the client decides); LADWP and
+  SCE are utility sources (keep, recheck at launch). No manufacturer, contractor or marketplace source is on the page, so there is no
+  hold-out array.
+- URL check (headless Chromium via Playwright, not Claude in Chrome): 200 for all 10 sources, both `rebatesNote` links (same URLs as the LADWP
+  and SCE sources) and the callout link (same URL as ENERGY STAR). No page-level redirects and no certificate errors in Chromium (the
+  redirects seen on the ACCA, LADWP and SCE pages were third-party ad pixels). The CEC PDF was read through the request API and
+  `pdftotext`, not opened in a viewer, and the two ACCA pages and the PDF have still not been opened by a human. `climate-hfcs-reduction`
+  appears nowhere in `ductwork-page.ts`.
+- Adjacent sections (1280px, dark): the dark quick-answer band and the Southern California band follow the trust strip, then the alt
+  "What does your duct problem look like?" section, urgency (plain), symptoms (alt), process, options (`#options`, plain), visit scope (alt),
+  systems (plain), equipment table (alt), callouts (plain), pricing (alt), rules, rebates (alt), applies, regions (alt), proof, related cards
+  and the FAQ (alt). No two alt bands touch. The `#symptoms` and `#options` anchors resolve.
+- Open decisions: client copy approval (quick answer cuts, hero caption, glance labels, fact-card rows, group labels, proof labels);
+  whether to correct the housing label and the 58-year sentence, `regionIntro`, the Permits card, FAQ 8, the Energy code card, FAQ 4 and the
+  Seal row; the ACCA post attribution; the overlap between this core `ductwork` page and the noindex level-2 stub `ductwork-services`
+  (and `duct-repair`, `duct-sealing`, `duct-replacement`), to resolve before publishing; and the workers' compensation TODO(data).
+- Loose ends from AC Maintenance, folded in: the Heating Repair "Still open" sentence no longer calls the "HVAC Maintenance" label open (it
+  is resolved), and the two "TODO(copy): linked source line" comments in `ac-maintenance-page.ts` now read RESOLVED (2026-10-20, client
+  approved page copy, confirmed by user), comment-only, so no page changed.
+- Still open: every TODO(data) left in the `ductwork-page.ts` header (the unconfirmed process, diagnostic capability, permit handling, the
+  base-scope list, no price or duration, availability and warranty, commercial ductwork, the refrigerant statement and the EPA May 2026
+  update, city lists, logo, photos, copy review), the attribution gaps above (nothing edited), the `ductwork` versus `ductwork-services`
+  overlap, and the LADWP and SCE rebate recheck before launch.
+
+Remaining two: Emergency HVAC, Ductless Mini-Split.
 
 Blockers:
 - Emergency HVAC has an unconfirmed availability placeholder, so its cards carry no response-time facts. Do not add any

@@ -197,7 +197,7 @@ const acMaintenanceBase: ServicePage = {
       title: 'Can maintenance lower my energy costs?',
       body: 'It can address problems that reduce efficiency. ENERGY STAR says dirty coils can make a system run longer, incorrect refrigerant levels reduce efficiency, and airflow problems can cut efficiency by up to 15 percent. Whether a visit lowers your bill depends on what the inspection finds, and a specific bill increase can have other causes such as thermostat use, the building envelope, or rate changes.',
       sourceText: 'Source: ENERGY STAR maintenance checklist.',
-      // TODO(copy): linked source line, replaces the plain sourceText on migrated pages
+      // RESOLVED (2026-10-20, client approved page copy, confirmed by user): linked source line, replaces the plain sourceText on migrated pages
       sourceLabel: 'ENERGY STAR, Maintenance checklist',
       sourceHref: acMaintenanceSource('energystar.gov/saveathome/heating-cooling/maintenance-checklist').url,
     },
@@ -208,7 +208,7 @@ const acMaintenanceBase: ServicePage = {
       boldLead: 'No.',
       body: ' The EPA states that existing equipment can stay in use through its useful life. EPA\'s rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. An older R-410A system can still be maintained, and replacement is a decision based on condition, repair history, and your plans for the property. Ask your contractor which rules apply to the equipment in your proposal.',
       sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ.',
-      // TODO(copy): linked source line, replaces the plain sourceText on migrated pages
+      // RESOLVED (2026-10-20, client approved page copy, confirmed by user): linked source line, replaces the plain sourceText on migrated pages
       sourceLabel: 'U.S. EPA, HFC Phasedown FAQ',
       sourceHref: acMaintenanceSource('frequent-questions-phasedown').url,
     },
