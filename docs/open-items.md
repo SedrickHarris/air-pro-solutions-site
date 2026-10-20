@@ -1423,12 +1423,15 @@ card 428px, blankInCard 29px. The card ends 13px short of the copy, inside the 5
   also reports multifamily funds fully reserved as of September 1, 2026.
 
 Heating Repair is migrated (2026-10-20, branch `heating-repair-migration`, based on `origin/main` 32027da, which already held AC Repair,
-Furnace Installation, AC Installation, Indoor Air Quality and Heat Pump Services with its decisions). New strings are TODO(copy):
-quick answer trimmed from 85 to 39 words, hero caption split into title and text, glance card, "Across Southern California" band
-and fact card, `proofStats`, 5 source groups, the linked refrigerant source line and three Photo pending tiles (refrigerant,
+Furnace Installation, AC Installation, Indoor Air Quality and Heat Pump Services with its decisions). New strings: RESOLVED (2026-10-20,
+client approved page copy, confirmed by user). Still open: every TODO(data) (the unconfirmed "repair cost explained before any work begins"
+process, the safety wording review, the diagnostic fee and extras, the rebate recheck at launch, city lists, the held-out Bosch and
+Angi sources, the glance source line), every TODO(design) and the `ac-maintenance` target for the "HVAC Maintenance" label.
+Quick answer trimmed from 85 to 39 words, hero caption split into title and text, glance card, "Across Southern California" band
+and fact card, `proofStats`, 4 source groups, the linked refrigerant source line and three Photo pending tiles (refrigerant,
 repair-or-replace, region intro; TODO(design): real photos). No component, CSS, `page.tsx` or `services.ts` change: the export name is
-unchanged and `glance` is the only switch. Counts derive from arrays (glance 8 / 6 / 9, proof 4.8 star / 40 / 10 / 6, References row
-9 in 5 groups: Licensing and permits, Energy code, Refrigerant, Rebates and incentives, Cost context); the "6" process-step stat is
+unchanged and `glance` is the only switch. Counts derive from arrays (glance 8 / 6 / 4 after the Angi removal, proof 4.8 star / 40 / 10 / 6, References row
+8 in 4 groups: Licensing and permits, Energy code, Refrigerant, Rebates and incentives); the "6" process-step stat is
 hardcoded with a sync comment, and a build-time guard throws if the three glance numbers collide. Fact card has 3 rows (Existing
 R-410A equipment, Energy code, Incentives), all restating existing page copy, no License row, no dollar amounts, no installation date,
 no permit or alteration claim. Measured at 1280px (headless Chromium, mocked fonts, selectors `.local-knowledge-dark .local-grid`,
@@ -1436,18 +1439,28 @@ no permit or alteration claim. Measured at 1280px (headless Chromium, mocked fon
 so no row was dropped.
 - Cut sentences: (a) "Common problems include ignition and flame-sensing faults, ... and heat-pump defrost issues." dropped from the quick answer
   because `symptomsNoteText`, the `diagnosis` rows and the `systems` grid already cover it. (b) "Cold air, short cycling, and no airflow
-  can each have several causes, ..." moved word for word to the end of `diagnosisIntro`. DECISION PENDING: client to confirm both. The kept
+  can each have several causes, ..." moved word for word to the end of `diagnosisIntro`. RESOLVED (2026-10-20, approved by user): both cuts stand. The kept
   sentences still say "customer-approved" and "once you approve the price", the unconfirmed repair-cost process in the file header.
-- Hero caption: DECISION PENDING. The old caption was one sentence; the proposed two-part caption ("Heating system diagnostics" plus
-  "identify the source of heating problems") adds no words. Alternative, not built: "Heating repair" plus "for homes and businesses
-  across Southern California" (matches sibling pages, restates scope already in the hero chips). Left-aligned, unchanged.
+- Hero caption: RESOLVED (2026-10-20, approved by user). The old caption was one sentence; the proposed two-part caption ("Heating system diagnostics" plus
+  "identify the source of heating problems") adds no words and stays. The alternative ("Heating repair" plus "for homes and businesses
+  across Southern California") was not built. Left-aligned, unchanged.
 - Bosch source: held out (2026-10-20) into `heatingRepairManufacturerSources` (TODO(data)) because CLAUDE.md says never to link to or
   name a competitor. The refrigerant source line on the page now shows NAHB only, so Bosch is no longer named. `sourceText` stays in
   the data for the unmigrated markup. To show it again, move it back into `heatingRepairSources` with `group: 'Manufacturer service guides'`.
-- Angi price range: DECISION PENDING, kept as built (pricing note, FAQ 3, JSON-LD and the Angi source untouched). If removed, FAQ 3 and
-  its JSON-LD change together, the source count drops to 8 and the glance numbers collide (8 / 6 / 8), so swap the third glance stat to
-  `count(faqs)` and the fourth proof stat to `count(priceFactors)`.
-- `moreLinks` Emergency HVAC: DECISION PENDING, not added; the header TODO stays open.
+- Angi price range: RESOLVED (2026-10-20, removed pending client approval). The Angi sentences are out of `pricingClosing` and FAQ 3
+  (the answer now reads "Price depends on the failed part, labor, access, urgency, and equipment condition. Ask for a written repair
+  option with the total before you approve any work."). The source is held in `heatingRepairMarketplaceSources` (TODO(data)); to show
+  it again, restore the two sentences and move the entry back into `heatingRepairSources` with `group: 'Cost context'`. New counts:
+  References row 8 sources in 4 groups, glance 8 / 6 / 4 (third stat is now `count(priceFactors)`, "repair cost factors explained",
+  because 8 sources would collide with the 8 symptoms). JSON-LD changed for FAQ 3 only and matches the visible answer.
+- `moreLinks` Emergency HVAC: RESOLVED (2026-10-20, confirmed by user). The link was added after Indoor air quality; 24/7 emergency
+  dispatch is an approved claim. This page itself states no response time, after-hours or availability, and must not add any.
+- Still open: the `ac-maintenance` target for the "HVAC Maintenance" label (decide when AC Maintenance migrates); the unconfirmed
+  repair-cost process (the kept quick-answer sentences say "customer-approved" and "once you approve the price"); and the refrigerant
+  wording. NAHB supports R-454B and "lower flammability" in substance but writes "Class 2L" where the page says "A2L", and only R-32 is
+  backed by EPA, so FAQ 5 and the refrigerant body should be neutralized in one pass with their JSON-LD once the client signs off.
+- Fact-card row 1 note: NAHB says existing equipment and service parts are "not subject to EPA regulations", which supports "not
+  required to replace" in substance only.
 - Attribution findings (nothing edited): NAHB says "the primary two refrigerants that you should expect in the market are R-32 and
   R-454B" and "reclassified as Class 2L (lower flammability)", so R-454B and the gloss are supported by NAHB in substance, but NAHB is not a
   government source and the page says "A2L" where NAHB says "Class 2L"; the EPA SNAP table supports R-32 only. NAHB says existing equipment
@@ -1459,11 +1472,9 @@ so no row was dropped.
   and major alterations" is unverified from it. LADWP "up to $2,500 per ton", SoCalGas furnace rebate (permit closure, funds through
   December 31, 2026) and TECH (HEEHRA fully reserved as of February 24, 2026, later requests waitlisted) match the incentive cards; the FAQ 10
   "fully reserved in 2026" is dated only by the source.
-- Quick answer and other kept wording unchanged: the header TODOs for the repair-cost process, safety wording, diagnostic fee, "HVAC
-  Maintenance" link target and the Angi range all stay open.
 - URL check (headless Chromium via Playwright, not Claude in Chrome): 200 with no redirects for CSLB C-20, Energy Commission, NAHB, LADWP,
-  SoCalGas, both TECH pages and the held-out Bosch guide. The CSLB permit PDF starts a download (served, not opened). Angi returns 403 to a
-  script (likely bot blocking); open it by hand to confirm $179-$802 and about $490.
+  SoCalGas, both TECH pages and the held-out Bosch guide. The CSLB permit PDF starts a download (served, not opened). Angi (now held out) returned 403
+  to a script (likely bot blocking).
 - Adjacent sections: the dark quick-answer band follows the hero and trust strip and the Southern California band follows it, then "Is
   this an emergency?". The refrigerant block (alt) sits between "Systems we diagnose" and "What affects heating repair cost", and
   "Repair or replace?" (alt) between the pricing block and the rules section, so neither touches another alt band. The region intro tile sits
