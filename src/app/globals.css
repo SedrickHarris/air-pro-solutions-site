@@ -615,6 +615,14 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 .glance-num { display: block; font-family: var(--font-display); font-weight: 800; font-size: 1.7rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
 .glance-label { display: block; margin-top: 4px; font-size: 0.78rem; line-height: 1.35; color: var(--ink-soft); }
 .glance-src { margin: auto 0 0; font-size: 0.72rem; color: var(--ink-soft); }
+/* Source links inside a source line (SourceLinks): navy in light, sky in both dark contexts, underlined on hover/focus. */
+.glance-src a, .nbhd-card .lc-note a, .refrigerant-src a { color: var(--navy-700); font-weight: 600; }
+.glance-src a:hover, .glance-src a:focus-visible, .nbhd-card .lc-note a:hover, .nbhd-card .lc-note a:focus-visible, .refrigerant-src a:hover, .refrigerant-src a:focus-visible { text-decoration: underline; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .glance-src a, :root:not([data-theme='light']) .nbhd-card .lc-note a, :root:not([data-theme='light']) .refrigerant-src a { color: var(--sky-400); }
+}
+:root[data-theme='dark'] .glance-src a, :root[data-theme='dark'] .nbhd-card .lc-note a, :root[data-theme='dark'] .refrigerant-src a { color: var(--sky-400); }
+.local-knowledge-dark .nbhd-card .lc-note a { color: var(--sky-400); } /* band is forced dark regardless of theme */
 @media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .glance h3 { color: var(--sky-400); } }
 :root[data-theme='dark'] .glance h3 { color: var(--sky-400); }
 @media (max-width: 520px) { .glance-stats { grid-template-columns: 1fr; } }
