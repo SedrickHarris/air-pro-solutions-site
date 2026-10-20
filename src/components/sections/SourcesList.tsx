@@ -8,20 +8,24 @@ export function SourcesList({
   // Optional eyebrow above the "Sources" heading (e.g. /services/furnace-installation/'s "References").
   // Undefined for every other caller, so their layout is unchanged.
   eyebrow,
+  // Section background. Defaults to the alt band; pass false when the section above is already alt
+  // (e.g. FaqList) so the page keeps its alternating rhythm.
+  alt = true,
 }: {
   items: { label: string; url: string }[];
   columns?: 1 | 2;
   eyebrow?: string;
+  alt?: boolean;
 }) {
   return (
-    <section className="alt">
+    <section className={alt ? 'alt' : undefined}>
       <div className="wrap">
         {eyebrow && <p className="eyebrow">{eyebrow}</p>}
         <h2>Sources</h2>
         <ul className={columns === 2 ? 'sources-list sources-list-2col' : 'sources-list'}>
           {items.map((s) => (
             <li key={s.url}>
-              <a href={s.url} rel="noopener">{s.label}</a>
+              <a href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>
             </li>
           ))}
         </ul>
