@@ -21,6 +21,32 @@ import type { ServicePage } from '@/content/services';
 // claims, or same-day/24-7/emergency-availability wording appear anywhere on this page - none are
 // confirmed. See CLAUDE.md "Claims that must not ship".
 
+// TODO(copy): group labels are new, confirm on review.
+const indoorAirQualitySources: { label: string; url: string; group: string }[] = [
+  { label: 'U.S. EPA - Adapting Buildings for Indoor Air Quality in a Changing Climate', url: 'https://19january2021snapshot.epa.gov/indoor-air-quality-iaq/adapting-buildings-indoor-air-quality-changing-climate_.html', group: 'EPA indoor air basics' },
+  { label: 'U.S. EPA - Protect Indoor Air Quality in Your Home', url: 'https://www.epa.gov/indoor-air-quality-iaq/protect-indoor-air-quality-your-home', group: 'EPA indoor air basics' },
+  { label: 'U.S. EPA - Biological Contaminants and Indoor Particulate Matter', url: 'https://www.epa.gov/indoor-air-quality-iaq/sources-indoor-particulate-matter-pm', group: 'EPA indoor air basics' },
+  { label: 'U.S. EPA - Wildfires and Indoor Air Quality', url: 'https://www.epa.gov/emergencies-iaq/wildfires-and-indoor-air-quality-iaq', group: 'Wildfire smoke and local air quality' },
+  { label: 'South Coast AQMD - Air Quality', url: 'https://www.aqmd.gov/home/air-quality', group: 'Wildfire smoke and local air quality' },
+  { label: 'South Coast AQMD - 2022 Air Quality Management Plan, Appendix II', url: 'https://www.aqmd.gov/docs/default-source/clean-air-plans/air-quality-management-plans/2022-air-quality-management-plan/final-2022-aqmp/appendix-ii.pdf?sfvrsn=6', group: 'Wildfire smoke and local air quality' },
+  { label: 'South Coast AQMD - September 2024 smoke and ozone advisory', url: 'https://www.aqmd.gov/docs/default-source/news-archive/2024/ext-smoke--september-9-2024.pdf', group: 'Wildfire smoke and local air quality' },
+  { label: 'LA County Public Health - Climate change and health equity report', url: 'http://publichealth.lacounty.gov/eh/docs/about/climate-change-health-equity-report-executive-summary.pdf', group: 'Wildfire smoke and local air quality' },
+  { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency', group: 'Codes, permits and licensing' },
+  { label: 'California CSLB - Get Licensed to Build guide', url: 'https://www.cslb.ca.gov/getlicensed', group: 'Codes, permits and licensing' },
+  { label: 'LA Department of Building and Safety - Mechanical HVAC permits', url: 'https://dbs.lacity.gov/services/plan-review-permitting/mechanical-hvac-permits', group: 'Codes, permits and licensing' },
+  { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons', group: 'Refrigerant' },
+  // TODO(data): Carrier source backs FAQ 10's price example. If that figure is cut or not verified, remove this source in the same change.
+  { label: 'Carrier - Whole-house air purifiers', url: 'https://www.carrier.com/us/en/residential/air-purifiers/', group: 'Equipment reference' },
+  { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program', group: 'Rebates and incentives' },
+  { label: 'Southern California Edison - Energy Savings Assistance Program', url: 'https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program', group: 'Rebates and incentives' },
+];
+
+const indoorAirQualitySource = (urlPart: string) => {
+  const found = indoorAirQualitySources.find((s) => s.url.includes(urlPart));
+  if (!found) throw new Error(`Unknown indoor air quality source: ${urlPart}`);
+  return found;
+};
+
 // Full template content for /services/indoor-air-quality/. Reuses the same ServicePage shape and shared
 // section components already built out for /services/ac-repair/, /services/ac-installation/, /services/ac-maintenance/, and
 // /services/heating-repair/ - a second, parallel content shape (src/content/service-pages/) was deliberately
@@ -31,7 +57,7 @@ import type { ServicePage } from '@/content/services';
 // render positions in src/app/services/[service]/page.tsx rather than reusing an existing field's fixed slot -
 // this page's approved section order doesn't line up with the position several existing optional
 // fields (`catches`, `refrigerant`, `timeline`) are hardcoded to render at.
-export const indoorAirQualityPage: ServicePage = {
+const indoorAirQualityBase: ServicePage = {
   primaryKeyword: 'indoor air quality los angeles',
   metaDescription:
     'Indoor air quality service for homes and businesses in Los Angeles and Southern California. Filtration, ventilation, and humidity reviewed. Schedule service.',
@@ -178,7 +204,9 @@ export const indoorAirQualityPage: ServicePage = {
       title: 'Is a higher MERV filter always better?',
       boldLead: 'No.',
       body: ' A higher-efficiency filter can reduce airborne particles, but only if the system can hold it. The filter slot or cabinet, blower capacity, duct design, and pressure drop decide what fits. The EPA recommends MERV 13 or better, or the most efficient filter your system can accommodate, to reduce fine particles during smoke events. We check the actual system before recommending a filter upgrade, and we do not promise that MERV 13 fits every system.',
-      sourceText: 'Source: U.S. EPA, Wildfires and Indoor Air Quality.',
+      // TODO(copy): linked source line, replaces the plain sourceText
+      sourceLabel: 'U.S. EPA, Wildfires and Indoor Air Quality',
+      sourceHref: indoorAirQualitySource('wildfires-and-indoor-air-quality').url,
     },
     {
       id: 'uv',
@@ -272,7 +300,9 @@ export const indoorAirQualityPage: ServicePage = {
   replacementNote: {
     title: 'If an upgrade turns into a replacement',
     body: "If replacement is recommended, we identify your system's refrigerant, explain whether repair components are available for the existing equipment, and give you options that meet current requirements. Under EPA rules, a new split system installed after January 1, 2026 must use a refrigerant with a global warming potential below 700, and existing R-410A equipment can still be serviced.",
-    sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ.',
+    // TODO(copy): linked source line, replaces the plain sourceText
+    sourceLabel: 'U.S. EPA, HFC Phasedown FAQ',
+    sourceHref: indoorAirQualitySource('frequent-questions-phasedown').url,
   },
   // "Rebates and incentives" - plain rebates callout, same shape /services/ac-maintenance/ introduced.
   rebatesNote: {
@@ -330,23 +360,7 @@ export const indoorAirQualityPage: ServicePage = {
   // "#resources" anchor for internal linking, per the build spec's anchor list.
   faqSectionId: 'resources',
   sourcesColumns: 2,
-  sources: [
-    { label: 'U.S. EPA - Adapting Buildings for Indoor Air Quality in a Changing Climate', url: 'https://19january2021snapshot.epa.gov/indoor-air-quality-iaq/adapting-buildings-indoor-air-quality-changing-climate_.html' },
-    { label: 'U.S. EPA - Protect Indoor Air Quality in Your Home', url: 'https://www.epa.gov/indoor-air-quality-iaq/protect-indoor-air-quality-your-home' },
-    { label: 'U.S. EPA - Biological Contaminants and Indoor Particulate Matter', url: 'https://www.epa.gov/indoor-air-quality-iaq/sources-indoor-particulate-matter-pm' },
-    { label: 'U.S. EPA - Wildfires and Indoor Air Quality', url: 'https://www.epa.gov/emergencies-iaq/wildfires-and-indoor-air-quality-iaq' },
-    { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/climate-hfcs-reduction/frequent-questions-phasedown-hydrofluorocarbons' },
-    { label: 'South Coast AQMD - Air Quality', url: 'https://www.aqmd.gov/home/air-quality' },
-    { label: 'South Coast AQMD - 2022 Air Quality Management Plan, Appendix II', url: 'https://www.aqmd.gov/docs/default-source/clean-air-plans/air-quality-management-plans/2022-air-quality-management-plan/final-2022-aqmp/appendix-ii.pdf?sfvrsn=6' },
-    { label: 'South Coast AQMD - September 2024 smoke and ozone advisory', url: 'https://www.aqmd.gov/docs/default-source/news-archive/2024/ext-smoke--september-9-2024.pdf' },
-    { label: 'LA County Public Health - Climate change and health equity report', url: 'http://publichealth.lacounty.gov/eh/docs/about/climate-change-health-equity-report-executive-summary.pdf' },
-    { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency' },
-    { label: 'California CSLB - Get Licensed to Build guide', url: 'https://www.cslb.ca.gov/getlicensed' },
-    { label: 'LA Department of Building and Safety - Mechanical HVAC permits', url: 'https://dbs.lacity.gov/services/plan-review-permitting/mechanical-hvac-permits' },
-    { label: 'Carrier - Whole-house air purifiers', url: 'https://www.carrier.com/us/en/residential/air-purifiers/' },
-    { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program' },
-    { label: 'Southern California Edison - Energy Savings Assistance Program', url: 'https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program' },
-  ],
+  sources: indoorAirQualitySources,
   faqs: [
     {
       q: 'What is indoor air quality service?',
@@ -393,3 +407,5 @@ export const indoorAirQualityPage: ServicePage = {
   ],
   // TODO(copy): client review of every FAQ answer above before launch.
 };
+
+export const indoorAirQualityPage: ServicePage = { ...indoorAirQualityBase };
