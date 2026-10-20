@@ -1361,15 +1361,17 @@ heat-pump-services and emergency-hvac (fix when each migrates).
   derive from the array).
 - Hero caption: DECISION PENDING. The old caption was one sentence; the proposed two-part caption needs approval.
 - URL check (headless Chrome via Playwright, not Claude in Chrome): all 15 return 200 with no redirects and no certificate
-  warnings. The LA County Public Health link is `http://` and loads over plain http with no upgrade to https (a browser may
-  show "Not secure"); try `https://` and update the URL if it works.
+  warnings (the LA County link was later replaced, see below).
 - Flagged: `replacementNote` and `rebatesNote` render as alt-background sections back to back (see the follow-up fix below).
 - AC Repair's `southcoastaqmd.gov` link: RESOLVED (2026-10-20). It failed certificate-name validation in Chromium
   (ERR_CERT_COMMON_NAME_INVALID), so AC Repair now uses `https://www.aqmd.gov/home/air-quality` (200, no warning). No other
   page used `southcoastaqmd.gov`.
-- LA County Public Health source (IAQ References row): the https form 302-redirects back to http, and the http URL returns 200
-  but serves a "could not be found" page (soft 404). Kept unchanged with a TODO(data); find a working URL for the report or
-  replace the source.
+- LA County Public Health source (IAQ References row): RESOLVED (2026-10-20, replaced with the full report URL). The old
+  executive-summary URL was a soft 404. The entry is now "Climate Change and Health Equity: Strategies for Action" at
+  `https://admin.publichealth.lacounty.gov/oejch/docs/about/climate-change-health-equity-strategies-action-report.pdf`
+  (200 over https, no certificate warning, a PDF; the document gives no publication date). It supports the ozone,
+  heat-wave and wildfire-smoke parts of the LA County paragraph, not "fine-particle"; that part is backed by the 2022 AQMP
+  Appendix II (p. 8). Open the link by hand once to confirm.
 
 Remaining six, in rollout order: Heat Pump Services, Heating Repair, AC Maintenance, Ductwork, Emergency HVAC,
 Ductless Mini-Split.
