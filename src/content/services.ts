@@ -69,7 +69,7 @@ export type ServicePage = {
   // new-install rule first, then bolds "Existing R-410A systems are not banned." as its own leading
   // sentence, then continues - one paragraph more than boldLead+body alone can express. Optional so
   // every other caller (whose boldLead already opens the panel) is unaffected.
-  refrigerant?: { title: string; introBody?: string; body: string; boldLead?: string; body2?: string; sourceLabel?: string; sourceHref?: string; sourceText?: string; accent?: 'sky' | 'amber'; media?: { icon: string; image?: ServiceImage } };
+  refrigerant?: { title: string; introBody?: string; body: string; boldLead?: string; body2?: string; sourceLabel?: string; sourceHref?: string; sourceText?: string; sources?: { label: string; url: string }[]; accent?: 'sky' | 'amber'; media?: { icon: string; image?: ServiceImage } };
   pricingTitle?: string;
   pricingIntro?: string;
   priceFactors?: { item: string; drivers: string }[];
@@ -299,8 +299,9 @@ export type ServicePage = {
   // other DiagnosisTable caller (ac-repair, heating-repair, furnace-installation) is unaffected.
   diagnosisNote?: { before: string; linkLabel: string; linkHref: string; middle: string; linkLabel2: string; linkHref2: string; after?: string };
   // Single-paragraph warranty callout, rendered via RefrigerantNote (plain, no accent/source) right
-  // after the licensing/permits `rules` section and before `incentives`.
-  warranty?: { heading: string; body: string };
+  // after the licensing/permits `rules` section and before `incentives`. `media` (migrated pages only; no
+  // `image` = "Photo pending" tile) renders a tile beside the panel.
+  warranty?: { heading: string; body: string; media?: { icon: string; image?: ServiceImage } };
 
   // --- Additional fields used by the /services/ductwork/ template. Optional so every other service page
   // (which does not set these) is unaffected - see the Ductwork build report for why these were

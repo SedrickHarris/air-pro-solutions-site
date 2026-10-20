@@ -561,6 +561,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           sourceLabel={page.refrigerant.sourceLabel}
           sourceHref={page.refrigerant.sourceHref}
           sourceText={page.refrigerant.sourceText}
+          sources={page.refrigerant.sources}
           accent={page.refrigerant.accent}
           showSource={migrated}
           media={refrigerantMedia && (
@@ -701,7 +702,13 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       {/* Single-paragraph warranty callout (heat-pump-services), rendered as a plain (no accent, no
           source) RefrigerantNote panel between licensing/permits and rebates. */}
       {page.warranty && (
-        <RefrigerantNote title={page.warranty.heading} body={page.warranty.body} showSource={migrated} />
+        <RefrigerantNote
+          title={page.warranty.heading}
+          body={page.warranty.body}
+          showSource={migrated}
+          // TODO(design): real photo (1200x900) to replace the "Photo pending" tile
+          media={migrated && page.warranty.media ? <MediaTile icon={page.warranty.media.icon} image={page.warranty.media.image} /> : undefined}
+        />
       )}
 
       {/* "If an upgrade turns into a replacement" (indoor-air-quality): a single RefrigerantNote-shaped

@@ -32,6 +32,7 @@ export function RefrigerantNote({
   sourceLabel,
   sourceHref,
   sourceText,
+  sources,
   accent,
   showSource = false,
   bare = false,
@@ -45,6 +46,9 @@ export function RefrigerantNote({
   sourceLabel?: string;
   sourceHref?: string;
   sourceText?: string;
+  // Optional list of linked sources (e.g. /services/heat-pump-services/'s EPA FAQ + SNAP table). When
+  // showSource is on and this has items it replaces the single sourceLabel/sourceHref/sourceText line.
+  sources?: { label: string; url: string }[];
   accent?: 'sky' | 'amber';
   showSource?: boolean;
   bare?: boolean;
@@ -57,7 +61,9 @@ export function RefrigerantNote({
       {introBody && <p>{introBody}</p>}
       <p>{boldLead ? <><strong>{boldLead}</strong>{body}</> : body}</p>
       {body2 && <p>{body2}</p>}
-      {showSource && (sourceLabel && sourceHref ? (
+      {showSource && (sources?.length ? (
+        <p className="refrigerant-src"><SourceLinks sources={sources} /></p>
+      ) : sourceLabel && sourceHref ? (
         <p className="refrigerant-src"><SourceLinks sources={[{ label: sourceLabel, url: sourceHref }]} /></p>
       ) : (
         sourceText && <p className="refrigerant-src">{sourceText}</p>
