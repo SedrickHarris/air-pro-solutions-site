@@ -43,19 +43,19 @@ const ductworkSources: { label: string; url: string; group: string }[] = [
   { label: 'ACCA - Manual D residential duct design', url: 'https://www.acca.org/standards/technical-manuals/manual-d', group: 'Duct sealing and design' },
   // TODO(data): the post is dated November 16, 2018 and is written by Rob "Doc" Falke, president of National Comfort Institute, an HVAC
   // training company and membership organization (the author box on the page). It is published on the ACCA HVAC blog (hvac-blog.acca.org).
-  // FAQ 7 says "ACCA explains", which reads as an ACCA position; the post is one author's article. Attribution gap, FAQ 7 wording untouched.
-  { label: 'ACCA - Using static pressure measurement to pinpoint duct deficiencies', url: 'https://hvac-blog.acca.org/use-static-pressure-measurement-pinpoint-duct-deficiencies/', group: 'Duct sealing and design' },
+  // FAQ 7 now attributes the post to the ACCA blog (RESOLVED 2026-10-20, approved by user); the author is the president of National Comfort Institute.
+  { label: 'ACCA blog - Using static pressure measurement to pinpoint duct deficiencies', url: 'https://hvac-blog.acca.org/use-static-pressure-measurement-pinpoint-duct-deficiencies/', group: 'Duct sealing and design' },
   { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency', group: 'Energy code and licensing' },
   // TODO(data): the PDF read for this build (July 2025, CEC-400-2025-010-F) does not state the January 1, 2026 date. The CEC web page above
   // does. The fact-card Energy code row cites the web page.
   { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards (full text, PDF)', url: 'https://www.energy.ca.gov/sites/default/files/2026-07/CEC-400-2025-010-F.pdf', group: 'Energy code and licensing' },
   { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20', group: 'Energy code and licensing' },
   { label: 'NASA JPL - Key heat-wave differences in Southern California', url: 'https://www.jpl.nasa.gov/news/nasa-maps-key-heat-wave-differences-in-southern-california/', group: 'Heat and housing' },
-  // TODO(data): the page itself is titled "SOLACHAN Housing Supply 2026" and its copyright line reads "Neighborhood Data for Social Change
-  // (NDSC)"; the authors are listed under USC Lusk Center for Real Estate and USC Price School. The name in the label below does not appear
-  // on the page. Label left as is until the client decides. The same page is the source of the LA County "58 years" sentence in
-  // regionConditions (it says "median age of the county's housing stock is 58 years old (built in 1966)", calculated from 2024).
-  { label: 'Southern California Association of Non Profit Housing - 2026 housing supply', url: 'https://la.myneighborhooddata.org/solachan-2026-housing-supply/', group: 'Heat and housing' },
+  // RESOLVED (2026-10-20, approved by user): relabeled to the publisher shown on the page. The browser title reads "SOLACHAN 2026 Chapter - Housing
+  // Supply - Neighborhood Data for Social Change" and the copyright line names Neighborhood Data for Social Change (NDSC); the authors are at USC.
+  // TODO(copy): label is new. The same page is the source of the LA County "58 years" sentence in regionConditions ("median age of the county's
+  // housing stock is 58 years old (built in 1966)", calculated from 2024).
+  { label: 'Neighborhood Data for Social Change - SOLACHAN 2026 Chapter - Housing Supply', url: 'https://la.myneighborhooddata.org/solachan-2026-housing-supply/', group: 'Heat and housing' },
   { label: 'LADWP - Consumer Rebate Program', url: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program', group: 'Rebates and incentives' },
   { label: 'Southern California Edison - Energy Savings Assistance Program', url: 'https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program', group: 'Rebates and incentives' },
 ];
@@ -233,9 +233,9 @@ const ductworkBase: ServicePage = {
     columns: ['Approach', 'It usually fits when', 'Keep in mind'],
     rows: [
       ['Repair', 'The problem is isolated: a loose connection, a small tear, a disconnected run, or an accessible leak.', 'If the same failures keep returning, the cause may be wider than the repaired spot.'],
-      ['Seal', 'Leakage at connections, joints, and accessible gaps is the main issue.', 'ENERGY STAR recommends mastic, metal-backed tape, or aerosol sealant. Ordinary duct tape is not long-lasting.'],
+      ['Seal', 'Leakage at connections, joints, and accessible gaps is the main issue.', 'ENERGY STAR recommends mastic sealant or metal tape. Duct tape is not long-lasting.'],
       ['Replace', 'Deterioration is widespread, connections keep failing, or duct is badly crushed, kinked, or degraded.', 'Access drives the work. Attic, crawlspace, and finished-wall runs are handled differently.'],
-      ['Redesign', 'Airflow stays poor after repair, or sizing, return-air paths, or pressure are the real problem.', 'Residential duct design follows a recognized method, ACCA Manual D, which looks at blower airflow, pressure losses, and available static pressure.'],
+      ['Redesign', 'Airflow stays poor after repair, or sizing, return-air paths, or pressure are the real problem.', 'Residential duct design follows a recognized method, ACCA Manual D, which looks at duct airflow, blower airflow, and the pressure drops of system components.'],
     ],
     noteBefore: 'Weak airflow or warm air can also come from the cooling equipment. ',
     noteLinkText: 'See AC repair',
@@ -278,7 +278,7 @@ const ductworkBase: ServicePage = {
       id: 'energy-bill',
       accent: 'sky',
       title: 'Can sealing or replacing ducts lower my energy bill?',
-      body: 'It can reduce waste when leakage is part of the problem. ENERGY STAR estimates that 20 to 30 percent of the air in a typical duct system can be lost through leaks, holes, and poor connections, and says leaky ducts can raise utility bills and make rooms hard to keep comfortable. Savings are not guaranteed, because bills also depend on equipment condition, thermostat settings, insulation, weather, and energy rates.',
+      body: 'It can reduce waste when leakage is part of the problem. ENERGY STAR estimates that 20 to 30 percent of the air moving through the duct system in a typical house can be lost through leaks, holes, and poor connections, and says leaky ducts can raise utility bills and make rooms hard to keep comfortable. Savings are not guaranteed, because bills also depend on equipment condition, thermostat settings, insulation, weather, and energy rates.',
       sourceText: 'Source: ENERGY STAR duct sealing guidance.',
       // TODO(copy): linked source line, replaces the plain sourceText on migrated pages
       sourceLabel: 'ENERGY STAR, Duct sealing',
@@ -315,8 +315,8 @@ const ductworkBase: ServicePage = {
   rulesEyebrow: 'The rules',
   rulesTitle: 'Licensing, permits, and energy-code basics',
   rules: [
-    { title: 'Licensing', body: "California's C-20 classification covers HVAC systems, including ducts, registers, plenums, ventilation, and the filters connected to them. Ask to verify any contractor's active C-20 license and insurance on the CSLB website before authorizing ductwork tied to your heating or cooling system." },
-    { title: 'Permits', body: 'Whether a permit is needed depends on the scope of work and your city or county, and requirements differ across Los Angeles, Torrance, Orange County cities, Riverside, and unincorporated areas. Ask your contractor and your local building department what applies before work begins.' },
+    { title: 'Licensing', body: "California's C-20 classification covers warm-air heating, ventilating and air-conditioning systems, including the ducts, registers, plenum chambers, and air filters connected to them. Ask to verify any contractor's active C-20 license and insurance on the CSLB website before authorizing ductwork tied to your heating or cooling system." },
+    { title: 'Permits', body: 'Whether a permit is needed depends on the scope of work and your city or county. Ask your contractor and your local building department what applies before work begins.' },
     { title: 'Energy code', body: 'The 2025 California Energy Code applies to permits applied for on or after January 1, 2026, and its standards include duct-sealing procedures, materials, diagnostic testing, and field verification. Some permitted residential HVAC alterations and ductwork scopes can require energy-code documentation and third-party verification. Requirements depend on the project and jurisdiction, so confirm the compliance path before work begins.' },
   ],
   rebatesNote: {
@@ -342,11 +342,11 @@ const ductworkBase: ServicePage = {
     { label: 'Residential HVAC', href: '/residential-hvac/' },
   ],
   regionIntro: [
-    "Southern California is not one climate. In NASA JPL's analysis of a Southern California heat wave, southern Los Angeles County and Orange County stayed cooler because of the Pacific, while valley areas including Riverside were hotter and drier. Humid heat-wave nights raised heat stress in both coastal and inland areas.",
+    "Southern California is not one climate. In NASA JPL's analysis of two Southern California heat waves in 2020, southern Los Angeles County and Orange County stayed cooler because of the Pacific, while valley areas including Riverside skewed drier and hotter. Muggy August nights raised nighttime heat stress in both coastal and inland areas.",
     'Weather explains when duct problems get noticed, not where the problem is. A room that never cools, or a system that runs all afternoon, makes the ducts and airflow one place to look, alongside the equipment, the filter, and the building envelope.',
   ],
   regionConditions: [
-    { regionSlug: 'los-angeles-county', body: 'A regional housing analysis puts the median age of LA County homes at 58 years. Older homes can have legacy duct layouts, hard-to-reach runs, aging insulation, or past equipment changes, so we inspect before recommending replacement.' },
+    { regionSlug: 'los-angeles-county', body: "A regional housing analysis puts the median age of LA County's housing stock at 58 years, measured in 2024. Older homes can have legacy duct layouts, hard-to-reach runs, aging insulation, or past equipment changes, so we inspect before recommending replacement." },
     { regionSlug: 'south-bay', body: 'Coastal weather can moderate daytime temperatures, but uneven rooms, weak airflow, and duct damage still show up whenever a system runs. Comfort problems here call for a look at the whole system.' },
     { regionSlug: 'orange-county', body: 'Coastal and inland Orange County homes can carry different cooling loads. We look at the whole system rather than assume the ducts are the only cause of a comfort problem.' },
     { regionSlug: 'inland-empire', body: 'Inland heat can make weak airflow, attic duct leakage, poor insulation, undersized returns, and uneven rooms more noticeable when cooling demand peaks.' },
