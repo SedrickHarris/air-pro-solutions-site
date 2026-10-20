@@ -112,9 +112,17 @@ const ductworkBase: ServicePage = {
   finalCtaTitle: 'Get your ductwork inspected',
   finalCtaBody: 'Call us or request service online.',
   answer: {
+    // TODO(copy): trimmed from 96 words to 30 (migration), client to approve both cuts. Lead is 2 words, sentence 1 is 28.
+    // Cut (a), sentence 2 (39 words, "A hot room, weak airflow, or a high bill can come from ... whether repair, sealing, replacement, or redesign fits."):
+    //   dropped, not reworded. It says "we inspect first and then explain", the unconfirmed process in the header TODO(data). The causes it
+    //   lists are covered by `decision` card 1, `symptomsIntro`, FAQ 2 and the `optionsTable` lead.
+    // Cut (b), sentence 3 (27 words, the ENERGY STAR 20 to 30 percent sentence): dropped. It stays on the page in the `energy-bill` callout,
+    //   FAQ 1 and FAQ 10, and it said "typical home duct system" where ENERGY STAR says "typical house".
+    // Under the 37 to 43 word band the other migrated pages use; no sentence-only cut reaches it. Not built: lead plus sentence 1 plus a new
+    //   short sentence (new copy), and lead plus sentences 1 and 3 (57 words).
     lead: 'Ductwork service',
     body:
-      ' is the inspection, repair, sealing, redesign, or replacement of the ducts that carry conditioned air from your HVAC equipment to each room and return it to the system. A hot room, weak airflow, or a high bill can come from leaks, damage, undersized ducts, poor return air, missing insulation, or the equipment itself, so we inspect first and then explain whether repair, sealing, replacement, or redesign fits. ENERGY STAR estimates that 20 to 30 percent of the air moving through a typical home duct system can be lost through leaks, holes, and poor connections.',
+      ' is the inspection, repair, sealing, redesign, or replacement of the ducts that carry conditioned air from your HVAC equipment to each room and return it to the system.',
   },
   decision: {
     eyebrow: 'Start here',
