@@ -89,7 +89,7 @@ export type ServicePage = {
   regionConditions?: { regionSlug: string; body: string }[];
   regionClosing?: string;
   moreLinks?: { text: string; href: string }[];
-  sources?: { label: string; url: string }[];
+  sources?: { label: string; url: string; group?: string }[]; // `group` labels the migrated page's collapsed references row
   // Location-style migration (see docs/open-items.md "Service page migration"). Setting `glance` marks a
   // service as migrated; the route only renders the blocks below, and the source lines, when it is set.
   glance?: { title: string; stats: { num: string; label: string }[]; sources: { label: string; url: string }[] };
@@ -467,21 +467,24 @@ const l2 = make(2, false); // second-level pages: noindex stubs until real copy 
 const card = (slug: string, alt: string): ServiceImage => ({ src: `/images/services/cards/${slug}.webp`, alt });
 
 // AC Repair source list. Declared ahead of the page so the glance card, fact card and the "sources cited"
-// stat all read from the same entries (the Sources section renders `page.sources`).
-const acRepairSources: { label: string; url: string }[] = [
-  { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/climate-hfcs-reduction/frequent-questions-phasedown-hydrofluorocarbons' },
-  { label: 'ENERGY STAR - When is it time to replace?', url: 'https://www.energystar.gov/saveathome/heating-cooling/replace' },
-  { label: 'ENERGY STAR - Repair or replace', url: 'https://www.energystar.gov/ia/home_improvement/Replace_or_Repair.pdf' },
-  { label: 'U.S. DOE - Airflow and refrigerant charge diagnostics', url: 'https://www.energy.gov/sites/prod/files/2013/12/f5/issue3_airflow_charge.pdf' },
-  { label: 'U.S. DOE Building America - AC diagnostics, maintenance, and repair', url: 'https://www1.eere.energy.gov/buildings/publications/pdfs/building_america/measure_guide_air_cond_diagnostics.pdf' },
-  { label: 'U.S. DOE Building America - HVAC fault detection and diagnosis', url: 'https://www1.eere.energy.gov/buildings/publications/pdfs/building_america/emr-hvac-fault-detection-diagnosis-repair.pdf' },
-  { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20' },
-  { label: 'California CSLB - Get licensed', url: 'https://www.cslb.ca.gov/getlicensed' },
-  { label: 'Energy Code Ace - Refrigerant charge', url: 'https://energycodeace.com/content/48-refrigerant-charge' },
-  { label: 'NASA JPL - Southern California heat-wave differences', url: 'https://www.jpl.nasa.gov/news/nasa-maps-key-heat-wave-differences-in-southern-california/' },
-  { label: 'NOAA Climate.gov - September 2024 heat wave', url: 'https://www.climate.gov/news-features/event-tracker/heat-wave-southern-california-and-southwest-early-september-2024' },
-  { label: 'California ISO - 2024 Summer Loads and Resources Assessment', url: 'https://www.caiso.com/Documents/2024-Summer-Loads-and-Resources-Assessment.pdf' },
-  { label: 'South Coast AQMD - Air quality', url: 'https://www.southcoastaqmd.gov/home/air-quality' },
+// stat all read from the same entries (the references row under the FAQ renders `page.sources`).
+// TODO(copy): group labels are new, confirm on review. Group order is the display order of the references row.
+const acRepairSources: { label: string; url: string; group?: string }[] = [
+  { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons', group: 'Refrigerant and rules' },
+  { label: 'Energy Code Ace - Refrigerant charge', url: 'https://energycodeace.com/content/48-refrigerant-charge', group: 'Refrigerant and rules' },
+  { label: 'ENERGY STAR - When is it time to replace?', url: 'https://www.energystar.gov/saveathome/heating-cooling/replace', group: 'Repair or replace' },
+  { label: 'ENERGY STAR - Repair or replace', url: 'https://www.energystar.gov/ia/home_improvement/Replace_or_Repair.pdf', group: 'Repair or replace' },
+  { label: 'U.S. DOE - Airflow and refrigerant charge diagnostics', url: 'https://www.energy.gov/sites/prod/files/2013/12/f5/issue3_airflow_charge.pdf', group: 'Diagnostics' },
+  { label: 'U.S. DOE Building America - AC diagnostics, maintenance, and repair', url: 'https://www1.eere.energy.gov/buildings/publications/pdfs/building_america/measure_guide_air_cond_diagnostics.pdf', group: 'Diagnostics' },
+  { label: 'U.S. DOE Building America - HVAC fault detection and diagnosis', url: 'https://www1.eere.energy.gov/buildings/publications/pdfs/building_america/emr-hvac-fault-detection-diagnosis-repair.pdf', group: 'Diagnostics' },
+  { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20', group: 'Licensing' },
+  { label: 'California CSLB - Get licensed', url: 'https://www.cslb.ca.gov/getlicensed', group: 'Licensing' },
+  { label: 'NASA JPL - Southern California heat-wave differences', url: 'https://www.jpl.nasa.gov/news/nasa-maps-key-heat-wave-differences-in-southern-california/', group: 'Heat and air quality' },
+  { label: 'NOAA Climate.gov - September 2024 heat wave', url: 'https://www.climate.gov/news-features/event-tracker/heat-wave-southern-california-and-southwest-early-september-2024', group: 'Heat and air quality' },
+  { label: 'California ISO - 2024 Summer Loads and Resources Assessment', url: 'https://www.caiso.com/Documents/2024-Summer-Loads-and-Resources-Assessment.pdf', group: 'Heat and air quality' },
+  // TODO(data): confirm this URL loads without a certificate warning in a normal browser; if it warns, switch to the
+  // non-www host or another official AQMD air-quality page (failed certificate-name validation from the build sandbox).
+  { label: 'South Coast AQMD - Air quality', url: 'https://www.southcoastaqmd.gov/home/air-quality', group: 'Heat and air quality' },
 ];
 const acRepairSource = (urlPart: string) => {
   const found = acRepairSources.find((src) => src.url.includes(urlPart));
@@ -598,7 +601,7 @@ const acRepairPage: ServicePage = {
     body:
       'Yes. The EPA states that the new-system limit on refrigerant global-warming potential applies to systems installed on or after January 1, 2026. A wholly new split system installed after that date must use a refrigerant below 700 GWP. Existing R-410A systems can still be serviced, and an R-410A system does not have to be replaced only because of that rule. If a repair is major, a technician can walk you through the repair option and a replacement comparison so you decide with real numbers.',
     sourceLabel: 'U.S. EPA, HFC Phasedown FAQ',
-    sourceHref: 'https://www.epa.gov/climate-hfcs-reduction/frequent-questions-phasedown-hydrofluorocarbons',
+    sourceHref: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons',
   },
   pricingTitle: 'What affects AC repair cost',
   pricingIntro:

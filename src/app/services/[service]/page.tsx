@@ -806,10 +806,17 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       <RelatedRow items={related} title="Explore related services" alt={false} moreLinks={page.moreLinks} />
 
-      <FaqList faqs={page.faqs} eyebrow="Direct answers" title={page.faqTitle} alt firstOpen boldFirstSentence id={page.faqSectionId} />
-
-      {/* FaqList is alt, so Sources is non-alt to keep the section rhythm into the final CTA. */}
-      {migrated && page.sources?.length ? <SourcesList items={page.sources} columns={page.sourcesColumns ?? 1} alt={false} /> : null}
+      {/* Migrated pages show their sources as a collapsed references row under the FAQ grid. */}
+      <FaqList
+        faqs={page.faqs}
+        eyebrow="Direct answers"
+        title={page.faqTitle}
+        alt
+        firstOpen
+        boldFirstSentence
+        id={page.faqSectionId}
+        footer={migrated && page.sources?.length ? <SourcesList variant="details" items={page.sources} /> : undefined}
+      />
 
       <FinalCta title={page.finalCtaTitle} body={page.finalCtaBody} ghostLabel={page.ctaLabel} />
     </>

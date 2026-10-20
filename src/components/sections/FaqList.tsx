@@ -60,6 +60,8 @@ export function FaqList({
   // /services/indoor-air-quality/'s decision cards) can jump to "#resources" without every caller having to
   // opt in; every page renders exactly one FaqList.
   id = 'resources',
+  // Optional content rendered under the FAQ grid (e.g. the collapsed sources row on migrated service pages).
+  footer,
 }: {
   faqs: Faq[];
   title?: string;
@@ -68,6 +70,7 @@ export function FaqList({
   boldFirstSentence?: boolean;
   alt?: boolean;
   id?: string;
+  footer?: ReactNode;
 }) {
   return (
     <section id={id} className={alt ? 'alt' : undefined}>
@@ -82,6 +85,7 @@ export function FaqList({
             </details>
           ))}
         </div>
+        {footer && <div className="faq-footer">{footer}</div>}
       </div>
     </section>
   );

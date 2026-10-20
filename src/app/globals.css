@@ -130,8 +130,8 @@ section { padding-block: 56px; }
 .field input, .field select, .field textarea { font: inherit; padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--card-bg); color: var(--ink); }
 .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 0.85rem; color: var(--ink-soft); }
 .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
-.faq-grid details { background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; }
-.faq-grid summary { font-weight: 700; cursor: pointer; }
+.faq-grid details, .sources-details { background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; }
+.faq-grid summary, .sources-details summary { font-weight: 700; cursor: pointer; }
 .faq-grid p { line-height: 1.6; color: var(--ink-soft); }
 .faq-grid p a { color: var(--navy-700); font-weight: 600; }
 @media (prefers-color-scheme: dark) {
@@ -678,3 +678,24 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
   }
   body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* Collapsed "Sources and references" row (SourcesList variant="details") under the FAQ grid on migrated service
+   pages. Card look is shared with .faq-grid details above. Links are quiet: small, navy/sky, thin low-contrast
+   underline that turns solid on hover and keyboard focus. */
+.faq-footer { margin-top: 16px; }
+.sources-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 28px; margin: 16px 0 4px; padding: 0; list-style: none; }
+.sources-group h3 { margin: 0 0 8px; font-family: var(--font-body); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy-800); }
+.sources-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.sources-details li { font-size: 0.85rem; line-height: 1.45; }
+.sources-details a { color: var(--navy-700); font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--line); }
+.sources-details a:hover, .sources-details a:focus-visible { text-decoration-color: currentColor; }
+.sources-details .ext-icon { display: inline-block; margin-left: 4px; vertical-align: -1px; opacity: 0.75; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .sources-group h3 { color: var(--sky-400); }
+  :root:not([data-theme='light']) .sources-details a { color: var(--sky-400); }
+}
+:root[data-theme='dark'] .sources-group h3 { color: var(--sky-400); }
+:root[data-theme='dark'] .sources-details a { color: var(--sky-400); }
+@media (max-width: 920px) { .sources-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .sources-grid { grid-template-columns: 1fr; } }
