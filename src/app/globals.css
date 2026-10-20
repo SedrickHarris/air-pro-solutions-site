@@ -457,6 +457,8 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 .local-knowledge-dark .nbhd-card dl.lc-rows > div { border-top-color: rgba(255, 255, 255, 0.16); }
 .local-knowledge-dark .nbhd-card dl.lc-rows dt { color: #fff; }
 .local-knowledge-dark .nbhd-card dl.lc-rows dd, .local-knowledge-dark .nbhd-card .lc-note { color: #cddaea; }
+/* A fact card that is the only block in its .nbhd-card (service-page band) has no sibling below it to separate from. */
+.nbhd-card .lc:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: none; }
 @media (max-width: 520px) { .nbhd-card dl.lc-rows > div { grid-template-columns: 1fr; gap: 2px; } }
 
 @media (max-width: 920px) {
