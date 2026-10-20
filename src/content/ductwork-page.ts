@@ -381,7 +381,8 @@ const ductworkBase: ServicePage = {
     { text: 'Furnace replacement and airflow evaluation', href: '/services/furnace-installation/' },
     { text: 'Heat pump installation with ductwork evaluation', href: '/services/heat-pump-services/' },
     { text: 'Indoor air quality and filtration options', href: '/services/indoor-air-quality/' },
-    { text: 'HVAC maintenance and seasonal system checks', href: '/services/ac-maintenance/' },
+    // RESOLVED (2026-10-20, approved by user): relabeled from "HVAC maintenance and seasonal system checks". The target is cooling-side AC maintenance only; a noindex level-2 stub hvac-maintenance exists in services.ts. Same fix as Heating Repair.
+    { text: 'AC maintenance and seasonal system checks', href: '/services/ac-maintenance/' },
     { text: 'Emergency HVAC service', href: '/services/emergency-hvac/' },
     { text: 'Commercial HVAC and ductwork services', href: '/commercial-hvac/' },
   ],
