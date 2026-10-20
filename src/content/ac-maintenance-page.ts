@@ -329,6 +329,54 @@ const acMaintenanceBase: ServicePage = {
 };
 
 // Location-style migration (docs/open-items.md "Service page migration"). Setting `glance` marks this service as migrated.
+// TODO(copy): all strings in this block are new (glance labels, fact card, proof stats). Client approval for AC Maintenance has not been given.
+// GlanceCard keys on `num`: the three numbers must stay different (3, 6, 8 today). Fail the build if they collide.
+const glanceStats = [
+  { num: count(acMaintenanceBase.timing!.cards), label: 'timing points for AC maintenance explained' },
+  { num: '6', label: 'steps in an AC maintenance visit' }, // = the ac-maintenance `process` array length in services.ts; keep in sync
+  { num: count(acMaintenanceBase.visitIncludes), label: 'checks a typical visit may include' },
+];
+if (new Set(glanceStats.map((x) => x.num)).size !== glanceStats.length) {
+  throw new Error('ac-maintenance-page: glance stat numbers must be unique (GlanceCard keys on num)');
+}
+
 export const acMaintenancePage: ServicePage = {
   ...acMaintenanceBase,
+  glance: {
+    title: 'AC maintenance at a glance',
+    stats: glanceStats,
+    // TODO(data): all three stats are page counts. ENERGY STAR supports the checklist items in substance only; it does not support
+    // the six-step Air Pro visit or the three timing points. Confirm this source line reads correctly.
+    sources: [acMaintenanceSource('energystar.gov/saveathome/heating-cooling/maintenance-checklist')],
+  },
+  regionBand: {
+    eyebrow: 'Across Southern California',
+    title: 'How Southern California conditions shape AC maintenance',
+    card: {
+      heading: 'AC maintenance facts',
+      // Rows are in drop-order priority for the 1280px balance check: the last row goes first. Never go below two rows without
+      // asking. Rows restate existing page copy only: no License row, no dollar amounts, no rolling dates, no installation date,
+      // and no permit or alteration claim (the Energy Commission page does not mention alterations to existing buildings).
+      rows: [
+        { label: 'Existing R-410A systems', value: 'An older R-410A system can still be maintained. The EPA states that existing equipment can stay in use through its useful life' },
+        { label: 'Energy code', value: 'The 2025 California Energy Code applies to permit applications filed on or after January 1, 2026' },
+        { label: 'Heat and ozone', value: 'South Coast AQMD reported multi-day extreme ozone events during 2025 heat waves and expected levels to be lower along the coast than in inland parts of the air basin' },
+      ],
+      sources: [
+        acMaintenanceSource('frequent-questions-phasedown'),
+        acMaintenanceSource('2025-building-energy-efficiency'),
+        acMaintenanceSource('south-coast-aqmd-issues-ozone-advisory'),
+        acMaintenanceSource('ozone-adv_080725'),
+      ],
+    },
+  },
+  proofStats: [
+    { num: `${siteConfig.rating}★`, label: 'Google rating' },
+    { num: String(siteConfig.reviewCount), label: 'Google reviews' },
+    { num: count(acMaintenanceBase.faqs), label: 'AC maintenance questions answered' },
+    { num: count(acMaintenanceBase.catches!.rows), label: 'problems a routine visit can find early' },
+  ],
+  // TODO(design): real photos (1200x900) to replace the two "Photo pending" tiles (rebates band and region intro).
+  regionMedia: { icon: 'pin' },
+  rebatesNote: { ...acMaintenanceBase.rebatesNote!, media: { icon: 'dollar' } },
 };
