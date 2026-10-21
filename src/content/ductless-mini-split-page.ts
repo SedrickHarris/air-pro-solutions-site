@@ -301,8 +301,10 @@ const ductlessMiniSplitBase: ServicePage = {
     { label: 'Commercial HVAC', href: '/commercial-hvac/' },
     { label: 'Residential HVAC', href: '/residential-hvac/' },
   ],
+  // TODO(copy): paragraph 1 rewritten 2026-10-20 (recommended default from the planning chat) to NOAA's own words from NWS WR-261, "Climate of Los Angeles, California" (January 2000), read from the page images (printed pages 2 and 4; the PDF has no text layer): "This marine layer is the prominent weather feature for the Los Angeles Basin for much of the year--especially from late spring through early fall." and "Transitions between vegetation and climate zones, highly dependent upon elevation and distance from the ocean, can be striking." The old wording said marine air covers the coastal plain with "the coastal ranges buffering the interior", which the memo does not state. regionIntro is not in JSON-LD.
+  // TODO(data): recheck against the NWS source at launch.
   regionIntro: [
-    "Southern California is not one climate. NOAA's Los Angeles climate documentation describes marine air covering the coastal plain much of the year, with the coastal ranges buffering the interior, so conditions can differ sharply between nearby coastal and inland locations. That is why a mini-split is sized to the room, not to a county.",
+    "Southern California is not one climate. NOAA's Los Angeles climate report calls the marine layer the prominent weather feature for the Los Angeles Basin for much of the year, and says transitions between climate zones depend on elevation and distance from the ocean and can be striking. That is why a mini-split is sized to the room, not to a county.",
     'South Coast AQMD names ozone and particulate matter as the region\'s primary air pollutants, and its area includes all of Orange County and large parts of Los Angeles, Riverside, and San Bernardino counties. For a mini-split, that is a reason to keep washable indoor filters clean as the manufacturer directs. It is not a reason to expect a mini-split to remove smog. California reliability reporting also cites extreme-weather demand during summer heat, which is a reason to plan cooling before a heat event.',
   ],
   regionConditions: [
