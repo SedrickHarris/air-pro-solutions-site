@@ -263,10 +263,14 @@ const ductlessMiniSplitBase: ServicePage = {
     heading: 'Rebates and incentives that may apply',
     lead: 'Utility and state programs change often and can run out of funds. Whether one applies depends on your utility, income, equipment, and address. Confirm with the program before you buy.',
     items: [
+      // TODO(copy): LADWP eligibility sentence added 2026-10-20 (recommended default from the planning chat, pending client confirmation). LADWP page, ductless mini-split and multi-split heat pump HVAC section: "New construction and Accessory Dwelling Units (ADUs) are not eligible." Also on the page: "You must be an LADWP residential customer with active electric meter service." and "All applications must be postmarked within 12 months of the purchase date." Table row for ductless, mini-split and multi-split, HP HVAC: $1,500 (> 15.2 SEER2, > 7.8 HSPF2) up to $2,500 (> 20.5 SEER2, > 9.1 HSPF2) per ton.
+      // TODO(data): recheck against the LADWP page at launch. The page also lists a promotional higher rebate window (purchased and installed between June 1, 2026 and September 30, 2026, applications by December 31, 2026) that this card does not mention.
+      // TODO(copy): CEC card date wording (recommended default from the planning chat). The CEC page still reads "As of February 24, 2026, HEEHRA rebates for single-family home retrofits are fully reserved statewide.", so that date is kept as the page's own status date and matches the other service pages. The November 14, 2025 TECH Clean California date is removed: it is not on the linked CEC page (TECH's own page was not linked or read). "Check the program page for current dates" added. No dollar amount touched.
+      // TODO(data): the SCE card says its income-qualified Energy Savings Assistance program serves eligible households. The linked SCE page ("Rebates and Financial Assistance") names rebates, the SCE Marketplace and bill assistance (One-Time Bill Assistance, Medical Baseline Allowance, Budget Billing Plan) and does not name Energy Savings Assistance. Report only; card unchanged.
       {
         name: 'LADWP',
         headline: '$1,500 to $2,500 per ton',
-        body: 'LADWP lists this range for qualifying ductless mini-split and multi-split heat-pump systems, by efficiency tier. It applies to active LADWP residential electric customers. You apply after purchase and installation, within 12 months of purchase, and funds are limited and not guaranteed.',
+        body: 'LADWP lists this range for qualifying ductless mini-split and multi-split heat-pump systems, by efficiency tier. It applies to active LADWP residential electric customers. LADWP states that new construction and Accessory Dwelling Units (ADUs) are not eligible. You apply after purchase and installation, within 12 months of purchase, and funds are limited and not guaranteed.',
         link: { label: 'LADWP Consumer Rebate Program', href: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program', external: true },
       },
       {
@@ -278,7 +282,7 @@ const ductlessMiniSplitBase: ServicePage = {
       {
         name: 'CEC',
         headline: 'Check status',
-        body: "California's single-family HEEHRA rebates were fully reserved statewide as of February 24, 2026, and TECH Clean California listed general single-family heat-pump incentives as fully reserved as of November 14, 2025. The state's Equitable Building Decarbonization program may support eligible households.",
+        body: "California's single-family HEEHRA rebates were fully reserved statewide as of February 24, 2026. Funding and status change, so check the program page for current dates and availability. The state's Equitable Building Decarbonization program may support eligible households.",
         link: { label: 'California Energy Commission rebate programs', href: 'https://www.energy.ca.gov/programs-and-topics/programs/inflation-reduction-act-residential-energy-rebate-programs', external: true },
       },
     ],
