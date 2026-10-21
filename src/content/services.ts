@@ -633,7 +633,7 @@ const acRepairPage: ServicePage = {
   },
   rulesTitle: 'Licensing, permits, and energy-code basics',
   rules: [
-    { title: 'Licensing', body: 'California requires a CSLB-licensed contractor for projects valued at $500 or more in labor and materials. The C-20 classification covers installation, maintenance, service, and repair of air-conditioning systems. You can verify any contractor’s license on the CSLB website.' },
+    { title: 'Licensing', body: 'California requires a CSLB-licensed contractor for projects of $1,000 or more in labor, materials, and all other costs, and for any project that needs a building permit or uses employee labor. The C-20 classification covers installation, maintenance, service, and repair of air-conditioning systems. You can verify any contractor’s license on the CSLB website.' },
     // TODO(data): do NOT say "we pull permits" unless the client confirms it is consistent practice
     { title: 'Permits', body: 'Repair and replacement are not the same. Permit requirements are set by the city or county and depend on project scope, and not every repair needs one. For replacements, permit requirements vary by city and project scope, and we can explain the permit path before work begins.' },
     { title: 'Energy code', body: 'California energy code can require refrigerant-charge and airflow verification when cooling equipment is replaced or altered, sometimes by a HERS rater. That applies to regulated replacements and alterations, not to every repair.' },
