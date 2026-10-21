@@ -1850,6 +1850,36 @@ is TODO(copy)). Regression: every commit changed only the pages named below and 
   Permits and Energy code card sourcing; regionIntro paragraph 1 overstates NOAA; "vulnerable to heat" and "after-hours commercial work" wording;
   workers' compensation; the ductless parent and four noindex children overlap on `ductless mini split los angeles`.
 
+Ductless Mini-Split follow-up 2 (2026-10-20, same branch `ductless-mini-split-migration`, 5 more code commits; client copy approval NOT given, every new
+string is TODO(copy)). Only the ductless page changed at every step (comment-only commits changed nothing), and JSON-LD stayed byte-identical except FAQ 10.
+- Merge trial (scratch branch, deleted): the branch merged with origin/main (7e04bd0) cleanly and the merged build passed lint and `next build`. Against the
+  branch tip only `services/emergency-hvac` differs (7e04bd0 puts a Photo pending tile beside the availability block and touches `page.tsx`,
+  `emergency-hvac-page.ts` and a `services.ts` type line). Against a build of origin/main only `ductless-mini-split`, `ac-repair` and
+  `indoor-air-quality` differ, and all JSON-LD on every page is identical to origin/main.
+- `regionIntro` paragraph 1 rewritten (it is not in JSON-LD, checked against the built page) to NOAA's own words from NWS WR-261, read from the page images
+  (printed pages 2 and 4, PDF pages 23 and 25; the PDF has no text layer): "calls the marine layer the prominent weather feature for the Los Angeles Basin
+  for much of the year, and says transitions between climate zones depend on elevation and distance from the ocean and can be striking". The "coastal
+  ranges buffering the interior" claim is gone. No other page carries that sentence. The 1280px fact-card balance did not move (copy 416px, card 427px, 4px
+  blank) because paragraph 1 renders in the region intro, not in the local band.
+- SCE: the card sentence about Energy Savings Assistance is kept. SCE's own ESA page (read in full) says "The Energy Savings Assistance (ESA) program offers
+  income-qualified homeowners and renters the opportunity to receive energy-saving home improvements ... If you qualify, we will cover the cost" and
+  "Programs and services are available to customers who meet specific household income guidelines". That page also says SCE and SoCalGas are "no longer
+  accepting new project applications" for the ESA Whole Home Program (sunset at the end of 2026) while the standard ESA program remains "subject to funding
+  availability, and eligibility requirements". The card has one link slot, so the ESA page is not linked on the page.
+- LADWP: no card change. $1,500 to $2,500 per ton is the standing table for ductless, mini-split and multi-split heat pump HVAC (rows $1,500 up to $2,500 by
+  SEER2 and HSPF2). The earlier follow-up note that a June to September 2026 promotion applied was wrong: that promotion is a $750 pool pump and motor rebate.
+  LADWP also says heat pump rebates "have increased for equipment purchased and installed on or after November 1, 2025", which the card does not state.
+- FAQ 10 now carries the same LADWP sentence as the card ("LADWP states that new construction and Accessory Dwelling Units (ADUs) are not eligible."), edited
+  once in `faqs[9].a`, so the visible answer and the FAQPage JSON-LD changed together. A script confirmed all 10 FAQ answers match between the visible
+  details and the JSON-LD. JSON-LD diff: FAQ 10 answer text only.
+- Evidence: CAISO PDF pages 8 and 36 (of 39) both read "During summer, temperature is a key driver of load conditions, especially when there are extreme and
+  widespread heat events"; the document says "load", `regionIntro` paragraph 2 says "demand" (not edited). The CEC page still reads "As of February 24, 2026,
+  HEEHRA rebates for single-family home retrofits are fully reserved statewide" and nothing newer about HEEHRA (its other 2026 dates are CA-TREC awards).
+- Still open: client copy approval for all new strings (including the NOAA wording, the LADWP sentence in the card and FAQ 10); the LADWP November 1, 2025
+  amount change is not stated; CAISO "load" versus "demand"; CEC date recheck at launch; Permits and Energy code card sourcing; the EPA FAQ versus May 2026
+  rule conflict; "vulnerable to heat" and "after-hours commercial work" wording; workers' compensation; the ductless parent and four noindex children
+  overlap on `ductless mini split los angeles`.
+
 Ductless Mini-Split was the last service: no services remain to migrate. The Project doc copy `claude/open-items.md` (outside the repo, in the Claude
 Project) needs the same update; it was not edited here.
 
@@ -1865,6 +1895,8 @@ Blockers:
 - RESOLVED (2026-10-20): Ductless Mini-Split now has 8 `sources` entries. Claims still without a source: the NOAA Los Angeles climate sentence, the Permits card wording, and "safety requirements vary by matched equipment".
 - UPDATE (2026-10-20 follow-up): Ductless Mini-Split now has 9 `sources` entries (CSLB press release swapped for the current CSLB page, NOAA WR-261 added). Still unsourced: the Permits card wording and "safety requirements vary by matched equipment". regionIntro paragraph 1 overstates NOAA ("coastal ranges buffering the interior" is not in WR-261).
 - OPEN: FAQs and rebate facts. FAQ 10 omits LADWP's ADU and new construction exclusion; the TECH Clean California November 14, 2025 date was removed from the ductless CEC card (other pages still cite February 24, 2026 only). LADWP also lists a June 1 to September 30, 2026 promotional rebate window. Client confirmation needed before the LADWP sentence and the CEC date wording ship.
+- RESOLVED (2026-10-20, follow-up 2): FAQ 10 now states the LADWP new construction and ADU exclusion (JSON-LD mirrors it); the "June to September promotion" note above was wrong (it is a pool pump rebate), so the only LADWP item left is the November 1, 2025 amount change the card does not state. The ductless SCE Energy Savings Assistance sentence is supported by SCE's ESA page. `regionIntro` paragraph 1 no longer claims coastal ranges buffer the interior.
+- OPEN: ductless client approval of the new FAQ 10 sentence, the NOAA wording and the CEC date wording before merge. origin/main already contains the Emergency migration and 7e04bd0; the ductless branch merges with it cleanly.
 - RESOLVED (2026-10-20): the stale `$500` licensing threshold on the ductless, AC Repair and Indoor Air Quality Licensing cards. No FAQ carried it.
 - RESOLVED (2026-10-20, branch `heat-pump-decisions`): refrigerant installation-date wording conflicted with EPA's May 2026
   final rule. Every January 1, 2026 and "below 700 GWP" refrigerant statement now states no installation date and no GWP
