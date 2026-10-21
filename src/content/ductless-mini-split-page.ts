@@ -378,9 +378,11 @@ const ductlessMiniSplitBase: ServicePage = {
       q: 'Why is my mini-split not cooling?',
       a: 'Poor cooling can involve airflow restrictions, settings, controls, refrigerant issues, electrical problems, or outdoor-unit faults. Clean accessible filters only as your manufacturer directs. If cooling is still poor, have a technician diagnose it.',
     },
+    // TODO(copy): the LADWP exclusion sentence was added 2026-10-20 (recommended default from the planning chat, pending client confirmation), with the same words as the LADWP rebate card so the two cannot drift. LADWP: "New construction and Accessory Dwelling Units (ADUs) are not eligible." The per-ton range and the February 24, 2026 CEC status date are unchanged and match the card and the sources; no Energy Savings Assistance claim is made here. `a` is the single source for the visible answer and the FAQPage JSON-LD.
+    // TODO(data): recheck against the LADWP page at launch.
     {
       q: 'Are rebates available for ductless mini-split heat pumps?',
-      a: 'Some may be, but funding and eligibility change. LADWP lists rebates of $1,500 to $2,500 per ton for qualifying ductless mini-split heat-pump systems for its residential electric customers. Southern California Edison programs vary by eligibility and funding. California\'s single-family HEEHRA rebates were fully reserved statewide as of February 24, 2026. Check each program before you buy.',
+      a: 'Some may be, but funding and eligibility change. LADWP lists rebates of $1,500 to $2,500 per ton for qualifying ductless mini-split heat-pump systems for its residential electric customers. LADWP states that new construction and Accessory Dwelling Units (ADUs) are not eligible. Southern California Edison programs vary by eligibility and funding. California\'s single-family HEEHRA rebates were fully reserved statewide as of February 24, 2026. Check each program before you buy.',
     },
   ],
   // TODO(copy): client review of every FAQ answer above before launch.
