@@ -27,13 +27,15 @@ const ductlessMiniSplitSources: { label: string; url: string; group: string }[] 
   { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20', group: 'Energy code and licensing' },
   // TODO(copy): label is new, the page title. Current CSLB page that states the licensing threshold, the permit and employee-labor conditions and the minor-work exemption. Replaces the dated December 2024 press release (CSLB #24-21), which supported the same sentence.
   { label: 'California CSLB - Before applying for a license when no exam is required', url: 'https://www.cslb.ca.gov/contractors/applicants/contractors_license/no_exam_application/Before_Applying_For_License.aspx', group: 'Energy code and licensing' },
-  // TODO(data): supports regionIntro paragraph 2's "California reliability reporting also cites extreme-weather demand during summer heat": "During summer, temperature is a key driver of load conditions, especially when there are extreme and widespread heat events." It is a 2024 assessment.
+  // TODO(data): NWS Western Region Technical Memorandum 261 (David Bruno and Gary Ryan, National Weather Service Forecast Office Los Angeles/Oxnard, January 2000). The PDF is a scan with no text layer, so the text was read by eye from the page images (printed pages 2 and 4, PDF pages 23 and 25), not by OCR. It supports: "This marine layer is the prominent weather feature for the Los Angeles Basin for much of the year--especially from late spring through early fall." and "The City of Los Angeles sits on a 20 to 40 mile wide coastal plain bounded on the north and east by relatively high mountains" and "Transitions between vegetation and climate zones, highly dependent upon elevation and distance from the ocean, can be striking." It does NOT say the coastal ranges "buffer the interior", so regionIntro paragraph 1 ("NOAA's Los Angeles climate documentation describes ... with the coastal ranges buffering the interior") overstates it. regionIntro is locked in the migration runs, so report only. The fact card uses NOAA's own wording.
+  { label: 'NOAA National Weather Service - Climate of Los Angeles, California (NWS WR-261)', url: 'https://www.weather.gov/media/wrh/online_publications/TMs/TM-261.pdf', group: 'Heat and air quality' },
+  // TODO(data): supports regionIntro paragraph 2's "California reliability reporting also cites extreme-weather demand during summer heat" in these words only: "During summer, temperature is a key driver of load conditions, especially when there are extreme and widespread heat events." (Weather Outlook section; "load" is the document's word for electricity demand, and the heat events are "extreme and widespread", not "extreme weather" in general.) Same URL and document that AC Repair cites. It is a 2024 assessment.
   { label: 'California ISO - 2024 Summer Loads and Resources Assessment', url: 'https://www.caiso.com/Documents/2024-Summer-Loads-and-Resources-Assessment.pdf', group: 'Heat and air quality' },
   // The aqmd.gov host is used because www.southcoastaqmd.gov fails certificate-name validation in Chromium (same as AC Repair).
   { label: 'South Coast AQMD - Air quality', url: 'https://www.aqmd.gov/home/air-quality', group: 'Heat and air quality' },
 ];
 // No manufacturer, contractor or marketplace source is on this page (checked 2026-10-20), so there is no hold-out array.
-// TODO(data): no source was read for "NOAA's Los Angeles climate documentation" (regionIntro paragraph 1). The likely document is NWS Western Region Technical Memorandum 261, "Climate of Los Angeles, California", but its PDF is a scanned image with no text layer and was not read. No NOAA entry is listed and the sentence is not used in the fact card.
+// TODO(data): the NOAA entry above supports the marine-layer and coastal-plain parts of regionIntro paragraph 1 only, not the "buffering" clause (see its comment).
 
 const count = (items?: readonly unknown[]): string => {
   if (!items?.length) throw new Error('ductless-mini-split-page: empty array used for a derived count');
@@ -406,20 +408,24 @@ export const ductlessMiniSplitPage: ServicePage = {
       // Rows are in drop-order priority for the 1280px balance check: the last row goes first. Never go below two rows without asking.
       // Rows restate existing page copy or a source's own wording: no License row, no dollar amounts, no rolling dates, no installation date
       // and no permit or alteration claim.
-      // Not built: row "Coast and inland" (regionIntro paragraph 1, "marine air covering the coastal plain much of the year, with the coastal
-      // ranges buffering the interior"), because no NOAA document with that wording was read (NWS Western Region memo 261 is a scanned PDF
-      // with no text layer). Restore it with a NOAA source once the memo is read.
-      // Row 3 (Energy code) was the reserve row, added because two rows left the card 186px short of the copy at 1280px. Energy Commission:
-      // "Buildings whose permit applications are applied for on or after January 1, 2026, must comply with the 2025 Energy Code." Date sentence only.
+      // Row 1 (Coast and inland) uses NOAA's own words from NWS WR-261, not regionIntro's "coastal ranges buffering the interior", which the memo does
+      // not state: "This marine layer is the prominent weather feature for the Los Angeles Basin for much of the year--especially from late spring
+      // through early fall" and "Transitions between vegetation and climate zones, highly dependent upon elevation and distance from the ocean, can be
+      // striking." Text read by eye from the scan (no OCR). Added in the 2026-10-20 follow-up.
+      // Dropped for the 1280px balance check (copy 416px): row 4, label 'Energy code', value 'The 2025 California Building Energy Efficiency Standards apply
+      // to permit applications submitted on or after January 1, 2026' (Energy Commission: "Buildings whose permit applications are applied for on or after
+      // January 1, 2026, must comply with the 2025 Energy Code."; date sentence only), source ductlessMiniSplitSource('2025-building-energy-efficiency').
+      // With the Coast and inland row the card was 545px (129px past the copy) with four rows. It was a row on the migration branch (card 348px, 68px short)
+      // before the NOAA row was added. Restore it if the copy grows.
       rows: [
+        { label: 'Coast and inland', value: "NOAA's Los Angeles climate report calls the marine layer the prominent weather feature for the Los Angeles Basin for much of the year, and says transitions between climate zones depend on elevation and distance from the ocean and can be striking" },
         { label: 'Existing R-410A systems', value: 'Existing R-410A systems can still be serviced' },
         { label: 'Air quality', value: "South Coast AQMD names ozone and particulate matter as the region's primary air pollutants" },
-        { label: 'Energy code', value: 'The 2025 California Building Energy Efficiency Standards apply to permit applications submitted on or after January 1, 2026' },
       ],
       sources: [
+        ductlessMiniSplitSource('TM-261'),
         ductlessMiniSplitSource('frequent-questions-phasedown'),
         ductlessMiniSplitSource('aqmd.gov/home/air-quality'),
-        ductlessMiniSplitSource('2025-building-energy-efficiency'),
       ],
     },
   },
