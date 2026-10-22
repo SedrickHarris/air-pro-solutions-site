@@ -8,11 +8,13 @@ import { getService, serviceHref, commercialCardImage, commercialCardDescription
 import { getCity } from '@/content/cities';
 import { getRegion } from '@/content/regions';
 import { siteConfig } from '@/content/site-config';
-import { PendingNote } from '@/components/ui/PendingNote';
 import { Icon } from '@/components/ui/Icon';
+import { SourceLinks } from '@/components/ui/SourceLinks';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { TrustStrip } from '@/components/sections/TrustStrip';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
+import { GlanceCard } from '@/components/sections/GlanceCard';
+import { SourcesList } from '@/components/sections/SourcesList';
 import { LocalKnowledge } from '@/components/sections/LocalKnowledge';
 import { SymptomGrid } from '@/components/sections/SymptomGrid';
 import { ProcessList } from '@/components/sections/ProcessList';
@@ -100,6 +102,22 @@ export default async function Page({ params }: { params: Promise<{ service: stri
     { name: 'Commercial HVAC', href: '/commercial-hvac/', icon: 'building', image: commercialCardImage, description: commercialCardDescription },
   ];
 
+  // Merged "{Service} in {City} at a glance" card: the service record's own glance supplies two stats (process
+  // steps, C-20) and the city supplies one verified fact, so every page keeps the same three-stat card and the
+  // dark quick-answer band stays the same height as the service and city pages. Services that have not been
+  // migrated to the location-style pattern (no `page.glance`) keep the plain answer block.
+  const serviceGlance = service.page?.glance;
+  const glanceSources = serviceGlance ? [...serviceGlance.sources, ...content.cityGlance.sources] : [];
+
+  // City-specific sources first, then the service-record sources this page also cites. Looking them up by URL
+  // fragment (and throwing when one is missing) keeps a single copy of each source in services.ts.
+  const serviceSources = content.serviceSourceKeys.map((key) => {
+    const found = service.page?.sources?.find((src) => src.url.includes(key));
+    if (!found) throw new Error(`Unknown ${service.name} source on ${serviceHref(service.slug)}${city.slug}/: ${key}`);
+    return found;
+  });
+  const referenceSources = [...content.sources, ...serviceSources];
+
   const schema = [
     citySchema({
       name: h1,
@@ -157,7 +175,28 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       <TrustStrip stats={content.trust} />
 
-      <AnswerBlock lead={content.answer.lead} body={content.answer.body} />
+      {serviceGlance ? (
+        <AnswerBlock
+          lead={content.answer.lead}
+          body={content.answer.body}
+          dark
+          ctas={{
+            primaryLabel: `Schedule ${service.name} in ${city.name}`,
+            primaryHref: '/contact/',
+            phoneLabel: `Call ${siteConfig.phone}`,
+            phoneHref: siteConfig.phoneHref,
+          }}
+          aside={
+            <GlanceCard
+              title={`${service.name} in ${city.name} at a glance`}
+              stats={[...serviceGlance.stats.slice(0, 2), content.cityGlance.stat]}
+              source={<SourceLinks sources={glanceSources} />}
+            />
+          }
+        />
+      ) : (
+        <AnswerBlock lead={content.answer.lead} body={content.answer.body} />
+      )}
 
       <LocalKnowledge
         eyebrow={content.local.eyebrow}
@@ -166,17 +205,14 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         links={[
           { text: `See the ${service.name} overview`, href: serviceHref(service.slug) },
           { text: `All HVAC services in ${city.name}`, href: `/service-areas/${city.slug}/` },
+          ...content.local.links,
         ]}
         neighborhoodsHeading={content.local.areasHeading}
         neighborhoods={city.neighborhoods}
         zips={city.zips}
+        localCards={content.local.cards}
         alt
       />
-      <section className="alt" style={{ paddingTop: 0 }}>
-        <div className="wrap">
-          <PendingNote>a {city.name} customer review or job photo for this page, pending a real review with permission.</PendingNote>
-        </div>
-      </section>
 
       <SymptomGrid items={service.symptoms} title={service.page?.symptomsTitle ?? `Common signs you need ${service.name}`} alt={false} />
 
@@ -225,6 +261,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         firstOpen
         boldFirstSentence
         alt
+        footer={<SourcesList variant="details" items={referenceSources} />}
       />
 
       <FinalCta

@@ -14,18 +14,31 @@ export type MatrixContent = {
   heroProof: { icon: string; label: string }[];
   trust: { num: string; label: string }[];
   answer: { label: string; lead: string; body: string };
+  // One verified city fact for the merged "{Service} in {City} at a glance" card. The other two stats come
+  // from the service record's own glance card (page.glance), so every page keeps the same three-stat shape.
+  cityGlance: { stat: { num: string; label: string }; sources: { label: string; url: string }[] };
   local: {
     eyebrow: string;
     h2: string;
     paragraphs: string[]; // may contain **bold** markers
     areasHeading: string;
+    links: { text: string; href: string }[]; // official external links shown under the paragraphs
+    cards: { heading: string; rows: { label: string; value: string }[]; note: string }[];
   };
   nearby: string[]; // city slugs (all render as non-link cards unless a matrixPages pair exists)
   faqs: Faq[];
+  sources: { label: string; url: string; group?: string }[]; // city-specific references row under the FAQ
+  serviceSourceKeys: string[]; // url fragments of service-record sources this page also cites (see page.tsx)
 };
 
 // Locked copy for /services/ac-repair/torrance/. See CLAUDE.md "Claims that must not ship": no pricing,
 // same-day/24-7 timing, brand-list, or unconfirmed licensing claims.
+//
+// Verified-only rebuild (2026-10-21). Every Torrance fact below traces to a source read on that date; see the
+// "AC Repair x Torrance" section of docs/open-items.md for the full verification record and the held-out list.
+// Held out on purpose (not verified): neighborhood-level housing age, citywide pre-1970 share, climate and
+// marine-layer statements, coastal-vs-inland comparisons, equipment-failure patterns, utility providers, rebates,
+// and the adopted code edition. Do not reintroduce them without a source.
 const acRepairTorrance: MatrixContent = {
   heroImage: {
     src: '/images/service-location/hvac-services-torrance-ca/hero/air-pro-solutions-torrance-ca-hvac-service-area-home-condenser-4x3.webp',
@@ -35,6 +48,9 @@ const acRepairTorrance: MatrixContent = {
   primaryKeyword: 'ac repair torrance',
   metaDescription:
     'Need AC repair in Torrance? AIRPRO SOLUTIONS helps homes and businesses with cooling, airflow, electrical, and drainage problems. Schedule service.',
+  // TODO(data): the neighborhood names in this lede, the neighborhood pills and the ZIP list come from cities.ts,
+  // where they are still flagged TODO(data) (not verified against a local source). Same wording as the approved
+  // /service-areas/torrance/ page.
   lede:
     "No cooling, weak airflow, strange noises, or water leaks? AIRPRO SOLUTIONS provides residential and commercial AC repair across Torrance - from Old Torrance and North Torrance to Walteria and the Hollywood Riviera border - and explains what we find and what your options are before you decide.",
   heroProof: [
@@ -55,14 +71,47 @@ const acRepairTorrance: MatrixContent = {
     body:
       ' finds and fixes the problems that keep an air conditioning system from cooling, running efficiently, draining correctly, or moving air reliably. AIRPRO SOLUTIONS diagnoses the cause, explains what we find and your options, and completes the repair for homes and businesses across Torrance. Call or request service online to schedule a visit.',
   },
+  // TODO(copy): client review of the merged glance card before launch.
+  // Source: City of Torrance Building and Safety online permit portal page, read 2026-10-21. The page gives
+  // no publication date; "Effective January 5, 2026" is the date it states for the mandatory digital transition.
+  cityGlance: {
+    stat: { num: 'Jan 5, 2026', label: 'Torrance moved permit plan review and submittals fully online' },
+    sources: [
+      {
+        label: 'City of Torrance - Building and Safety online permit portal',
+        url: 'https://www.torranceca.gov/our-city/community-development/online-permit-portal/building-and-safety',
+      },
+    ],
+  },
+  // TODO(copy): every new string in this band (paragraphs, card, links) is client-review pending.
   local: {
     eyebrow: 'Local knowledge',
-    h2: "AC repair built around Torrance's housing stock",
+    h2: 'AC repair in Torrance: permits, noise rules, and property types',
     paragraphs: [
-      "Torrance sits at the edge of the South Bay's marine layer, so homes near the coast tend to need less cooling than homes farther inland, such as in North Torrance. Systems that run more hours across a season see more wear on parts like capacitors and blower motors. **AIRPRO SOLUTIONS takes that into account when diagnosing intermittent or seasonal cooling problems**, rather than assuming every system fails the same way.",
-      "Housing stock matters too. **Old Torrance and North Torrance** have a large share of homes built in the 1940s through 1960s, often with narrow attic space and original ductwork that can restrict airflow. That is a common reason an AC runs constantly without cooling the house, or freezes up. We look at duct condition and airflow when diagnosing problems in these neighborhoods.",
+      'Mechanical permits in Torrance go through the **City of Torrance Building and Safety Division**, part of Community Development. Since January 5, 2026, the division has handled plan review and permit submittals entirely online. Whether a particular AC repair needs a permit depends on the scope of the work, and a repair is not the same as a replacement. **AIRPRO SOLUTIONS can walk you through what your job involves**, and you can confirm requirements with the division at 310-618-5910.',
+      "Torrance's Municipal Code also regulates air conditioning equipment noise. **Section 46.2.6 covers AC and similar equipment noise at residential property lines**, and the city publishes additional region-based noise limits. A unit that has gotten louder is worth having diagnosed, and Torrance Code Enforcement handles noise codes.",
+      'Torrance has a real mix of property types. An official housing-data report updated in April 2021 (SCAG pre-certified local housing data, built on California Department of Finance estimates) shows **52.5% of Torrance housing units are detached single-family homes and 39.4% are multifamily**, with attached single-family homes and mobile homes making up the rest. Access and HOA or property-manager coordination can differ between a house and a multifamily building, so we plan each repair around the actual property and equipment.',
     ],
     areasHeading: 'Torrance areas we repair AC in',
+    links: [
+      {
+        text: 'City of Torrance Building and Safety',
+        href: 'https://www.torranceca.gov/Government/Departments-Offices/Departments-Offices/Community-Development/Building-and-Safety',
+      },
+      { text: 'Torrance Municipal Code, noise', href: 'https://www.codepublishing.com/CA/Torrance/html/Torrance04/Torrance0406.html' },
+    ],
+    cards: [
+      {
+        heading: 'Torrance AC repair facts',
+        rows: [
+          { label: 'Permits', value: 'Mechanical permits go through the City of Torrance Building and Safety Division' },
+          { label: 'Submittals', value: 'Plan review and permit submittals are electronic, effective January 5, 2026' },
+          { label: 'Noise', value: 'Municipal Code Section 46.2.6 covers AC equipment noise at residential property lines' },
+          { label: 'Housing mix', value: '52.5% detached single-family, 39.4% multifamily (report updated April 2021)' },
+        ],
+        note: 'Sources: City of Torrance Building and Safety, Torrance Municipal Code, SCAG pre-certified local housing data. Confirm project requirements with the city.',
+      },
+    ],
   },
   nearby: ['redondo-beach', 'manhattan-beach', 'gardena', 'carson'],
   faqs: [
@@ -73,19 +122,24 @@ const acRepairTorrance: MatrixContent = {
     },
     {
       q: 'Why is my AC not cooling well in Torrance?',
-      a: 'The most common causes are a refrigerant leak, a dirty condenser coil, or a failing capacitor. In inland neighborhoods like North Torrance, systems can run more hours than systems near the coast, which can add wear to parts like capacitors and blower motors. A technician can find the actual cause in your system.',
+      a: 'Weak cooling can involve more than the outdoor AC unit. Federal energy guidance identifies leaking or restricted ducts, dirty filters and coils, and refrigerant problems as possible causes. A diagnosis should establish whether the problem is in the equipment, airflow, or duct system.',
     },
     {
-      q: 'Do older Torrance homes have common AC problems?',
-      a: 'Often, yes. Many homes in Old Torrance and North Torrance were built in the 1940s through 1960s with narrow attic space and original ductwork, which can restrict airflow and cause an AC to run inefficiently or freeze up. AIRPRO SOLUTIONS looks at duct condition and airflow when diagnosing problems in these neighborhoods.',
+      q: 'Does AC repair in Torrance need a permit?',
+      a: 'It depends on the scope of the work. The City of Torrance Building and Safety Division handles mechanical permits, and a repair is not the same as a replacement. Since January 5, 2026, the division handles plan review and permit submittals online. AIRPRO SOLUTIONS can walk you through what your job involves, and you can confirm requirements with the division at 310-618-5910.',
     },
     {
-      q: 'How much does AC repair cost in Torrance?',
-      a: 'Repair cost depends on the part, the age of the system, and how accessible the unit is. The most accurate answer comes from a technician looking at your system, so contact us to talk through your situation.',
+      q: 'Does Torrance regulate AC equipment noise?',
+      a: "Yes. Torrance's Municipal Code addresses air conditioning equipment noise at residential property lines in Section 46.2.6, and the city publishes additional noise limits that depend on the receiving property. If your unit has gotten louder, that is worth diagnosing. For a specific noise concern, contact Torrance Code Enforcement at (310) 618-5929.",
+      links: [{ text: '(310) 618-5929', href: 'tel:+13106185929' }],
     },
     {
       q: 'Does AIRPRO SOLUTIONS repair AC systems in Torrance condos and HOAs?',
       a: 'Yes. AIRPRO SOLUTIONS repairs AC systems in condos, townhomes, and HOA-managed communities throughout Torrance, and can coordinate with property managers or HOA boards on access and scheduling.',
+    },
+    {
+      q: 'How much does AC repair cost in Torrance?',
+      a: 'Repair cost depends on the part, the age of the system, and how accessible the unit is. The most accurate answer comes from a technician looking at your system, so contact us to talk through your situation.',
     },
     {
       q: 'What AC brands does AIRPRO SOLUTIONS repair in Torrance?',
@@ -96,7 +150,39 @@ const acRepairTorrance: MatrixContent = {
       a: 'Repair often makes sense for an isolated problem on a system that has otherwise been reliable. Replacement is worth considering when breakdowns become frequent, a major component fails, or the system is well past its expected lifespan. A technician can compare the repair against replacement so you can decide with the full picture.',
     },
   ],
-  // TODO(copy): client review of every FAQ answer before launch.
+  // TODO(copy): client review of every FAQ answer before launch. New in this rebuild: the "not cooling well",
+  // permit and noise answers (the older-homes answer was removed: no source for neighborhood housing age).
+  // TODO(data): a Torrance customer review or job photo for this page, pending a real review with permission.
+  sources: [
+    {
+      label: 'City of Torrance - Building and Safety Division',
+      url: 'https://www.torranceca.gov/Government/Departments-Offices/Departments-Offices/Community-Development/Building-and-Safety',
+      group: 'Torrance permits and codes',
+    },
+    {
+      label: 'City of Torrance - Building and Safety online permit portal',
+      url: 'https://www.torranceca.gov/our-city/community-development/online-permit-portal/building-and-safety',
+      group: 'Torrance permits and codes',
+    },
+    {
+      label: 'Torrance Municipal Code - Noise (Section 46.2.6)',
+      url: 'https://www.codepublishing.com/CA/Torrance/html/Torrance04/Torrance0406.html',
+      group: 'Torrance permits and codes',
+    },
+    {
+      label: 'City of Torrance - Code Enforcement Unit',
+      url: 'https://www.torranceca.gov/Government/Departments-Offices/Departments-Offices/Community-Development/Code-Enforcement-Unit',
+      group: 'Torrance permits and codes',
+    },
+    {
+      label: 'SCAG - Pre-Certified Local Housing Data for Torrance (April 2021)',
+      url: 'https://scag.ca.gov/sites/default/files/old/file-attachments/torrance-he-0421.pdf',
+      group: 'Torrance housing',
+    },
+  ],
+  // Also cited on this page, read from the AC Repair service record so there is one copy of each source:
+  // the DOE diagnostics guide (the "not cooling well" answer) and the CSLB C-20 classification (glance card).
+  serviceSourceKeys: ['measure_guide_air_cond_diagnostics', 'Class=C20'],
 };
 
 export const matrixContent: Record<string, MatrixContent> = {

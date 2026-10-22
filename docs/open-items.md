@@ -1926,3 +1926,33 @@ Blockers:
   furnace-installation-page, ac-maintenance-page (2), ductless-mini-split-page, emergency-hvac-page (2),
   indoor-air-quality-page and services.ts (AC Repair, 2 FAQs). None was edited. Confirm against the Federal Register text of the
   May 2026 rule before changing any of them, and change every page and its JSON-LD in one pass.
+
+## /services/ac-repair/torrance/ (src/content/matrix-content.ts, matrix page src/app/services/[service]/[city]/page.tsx)
+
+Rebuilt 2026-10-21 from verified facts only, on branch `ac-repair-torrance-migration`. Opening now matches the migrated service pages: dark quick-answer band with CTAs and one merged "AC Repair in Torrance at a glance" card (two stats from the AC Repair service glance, one Torrance stat), a "Sources and references" row under the FAQ, and the PendingNote removed (replaced by a TODO(data) in matrix-content.ts). All new strings are TODO(copy).
+
+Verified and used (read on 2026-10-21 unless noted):
+- City of Torrance Building and Safety Division, part of Community Development, handles mechanical permits; mechanical, electrical and plumbing are separate submittals. The Division page does not use the words "Community Development Department". Phone 310-618-5910 is listed on the Division page. Source pages: the Division page and the online permit portal page (torranceca.gov).
+- Plan review and permit submittals are electronic, effective January 5, 2026 (the date the City states for the mandatory digital transition, not the first day online permitting existed). The page has no last-updated date, so re-verify the wording after any City site change.
+- Torrance Municipal Code Section 46.2.6, "Machinery, Equipment, Fans and Air Conditioning" (codepublishing.com, Torrance0406): limits AC equipment noise at a residential property line to no more than 5 dB over ambient. The page paraphrases and cites the section; it does not quote the code or give a single dB limit, because Section 46.7.2 sets region and time-based limits that depend on the receiving property. The section shows no amendment date.
+- Torrance Code Enforcement lists Zoning Enforcement and Noise Codes (Community and Airport) among its services; phone (310) 618-5929 is on its page.
+- Housing mix: SCAG, Pre-Certified Local Housing Data for Torrance (April 2021, page 10; source line CA DOF E-5): 52.5% detached single-family, 6.3% attached single-family, 6.3% multifamily 2-4 units, 33.1% multifamily 5+ units, 1.9% mobile homes. The two 6.3% values were checked and are both on the page. The chart gives no data year, so the page says "report updated April 2021". Separate condo, townhome and apartment shares are NOT FOUND; do not relabel the multifamily share.
+- AC diagnostic wording in FAQ 2 follows the DOE Building America AC diagnostics guide already listed in the AC Repair sources (2013).
+
+Held out on purpose (not verified; do not add without a source):
+- Neighborhood-level housing age for Old Torrance, North Torrance, West Torrance, Walteria and Hollywood Riviera: NOT FOUND. The old "1940s through 1960s, narrow attics, original ductwork" paragraph and the "older Torrance homes" FAQ were removed from this page.
+- Citywide pre-1970 share: the Safety Element's "nearly 70 percent" statement and the Housing Element Figure H-2 (printed page 42, adopted 2022) were located by research but not read by the build; numeric extraction is pending.
+- Climate: no verified Torrance source. The NWS marine-layer page found sits under a /zhu/ training path and does not name Torrance; NOAA 1991-2020 normals for Torrance Airport (USW00003122) were located but the cooling degree day and 90 F day values were not retrieved. A 7.6-day figure from an earlier answer was withdrawn.
+- Equipment failure patterns for older Torrance homes: NOT FOUND (federal guidance supports generic causes only).
+- Electric and gas providers: SCE and SoCalGas appear in City environmental documents for specific project sites only (Westoria and Costco documents); not a citywide statement. Not used.
+- Rebates and incentives (SCE coupons, Home Performance Plus, Smart Energy credits, HEEHRA, SoCalGas HEER, ESA): reserved for install pages. The 2026 SoCalGas HEER application covers natural-gas furnaces and other gas equipment, not air conditioners or heat pumps (deadline December 31, 2026, funds first-come first-served). HEEHRA was "fully reserved" as of the State's February 24, 2026 notice; word it with that date. The ESA central AC or heat-pump replacement claim was NOT verified (the SCE factsheet does not say it). Comfortably California not verified.
+- Adopted code edition and Ordinance No. 3957: the Granicus agenda page blocks automated access, so it was not read. The municipal code index lists Section 89.1.1 (adoption of the California Mechanical Code, no edition shown) and local amendments 89.2.1 to 89.2.3. The statewide 2025 edition is effective January 1, 2026 (BSC). Do not say Torrance uses the state codes without amendments, and do not state an adopted edition.
+- Inspection scheduling details (Voice Permits Line (310) 618-5901, codes 310 to 390) are verified but kept off the page: listing them could imply every repair needs those inspections.
+
+Still open before launch:
+- Neighborhood pills, ZIPs and the lede's neighborhood names still come from cities.ts, where they are flagged TODO(data) (not verified against a local source).
+- A real Torrance customer review or job photo (needs a real review with permission).
+- Client approval of all new copy (TODO(copy)).
+- Quality gate: the page now carries four Torrance-specific elements (permit route and electronic submittals, AC noise code with Code Enforcement, housing mix, neighborhood and ZIP detail). The fourth is unverified shared data, so confirm before this page ships to main.
+- Related Torrance city page (/service-areas/torrance/): its local paragraph and the "older Torrance homes" FAQ carry the same unsupported housing-age and microclimate claims, and its permit FAQ ("Equipment replacements and new installations generally require a permit and inspection") is stronger than anything verified. Not changed in this branch.
+- Layout (1280px, fonts mocked): the local card runs about 100px past the copy (card 668px, copy 564px, blank inside the card 1px). The "Jan 5, 2026" glance stat wraps to two lines in the three-column card at desktop width.
