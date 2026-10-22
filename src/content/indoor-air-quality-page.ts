@@ -295,7 +295,7 @@ const indoorAirQualityBase: ServicePage = {
   rulesEyebrow: 'The rules',
   rulesTitle: 'Licensing, permits, and energy-code basics',
   rules: [
-    { title: 'Licensing', body: "California requires a licensed contractor for work worth $500 or more in labor and materials. The C-20 classification covers ventilating systems, ducts, registers, humidity controls, and air filters connected to HVAC systems. Verify any contractor's active CSLB license, classification, insurance, scope, and written proposal before authorizing work." },
+    { title: 'Licensing', body: "California requires a licensed contractor for projects of $1,000 or more in labor, materials, and all other costs, and for any project that needs a building permit or uses employee labor. The C-20 classification covers ventilating systems, ducts, registers, humidity controls, and air filters connected to HVAC systems. Verify any contractor's active CSLB license, classification, insurance, scope, and written proposal before authorizing work." },
     { title: 'Permits', body: 'Installing or changing HVAC and ventilation equipment may need a local mechanical permit. Requirements depend on your city or county authority, not just the county name, so the jurisdiction is confirmed before work begins.' },
     { title: 'Energy code', body: "California's 2025 Energy Code applies to permit applications filed on or after January 1, 2026, and strengthens ventilation requirements. For new construction, additions, alterations, and system changes, the compliance path is set before installation. MERV 13 is not a universal requirement for every retrofit." },
   ],

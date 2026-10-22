@@ -1,10 +1,12 @@
 import type { ServicePage } from '@/content/services';
+import { siteConfig } from '@/content/site-config';
 
 // TODO(data): never fabricate business data. No prices, install durations, warranty terms, brand
 // names, or same-day/24-7/emergency-availability wording appear anywhere on this page.
-// TODO(data): Sources list for ductless-mini-split never arrived from the client-side prompt; add
-// once provided. Do not invent citations. (See the omitted `sources` field below - every other
-// published service page sets one; this one deliberately does not, pending real citations.)
+// RESOLVED (2026-10-19, confirmed by user): the CSLB record for licenses 1126691 and 50251 shows C-20, and "licensed, bonded and insured" is an approved claim. On this page the license class shows in the hero proof "Licensed HVAC contractor", the trust strip C-20 stat, the Licensing card, the proof block and the footer. "Bonded" and "insured" are not stated in the page copy.
+// TODO(data): workers' compensation is not an approved claim. Do not state it anywhere until the client confirms it.
+// TODO(data): the rebate card dollar amounts and dates (LADWP "$1,500 to $2,500 per ton", SCE "Varies", CEC with its February 24, 2026 and November 14, 2025 dates) and FAQ 10's figures are rolling facts. Recheck them against the program pages at launch. Report only; not edited in the migration run.
+// TODO(data): the Permits card has no linked source. See the task 2 findings on the Energy Commission pages (HVAC alterations page: installing a space conditioning appliance other than a plug-in room appliance requires a building permit; it does not cover electrical or panel work).
 // TODO(copy): confirm this Final CTA heading/body wording once the original client copy is available
 // (see `finalCtaTitle`/`finalCtaBody` below - substituted from the established five-page pattern
 // because the original client copy for this page's final CTA never arrived).
@@ -12,6 +14,39 @@ import type { ServicePage } from '@/content/services';
 // TODO(data): rebate `name` labels below ("LADWP", "SCE", "CEC") are short-form abbreviations of the
 // program names already stated in each card's body/link text, not new data - added only because the
 // RebateCards component requires a caption label alongside the dollar-amount headline.
+
+// TODO(copy): group labels are new (migration). Group order is the display order of the references row.
+// Sources built 2026-10-20 in the migration run, each read in full before it was added (see docs/open-items.md "Ductless Mini-Split is migrated").
+const ductlessMiniSplitSources: { label: string; url: string; group: string }[] = [
+  { label: 'U.S. EPA - HFC phasedown FAQ', url: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons', group: 'Refrigerant' },
+  // TODO(data): the SNAP table lists HFC-32 as safety class A2L and "Acceptable with Use Conditions: See rules for detailed conditions." It supports "A2L-classified", not the clause about requirements varying by matched equipment. Neither EPA page mentions A2L for R-410A replacements.
+  { label: 'U.S. EPA - SNAP substitutes for residential and light-commercial AC and heat pumps', url: 'https://www.epa.gov/snap/substitutes-residential-and-light-commercial-air-conditioning-and-heat-pumps', group: 'Refrigerant' },
+  { label: 'California Energy Commission - 2025 Building Energy Efficiency Standards', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency', group: 'Energy code and licensing' },
+  // TODO(data): the Permits card has no linked source. This page says installing a space conditioning appliance (other than a plug-in room appliance) requires a building permit, and that field verification and diagnostic testing is prescriptively required for most HVAC additions and alterations. It does not cover electrical, disconnect or panel work, and it does not say the city or county issues the permit.
+  { label: 'California Energy Commission - HVAC alterations in existing homes', url: 'https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/energy-code-support-center/hvac-0', group: 'Energy code and licensing' },
+  { label: 'California CSLB - C-20 classification', url: 'https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C20', group: 'Energy code and licensing' },
+  // TODO(copy): label is new, the page title. Current CSLB page that states the licensing threshold, the permit and employee-labor conditions and the minor-work exemption. Replaces the dated December 2024 press release (CSLB #24-21), which supported the same sentence.
+  { label: 'California CSLB - Before applying for a license when no exam is required', url: 'https://www.cslb.ca.gov/contractors/applicants/contractors_license/no_exam_application/Before_Applying_For_License.aspx', group: 'Energy code and licensing' },
+  // TODO(data): NWS Western Region Technical Memorandum 261 (David Bruno and Gary Ryan, National Weather Service Forecast Office Los Angeles/Oxnard, January 2000). The PDF is a scan with no text layer, so the text was read by eye from the page images (printed pages 2 and 4, PDF pages 23 and 25), not by OCR. It supports: "This marine layer is the prominent weather feature for the Los Angeles Basin for much of the year--especially from late spring through early fall." and "The City of Los Angeles sits on a 20 to 40 mile wide coastal plain bounded on the north and east by relatively high mountains" and "Transitions between vegetation and climate zones, highly dependent upon elevation and distance from the ocean, can be striking." It does NOT say the coastal ranges "buffer the interior", so regionIntro paragraph 1 ("NOAA's Los Angeles climate documentation describes ... with the coastal ranges buffering the interior") overstates it. regionIntro is locked in the migration runs, so report only. The fact card uses NOAA's own wording.
+  { label: 'NOAA National Weather Service - Climate of Los Angeles, California (NWS WR-261)', url: 'https://www.weather.gov/media/wrh/online_publications/TMs/TM-261.pdf', group: 'Heat and air quality' },
+  // TODO(data): supports regionIntro paragraph 2's "California reliability reporting also cites extreme-weather demand during summer heat" in these words only: "During summer, temperature is a key driver of load conditions, especially when there are extreme and widespread heat events." (Weather Outlook section; "load" is the document's word for electricity demand, and the heat events are "extreme and widespread", not "extreme weather" in general.) Same URL and document that AC Repair cites. It is a 2024 assessment.
+  { label: 'California ISO - 2024 Summer Loads and Resources Assessment', url: 'https://www.caiso.com/Documents/2024-Summer-Loads-and-Resources-Assessment.pdf', group: 'Heat and air quality' },
+  // The aqmd.gov host is used because www.southcoastaqmd.gov fails certificate-name validation in Chromium (same as AC Repair).
+  { label: 'South Coast AQMD - Air quality', url: 'https://www.aqmd.gov/home/air-quality', group: 'Heat and air quality' },
+];
+// No manufacturer, contractor or marketplace source is on this page (checked 2026-10-20), so there is no hold-out array.
+// TODO(data): the NOAA entry above supports the marine-layer and coastal-plain parts of regionIntro paragraph 1 only, not the "buffering" clause (see its comment).
+
+const count = (items?: readonly unknown[]): string => {
+  if (!items?.length) throw new Error('ductless-mini-split-page: empty array used for a derived count');
+  return String(items.length);
+};
+
+const ductlessMiniSplitSource = (urlPart: string) => {
+  const found = ductlessMiniSplitSources.find((s) => s.url.includes(urlPart));
+  if (!found) throw new Error(`Unknown ductless-mini-split source: ${urlPart}`);
+  return found;
+};
 
 // Full template content for /services/ductless-mini-split/. Reuses the same ServicePage shape and shared
 // section components already built out for /services/ac-repair/, /services/ac-installation/, /services/ac-maintenance/,
@@ -23,7 +58,7 @@ import type { ServicePage } from '@/content/services';
 // compareTitle/compareEyebrow) for pieces of this page the existing fields still couldn't express;
 // every one of them is optional so every other service page is unaffected. See the build report for
 // the full reconciliation notes.
-export const ductlessMiniSplitPage: ServicePage = {
+const ductlessMiniSplitBase: ServicePage = {
   primaryKeyword: 'ductless mini split los angeles',
   metaDescription:
     'Ductless mini-split service for homes and businesses across Los Angeles and Southern California, from ADUs to older homes. Schedule with AIRPRO SOLUTIONS.',
@@ -33,7 +68,8 @@ export const ductlessMiniSplitPage: ServicePage = {
     src: '/images/services/ductless-mini-split/hero.webp',
     alt: 'Wall-mounted ductless mini-split indoor unit in a converted garage living space with large windows onto a drought-tolerant garden',
   },
-  heroCaption: 'Ductless comfort for ADUs and homes without ducts.',
+  // TODO(copy): split word for word from the old one-sentence caption "Ductless comfort for ADUs and homes without ducts." No new words; the trailing period is dropped. Recommended default from the planning chat, client to approve. Centered (no `heroCaptionAlign`).
+  heroCaption: { title: 'Ductless comfort', text: 'for ADUs and homes without ducts' },
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
@@ -58,9 +94,19 @@ export const ductlessMiniSplitPage: ServicePage = {
   finalCtaTitle: 'Get your mini-split service scheduled',
   finalCtaBody: 'Call us or request service online.',
   answer: {
+    // TODO(copy): trimmed from 88 words to 42 (migration), client to approve both cuts. Recommended default from the planning chat. Lead is 3 words,
+    // sentence 1 is 29, sentence 2 is 10.
+    // Cut (a), sentence 3 (25 words, "It suits ADUs, garage conversions, additions, older homes, and rooms the central system does not reach well, and it can
+    //   serve one room or several."): dropped, not reworded. It stays on the page in the `fitGrid` (ADU or garage conversion, older home without ducts,
+    //   a room the central system misses), the first `decision` card, the `appliesTo` row and FAQ 7.
+    // Cut (b), sentence 4 (21 words, "The right design depends on the property: the room load, the layout, electrical capacity, permits, and where the
+    //   equipment can go."): dropped. It stays on the page in the `priceFactors` table (electrical, permits and code, line-set and access), the process step
+    //   "Assess" and "Scope and permit" in services.ts, and `appliesParagraph`.
+    // Inside the 37 to 43 word band the other migrated pages use. Not built: lead plus sentences 2 and 3 (38 words) and lead plus sentences 2 and 4 (34
+    //   words, under the band). Lead plus sentences 1 and 3 loses the heat pump fact.
     lead: 'A ductless mini-split',
     body:
-      ' is a heating and cooling system with an outdoor unit and one or more indoor units connected by refrigerant lines, so it conditions rooms without a full duct system. Many models are heat pumps that both cool and heat. It suits ADUs, garage conversions, additions, older homes, and rooms the central system does not reach well, and it can serve one room or several. The right design depends on the property: the room load, the layout, electrical capacity, permits, and where the equipment can go.',
+      ' is a heating and cooling system with an outdoor unit and one or more indoor units connected by refrigerant lines, so it conditions rooms without a full duct system. Many models are heat pumps that both cool and heat.',
   },
   decision: {
     eyebrow: 'Start here',
@@ -177,6 +223,7 @@ export const ductlessMiniSplitPage: ServicePage = {
       ' EPA\'s rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. Existing R-410A systems can still be serviced. Newer refrigerants can be A2L-classified, and safety requirements vary by matched equipment, so the refrigerant should follow the manufacturer\'s instructions for the exact system. Ask your contractor which rules apply to the equipment in your proposal.',
     // TODO(copy): restore "listed under Sources below" wording once the Sources section is built.
     sourceText: 'Source: U.S. EPA, HFC Phasedown FAQ.',
+    // TODO(data): the Source line on the migrated page lists the EPA FAQ and the EPA SNAP table (see `refrigerant.sources` below). `sourceText` stays for the unmigrated markup.
   },
   pricingTitle: 'What affects mini-split cost',
   pricingIntro:
@@ -206,7 +253,8 @@ export const ductlessMiniSplitPage: ServicePage = {
   rulesEyebrow: 'The rules',
   rulesTitle: 'Licensing, permits, and energy-code basics',
   rules: [
-    { title: 'Licensing', body: 'California requires a CSLB-licensed contractor for projects valued at $500 or more in labor and materials. The C-20 classification covers installation, maintenance, service, and repair of air-conditioning systems and their associated ducts, controls, and filters. You can verify a contractor\'s license, bond, workers\' compensation status, and history on the CSLB website.' },
+    // TODO(copy): threshold sentence reworded to the current CSLB page "Before Applying for a License When No Exam is Required" (2026-10-20 follow-up). CSLB: "must be licensed by the California Contractors State License Board (CSLB) if the project requires a building permit or employee labor is used or the total cost (labor and materials) of one or more contracts on the project is $1,000 or more"; exemption "a project for which a building permit is not required, no employee labor is used, and the combined value of labor, materials, and all other costs on one or more contracts is less than $1,000". The earlier wording (release #24-21: threshold raised "from $500 to $1,000", "The $1,000 includes all costs associated with the project") did not over-claim; the bulletin #24-07 also says a license is required if the work is "subject to a permit requirement of any kind" or the unlicensed person "hires one or more workers" "even if the project is less than $1,000". No year, no as-of date. C-20 sentence restored to CSLB's nouns and verbs: "fabricates, installs, maintains, services and repairs warm-air heating systems and water heating heat pumps ... ventilating systems ... air-conditioning systems ... and the ducts, registers, flues, humidity and thermostatic controls and air filters in connection with any of these systems." Last sentence unchanged: CSLB's hiring page says workers' compensation insurance information "is also available on their license history page" and describes the bond on the license record.
+    { title: 'Licensing', body: "California requires a CSLB-licensed contractor for projects of $1,000 or more in labor, materials, and all other costs, and for any project that needs a building permit or uses employee labor. California's C-20 classification covers fabricating, installing, maintaining, servicing, and repairing warm-air heating systems, ventilating systems, air-conditioning systems, and the ducts, registers, flues, humidity and thermostatic controls, and air filters in connection with any of these systems. You can verify a contractor's license, bond, workers' compensation status, and history on the CSLB website." },
     { title: 'Permits', body: 'New and replacement installations are typically permitted work, and the city or county where the property is located issues the permit and handles inspections. New circuits, disconnects, or panel work can involve separate electrical scope. We can explain the permit path before work begins.' },
     { title: 'Energy code', body: 'The 2025 California Energy Code applies to permit applications submitted on or after January 1, 2026. Depending on the scope of your project, it may need Title 24 documentation and field verification.' },
   ],
@@ -215,10 +263,15 @@ export const ductlessMiniSplitPage: ServicePage = {
     heading: 'Rebates and incentives that may apply',
     lead: 'Utility and state programs change often and can run out of funds. Whether one applies depends on your utility, income, equipment, and address. Confirm with the program before you buy.',
     items: [
+      // TODO(copy): LADWP eligibility sentence added 2026-10-20 (recommended default from the planning chat, pending client confirmation). LADWP page, ductless mini-split and multi-split heat pump HVAC section: "New construction and Accessory Dwelling Units (ADUs) are not eligible." Also on the page: "You must be an LADWP residential customer with active electric meter service." and "All applications must be postmarked within 12 months of the purchase date." Table row for ductless, mini-split and multi-split, HP HVAC: $1,500 (> 15.2 SEER2, > 7.8 HSPF2) up to $2,500 (> 20.5 SEER2, > 9.1 HSPF2) per ton.
+      // TODO(data): recheck against the LADWP page at launch. Re-read 2026-10-20 (follow-up 2): $1,500 to $2,500 per ton is the standing table for ductless, mini-split and multi-split heat pump HVAC (rows $1,500 at > 15.2 SEER2 and > 7.8 HSPF2 up to $2,500 at > 20.5 SEER2 and > 9.1 HSPF2). LADWP says "Heat Pump rebates have increased for equipment purchased and installed on or after November 1, 2025", so equipment bought earlier may not get these amounts; the card does not say so. The only promotion on the page (June 1 to September 30, 2026, applications by December 31, 2026) is a $750 pool pump and motor rebate, not an HVAC rebate.
+      // TODO(copy): CEC card date wording (recommended default from the planning chat). The CEC page still reads "As of February 24, 2026, HEEHRA rebates for single-family home retrofits are fully reserved statewide.", so that date is kept as the page's own status date and matches the other service pages. The November 14, 2025 TECH Clean California date is removed: it is not on the linked CEC page (TECH's own page was not linked or read). "Check the program page for current dates" added. No dollar amount touched.
+      // RESOLVED (2026-10-20): the SCE card sentence "its income-qualified Energy Savings Assistance program serves eligible households" is supported by SCE's own ESA page (https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program, read in full): "The Energy Savings Assistance (ESA) program offers income-qualified homeowners and renters the opportunity to receive energy-saving home improvements ... If you qualify, we will cover the cost" and "Programs and services are available to customers who meet specific household income guidelines or participate in certain Public Assistance Programs." The linked card page (sce.com/save-money/rebates-financial-assistance) does not name the program, and the card has one link slot, so the ESA page is not linked on the page.
+      // TODO(data): the same ESA page says "Following the Commission's approval of D.26-07-007 to sunset the ESA Whole Home Program at the end of 2026, SCE and SoCalGas are no longer accepting new project applications" and that customers may still receive services through SCE's standard ESA program "subject to funding availability, and eligibility requirements". The card sentence is about the program in general. Recheck at launch.
       {
         name: 'LADWP',
         headline: '$1,500 to $2,500 per ton',
-        body: 'LADWP lists this range for qualifying ductless mini-split and multi-split heat-pump systems, by efficiency tier. It applies to active LADWP residential electric customers. You apply after purchase and installation, within 12 months of purchase, and funds are limited and not guaranteed.',
+        body: 'LADWP lists this range for qualifying ductless mini-split and multi-split heat-pump systems, by efficiency tier. It applies to active LADWP residential electric customers. LADWP states that new construction and Accessory Dwelling Units (ADUs) are not eligible. You apply after purchase and installation, within 12 months of purchase, and funds are limited and not guaranteed.',
         link: { label: 'LADWP Consumer Rebate Program', href: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program', external: true },
       },
       {
@@ -230,7 +283,7 @@ export const ductlessMiniSplitPage: ServicePage = {
       {
         name: 'CEC',
         headline: 'Check status',
-        body: "California's single-family HEEHRA rebates were fully reserved statewide as of February 24, 2026, and TECH Clean California listed general single-family heat-pump incentives as fully reserved as of November 14, 2025. The state's Equitable Building Decarbonization program may support eligible households.",
+        body: "California's single-family HEEHRA rebates were fully reserved statewide as of February 24, 2026. Funding and status change, so check the program page for current dates and availability. The state's Equitable Building Decarbonization program may support eligible households.",
         link: { label: 'California Energy Commission rebate programs', href: 'https://www.energy.ca.gov/programs-and-topics/programs/inflation-reduction-act-residential-energy-rebate-programs', external: true },
       },
     ],
@@ -249,8 +302,10 @@ export const ductlessMiniSplitPage: ServicePage = {
     { label: 'Commercial HVAC', href: '/commercial-hvac/' },
     { label: 'Residential HVAC', href: '/residential-hvac/' },
   ],
+  // TODO(copy): paragraph 1 rewritten 2026-10-20 (recommended default from the planning chat) to NOAA's own words from NWS WR-261, "Climate of Los Angeles, California" (January 2000), read from the page images (printed pages 2 and 4; the PDF has no text layer): "This marine layer is the prominent weather feature for the Los Angeles Basin for much of the year--especially from late spring through early fall." and "Transitions between vegetation and climate zones, highly dependent upon elevation and distance from the ocean, can be striking." The old wording said marine air covers the coastal plain with "the coastal ranges buffering the interior", which the memo does not state. regionIntro is not in JSON-LD.
+  // TODO(data): recheck against the NWS source at launch.
   regionIntro: [
-    "Southern California is not one climate. NOAA's Los Angeles climate documentation describes marine air covering the coastal plain much of the year, with the coastal ranges buffering the interior, so conditions can differ sharply between nearby coastal and inland locations. That is why a mini-split is sized to the room, not to a county.",
+    "Southern California is not one climate. NOAA's Los Angeles climate report calls the marine layer the prominent weather feature for the Los Angeles Basin for much of the year, and says transitions between climate zones depend on elevation and distance from the ocean and can be striking. That is why a mini-split is sized to the room, not to a county.",
     'South Coast AQMD names ozone and particulate matter as the region\'s primary air pollutants, and its area includes all of Orange County and large parts of Los Angeles, Riverside, and San Bernardino counties. For a mini-split, that is a reason to keep washable indoor filters clean as the manufacturer directs. It is not a reason to expect a mini-split to remove smog. California reliability reporting also cites extreme-weather demand during summer heat, which is a reason to plan cooling before a heat event.',
   ],
   regionConditions: [
@@ -283,10 +338,9 @@ export const ductlessMiniSplitPage: ServicePage = {
     { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
     { text: 'Commercial HVAC', href: '/commercial-hvac/' },
   ],
-  // TODO(data): Sources list for ductless-mini-split never arrived from the client-side prompt; add
-  // once provided. Do not invent citations. `sources` is intentionally left unset below, so the
-  // SourcesList section does not render (see the `{page.sources && <SourcesList .../>}` guard in
-  // src/app/services/[service]/page.tsx).
+  sourcesColumns: 2,
+  sourcesEyebrow: 'References',
+  sources: ductlessMiniSplitSources,
   faqs: [
     {
       q: 'What is a ductless mini-split?',
@@ -324,10 +378,82 @@ export const ductlessMiniSplitPage: ServicePage = {
       q: 'Why is my mini-split not cooling?',
       a: 'Poor cooling can involve airflow restrictions, settings, controls, refrigerant issues, electrical problems, or outdoor-unit faults. Clean accessible filters only as your manufacturer directs. If cooling is still poor, have a technician diagnose it.',
     },
+    // TODO(copy): the LADWP exclusion sentence was added 2026-10-20 (recommended default from the planning chat, pending client confirmation), with the same words as the LADWP rebate card so the two cannot drift. LADWP: "New construction and Accessory Dwelling Units (ADUs) are not eligible." The per-ton range and the February 24, 2026 CEC status date are unchanged and match the card and the sources; no Energy Savings Assistance claim is made here. `a` is the single source for the visible answer and the FAQPage JSON-LD.
+    // TODO(data): recheck against the LADWP page at launch.
     {
       q: 'Are rebates available for ductless mini-split heat pumps?',
-      a: 'Some may be, but funding and eligibility change. LADWP lists rebates of $1,500 to $2,500 per ton for qualifying ductless mini-split heat-pump systems for its residential electric customers. Southern California Edison programs vary by eligibility and funding. California\'s single-family HEEHRA rebates were fully reserved statewide as of February 24, 2026. Check each program before you buy.',
+      a: 'Some may be, but funding and eligibility change. LADWP lists rebates of $1,500 to $2,500 per ton for qualifying ductless mini-split heat-pump systems for its residential electric customers. LADWP states that new construction and Accessory Dwelling Units (ADUs) are not eligible. Southern California Edison programs vary by eligibility and funding. California\'s single-family HEEHRA rebates were fully reserved statewide as of February 24, 2026. Check each program before you buy.',
     },
   ],
   // TODO(copy): client review of every FAQ answer above before launch.
+};
+
+// Location-style migration (docs/open-items.md "Service page migration"). Setting `glance` marks this service as migrated.
+// TODO(copy): all strings in this block are new (glance labels, fact card, proof stats, caption split).
+// GlanceCard keys on `num`: the three numbers must stay different (3, 6, 7 today). Fail the build if they collide.
+// Alternates if one ever collides: count(ductlessMiniSplitBase.priceFactors) is 8, count(ductlessMiniSplitBase.decision.cards) is 4.
+const glanceStats = [
+  { num: count(ductlessMiniSplitBase.layoutTable!.rows), label: 'layouts compared' },
+  { num: '6', label: 'steps from request to handoff' }, // = the ductless-mini-split `process` array length in services.ts; keep in sync
+  { num: count(ductlessMiniSplitBase.diagnosis), label: 'symptoms and what they can mean' },
+];
+if (new Set(glanceStats.map((x) => x.num)).size !== glanceStats.length) {
+  throw new Error('ductless-mini-split-page: glance stat numbers must be unique (GlanceCard keys on num)');
+}
+
+export const ductlessMiniSplitPage: ServicePage = {
+  ...ductlessMiniSplitBase,
+  glance: {
+    title: 'Ductless mini-split at a glance',
+    stats: glanceStats,
+    // TODO(data): all three stats are page counts, not claims from a source, so no source line is shown (SourceLinks renders nothing for an empty array).
+    sources: [],
+  },
+  regionBand: {
+    eyebrow: 'Across Southern California',
+    title: 'How Southern California conditions shape ductless mini-split planning',
+    card: {
+      heading: 'Ductless mini-split facts',
+      // Rows are in drop-order priority for the 1280px balance check: the last row goes first. Never go below two rows without asking.
+      // Rows restate existing page copy or a source's own wording: no License row, no dollar amounts, no rolling dates, no installation date
+      // and no permit or alteration claim.
+      // Row 1 (Coast and inland) uses NOAA's own words from NWS WR-261, not regionIntro's "coastal ranges buffering the interior", which the memo does
+      // not state: "This marine layer is the prominent weather feature for the Los Angeles Basin for much of the year--especially from late spring
+      // through early fall" and "Transitions between vegetation and climate zones, highly dependent upon elevation and distance from the ocean, can be
+      // striking." Text read by eye from the scan (no OCR). Added in the 2026-10-20 follow-up.
+      // Dropped for the 1280px balance check (copy 416px): row 4, label 'Energy code', value 'The 2025 California Building Energy Efficiency Standards apply
+      // to permit applications submitted on or after January 1, 2026' (Energy Commission: "Buildings whose permit applications are applied for on or after
+      // January 1, 2026, must comply with the 2025 Energy Code."; date sentence only), source ductlessMiniSplitSource('2025-building-energy-efficiency').
+      // With the Coast and inland row the card was 545px (129px past the copy) with four rows. It was a row on the migration branch (card 348px, 68px short)
+      // before the NOAA row was added. Restore it if the copy grows.
+      rows: [
+        { label: 'Coast and inland', value: "NOAA's Los Angeles climate report calls the marine layer the prominent weather feature for the Los Angeles Basin for much of the year, and says transitions between climate zones depend on elevation and distance from the ocean and can be striking" },
+        { label: 'Existing R-410A systems', value: 'Existing R-410A systems can still be serviced' },
+        { label: 'Air quality', value: "South Coast AQMD names ozone and particulate matter as the region's primary air pollutants" },
+      ],
+      sources: [
+        ductlessMiniSplitSource('TM-261'),
+        ductlessMiniSplitSource('frequent-questions-phasedown'),
+        ductlessMiniSplitSource('aqmd.gov/home/air-quality'),
+      ],
+    },
+  },
+  proofStats: [
+    { num: `${siteConfig.rating}★`, label: 'Google rating' },
+    { num: String(siteConfig.reviewCount), label: 'Google reviews' },
+    { num: count(ductlessMiniSplitBase.faqs), label: 'mini-split questions answered' },
+    { num: count(ductlessMiniSplitBase.priceFactors), label: 'cost factors explained' },
+  ],
+  // TODO(design): real photos (1200x900) to replace the "Photo pending" tiles (refrigerant and region intro).
+  regionMedia: { icon: 'pin' },
+  refrigerant: {
+    ...ductlessMiniSplitBase.refrigerant!,
+    media: { icon: 'snowflake' },
+    sources: [
+      ductlessMiniSplitSource('frequent-questions-phasedown'),
+      ductlessMiniSplitSource('snap/substitutes-residential'),
+    ],
+  },
+  // Not built: repairReplaceExtra.media ({ icon: 'refresh' }). This page's repairReplaceExtra.paragraphs is empty, so the 330px Photo pending tile sat beside a
+  // single link line with about 300px of blank space under it at 1280px. Restore it if paragraphs are ever added.
 };
