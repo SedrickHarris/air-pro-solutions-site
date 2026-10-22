@@ -22,6 +22,10 @@ export type MatrixContent = {
     h2: string;
     paragraphs: string[]; // may contain **bold** markers
     areasHeading: string;
+    neighborhoods: string[]; // pills; only names with an official Torrance source
+    zips: string[];
+    zipsLabel: string;
+    neighborhoodsNote: string;
     links: { text: string; href: string }[]; // official external links shown under the paragraphs
     cards: { heading: string; rows: { label: string; value: string }[]; note: string }[];
   };
@@ -36,7 +40,7 @@ export type MatrixContent = {
 //
 // Verified-only rebuild (2026-10-21). Every Torrance fact below traces to a source read on that date; see the
 // "AC Repair x Torrance" section of docs/open-items.md for the full verification record and the held-out list.
-// Held out on purpose (not verified): neighborhood-level housing age, citywide pre-1970 share, climate and
+// Held out on purpose (not verified): neighborhood-level housing age (the one exception is the Torrance Tract, 1912 to 1945), citywide pre-1970 share, climate and
 // marine-layer statements, coastal-vs-inland comparisons, equipment-failure patterns, utility providers, rebates,
 // and the adopted code edition. Do not reintroduce them without a source.
 const acRepairTorrance: MatrixContent = {
@@ -48,11 +52,11 @@ const acRepairTorrance: MatrixContent = {
   primaryKeyword: 'ac repair torrance',
   metaDescription:
     'Need AC repair in Torrance? AIRPRO SOLUTIONS helps homes and businesses with cooling, airflow, electrical, and drainage problems. Schedule service.',
-  // TODO(data): the neighborhood names in this lede, the neighborhood pills and the ZIP list come from cities.ts,
-  // where they are still flagged TODO(data) (not verified against a local source). Same wording as the approved
-  // /service-areas/torrance/ page.
+  // Neighborhood names in this lede and the pills below are limited to names an official Torrance source uses
+  // (see docs/open-items.md, "Torrance neighborhoods and ZIPs"). The lede no longer says "Hollywood Riviera border":
+  // the City's own site treats Hollywood Riviera as a Torrance neighborhood.
   lede:
-    "No cooling, weak airflow, strange noises, or water leaks? AIRPRO SOLUTIONS provides residential and commercial AC repair across Torrance - from Old Torrance and North Torrance to Walteria and the Hollywood Riviera border - and explains what we find and what your options are before you decide.",
+    "No cooling, weak airflow, strange noises, or water leaks? AIRPRO SOLUTIONS provides residential and commercial AC repair across Torrance - from Old Torrance and North Torrance to Walteria and Hollywood Riviera - and explains what we find and what your options are before you decide.",
   heroProof: [
     { icon: 'check', label: 'Licensed contractor' },
     { icon: 'star', label: '4.8-star rated' },
@@ -90,9 +94,17 @@ const acRepairTorrance: MatrixContent = {
     paragraphs: [
       'Mechanical permits in Torrance go through the **City of Torrance Building and Safety Division**, part of Community Development. Since January 5, 2026, the division has handled plan review and permit submittals entirely online. Whether a particular AC repair needs a permit depends on the scope of the work, and a repair is not the same as a replacement. **AIRPRO SOLUTIONS can walk you through what your job involves**, and you can confirm requirements with the division at 310-618-5910.',
       "Torrance's Municipal Code also regulates air conditioning equipment noise. **Section 46.2.6 covers AC and similar equipment noise at residential property lines**, and the city publishes additional region-based noise limits. A unit that has gotten louder is worth having diagnosed, and Torrance Code Enforcement handles noise codes.",
+      "Old Torrance is the city's historic core. Torrance's Historic Preservation Plan describes the **Torrance Tract**, bounded by Dominguez Street, Western Avenue, Plaza Del Amo, and Crenshaw Boulevard, as housing stock primarily developed between 1912 and 1945, and the City's library calls Walteria the oldest section of Torrance. We look at each system as it was actually installed rather than assuming what an older neighborhood has.",
       'Torrance has a real mix of property types. An official housing-data report updated in April 2021 (SCAG pre-certified local housing data, built on California Department of Finance estimates) shows **52.5% of Torrance housing units are detached single-family homes and 39.4% are multifamily**, with attached single-family homes and mobile homes making up the rest. Access and HOA or property-manager coordination can differ between a house and a multifamily building, so we plan each repair around the actual property and equipment.',
     ],
     areasHeading: 'Torrance areas we repair AC in',
+    neighborhoods: ['Old Torrance', 'North Torrance', 'Walteria', 'Hollywood Riviera'],
+    // USPS lists post offices at Torrance addresses in these four ZIPs. 90502 and 90506 are left out (weaker
+    // evidence) and 90277 is a Redondo Beach postal ZIP. Los Angeles City Planning records show a 90501 address
+    // inside the City of Los Angeles, hence the note below.
+    zips: ['90501', '90503', '90504', '90505'],
+    zipsLabel: 'Torrance mailing ZIPs:',
+    neighborhoodsNote: 'Some addresses in these ZIP codes are outside Torrance city limits.',
     links: [
       {
         text: 'City of Torrance Building and Safety',
@@ -107,9 +119,10 @@ const acRepairTorrance: MatrixContent = {
           { label: 'Permits', value: 'Mechanical permits go through the City of Torrance Building and Safety Division' },
           { label: 'Submittals', value: 'Plan review and permit submittals are electronic, effective January 5, 2026' },
           { label: 'Noise', value: 'Municipal Code Section 46.2.6 covers AC equipment noise at residential property lines' },
+          { label: 'Old Torrance', value: 'Torrance Tract housing primarily built 1912 to 1945 (Historic Preservation Plan)' },
           { label: 'Housing mix', value: '52.5% detached single-family, 39.4% multifamily (report updated April 2021)' },
         ],
-        note: 'Sources: City of Torrance Building and Safety, Torrance Municipal Code, SCAG pre-certified local housing data. Confirm project requirements with the city.',
+        note: 'Sources: City of Torrance Building and Safety, Torrance Municipal Code, Torrance Historic Preservation Plan, SCAG pre-certified local housing data. Confirm project requirements with the city.',
       },
     ],
   },
@@ -178,6 +191,31 @@ const acRepairTorrance: MatrixContent = {
       label: 'SCAG - Pre-Certified Local Housing Data for Torrance (April 2021)',
       url: 'https://scag.ca.gov/sites/default/files/old/file-attachments/torrance-he-0421.pdf',
       group: 'Torrance housing',
+    },
+    {
+      label: 'City of Torrance - Torrance Tract Historic Preservation Plan (May 2018)',
+      url: 'https://www.torranceca.gov/files/assets/city/v/1/government/community-development/doc-files/historic-preservation/torrance_hp-plan_201811-final.pdf',
+      group: 'Torrance neighborhoods and ZIP codes',
+    },
+    {
+      label: 'City of Torrance Libraries - About us (North Torrance, Walteria)',
+      url: 'https://www.library.torranceca.gov/i-want-to/about-us',
+      group: 'Torrance neighborhoods and ZIP codes',
+    },
+    {
+      label: 'City of Torrance - City Manager informational handouts (Hollywood Riviera neighborhood)',
+      url: 'https://www.torranceca.gov/government/city-manager/informational-handouts',
+      group: 'Torrance neighborhoods and ZIP codes',
+    },
+    {
+      label: 'USPS - Torrance post office addresses and ZIP codes (Nov 10, 2025)',
+      url: 'https://about.usps.com/newsroom/local-releases/ca/2025/1110-update-torrance-main-post-office.htm',
+      group: 'Torrance neighborhoods and ZIP codes',
+    },
+    {
+      label: 'City of Los Angeles Planning - Sea Breeze Apartment Project (90501 address inside Los Angeles)',
+      url: 'https://planning.lacity.gov/eir/SeaBreeze/FEIR/FEIR%20Sea%20Breeze%20Apartment%20Project.html',
+      group: 'Torrance neighborhoods and ZIP codes',
     },
   ],
   // Also cited on this page, read from the AC Repair service record so there is one copy of each source:

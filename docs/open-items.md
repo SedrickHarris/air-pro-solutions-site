@@ -1956,3 +1956,16 @@ Still open before launch:
 - Quality gate: the page now carries four Torrance-specific elements (permit route and electronic submittals, AC noise code with Code Enforcement, housing mix, neighborhood and ZIP detail). The fourth is unverified shared data, so confirm before this page ships to main.
 - Related Torrance city page (/service-areas/torrance/): its local paragraph and the "older Torrance homes" FAQ carry the same unsupported housing-age and microclimate claims, and its permit FAQ ("Equipment replacements and new installations generally require a permit and inspection") is stronger than anything verified. Not changed in this branch.
 - Layout (1280px, fonts mocked): the local card runs about 100px past the copy (card 668px, copy 564px, blank inside the card 1px). The "Jan 5, 2026" glance stat wraps to two lines in the three-column card at desktop width.
+
+
+## Torrance neighborhoods and ZIPs (research received 2026-10-21, applied to /services/ac-repair/torrance/ only)
+
+Used on the matrix page (matrix-content.ts, not cities.ts):
+- Old Torrance: Torrance Tract Historic Preservation Plan (May 2018). Bounds Dominguez St, Western Ave, Plaza Del Amo, Crenshaw Blvd; housing primarily developed 1912 to 1945 (printed pages 2 and 9). Not described as a designated Historic District.
+- North Torrance and Walteria: City library About page ("Walteria section of Torrance", oldest section). No publication date.
+- Hollywood Riviera: City Manager informational handouts page uses "Hollywood Riviera Neighborhood". The lede no longer says "border".
+- Mailing ZIPs 90501, 90503, 90504, 90505: USPS release dated Nov 10, 2025 lists Torrance post office addresses. Note on page that some addresses in these ZIPs are outside city limits (LA City Planning shows a 90501 address inside Los Angeles).
+
+Held out: 90502 (sorting label and LA record only; Torrance excludes it from one program's residency), 90506 (college address only), 90277 (Redondo Beach postal ZIP also used by a Torrance library), West Torrance, Torrance Gardens, South Torrance (not researched or not found), Meadows (NOT FOUND), Del Amo as a residential neighborhood (business district only), standalone Seaside, Southwood and Seaside Ranchos (only in General Plan acknowledgments, name occurrence; client call), Riviera Village (Redondo Beach), neighborhood boundaries other than the Torrance Tract, housing age by neighborhood or ZIP (NOT FOUND except the Tract), USPS preferred-city designations.
+
+Still open: /service-areas/torrance/ still uses the old unverified neighborhoods, ZIP list (90501-90505, with 90502) and housing-stock paragraph in cities.ts; the "Hollywood Riviera border" wording is also in that page's lede. Torrance Tract Figure 7 (construction-date map) values were not extracted.

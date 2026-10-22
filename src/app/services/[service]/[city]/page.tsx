@@ -215,8 +215,10 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           ...content.local.links,
         ]}
         neighborhoodsHeading={content.local.areasHeading}
-        neighborhoods={city.neighborhoods}
-        zips={city.zips}
+        neighborhoods={content.local.neighborhoods}
+        zips={content.local.zips}
+        zipsLabel={content.local.zipsLabel}
+        neighborhoodsNote={content.local.neighborhoodsNote}
         localCards={content.local.cards}
         alt
       />

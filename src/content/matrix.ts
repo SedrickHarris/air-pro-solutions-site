@@ -7,8 +7,8 @@
 // /services/[service]/[city]/
 // ac-repair/torrance was rebuilt on 2026-10-21 from verified facts only. Local elements now on the page:
 // the Building and Safety permit route and the January 5, 2026 electronic-submittal date, the AC equipment
-// noise code (TMC 46.2.6) with Code Enforcement, and the April 2021 SCAG housing mix, plus the shared
-// neighborhood and ZIP detail from cities.ts (still TODO(data) there). Held out until sourced: neighborhood
+// noise code (TMC 46.2.6) with Code Enforcement, the April 2021 SCAG housing mix, the Torrance Tract (Old Torrance)
+// housing era, and official-source neighborhood names and mailing ZIPs (matrix-content.ts, not the shared cities.ts). Held out until sourced: neighborhood
 // housing age, climate, equipment-failure patterns, utility providers, rebates, and the adopted code edition.
 // Still missing: a real local review or job photo (TODO(data) in matrix-content.ts) and response-time detail.
 // Full record: docs/open-items.md, "AC Repair x Torrance".
