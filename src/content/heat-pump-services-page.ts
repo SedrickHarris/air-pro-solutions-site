@@ -26,7 +26,7 @@ import { siteConfig } from '@/content/site-config';
 // TODO(data): re-check the LADWP rebate amount and the TECH Clean California reservation date at
 // launch (checked 2026-09-29). No SoCalGas or SDG&E heat pump amount and no 2026 federal tax credit
 // were verified, so none appear.
-// TODO(data): confirm public/images/logo-mark.webp is present (reported present in prior builds).
+// TODO(data): confirm public/images/brand/logo-mark.webp is present (reported present in prior builds).
 // TODO(data): photo tiles are placeholders throughout this page. City lists under each region are
 // intentionally omitted until coverage is confirmed (see CLAUDE.md doorway-page rule).
 // TODO(copy): client review of every FAQ answer below before launch.

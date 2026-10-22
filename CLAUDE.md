@@ -30,7 +30,7 @@ Stack: Next.js (App Router, static export) + GitHub + Cloudflare Pages.
 - Phone: (323) 776-9047
 - CA contractor license #: 1126691, 50251 (C-20)
 - Google rating: 4.8 stars / 40 reviews
-- Logo: blue/orange swirl mark on navy - `public/images/logo-mark.webp`
+- Logo: blue/orange swirl mark on navy - `public/images/brand/logo-mark.webp`
 
 ## Approved claims
 

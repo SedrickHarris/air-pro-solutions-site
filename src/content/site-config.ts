@@ -13,7 +13,7 @@ export const siteConfig = {
   // TODO(data): replace with a confirmed availability claim (for example 24/7 dispatch) once the client approves it.
   availabilityNote: 'Call for the next available appointment',
   orgId: 'https://airprosolutionsheatingandcooling.com/#organization',
-  // Derived from public/images/brand/logos (originals kept there). logo-mark.webp is the transparent 192px WebP icon.
-  logo: '/images/logo-mark.webp',
-  ogImage: '/images/og-default.png', // 1200x630, generated from the full-color navy logo
+  // Derived from public/images/brand/logos (originals kept there; the derived files sit in public/images/brand). logo-mark.webp is the transparent 192px WebP icon.
+  logo: '/images/brand/logo-mark.webp',
+  ogImage: '/images/brand/og-default.png', // 1200x630, generated from the full-color navy logo
 } as const;

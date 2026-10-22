@@ -1287,7 +1287,7 @@ Built 2026-10-19 and pushed to main (user said push to main). Reference: claude/
   system-type prevalence claims are made.
 - Rebates and financing are intentionally not linked from this page. Link them from the replacement
   pathway once program status is checked live.
-- Logo file status: confirmed present at public/images/logo-mark.webp and resolves correctly in the
+- Logo file status: confirmed present at public/images/brand/logo-mark.webp and resolves correctly in the
   built page.
 - Internal links (heat pump, mini-split, ductwork, IAQ, maintenance) appear once those pages
   exist - they now do, so no action needed here.

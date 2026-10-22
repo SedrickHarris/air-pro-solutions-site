@@ -28,7 +28,7 @@ import { siteConfig } from '@/content/site-config';
 // TODO(data): region city lists are omitted until the client confirms coverage (see CLAUDE.md
 // doorway-page rule).
 // TODO(data): rebates and financing are intentionally not linked from this page.
-// TODO(data): confirm logo file status (public/images/logo-mark.webp).
+// TODO(data): confirm logo file status (public/images/brand/logo-mark.webp).
 // TODO(photo): all image tiles use the "Photo pending" pattern (hero and 4 related cards; the region
 // grid on this page uses per-region body copy instead of cards with photos, per RegionGrid's
 // `showCities=false` mode already used by every other core service page).

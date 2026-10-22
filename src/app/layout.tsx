@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: 'AIRPRO SOLUTIONS provides HVAC service across Southern California.', // TODO(copy): default for pages without their own
   icons: {
     icon: '/favicon.ico',
-    apple: '/images/apple-touch-icon.png',
+    apple: '/images/brand/apple-touch-icon.png',
   },
   openGraph: { images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: siteConfig.name }] },
   twitter: { card: 'summary_large_image', images: [siteConfig.ogImage] },
