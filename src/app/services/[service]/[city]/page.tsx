@@ -79,15 +79,22 @@ export default async function Page({ params }: { params: Promise<{ service: stri
     { name: city.name },
   ];
 
+  // Nearby cards: link to the matrix page when that pair is published, otherwise to the neighbor's own city page
+  // (/service-areas/<city>/, every nearby city has one). No neighborhood, ZIP, adjacency or drive-time text here:
+  // those are held out in cities.ts (TODO(data)) for all four South Bay neighbors, so the card copy stays generic.
   const nearby = content.nearby.map((slug) => {
     const n = getCity(slug);
-    // None of these have a matching matrix pair yet, so every card is a plain non-link card.
     const hasMatrixPage = matrixPages.some((m) => m.service === service.slug && m.city === slug);
+    const cityName = n?.name ?? slug;
     return {
-      name: n ? `${n.name} ${service.name}` : slug,
-      href: hasMatrixPage ? `${serviceHref(service.slug)}${slug}/` : undefined,
+      name: hasMatrixPage ? `${cityName} ${service.name}` : cityName,
+      href: hasMatrixPage ? `${serviceHref(service.slug)}${slug}/` : `/service-areas/${slug}/`,
+      linkLabel: hasMatrixPage ? `View ${service.name}` : 'View service area',
       icon: 'pin',
       image: n?.cardImage,
+      description: hasMatrixPage
+        ? `${service.name} for homes and businesses in ${cityName}.`
+        : `Local HVAC service details for homes and businesses in ${cityName}.`,
     };
   });
 

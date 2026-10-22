@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import type { ServiceImage } from '@/content/services';
 
-type Item = { name: string; href?: string; icon: string; image?: ServiceImage; description?: string };
+type Item = { name: string; href?: string; icon: string; image?: ServiceImage; description?: string; linkLabel?: string };
 
 export function RelatedRow({
   items,
@@ -50,7 +50,7 @@ export function RelatedRow({
                   {it.description && <p>{it.description}</p>}
                   {it.href && (
                     <span className="card-arrow">
-                      {ctaLabel} <Icon name="arrow" size={16} />
+                      {it.linkLabel ?? ctaLabel} <Icon name="arrow" size={16} />
                     </span>
                   )}
                 </div>
