@@ -1646,7 +1646,7 @@ const irvineOverrides: Partial<City> = {
     },
     // Nearby row held out: no Orange County city page is live yet and the research has no neighbor list, so adjacency is not claimed.
     // The city page skips the section when this is empty. Add Orange County cities here as their pages go live.
-    nearby: ['costa-mesa', 'huntington-beach', 'anaheim'],
+    nearby: ['costa-mesa', 'huntington-beach', 'anaheim', 'tustin'],
     proof: {
       heading: 'Licensed, reviewed, and ready across Irvine',
       body: 'AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.',
@@ -7465,7 +7465,7 @@ const santaAnaOverrides: Partial<City> = {
         },
       ],
     },
-    nearby: ["anaheim", "costa-mesa", "irvine", "huntington-beach"],
+    nearby: ["anaheim", "costa-mesa", "irvine", "huntington-beach", "tustin"],
     proof: {
       heading: "Licensed, reviewed, and ready across Santa Ana",
       body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
