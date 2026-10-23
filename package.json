@@ -8,6 +8,7 @@
     "start": "npx serve out",
     "lint": "tsc --noEmit",
     "check:nearby": "node scripts/check-nearby.mjs",
+    "report:inbound-links": "node scripts/report-inbound-links.mjs",
     "check:hub-links": "node scripts/check-hub-links.mjs",
     "propose:featured-cities": "node scripts/propose-featured-cities.mjs",
     "check:featured-cities": "node scripts/check-featured-cities.mjs"
