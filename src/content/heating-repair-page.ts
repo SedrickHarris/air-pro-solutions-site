@@ -383,20 +383,37 @@ export const heatingRepairPage: ServicePage = {
     { num: count(heatingRepairBase.faqs), label: 'heating repair questions answered' },
     { num: count(heatingRepairBase.systems), label: 'heating system types we diagnose' },
   ],
-  // TODO(design): real photos (1200x900) to replace the three "Photo pending" tiles.
-  regionMedia: { icon: 'pin' },
+  regionMedia: {
+    icon: 'pin',
+    image: {
+      src: '/images/services/heating-repair/air-pro-solutions-southern-california-coastal-inland-heating-conditions-4x3.webp',
+      alt: 'Hillside view over a valley neighborhood with dry foothills and mountains in warm evening light',
+    },
+  },
   // TODO(data): attribution gap, wording deliberately untouched. The refrigerant body ("R-454B and R-32, which are classified
   // A2L (lower flammability)") and FAQ 5 ("commonly R-454B or R-32 ... Both are A2L") cite NAHB, which is not a government source.
   // The EPA SNAP table supports R-32 as A2L; R-454B is not in any government source cited on this page. Heat Pump and the other
   // pages moved to neutral wording. Decide whether to match them.
   refrigerant: {
     ...heatingRepairBase.refrigerant!,
-    media: { icon: 'snowflake' },
+    media: {
+      icon: 'snowflake',
+      image: {
+        src: '/images/services/heating-repair/air-pro-solutions-r410a-heat-pump-repair-existing-equipment-4x3.webp',
+        alt: 'Older outdoor condenser with a rusted fan grille on a concrete pad beside a stucco wall, with refrigerant lines running into the house',
+      },
+    },
     // Linked source line on migrated pages. `sourceText` is left in place and is used by the unmigrated markup only.
     sources: [heatingRepairSource('nahb.org')],
   },
   repairReplaceExtra: {
     ...heatingRepairBase.repairReplaceExtra!,
-    media: { icon: 'refresh' },
+    media: {
+      icon: 'refresh',
+      image: {
+        src: '/images/services/heating-repair/air-pro-solutions-heating-repair-replacement-furnace-evaluation-4x3.webp',
+        alt: 'Older gas furnace in a utility closet with a metal flue and ductwork, a water heater behind it, and shelves of papers and boxes beside it',
+      },
+    },
   },
 };

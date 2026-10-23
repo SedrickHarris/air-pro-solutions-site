@@ -308,8 +308,13 @@ const indoorAirQualityBase: ServicePage = {
     // TODO(copy): linked source line, replaces the plain sourceText
     sourceLabel: 'U.S. EPA, HFC Phasedown FAQ',
     sourceHref: indoorAirQualitySource('frequent-questions-phasedown').url,
-    // TODO(design): replace with real photo (1200x900)
-    media: { icon: 'snowflake' },
+    media: {
+      icon: 'snowflake',
+      image: {
+        src: '/images/services/indoor-air-quality/air-pro-solutions-hvac-upgrade-replacement-options-equipment-compatibility-4x3.webp',
+        alt: 'Outdoor condenser on a concrete pad next to an open utility room door showing an indoor air handler and ductwork',
+      },
+    },
   },
   // "Rebates and incentives" - plain rebates callout, same shape /services/ac-maintenance/ introduced.
   rebatesNote: {
@@ -319,8 +324,13 @@ const indoorAirQualityBase: ServicePage = {
       { text: 'LADWP Consumer Rebate Program', href: 'https://www.ladwp.com/residential-services/assistance-programs/consumer-rebate-program' },
       { text: 'SCE Energy Savings Assistance Program', href: 'https://www.sce.com/save-money/income-qualified-programs/energy-savings-assistance-program' },
     ],
-    // TODO(design): replace with real photo (1200x900)
-    media: { icon: 'dollar' },
+    media: {
+      icon: 'dollar',
+      image: {
+        src: '/images/services/indoor-air-quality/air-pro-solutions-indoor-air-quality-heat-pump-rebate-eligible-equipment-4x3.webp',
+        alt: 'Indoor air handler cabinet in a closet with ductwork, a filter slot and two spare air filters leaning against it',
+      },
+    },
   },
   appliesTo: [
     { label: 'Single-family homes', icon: 'home' },
@@ -346,8 +356,13 @@ const indoorAirQualityBase: ServicePage = {
     "Southern California is not one climate. South Coast AQMD covers all of Orange County and major parts of Los Angeles, Riverside, and San Bernardino Counties, and describes the South Coast Air Basin as having some of the worst air quality in the U.S. Daytime sea breezes can carry pollutants from the coast toward inland valleys.",
     'Outdoor air explains why the question comes up. It does not tell a technician what is wrong with your system. We assess the property and the equipment, not the ZIP code.',
   ],
-  // TODO(design): replace with real photo (1200x900, /images/services/indoor-air-quality/region.webp); no `image` shows a "Photo pending" tile.
-  regionMedia: { icon: 'pin' },
+  regionMedia: {
+    icon: 'pin',
+    image: {
+      src: '/images/services/indoor-air-quality/air-pro-solutions-southern-california-indoor-air-quality-coastal-inland-4x3.webp',
+      alt: 'View over a residential neighborhood of tile-roofed homes surrounded by trees, with an inland valley and mountains beyond',
+    },
+  },
   regionConditions: [
     // TODO(copy): client review. First sentence reworded 2026-10-20 (was "serious ozone and fine-particle problems"; "serious" is the
     // AQMP's PM2.5 classification, and its ozone classification is "extreme"). Sources, PDF page numbers:

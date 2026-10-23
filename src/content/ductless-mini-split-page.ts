@@ -445,11 +445,22 @@ export const ductlessMiniSplitPage: ServicePage = {
     { num: count(ductlessMiniSplitBase.faqs), label: 'mini-split questions answered' },
     { num: count(ductlessMiniSplitBase.priceFactors), label: 'cost factors explained' },
   ],
-  // TODO(design): real photos (1200x900) to replace the "Photo pending" tiles (refrigerant and region intro).
-  regionMedia: { icon: 'pin' },
+  regionMedia: {
+    icon: 'pin',
+    image: {
+      src: '/images/services/ductless-mini-split/air-pro-solutions-southern-california-mini-split-coastal-inland-climates-4x3.webp',
+      alt: 'Hillside view over a Southern California neighborhood with the coastline on the left and dry mountains in the distance',
+    },
+  },
   refrigerant: {
     ...ductlessMiniSplitBase.refrigerant!,
-    media: { icon: 'snowflake' },
+    media: {
+      icon: 'snowflake',
+      image: {
+        src: '/images/services/ductless-mini-split/air-pro-solutions-ductless-mini-split-refrigerant-system-4x3.webp',
+        alt: 'Wall-mounted ductless mini-split indoor unit in a garage with insulated refrigerant lines along the wall and an outdoor unit visible through the open door',
+      },
+    },
     sources: [
       ductlessMiniSplitSource('frequent-questions-phasedown'),
       ductlessMiniSplitSource('snap/substitutes-residential'),

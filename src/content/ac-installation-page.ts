@@ -106,8 +106,13 @@ const acInstallationBase: ServicePage = {
     ],
     linkText: 'Not sure whether to repair or replace your AC?',
     linkHref: '/services/ac-repair/',
-    // TODO(design): replace with real photo (1200x900)
-    media: { icon: 'refresh' },
+    media: {
+      icon: 'refresh',
+      image: {
+        src: '/images/services/ac-installation/air-pro-solutions-ac-repair-or-replace-decision-4x3.webp',
+        alt: 'Two outdoor AC condensers on concrete and gravel along the side of a stucco home, an older light gray unit in front and a darker one behind it',
+      },
+    },
   },
   visitEyebrow: 'The project',
   visitTitle: 'What is included and what can cost extra',
@@ -136,8 +141,13 @@ const acInstallationBase: ServicePage = {
     heading: 'How long does installation take?',
     body:
       'Many straightforward replacements can be completed in a day once equipment, permits, and site conditions are ready. Projects involving ducts, electrical upgrades, rooftop access, multi-zone systems, or plan review may take longer.',
-    // TODO(design): replace with real photo (1200x900)
-    media: { icon: 'clock' },
+    media: {
+      icon: 'clock',
+      image: {
+        src: '/images/services/ac-installation/air-pro-solutions-hvac-installation-project-preparation-4x3.webp',
+        alt: 'New AC condenser wrapped in cardboard and plastic on a side-yard walkway, next to an empty concrete pad with refrigerant lines and a disconnect on the wall',
+      },
+    },
   },
   systemsTitle: 'Systems we install',
   systemsIntro:
@@ -156,8 +166,13 @@ const acInstallationBase: ServicePage = {
       'EPA\'s rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. New lower-GWP systems may use A2L refrigerants such as R-454B, depending on the manufacturer and model, and installation must follow the manufacturer, the equipment listing, and the local authority. Existing R-410A systems can still be repaired through their useful life, so this rule is not a reason to replace a working system. Ask your contractor which rules apply to the equipment in your proposal.',
     sourceLabel: 'U.S. EPA, HFC Phasedown FAQ',
     sourceHref: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons',
-    // TODO(design): replace with real photo (1200x900)
-    media: { icon: 'snowflake' },
+    media: {
+      icon: 'snowflake',
+      image: {
+        src: '/images/services/ac-installation/air-pro-solutions-new-ac-system-refrigerant-transition-4x3.webp',
+        alt: 'New gray AC condenser on a concrete pad beside a stucco wall, with copper refrigerant lines and an electrical disconnect',
+      },
+    },
   },
   pricingTitle: 'What affects AC installation cost',
   pricingIntro:

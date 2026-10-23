@@ -456,16 +456,33 @@ export const heatPumpServicesPage: ServicePage = {
     { num: count(heatPumpServicesBase.faqs), label: 'heat pump questions answered' },
     { num: count(heatPumpServicesBase.comparisonTable!.rows), label: 'questions that decide repair or replace' },
   ],
-  // TODO(design): real photos (1200x900) to replace the three "Photo pending" tiles.
-  regionMedia: { icon: 'pin' },
+  regionMedia: {
+    icon: 'pin',
+    image: {
+      src: '/images/services/heat-pump/air-pro-solutions-southern-california-heat-pump-coastal-inland-seasonal-conditions-4x3.webp',
+      alt: 'Aerial view of a wooded ridge between a coastal strip with the ocean and an inland valley with homes and mountains',
+    },
+  },
   refrigerant: {
     ...heatPumpServicesBase.refrigerant!,
-    media: { icon: 'snowflake' },
+    media: {
+      icon: 'snowflake',
+      image: {
+        src: '/images/services/heat-pump/air-pro-solutions-heat-pump-refrigerant-transition-equipment-compatibility-4x3.webp',
+        alt: 'Outdoor condenser on a concrete pad beside an open utility room door showing an indoor air handler and ductwork',
+      },
+    },
     // Linked source line on migrated pages. `sourceText` is left in place and is used by the unmigrated markup only.
     sources: [heatPumpSource('frequent-questions-phasedown'), heatPumpSource('substitutes-residential-and-light-commercial')],
   },
   warranty: {
     ...heatPumpServicesBase.warranty!,
-    media: { icon: 'doc-check' },
+    media: {
+      icon: 'doc-check',
+      image: {
+        src: '/images/services/heat-pump/air-pro-solutions-hvac-replacement-warranty-document-review-4x3.webp',
+        alt: 'Open folder of paperwork on a wooden table beside a small digital display, reading glasses and a pen',
+      },
+    },
   },
 };

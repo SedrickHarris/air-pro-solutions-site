@@ -388,7 +388,21 @@ export const acMaintenancePage: ServicePage = {
     { num: count(acMaintenanceBase.faqs), label: 'AC maintenance questions answered' },
     { num: count(acMaintenanceBase.catches!.rows), label: 'problems a routine visit can find early' },
   ],
-  // TODO(design): real photos (1200x900) to replace the two "Photo pending" tiles (rebates band and region intro).
-  regionMedia: { icon: 'pin' },
-  rebatesNote: { ...acMaintenanceBase.rebatesNote!, media: { icon: 'dollar' } },
+  regionMedia: {
+    icon: 'pin',
+    image: {
+      src: '/images/services/ac-maintenance/air-pro-solutions-southern-california-coastal-inland-hvac-climate-4x3.webp',
+      alt: 'View from a hillside over a coastal Southern California city, with the Pacific Ocean on the left and dry mountains on the right',
+    },
+  },
+  rebatesNote: {
+    ...acMaintenanceBase.rebatesNote!,
+    media: {
+      icon: 'dollar',
+      image: {
+        src: '/images/services/ac-maintenance/air-pro-solutions-hvac-rebates-qualifying-equipment-upgrade-4x3.webp',
+        alt: 'Newer gray AC condenser with copper lines in the foreground and an older unit sitting at an angle behind it beside a stucco home',
+      },
+    },
+  },
 };

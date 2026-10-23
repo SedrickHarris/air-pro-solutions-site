@@ -173,8 +173,13 @@ const furnaceBase: ServicePage = {
     // TODO(copy): linked source line, replaces the unrendered plain sourceText on the migrated page
     sourceLabel: 'U.S. EPA - HFC phasedown FAQ',
     sourceHref: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons',
-    // TODO(design): replace with real photo, /images/services/furnace-installation/whole-system.webp (1200x900)
-    media: { icon: 'furnace' },
+    media: {
+      icon: 'furnace',
+      image: {
+        src: '/images/services/furnace-installation/air-pro-solutions-furnace-and-hvac-system-compatibility-check-4x3.webp',
+        alt: 'Gas furnace with a metal flue, a coil cabinet above it, refrigerant lines and sheet-metal ductwork in a utility closet',
+      },
+    },
   },
   pricingTitle: 'What affects furnace installation cost',
   // TODO(data): the $3,000-$12,000 range is published market data, not an Air Pro quote. Needs client
@@ -407,8 +412,13 @@ export const furnaceInstallationPage: ServicePage = {
       sources: [furnaceSource('https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards')],
     },
   },
-  // TODO(design): replace with real photo, /images/services/furnace-installation/regions.webp (1200x900)
-  regionMedia: { icon: 'pin' },
+  regionMedia: {
+    icon: 'pin',
+    image: {
+      src: '/images/services/furnace-installation/air-pro-solutions-southern-california-coastal-inland-furnace-installation-context-4x3.webp',
+      alt: 'Open doorway with a hillside neighborhood and the coast in view on the left, and a furnace and filter cabinet in a closet on the right',
+    },
+  },
   // Service-specific, not a repeat of the trust strip (the AC Repair pilot repeated rating and reviews; this page does not).
   proofStats: [
     { num: String(siteConfig.licenses.length), label: 'license numbers on file' },

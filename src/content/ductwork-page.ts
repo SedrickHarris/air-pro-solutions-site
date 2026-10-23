@@ -442,7 +442,21 @@ export const ductworkPage: ServicePage = {
     { num: count(ductworkBase.faqs), label: 'ductwork questions answered' },
     { num: count(ductworkBase.systems), label: 'duct system parts explained' },
   ],
-  // TODO(design): real photos (1200x900) to replace the two "Photo pending" tiles (rebates band and region intro).
-  regionMedia: { icon: 'pin' },
-  rebatesNote: { ...ductworkBase.rebatesNote!, media: { icon: 'dollar' } },
+  regionMedia: {
+    icon: 'pin',
+    image: {
+      src: '/images/services/ductwork/air-pro-solutions-southern-california-ductwork-coastal-inland-home-comfort-4x3.webp',
+      alt: 'Cutaway of a home showing insulated ductwork in the attic above a living room on the left and a bedroom on the right, with hills in the windows',
+    },
+  },
+  rebatesNote: {
+    ...ductworkBase.rebatesNote!,
+    media: {
+      icon: 'dollar',
+      image: {
+        src: '/images/services/ductwork/air-pro-solutions-heat-pump-rebate-eligible-equipment-upgrade-4x3.webp',
+        alt: 'Gray outdoor condenser on a concrete pad beside a stucco home, with insulated refrigerant lines, a disconnect box and desert landscaping alongside',
+      },
+    },
+  },
 };

@@ -417,15 +417,38 @@ export const emergencyHvacPage: ServicePage = {
     { num: count(emergencyHvacBase.faqs), label: 'emergency HVAC questions answered' },
     { num: count(emergencyHvacBase.repairReplaceTable!.rows), label: 'repair-or-replace factors compared' },
   ],
-  // TODO(design): real photos (1200x900) to replace the two "Photo pending" tiles (refrigerant callout and region intro).
-  regionMedia: { icon: 'pin' },
-  // TODO(design): real photo (1200x900) for the availability tile
-  availability: { ...emergencyHvacBase.availability!, media: { icon: 'clock' } },
+  regionMedia: {
+    icon: 'pin',
+    image: {
+      src: '/images/services/emergency-hvac-repair/air-pro-solutions-southern-california-coastal-inland-emergency-hvac-4x3.webp',
+      alt: 'Residential street of stucco homes with palm trees and dry hills in the background under a clear sky',
+    },
+  },
+  availability: {
+    ...emergencyHvacBase.availability!,
+    media: {
+      icon: 'clock',
+      image: {
+        src: '/images/services/emergency-hvac-repair/air-pro-solutions-hvac-service-availability-evening-4x3.webp',
+        alt: 'Quiet residential street at dusk with stucco homes, palm trees and lit windows',
+      },
+    },
+  },
   refrigerant: {
     ...emergencyHvacBase.refrigerant!,
-    media: { icon: 'snowflake' },
+    media: {
+      icon: 'snowflake',
+      image: {
+        src: '/images/services/emergency-hvac-repair/air-pro-solutions-r410a-ac-repair-existing-system-4x3.webp',
+        alt: 'Older outdoor AC condenser with a rusted fan grille on a concrete pad between a stucco wall and garden plants',
+      },
+    },
     // Linked source line on migrated pages. `sourceText` is left in place and is used by the unmigrated markup only.
     sources: [emergencyHvacSource('frequent-questions-phasedown')],
   },
-  // No heroCaption and no heroImage (recommended default from the planning chat): the hero keeps its "Photo pending" tile.
+  heroImage: {
+    src: '/images/services/emergency-hvac-repair/air-pro-solutions-emergency-hvac-repair-home-at-dusk-hero-4x3.webp',
+    alt: 'Outdoor AC condenser beside a stucco home at dusk, with warm lights on inside the house',
+  },
+  // No heroCaption (recommended default from the planning chat): the hero photo shows without a caption band.
 };

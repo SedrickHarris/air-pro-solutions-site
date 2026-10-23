@@ -609,8 +609,13 @@ const acRepairPage: ServicePage = {
       'Yes. EPA\'s rules on which refrigerants may be used in new residential and light-commercial installations have changed more than once, and which rules apply depends on the equipment and when it was made or imported. Existing R-410A systems can still be serviced, and an R-410A system does not have to be replaced only because of that rule. If a repair is major, a technician can walk you through the repair option and a replacement comparison so you decide with real numbers. Ask your contractor which rules apply to the equipment in your proposal.',
     sourceLabel: 'U.S. EPA, HFC Phasedown FAQ',
     sourceHref: 'https://www.epa.gov/hfcs/frequent-questions-phasedown-hydrofluorocarbons',
-    // TODO(design): replace with real photo, /images/services/ac-repair/refrigerant.webp (1200x900)
-    media: { icon: 'snowflake' },
+    media: {
+      icon: 'snowflake',
+      image: {
+        src: '/images/services/ac-repair/air-pro-solutions-r410a-air-conditioner-repair-existing-system-4x3.webp',
+        alt: 'Older outdoor AC condenser with a rusted fan grille and a wire-guard coil on a concrete pad beside a stucco wall',
+      },
+    },
   },
   pricingTitle: 'What affects AC repair cost',
   pricingIntro:
@@ -630,8 +635,13 @@ const acRepairPage: ServicePage = {
     ],
     linkText: 'Compare AC repair and replacement options',
     linkHref: '/services/ac-installation/',
-    // TODO(design): replace with real photo, /images/services/ac-repair/repair-or-replace.webp (1200x900)
-    media: { icon: 'wrench' },
+    media: {
+      icon: 'wrench',
+      image: {
+        src: '/images/services/ac-repair/air-pro-solutions-ac-repair-vs-replacement-system-evaluation-4x3.webp',
+        alt: 'Two outdoor AC condensers on concrete pads along a stucco home, an older light gray unit in front and a darker unit behind it',
+      },
+    },
   },
   rulesTitle: 'Licensing, permits, and energy-code basics',
   rules: [
