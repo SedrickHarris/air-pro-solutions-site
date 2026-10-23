@@ -4,6 +4,7 @@ import { DecisionGrid } from '@/components/sections/DecisionGrid';
 import { ResCommSplit } from '@/components/sections/ResCommSplit';
 import { ServicesGrid } from '@/components/sections/ServicesGrid';
 import { RegionGrid } from '@/components/sections/RegionGrid';
+import { CityCardsRow } from '@/components/sections/CityCardsRow';
 import { Proof } from '@/components/sections/Proof';
 import { RebateStrip } from '@/components/sections/RebateStrip';
 import { FaqList } from '@/components/sections/FaqList';
@@ -33,6 +34,13 @@ export default function Page() {
       <ResCommSplit />
       <ServicesGrid />
       <RegionGrid />
+      {/* Lowest-linked cities, two per region, none in the footer list. Descriptions are the region hub notes. */}
+      <CityCardsRow
+        slugs={['santa-monica', 'burbank', 'hawthorne', 'hermosa-beach', 'fullerton', 'newport-beach', 'eastvale', 'upland']}
+        expected={8}
+        eyebrow="Service areas"
+        title="Cities we serve"
+      />
       <Proof />
       <RebateStrip />
       <FaqList faqs={generalFaqs} title="HVAC Questions for Los Angeles Area Homes and Businesses" />
