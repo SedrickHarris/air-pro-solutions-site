@@ -213,7 +213,6 @@ export const laCountyHub = {
   cities: {
     eyebrow: 'Cities served',
     title: 'The eight cities on this page',
-    intro: 'Our Los Angeles, Long Beach, Pasadena, Glendale, Burbank, Culver City, Santa Monica, and Inglewood pages are all live. For the South Bay, see our Torrance page, or browse all service areas.',
     items: [
       { name: 'Los Angeles', note: 'Spans coast, basin, valley, and foothill conditions. Electric service from LADWP.', href: '/service-areas/los-angeles/' },
       { name: 'Long Beach', note: 'Coastal. Electric service from SCE.', href: '/service-areas/long-beach/' },
