@@ -15,6 +15,13 @@ const hubs = [
 
 export const ALLOWED_COUNTS = [4, 6, 8];
 export const MAX_CARDS = 8;
+export const MAX_OVERLAP = 3; // no two services may share more than this many featured cities
+export const MIN_COVERAGE = 2; // target inbound service links per city is 2 to 3
+export const MAX_COVERAGE = 3;
+export const FOOTER_CAP = 2; // at most this many footer cities per service
+// The cities the footer "Areas We Serve" column links sitewide (src/components/layout/Footer.tsx, areaSlugs).
+// Keep in sync with that list; service pages favor the cities it leaves out.
+export const FOOTER_CITIES = new Set(['los-angeles', 'long-beach', 'torrance', 'redondo-beach', 'irvine', 'anaheim', 'riverside', 'ontario']);
 export { services, cities, regions, matrixPages };
 
 // Services that get a "Where we do this" section: full-content pages only (stubs stay noindex).

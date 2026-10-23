@@ -1,15 +1,16 @@
-// Prints a proposed `featuredCities` per service and a coverage table. Writes nothing.
-// Rules, in order: (a) matrix cities, (b) one anchor city per region, (c) fill to 8 by lowest inbound coverage.
-// Coverage counts service-page links only (nearby-row links are not counted).
-// Order within a rule: lowest coverage, then cities the footer does not link, then the region with fewer picks on
-// this service, then slug. Cities with no existing card description are skipped and listed.
+// Prints a proposed `featuredCities` per service plus coverage and overlap tables. Writes nothing.
+// Per service, in order: (a) matrix cities, (b) one anchor city per region, (c) fill to 8.
+// Hard limits: no two services share more than MAX_OVERLAP cities, at most FOOTER_CAP footer cities per service,
+// at most MAX_COVERAGE inbound service links per city. A pick that would break one is skipped for the next city.
+// Order within a rule: cities that must be picked now to still reach MIN_COVERAGE, then lowest inbound coverage (service-page links only), then non-footer cities, then least overlap
+// with services already assigned, then the region with fewer picks on this service, then slug.
+// Cities with no existing card description are skipped and listed.
 // Run: npm run propose:featured-cities. Pass --ts to print the content file body (redirect it to
 // src/content/featured-cities.ts yourself; this script never writes files).
-import { featuredServices, liveCities, regions, hasMatrix, hasDescription, ALLOWED_COUNTS, MAX_CARDS } from './lib/featured.mjs';
-
-// The cities the footer "Areas We Serve" column links sitewide (src/components/layout/Footer.tsx, areaSlugs).
-// Keep in sync with that list; service pages favor the cities it leaves out.
-const FOOTER_CITIES = new Set(['los-angeles', 'long-beach', 'torrance', 'redondo-beach', 'irvine', 'anaheim', 'riverside', 'ontario']);
+import {
+  featuredServices, liveCities, regions, hasMatrix, hasDescription,
+  ALLOWED_COUNTS, MAX_CARDS, MAX_OVERLAP, MIN_COVERAGE, MAX_COVERAGE, FOOTER_CAP, FOOTER_CITIES,
+} from './lib/featured.mjs';
 
 const asTs = process.argv.includes('--ts');
 const eligible = liveCities.filter((c) => hasDescription(c.slug));
@@ -17,20 +18,38 @@ const skipped = liveCities.filter((c) => !hasDescription(c.slug)).map((c) => c.s
 const coverage = new Map(liveCities.map((c) => [c.slug, 0]));
 const proposal = [];
 
-for (const svc of featuredServices) {
+for (const [idx, svc] of featuredServices.entries()) {
+  const remainingAfter = featuredServices.length - idx - 1;
   const picked = [];
   const regionCount = new Map(regions.map((r) => [r.slug, 0]));
+  const has = (slug) => picked.some((p) => p.citySlug === slug);
+  const sharedWith = (prior) => prior.picked.filter((p) => has(p.citySlug)).length;
+  // Number of cities already shared with each earlier service that also features `c`.
+  const overlapOf = (c) => proposal.filter((p) => p.picked.some((x) => x.citySlug === c.slug)).map(sharedWith);
+  const allowed = (c) =>
+    !has(c.slug) &&
+    coverage.get(c.slug) < MAX_COVERAGE &&
+    (!FOOTER_CITIES.has(c.slug) || picked.filter((p) => FOOTER_CITIES.has(p.citySlug)).length < FOOTER_CAP) &&
+    overlapOf(c).every((n) => n + 1 <= MAX_OVERLAP);
   const add = (c, matrix = false) => {
     picked.push({ citySlug: c.slug, matrix });
     regionCount.set(c.region, regionCount.get(c.region) + 1);
     coverage.set(c.slug, coverage.get(c.slug) + 1);
   };
+  // A city is urgent when the services still to come cannot lift it to MIN_COVERAGE, so it must be picked now.
+  // Footer cities also become urgent when the footer cap on the remaining services could not absorb what they still need.
+  const footerNeed = () => [...FOOTER_CITIES].reduce((n, slug) => n + Math.max(0, MIN_COVERAGE - coverage.get(slug)), 0);
+  const urgent = (c) =>
+    MIN_COVERAGE - coverage.get(c.slug) > remainingAfter ||
+    (FOOTER_CITIES.has(c.slug) && coverage.get(c.slug) < MIN_COVERAGE && footerNeed() > remainingAfter * FOOTER_CAP);
   const order = (a, b) =>
+    Number(urgent(b)) - Number(urgent(a)) ||
     coverage.get(a.slug) - coverage.get(b.slug) ||
     Number(FOOTER_CITIES.has(a.slug)) - Number(FOOTER_CITIES.has(b.slug)) ||
+    overlapOf(a).reduce((x, y) => x + y, 0) - overlapOf(b).reduce((x, y) => x + y, 0) ||
     regionCount.get(a.region) - regionCount.get(b.region) ||
     a.slug.localeCompare(b.slug);
-  const open = () => eligible.filter((c) => !picked.some((p) => p.citySlug === c.slug));
+  const open = () => eligible.filter(allowed);
 
   for (const c of eligible.filter((c) => hasMatrix(svc.slug, c.slug))) add(c, true); // a
   for (const r of regions) { // b: a region already holding a matrix city counts as anchored
@@ -40,7 +59,7 @@ for (const svc of featuredServices) {
   }
   while (picked.length < MAX_CARDS && open().length) add(open().sort(order)[0]); // c
 
-  // Only trims when fewer than 8 were eligible. Matrix and anchor picks come first, so they survive.
+  // Only trims when fewer than 8 could be placed. Matrix and anchor picks come first, so they survive.
   const size = Math.max(0, ...ALLOWED_COUNTS.filter((n) => n <= picked.length));
   for (const dropped of picked.splice(size)) coverage.set(dropped.citySlug, coverage.get(dropped.citySlug) - 1);
   proposal.push({ slug: svc.slug, picked });
@@ -48,9 +67,10 @@ for (const svc of featuredServices) {
 
 if (asTs) {
   console.log("// Cities featured in each service page's \"Where we do this\" section, in display order.");
-  console.log('// Chosen by scripts/propose-featured-cities.mjs (lowest inbound coverage first, matrix pages always included).');
+  console.log('// Chosen by scripts/propose-featured-cities.mjs (lowest inbound coverage first, matrix pages always included,');
+  console.log('// no two services sharing more than 3 cities, at most 2 footer cities per service).');
   console.log('// Edit here, then run npm run check:featured-cities.');
-  console.log('// serviceNote is an optional service-specific description; without it the card uses the city\'s hub note.');
+  console.log("// serviceNote is an optional service-specific description; without it the card uses the city's hub note.");
   console.log('export type FeaturedCity = { citySlug: string; serviceNote?: string };\n');
   console.log('export const featuredCitiesByService: Record<string, FeaturedCity[]> = {');
   for (const p of proposal) {
