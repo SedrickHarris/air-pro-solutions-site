@@ -6,6 +6,7 @@ import {
   hubCityIndexNote, hubProof, hubFaqs, hubFinalCta,
 } from '@/content/service-area-hub';
 import { getRegion, citySlug } from '@/content/regions';
+import { getCity } from '@/content/cities';
 import { Icon } from '@/components/ui/Icon';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { TrustStrip } from '@/components/sections/TrustStrip';
@@ -159,7 +160,7 @@ export default function Page() {
                   <h3><Link href={`/service-areas/${r.slug}/`}>{r.name}</Link></h3>
                   <div className="nbhd-list">
                     {r.cities.map((c) =>
-                      c === 'Torrance' || c === 'Los Angeles' || c === 'Long Beach' || c === 'Pasadena' || c === 'Glendale' || c === 'Burbank' || c === 'Santa Monica' || c === 'Inglewood' || c === 'Culver City' || c === 'Redondo Beach' || c === 'Manhattan Beach' || c === 'Hermosa Beach' || c === 'El Segundo' || c === 'Gardena' || c === 'Hawthorne' || c === 'Carson' || c === 'Irvine' || c === 'Anaheim' || c === 'Santa Ana' || c === 'Costa Mesa' || c === 'Huntington Beach' || c === 'Newport Beach' || c === 'Fullerton' || c === 'Tustin' || c === 'Riverside' || c === 'Ontario' || c === 'Corona' || c === 'Rancho Cucamonga' || c === 'Chino' || c === 'Fontana' || c === 'Upland' || c === 'Eastvale' ? (
+                      getCity(citySlug(c))?.page ? (
                         <Link key={c} href={`/service-areas/${citySlug(c)}/`} className="chip-link">{c}</Link>
                       ) : (
                         <span key={c}>{c}</span>
