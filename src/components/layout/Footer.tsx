@@ -4,12 +4,20 @@ import { Icon } from '@/components/ui/Icon';
 import { siteConfig } from '@/content/site-config';
 import { footerCities } from '@/content/footer-cities';
 import { CityLink } from '@/components/ui/CityLink';
+import { getService, serviceHref } from '@/content/services';
 
+// The ten published core services (cooling, heating, then the rest). Names and hrefs come from
+// services.ts so the footer cannot drift from the service pages.
+const coreServiceSlugs = [
+  'ac-repair', 'ac-installation', 'ac-maintenance', 'heating-repair', 'furnace-installation',
+  'heat-pump-services', 'ductless-mini-split', 'ductwork', 'indoor-air-quality', 'emergency-hvac',
+];
 const servicesCol = [
-  { href: '/services/ac-repair/', label: 'AC Repair' },
-  { href: '/services/ac-installation/', label: 'AC Installation' },
-  { href: '/services/heating-repair/', label: 'Heating Repair' },
-  { href: '/services/ductless-mini-split/', label: 'Ductless Mini-Split' },
+  ...coreServiceSlugs.map((slug) => {
+    const svc = getService(slug);
+    if (!svc) throw new Error(`Unknown footer service slug: ${slug}`);
+    return { href: serviceHref(svc.slug), label: svc.name };
+  }),
   { href: '/residential-hvac/', label: 'Residential HVAC' },
   { href: '/commercial-hvac/', label: 'Commercial HVAC' },
 ];

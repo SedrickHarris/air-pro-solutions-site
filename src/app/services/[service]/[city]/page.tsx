@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { matrixPages } from '@/content/matrix';
 import { getMatrixContent } from '@/content/matrix-content';
-import { getService, serviceHref, commercialCardImage, commercialCardDescription } from '@/content/services';
+import { getService, publishedServices, serviceHref, commercialCardImage, commercialCardDescription } from '@/content/services';
 import { getCity } from '@/content/cities';
 import { getRegion } from '@/content/regions';
 import { siteConfig } from '@/content/site-config';
@@ -108,6 +108,12 @@ export default async function Page({ params }: { params: Promise<{ service: stri
     }),
     { name: 'Commercial HVAC', href: '/commercial-hvac/', icon: 'building', image: commercialCardImage, description: commercialCardDescription },
   ];
+
+  // Text-link row for the published services the related cards above do not already cover, so every core
+  // service page is reachable from a matrix page. Built from data, so a future matrix page needs no edit here.
+  const otherServiceLinks = publishedServices
+    .filter((s) => s.slug !== service.slug && !service.related.includes(s.slug))
+    .map((s) => ({ text: s.name, href: serviceHref(s.slug) }));
 
   // Merged "{Service} in {City} at a glance" card: the service record's own glance supplies two stats (process
   // steps, C-20) and the city supplies one verified fact, so every page keeps the same three-stat card and the
@@ -261,7 +267,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         ]}
       />
 
-      <RelatedRow items={relatedServices} eyebrow="Related" title="Explore related services" alt={false} />
+      <RelatedRow items={relatedServices} eyebrow="Related" title="Explore related services" alt={false} moreLinks={otherServiceLinks} />
 
       <FaqList
         faqs={content.faqs}

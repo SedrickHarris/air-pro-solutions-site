@@ -287,6 +287,7 @@ const acMaintenanceBase: ServicePage = {
     { text: 'Ductwork and airflow', href: '/services/ductwork/' },
     { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
     { text: 'Maintenance plan options', href: '/maintenance-plan/' },
+    { text: 'AC repair in Torrance', href: '/services/ac-repair/torrance/' },
   ],
   sourcesColumns: 2,
   sources: acMaintenanceSources,
