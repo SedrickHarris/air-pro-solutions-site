@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { siteConfig } from '@/content/site-config';
 import { inlandEmpireHub, inlandEmpireServiceCards } from '@/content/inland-empire';
 import { getRegion, citySlug } from '@/content/regions';
-import { getCity } from '@/content/cities';
 import { renderBold } from '@/lib/markdown';
 import { Icon } from '@/components/ui/Icon';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
@@ -13,6 +12,7 @@ import { AnswerBlock } from '@/components/sections/AnswerBlock';
 import { DataTable } from '@/components/sections/DataTable';
 import { ServicesGrid } from '@/components/sections/ServicesGrid';
 import { RebateCards } from '@/components/sections/RebateCards';
+import { CityCard } from '@/components/sections/CityCard';
 import { Proof } from '@/components/sections/Proof';
 import { FaqList } from '@/components/sections/FaqList';
 import { FinalCta } from '@/components/sections/FinalCta';
@@ -260,40 +260,13 @@ export default function Page() {
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">
-            {inlandEmpireHub.cities.items.map((c) => {
-              const image = getCity(citySlug(c.name))?.cardImage;
-              const body = (
-                <>
-                {image ? (
-                  <div className="svc-card-img">
-                    <Image src={image.src} alt={image.alt} width={800} height={600} sizes="(max-width: 520px) 100vw, (max-width: 920px) 50vw, 25vw" />
-                  </div>
-                ) : (
-                  <div className="photo-pending svc-card-img">
-                    <Icon name="pin" size={28} />
-                    <span className="photo-tag">Photo pending</span>
-                  </div>
-                )}
-                <div className="svc-card-body">
-                  <h3>{c.name}</h3>
-                  <p>{c.note}</p>
-                  <p style={{ fontSize: '0.85rem' }}>{renderBold(`**Areas:** ${c.areas}`)}</p>
-                  <p style={{ fontSize: '0.85rem' }}>{renderBold(`**Utility:** ${c.utility}`)}</p>
-                  {c.pending && <p style={{ fontSize: '0.82rem', color: 'var(--ink-soft)', fontStyle: 'italic' }}>{c.pending}</p>}
-                  {c.href ? (
-                    <span className="card-arrow">View area <Icon name="arrow" size={16} /></span>
-                  ) : (
-                    <span className="card-soon">City page coming soon</span>
-                  )}
-                </div>
-              </>
-              );
-              return c.href ? (
-                <Link key={c.name} href={c.href} className="svc-card">{body}</Link>
-              ) : (
-                <div key={c.name} className="svc-card">{body}</div>
-              );
-            })}
+            {inlandEmpireHub.cities.items.map((c) => (
+              <CityCard key={c.name} slug={citySlug(c.name)} name={c.name} description={c.note} extras={[
+                  <p style={{ fontSize: '0.85rem' }}>{renderBold(`**Areas:** ${c.areas}`)}</p>,
+                  <p style={{ fontSize: '0.85rem' }}>{renderBold(`**Utility:** ${c.utility}`)}</p>,
+                  c.pending && <p style={{ fontSize: '0.82rem', color: 'var(--ink-soft)', fontStyle: 'italic' }}>{c.pending}</p>,
+                ]} />
+            ))}
           </div>
           <p className="local-links" style={{ marginTop: '1rem' }}>{inlandEmpireHub.cities.note}</p>
         </div>
