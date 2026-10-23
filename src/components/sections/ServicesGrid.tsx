@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { services, serviceHref, commercialCardImage, commercialCardDescription, type ServiceImage } from '@/content/services';
 import { Icon } from '@/components/ui/Icon';
 
-// Homepage curation and order. ductwork, indoor-air-quality and furnace-installation are intentionally
-// not surfaced here. Commercial HVAC is an audience hub, not a service, so it is a manual card.
+// Homepage curation and order. ductwork, indoor-air-quality and furnace-installation are not cards here;
+// the homepage links to them through the optional moreLinks row instead. Commercial HVAC is an audience hub, not a service, so it is a manual card.
 const order = [
   'ac-repair', 'ac-installation', 'heating-repair', 'heat-pump-services',
   'ductless-mini-split', 'ac-maintenance', 'commercial-hvac', 'emergency-hvac',
@@ -34,11 +34,13 @@ export function ServicesGrid({
   eyebrow = 'Services',
   title = 'HVAC services',
   columns,
+  moreLinks,
 }: {
   cards?: Card[];
   eyebrow?: string;
   title?: string;
   columns?: 2 | 3 | 4 | 5;
+  moreLinks?: { text: string; href: string }[]; // optional "More on this topic" text-link row, same pattern as RelatedRow
 } = {}) {
   const cards = cardsProp ?? order.map(cardFor).filter((c): c is Card => Boolean(c));
   const gridClass = columns === 5 ? 'services-grid services-grid-5' : columns === 3 ? 'services-grid services-grid-3' : columns === 2 ? 'services-grid services-grid-2' : 'services-grid';
@@ -69,6 +71,17 @@ export function ServicesGrid({
             </Link>
           ))}
         </div>
+        {moreLinks && moreLinks.length > 0 && (
+          <p className="more-links">
+            More on this topic:{' '}
+            {moreLinks.map((l, i) => (
+              <span key={l.text}>
+                <Link href={l.href}>{l.text}</Link>
+                {i < moreLinks.length - 1 ? ' · ' : ''}
+              </span>
+            ))}
+          </p>
+        )}
       </div>
     </section>
   );

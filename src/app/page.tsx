@@ -32,7 +32,13 @@ export default function Page() {
       <TrustStrip />
       <DecisionGrid />
       <ResCommSplit />
-      <ServicesGrid />
+      <ServicesGrid
+        moreLinks={[
+          { text: 'Furnace installation and replacement', href: '/services/furnace-installation/' },
+          { text: 'Ductwork and airflow', href: '/services/ductwork/' },
+          { text: 'Indoor air quality and filtration', href: '/services/indoor-air-quality/' },
+        ]}
+      />
       <RegionGrid />
       {/* Lowest-linked cities, two per region, none in the footer list. Descriptions are the region hub notes. */}
       <CityCardsRow

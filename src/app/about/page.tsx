@@ -29,6 +29,13 @@ export default function Page() {
           <h2>Licensing</h2>
           <PendingNote>CSLB license number, pending client confirmation.</PendingNote>
 
+          <h2>What we do</h2>
+          <p>
+            AIRPRO SOLUTIONS handles <Link href="/services/ac-repair/">AC repair</Link>,{' '}
+            <Link href="/services/ac-installation/">new AC installation and replacement</Link>, and{' '}
+            <Link href="/services/heating-repair/">heating repair</Link> for homes and businesses.
+          </p>
+
           <h2>Where we work</h2>
           <p>
             AIRPRO SOLUTIONS serves Los Angeles County, the South Bay, Orange County, and the Inland Empire.{' '}

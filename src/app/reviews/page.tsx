@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { jsonLd, breadcrumbSchema, webPageSchema } from '@/lib/schema';
@@ -35,6 +36,13 @@ export default function Page() {
           <h2>Reviews by city</h2>
           {/* TODO(data): city-tagged review cards. Each must be a real review with permission; these feed matrix-page local proof. */}
           <PendingNote>city-tagged review cards, pending real reviews.</PendingNote>
+
+          <h2>Learn about our services</h2>
+          <p>
+            Read how we approach <Link href="/services/ac-repair/">air conditioner repair</Link>,{' '}
+            <Link href="/services/ac-installation/">AC installation</Link>, and{' '}
+            <Link href="/services/heating-repair/">furnace and heating repair</Link>.
+          </p>
         </div>
       </section>
     </>

@@ -36,6 +36,10 @@ export default function Page() {
 
           <h2>What a maintenance visit typically covers</h2>
           <p>General maintenance visit items. Exact plan inclusions will be confirmed.</p>
+          <p>
+            For what a cooling-system visit involves, read about <Link href="/services/ac-maintenance/">AC maintenance</Link>.
+            Systems that both heat and cool are covered under <Link href="/services/heat-pump-services/">heat pump services</Link>.
+          </p>
           <ul>
             {generalInclusions.map((item) => (
               <li key={item}>{item}</li>

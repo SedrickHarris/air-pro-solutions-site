@@ -130,6 +130,13 @@ export default function Page() {
         eyebrow="Core commercial services"
         title="Everything your properties need, one call away"
         columns={3}
+        moreLinks={[
+          { text: 'Heating repair', href: '/services/heating-repair/' },
+          { text: 'Furnace installation', href: '/services/furnace-installation/' },
+          { text: 'Ductless mini-split systems', href: '/services/ductless-mini-split/' },
+          { text: 'Ductwork and airflow', href: '/services/ductwork/' },
+          { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
+        ]}
       />
 
       <ProcessList

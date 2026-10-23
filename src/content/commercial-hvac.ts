@@ -139,6 +139,7 @@ export const commercialFaqs: Faq[] = [
   {
     q: 'Does AIRPRO SOLUTIONS work with general contractors on tenant improvement projects?',
     a: 'Yes. AIRPRO SOLUTIONS coordinates directly with general contractors, architects, and property owners on HVAC scope for tenant improvement and build-out projects, including new rooftop unit placement and ductwork for the new layout.',
+    links: [{ text: 'ductwork for the new layout', href: '/services/ductwork/' }],
   },
   {
     // TODO(claims): billing structure and portfolio pricing are unconfirmed.

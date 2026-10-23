@@ -1,3 +1,4 @@
+import { linkify } from '@/components/sections/FaqList';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { generalFaqs } from '@/content/faq';
@@ -28,7 +29,7 @@ export default function Page() {
           {generalFaqs.map((f) => (
             <details key={f.q}>
               <summary>{f.q}</summary>
-              <p>{f.a}</p>
+              <p>{linkify(f.a, f.links)}</p>
             </details>
           ))}
         </div>

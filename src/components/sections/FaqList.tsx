@@ -4,7 +4,7 @@ import type { Faq } from '@/content/faq';
 
 // Splits `text` on each link's `text` and wraps that substring in a link. The plain string fed to
 // the FAQPage JSON-LD (see src/lib/schema.ts) is untouched, so visible text and schema stay identical.
-function linkify(text: string, links?: Faq['links']): ReactNode[] {
+export function linkify(text: string, links?: Faq['links']): ReactNode[] {
   let parts: (string | ReactNode)[] = [text];
   (links ?? []).forEach((link, i) => {
     const next: (string | ReactNode)[] = [];

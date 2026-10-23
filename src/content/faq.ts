@@ -13,18 +13,25 @@ export const generalFaqs: Faq[] = [
   {
     q: 'How often should I schedule HVAC maintenance for my home?',
     a: 'Most home HVAC systems benefit from professional maintenance about once a year. If your home uses both heating and air conditioning, ask about seasonal service for each system. Regular maintenance can help identify wear, airflow issues, and other concerns before they lead to a breakdown.',
+    links: [{ text: 'professional maintenance', href: '/services/ac-maintenance/' }],
   },
   {
     q: 'Why is my air conditioner running but not cooling?',
     a: 'A dirty air filter, thermostat setting, blocked return vent, or outdoor unit issue can keep an air conditioner from cooling properly. Check that the thermostat is set to cool and that vents are open. If the system still runs without cooling, turn it off and schedule an inspection to identify the cause.',
+    links: [{ text: 'schedule an inspection', href: '/services/ac-repair/' }],
   },
   {
     q: 'Should I repair or replace my home’s air conditioner?',
     a: 'The right choice depends on the system’s age, condition, repair needs, and cooling performance. A technician can inspect the equipment, explain what is causing the problem, and discuss repair and replacement options so you can make an informed decision.',
+    links: [
+      { text: 'inspect the equipment', href: '/services/ac-repair/' },
+      { text: 'replacement options', href: '/services/ac-installation/' },
+    ],
   },
   {
     q: 'Is a heat pump a good choice for a Southern California home?',
     a: 'A heat pump may be a practical option for some Southern California homes because it can provide both heating and cooling. Whether it fits your home depends on factors such as its size, insulation, existing equipment, and comfort needs. An HVAC evaluation can help determine which system options are appropriate.',
+    links: [{ text: 'practical option for some Southern California homes', href: '/services/heat-pump-services/' }],
   },
   {
     q: 'What commercial HVAC services does AIRPRO SOLUTIONS provide?',
