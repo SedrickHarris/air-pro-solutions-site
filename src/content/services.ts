@@ -1,4 +1,5 @@
 import type { Faq } from '@/content/faq';
+import { featuredCitiesByService, type FeaturedCity } from '@/content/featured-cities';
 import { siteConfig } from '@/content/site-config';
 import { acInstallationPage } from '@/content/ac-installation-page';
 import { acMaintenancePage } from '@/content/ac-maintenance-page';
@@ -452,6 +453,7 @@ export type Service = {
   } | null; // TODO(copy)
   related: string[]; // slugs
   page?: ServicePage; // full template content; only ac-repair has this so far
+  featuredCities?: FeaturedCity[]; // cities linked from the "Where we do this" section; see featured-cities.ts
 };
 
 type Opts = { description?: string; image?: ServiceImage };
@@ -1144,6 +1146,7 @@ export const services: Service[] = baseServices.map((sv) => ({
   ...sv,
   parent: parentOf[sv.slug],
   level: parentOf[sv.slug] ? 2 : serviceTree[sv.slug] ? 1 : sv.level,
+  featuredCities: featuredCitiesByService[sv.slug],
 }));
 
 export const childrenOf = (slug: string) => services.filter((x) => x.parent === slug);
