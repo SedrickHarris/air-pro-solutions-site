@@ -46,10 +46,13 @@ export const commercialTrustCopy = {
   license: { num: 'C-20', label: 'California licensed & bonded' },
 };
 
+// TODO(data): the first three cards linked to /office-building-hvac/, /restaurant-hvac/ and /multifamily-hvac/
+// (ctaLabel 'See office HVAC', 'See retail HVAC', 'See multifamily HVAC'). Those pages are noindex stubs, so the
+// links were removed; restore the href and ctaLabel on each card when its page publishes.
 export const propertyTypes: DecisionCard[] = [
-  { icon: 'building', title: 'Office buildings', body: 'Rooftop and split-system service that keeps tenants comfortable.', href: '/office-building-hvac/', ctaLabel: 'See office HVAC' },
-  { icon: 'store', title: 'Retail & restaurants', body: 'Fast turnaround to protect foot traffic and health-code comfort standards.', href: '/restaurant-hvac/', ctaLabel: 'See retail HVAC' },
-  { icon: 'home', title: 'Multifamily & HOA', body: 'Coordinated scheduling with property managers and boards.', href: '/multifamily-hvac/', ctaLabel: 'See multifamily HVAC' },
+  { icon: 'building', title: 'Office buildings', body: 'Rooftop and split-system service that keeps tenants comfortable.' },
+  { icon: 'store', title: 'Retail & restaurants', body: 'Fast turnaround to protect foot traffic and health-code comfort standards.' },
+  { icon: 'home', title: 'Multifamily & HOA', body: 'Coordinated scheduling with property managers and boards.' },
   // TODO(data): no industrial/warehouse audience page exists yet; repoint to one if it's added.
   { icon: 'buildings', title: 'Industrial & warehouse', body: 'Rooftop package units and large-space heating and cooling.', href: '/contact/', ctaLabel: 'See industrial HVAC' },
   { icon: 'calendar-check', title: 'Preventive maintenance', body: 'Scheduled agreements that catch problems before they become outages.', href: '/services/ac-maintenance/', ctaLabel: 'See maintenance plans' },
