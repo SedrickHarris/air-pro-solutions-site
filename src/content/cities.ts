@@ -290,7 +290,7 @@ const losAngelesOverrides: Partial<City> = {
         },
       ],
     },
-    nearby: ['torrance', 'long-beach', 'pasadena', 'culver-city'],
+    nearby: ['torrance', 'long-beach', 'pasadena', 'culver-city', 'glendale'],
     proof: {
       heading: 'Licensed, reviewed, and ready across the City of Los Angeles',
       body: 'AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.',
@@ -3615,7 +3615,7 @@ const coronaOverrides: Partial<City> = {
         },
       ],
     },
-    nearby: ['riverside', 'ontario', 'anaheim'],
+    nearby: ['riverside', 'ontario', 'eastvale'],
     proof: {
       heading: "Licensed, reviewed, and ready across Corona",
       body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
@@ -5219,7 +5219,7 @@ const inglewoodOverrides: Partial<City> = {
         },
       ],
     },
-    nearby: ['los-angeles', 'torrance', 'carson', 'santa-monica'],
+    nearby: ['los-angeles', 'culver-city', 'santa-monica'],
     proof: {
       heading: "Licensed, reviewed, and ready across Inglewood",
       body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
