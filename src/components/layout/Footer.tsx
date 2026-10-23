@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
 import { siteConfig } from '@/content/site-config';
+import { getCity } from '@/content/cities';
 
 const servicesCol = [
   { href: '/services/ac-repair/', label: 'AC Repair' },
@@ -20,6 +21,13 @@ const company = [
   { href: '/careers/', label: 'Careers' },
   { href: '/contact/', label: 'Contact' },
 ];
+
+// Two wave 1 cities per region; a city is listed only when it has a live page.
+const areaSlugs = ['los-angeles', 'long-beach', 'torrance', 'redondo-beach', 'irvine', 'anaheim', 'riverside', 'ontario'];
+const areas = areaSlugs.flatMap((slug) => {
+  const c = getCity(slug);
+  return c?.page ? [{ href: `/service-areas/${c.slug}/`, label: c.name }] : [];
+});
 
 export function Footer() {
   return (
@@ -47,6 +55,15 @@ export function Footer() {
               {company.map((c) => (
                 <li key={c.href}><Link href={c.href}>{c.label}</Link></li>
               ))}
+            </ul>
+          </div>
+          <div>
+            <h3>Areas We Serve</h3>
+            <ul>
+              {areas.map((c) => (
+                <li key={c.href}><Link href={c.href}>{c.label}</Link></li>
+              ))}
+              <li><Link href="/service-areas/">All service areas</Link></li>
             </ul>
           </div>
           <div>
