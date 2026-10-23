@@ -40,6 +40,9 @@ Client-approved on 2026-10-14. Treat these as verified, not placeholders:
 - Same-day service (typical, subject to capacity, as currently worded on the site)
 - Licensed, bonded & insured (CA license #1126691 and #50251 (C-20))
 - 4.8 stars / 40 Google reviews
+- Background-checked technicians
+- After-hours service
+- Services all major HVAC brands
 
 The exact wording currently on the site is the approved wording. Do not strengthen or paraphrase it (for
 example, do not turn "typical, subject to capacity" into a guarantee). Any claim not on this list must be

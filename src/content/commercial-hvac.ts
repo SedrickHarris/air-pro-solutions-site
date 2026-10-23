@@ -62,7 +62,7 @@ export const propertyTypes: DecisionCard[] = [
 
 export const whyUs: DecisionCard[] = [
   { icon: 'user', title: 'One point of contact', body: 'A single account contact for every property in your portfolio, instead of a different vendor per site.' },
-  // TODO(claims): after-hours availability is unconfirmed.
+  // client-approved
   { icon: 'clock', title: 'After-hours scheduling', body: 'Maintenance and non-emergency repairs scheduled around business hours, not around ours.' },
   // TODO(claims): certificate of insurance is unconfirmed.
   { icon: 'doc-check', title: 'Documentation on request', body: 'Certificate of insurance, licensing, and service history available for property management and ownership records.' },
@@ -99,7 +99,7 @@ export const regionCopy: Record<string, { cities: string; cta: string }> = {
 export const proof = {
   eyebrow: 'Why Air Pro',
   heading: 'Clear proposals and a crew that shows up on schedule',
-  // TODO(claims): background-checked and factory-trained are unconfirmed.
+  // TODO(claims): factory-trained is unconfirmed.
   body: 'Every technician is background-checked and factory-trained. Every proposal is itemized before we touch a tool. Every job includes a service record for your files, not just an invoice.',
   ctaLabel: 'Read our reviews',
   ctaHref: '/reviews/',
@@ -112,7 +112,7 @@ export const commercialFaqs: Faq[] = [
     a: 'Yes. AIRPRO SOLUTIONS offers scheduled preventive maintenance agreements for office buildings, retail centers, multifamily properties, and industrial sites, sized to a single property or a full portfolio, with priority scheduling for agreement holders.',
   },
   {
-    // TODO(claims): after-hours and weekend scheduling is unconfirmed.
+    // TODO(claims): weekend scheduling is unconfirmed.
     q: 'Can AIRPRO SOLUTIONS service rooftop package units after hours?',
     a: 'Yes. AIRPRO SOLUTIONS offers after-hours and weekend scheduling for commercial and multifamily properties so repairs and maintenance can happen without disrupting tenants, staff, or business hours.',
   },
@@ -150,7 +150,7 @@ export const commercialFaqs: Faq[] = [
     a: 'Cost depends on the number of units, system type, and visit frequency, so AIRPRO SOLUTIONS prices maintenance agreements after a property walkthrough rather than a flat rate. Most single-property agreements are billed per visit or per unit per year, with portfolio pricing available for multiple sites.',
   },
   {
-    // TODO(claims): brand list and "all major brands" - the About page tracks manufacturer
+    // TODO(claims): the named brand list is unconfirmed; the About page tracks manufacturer
     // authorization as pending.
     q: 'Does AIRPRO SOLUTIONS service all commercial HVAC brands?',
     a: 'Yes. AIRPRO SOLUTIONS services all major commercial HVAC and rooftop package unit brands, including Trane, Carrier, Lennox, York, Daikin, and Rheem systems, whether or not we installed the original equipment.',

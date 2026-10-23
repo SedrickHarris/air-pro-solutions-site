@@ -3,7 +3,7 @@ import { siteConfig } from '@/content/site-config';
 
 export type ProofStat = { num: string; label: string };
 
-// TODO(data): "background-checked and factory-trained" and "itemized before we touch a tool" are
+// TODO(data): "factory-trained" and "itemized before we touch a tool" are
 // claims supplied in the brief; confirm with the client that each is true before launch.
 const defaultStats: ProofStat[] = [
   { num: `${siteConfig.rating}★`, label: 'Google rating' },

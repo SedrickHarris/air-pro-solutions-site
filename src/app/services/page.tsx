@@ -261,6 +261,7 @@ export default function Page() {
         linkLabel={(name) => `Explore ${name}`}
       />
 
+      {/* client-approved */}
       <Proof
         eyebrow="Why Air Pro"
         heading="One HVAC company, every service you'll ever need"
