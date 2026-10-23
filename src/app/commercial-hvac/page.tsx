@@ -7,6 +7,7 @@ import { TrustStrip } from '@/components/sections/TrustStrip';
 import { DecisionGrid } from '@/components/sections/DecisionGrid';
 import { ServicesGrid, type Card } from '@/components/sections/ServicesGrid';
 import { ProcessList } from '@/components/sections/ProcessList';
+import { CityCardsRow } from '@/components/sections/CityCardsRow';
 import { Proof } from '@/components/sections/Proof';
 import { FaqList } from '@/components/sections/FaqList';
 import { FinalCta } from '@/components/sections/FinalCta';
@@ -164,6 +165,14 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Cities whose region hub note speaks to commercial or multifamily property; descriptions are those hub notes. */}
+      <CityCardsRow
+        slugs={['el-segundo', 'culver-city', 'torrance', 'santa-monica']}
+        expected={4}
+        eyebrow="Service areas"
+        title="Commercial HVAC by city"
+      />
 
       <Proof
         eyebrow={proof.eyebrow}
