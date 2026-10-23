@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run check:nearby && npm run check:featured-cities && npm run check:hub-links && next build",
     "start": "npx serve out",
     "lint": "tsc --noEmit",
     "check:nearby": "node scripts/check-nearby.mjs",
