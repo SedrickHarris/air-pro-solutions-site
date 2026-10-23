@@ -131,7 +131,7 @@ const torranceOverrides: Partial<City> = {
       { slug: 'commercial-hvac', name: 'Commercial HVAC', body: 'Rooftop units, office buildings, and retail spaces across Torrance and the South Bay.' },
       { slug: 'emergency-hvac', name: 'Emergency HVAC Repair', body: 'Call about urgent no-cool and no-heat problems in Torrance.' },
     ],
-    nearby: ['redondo-beach', 'manhattan-beach', 'gardena', 'carson'],
+    nearby: ['redondo-beach', 'manhattan-beach', 'gardena', 'carson', 'inglewood'],
     proof: {
       heading: "Licensed technicians and a clear explanation of the work",
       body:
@@ -1646,7 +1646,7 @@ const irvineOverrides: Partial<City> = {
     },
     // Nearby row held out: no Orange County city page is live yet and the research has no neighbor list, so adjacency is not claimed.
     // The city page skips the section when this is empty. Add Orange County cities here as their pages go live.
-    nearby: [],
+    nearby: ['costa-mesa', 'huntington-beach', 'anaheim'],
     proof: {
       heading: 'Licensed, reviewed, and ready across Irvine',
       body: 'AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.',
@@ -1909,7 +1909,7 @@ const anaheimOverrides: Partial<City> = {
       ],
     },
     // Nearby row held out: no sourced adjacency, and no other Orange County city page links are claimed here. The city page skips the section when this is empty.
-    nearby: [],
+    nearby: ['irvine', 'costa-mesa', 'huntington-beach'],
     proof: {
       heading: 'Licensed, reviewed, and ready across Anaheim',
       body: 'AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.',
@@ -2199,7 +2199,7 @@ const costaMesaOverrides: Partial<City> = {
       ],
     },
     // Nearby row held out: no source names Costa Mesa neighbors. The city page skips the section when this is empty.
-    nearby: [],
+    nearby: ['irvine', 'huntington-beach', 'anaheim'],
     proof: {
       heading: "Licensed, reviewed, and ready across Costa Mesa",
       body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
@@ -2512,7 +2512,7 @@ const huntingtonBeachOverrides: Partial<City> = {
       ],
     },
     // Nearby row held out: no source names Huntington Beach neighbors. The city page skips the section when this is empty.
-    nearby: [],
+    nearby: ['costa-mesa', 'irvine', 'anaheim'],
     proof: {
       heading: "Licensed, reviewed, and ready across Huntington Beach",
       body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
@@ -2867,7 +2867,7 @@ const riversideOverrides: Partial<City> = {
       ],
     },
     // Nearby row held out: no source names Riverside neighbors. The city page skips the section when this is empty.
-    nearby: [],
+    nearby: ['corona', 'ontario', 'fontana', 'rancho-cucamonga'],
     proof: {
       heading: "Licensed, reviewed, and ready across Riverside",
       body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
@@ -3243,7 +3243,7 @@ const ontarioOverrides: Partial<City> = {
         },
       ],
     },
-    nearby: [],
+    nearby: ['rancho-cucamonga', 'fontana', 'riverside', 'corona'],
     proof: {
       heading: "Licensed, reviewed, and ready across Ontario",
       body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
@@ -3615,7 +3615,7 @@ const coronaOverrides: Partial<City> = {
         },
       ],
     },
-    nearby: [],
+    nearby: ['riverside', 'ontario', 'anaheim'],
     proof: {
       heading: "Licensed, reviewed, and ready across Corona",
       body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
@@ -4037,7 +4037,7 @@ const glendaleOverrides: Partial<City> = {
         },
       ],
     },
-    nearby: [],
+    nearby: ['burbank', 'pasadena', 'los-angeles'],
     proof: {
       heading: "Licensed, reviewed, and ready across Glendale",
       body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
@@ -4462,7 +4462,7 @@ const burbankOverrides: Partial<City> = {
         },
       ],
     },
-    nearby: [],
+    nearby: ['glendale', 'los-angeles', 'pasadena'],
     proof: {
       heading: "Licensed, reviewed, and ready across Burbank",
       body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
@@ -4855,7 +4855,7 @@ const santaMonicaOverrides: Partial<City> = {
         },
       ],
     },
-    nearby: [],
+    nearby: ['los-angeles', 'inglewood'],
     proof: {
       heading: "Licensed, reviewed, and ready across Santa Monica",
       body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
@@ -5219,7 +5219,7 @@ const inglewoodOverrides: Partial<City> = {
         },
       ],
     },
-    nearby: [],
+    nearby: ['los-angeles', 'torrance', 'carson', 'santa-monica'],
     proof: {
       heading: "Licensed, reviewed, and ready across Inglewood",
       body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
@@ -6433,7 +6433,7 @@ const ranchoCucamongaOverrides: Partial<City> = {
         },
       ],
     },
-    nearby: [],
+    nearby: ['ontario', 'fontana', 'riverside'],
     proof: {
       heading: "Licensed, reviewed, and ready across Rancho Cucamonga",
       body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",
@@ -7143,7 +7143,7 @@ const carsonOverrides: Partial<City> = {
         },
       ],
     },
-    nearby: ["torrance", "gardena", "hawthorne", "redondo-beach"],
+    nearby: ["torrance", "gardena", "hawthorne", "redondo-beach", "inglewood"],
     proof: {
       heading: "Licensed, reviewed, and ready across Carson",
       body: "AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide.",

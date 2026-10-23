@@ -252,7 +252,7 @@ export default async function Page({ params }: { params: Promise<{ city: string 
         </section>
       )}
 
-      {/* Skipped when a city has no nearby pages yet (Irvine: no Orange County city is live). */}
+      {/* Skipped when a city has no nearby pages listed in cities.ts. */}
       {nearby.length > 0 && (
         <RelatedRow
           items={nearby}
