@@ -229,6 +229,7 @@ export default function Page() {
           <h2>{laCountyHub.cities.title}</h2>
           <p>
             See our <CityLink slug="los-angeles">Los Angeles page</CityLink>, <CityLink slug="long-beach">Long Beach page</CityLink>, <CityLink slug="pasadena">Pasadena page</CityLink>, <CityLink slug="glendale">Glendale page</CityLink>, <CityLink slug="burbank">Burbank page</CityLink>, <CityLink slug="culver-city">Culver City page</CityLink>, <CityLink slug="santa-monica">Santa Monica page</CityLink>, and <CityLink slug="inglewood">Inglewood page</CityLink>. For the South Bay, see our{' '}
+            <Link href="/service-areas/south-bay/">South Bay service area</Link>, our{' '}
             <CityLink slug="torrance">Torrance page</CityLink>, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
