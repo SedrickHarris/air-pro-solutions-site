@@ -12,6 +12,7 @@ import { AnswerBlock } from '@/components/sections/AnswerBlock';
 import { DataTable } from '@/components/sections/DataTable';
 import { ServicesGrid } from '@/components/sections/ServicesGrid';
 import { RebateCards } from '@/components/sections/RebateCards';
+import { CityLink } from '@/components/ui/CityLink';
 import { CityCard } from '@/components/sections/CityCard';
 import { Proof } from '@/components/sections/Proof';
 import { FaqList } from '@/components/sections/FaqList';
@@ -243,14 +244,14 @@ export default function Page() {
           <h2>{orangeCountyHub.cities.title}</h2>
           <p>
             All eight Orange County cities we list have their own pages:{' '}
-            <Link href="/service-areas/irvine/">Irvine</Link>,{' '}
-            <Link href="/service-areas/anaheim/">Anaheim</Link>,{' '}
-            <Link href="/service-areas/santa-ana/">Santa Ana</Link>,{' '}
-            <Link href="/service-areas/costa-mesa/">Costa Mesa</Link>,{' '}
-            <Link href="/service-areas/huntington-beach/">Huntington Beach</Link>,{' '}
-            <Link href="/service-areas/newport-beach/">Newport Beach</Link>,{' '}
-            <Link href="/service-areas/fullerton/">Fullerton</Link>, and{' '}
-            <Link href="/service-areas/tustin/">Tustin</Link>. You can also browse{' '}
+            <CityLink slug="irvine" />,{' '}
+            <CityLink slug="anaheim" />,{' '}
+            <CityLink slug="santa-ana" />,{' '}
+            <CityLink slug="costa-mesa" />,{' '}
+            <CityLink slug="huntington-beach" />,{' '}
+            <CityLink slug="newport-beach" />,{' '}
+            <CityLink slug="fullerton" />, and{' '}
+            <CityLink slug="tustin" />. You can also browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">

@@ -12,6 +12,7 @@ import { AnswerBlock } from '@/components/sections/AnswerBlock';
 import { DataTable } from '@/components/sections/DataTable';
 import { ServicesGrid } from '@/components/sections/ServicesGrid';
 import { RebateCards } from '@/components/sections/RebateCards';
+import { CityLink } from '@/components/ui/CityLink';
 import { CityCard } from '@/components/sections/CityCard';
 import { Proof } from '@/components/sections/Proof';
 import { FaqList } from '@/components/sections/FaqList';
@@ -227,14 +228,14 @@ export default function Page() {
           <h2>{southBayHub.cities.title}</h2>
           <p>
             Every city on this page now has its own page. See our{' '}
-            <Link href="/service-areas/torrance/">Torrance page</Link>,{' '}
-            <Link href="/service-areas/redondo-beach/">Redondo Beach page</Link>,{' '}
-            <Link href="/service-areas/manhattan-beach/">Manhattan Beach page</Link>,{' '}
-            <Link href="/service-areas/hermosa-beach/">Hermosa Beach page</Link>,{' '}
-            <Link href="/service-areas/el-segundo/">El Segundo page</Link>,{' '}
-            <Link href="/service-areas/gardena/">Gardena page</Link>,{' '}
-            <Link href="/service-areas/hawthorne/">Hawthorne page</Link>, or{' '}
-            <Link href="/service-areas/carson/">Carson page</Link>, or browse{' '}
+            <CityLink slug="torrance">Torrance page</CityLink>,{' '}
+            <CityLink slug="redondo-beach">Redondo Beach page</CityLink>,{' '}
+            <CityLink slug="manhattan-beach">Manhattan Beach page</CityLink>,{' '}
+            <CityLink slug="hermosa-beach">Hermosa Beach page</CityLink>,{' '}
+            <CityLink slug="el-segundo">El Segundo page</CityLink>,{' '}
+            <CityLink slug="gardena">Gardena page</CityLink>,{' '}
+            <CityLink slug="hawthorne">Hawthorne page</CityLink>, or{' '}
+            <CityLink slug="carson">Carson page</CityLink>, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">

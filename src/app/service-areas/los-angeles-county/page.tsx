@@ -12,6 +12,7 @@ import { AnswerBlock } from '@/components/sections/AnswerBlock';
 import { DataTable } from '@/components/sections/DataTable';
 import { ServicesGrid } from '@/components/sections/ServicesGrid';
 import { RebateCards } from '@/components/sections/RebateCards';
+import { CityLink } from '@/components/ui/CityLink';
 import { CityCard } from '@/components/sections/CityCard';
 import { Proof } from '@/components/sections/Proof';
 import { FaqList } from '@/components/sections/FaqList';
@@ -227,8 +228,8 @@ export default function Page() {
           <p className="eyebrow">{laCountyHub.cities.eyebrow}</p>
           <h2>{laCountyHub.cities.title}</h2>
           <p>
-            See our <Link href="/service-areas/los-angeles/">Los Angeles page</Link>, <Link href="/service-areas/long-beach/">Long Beach page</Link>, <Link href="/service-areas/pasadena/">Pasadena page</Link>, <Link href="/service-areas/glendale/">Glendale page</Link>, <Link href="/service-areas/burbank/">Burbank page</Link>, <Link href="/service-areas/culver-city/">Culver City page</Link>, <Link href="/service-areas/santa-monica/">Santa Monica page</Link>, and <Link href="/service-areas/inglewood/">Inglewood page</Link>. For the South Bay, see our{' '}
-            <Link href="/service-areas/torrance/">Torrance page</Link>, or browse{' '}
+            See our <CityLink slug="los-angeles">Los Angeles page</CityLink>, <CityLink slug="long-beach">Long Beach page</CityLink>, <CityLink slug="pasadena">Pasadena page</CityLink>, <CityLink slug="glendale">Glendale page</CityLink>, <CityLink slug="burbank">Burbank page</CityLink>, <CityLink slug="culver-city">Culver City page</CityLink>, <CityLink slug="santa-monica">Santa Monica page</CityLink>, and <CityLink slug="inglewood">Inglewood page</CityLink>. For the South Bay, see our{' '}
+            <CityLink slug="torrance">Torrance page</CityLink>, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">

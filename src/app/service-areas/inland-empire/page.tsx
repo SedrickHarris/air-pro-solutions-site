@@ -12,6 +12,7 @@ import { AnswerBlock } from '@/components/sections/AnswerBlock';
 import { DataTable } from '@/components/sections/DataTable';
 import { ServicesGrid } from '@/components/sections/ServicesGrid';
 import { RebateCards } from '@/components/sections/RebateCards';
+import { CityLink } from '@/components/ui/CityLink';
 import { CityCard } from '@/components/sections/CityCard';
 import { Proof } from '@/components/sections/Proof';
 import { FaqList } from '@/components/sections/FaqList';
@@ -249,14 +250,14 @@ export default function Page() {
           <h2>{inlandEmpireHub.cities.title}</h2>
           <p>
             Individual Inland Empire city pages are coming. For now, see our{' '}
-            <Link href="/service-areas/riverside/">Riverside</Link>,{' '}
-            <Link href="/service-areas/ontario/">Ontario</Link>,{' '}
-            <Link href="/service-areas/corona/">Corona</Link>,{' '}
-            <Link href="/service-areas/rancho-cucamonga/">Rancho Cucamonga</Link>,{' '}
-            <Link href="/service-areas/chino/">Chino</Link>,{' '}
-            <Link href="/service-areas/fontana/">Fontana</Link>,{' '}
-            <Link href="/service-areas/upland/">Upland</Link>, and{' '}
-            <Link href="/service-areas/eastvale/">Eastvale</Link> pages, or browse{' '}
+            <CityLink slug="riverside" />,{' '}
+            <CityLink slug="ontario" />,{' '}
+            <CityLink slug="corona" />,{' '}
+            <CityLink slug="rancho-cucamonga" />,{' '}
+            <CityLink slug="chino" />,{' '}
+            <CityLink slug="fontana" />,{' '}
+            <CityLink slug="upland" />, and{' '}
+            <CityLink slug="eastvale" /> pages, or browse{' '}
             <Link href="/service-areas/">all service areas</Link>.
           </p>
           <div className="services-grid">
