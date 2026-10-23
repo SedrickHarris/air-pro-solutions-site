@@ -30,6 +30,7 @@ import { CompareTable } from '@/components/sections/CompareTable';
 import { RulesNote } from '@/components/sections/RulesNote';
 import { AppliesRow } from '@/components/sections/AppliesRow';
 import { RegionGrid } from '@/components/sections/RegionGrid';
+import { ServiceCityLinks } from '@/components/sections/ServiceCityLinks';
 import { Proof } from '@/components/sections/Proof';
 import { RelatedRow } from '@/components/sections/RelatedRow';
 import { FaqList } from '@/components/sections/FaqList';
@@ -311,6 +312,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
               card={page.regionBand.card}
             />
           )}
+          {page.regionBand && page.regionConditions && <ServiceCityLinks serviceSlug={s.slug} />}
         </>
       ) : (
         <AnswerBlock lead={page.answer.lead} body={page.answer.body} />
@@ -861,6 +863,9 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         footer={page.regionClosing}
         id={page.regionSectionId}
       />
+
+      {/* Fallback for a page with no region band: the city cards follow "Where we work". Every page has a band today. */}
+      {!(page.regionBand && page.regionConditions) && <ServiceCityLinks serviceSlug={s.slug} />}
 
       <Proof
         eyebrow="Why Air Pro"
