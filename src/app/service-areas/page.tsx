@@ -116,9 +116,13 @@ export default function Page() {
                   <h3>{r.name}</h3>
                   <p>{r.description}</p>
                   <div className="nbhd-list">
-                    {r.cities.map((c) => (
-                      <span key={c}>{c}</span>
-                    ))}
+                    {r.cities.map((c) =>
+                      getCity(citySlug(c))?.page ? (
+                        <Link key={c} href={`/service-areas/${citySlug(c)}/`} className="chip-link">{c}</Link>
+                      ) : (
+                        <span key={c}>{c}</span>
+                      ),
+                    )}
                   </div>
                   <Link className="card-arrow" href={`/service-areas/${r.slug}/`} style={{ marginTop: 'auto' }}>
                     {`HVAC in ${r.name}`} <Icon name="arrow" size={16} />
