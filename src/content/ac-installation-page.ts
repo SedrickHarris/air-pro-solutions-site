@@ -230,6 +230,7 @@ const acInstallationBase: ServicePage = {
     { text: 'Indoor air quality and filtration options', href: '/services/indoor-air-quality/' },
     { text: 'Commercial HVAC', href: '/commercial-hvac/' },
     { text: 'Compare a heat pump with a central AC replacement', href: '/services/heat-pump-services/' },
+    { text: 'Emergency HVAC', href: '/services/emergency-hvac/' },
   ],
   sourcesColumns: 2,
   sources: acInstallationSources,

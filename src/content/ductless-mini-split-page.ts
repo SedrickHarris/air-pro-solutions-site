@@ -336,6 +336,7 @@ const ductlessMiniSplitBase: ServicePage = {
     { text: 'Furnace installation', href: '/services/furnace-installation/' },
     { text: 'Ductwork options', href: '/services/ductwork/' },
     { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
+    { text: 'Emergency HVAC', href: '/services/emergency-hvac/' },
     { text: 'Commercial HVAC', href: '/commercial-hvac/' },
   ],
   sourcesColumns: 2,

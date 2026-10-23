@@ -281,6 +281,8 @@ const heatingRepairBase: ServicePage = {
   moreLinks: [
     { text: 'Ductless mini-split', href: '/services/ductless-mini-split/' },
     { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
+    { text: 'AC repair if your system also cools', href: '/services/ac-repair/' },
+    { text: 'AC installation when equipment is near the end of its life', href: '/services/ac-installation/' },
     { text: 'Emergency HVAC', href: '/services/emergency-hvac/' },
     { text: 'Commercial HVAC', href: '/commercial-hvac/' },
     { text: 'Service areas', href: '/service-areas/' },

@@ -301,6 +301,7 @@ const furnaceBase: ServicePage = {
   moreLinks: [
     { text: 'Ductless mini-split', href: '/services/ductless-mini-split/' },
     { text: 'Indoor air quality and filtration', href: '/services/indoor-air-quality/' },
+    { text: 'Emergency HVAC', href: '/services/emergency-hvac/' },
     { text: 'AC repair', href: '/services/ac-repair/' },
     { text: 'AC maintenance', href: '/services/ac-maintenance/' },
   ],
@@ -344,6 +345,7 @@ const furnaceBase: ServicePage = {
     {
       q: 'Can a heat pump replace my gas furnace?',
       a: 'Yes, a heat pump can provide both heating and cooling. Whether it is the right replacement depends on the building, existing ductwork, electrical capacity, comfort goals, equipment design, available incentives, and local permit and code requirements. LADWP offers heat-pump HVAC rebates to qualifying residential electric customers, while statewide single-family HEEHRA funding is currently fully reserved.',
+      links: [{ text: 'a heat pump can provide both heating and cooling', href: '/services/heat-pump-services/' }],
     },
     {
       q: 'Are there rebates for a new gas furnace?',

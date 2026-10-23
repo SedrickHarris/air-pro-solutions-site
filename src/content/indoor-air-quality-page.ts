@@ -378,6 +378,8 @@ const indoorAirQualityBase: ServicePage = {
   moreLinks: [
     { text: 'AC repair', href: '/services/ac-repair/' },
     { text: 'AC installation', href: '/services/ac-installation/' },
+    { text: 'Heating repair and furnace service', href: '/services/heating-repair/' },
+    { text: 'Furnace installation and blower compatibility', href: '/services/furnace-installation/' },
     { text: 'Ductless mini-split', href: '/services/ductless-mini-split/' },
     { text: 'Emergency HVAC', href: '/services/emergency-hvac/' },
     { text: 'Maintenance plan options', href: '/maintenance-plan/' },

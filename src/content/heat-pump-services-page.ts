@@ -345,6 +345,7 @@ const heatPumpServicesBase: ServicePage = {
   moreLinks: [
     { text: 'AC maintenance', href: '/services/ac-maintenance/' },
     { text: 'AC installation', href: '/services/ac-installation/' },
+    { text: 'Furnace installation compared with a heat pump', href: '/services/furnace-installation/' },
     { text: 'Ductwork and airflow', href: '/services/ductwork/' },
     { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
     { text: 'Emergency HVAC', href: '/services/emergency-hvac/' },

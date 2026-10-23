@@ -706,10 +706,12 @@ const acRepairPage: ServicePage = {
   // "Financing" is omitted until the client confirms a financing offer exists.
   moreLinks: [
     { text: 'AC repair in Torrance', href: '/services/ac-repair/torrance/' },
-    { text: 'Heat pump not cooling?', href: '/services/heat-pump-repair/' },
-    { text: 'Ductless mini-split repair', href: '/services/ductless-mini-split-repair/' },
+    { text: 'Heat pump services for cooling and heating problems', href: '/services/heat-pump-services/' },
+    { text: 'Ductless mini-split service', href: '/services/ductless-mini-split/' },
     { text: 'Air filtration and indoor air quality options', href: '/services/indoor-air-quality/' },
-    { text: 'Address airflow and duct problems', href: '/services/duct-repair/' },
+    { text: 'Duct inspection for airflow problems', href: '/services/ductwork/' },
+    { text: 'Heating repair and furnace service', href: '/services/heating-repair/' },
+    { text: 'Furnace installation and replacement', href: '/services/furnace-installation/' },
   ],
   sources: acRepairSources,
   faqs: [
