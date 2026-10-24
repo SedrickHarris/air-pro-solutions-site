@@ -24,7 +24,6 @@ export type ServicePage = {
   lede: string; // also the Service JSON-LD description - must stay word-for-word identical to the visible copy
   heroImage?: ServiceImage; // 1200x900 hero photo; falls back to the "photo pending" tile when absent
   heroCaption?: string | { title: string; text: string }; // hero photo caption band; object form renders `<strong>title</strong> text` like the city hero
-  heroCaptionAlign?: 'left'; // caption text alignment; centered when unset
   heroProof: { icon: string; label: string }[];
   serviceType: string; // schema.org Service.serviceType, e.g. "Air Conditioning Repair"
   ctaLabel: string; // e.g. "Schedule AC Repair" - reused for the hero primary button and final CTA ghost button
@@ -513,7 +512,8 @@ const acRepairPage: ServicePage = {
     alt: 'Outdoor AC condenser unit beside a stucco home with palm and succulent landscaping',
   },
   // TODO(copy): client approved 2026-10-19, confirm final wording on review
-  heroCaption: { title: 'AC repair', text: 'for homes and businesses across Southern California' },
+  // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
+  heroCaption: { title: 'AC repair', text: 'for homes and businesses' },
   heroProof: [
     { icon: 'shield', label: 'Licensed HVAC contractor' },
     { icon: 'building', label: 'Residential and commercial' },

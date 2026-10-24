@@ -13,8 +13,9 @@ export const hubHero = {
     src: '/images/locations/locations-hub/hero/air-pro-solutions-southern-california-hvac-service-areas-hub-4x3.webp',
     alt: 'Outdoor AC condenser beside a stucco home with a tile roof and drought-tolerant landscaping, with hills in the distance',
   },
+  // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
   photoCaptionTitle: 'Southern California',
-  photoCaptionBody: 'Four regions, 32 cities across the region pages',
+  photoCaptionBody: '32 cities served',
   proof: [
     { icon: 'shield-check', text: 'Licensed' },
     { icon: 'star', text: '4.8-star rated' },

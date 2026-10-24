@@ -53,7 +53,8 @@ const furnaceBase: ServicePage = {
     alt: 'Gas furnace installed in a home utility closet with finished vent, gas, and condensate connections and ductwork above',
   },
   // TODO(copy): was the string 'Clean, professional furnace installation'
-  heroCaption: { title: 'Furnace installation', text: 'and replacement across Southern California' },
+  // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
+  heroCaption: { title: 'Furnace installation', text: 'and replacement' },
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Furnace replacement for homes' },

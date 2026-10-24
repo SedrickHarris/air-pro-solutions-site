@@ -62,7 +62,8 @@ const acInstallationBase: ServicePage = {
   },
   // TODO(copy): the old caption read "Commercial AC installation for Southern California homes and businesses."
   // "Commercial" next to "homes" looks like a copy bug. Proposed two-part caption mirrors AC Repair. Needs approval.
-  heroCaption: { title: 'AC installation', text: 'for homes and businesses across Southern California' },
+  // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
+  heroCaption: { title: 'AC installation', text: 'for homes and businesses' },
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },

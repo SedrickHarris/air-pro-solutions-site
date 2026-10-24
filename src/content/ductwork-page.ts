@@ -95,8 +95,9 @@ const ductworkBase: ServicePage = {
   // TODO(copy): the old caption was one string, "Ductwork inspection for leaks, airflow, and damage." The two-part caption uses the same words with no
   // trailing period and no new claim. Client to approve. Alternative, not built: { title: 'Ductwork service', text: 'for homes and businesses across
   // Southern California' } (matches AC Repair and AC Installation, but adds words and restates the residential and commercial scope already in the
-  // hero chips). Centered (no `heroCaptionAlign`).
-  heroCaption: { title: 'Ductwork inspection', text: 'for leaks, airflow, and damage' },
+  // hero chips).
+  // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
+  heroCaption: { title: 'Ductwork inspection', text: 'for leaks and damage' },
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },

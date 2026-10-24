@@ -37,7 +37,8 @@ export const commercialHero = {
     src: '/images/services/commercial-hub/hero/air-pro-solutions-commercial-hvac-services-southern-california-4x3.webp',
     alt: 'Two-story commercial office building with rooftop package HVAC units, a parking lot, and landscaping in Southern California',
   },
-  photoCaption: { title: 'Southern California', detail: 'Four regions, 32 cities across the region pages' },
+  // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
+  photoCaption: { title: 'Commercial HVAC', detail: 'for Southern California' },
 };
 
 // TODO(claims): "emergency dispatch for commercial accounts" and "bonded" are unconfirmed.

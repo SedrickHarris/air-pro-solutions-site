@@ -48,7 +48,8 @@ const acRepairTorrance: MatrixContent = {
     src: '/images/service-location/hvac-services-torrance-ca/hero/air-pro-solutions-torrance-ca-hvac-service-area-home-condenser-4x3.webp',
     alt: 'Outdoor AC condenser on a concrete pad beside a stucco home with a tree and drought-tolerant landscaping in Torrance, CA',
   },
-  heroCaption: 'Residential AC repair service in Torrance, CA',
+  // TODO(copy): shortened to fit one line (40 characters or fewer); client to approve.
+  heroCaption: 'Residential AC repair in Torrance, CA',
   primaryKeyword: 'ac repair torrance',
   metaDescription:
     'Need AC repair in Torrance? AIRPRO SOLUTIONS helps homes and businesses with cooling, airflow, electrical, and drainage problems. Schedule service.',

@@ -61,8 +61,9 @@ const acMaintenanceBase: ServicePage = {
   // RESOLVED (2026-10-20, client approved page copy, confirmed by user): the old caption was one string, "Pre-season AC tune-ups across Southern California." Two-part caption uses the
   // same words with no trailing period and no new claim. Approved (D1). Alternative, not built: { title: 'AC maintenance', text: 'for
   // homes and businesses across Southern California' } (matches AC Installation, but restates the residential and commercial scope
-  // already shown in the hero chips). Centered, like AC Installation (no `heroCaptionAlign`).
-  heroCaption: { title: 'Pre-season AC tune-ups', text: 'across Southern California' },
+  // already shown in the hero chips). Centered, like AC Installation.
+  // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
+  heroCaption: 'Pre-season AC tune-ups',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },

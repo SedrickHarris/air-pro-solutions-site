@@ -23,8 +23,9 @@ export const laCountyHub = {
   hero: {
     lede:
       'AIRPRO SOLUTIONS provides HVAC services in Los Angeles County - from coastal Santa Monica and Long Beach to Burbank, Glendale, and Pasadena - with equipment, permits, and rebates matched to each city.', // also the Service schema description
+    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     photoCaptionTitle: 'Los Angeles County, CA',
-    photoCaptionBody: 'Coast, valley, and foothill service across eight cities',
+    photoCaptionBody: '8 cities served',
     proof: [
       { icon: 'shield-check', text: 'Licensed' },
       { icon: 'star', text: '4.8-star rated' },

@@ -98,7 +98,8 @@ const heatPumpServicesBase: ServicePage = {
   // two-part caption keeps "year-round comfort" and adds only the shared region phrase. Alternative (not built):
   // text 'for homes and businesses across Southern California', which matches the sibling pages but restates
   // commercial scope that is still unconfirmed (see the file-level TODO above).
-  heroCaption: { title: 'Heat pump service', text: 'for year-round comfort across Southern California' },
+  // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
+  heroCaption: { title: 'Heat pump service', text: 'for year-round comfort' },
   heroProof: [
     // RESOLVED (2026-10-19, confirmed by user): CSLB record shows C-20 for both license numbers.
     { icon: 'check', label: 'Licensed HVAC contractor' },

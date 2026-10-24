@@ -8,6 +8,12 @@ this file is the index, not the source of truth.
 
 - `src/app/sitemap.ts` lists every city that has `page` content (wave 1 and wave 2) instead of only `wave1Cities`. New city pages enter the sitemap automatically once they get `page`; noindex stubs (cities without `page`, unpublished services, unbuilt audience pages) stay out so Search Console never sees "submitted but noindex". Requested by the user ("add all built and future pages to the sitemap"). The client-confirmed `wave1` Set in cities.ts is unchanged and still means launch priority only.
 
+## Hero photo captions (2026-10-23)
+
+- Client approval needed as a single batch: every hero caption was shortened to 40 characters or fewer (title + one space + text) so each renders on one centered line at every width, and each changed string carries a `TODO(copy)`. Covers the 32 city captions ("{City}, CA" + "Local HVAC service"), /services/emergency-hvac/ ("Emergency HVAC" + "repair with 24/7 dispatch"), the Torrance matrix page ("Residential AC repair in Torrance, CA"), the 9 service captions (ac-repair, ac-installation, ac-maintenance, heating-repair, furnace-installation, heat-pump-services, ductless-mini-split, ductwork, indoor-air-quality), the 4 region hub captions (Los Angeles County, Orange County, Inland Empire, South Bay), /service-areas/, /residential-hvac/, /commercial-hvac/, the homepage and /services/. The emergency caption uses the approved "24/7 emergency dispatch" claim and adds no response-time wording.
+- `npm run check:hero-captions` (run by `npm run build`) fails the build if any rendered hero caption exceeds 40 characters, so replacement copy has to stay within that limit.
+- Contrast: the silver caption band is translucent white-on-silver and measures roughly 2:1 over light photos (/services/, /residential-hvac/, heat-pump-services). Decide whether to darken the band before launch; no change made.
+
 ## /service-areas/los-angeles/ (losAngelesOverrides in src/content/cities.ts)
 
 - Title collision: `cityTitle('Los Angeles')` equals `homeTitle()`, so this page uses `cityTitleAcross()` ("HVAC Services Across Los Angeles, CA"). Decide whether to keep that or retarget the homepage.

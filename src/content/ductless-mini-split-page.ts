@@ -68,8 +68,8 @@ const ductlessMiniSplitBase: ServicePage = {
     src: '/images/services/ductless-mini-split/hero.webp',
     alt: 'Wall-mounted ductless mini-split indoor unit in a converted garage living space with large windows onto a drought-tolerant garden',
   },
-  // TODO(copy): split word for word from the old one-sentence caption "Ductless comfort for ADUs and homes without ducts." No new words; the trailing period is dropped. Recommended default from the planning chat, client to approve. Centered (no `heroCaptionAlign`).
-  heroCaption: { title: 'Ductless comfort', text: 'for ADUs and homes without ducts' },
+  // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
+  heroCaption: { title: 'Ductless comfort', text: 'for ADUs and homes' },
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
