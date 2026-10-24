@@ -179,10 +179,10 @@ section.alt + section.alt-joined { padding-top: 0; }
 .photo-caption { position: absolute; left: 12px; bottom: 12px; font-size: 0.8rem; font-weight: 600; background: rgba(7, 22, 56, 0.6); color: #fff; padding: 8px 16px; border-radius: 6px; backdrop-filter: blur(4px); }
 /* Hero captions are always one centered line: the type scales with the photo (container query units) and the band clips as a safety net. */
 .photo-caption-band { left: 0; right: 0; bottom: 0; text-align: center; border-radius: 0; white-space: nowrap; overflow: hidden; font-size: clamp(0.66rem, 3.1cqw, 0.8rem); padding: 8px 12px; }
-/* Cool silver-gray glass treatment for hero-photo captions: translucent so the photo stays faintly
-   visible beneath it, with bold white text. Opacity and shadow are tuned to hold contrast even over
-   a light photo (e.g. the services hub's concrete-floor shot), not just a dark one. */
-.photo-caption-silver { background: rgba(148, 163, 184, 0.55); color: #fff; font-weight: 700; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.65); backdrop-filter: blur(6px); }
+/* Dark navy glass treatment for hero-photo captions: translucent so the photo stays faintly visible beneath it,
+   with bold white text. Fixed colors (no theme tokens, so light and dark match), tuned for 4.5:1 contrast over every
+   hero photo, including the light ones (e.g. the services hub's concrete-floor shot). rgba(7, 22, 56) is #071638. */
+.photo-caption-silver { background: rgba(7, 22, 56, 0.60); color: #fff; font-weight: 700; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.65); backdrop-filter: blur(6px); }
 .photo-caption-silver .cap-title strong,
 .photo-caption-silver strong { color: #fff; }
 .hero-photo { container-type: inline-size; position: relative; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
