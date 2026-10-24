@@ -2058,6 +2058,42 @@ const cardImages: Record<string, ServiceImage> = Object.fromEntries(
   ),
 );
 
+// City hero photos (4:3 source files) live in public/images/locations/<city-slug>/. Applied below to any
+// city whose page does not set its own heroImage (Torrance keeps its own).
+const cityHeroImages: Record<string, ServiceImage> = {
+  'anaheim': { src: '/images/locations/anaheim/air-pro-solutions-hvac-services-anaheim-ca-hero-4x3.webp', alt: 'Single-story stucco homes with drought-tolerant landscaping on an Anaheim street' },
+  'burbank': { src: '/images/locations/burbank/air-pro-solutions-hvac-services-burbank-ca-hero-4x3.webp', alt: 'Burbank neighborhood of single-story homes with the San Gabriel foothills behind' },
+  'carson': { src: '/images/locations/carson/air-pro-solutions-hvac-services-carson-ca-hero-4x3.webp', alt: 'Carson street with a stucco home, agave landscaping and low industrial buildings' },
+  'chino': { src: '/images/locations/chino/air-pro-solutions-hvac-services-chino-ca-hero-4x3.webp', alt: 'Chino residential street with ranch-style homes and open farmland beyond' },
+  'corona': { src: '/images/locations/corona/air-pro-solutions-hvac-services-corona-ca-hero-4x3.webp', alt: 'Outdoor AC condenser beside a stucco home with Corona hills in the background' },
+  'costa-mesa': { src: '/images/locations/costa-mesa/air-pro-solutions-hvac-services-costa-mesa-ca-hero-4x3.webp', alt: 'Costa Mesa street of single-story homes with drought-tolerant front yards' },
+  'culver-city': { src: '/images/locations/culver-city/air-pro-solutions-hvac-services-culver-city-ca-hero-4x3.webp', alt: 'Culver City street lined with eucalyptus trees, homes and a modern building ahead' },
+  'eastvale': { src: '/images/locations/eastvale/air-pro-solutions-hvac-services-eastvale-ca-hero-4x3.webp', alt: 'Curving Eastvale street lined with newer two-story tract homes' },
+  'el-segundo': { src: '/images/locations/el-segundo/air-pro-solutions-hvac-services-el-segundo-ca-hero-4x3.webp', alt: 'El Segundo bungalows and palm trees with low commercial buildings down the street' },
+  'fontana': { src: '/images/locations/fontana/air-pro-solutions-hvac-services-fontana-ca-hero-4x3.webp', alt: 'Fontana park and tract homes with mountains in the distance' },
+  'fullerton': { src: '/images/locations/fullerton/air-pro-solutions-hvac-services-fullerton-ca-hero-4x3.webp', alt: 'Fullerton street with a craftsman-style home and mature trees' },
+  'gardena': { src: '/images/locations/gardena/air-pro-solutions-hvac-services-gardena-ca-hero-4x3.webp', alt: 'Gardena street with a low commercial building, eucalyptus and bungalows' },
+  'glendale': { src: '/images/locations/glendale/air-pro-solutions-hvac-services-glendale-ca-hero-4x3.webp', alt: 'Glendale hillside home with an outdoor AC condenser and mountains behind' },
+  'hawthorne': { src: '/images/locations/hawthorne/air-pro-solutions-hvac-services-hawthorne-ca-hero-4x3.webp', alt: 'Hawthorne street of single-story stucco homes with palm trees' },
+  'hermosa-beach': { src: '/images/locations/hermosa-beach/air-pro-solutions-hvac-services-hermosa-beach-ca-hero-4x3.webp', alt: 'Hermosa Beach homes with palm trees and drought-tolerant landscaping' },
+  'huntington-beach': { src: '/images/locations/huntington-beach/air-pro-solutions-hvac-services-huntington-beach-ca-hero-4x3.webp', alt: 'Huntington Beach home with a covered porch and agave plantings on a quiet street' },
+  'inglewood': { src: '/images/locations/inglewood/air-pro-solutions-hvac-services-inglewood-ca-hero-4x3.webp', alt: 'Inglewood single-story home with garden plantings beside a residential street' },
+  'irvine': { src: '/images/locations/irvine/air-pro-solutions-hvac-services-irvine-ca-hero-4x3.webp', alt: 'Irvine walking path through native plantings beside two-story homes' },
+  'long-beach': { src: '/images/locations/long-beach/air-pro-solutions-hvac-services-long-beach-ca-hero-4x3.webp', alt: 'Long Beach street with stucco homes, an outdoor AC condenser and palm trees' },
+  'los-angeles': { src: '/images/locations/los-angeles/air-pro-solutions-hvac-services-los-angeles-ca-hero-4x3.webp', alt: 'Los Angeles hillside homes with tile roofs and an outdoor AC condenser' },
+  'manhattan-beach': { src: '/images/locations/manhattan-beach/air-pro-solutions-hvac-services-manhattan-beach-ca-hero-4x3.webp', alt: 'Manhattan Beach modern home with a patio and palm landscaping' },
+  'newport-beach': { src: '/images/locations/newport-beach/air-pro-solutions-hvac-services-newport-beach-ca-hero-4x3.webp', alt: 'Newport Beach waterfront walkway beside a canal and coastal homes' },
+  'ontario': { src: '/images/locations/ontario/air-pro-solutions-hvac-services-ontario-ca-hero-4x3.webp', alt: 'Ontario tract homes along a new street with mountains in the distance' },
+  'pasadena': { src: '/images/locations/pasadena/air-pro-solutions-hvac-services-pasadena-ca-hero-4x3.webp', alt: 'Pasadena craftsman-style homes on a tree-lined street' },
+  'rancho-cucamonga': { src: '/images/locations/rancho-cucamonga/air-pro-solutions-hvac-services-rancho-cucamonga-ca-hero-4x3.webp', alt: 'Rancho Cucamonga walkway beside homes and mixed-use buildings with mountains behind' },
+  'redondo-beach': { src: '/images/locations/redondo-beach/air-pro-solutions-hvac-services-redondo-beach-ca-hero-4x3.webp', alt: 'Redondo Beach street with two-story homes, palm trees and drought-tolerant landscaping' },
+  'riverside': { src: '/images/locations/riverside/air-pro-solutions-hvac-services-riverside-ca-hero-4x3.webp', alt: 'Riverside street with older homes and a citrus tree, with mountains behind' },
+  'santa-ana': { src: '/images/locations/santa-ana/air-pro-solutions-hvac-services-santa-ana-ca-hero-4x3.webp', alt: 'Santa Ana street with brick storefronts and small homes' },
+  'santa-monica': { src: '/images/locations/santa-monica/air-pro-solutions-hvac-services-santa-monica-ca-hero-4x3.webp', alt: 'Outdoor AC condenser beside a stucco apartment building in Santa Monica' },
+  'tustin': { src: '/images/locations/tustin/air-pro-solutions-hvac-services-tustin-ca-hero-4x3.webp', alt: 'Tustin street with brick storefronts and bungalows' },
+  'upland': { src: '/images/locations/upland/air-pro-solutions-hvac-services-upland-ca-hero-4x3.webp', alt: 'Upland craftsman home with a stone porch and mountains in the distance' },
+};
+
 const costaMesaOverrides: Partial<City> = {
   // TODO(data): add verified climate and neighborhood detail before treating this as a full local page.
   neighborhoods: [], // no official neighborhood list was verified
@@ -10939,7 +10975,12 @@ export const cities: City[] = baseCities.map((c) => {
     : c.slug === 'upland' ? uplandOverrides
     : c.slug === 'eastvale' ? eastvaleOverrides
     : undefined;
-  const withOverrides = overrides ? { ...c, ...overrides } : c;
+  const merged = overrides ? { ...c, ...overrides } : c;
+  const heroImage = cityHeroImages[c.slug];
+  const withOverrides =
+    heroImage && merged.page && !merged.page.heroImage
+      ? { ...merged, page: { ...merged.page, heroImage } }
+      : merged;
   return cardImages[c.slug] ? { ...withOverrides, cardImage: cardImages[c.slug] } : withOverrides;
 });
 
