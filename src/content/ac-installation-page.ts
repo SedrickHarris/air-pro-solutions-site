@@ -60,9 +60,6 @@ const acInstallationBase: ServicePage = {
     src: '/images/services/ac-installation/hero.webp',
     alt: 'Commercial rooftop AC package unit with ductwork on a flat roof, with palm trees and hills in the distance',
   },
-  // TODO(copy): the old caption read "Commercial AC installation for Southern California homes and businesses."
-  // "Commercial" next to "homes" looks like a copy bug. Proposed two-part caption mirrors AC Repair. Needs approval.
-  // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
   heroCaption: { title: 'AC installation', text: 'for homes and businesses' },
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },

@@ -31,7 +31,6 @@ export const residentialHub = {
     photo: {
       src: '/images/services/residential-hub/hero.webp',
       alt: 'Bright living room with a wall-mounted HVAC thermostat and a view of drought-tolerant landscaping',
-      // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
       captionTitle: 'Residential HVAC',
       captionBody: 'Cooling and heating',
     },

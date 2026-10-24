@@ -46,7 +46,6 @@ export function Hero() {
             sizes="(max-width: 920px) 100vw, 45vw"
             priority
           />
-          {/* TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve. */}
           <span className="photo-caption photo-caption-band photo-caption-silver">AC repair for homes and businesses</span>
         </div>
       </div>

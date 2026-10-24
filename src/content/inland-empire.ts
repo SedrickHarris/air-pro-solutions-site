@@ -35,7 +35,6 @@ export const inlandEmpireHub = {
   hero: {
     lede:
       'AIRPRO SOLUTIONS provides HVAC services in the Inland Empire - from Corona and Eastvale to Riverside, Ontario, Rancho Cucamonga, Upland, Fontana, and Chino - with permits, utilities, and equipment matched to each city.',
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     photoCaptionTitle: 'Inland Empire, CA',
     photoCaptionBody: '8 cities served',
     proof: [

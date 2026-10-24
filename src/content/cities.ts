@@ -98,7 +98,6 @@ const torranceOverrides: Partial<City> = {
       src: '/images/service-location/hvac-services-torrance-ca/hero.webp',
       alt: 'Outdoor AC condenser beside a Torrance home with drought-tolerant landscaping',
     },
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: 'Torrance, CA', text: 'Local HVAC service', },
     heroProof: [
       { icon: 'shield', label: 'Licensed contractor' },
@@ -204,7 +203,6 @@ const losAngelesOverrides: Partial<City> = {
       'Residential and commercial HVAC in the City of Los Angeles, from Arleta to Baldwin Hills. Know the LADBS permit steps and LADWP rebate. Schedule service.',
     lede:
       'AIRPRO SOLUTIONS provides HVAC services across the City of Los Angeles, including AC repair, heating repair, installation, and maintenance for homes and businesses - from Arleta and Atwater to Athens and Baldwin Hills.',
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: 'Los Angeles, CA', text: 'Local HVAC service', },
     heroProof: [
       { icon: 'shield', label: 'Licensed, bonded & insured' },
@@ -374,7 +372,6 @@ const longBeachOverrides: Partial<City> = {
       'Residential and commercial HVAC in Long Beach, from Belmont Shore to Bixby Knolls. Know the City permit steps and SCE rebates. Schedule service.',
     lede:
       'AIRPRO SOLUTIONS provides HVAC services across Long Beach, including AC repair, heating repair, installation, and maintenance for homes and businesses - from Belmont Shore and Bixby Knolls to Los Cerritos and Lakewood Village.',
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: 'Long Beach, CA', text: 'Local HVAC service', },
     heroProof: [
       { icon: 'shield', label: 'Licensed, bonded & insured' },
@@ -553,7 +550,6 @@ const pasadenaOverrides: Partial<City> = {
       'Residential and commercial HVAC in Pasadena, from San Rafael Heights to Upper Hastings Ranch. Know the City permit steps and site-plan rules. Schedule service.',
     lede:
       'AIRPRO SOLUTIONS provides HVAC services across Pasadena, including AC repair, heating repair, installation, and maintenance for homes and businesses - from San Rafael Heights and Linda Vista to Victory Rose and Upper Hastings Ranch.',
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: 'Pasadena, CA', text: 'Local HVAC service', },
     heroProof: [
       { icon: 'shield', label: 'Licensed, bonded & insured' },
@@ -731,7 +727,6 @@ const culverCityOverrides: Partial<City> = {
       'Residential and commercial HVAC in Culver City, from Fox Hills to Hayden Tract. Know the City permit steps. Licensed, 4.8-star rated. Schedule service.',
     lede:
       'AIRPRO SOLUTIONS provides HVAC services across Culver City, including AC repair, heating repair, installation, and maintenance for homes and businesses - from Fox Hills to Hayden Tract.',
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: 'Culver City, CA', text: 'Local HVAC service', },
     heroProof: [
       { icon: 'shield', label: 'Licensed, bonded & insured' },
@@ -917,7 +912,6 @@ const redondoBeachOverrides: Partial<City> = {
     // Client approved the "from North Redondo Beach to the Coastal Zone" wording on 2026-10-15.
     lede:
       'AIRPRO SOLUTIONS provides HVAC services across Redondo Beach, including AC repair, heating repair, installation, and maintenance for homes and businesses - from North Redondo Beach to the Coastal Zone.',
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: 'Redondo Beach, CA', text: 'Local HVAC service', },
     heroProof: [
       { icon: 'shield', label: 'Licensed, bonded & insured' },
@@ -1103,7 +1097,6 @@ const elSegundoOverrides: Partial<City> = {
       'HVAC for El Segundo homes and businesses, from AC repair to installation. Know the local construction hours and permit steps. Licensed, 4.8-star rated.',
     lede:
       'AIRPRO SOLUTIONS provides HVAC services across El Segundo, including AC repair, heating repair, installation, and maintenance for homes and businesses.',
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: 'El Segundo, CA', text: 'Local HVAC service', },
     heroProof: [
       { icon: 'shield', label: 'Licensed, bonded & insured' },
@@ -1299,7 +1292,6 @@ const gardenaOverrides: Partial<City> = {
       "HVAC for Gardena homes and businesses, from AC repair to installation. Know the local over-the-counter permit path and your utilities. Licensed, 4.8-star rated.",
     lede:
       "AIRPRO SOLUTIONS provides HVAC services across Gardena, including AC repair, heating repair, installation, and maintenance for homes and businesses.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: 'Gardena, CA', text: 'Local HVAC service', },
     heroProof: [
       { icon: 'shield', label: 'Licensed, bonded & insured' },
@@ -1518,7 +1510,6 @@ const irvineOverrides: Partial<City> = {
       "HVAC for Irvine homes and businesses, from AC repair to installation. Know the online replacement permit path and your utilities. Licensed, 4.8-star rated.",
     lede:
       "AIRPRO SOLUTIONS provides HVAC services across Irvine, including AC repair, heating repair, installation, and maintenance for homes and businesses.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: 'Irvine, CA', text: 'Local HVAC service', },
     heroProof: [
       { icon: 'shield', label: 'Licensed, bonded & insured' },
@@ -1782,7 +1773,6 @@ const anaheimOverrides: Partial<City> = {
       "HVAC for Anaheim homes and businesses, from AC repair to installation. Know the City's permit steps and your electric utility. Licensed, 4.8-star rated.",
     lede:
       "AIRPRO SOLUTIONS provides HVAC services across Anaheim, including AC repair, heating repair, installation, and maintenance for homes and businesses.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: 'Anaheim, CA', text: 'Local HVAC service', },
     heroProof: [
       { icon: 'shield', label: 'Licensed, bonded & insured' },
@@ -2113,7 +2103,6 @@ const costaMesaOverrides: Partial<City> = {
       "HVAC for Costa Mesa homes and businesses, from AC repair to installation. Know the City's Insta-Permit rules and noise limits. Licensed, 4.8-star rated.",
     lede:
       "AIRPRO SOLUTIONS provides HVAC services across Costa Mesa, including AC repair, heating repair, installation, and maintenance for homes and businesses.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: "Costa Mesa, CA", text: "Local HVAC service", },
     heroProof: [
       { icon: 'shield', label: 'Licensed, bonded & insured' },
@@ -2409,7 +2398,6 @@ const huntingtonBeachOverrides: Partial<City> = {
       "HVAC for Huntington Beach homes and businesses, from AC repair to installation. Know the HB ACA permit portal and noise limits. Licensed, 4.8-star rated.",
     lede:
       "AIRPRO SOLUTIONS provides HVAC services across Huntington Beach, including AC repair, heating repair, installation, and maintenance for homes and businesses.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: "Huntington Beach, CA", text: "Local HVAC service", },
     heroProof: [
       { icon: 'shield', label: 'Licensed, bonded & insured' },
@@ -2750,7 +2738,6 @@ const riversideOverrides: Partial<City> = {
       "HVAC for Riverside homes and businesses, from AC repair to installation. Know the Public Permit Portal and RPU rebates. Licensed, 4.8-star rated.",
     lede:
       "AIRPRO SOLUTIONS provides HVAC services across Riverside, including AC repair, heating repair, installation, and maintenance for homes and businesses.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: "Riverside, CA", text: "Local HVAC service", },
     heroProof: [
       { icon: 'shield', label: "Licensed, bonded & insured" },
@@ -3109,7 +3096,6 @@ const ontarioOverrides: Partial<City> = {
       "HVAC for Ontario homes and businesses, from AC repair to installation. Know the City's permit steps and noise rules. Licensed, 4.8-star rated.",
     lede:
       "AIRPRO SOLUTIONS provides HVAC services across Ontario, including Ontario Ranch and the airport area, with AC repair, heating repair, installation, and maintenance for homes and businesses.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: "Ontario, CA", text: "Local HVAC service", },
     heroProof: [
       { icon: "shield", label: "Licensed, bonded & insured" },
@@ -3489,7 +3475,6 @@ const coronaOverrides: Partial<City> = {
       "HVAC for Corona homes and businesses, from AC repair to installation. Know the City's 10-foot setback rule and permit steps. Licensed, 4.8-star rated.",
     lede:
       "AIRPRO SOLUTIONS provides HVAC services across Corona, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's setback and noise rules for outdoor units in mind.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: "Corona, CA", text: "Local HVAC service", },
     heroProof: [
       { icon: "shield", label: "Licensed, bonded & insured" },
@@ -3873,7 +3858,6 @@ const glendaleOverrides: Partial<City> = {
   page: {
     metaDescription: "HVAC for Glendale homes and businesses, from AC repair to installation. Know the City's AC replacement code and noise limits. Licensed, 4.8-star rated.",
     lede: "AIRPRO SOLUTIONS provides HVAC services across Glendale, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's AC replacement code and noise limits in mind.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: "Glendale, CA", text: "Local HVAC service", },
     heroProof: [
       { icon: "shield", label: "Licensed, bonded & insured" },
@@ -4307,7 +4291,6 @@ const burbankOverrides: Partial<City> = {
   page: {
     metaDescription: "HVAC for Burbank homes and businesses, from AC repair to installation. Know the City's permit tiers and Burbank Water and Power. Licensed, 4.8-star rated.",
     lede: "AIRPRO SOLUTIONS provides HVAC services across Burbank, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit tiers and Burbank Water and Power electric service in mind.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: "Burbank, CA", text: "Local HVAC service", },
     heroProof: [
       { icon: "shield", label: "Licensed, bonded & insured" },
@@ -4695,7 +4678,6 @@ const santaMonicaOverrides: Partial<City> = {
   page: {
     metaDescription: "HVAC for Santa Monica homes and businesses, from AC repair to installation. Know the City's permit review and equipment noise rules. Licensed, 4.8-star rated.",
     lede: "AIRPRO SOLUTIONS provides HVAC services across Santa Monica, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit review and equipment noise rules in mind.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: "Santa Monica, CA", text: "Local HVAC service", },
     heroProof: [
       { icon: "shield", label: "Licensed, bonded & insured" },
@@ -5099,7 +5081,6 @@ const inglewoodOverrides: Partial<City> = {
   page: {
     metaDescription: "HVAC for Inglewood homes and businesses, from AC repair to installation. Know the City's permit process and local housing. Licensed, 4.8-star rated.",
     lede: "AIRPRO SOLUTIONS provides HVAC services across Inglewood, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit process and local housing stock in mind.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: "Inglewood, CA", text: "Local HVAC service", },
     heroProof: [
       { icon: "shield", label: "Licensed, bonded & insured" },
@@ -5417,7 +5398,6 @@ const manhattanBeachOverrides: Partial<City> = {
   page: {
     metaDescription: "HVAC for Manhattan Beach homes and businesses, from AC repair to installation. Know the City's permit process and local housing. Licensed, 4.8-star rated.",
     lede: "AIRPRO SOLUTIONS provides HVAC services across Manhattan Beach, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit process and mechanical equipment requirements in mind.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: "Manhattan Beach, CA", text: "Local HVAC service", },
     heroProof: [
       { icon: "shield", label: "Licensed, bonded & insured" },
@@ -5817,7 +5797,6 @@ const hermosaBeachOverrides: Partial<City> = {
   page: {
     metaDescription: "HVAC for Hermosa Beach homes and businesses, from AC repair to installation. Know the City's permit forms and local housing. Licensed, 4.8-star rated.",
     lede: "AIRPRO SOLUTIONS provides HVAC services across Hermosa Beach, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit forms and Coastal Zone note in mind.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{
       title: "Hermosa Beach, CA",
       text: "Local HVAC service",
@@ -6330,7 +6309,6 @@ const ranchoCucamongaOverrides: Partial<City> = {
       "HVAC for Rancho Cucamonga homes and businesses, from AC repair to installation. Know the online permit steps and your utility. Licensed, 4.8-star rated.",
     lede:
       "AIRPRO SOLUTIONS provides HVAC services across Rancho Cucamonga, including the Victoria Gardens area, with AC repair, heating repair, installation, and maintenance for homes and businesses.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: "Rancho Cucamonga, CA", text: "Local HVAC service", },
     heroProof: [
       { icon: "shield", label: "Licensed, bonded & insured" },
@@ -6674,7 +6652,6 @@ const hawthorneOverrides: Partial<City> = {
   page: {
     metaDescription: "HVAC for Hawthorne homes and businesses, from AC repair to installation. Know the City's inspection steps and local housing. Licensed, 4.8-star rated.",
     lede: "AIRPRO SOLUTIONS provides HVAC services across Hawthorne, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's inspection process and local housing in mind.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: "Hawthorne, CA", text: "Local HVAC service", },
     heroProof: [
       { icon: "shield", label: "Licensed, bonded & insured" },
@@ -7029,7 +7006,6 @@ const carsonOverrides: Partial<City> = {
   page: {
     metaDescription: "HVAC for Carson homes and businesses, from AC repair to installation. Know the City's online permit portal and inspection steps. Licensed, 4.8-star rated.",
     lede: "AIRPRO SOLUTIONS provides HVAC services across Carson, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's online permit portal and local housing in mind.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: "Carson, CA", text: "Local HVAC service", },
     heroProof: [
       { icon: "shield", label: "Licensed, bonded & insured" },
@@ -7344,7 +7320,6 @@ const santaAnaOverrides: Partial<City> = {
   page: {
     metaDescription: "HVAC for Santa Ana homes and businesses, from AC repair to installation. Know the City's online permit portal and mechanical permits. Licensed, 4.8-star rated.",
     lede: "AIRPRO SOLUTIONS provides HVAC services across Santa Ana, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's online permit portal in mind.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{ title: "Santa Ana, CA", text: "Local HVAC service", },
     heroProof: [
       { icon: "shield", label: "Licensed, bonded & insured" },
@@ -7679,7 +7654,6 @@ const newportBeachOverrides: Partial<City> = {
   page: {
     metaDescription: "HVAC for Newport Beach homes and businesses, from AC repair to installation. Know the City's Residential Express Permits for furnaces. Licensed, 4.8-star rated.",
     lede: "AIRPRO SOLUTIONS provides HVAC services across Newport Beach, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's online permitting in mind.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{
       title: "Newport Beach, CA",
       text: "Local HVAC service",
@@ -8138,7 +8112,6 @@ const fullertonOverrides: Partial<City> = {
   page: {
       metaDescription: "HVAC for Fullerton homes and businesses, from AC repair to installation. Know the City's EasyDev online permit portal. Licensed, 4.8-star rated.",
       lede: "AIRPRO SOLUTIONS provides HVAC services across Fullerton, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's online permit portal in mind.",
-      // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
       heroCaption:{
         title: "Fullerton, CA",
         text: "Local HVAC service",
@@ -8631,7 +8604,6 @@ const tustinOverrides: Partial<City> = {
   page: {
       metaDescription: "HVAC for Tustin homes and businesses, from AC repair to installation, with the City's permit and code pages in mind. Licensed, 4.8-star rated.",
       lede: "AIRPRO SOLUTIONS provides HVAC services across Tustin, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit and code pages in mind.",
-      // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
       heroCaption:{
         title: "Tustin, CA",
         text: "Local HVAC service",
@@ -9105,7 +9077,6 @@ const chinoOverrides: Partial<City> = {
   page: {
       metaDescription: "HVAC service for Chino homes and businesses in the western Inland Empire, with the City's permit and code pages in mind. Licensed, 4.8-star rated.",
       lede: "AIRPRO SOLUTIONS provides HVAC services across Chino, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit and code pages in mind.",
-      // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
       heroCaption:{
         title: "Chino, CA",
         text: "Local HVAC service",
@@ -9544,7 +9515,6 @@ const fontanaOverrides: Partial<City> = {
   page: {
     metaDescription: "HVAC service for Fontana homes and businesses, with the City's permit and 2025 code pages in mind. Licensed, 4.8-star rated. Call or request service online.",
     lede: "AIRPRO SOLUTIONS provides HVAC services across Fontana, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit and code pages in mind.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{
       title: "Fontana, CA",
       text: "Local HVAC service",
@@ -10008,7 +9978,6 @@ const uplandOverrides: Partial<City> = {
   page: {
     metaDescription: "HVAC service for Upland homes and businesses, with the City's permit portal and code pages in mind. Licensed, 4.8-star rated. Call or request service online.",
     lede: "AIRPRO SOLUTIONS provides HVAC services across Upland, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's online permit portal and code pages in mind.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{
       title: "Upland, CA",
       text: "Local HVAC service",
@@ -10491,7 +10460,6 @@ const eastvaleOverrides: Partial<City> = {
   page: {
     metaDescription: "HVAC service for Eastvale homes and businesses, with the City's permit and zoning pages in mind. Licensed, 4.8-star rated. Call or request service online.",
     lede: "AIRPRO SOLUTIONS provides HVAC services across Eastvale, with AC repair, heating repair, installation, and maintenance for homes and businesses, and with the City's permit portal and zoning pages in mind.",
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     heroCaption:{
       title: "Eastvale, CA",
       text: "Local HVAC service",

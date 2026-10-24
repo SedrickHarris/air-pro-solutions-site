@@ -86,7 +86,6 @@ const heatingRepairBase: ServicePage = {
   // RESOLVED (2026-10-20, client approved page copy, confirmed by user), hero caption approved as built. The old caption was one sentence; this splits it into title and text with no new words and no
   // new claim. Alternative, not built: { title: 'Heating repair', text: 'for homes and businesses across Southern California' }
   // (matches the sibling pages and restates scope already shown in the hero chips).
-  // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
   heroCaption: { title: 'Heating system', text: 'diagnostics' },
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },

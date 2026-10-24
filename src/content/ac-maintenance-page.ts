@@ -62,7 +62,6 @@ const acMaintenanceBase: ServicePage = {
   // same words with no trailing period and no new claim. Approved (D1). Alternative, not built: { title: 'AC maintenance', text: 'for
   // homes and businesses across Southern California' } (matches AC Installation, but restates the residential and commercial scope
   // already shown in the hero chips). Centered, like AC Installation.
-  // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
   heroCaption: 'Pre-season AC tune-ups',
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },

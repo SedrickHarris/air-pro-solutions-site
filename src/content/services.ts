@@ -512,7 +512,6 @@ const acRepairPage: ServicePage = {
     alt: 'Outdoor AC condenser unit beside a stucco home with palm and succulent landscaping',
   },
   // TODO(copy): client approved 2026-10-19, confirm final wording on review
-  // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
   heroCaption: { title: 'AC repair', text: 'for homes and businesses' },
   heroProof: [
     { icon: 'shield', label: 'Licensed HVAC contractor' },

@@ -22,7 +22,6 @@ export const southBayHub = {
   hero: {
     lede:
       'AIRPRO SOLUTIONS provides HVAC services in the South Bay - from the beach cities and El Segundo to Torrance, Gardena, Hawthorne, and Carson - with permits, utilities, and equipment placement matched to each city.', // also the Service schema description source text
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     photoCaptionTitle: 'South Bay, CA',
     photoCaptionBody: '8 cities served',
     proof: [

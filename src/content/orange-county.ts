@@ -24,7 +24,6 @@ export const orangeCountyHub = {
   hero: {
     lede:
       'AIRPRO SOLUTIONS provides HVAC services in Orange County - from Anaheim and Fullerton in the north to Irvine, Costa Mesa, and the coast at Newport Beach and Huntington Beach - with permits, utilities, and equipment matched to each city.',
-    // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
     photoCaptionTitle: 'Orange County, CA',
     photoCaptionBody: '8 cities served',
     proof: [

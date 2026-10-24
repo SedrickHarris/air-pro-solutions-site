@@ -450,6 +450,5 @@ export const emergencyHvacPage: ServicePage = {
     src: '/images/services/emergency-hvac-repair/air-pro-solutions-emergency-hvac-repair-home-at-dusk-hero-4x3.webp',
     alt: 'Outdoor AC condenser beside a stucco home at dusk, with warm lights on inside the house',
   },
-  // TODO(copy): client-approved wording; 24/7 dispatch is an approved claim. Fits one line (39 characters with the title).
   heroCaption: { title: 'Emergency HVAC', text: 'repair with 24/7 dispatch' },
 };

@@ -66,9 +66,6 @@ const indoorAirQualityBase: ServicePage = {
     src: '/images/services/indoor-air-quality/hero.webp',
     alt: 'Pleated air filter leaning against a wall beside a return air grille in a bright hallway, with a small air quality monitor on a shelf',
   },
-  // TODO(copy): the old caption was one string, "Indoor air quality assessment for homes and businesses." Proposed two-part
-  // caption mirrors AC Repair. Needs approval.
-  // TODO(copy): shortened to fit one line (40 characters or fewer with the title); client to approve.
   heroCaption: { title: 'Indoor air quality', text: 'assessment' },
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
