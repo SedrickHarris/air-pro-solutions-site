@@ -263,7 +263,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
                 priority
               />
               {page.heroCaption && (
-                <span className={`photo-caption photo-caption-band${page.heroCaptionAlign === 'left' ? ' photo-caption-band-left' : ''} photo-caption-silver`}>
+                <span className="photo-caption photo-caption-band photo-caption-silver">
                   {typeof page.heroCaption === 'string' ? page.heroCaption : <><strong>{page.heroCaption.title}</strong> {page.heroCaption.text}</>}
                 </span>
               )}

@@ -94,7 +94,7 @@ export default function Page() {
           {heroImage ? (
             <div className="hero-photo">
               <Image src={heroImage.src} alt={heroImage.alt} width={1200} height={900} sizes="(max-width: 920px) 100vw, 45vw" priority />
-              <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">
+              <span className="photo-caption photo-caption-band photo-caption-silver">
                 <strong>{southBayHub.hero.photoCaptionTitle}</strong> {southBayHub.hero.photoCaptionBody}
               </span>
             </div>
@@ -102,7 +102,7 @@ export default function Page() {
             <div className="photo-pending hero-photo">
               <Icon name="pin" size={32} />
               <span className="photo-tag">Photo pending</span>
-              <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">
+              <span className="photo-caption photo-caption-band photo-caption-silver">
                 <strong>{southBayHub.hero.photoCaptionTitle}</strong> {southBayHub.hero.photoCaptionBody}
               </span>
             </div>

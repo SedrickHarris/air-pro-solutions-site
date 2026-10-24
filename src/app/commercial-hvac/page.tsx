@@ -95,7 +95,7 @@ export default function Page() {
           </div>
           <div className="hero-photo">
             <Image src={commercialHero.image.src} alt={commercialHero.image.alt} width={1200} height={900} sizes="(max-width: 920px) 100vw, 45vw" priority />
-            <span className="photo-caption photo-caption-band photo-caption-oneline photo-caption-silver">
+            <span className="photo-caption photo-caption-band photo-caption-silver">
               <strong>{commercialHero.photoCaption.title}</strong> {commercialHero.photoCaption.detail}
             </span>
           </div>

@@ -170,7 +170,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           {content.heroImage ? (
             <div className="hero-photo">
               <Image src={content.heroImage.src} alt={content.heroImage.alt} width={1200} height={900} sizes="(max-width: 920px) 100vw, 45vw" priority />
-              <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">
+              <span className="photo-caption photo-caption-band photo-caption-silver">
                 <strong>{content.heroCaption ?? `${city.name}, CA`}</strong>
               </span>
             </div>
@@ -178,7 +178,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
             <div className="photo-pending hero-photo">
               <Icon name={service.icon} size={32} />
               <span className="photo-tag">Photo pending</span>
-              <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">
+              <span className="photo-caption photo-caption-band photo-caption-silver">
                 <strong>Job photo pending</strong>
               </span>
             </div>

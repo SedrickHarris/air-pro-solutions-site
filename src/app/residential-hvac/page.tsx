@@ -88,8 +88,8 @@ export default function Page() {
               sizes="(max-width: 920px) 100vw, 45vw"
               priority
             />
-            <span className="photo-caption photo-caption-band photo-caption-band-left photo-caption-silver">
-              <span className="cap-title"><strong>{residentialHub.hero.photo.captionTitle}</strong></span>
+            <span className="photo-caption photo-caption-band photo-caption-silver">
+              <span className="cap-title"><strong>{residentialHub.hero.photo.captionTitle}</strong></span>{' '}
               {residentialHub.hero.photo.captionBody}
             </span>
           </div>
