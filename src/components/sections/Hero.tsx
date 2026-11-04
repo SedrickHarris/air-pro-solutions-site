@@ -16,7 +16,7 @@ export function Hero() {
       <div className="wrap hero-grid">
         <div>
           <h1>
-            HVAC repair, installation &amp; maintenance across <em>Los Angeles</em> and Southern California
+            HVAC repair, installation &amp; maintenance in <em>Los Angeles</em>
           </h1>
           <p className="hero-lede">
             AIRPRO SOLUTIONS helps homeowners, property managers, and businesses with reliable air conditioning,

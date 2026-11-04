@@ -56,7 +56,7 @@ const acRepairTorrance: MatrixContent = {
   // (see docs/open-items.md, "Torrance neighborhoods and ZIPs"). The lede no longer says "Hollywood Riviera border":
   // the City's own site treats Hollywood Riviera as a Torrance neighborhood.
   lede:
-    "No cooling, weak airflow, strange noises, or water leaks? AIRPRO SOLUTIONS provides residential and commercial AC repair across Torrance - from Old Torrance and North Torrance to Walteria and Hollywood Riviera - and explains what we find and what your options are before you decide.",
+    "No cooling, weak airflow, strange noises, or water leaks? AIRPRO SOLUTIONS provides residential and commercial AC repair across Torrance - from Old Torrance and North Torrance to Walteria - and explains what we find and what your options are before you decide.",
   heroProof: [
     { icon: 'check', label: 'Licensed contractor' },
     { icon: 'star', label: '4.8-star rated' },
@@ -76,14 +76,14 @@ const acRepairTorrance: MatrixContent = {
       ' finds and fixes the problems that keep an air conditioning system from cooling, running efficiently, draining correctly, or moving air reliably. AIRPRO SOLUTIONS diagnoses the cause, explains what we find and your options, and completes the repair for homes and businesses across Torrance. Call or request service online to schedule a visit.',
   },
   // TODO(copy): client review of the merged glance card before launch.
-  // Source: City of Torrance Building and Safety online permit portal page, read 2026-10-21. The page gives
+  // Source: City of Torrance Building and Safety permit application page (the former online-permit-portal URL now returns 404; "Effective January 5, 2026" re-verified 2026-11-04 on the permit application page). The page gives
   // no publication date; "Effective January 5, 2026" is the date it states for the mandatory digital transition.
   cityGlance: {
     stat: { num: 'Jan 5, 2026', label: 'Torrance moved permit plan review and submittals fully online' },
     sources: [
       {
-        label: 'City of Torrance - Building and Safety online permit portal',
-        url: 'https://www.torranceca.gov/our-city/community-development/online-permit-portal/building-and-safety',
+        label: 'City of Torrance - Building and Safety permit application page',
+        url: 'https://www.torranceca.gov/City-Services/Building-Property/Building-Property-Services/Online-Permit-Center-Portal/Building-and-Safety-Permits',
       },
     ],
   },
@@ -98,7 +98,7 @@ const acRepairTorrance: MatrixContent = {
       'Torrance has a real mix of property types. An official housing-data report updated in April 2021 (SCAG pre-certified local housing data, built on California Department of Finance estimates) shows **52.5% of Torrance housing units are detached single-family homes and 39.4% are multifamily**, with attached single-family homes and mobile homes making up the rest. Access and HOA or property-manager coordination can differ between a house and a multifamily building, so we plan each repair around the actual property and equipment.',
     ],
     areasHeading: 'Torrance areas we repair AC in',
-    neighborhoods: ['Old Torrance', 'North Torrance', 'Walteria', 'Hollywood Riviera'],
+    neighborhoods: ['Old Torrance', 'North Torrance', 'Walteria'],
     // USPS lists post offices at Torrance addresses in these four ZIPs. 90502 and 90506 are left out (weaker
     // evidence) and 90277 is a Redondo Beach postal ZIP. Los Angeles City Planning records show a 90501 address
     // inside the City of Los Angeles, hence the note below.
@@ -173,8 +173,8 @@ const acRepairTorrance: MatrixContent = {
       group: 'Torrance permits and codes',
     },
     {
-      label: 'City of Torrance - Building and Safety online permit portal',
-      url: 'https://www.torranceca.gov/our-city/community-development/online-permit-portal/building-and-safety',
+      label: 'City of Torrance - Building and Safety permit application page',
+      url: 'https://www.torranceca.gov/City-Services/Building-Property/Building-Property-Services/Online-Permit-Center-Portal/Building-and-Safety-Permits',
       group: 'Torrance permits and codes',
     },
     {
@@ -200,11 +200,6 @@ const acRepairTorrance: MatrixContent = {
     {
       label: 'City of Torrance Libraries - About us (North Torrance, Walteria)',
       url: 'https://www.library.torranceca.gov/i-want-to/about-us',
-      group: 'Torrance neighborhoods and ZIP codes',
-    },
-    {
-      label: 'City of Torrance - City Manager informational handouts (Hollywood Riviera neighborhood)',
-      url: 'https://www.torranceca.gov/government/city-manager/informational-handouts',
       group: 'Torrance neighborhoods and ZIP codes',
     },
     {

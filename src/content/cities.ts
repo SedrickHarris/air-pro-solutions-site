@@ -3130,7 +3130,7 @@ const ontarioOverrides: Partial<City> = {
     // TODO(verify): noise text is from a third-party copy of Title 5, Chapter 29 on nonoise.org (undated; cites Ord. 2888, effective March 6, 2008). Recheck against the official Municipal Code before relying on the numbers.
     // Pre-launch recheck: Applicable Codes page, fee schedule, online permitting portal, Building Permit FAQs, Chapter 5 (Aug 18, 2026 revision exists) and Chapter 6, Euclid plan guidelines, SCE and SoCalGas rebate pages, Ontario Ranch and logistics pages, SCAG profile URL, QuickFacts.
     localParagraphs: [
-      "Ontario's Building Department provides plan review and inspection services, and the City's online permitting portal lets applicants apply for permits, upload plans, and pay fees after staff review. The Building Department also offers appointments and counter service at City Hall, 303 East B Street, and lists (909) 395-2023 for plan check and counter services. The City's Building Permit FAQs say no permit is required for portable comfort-cooling or evaporative cooler equipment, and the City's fee schedule, as of July 1, 2026, lists mechanical permit fees for furnaces, air handler units, evaporative coolers, wall heaters, and mini splits, with flat-fee reviews for single-family and multi-family homes. We did not find a City rule or exemption that addresses replacing a whole air conditioner or furnace like for like, so **AIRPRO SOLUTIONS confirms which permit path applies** with the City before work starts. The City's Applicable Codes page lists 2022 editions of the California Mechanical Code and Energy Code, among others, for plans filed on or after January 1, 2023, and the page is undated, so we confirm which edition applies to your project. We did not read any local amendments.",
+      "Ontario's Building Department provides plan review and inspection services, and the City's online permitting portal lets applicants apply for permits, upload plans, and pay fees after staff review. The Building Department also offers appointments and counter service at City Hall, 303 East B Street, and lists (909) 395-2023 for plan check and counter services. The City's Building Permit FAQs say no permit is required for portable comfort-cooling or evaporative cooler equipment, and the City's fee schedule, as of July 1, 2026, lists mechanical permit fees for furnaces, air handler units, evaporative coolers, wall heaters, and mini splits, with flat-fee reviews for single-family and multi-family homes. We did not find a City rule or exemption that addresses replacing a whole air conditioner or furnace like for like, so **AIRPRO SOLUTIONS confirms which permit path applies** with the City before work starts.",
       "Ontario had an estimated 187,013 residents on July 1, 2025, up from 175,265 in the 2020 U.S. Census, and QuickFacts reports a 58.0% owner-occupied housing rate for 2020-2024. The City's economic development site describes Ontario Ranch as a 13-square-mile master-planned community planned for 69,000 residential units at completion, with 1,200 new homes built in 2023, so Ontario's housing includes new construction as well as older homes. SCAG's local profile, using California Department of Finance data for 2018, counts **49,648 housing units: 59.0% single-family detached, 6.3% attached, 10.2% in buildings of 2 to 4 units, 20.1% in buildings of 5 or more, and 4.4% mobile homes**. The same profile, citing the American Community Survey, reports that **36.1% of housing was built before 1970**. The City's Ontario Ranch page is undated and the SCAG figures are dated and citywide, so we confirm the equipment, access, and ductwork at the property, and in a multi-unit building we confirm equipment access and placement.",
       "Ontario's Development Code points to Title 5, Chapter 29 of the Municipal Code for noise. The third-party copy we read lists exterior limits for single-family residential property of **65 dBA from 7 a.m. to 10 p.m. and 45 dBA from 10 p.m. to 7 a.m.**, and 65 dBA by day and 50 dBA at night for multi-family residential (Sec. 5-29.04). It says that when ambient noise exceeds a standard, the ambient level becomes the standard, and it does not mention air conditioners, so we did not find a rule written only for HVAC equipment. Construction activity noise is limited to weekdays from 7 a.m. to 6 p.m. and Saturdays and Sundays from 9 a.m. to 6 p.m., with exceptions including emergency work (Sec. 5-29.09). The copy cites Ord. 2888, effective March 6, 2008, comes from a host that is not the City, and has no current date, so we confirm how the limits apply to your address before choosing a condenser location.",
       "For equipment placement, the December 3, 2024 revision of Ontario's Development Code that we read sets screening standards for residential districts: for single-family dwellings, **new exterior roof-mounted mechanical, heating and air conditioning equipment is prohibited**, and for multiple-family development, roof-mounted equipment must be completely screened from public view by parapet walls or roof screens (Sec. 6.01.010). We did not confirm how those standards apply to replacing existing equipment, so we check placement with the City. Development Plan applications ask for the location of roof-mounted mechanical equipment and equipment screens, and the Euclid Mixed-Use Specific Plan in Ontario Ranch calls for screening ground- and roof-mounted mechanical equipment from public view. Replacements are also subject to California's Title 24 energy code, and the 2025 Energy Code applies to permit applications submitted on or after January 1, 2026. For an existing single-family home, the Energy Commission says replacing the outdoor or indoor unit of a split system triggers duct sealing requirements, and field verification and diagnostic testing is prescriptively required for most HVAC alterations.",
@@ -3173,11 +3173,6 @@ const ontarioOverrides: Partial<City> = {
         text: "Building Permit FAQs",
         href: "https://www.ontarioca.gov/government/community-development/building/general-requirements/building-permit-faqs",
         note: "Lists portable comfort-cooling and evaporative cooler equipment as not needing a permit.",
-      },
-      {
-        text: "Applicable Codes",
-        href: "https://ontarioca.gov/node/137",
-        note: "Code editions the City lists for plans filed on or after January 1, 2023 (undated page).",
       },
       {
         text: "Citywide fee schedule (PDF)",
@@ -3326,15 +3321,6 @@ const ontarioOverrides: Partial<City> = {
         links: [
           { text: "online permitting portal", href: "https://content.ontarioca.gov/sites/default/files/2026-03/ACA%20User%20Guide%20-%203.9.2026.pdf" },
           { text: "fee schedule", href: "https://content.ontarioca.gov/sites/default/files/2026-06/FY%202026-27%20Citywide%20Fee%20Schedule%2007.01.26.pdf" },
-        ],
-      },
-      {
-        q: "Which building codes apply to HVAC work in Ontario?",
-        a: "The City's Applicable Codes page lists 2022 editions of the California Building, Mechanical, and Energy Codes for plans filed on or after January 1, 2023. The page is undated, and California's 2025 Energy Code applies to permit applications submitted on or after January 1, 2026, so we confirm which edition applies to your project with the City. We did not read any local amendments.",
-        boldLead: "The City's Applicable Codes page lists 2022 editions of the California Building, Mechanical, and Energy Codes for plans filed on or after January 1, 2023.",
-        links: [
-          { text: "Applicable Codes page", href: "https://ontarioca.gov/node/137" },
-          { text: "2025 Energy Code", href: "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency" },
         ],
       },
       {
@@ -5445,7 +5431,7 @@ const manhattanBeachOverrides: Partial<City> = {
       "The City's Community Development Department publishes a Mechanical Equipment Permit Requirements handout that says **mechanical permits are required to install, alter, repair, replace, or remodel a mechanical system**. The handout shows no date and refers to the 2022 California Building Standards Codes, while the City's permits page says the 2025 California Building Codes took effect January 1, 2026, so **AIRPRO SOLUTIONS confirms the current requirements with the City** before work starts. The handout lists a site plan showing the equipment location and setbacks, and signed energy certificates (CF1R or NRCC). The City also posts an HVAC Replacement Plan for Ground Units handout, which we did not read, so we do not state what it requires. The City says Community Development accepts permit applications online. Inspections are requested through the City's Citizen Self Service portal by 3:00 p.m. on the business day before, and no work or inspections can take place until the permit has been approved and issued.",
       "For outdoor equipment, the same handout cites Municipal Code Section 10.52.050, which says **mechanical equipment, platforms, and screening may not be located beyond the front building line or in the side yard setback or building separation yards**. It also cites Section 10.60.090 for screening from view on all sides, Section 10.60.050 for height limits, and a 30-inch working clear space in the California Mechanical Code. We read these through the City's handout, not the Municipal Code text, so we plan the equipment location around your property and confirm the current rules with the City. The City's Planning Division reviews proposals for compliance with the General Plan, Zoning Ordinance, and Local Coastal Program, and we did not find whether an HVAC replacement needs coastal review.",
       "Manhattan Beach had an estimated 33,122 residents on July 1, 2025, and QuickFacts reports a 64.8% owner-occupied housing rate for 2020-2024. SCAG's 2019 Local Profile, using California Department of Finance E-5 data for 2018, counts **15,059 housing units: 69.3% single-family detached, 7.8% attached, 16.3% in buildings of 2 to 4 units, 6.5% in buildings of 5 or more, and 0.1% mobile homes**. The same profile reports that **57.2 percent of the housing stock was built before 1970**, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. Those figures are citywide and dated, so we confirm the equipment, roof or attic access, and ductwork at the property. In a multi-unit building we confirm equipment access and placement with the owner or manager, and for commercial work we plan rooftop access and equipment placement with the building owner or manager.",
-      "The City says Southern California Edison provides electric service in Manhattan Beach, and that Clean Power Alliance buys the electricity while SCE delivers it, so **SCE still handles delivery, billing, and service issues**. The City says customers can opt out of Clean Power Alliance. We did not confirm Manhattan Beach's natural gas provider from a service-territory page, so we ask which company serves the address before counting on a gas program. SoCalGas lists a 2026 rebate for ENERGY STAR furnaces in existing residential properties, with funding first come, first served until December 31, 2026 or until it runs out. SCE's Energy Savings Assistance program lists central AC or central heat pump replacement among its upgrades for income-qualified households, and says services may not be available in all areas and a co-payment may be required for some services. SCE's rebate directory lists Golden State Rebates coupons for air conditioners and smart thermostats at participating retailers, and Home Performance Plus for customers in disadvantaged or low-income communities, and we did not confirm whether a Manhattan Beach address qualifies. Terms and funding change, so we link the program pages rather than quote amounts, and **confirm your utility accounts on your bills before counting on a program**. Official links are in the card for this section.",
+      "The City says Southern California Edison provides electric service in Manhattan Beach. We did not confirm Manhattan Beach's natural gas provider from a service-territory page, so we ask which company serves the address before counting on a gas program. SoCalGas lists a 2026 rebate for ENERGY STAR furnaces in existing residential properties, with funding first come, first served until December 31, 2026 or until it runs out. SCE's Energy Savings Assistance program lists central AC or central heat pump replacement among its upgrades for income-qualified households, and says services may not be available in all areas and a co-payment may be required for some services. SCE's rebate directory lists Golden State Rebates coupons for air conditioners and smart thermostats at participating retailers, and Home Performance Plus for customers in disadvantaged or low-income communities, and we did not confirm whether a Manhattan Beach address qualifies. Terms and funding change, so we link the program pages rather than quote amounts, and **confirm your utility accounts on your bills before counting on a program**. Official links are in the card for this section.",
     ],
     localCards: [
       {
@@ -5494,11 +5480,6 @@ const manhattanBeachOverrides: Partial<City> = {
         text: "Electric utility services",
         href: "https://www.manhattanbeach.gov/departments/public-works/utilities-division/electric-utility-services",
         note: "City statement that SCE provides electric service.",
-      },
-      {
-        text: "Clean Power Alliance",
-        href: "https://manhattanbeach.gov/departments/environmental-sustainability/clean-power-alliance",
-        note: "City page on delivery, opt-out and rate options.",
       },
       {
         text: "SoCalGas rebates",
@@ -5705,16 +5686,12 @@ const manhattanBeachOverrides: Partial<City> = {
       },
       {
         q: "Which utility serves my Manhattan Beach address?",
-        a: "Your bill answers it. The City says Southern California Edison provides electric service in Manhattan Beach, and that Clean Power Alliance buys the electricity while SCE delivers it. We did not confirm the natural gas provider from a service-territory page, so check your bill before counting on a gas program.",
+        a: "Your bill answers it. The City says Southern California Edison provides electric service in Manhattan Beach. We did not confirm the natural gas provider from a service-territory page, so check your bill before counting on a gas program.",
         boldLead: "Your bill answers it.",
         links: [
           {
             text: "Southern California Edison",
             href: "https://www.manhattanbeach.gov/departments/public-works/utilities-division/electric-utility-services",
-          },
-          {
-            text: "Clean Power Alliance",
-            href: "https://manhattanbeach.gov/departments/environmental-sustainability/clean-power-alliance",
           },
         ],
       },
@@ -10056,7 +10033,7 @@ const uplandOverrides: Partial<City> = {
     // Pre-launch recheck: a readable City source for whether replacing an air conditioner or furnace needs a mechanical permit and how to apply, the City's current California Building Code edition (2025 on the Building & Safety page and Codes in Effect body, 2022 in hover text and the legacy page) and its Mechanical and Energy Code editions, the Municipal Code Title 15 and noise chapter text and your confirmation of whether a Municipal Code host counts as official, the zoning code rules for outdoor equipment, an official ZIP source, an official neighborhood or district list, the Building & Safety counter hours, NOAA normals for an Upland station if you want climate on the page, Census ACS B25034, B25035 and B25024 for Upland city (or a SCAG statement of the before-1970 share) if you want an age statement beyond the peak decade, a City or utility page naming Upland's electric and gas providers, whether SCE and SoCalGas programs apply at Upland addresses, and commercial context for Upland (none was read).
     localParagraphs: [
       "The City's Building & Safety page says all Building and Safety permit applications must be submitted online through the Citizen Self Service (CSS) Portal, and it lists the counter at 460 N Euclid Ave. The same page gives the City's elevation as 1500 feet and lists Climate Zone 10. We do not state counter hours or permit fees.",
-      "The Building & Safety page does not say whether replacing an air conditioner or furnace needs a permit, so **AIRPRO SOLUTIONS confirms the permit path for your job with the City** before work starts. The page says the City has adopted the 2025 California Building Code, and the Codes in Effect page names the same edition and says Title 15 of the Upland Municipal Code holds the City's building and construction codes. Neither page names a Mechanical Code or an Energy Code, and an older version of the Codes in Effect page still shows the 2022 edition, so **we confirm which code editions apply to your project with the City** and do not state local amendments.",
+      "The Building & Safety page does not say whether replacing an air conditioner or furnace needs a permit, so **AIRPRO SOLUTIONS confirms the permit path for your job with the City** before work starts. The page says the City has adopted the 2025 California Building Code. It does not name a Mechanical Code or an Energy Code, so **we confirm which code editions apply to your project with the City** and do not state local amendments.",
       "The City's zoning page points to the Zoning Code and Zoning Map for permitted uses and development standards, and to its interactive maps for a property's zoning. It does not mention outdoor equipment, setbacks, or noise, and we did not find equipment placement or noise rules on the City pages we could read, so **we check how your property is zoned and its layout before choosing a location for outdoor equipment**.",
       "SCAG's local profile for Upland, posted with the City's housing element materials, says the 1970 to 1979 decade has the highest share of the City's housing units. It counts 28,000 housing units in 2020, from California Department of Finance estimates, with 57.7% single-family detached and 22.5% in buildings of five or more units, and it shows 1,615 more single-family units and 898 more multifamily units from 2000 to 2020. Those are citywide counts, not a statement about any one block, so **we confirm the equipment, roof or attic access, and ductwork at each property**.",
       "QuickFacts estimates Upland had 79,446 residents on July 1, 2025, and reports a **57.1% owner-occupied housing unit rate** and 2.85 persons per household for 2020 to 2024. That leaves 42.9% of occupied homes that are not owner-occupied, so when the person who calls is a tenant we work with the owner or property manager on access and approval.",
@@ -10084,7 +10061,7 @@ const uplandOverrides: Partial<City> = {
             value: "Mechanical and Energy Codes, replacement permit rule",
           },
         ],
-        note: "From the City's Building & Safety and Codes in Effect pages (CSS is its Citizen Self Service Portal). Not stated means not on the pages we read. We confirm requirements with the City.",
+        note: "From the City's Building & Safety page (CSS is its Citizen Self Service Portal). Not stated means not on the pages we read. We confirm requirements with the City.",
       },
       {
         heading: "Upland housing snapshot",
@@ -10111,11 +10088,6 @@ const uplandOverrides: Partial<City> = {
         text: "Building & Safety",
         href: "https://www.uplandca.gov/development_services/building_safety/index.php",
         note: "Online permit portal and counter.",
-      },
-      {
-        text: "Codes in Effect",
-        href: "https://uplandca.gov/codes-in-effect",
-        note: "Building code edition.",
       },
       {
         text: "Zoning and General Plan",
@@ -10219,9 +10191,7 @@ const uplandOverrides: Partial<City> = {
         },
         {
           amount: "Code edition",
-          description: "The City's Building & Safety page says the City has adopted the 2025 California Building Code, and its Codes in Effect page points to Title 15 of the Municipal Code. Neither names a Mechanical Code or an Energy Code, so we confirm what applies to your project with the City.",
-          linkLabel: "City Codes in Effect page",
-          linkHref: "https://uplandca.gov/codes-in-effect",
+          description: "The City's Building & Safety page says the City has adopted the 2025 California Building Code, but it does not name a Mechanical Code or an Energy Code, so we confirm what applies to your project with the City.",
         },
         {
           amount: "Rebates and utilities",
@@ -10291,14 +10261,8 @@ const uplandOverrides: Partial<City> = {
       },
       {
         q: "Which building code edition applies to an Upland HVAC project?",
-        a: "We confirm that with the City. The City's Codes in Effect page names the 2025 California Building Code and points to Title 15 of the Municipal Code, but neither it nor the Building & Safety page names a Mechanical Code or an Energy Code, and an older version of that page still shows the 2022 edition, so AIRPRO SOLUTIONS confirms which requirements apply to your project with the City, and we do not state local amendments.",
+        a: "We confirm that with the City. The City's Building & Safety page names the 2025 California Building Code but does not name a Mechanical Code or an Energy Code, so AIRPRO SOLUTIONS confirms which requirements apply to your project with the City, and we do not state local amendments.",
         boldLead: "We confirm that with the City.",
-        links: [
-          {
-            text: "Codes in Effect page",
-            href: "https://uplandca.gov/codes-in-effect",
-          },
-        ],
       },
       {
         q: "Where can an outdoor AC unit go on my Upland property?",
