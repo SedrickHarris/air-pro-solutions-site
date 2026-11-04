@@ -15,7 +15,9 @@
     "report:inbound-links": "node scripts/report-inbound-links.mjs",
     "check:hub-links": "node scripts/check-hub-links.mjs",
     "propose:featured-cities": "node scripts/propose-featured-cities.mjs",
-    "check:featured-cities": "node scripts/check-featured-cities.mjs"
+    "check:featured-cities": "node scripts/check-featured-cities.mjs",
+    "test:contact": "node --test scripts/test-contact-function.mjs",
+    "test:contact:replay": "node scripts/send-test-submissions.mjs"
   },
   "dependencies": {
     "next": "^15.5.0",

@@ -1,0 +1,12 @@
+[
+  { "name": "Alex Testperson", "phone": "(310) 555-0101", "email": "alex.testperson@example.com", "service": "ac-repair", "message": "Fictional test 1: AC blowing warm air.", "sms_consent_non_marketing": true, "sms_consent_marketing": false },
+  { "name": "Blake Fakename", "phone": "310-555-0102", "email": "blake.fakename@example.com", "service": "heating-repair", "message": "Fictional test 2: furnace will not start.", "sms_consent_non_marketing": true, "sms_consent_marketing": false },
+  { "name": "Casey Sample", "phone": "424.555.0103", "email": "casey.sample@example.com", "service": "emergency-hvac", "message": "Fictional test 3: no cooling tonight.", "sms_consent_non_marketing": true, "sms_consent_marketing": false },
+  { "name": "Drew Placeholder", "phone": "(714) 555-0104", "email": "drew.placeholder@example.com", "service": "ductwork", "message": "Fictional test 4: duct leakage check.", "sms_consent_non_marketing": true, "sms_consent_marketing": true },
+  { "name": "Emery Mockson", "phone": "951-555-0105", "email": "emery.mockson@example.com", "service": "ductless-mini-split", "message": "Fictional test 5: add a mini split.", "sms_consent_non_marketing": true, "sms_consent_marketing": true },
+  { "name": "Finley Demo", "phone": "1 (909) 555-0106", "email": "finley.demo@example.com", "service": "other", "message": "Fictional test 6: not sure what I need.", "sms_consent_non_marketing": true, "sms_consent_marketing": true },
+  { "name": "Gray Notreal", "phone": "(323) 555-0107", "email": "gray.notreal@example.com", "service": "heat-pump-services", "message": "Fictional test 7: heat pump quote.", "sms_consent_non_marketing": false, "sms_consent_marketing": true },
+  { "name": "Harper Dummy", "phone": "(562) 555-0108", "email": "harper.dummy@example.com", "service": "ac-repair", "message": "", "sms_consent_non_marketing": false, "sms_consent_marketing": false },
+  { "name": "Indigo Faux", "phone": "(657) 555-0109", "email": "indigo.faux@example.com", "service": "heating-repair", "message": "Fictional test 9: thermostat issue.", "sms_consent_non_marketing": false, "sms_consent_marketing": false },
+  { "name": "Jules Example", "phone": "(818) 555-0110", "email": "jules.example@example.com", "service": "other", "message": "Fictional test 10: general question.", "sms_consent_non_marketing": false, "sms_consent_marketing": false }
+]
