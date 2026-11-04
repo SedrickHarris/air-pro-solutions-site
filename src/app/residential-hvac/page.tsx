@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { HeroImage } from '@/components/ui/HeroImage';
 import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
@@ -80,14 +80,7 @@ export default function Page() {
             </ul>
           </div>
           <div className="hero-photo">
-            <Image
-              src={residentialHub.hero.photo.src}
-              alt={residentialHub.hero.photo.alt}
-              width={1200}
-              height={900}
-              sizes="(max-width: 920px) 100vw, 45vw"
-              priority
-            />
+            <HeroImage src={residentialHub.hero.photo.src} alt={residentialHub.hero.photo.alt} />
             <span className="photo-caption photo-caption-band photo-caption-silver">
               <span className="cap-title"><strong>{residentialHub.hero.photo.captionTitle}</strong></span>{' '}
               {residentialHub.hero.photo.captionBody}

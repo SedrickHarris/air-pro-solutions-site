@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { HeroImage } from '@/components/ui/HeroImage';
 import Link from 'next/link';
 import { siteConfig } from '@/content/site-config';
 import {
@@ -80,7 +81,7 @@ export default function Page() {
             </ul>
           </div>
           <div className="hero-photo">
-            <Image src={hubHero.image.src} alt={hubHero.image.alt} width={1200} height={900} sizes="(max-width: 920px) 100vw, 45vw" priority />
+            <HeroImage src={hubHero.image.src} alt={hubHero.image.alt} />
             <span className="photo-caption photo-caption-band photo-caption-silver">
               <strong>{hubHero.photoCaptionTitle}</strong> {hubHero.photoCaptionBody}
             </span>

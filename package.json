@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run check:form-env && npm run check:nearby && npm run check:featured-cities && npm run check:hub-links && next build && npm run check:hero-captions",
+    "build": "npm run check:form-env && npm run check:nearby && npm run check:featured-cities && npm run check:hub-links && next build && npm run postbuild:fonts && npm run check:hero-captions",
+    "images:hero": "node scripts/make-hero-variants.mjs",
+    "postbuild:fonts": "node scripts/preload-fonts.mjs",
     "check:form-env": "node scripts/check-form-env.mjs",
     "check:hero-captions": "node scripts/check-hero-captions.mjs",
     "start": "npx serve out",

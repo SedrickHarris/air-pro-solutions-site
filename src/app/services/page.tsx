@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { HeroImage } from '@/components/ui/HeroImage';
 import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
 import { KeywordPills, type Pill } from '@/components/ui/KeywordPills';
@@ -165,14 +166,7 @@ export default function Page() {
             </ul>
           </div>
           <div className="hero-photo">
-            <Image
-              src="/images/services/services-hub/hero.webp"
-              alt="Gas furnace with white PVC venting and galvanized ductwork in a garage utility area beside a water heater"
-              width={1200}
-              height={900}
-              sizes="(max-width: 920px) 100vw, 45vw"
-              priority
-            />
+            <HeroImage src="/images/services/services-hub/hero.webp" alt="Gas furnace with white PVC venting and galvanized ductwork in a garage utility area beside a water heater" />
             <span className="photo-caption photo-caption-band photo-caption-silver">Heating, cooling, and indoor air quality</span>
           </div>
         </div>

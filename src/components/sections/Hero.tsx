@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { HeroImage } from '@/components/ui/HeroImage';
 import Link from 'next/link';
 import { siteConfig } from '@/content/site-config';
 import { Icon } from '@/components/ui/Icon';
@@ -38,14 +38,7 @@ export function Hero() {
         </div>
         {/* 1200x900 WebP made from public/images/homepage/hero/ (2896x2172 original). Not a job photo: the caption is descriptive, not a job claim. */}
         <div className="hero-photo">
-          <Image
-            src="/images/homepage/hero.webp"
-            alt="Outdoor AC condenser beside a stucco home with palm and succulent landscaping"
-            width={1200}
-            height={900}
-            sizes="(max-width: 920px) 100vw, 45vw"
-            priority
-          />
+          <HeroImage src="/images/homepage/hero.webp" alt="Outdoor AC condenser beside a stucco home with palm and succulent landscaping" />
           <span className="photo-caption photo-caption-band photo-caption-silver">AC repair for homes and businesses</span>
         </div>
       </div>

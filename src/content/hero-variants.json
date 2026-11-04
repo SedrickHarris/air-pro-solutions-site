@@ -1,0 +1,938 @@
+{
+ "/images/homepage/hero.webp": {
+  "w": 1200,
+  "h": 900,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 36
+   },
+   {
+    "w": 800,
+    "kb": 76
+   },
+   {
+    "w": 1200,
+    "kb": 170
+   }
+  ]
+ },
+ "/images/locations/anaheim/air-pro-solutions-hvac-services-anaheim-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 27
+   },
+   {
+    "w": 800,
+    "kb": 63
+   },
+   {
+    "w": 1200,
+    "kb": 156
+   }
+  ]
+ },
+ "/images/locations/burbank/air-pro-solutions-hvac-services-burbank-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 26
+   },
+   {
+    "w": 800,
+    "kb": 58
+   },
+   {
+    "w": 1200,
+    "kb": 137
+   }
+  ]
+ },
+ "/images/locations/carson/air-pro-solutions-hvac-services-carson-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 17
+   },
+   {
+    "w": 800,
+    "kb": 39
+   },
+   {
+    "w": 1200,
+    "kb": 99
+   }
+  ]
+ },
+ "/images/locations/chino/air-pro-solutions-hvac-services-chino-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 20
+   },
+   {
+    "w": 800,
+    "kb": 45
+   },
+   {
+    "w": 1200,
+    "kb": 119
+   }
+  ]
+ },
+ "/images/locations/corona/air-pro-solutions-hvac-services-corona-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 26
+   },
+   {
+    "w": 800,
+    "kb": 55
+   },
+   {
+    "w": 1200,
+    "kb": 124
+   }
+  ]
+ },
+ "/images/locations/costa-mesa/air-pro-solutions-hvac-services-costa-mesa-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 20
+   },
+   {
+    "w": 800,
+    "kb": 46
+   },
+   {
+    "w": 1200,
+    "kb": 121
+   }
+  ]
+ },
+ "/images/locations/culver-city/air-pro-solutions-hvac-services-culver-city-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 35
+   },
+   {
+    "w": 800,
+    "kb": 79
+   },
+   {
+    "w": 1200,
+    "kb": 205
+   }
+  ]
+ },
+ "/images/locations/eastvale/air-pro-solutions-hvac-services-eastvale-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 20
+   },
+   {
+    "w": 800,
+    "kb": 43
+   },
+   {
+    "w": 1200,
+    "kb": 104
+   }
+  ]
+ },
+ "/images/locations/el-segundo/air-pro-solutions-hvac-services-el-segundo-ca-hero-4x3.webp": {
+  "w": 1600,
+  "h": 1200,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 22
+   },
+   {
+    "w": 800,
+    "kb": 54
+   },
+   {
+    "w": 1200,
+    "kb": 113
+   }
+  ]
+ },
+ "/images/locations/fontana/air-pro-solutions-hvac-services-fontana-ca-hero-4x3.webp": {
+  "w": 1600,
+  "h": 1200,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 27
+   },
+   {
+    "w": 800,
+    "kb": 64
+   },
+   {
+    "w": 1200,
+    "kb": 131
+   }
+  ]
+ },
+ "/images/locations/fullerton/air-pro-solutions-hvac-services-fullerton-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 26
+   },
+   {
+    "w": 800,
+    "kb": 60
+   },
+   {
+    "w": 1200,
+    "kb": 152
+   }
+  ]
+ },
+ "/images/locations/gardena/air-pro-solutions-hvac-services-gardena-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 23
+   },
+   {
+    "w": 800,
+    "kb": 55
+   },
+   {
+    "w": 1200,
+    "kb": 140
+   }
+  ]
+ },
+ "/images/locations/glendale/air-pro-solutions-hvac-services-glendale-ca-hero-4x3.webp": {
+  "w": 1600,
+  "h": 1200,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 32
+   },
+   {
+    "w": 800,
+    "kb": 80
+   },
+   {
+    "w": 1200,
+    "kb": 177
+   }
+  ]
+ },
+ "/images/locations/hawthorne/air-pro-solutions-hvac-services-hawthorne-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 22
+   },
+   {
+    "w": 800,
+    "kb": 51
+   },
+   {
+    "w": 1200,
+    "kb": 131
+   }
+  ]
+ },
+ "/images/locations/hermosa-beach/air-pro-solutions-hvac-services-hermosa-beach-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 20
+   },
+   {
+    "w": 800,
+    "kb": 47
+   },
+   {
+    "w": 1200,
+    "kb": 125
+   }
+  ]
+ },
+ "/images/locations/huntington-beach/air-pro-solutions-hvac-services-huntington-beach-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 32
+   },
+   {
+    "w": 800,
+    "kb": 70
+   },
+   {
+    "w": 1200,
+    "kb": 162
+   }
+  ]
+ },
+ "/images/locations/inglewood/air-pro-solutions-hvac-services-inglewood-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 36
+   },
+   {
+    "w": 800,
+    "kb": 79
+   },
+   {
+    "w": 1200,
+    "kb": 206
+   }
+  ]
+ },
+ "/images/locations/inland-empire/air-pro-solutions-hvac-service-area-map-inland-empire-ca.webp": {
+  "w": 2600,
+  "h": 1352,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 14
+   },
+   {
+    "w": 800,
+    "kb": 27
+   },
+   {
+    "w": 1200,
+    "kb": 51
+   }
+  ]
+ },
+ "/images/locations/irvine/air-pro-solutions-hvac-services-irvine-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 24
+   },
+   {
+    "w": 800,
+    "kb": 62
+   },
+   {
+    "w": 1200,
+    "kb": 164
+   }
+  ]
+ },
+ "/images/locations/locations-hub/hero/air-pro-solutions-southern-california-hvac-service-areas-hub-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 25
+   },
+   {
+    "w": 800,
+    "kb": 61
+   },
+   {
+    "w": 1200,
+    "kb": 145
+   }
+  ]
+ },
+ "/images/locations/long-beach/air-pro-solutions-hvac-services-long-beach-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 22
+   },
+   {
+    "w": 800,
+    "kb": 53
+   },
+   {
+    "w": 1200,
+    "kb": 137
+   }
+  ]
+ },
+ "/images/locations/los-angeles-county/air-pro-solutions-hvac-service-area-map-los-angeles-county-ca.webp": {
+  "w": 2600,
+  "h": 1352,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 10
+   },
+   {
+    "w": 800,
+    "kb": 21
+   },
+   {
+    "w": 1200,
+    "kb": 39
+   }
+  ]
+ },
+ "/images/locations/los-angeles/air-pro-solutions-hvac-services-los-angeles-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 31
+   },
+   {
+    "w": 800,
+    "kb": 73
+   },
+   {
+    "w": 1200,
+    "kb": 183
+   }
+  ]
+ },
+ "/images/locations/manhattan-beach/air-pro-solutions-hvac-services-manhattan-beach-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 27
+   },
+   {
+    "w": 800,
+    "kb": 64
+   },
+   {
+    "w": 1200,
+    "kb": 163
+   }
+  ]
+ },
+ "/images/locations/newport-beach/air-pro-solutions-hvac-services-newport-beach-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 23
+   },
+   {
+    "w": 800,
+    "kb": 51
+   },
+   {
+    "w": 1200,
+    "kb": 125
+   }
+  ]
+ },
+ "/images/locations/ontario/air-pro-solutions-hvac-services-ontario-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 23
+   },
+   {
+    "w": 800,
+    "kb": 54
+   },
+   {
+    "w": 1200,
+    "kb": 136
+   }
+  ]
+ },
+ "/images/locations/orange-county/air-pro-solutions-hvac-service-area-map-orange-county-ca.webp": {
+  "w": 2600,
+  "h": 1352,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 13
+   },
+   {
+    "w": 800,
+    "kb": 26
+   },
+   {
+    "w": 1200,
+    "kb": 47
+   }
+  ]
+ },
+ "/images/locations/pasadena/air-pro-solutions-hvac-services-pasadena-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 39
+   },
+   {
+    "w": 800,
+    "kb": 77
+   },
+   {
+    "w": 1200,
+    "kb": 237
+   }
+  ]
+ },
+ "/images/locations/rancho-cucamonga/air-pro-solutions-hvac-services-rancho-cucamonga-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 25
+   },
+   {
+    "w": 800,
+    "kb": 58
+   },
+   {
+    "w": 1200,
+    "kb": 147
+   }
+  ]
+ },
+ "/images/locations/redondo-beach/air-pro-solutions-hvac-services-redondo-beach-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 22
+   },
+   {
+    "w": 800,
+    "kb": 51
+   },
+   {
+    "w": 1200,
+    "kb": 132
+   }
+  ]
+ },
+ "/images/locations/riverside/air-pro-solutions-hvac-services-riverside-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 24
+   },
+   {
+    "w": 800,
+    "kb": 57
+   },
+   {
+    "w": 1200,
+    "kb": 147
+   }
+  ]
+ },
+ "/images/locations/santa-ana/air-pro-solutions-hvac-services-santa-ana-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 23
+   },
+   {
+    "w": 800,
+    "kb": 52
+   },
+   {
+    "w": 1200,
+    "kb": 130
+   }
+  ]
+ },
+ "/images/locations/santa-monica/air-pro-solutions-hvac-services-santa-monica-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 29
+   },
+   {
+    "w": 800,
+    "kb": 69
+   },
+   {
+    "w": 1200,
+    "kb": 179
+   }
+  ]
+ },
+ "/images/locations/south-bay/air-pro-solutions-hvac-service-area-map-south-bay-ca.webp": {
+  "w": 3480,
+  "h": 1808,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 10
+   },
+   {
+    "w": 800,
+    "kb": 21
+   },
+   {
+    "w": 1200,
+    "kb": 40
+   }
+  ]
+ },
+ "/images/locations/tustin/air-pro-solutions-hvac-services-tustin-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 22
+   },
+   {
+    "w": 800,
+    "kb": 52
+   },
+   {
+    "w": 1200,
+    "kb": 137
+   }
+  ]
+ },
+ "/images/locations/upland/air-pro-solutions-hvac-services-upland-ca-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 23
+   },
+   {
+    "w": 800,
+    "kb": 54
+   },
+   {
+    "w": 1200,
+    "kb": 141
+   }
+  ]
+ },
+ "/images/service-location/hvac-services-torrance-ca/hero.webp": {
+  "w": 1200,
+  "h": 900,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 37
+   },
+   {
+    "w": 800,
+    "kb": 77
+   },
+   {
+    "w": 1200,
+    "kb": 200
+   }
+  ]
+ },
+ "/images/service-location/hvac-services-torrance-ca/hero/air-pro-solutions-torrance-ca-hvac-service-area-home-condenser-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 37
+   },
+   {
+    "w": 800,
+    "kb": 78
+   },
+   {
+    "w": 1200,
+    "kb": 194
+   }
+  ]
+ },
+ "/images/services/ac-installation/hero.webp": {
+  "w": 1200,
+  "h": 900,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 23
+   },
+   {
+    "w": 800,
+    "kb": 50
+   },
+   {
+    "w": 1200,
+    "kb": 123
+   }
+  ]
+ },
+ "/images/services/ac-maintenance/hero.webp": {
+  "w": 1200,
+  "h": 900,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 14
+   },
+   {
+    "w": 800,
+    "kb": 27
+   },
+   {
+    "w": 1200,
+    "kb": 60
+   }
+  ]
+ },
+ "/images/services/ac-repair/hero.webp": {
+  "w": 1200,
+  "h": 900,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 25
+   },
+   {
+    "w": 800,
+    "kb": 59
+   },
+   {
+    "w": 1200,
+    "kb": 152
+   }
+  ]
+ },
+ "/images/services/commercial-hub/hero/air-pro-solutions-commercial-hvac-services-southern-california-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 26
+   },
+   {
+    "w": 800,
+    "kb": 57
+   },
+   {
+    "w": 1200,
+    "kb": 133
+   }
+  ]
+ },
+ "/images/services/ductless-mini-split/hero.webp": {
+  "w": 1200,
+  "h": 900,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 16
+   },
+   {
+    "w": 800,
+    "kb": 34
+   },
+   {
+    "w": 1200,
+    "kb": 81
+   }
+  ]
+ },
+ "/images/services/ductwork/hero.webp": {
+  "w": 1200,
+  "h": 900,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 30
+   },
+   {
+    "w": 800,
+    "kb": 65
+   },
+   {
+    "w": 1200,
+    "kb": 149
+   }
+  ]
+ },
+ "/images/services/emergency-hvac-repair/air-pro-solutions-emergency-hvac-repair-home-at-dusk-hero-4x3.webp": {
+  "w": 2400,
+  "h": 1792,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 16
+   },
+   {
+    "w": 800,
+    "kb": 36
+   },
+   {
+    "w": 1200,
+    "kb": 97
+   }
+  ]
+ },
+ "/images/services/furnace-installation/hero.webp": {
+  "w": 1200,
+  "h": 900,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 11
+   },
+   {
+    "w": 800,
+    "kb": 22
+   },
+   {
+    "w": 1200,
+    "kb": 49
+   }
+  ]
+ },
+ "/images/services/heat-pump/hero.webp": {
+  "w": 1200,
+  "h": 900,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 17
+   },
+   {
+    "w": 800,
+    "kb": 37
+   },
+   {
+    "w": 1200,
+    "kb": 85
+   }
+  ]
+ },
+ "/images/services/heating-repair/hero.webp": {
+  "w": 1200,
+  "h": 900,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 14
+   },
+   {
+    "w": 800,
+    "kb": 28
+   },
+   {
+    "w": 1200,
+    "kb": 62
+   }
+  ]
+ },
+ "/images/services/indoor-air-quality/hero.webp": {
+  "w": 1200,
+  "h": 900,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 16
+   },
+   {
+    "w": 800,
+    "kb": 32
+   },
+   {
+    "w": 1200,
+    "kb": 67
+   }
+  ]
+ },
+ "/images/services/residential-hub/hero.webp": {
+  "w": 1200,
+  "h": 900,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 14
+   },
+   {
+    "w": 800,
+    "kb": 32
+   },
+   {
+    "w": 1200,
+    "kb": 82
+   }
+  ]
+ },
+ "/images/services/services-hub/hero.webp": {
+  "w": 1200,
+  "h": 900,
+  "widths": [
+   {
+    "w": 480,
+    "kb": 15
+   },
+   {
+    "w": 800,
+    "kb": 31
+   },
+   {
+    "w": 1200,
+    "kb": 74
+   }
+  ]
+ }
+}

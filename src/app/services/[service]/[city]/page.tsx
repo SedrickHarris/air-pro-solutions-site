@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { HeroImage } from '@/components/ui/HeroImage';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { matrixPages } from '@/content/matrix';
@@ -169,7 +169,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           </div>
           {content.heroImage ? (
             <div className="hero-photo">
-              <Image src={content.heroImage.src} alt={content.heroImage.alt} width={1200} height={900} sizes="(max-width: 920px) 100vw, 45vw" priority />
+              <HeroImage src={content.heroImage.src} alt={content.heroImage.alt} />
               <span className="photo-caption photo-caption-band photo-caption-silver">
                 <strong>{content.heroCaption ?? `${city.name}, CA`}</strong>
               </span>

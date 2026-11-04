@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { HeroImage } from '@/components/ui/HeroImage';
 import Link from 'next/link';
 import { getService, services, serviceHref, commercialCardImage, commercialCardDescription } from '@/content/services';
 import { siteConfig } from '@/content/site-config';
@@ -254,14 +254,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
           </div>
           {page.heroImage ? (
             <div className="hero-photo">
-              <Image
-                src={page.heroImage.src}
-                alt={page.heroImage.alt}
-                width={1200}
-                height={900}
-                sizes="(max-width: 920px) 100vw, 45vw"
-                priority
-              />
+              <HeroImage src={page.heroImage.src} alt={page.heroImage.alt} />
               {page.heroCaption && (
                 <span className="photo-caption photo-caption-band photo-caption-silver">
                   {typeof page.heroCaption === 'string' ? page.heroCaption : <><strong>{page.heroCaption.title}</strong> {page.heroCaption.text}</>}

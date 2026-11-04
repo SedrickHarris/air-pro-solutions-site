@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { HeroImage } from '@/components/ui/HeroImage';
 import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
 import { getService } from '@/content/services';
@@ -94,7 +95,7 @@ export default function Page() {
             </ul>
           </div>
           <div className="hero-photo">
-            <Image src={commercialHero.image.src} alt={commercialHero.image.alt} width={1200} height={900} sizes="(max-width: 920px) 100vw, 45vw" priority />
+            <HeroImage src={commercialHero.image.src} alt={commercialHero.image.alt} />
             <span className="photo-caption photo-caption-band photo-caption-silver">
               <strong>{commercialHero.photoCaption.title}</strong> {commercialHero.photoCaption.detail}
             </span>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { HeroImage } from '@/components/ui/HeroImage';
 import Link from 'next/link';
 import { siteConfig } from '@/content/site-config';
 import { orangeCountyHub, orangeCountyServiceCards } from '@/content/orange-county';
@@ -93,7 +93,7 @@ export default function Page() {
           </div>
           {heroImage ? (
             <div className="hero-photo">
-              <Image src={heroImage.src} alt={heroImage.alt} width={1200} height={900} sizes="(max-width: 920px) 100vw, 45vw" priority />
+              <HeroImage src={heroImage.src} alt={heroImage.alt} />
               <span className="photo-caption photo-caption-band photo-caption-silver">
                 <strong>{orangeCountyHub.hero.photoCaptionTitle}</strong> {orangeCountyHub.hero.photoCaptionBody}
               </span>
