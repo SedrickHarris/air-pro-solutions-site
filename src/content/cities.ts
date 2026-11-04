@@ -126,9 +126,7 @@ const torranceOverrides: Partial<City> = {
         ', providing AC repair, heating repair, installation, and maintenance for homes and businesses across the city. Call or request service online to schedule a visit.',
     },
     localParagraphs: [
-      "Torrance sits at the edge of the South Bay's marine layer, which means homes closer to PCH and the coast run several degrees cooler than homes inland near the 110 and 405 interchange. **AIRPRO SOLUTIONS sizes and services systems for the specific microclimate your address sits in**, rather than a one-size answer for the whole city.",
       "Torrance's housing stock spans several eras. The City's Historic Preservation Plan says the **Torrance Tract**, the original core of the city, was primarily developed between 1912 and 1945. SCAG's April 2021 pre-certified local housing data, which uses 2014-2018 American Community Survey estimates, says the largest share of Torrance housing units were built from 1950 to 1959. We did not find neighborhood-level housing age data, so **AIRPRO SOLUTIONS looks at the equipment and access at your address** instead of assuming from the neighborhood.",
-      'We also service Torrance\'s condo and townhome communities and can coordinate with property managers and HOA boards on scheduling and any building approvals.',
     ],
     serviceCards: [
       { slug: 'ac-repair', name: 'AC Repair', body: 'Diagnosis and repair for cooling failures, weak airflow, and unusual noises.' },
@@ -155,7 +153,7 @@ const torranceOverrides: Partial<City> = {
     faqs: [
       {
         q: 'Does AIRPRO SOLUTIONS service all of Torrance?',
-        a: "Yes. AIRPRO SOLUTIONS covers all of Torrance, including Old Torrance, North Torrance, West Torrance, and Walteria. Torrance's coastal air keeps homes near PCH cooler, while inland neighborhoods run several degrees warmer, so we size and service systems for the specific microclimate your home sits in.",
+        a: "Yes. AIRPRO SOLUTIONS covers all of Torrance, including Old Torrance, North Torrance, West Torrance, and Walteria.",
       },
       {
         q: 'How do I schedule HVAC service in Torrance?',
@@ -6530,15 +6528,6 @@ const ranchoCucamongaOverrides: Partial<City> = {
         boldLead: "We confirm placement with the City before choosing a unit and location.",
         links: [
           { text: "Zoning Plan Interactive Viewer", href: "https://www.cityofrc.us/everything-we-do/zoning-map" },
-        ],
-      },
-      {
-        q: "Do you work in condos and apartment buildings in Rancho Cucamonga?",
-        a: "Yes. SCAG's housing data for Rancho Cucamonga, using California Department of Finance E-5 estimates and updated April 2021, counts 59,440 housing units, with 62.5% single-family detached, 6.2% single-family attached, 4.6% in buildings of 2 to 4 units, 24.0% in buildings of 5 or more units, and 2.6% mobile homes. AIRPRO SOLUTIONS services condos, townhomes, and apartments as well as single-family homes, and in a multi-unit building we confirm equipment access and placement at the property. See our Residential HVAC page.",
-        boldLead: "Yes.",
-        links: [
-          { text: "housing data", href: "https://scag.ca.gov/sites/main/files/file-attachments/rancho-cucamonga-he-0421.pdf?1620770003" },
-          { text: "Residential HVAC page", href: "/residential-hvac/" },
         ],
       },
       {

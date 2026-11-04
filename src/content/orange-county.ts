@@ -126,7 +126,7 @@ export const orangeCountyHub = {
     residential: {
       tag: 'Residential',
       title: 'Homes, condos, and apartments',
-      body: "From Costa Mesa, where SCAG counts 49.6% of homes built before 1970, to Irvine's mostly post-1970 housing and HOA neighborhoods, with access, placement, and association rules checked first.",
+      body: "From Costa Mesa, where SCAG counts 49.6% of homes built before 1970, to Irvine's mostly post-1970 housing and HOA neighborhoods, with access, placement, and association rules worth checking first.",
       chips: ['Single-family homes', 'Condos and townhomes', 'Apartments'],
       ctaLabel: 'Residential HVAC',
       href: '/residential-hvac/',
@@ -185,8 +185,8 @@ export const orangeCountyHub = {
       ['Anaheim', "The City's Anaheim Resort page describes a 581-acre specific plan area of hotels, convention and conference facilities, restaurants, retail, and entertainment. Anaheim Municipal Code Sec. 6.70.010 sets a general 60 dB(A) property-line sound limit, so confirm placement and noise for the specific property."],
       ['Fullerton', 'The City FAQ points construction noise to Municipal Code Chapter 15.90 and exempts it between 7 a.m. and 8 p.m. on any day except Sunday or a City-recognized holiday. We did not read the chapter, so we confirm placement and noise conditions for the specific property with the City.'],
       ['Costa Mesa', "Under the Insta-Permit, outdoor equipment goes at ground level on the side or rear of the home, out of public view, with no roof-top equipment. Municipal Code Sec. 13-280 sets residential exterior noise limits of 55 dB(A) by day and 50 dB(A) at night. We confirm placement for the specific property."],
-      ['Santa Ana, Huntington Beach', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
-      ['Tustin', 'We did not find a City page we could read that states placement, screening, or noise rules for outdoor HVAC equipment, so we confirm zoning, screening, HOA approval, and noise conditions for the specific property with the City before recommending where equipment goes.'],
+      ['Santa Ana, Huntington Beach', 'Zoning, screening, HOA approval, and noise conditions depend on the specific property, so confirm them before choosing where equipment goes.'],
+      ['Tustin', 'We did not find a City page we could read that states placement, screening, or noise rules for outdoor HVAC equipment, so zoning, screening, HOA approval, and noise conditions for the specific property need to be confirmed with the City before choosing where equipment goes.'],
       ['Newport Beach', 'We confirm placement and any noise conditions for the specific property with the City before recommending where equipment goes.'],
     ],
     note: "Based on each city's municipal code and planning materials. Code text changes, so current requirements are confirmed with the city.",
@@ -335,10 +335,6 @@ export const orangeCountyHub = {
     {
       q: 'Are there noise or screening rules for outdoor equipment?',
       a: 'Yes, and they are not the same in every city. Irvine requires screening of rooftop and ground equipment and caps air conditioning noise at the higher of the land-use noise standard or 5 dB(A) above ambient. Fullerton\'s Building and Safety FAQ points construction noise to Municipal Code Chapter 15.90. Anaheim Municipal Code Sec. 6.70.010 sets a general sound limit of 60 decibels on the A-scale at the property line. For the other cities, confirm placement, screening, and noise conditions for the specific property.',
-    },
-    {
-      q: 'Do you work on condos, apartments, and HOA properties?',
-      a: "Yes, for single-family homes, condos, townhomes, and apartments. Multifamily units are 48.0% of housing in Costa Mesa, per 2018 SCAG data. HOA rules are set by each association, and Irvine publishes an HOA map, so check your association's requirements before choosing equipment or placement.",
     },
     {
       q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in Orange County?',

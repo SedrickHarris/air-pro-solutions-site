@@ -260,10 +260,6 @@ export const laCountyHub = {
       a: 'It depends on the city and sometimes the address. Los Angeles is served by LADWP, Pasadena by Pasadena Water and Power, Burbank by Burbank Water and Power, Glendale by Glendale Water & Power, and Long Beach and Santa Monica by SCE. Inglewood, Culver City, and Glendale should be confirmed by address. SoCalGas is the natural-gas utility across most of the region, but Long Beach has its own municipal gas utility, Long Beach Utilities. Rebate amounts and funding change, so confirm current eligibility with your utility before installation.',
     },
     {
-      q: 'Do you work on apartments, condos, and HOA properties?',
-      a: 'Multifamily housing is a large share of the region. Per 2018 SCAG data, multifamily is 77.5 percent of housing units in Santa Monica and 60.9 percent in Glendale. For apartments, condos, and HOA properties, we verify access, equipment placement, property-management requirements, permits, and local noise rules before installation or replacement.',
-    },
-    {
       q: 'Are there placement rules for outdoor equipment?',
       a: 'Sometimes. In Pasadena, the City’s site-plan requirement can apply to equipment placed outside. Other cities on this page have their own zoning and placement rules, so we check the property before recommending where equipment goes.',
     },

@@ -92,7 +92,7 @@ export const southBayHub = {
     residential: {
       tag: 'Residential',
       title: 'Homes, condos, and apartments',
-      body: 'Redondo Beach zones for multiple-family housing, and Downtown Torrance includes condominium complexes. Access, HOA approvals, and equipment placement are checked first.',
+      body: 'Redondo Beach zones for multiple-family housing, and Downtown Torrance includes condominium complexes. Access, HOA approvals, and equipment placement are worth checking first.',
       chips: ['Single-family homes', 'Condos and townhomes', 'Apartments'],
       ctaLabel: 'Residential HVAC',
       href: '/residential-hvac/',
@@ -151,7 +151,7 @@ export const southBayHub = {
         ['Torrance', 'Air conditioning and similar equipment may not raise noise at the property line of residential land by more than 5 decibels over ambient (Torrance Municipal Code 46.2.6). Mechanical equipment, ductwork, and plumbing lines must be screened in the applicable zoning context (91.38.4).'],
         ['Redondo Beach', 'Exterior noise limits depend on the receiving land use and the time of day, so there is no single citywide figure. In mixed-use projects, commercial equipment near residences may need acoustical and vibration controls.'],
         ['Carson', 'We confirm the City’s current noise rules and equipment placement for the specific property before installation.'],
-        ['El Segundo, Gardena', 'We confirm zoning, screening, HOA or architectural approval, and noise conditions for the specific property before recommending where equipment goes.'],
+        ['El Segundo, Gardena', 'Zoning, screening, HOA or architectural approval, and noise conditions depend on the specific property, so confirm them before choosing where equipment goes.'],
       ],
       note: "Based on each city's municipal code and planning materials. Code text and city procedures change, so current requirements are confirmed with the building department before permit submittal.",
     },
@@ -241,10 +241,6 @@ export const southBayHub = {
     {
       q: 'Are there noise or screening rules for outdoor equipment?',
       a: 'Yes, and they are not the same in every city. Torrance limits air conditioning noise at a residential property line to no more than 5 decibels over ambient and can require screening of mechanical equipment in some zones. Redondo Beach sets noise limits by receiving land use and time of day. For Carson and the other cities, we confirm placement, screening, and noise conditions for the specific property.',
-    },
-    {
-      q: 'Do you work on condos, apartments, and HOA properties?',
-      a: 'Yes, for single-family homes, condos, townhomes, and apartments. Redondo Beach zones for multiple-family housing and has a mixed-use overlay, and Downtown Torrance includes three residential complexes with 148 condominium units. HOA rules and building-management approvals are set by each property, so we check access, equipment placement, and approvals before installation or replacement.',
     },
     {
       q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in the South Bay?',

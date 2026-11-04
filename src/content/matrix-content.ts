@@ -95,7 +95,7 @@ const acRepairTorrance: MatrixContent = {
       'Mechanical permits in Torrance go through the **City of Torrance Building and Safety Division**, part of Community Development. Since January 5, 2026, the division has handled plan review and permit submittals entirely online. Whether a particular AC repair needs a permit depends on the scope of the work, and a repair is not the same as a replacement. **AIRPRO SOLUTIONS can walk you through what your job involves**, and you can confirm requirements with the division at 310-618-5910.',
       "Torrance's Municipal Code also regulates air conditioning equipment noise. **Section 46.2.6 covers AC and similar equipment noise at residential property lines**, and the city publishes additional region-based noise limits. A unit that has gotten louder is worth having diagnosed, and Torrance Code Enforcement handles noise codes.",
       "Old Torrance is the city's historic core. Torrance's Historic Preservation Plan describes the **Torrance Tract**, bounded by Dominguez Street, Western Avenue, Plaza Del Amo, and Crenshaw Boulevard, as housing stock primarily developed between 1912 and 1945, and the City's library calls Walteria the oldest section of Torrance. We look at each system as it was actually installed rather than assuming what an older neighborhood has.",
-      'Torrance has a real mix of property types. An official housing-data report updated in April 2021 (SCAG pre-certified local housing data, built on California Department of Finance estimates) shows **52.5% of Torrance housing units are detached single-family homes and 39.4% are multifamily**, with attached single-family homes and mobile homes making up the rest. Access and HOA or property-manager coordination can differ between a house and a multifamily building, so we plan each repair around the actual property and equipment.',
+      'Torrance has a real mix of property types. An official housing-data report updated in April 2021 (SCAG pre-certified local housing data, built on California Department of Finance estimates) shows **52.5% of Torrance housing units are detached single-family homes and 39.4% are multifamily**, with attached single-family homes and mobile homes making up the rest.',
     ],
     areasHeading: 'Torrance areas we repair AC in',
     neighborhoods: ['Old Torrance', 'North Torrance', 'Walteria'],
@@ -145,10 +145,6 @@ const acRepairTorrance: MatrixContent = {
       q: 'Does Torrance regulate AC equipment noise?',
       a: "Yes. Torrance's Municipal Code addresses air conditioning equipment noise at residential property lines in Section 46.2.6, and the city publishes additional noise limits that depend on the receiving property. If your unit has gotten louder, that is worth diagnosing. For a specific noise concern, contact Torrance Code Enforcement at (310) 618-5929.",
       links: [{ text: '(310) 618-5929', href: 'tel:+13106185929' }],
-    },
-    {
-      q: 'Does AIRPRO SOLUTIONS repair AC systems in Torrance condos and HOAs?',
-      a: 'Yes. AIRPRO SOLUTIONS repairs AC systems in condos, townhomes, and HOA-managed communities throughout Torrance, and can coordinate with property managers or HOA boards on access and scheduling.',
     },
     {
       q: 'How much does AC repair cost in Torrance?',

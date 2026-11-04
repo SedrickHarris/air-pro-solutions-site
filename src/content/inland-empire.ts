@@ -184,8 +184,8 @@ export const inlandEmpireHub = {
     title: 'Where the outdoor unit can go depends on the building',
     columns: ['Cities', 'Placement and screening'],
     rows: [
-      ['Riverside, Corona, and Rancho Cucamonga', 'We confirm zoning, screening, HOA approval, and noise conditions for the specific property before recommending where equipment goes.'],
-      ['Chino, Fontana, Upland, and Eastvale', 'We did not find a City page we could read that states placement, screening, or noise rules for outdoor HVAC equipment, so we confirm zoning, screening, HOA approval, and noise conditions for the specific property with the City before recommending where equipment goes.'],
+      ['Riverside, Corona, and Rancho Cucamonga', 'Zoning, screening, HOA approval, and noise conditions depend on the specific property, so confirm them before choosing where equipment goes.'],
+      ['Chino, Fontana, Upland, and Eastvale', 'We did not find a City page we could read that states placement, screening, or noise rules for outdoor HVAC equipment, so zoning, screening, HOA approval, and noise conditions for the specific property need to be confirmed with the City before choosing where equipment goes.'],
     ],
     note: 'Code text changes, so current requirements are confirmed with the city before installation.',
   },
