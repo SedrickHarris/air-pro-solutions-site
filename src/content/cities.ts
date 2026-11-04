@@ -2149,7 +2149,7 @@ const costaMesaOverrides: Partial<City> = {
       "Costa Mesa has a **Residential HVAC Insta-Permit** through its online TESSA portal, but the City limits it to a single-family dwelling on a single parcel. Its scope can include A/C condensers, forced air units, furnaces, heat pumps, mini splits, and new ductwork, and the City says exterior equipment must be installed at ground level on the side or rear of the home, where it is not visible to the public. Work beyond that scope goes to a Mechanical - Residential permit application, so **AIRPRO SOLUTIONS confirms which permit path applies** with the City before work starts, including for condos, townhomes, and apartments.",
       "The City's About page lists ZIP codes 92626, 92627, and 92628 and describes Costa Mesa as 16 square miles, just one mile from the Pacific Coast. SCAG's local profile, using California Department of Finance data for 2018, counts **42,836 housing units: 39.6% single-family detached, 10.2% attached, 13.3% in buildings of 2 to 4 units, 34.7% in buildings of 5 or more, and 2.2% mobile homes**, which makes about 48% of housing multifamily. The same profile, citing the 2017 American Community Survey, reports that **49.6% of housing was built before 1970**. These figures are dated, so we confirm the equipment, access, and ductwork at the property, and in a multi-unit building we confirm equipment access and placement.",
       "Municipal Code Sec. 13-280 sets an exterior noise standard for all residential property of **55 dB(A) from 7 a.m. to 11 p.m. and 50 dB(A) from 11 p.m. to 7 a.m.**, reduced by 5 dB(A) for impact, simple tone, speech, or music sounds, with additional duration tiers. Sec. 13-281 sets interior limits of 55 dB(A) by day and 45 dB(A) at night. The code has no section written for HVAC equipment, and the text we read comes from a third-party code host that may not reflect the most current legislation, so we confirm how the limits apply to your address before choosing a condenser location. The City's notice says it adopted the 2025 California Building Standards Code with local amendments, effective January 1, 2026.",
-      "For commercial work, the City's General Plan Land Use Element describes South Coast Plaza, along the Bristol Street corridor, as the largest single concentration of retail uses in the city, a 92-acre East 17th Street commercial corridor, and a Westside with an intertwined mix of industrial, commercial, and residential uses. The City lists a separate Mechanical - Commercial permit application. Utility and state incentive programs change, so we link the SCE, SoCalGas, TECH Clean California, and The Switch Is On pages rather than quote amounts. Confirm which utility serves your address and check current eligibility before you buy. Official links are in the card for this section.",
+      "For commercial work, the City lists a separate Mechanical - Commercial permit application. Utility and state incentive programs change, so we link the SCE, SoCalGas, TECH Clean California, and The Switch Is On pages rather than quote amounts. Confirm which utility serves your address and check current eligibility before you buy. Official links are in the card for this section.",
     ],
     neighborhoodsHeading: "Official Costa Mesa resources",
     officialResources: [
@@ -2187,11 +2187,6 @@ const costaMesaOverrides: Partial<City> = {
         text: "Municipal Code Sec. 13-281",
         href: "https://gocodebook.com/library/us/ca/costa-mesa-zoning/title-13-planning-zoning-and-development/chapter-xiii-noise-control/13-281.-interior-noise-standards",
         note: "Interior noise standards, on a third-party code host.",
-      },
-      {
-        text: "General Plan Land Use Element",
-        href: "http://ftp.costamesaca.gov/costamesaca/generalplan2015-2035/adopted/02_FinalDraftLandUseElement_02-2016.pdf",
-        note: "Source for the commercial corridors described on this page.",
       },
       {
         text: "About Costa Mesa",
@@ -2386,10 +2381,9 @@ const costaMesaOverrides: Partial<City> = {
       },
       {
         q: "Does AIRPRO SOLUTIONS handle commercial HVAC in Costa Mesa?",
-        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Costa Mesa, including rooftop units. The City's General Plan Land Use Element describes South Coast Plaza, along the Bristol Street corridor, as the largest single concentration of retail uses in the city, a 92-acre East 17th Street commercial corridor, and a Westside with an intertwined mix of industrial, commercial, and residential uses. The City lists a separate Mechanical - Commercial permit application, so we confirm the permit path with Building Safety. See our Commercial HVAC page for the full scope.",
+        a: "Yes. AIRPRO SOLUTIONS services commercial properties in Costa Mesa, including rooftop units. The City lists a separate Mechanical - Commercial permit application, so we confirm the permit path with Building Safety. See our Commercial HVAC page for the full scope.",
         boldLead: "Yes.",
         links: [
-          { text: "General Plan Land Use Element", href: "http://ftp.costamesaca.gov/costamesaca/generalplan2015-2035/adopted/02_FinalDraftLandUseElement_02-2016.pdf" },
           { text: "Mechanical - Commercial permit application", href: "https://permits.costamesaca.gov/energov_prod/selfservice#/permit/apply/354/0/0" },
           { text: "Commercial HVAC page", href: "/commercial-hvac/" },
         ],
