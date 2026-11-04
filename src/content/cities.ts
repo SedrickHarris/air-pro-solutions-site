@@ -84,11 +84,11 @@ const baseCities: City[] = regionCityNames.flatMap((r) =>
 // Locked copy for /service-areas/torrance/. See CLAUDE.md "Claims that must not ship" pattern:
 // no pricing, timing/same-day, brand-list, or unconfirmed licensing claims.
 const torranceOverrides: Partial<City> = {
-  neighborhoods: ['Old Torrance', 'North Torrance', 'West Torrance', 'Walteria', 'Del Amo', 'Torrance Gardens', 'South Torrance'],
-  zips: ['90501', '90502', '90503', '90504', '90505'],
+  neighborhoods: ['Old Torrance', 'North Torrance', 'West Torrance', 'Walteria', 'South Torrance'],
+  zips: ['90501', '90503', '90504', '90505'],
   housingNotes:
-    'Old Torrance and North Torrance: many homes built in the 1940s through 1960s with narrow attic space and older ductwork. West Torrance: newer construction with more attic clearance.',
-  // TODO(data): verify neighborhood names, ZIP list, and housing-stock statements against a local source before launch.
+    'The largest share of Torrance housing units were built from 1950 to 1959 (SCAG pre-certified local housing data, ACS 2014-2018). The Torrance Tract, the original core of the city, was primarily developed between 1912 and 1945 (City Historic Preservation Plan).',
+  // Verified 2026-11-04: neighborhood names (USPS post office names, City Council and Parks pages, Historic Preservation Plan), ZIPs (USPS), housing era (SCAG, Historic Preservation Plan). Del Amo, Torrance Gardens and ZIP 90502 removed (no live source).
   page: {
     metaDescription:
       'AIRPRO SOLUTIONS provides AC repair, heating, installation, and maintenance for Torrance homes and businesses. Licensed HVAC contractor. Schedule service.',
@@ -99,6 +99,15 @@ const torranceOverrides: Partial<City> = {
       alt: 'Outdoor AC condenser beside a Torrance home with drought-tolerant landscaping',
     },
     heroCaption:{ title: 'Torrance, CA', text: 'Local HVAC service', },
+    neighborhoodsHeading: 'Official Torrance resources',
+    officialResources: [
+      { text: 'Parks', href: 'https://www.torranceca.gov/Our-Community/Parks', note: 'City page that places Alta Loma Park and De Portola Park in South Torrance.' },
+      { text: 'City Council', href: 'https://www.torranceca.gov/Government/City-Council', note: 'City page that uses West Torrance for Council District 2.' },
+      { text: 'Historic Preservation Plan (May 2018)', href: 'https://www.torranceca.gov/files/assets/city/v/1/government/community-development/doc-files/historic-preservation/torrance_hp-plan_201811-final.pdf', note: 'Names the Torrance Tract (also the Old Torrance Tract) and says its housing was primarily developed between 1912 and 1945.' },
+      { text: 'SCAG housing data (April 2021)', href: 'https://scag.ca.gov/sites/default/files/old/file-attachments/torrance-he-0421.pdf', note: 'Pre-certified local housing data using ACS 2014-2018 estimates; the largest share of units were built 1950 to 1959.' },
+      { text: 'USPS Torrance post offices (Nov 10, 2025)', href: 'https://about.usps.com/newsroom/local-releases/ca/2025/1110-update-torrance-main-post-office.htm', note: 'Lists ZIP Codes 90501, 90503, 90504 and 90505 for Torrance post office addresses, including Walteria and North Torrance offices.' },
+      { text: 'Building and Safety permits', href: 'https://www.torranceca.gov/City-Services/Building-Property/Building-Property-Services/Online-Permit-Center-Portal/Building-and-Safety-Permits', note: 'States that plan reviews and permit submittals are electronic effective January 5, 2026.' },
+    ],
     heroProof: [
       { icon: 'shield', label: 'Licensed contractor' },
       { icon: 'star', label: '4.8-star rated' },
@@ -118,7 +127,7 @@ const torranceOverrides: Partial<City> = {
     },
     localParagraphs: [
       "Torrance sits at the edge of the South Bay's marine layer, which means homes closer to PCH and the coast run several degrees cooler than homes inland near the 110 and 405 interchange. **AIRPRO SOLUTIONS sizes and services systems for the specific microclimate your address sits in**, rather than a one-size answer for the whole city.",
-      "Housing stock varies block to block. **Old Torrance and North Torrance** have a large share of homes built in the 1940s through 1960s, often with narrow attic space, older ductwork, and single-stage systems that were never sized for today's insulation and window upgrades. Newer construction near **West Torrance** typically has more attic clearance and can support higher-efficiency equipment without major duct rework.",
+      "Torrance's housing stock spans several eras. The City's Historic Preservation Plan says the **Torrance Tract**, the original core of the city, was primarily developed between 1912 and 1945. SCAG's April 2021 pre-certified local housing data, which uses 2014-2018 American Community Survey estimates, says the largest share of Torrance housing units were built from 1950 to 1959. We did not find neighborhood-level housing age data, so **AIRPRO SOLUTIONS looks at the equipment and access at your address** instead of assuming from the neighborhood.",
       'We also service Torrance\'s condo and townhome communities and can coordinate with property managers and HOA boards on scheduling and any building approvals.',
     ],
     serviceCards: [
@@ -126,7 +135,7 @@ const torranceOverrides: Partial<City> = {
       { slug: 'ac-installation', name: 'AC Installation and Replacement', body: "New system sizing and installation matched to your home's layout and attic access." },
       { slug: 'heating-repair', name: 'Heating Repair', body: 'Furnace and heating system diagnosis and repair for reliable winter comfort.' },
       { slug: 'heat-pump-services', name: 'Heat Pump Services', body: 'Installation, repair, and maintenance for heat pump heating and cooling systems.' },
-      { slug: 'ductless-mini-split', name: 'Ductless Mini-Splits', body: 'A strong fit for Old Torrance homes with limited duct space - room-by-room comfort control.' },
+      { slug: 'ductless-mini-split', name: 'Ductless Mini-Splits', body: 'Room-by-room comfort control for homes with limited duct space.' },
       { slug: 'ac-maintenance', name: 'HVAC Maintenance', body: 'Seasonal tune-ups that catch small issues before they become no-cool or no-heat calls.' },
       { slug: 'commercial-hvac', name: 'Commercial HVAC', body: 'Rooftop units, office buildings, and retail spaces across Torrance and the South Bay.' },
       { slug: 'emergency-hvac', name: 'Emergency HVAC Repair', body: 'Call about urgent no-cool and no-heat problems in Torrance.' },
@@ -155,7 +164,7 @@ const torranceOverrides: Partial<City> = {
       },
       {
         q: 'Do older Torrance homes need different HVAC work?',
-        a: 'Often, yes. Many homes in Old Torrance and North Torrance were built in the 1940s through 1960s with narrow attic space and older ductwork, which can limit airflow or require modified equipment sizing. AIRPRO SOLUTIONS evaluates the existing ducting and attic access before recommending a repair or replacement approach.',
+        a: "It can. Older systems and ductwork can limit airflow or call for different equipment sizing. SCAG's April 2021 pre-certified local housing data says the largest share of Torrance housing units were built from 1950 to 1959, and the City's Historic Preservation Plan says the Torrance Tract was primarily developed between 1912 and 1945. AIRPRO SOLUTIONS looks at the existing ducting and attic access at your address before recommending a repair or replacement approach.",
       },
       {
         q: 'Does AIRPRO SOLUTIONS handle HOA and condo HVAC work in Torrance?',
