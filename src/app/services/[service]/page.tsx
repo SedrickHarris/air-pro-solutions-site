@@ -484,7 +484,6 @@ export default async function Page({ params }: { params: Promise<{ service: stri
                   <p className="eyebrow">{page.availability.eyebrow}</p>
                   <h2>{page.availability.title}</h2>
                   <p className="compare-intro">{page.availability.body}</p>
-                  <PendingNote>{page.availability.pendingNote}</PendingNote>
                 </div>
                 {/* TODO(design): replace with real photo */}
                 <MediaTile icon={page.availability.media.icon} image={page.availability.media.image} />
@@ -494,7 +493,6 @@ export default async function Page({ params }: { params: Promise<{ service: stri
                 <p className="eyebrow">{page.availability.eyebrow}</p>
                 <h2>{page.availability.title}</h2>
                 <p className="compare-intro">{page.availability.body}</p>
-                <PendingNote>{page.availability.pendingNote}</PendingNote>
               </>
             )}
           </div>
@@ -871,8 +869,6 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         eyebrow="Why Air Pro"
         heading={page.proofHeading ?? 'Licensed, background-checked technicians'}
         body={page.proofBody ?? 'Every technician is background-checked, and AIRPRO SOLUTIONS is licensed, bonded & insured in California.'}
-        ctaLabel="Read our reviews"
-        ctaHref="/reviews/"
         stats={page.proofStats ?? [
           { num: `${siteConfig.rating}★`, label: 'Google rating' },
           { num: String(siteConfig.reviewCount), label: 'Google reviews' },

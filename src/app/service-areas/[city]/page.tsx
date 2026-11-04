@@ -268,8 +268,6 @@ export default async function Page({ params }: { params: Promise<{ city: string 
         eyebrow="Why Air Pro"
         heading={page.proof.heading}
         body={page.proof.body}
-        ctaLabel="Read our reviews"
-        ctaHref="/reviews/"
         stats={page.proof.stats}
       />
 

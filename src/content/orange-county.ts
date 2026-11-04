@@ -209,14 +209,9 @@ export const orangeCountyHub = {
         linkLabel: 'Anaheim Public Utilities rebates',
         linkHref: 'https://www.anaheim.net/2579/Heating-Cooling-Systems',
       },
-      {
-        verifyTag: 'Verify current amount before launch',
-        amount: '$1.40 to $25 per kBtuh',
-        description: 'SoCalGas 2026 furnace rebate tiers: $1.40 for 92 to 94% AFUE, $10 for 95 to 96%, and $25 for 97% or higher. Gas equipment only, through December 31, 2026 or until funds run out.',
-      },
     ] satisfies RebateCard[],
     copy: [
-      "Program details change quickly. Confirm Anaheim Public Utilities' current terms and funding on its rebate page. SoCalGas furnace rebates are for gas equipment only. We did not find a standard SCE rebate for AC or heat pump replacement, so we do not list one.",
+      "Program details change quickly. Confirm Anaheim Public Utilities' current terms and funding on its rebate page. We did not find a standard SCE rebate for AC or heat pump replacement, so we do not list one.",
       'State heat pump funding is limited. HEEHRA single-family funding was fully reserved statewide as of February 24, 2026, and the multifamily reservation window closed December 18, 2025.',
       'Rebates and eligibility vary by service address, utility account, equipment efficiency, and available funding. Confirm final eligibility, amount, and application requirements with your utility before installation.',
     ],

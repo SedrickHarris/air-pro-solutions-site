@@ -33,8 +33,7 @@ export default function Page() {
               Email: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
             </p>
             <p>We serve Los Angeles County, the South Bay, Orange County, and the Inland Empire.</p>
-            {/* TODO(data): map embed once the client confirms the business address or service-area map */}
-            <div className="map-placeholder">Map coming soon</div>
+            {/* TODO(data): add a map embed once the client confirms the business address or service-area map */}
           </div>
         </div>
       </section>

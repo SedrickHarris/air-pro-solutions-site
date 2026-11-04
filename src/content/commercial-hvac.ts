@@ -100,8 +100,6 @@ export const proof = {
   eyebrow: 'Why Air Pro',
   heading: 'Licensed, background-checked technicians for your property',
   body: 'Every technician is background-checked, and AIRPRO SOLUTIONS is licensed, bonded & insured in California.',
-  ctaLabel: 'Read our reviews',
-  ctaHref: '/reviews/',
 };
 
 // Same array feeds the visible FAQ list and the FAQPage JSON-LD.

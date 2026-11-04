@@ -257,8 +257,6 @@ export default async function Page({ params }: { params: Promise<{ service: stri
         eyebrow="Why Air Pro"
         heading="Licensed technicians and a clear explanation of the work"
         body="AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide."
-        ctaLabel="Read our reviews"
-        ctaHref="/reviews/"
         stats={[
           { num: `${siteConfig.rating}★`, label: 'Google rating' },
           { num: String(siteConfig.reviewCount), label: 'Google reviews' },

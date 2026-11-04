@@ -22,10 +22,7 @@ const servicesCol = [
   { href: '/commercial-hvac/', label: 'Commercial HVAC' },
 ];
 const company = [
-  { href: '/about/', label: 'About Us' },
   { href: '/service-areas/', label: 'Service Areas' },
-  { href: '/financing/', label: 'Financing' },
-  { href: '/reviews/', label: 'Reviews' },
   { href: '/faq/', label: 'FAQ' },
   { href: '/careers/', label: 'Careers' },
   { href: '/contact/', label: 'Contact' },

@@ -10,7 +10,6 @@ const nav = [
   { href: '/residential-hvac/', label: 'Residential' },
   { href: '/commercial-hvac/', label: 'Commercial' },
   { href: '/service-areas/', label: 'Service Areas' },
-  { href: '/about/', label: 'About' },
 ];
 
 export function Header() {

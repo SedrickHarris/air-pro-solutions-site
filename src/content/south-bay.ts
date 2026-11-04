@@ -167,21 +167,12 @@ export const southBayHub = {
     intro: 'Electric delivery in these cities is through SCE and natural gas through SoCalGas, with Clean Power Alliance supplying generation in some cities.',
     cards: [
       {
-        verifyTag: 'Verify current amount before launch',
         amount: 'SoCalGas furnace rebates',
         description: 'SoCalGas 2026 Home Energy Efficiency Rebate for a qualifying ENERGY STAR gas furnace in an existing home. Equipment must be purchased and installed in 2026, and applications are due by December 31, 2026. Funding and program terms apply.',
         linkLabel: 'SoCalGas application',
         linkHref: 'https://www.socalgas.com/sites/default/files/2026-03/SCG-HEER-Application.pdf.pdf',
       },
       {
-        verifyTag: 'Verify current amount before launch',
-        amount: 'Up to $145 per unit',
-        description: 'SCE Summer Discount Plan bill credits for qualifying central AC that cycles during demand-response events. It is a seasonal program, so confirm current enrollment terms.',
-        linkLabel: 'SCE program page',
-        linkHref: 'https://www.sce.com/business/save-costs-energy/savings-strategies',
-      },
-      {
-        verifyTag: 'Verify current status before launch',
         amount: 'Check program status',
         description: 'State heat pump programs through TECH Clean California and HEEHRA are income-based and funding-limited. Southern California single-family funding was fully reserved as of early 2026, with later requests waitlisted.',
         linkLabel: 'TECH Clean California',

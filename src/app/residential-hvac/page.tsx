@@ -139,8 +139,6 @@ export default function Page() {
         eyebrow={residentialHub.proof.eyebrow}
         heading={residentialHub.proof.heading}
         body={residentialHub.proof.body}
-        ctaLabel={residentialHub.proof.ctaLabel}
-        ctaHref={residentialHub.proof.ctaHref}
         stats={residentialHub.proof.stats}
       />
 

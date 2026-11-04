@@ -157,7 +157,6 @@ export default function Page() {
             {orangeCountyHub.housing.paragraphs.map((p, i) => (
               <p key={i}>{renderBold(p)}</p>
             ))}
-            <p className="local-links">{orangeCountyHub.housing.pending}</p>
           </div>
         </div>
       </section>
@@ -257,10 +256,10 @@ export default function Page() {
           <div className="services-grid">
             {orangeCountyHub.cities.items.map((c) => (
               <CityCard key={c.name} slug={citySlug(c.name)} name={c.name} description={c.note} extras={[
-                  <p style={{ fontSize: '0.85rem' }}>{renderBold(`**Areas:** ${c.areas}`)}</p>,
+                  !/pending/i.test(c.areas) && <p style={{ fontSize: '0.85rem' }}>{renderBold(`**Areas:** ${c.areas}`)}</p>,
                   <p style={{ fontSize: '0.85rem' }}>{renderBold(`**Utility:** ${c.utility}`)}</p>,
-                  <p style={{ fontSize: '0.85rem' }}>{renderBold(`**ZIP codes:** ${c.zips}`)}</p>,
-                  c.pending && <p style={{ fontSize: '0.82rem', color: 'var(--ink-soft)', fontStyle: 'italic' }}>{c.pending}</p>,
+                  !/pending/i.test(c.zips) && <p style={{ fontSize: '0.85rem' }}>{renderBold(`**ZIP codes:** ${c.zips}`)}</p>,
+                  c.pending && !/pending/i.test(c.pending) && <p style={{ fontSize: '0.82rem', color: 'var(--ink-soft)', fontStyle: 'italic' }}>{c.pending}</p>,
                 ]} />
             ))}
           </div>
@@ -274,12 +273,6 @@ export default function Page() {
         body={orangeCountyHub.proof.body}
         stats={orangeCountyHub.proof.stats}
       />
-
-      <section style={{ paddingBlock: '24px 0' }}>
-        <div className="wrap">
-          <p className="pending">{orangeCountyHub.proof.pending}</p>
-        </div>
-      </section>
 
       <FaqList faqs={orangeCountyHub.faqs} eyebrow="Direct answers" title="Orange County HVAC questions, answered" firstOpen boldFirstSentence />
 

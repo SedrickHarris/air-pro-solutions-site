@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // joins the sitemap automatically the moment it gets `page` content; noindex stubs stay out.
   const paths = [
     '/', '/services/', '/service-areas/', '/service-areas/los-angeles-county/', '/service-areas/south-bay/', '/service-areas/orange-county/', '/service-areas/inland-empire/',
-    '/about/', '/contact/', '/reviews/', '/financing/', '/maintenance-plan/', '/faq/', '/careers/', '/privacy/', '/terms/', '/accessibility/', // thank-you is noindex, never list it
+    '/contact/', '/faq/', '/careers/', '/privacy/', '/terms/', '/accessibility/', // thank-you is noindex, never list it. /about/, /reviews/, /financing/ and /maintenance-plan/ are noindex stubs until the client supplies content; add them back here when they publish.
     ...builtAudiences.map((a) => `/${a}/`),
     ...publishedServices.filter((s) => s.page).map((s) => serviceHref(s.slug)),
     ...cities.filter((c) => c.page).map((c) => `/service-areas/${c.slug}/`),

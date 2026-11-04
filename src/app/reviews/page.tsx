@@ -6,11 +6,12 @@ import { siteConfig } from '@/content/site-config';
 import { PendingNote } from '@/components/ui/PendingNote';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 
-export const metadata = hubMetadata({
+// Stub page: noindex and left out of sitemap.ts and all site links until the client supplies real content.
+export const metadata = { ...hubMetadata({
   title: utilityTitle('Customer Reviews'),
   description: 'Read customer reviews of AIRPRO SOLUTIONS and see what homeowners and businesses across Southern California say about our HVAC service.', // TODO(copy)
   path: '/reviews/',
-});
+}), robots: { index: false, follow: false } };
 
 export default function Page() {
   const crumbs = [{ name: 'Home', href: '/' }, { name: 'Reviews' }];

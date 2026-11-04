@@ -194,7 +194,7 @@ const emergencyHvacBase: ServicePage = {
     eyebrow: 'Availability',
     title: 'How fast can someone come out?',
     body: 'Response time depends on your location, current call volume, traffic, weather, technician availability, and the type of problem. Call (323) 776-9047 to ask about availability for your address.',
-    pendingNote: 'live answering hours, dispatch model, after-hours coverage, and any response-time commitment. Nothing about 24/7 or same-day service is stated on this page until Air Pro confirms it.',
+    // Removed the visible "Coming soon" note 2026-11-04. Open items (live answering hours, dispatch model, response-time commitment) stay in docs/open-items.md.
   },
   systemsTitle: 'Systems we diagnose',
   systemsIntro: 'Tell us what you have and we will confirm we can service it.',

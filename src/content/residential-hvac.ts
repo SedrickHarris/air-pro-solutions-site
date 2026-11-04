@@ -77,13 +77,6 @@ export const residentialHub = {
         const s = getService(slug)!;
         return { href: `/services/${slug}/`, name: s.name, description: s.description, icon: s.icon, image: s.image };
       }),
-      {
-        href: '/maintenance-plan/',
-        name: 'HVAC Maintenance Plans',
-        description: 'Seasonal tune-ups that help catch small problems early.',
-        icon: 'calendar-check',
-        image: { src: '/images/services/cards/maintenance-plan.webp', alt: 'Outdoor AC condenser beside a stucco home with desert landscaping' },
-      },
     ] satisfies Card[],
   },
 
@@ -108,8 +101,6 @@ export const residentialHub = {
     eyebrow: 'Why Air Pro',
     heading: 'Rated by homeowners across Southern California',
     body: `Homeowners have rated AIRPRO SOLUTIONS ${siteConfig.rating.toFixed(1)} stars across ${siteConfig.reviewCount} Google reviews.`,
-    ctaLabel: 'Read our reviews',
-    ctaHref: '/reviews/',
     stats: [
       { num: `${siteConfig.rating.toFixed(1)}★`, label: 'Google rating' },
       { num: String(siteConfig.reviewCount), label: 'Google reviews' },

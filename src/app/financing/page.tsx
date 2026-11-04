@@ -6,11 +6,12 @@ import { siteConfig } from '@/content/site-config';
 import { PendingNote } from '@/components/ui/PendingNote';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 
-export const metadata = hubMetadata({
+// Stub page: noindex and left out of sitemap.ts and all site links until the client supplies real content.
+export const metadata = { ...hubMetadata({
   title: utilityTitle('HVAC Financing'),
   description: 'Questions about paying for HVAC repair, replacement, or installation? Contact AIRPRO SOLUTIONS and we will talk through your project and next steps.', // TODO(copy)
   path: '/financing/',
-});
+}), robots: { index: false, follow: false } };
 
 export default function Page() {
   const crumbs = [{ name: 'Home', href: '/' }, { name: 'Financing' }];
@@ -26,7 +27,7 @@ export default function Page() {
           <p>
             Contact us with questions about your project and how to move forward.
           </p>
-          <PendingNote>financing partner name, logo, and terms. Do not state rates, terms, or approval claims until confirmed.</PendingNote>
+          <PendingNote>financing partner name, logo, and terms.</PendingNote>
           <div className="cta-row">
             <Link className="btn btn-primary" href="/contact/">Contact us</Link>
           </div>

@@ -232,7 +232,6 @@ export default function Page() {
           <KeywordPills pills={commercialPills} label="Commercial HVAC services" />
           <div className="cta-row">
             <Link className="btn btn-primary" href="/contact/">Request Commercial Service</Link>
-            <Link className="btn btn-outline" href="/maintenance-plan/">Discuss a Maintenance Plan</Link>
           </div>
           <p className="pill-label">Who we serve</p>
           <KeywordPills pills={audiencePills} label="Who we serve" />
@@ -266,8 +265,6 @@ export default function Page() {
         eyebrow="Why Air Pro"
         heading="One HVAC company, every service you'll ever need"
         body="Every technician is background-checked, and AIRPRO SOLUTIONS is licensed, bonded & insured in California."
-        ctaLabel="Read our reviews"
-        ctaHref="/reviews/"
         stats={proofStats}
       />
 

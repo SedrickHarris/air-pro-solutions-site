@@ -349,7 +349,6 @@ const heatPumpServicesBase: ServicePage = {
     { text: 'Ductwork and airflow', href: '/services/ductwork/' },
     { text: 'Indoor air quality', href: '/services/indoor-air-quality/' },
     { text: 'Emergency HVAC', href: '/services/emergency-hvac/' },
-    { text: 'Maintenance plan options', href: '/maintenance-plan/' },
   ],
   sourcesColumns: 2,
   sources: heatPumpServicesSources,

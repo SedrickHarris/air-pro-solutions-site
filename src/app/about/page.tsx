@@ -6,11 +6,12 @@ import { siteConfig } from '@/content/site-config';
 import { PendingNote } from '@/components/ui/PendingNote';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 
-export const metadata = hubMetadata({
+// Stub page: noindex and left out of sitemap.ts and all site links until the client supplies real content.
+export const metadata = { ...hubMetadata({
   title: utilityTitle('About Us'),
   description: 'Learn about AIRPRO SOLUTIONS, a licensed HVAC contractor serving homes and businesses across LA County, the South Bay, Orange County, and the Inland Empire.', // TODO(copy)
   path: '/about/',
-});
+}), robots: { index: false, follow: false } };
 
 export default function Page() {
   const crumbs = [{ name: 'Home', href: '/' }, { name: 'About Us' }];

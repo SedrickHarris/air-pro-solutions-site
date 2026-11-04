@@ -201,17 +201,14 @@ export const inlandEmpireHub = {
     intro: 'Electric service depends on location. Riverside is served by Riverside Public Utilities, Corona is mostly SCE, and natural gas is supplied by SoCalGas outside Riverside, Chino, Fontana, and Upland. We confirm the gas provider by address in Riverside, Chino, Fontana, and Upland.',
     cards: [
       {
-        verifyTag: 'Verify current program before launch',
         amount: 'Riverside Public Utilities',
         description: 'Published rebates for heat pumps, air conditioners by efficiency rating, and tune-ups, all subject to funding. Dollar amounts are not listed here and are confirmed with the utility.',
       },
       {
-        verifyTag: 'Verify current program before launch',
         amount: 'SCE thermostat credit',
         description: 'A thermostat credit for eligible SCE customers. It is a program credit, not an equipment rebate, and we did not find a standard SCE rebate for AC or heat pump replacement.',
       },
       {
-        verifyTag: 'Verify current program before launch',
         amount: 'TECH Clean California',
         description: 'A state incentive program for heat pump systems. Funding is limited and eligibility depends on the property, so confirm availability before installation.',
       },

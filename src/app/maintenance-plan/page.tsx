@@ -6,11 +6,12 @@ import { siteConfig } from '@/content/site-config';
 import { PendingNote } from '@/components/ui/PendingNote';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 
-export const metadata = hubMetadata({
+// Stub page: noindex and left out of sitemap.ts and all site links until the client supplies real content.
+export const metadata = { ...hubMetadata({
   title: utilityTitle('HVAC Maintenance Plan'),
   description: 'Learn how an HVAC maintenance plan from AIRPRO SOLUTIONS helps keep your cooling and heating equipment efficient and reliable. Ask about plans.', // TODO(copy): confirm once plan is defined
   path: '/maintenance-plan/',
-});
+}), robots: { index: false, follow: false } };
 
 // TODO(data): replace with the real plan inclusions once the client confirms them.
 const generalInclusions = [
@@ -32,7 +33,7 @@ export default function Page() {
       <section>
         <div className="wrap prose">
           <h2>Plan tiers and pricing</h2>
-          <PendingNote>plan tiers and pricing, pending client confirmation. Do not publish prices until supplied.</PendingNote>
+          <PendingNote>plan tiers and pricing, pending client confirmation.</PendingNote>
 
           <h2>What a maintenance visit typically covers</h2>
           <p>General maintenance visit items. Exact plan inclusions will be confirmed.</p>

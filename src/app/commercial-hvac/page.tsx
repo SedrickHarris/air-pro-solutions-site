@@ -185,8 +185,6 @@ export default function Page() {
         eyebrow={proof.eyebrow}
         heading={proof.heading}
         body={proof.body}
-        ctaLabel={proof.ctaLabel}
-        ctaHref={proof.ctaHref}
         stats={[
           // TODO(claims): 24/7 emergency dispatch is unconfirmed, see docs/metadata-rules.md section 6.
           { num: '24/7', label: 'Emergency dispatch' },

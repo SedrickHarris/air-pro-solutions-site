@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { jsonLd, breadcrumbSchema, webPageSchema } from '@/lib/schema';
-import { PendingNote } from '@/components/ui/PendingNote';
 import { siteConfig } from '@/content/site-config';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 
@@ -12,6 +11,7 @@ export const metadata = hubMetadata({
   path: '/terms/',
 });
 
+// LAUNCH-REQUIRED: needs an effective date and legal review (visible "Coming soon" note removed 2026-11-04).
 // TODO(legal): standard boilerplate draft. Have the client or counsel review before launch.
 export default function Page() {
   const crumbs = [{ name: 'Home', href: '/' }, { name: 'Terms of Service' }];
@@ -24,8 +24,6 @@ export default function Page() {
       <PageHeader eyebrow="Legal" title="Terms of Service" />
       <section>
         <div className="wrap prose">
-          <PendingNote>effective date and legal review.</PendingNote>
-
           <h2>Using this website</h2>
           <p>
             By using this website you agree to these terms. The site is provided for general information about our

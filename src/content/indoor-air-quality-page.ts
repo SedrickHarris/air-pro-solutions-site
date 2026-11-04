@@ -395,7 +395,6 @@ const indoorAirQualityBase: ServicePage = {
     { text: 'Furnace installation and blower compatibility', href: '/services/furnace-installation/' },
     { text: 'Ductless mini-split', href: '/services/ductless-mini-split/' },
     { text: 'Emergency HVAC', href: '/services/emergency-hvac/' },
-    { text: 'Maintenance plan options', href: '/maintenance-plan/' },
   ],
   // "#resources" anchor for internal linking, per the build spec's anchor list.
   faqSectionId: 'resources',

@@ -162,7 +162,6 @@ export default function Page() {
             {inlandEmpireHub.housing.paragraphs.map((p, i) => (
               <p key={i}>{renderBold(p)}</p>
             ))}
-            <p className="local-links">{inlandEmpireHub.housing.pending}</p>
           </div>
         </div>
       </section>
@@ -192,7 +191,6 @@ export default function Page() {
             {inlandEmpireHub.split.paragraphs.map((p, i) => (
               <p key={i}>{renderBold(p)}</p>
             ))}
-            <p className="local-links">{inlandEmpireHub.split.pending}</p>
           </div>
         </div>
       </section>
@@ -249,7 +247,7 @@ export default function Page() {
           <p className="eyebrow">{inlandEmpireHub.cities.eyebrow}</p>
           <h2>{inlandEmpireHub.cities.title}</h2>
           <p>
-            Individual Inland Empire city pages are coming. For now, see our{' '}
+            See our{' '}
             <CityLink slug="riverside" />,{' '}
             <CityLink slug="ontario" />,{' '}
             <CityLink slug="corona" />,{' '}
@@ -263,9 +261,9 @@ export default function Page() {
           <div className="services-grid">
             {inlandEmpireHub.cities.items.map((c) => (
               <CityCard key={c.name} slug={citySlug(c.name)} name={c.name} description={c.note} extras={[
-                  <p style={{ fontSize: '0.85rem' }}>{renderBold(`**Areas:** ${c.areas}`)}</p>,
+                  !/pending/i.test(c.areas) && <p style={{ fontSize: '0.85rem' }}>{renderBold(`**Areas:** ${c.areas}`)}</p>,
                   <p style={{ fontSize: '0.85rem' }}>{renderBold(`**Utility:** ${c.utility}`)}</p>,
-                  c.pending && <p style={{ fontSize: '0.82rem', color: 'var(--ink-soft)', fontStyle: 'italic' }}>{c.pending}</p>,
+                  c.pending && !/pending/i.test(c.pending) && <p style={{ fontSize: '0.82rem', color: 'var(--ink-soft)', fontStyle: 'italic' }}>{c.pending}</p>,
                 ]} />
             ))}
           </div>
@@ -279,12 +277,6 @@ export default function Page() {
         body={inlandEmpireHub.proof.body}
         stats={inlandEmpireHub.proof.stats}
       />
-
-      <section style={{ paddingBlock: '24px 0' }}>
-        <div className="wrap">
-          <p className="pending">{inlandEmpireHub.proof.pending}</p>
-        </div>
-      </section>
 
       <FaqList faqs={inlandEmpireHub.faqs} eyebrow="Direct answers" title="Inland Empire HVAC questions, answered" firstOpen boldFirstSentence />
 
