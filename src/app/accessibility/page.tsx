@@ -5,8 +5,8 @@ import { siteConfig } from '@/content/site-config';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
-  title: utilityTitle('Accessibility Statement'),
-  description: 'AIRPRO SOLUTIONS is committed to an accessible website. Read our accessibility statement or contact us to report a problem or request help.',
+  title: utilityTitle('Website Accessibility Statement'),
+  description: 'AIRPRO SOLUTIONS is committed to an accessible website. Read our accessibility statement or contact us to report a problem or request help with the site.',
   path: '/accessibility/',
 });
 
@@ -14,12 +14,12 @@ export const metadata = hubMetadata({
 export default function Page() {
   const crumbs = [{ name: 'Home', href: '/' }, { name: 'Accessibility' }];
   const url = `${siteConfig.url}/accessibility/`;
-  const schema = [webPageSchema({ type: 'WebPage', name: 'Accessibility Statement', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
+  const schema = [webPageSchema({ type: 'WebPage', name: 'AIRPRO SOLUTIONS Accessibility Statement', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
       <Breadcrumbs crumbs={crumbs} />
-      <PageHeader eyebrow="Accessibility" title="Accessibility Statement" />
+      <PageHeader eyebrow="Accessibility" title="AIRPRO SOLUTIONS Accessibility Statement" />
       <section>
         <div className="wrap prose">
           <p>

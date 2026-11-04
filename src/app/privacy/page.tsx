@@ -5,8 +5,8 @@ import { siteConfig } from '@/content/site-config';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
-  title: utilityTitle('Privacy Policy'),
-  description: 'How AIRPRO SOLUTIONS collects, uses, and protects your personal information, including our call and text message consent practices.',
+  title: utilityTitle('Privacy Policy and Text Message Consent'),
+  description: 'How AIRPRO SOLUTIONS collects, uses, and protects your personal information, including our call and text message consent practices and your privacy rights.',
   path: '/privacy/',
 });
 
@@ -17,12 +17,12 @@ export const metadata = hubMetadata({
 export default function Page() {
   const crumbs = [{ name: 'Home', href: '/' }, { name: 'Privacy Policy' }];
   const url = `${siteConfig.url}/privacy/`;
-  const schema = [webPageSchema({ type: 'WebPage', name: 'Privacy Policy', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
+  const schema = [webPageSchema({ type: 'WebPage', name: 'AIRPRO SOLUTIONS Privacy Policy', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
       <Breadcrumbs crumbs={crumbs} />
-      <PageHeader eyebrow="Legal" title="Privacy Policy" />
+      <PageHeader eyebrow="Legal" title="AIRPRO SOLUTIONS Privacy Policy" />
       <section>
         <div className="wrap prose">
           <h2>Information we collect</h2>

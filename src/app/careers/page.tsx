@@ -5,20 +5,20 @@ import { siteConfig } from '@/content/site-config';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
-  title: utilityTitle('Careers'),
-  description: 'Interested in an HVAC career? Get in touch with AIRPRO SOLUTIONS to ask about opportunities with our team in Southern California.', // TODO(copy)
+  title: utilityTitle('HVAC Careers in Southern California'),
+  description: 'Interested in an HVAC career? Get in touch with AIRPRO SOLUTIONS to ask about opportunities with our team in Southern California. Send us a note.', // TODO(copy)
   path: '/careers/',
 });
 
 export default function Page() {
   const crumbs = [{ name: 'Home', href: '/' }, { name: 'Careers' }];
   const url = `${siteConfig.url}/careers/`;
-  const schema = [webPageSchema({ type: 'WebPage', name: 'We are hiring', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
+  const schema = [webPageSchema({ type: 'WebPage', name: 'Careers at AIRPRO SOLUTIONS', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
       <Breadcrumbs crumbs={crumbs} />
-      <PageHeader eyebrow="Careers" title="We are hiring" />
+      <PageHeader eyebrow="Careers" title="Careers at AIRPRO SOLUTIONS" />
       <section>
         <div className="wrap prose">
           {/* TODO(data): confirm which roles are open before listing any */}

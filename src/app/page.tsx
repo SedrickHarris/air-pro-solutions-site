@@ -18,7 +18,7 @@ export const metadata = homeMetadata({
   title: homeTitle(),
   // Only approved claims (licensed, 4.8-star rated); "insured" and "same-day" are not yet confirmed.
   description:
-    'HVAC repair, installation, and maintenance for homes and businesses across LA County, South Bay, Orange County, and the Inland Empire. Licensed and 4.8-star rated.',
+    'HVAC repair, installation, and maintenance for homes and businesses across LA County, South Bay, Orange County, and Inland Empire. Licensed and 4.8-star rated.',
   path: '/',
 });
 

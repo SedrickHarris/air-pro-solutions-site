@@ -6,20 +6,20 @@ import { siteConfig } from '@/content/site-config';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
-  title: utilityTitle('Contact Us'),
-  description: 'Contact AIRPRO SOLUTIONS to schedule HVAC service or request an estimate for your home or business in Southern California.', // TODO(copy)
+  title: utilityTitle('Contact Us to Schedule HVAC Service'),
+  description: 'Contact AIRPRO SOLUTIONS to schedule HVAC service or request an estimate for your home or business in Southern California. Call or send us a message.', // TODO(copy)
   path: '/contact/',
 });
 
 export default function Page() {
   const crumbs = [{ name: 'Home', href: '/' }, { name: 'Contact' }];
   const url = `${siteConfig.url}/contact/`;
-  const schema = [webPageSchema({ type: 'ContactPage', name: 'Contact AIRPRO SOLUTIONS', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
+  const schema = [webPageSchema({ type: 'ContactPage', name: 'Contact AIRPRO SOLUTIONS for HVAC Service', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
       <Breadcrumbs crumbs={crumbs} />
-      <PageHeader eyebrow="Contact" title="Contact AIRPRO SOLUTIONS" lede="Tell us what you need and we will get back to you." />
+      <PageHeader eyebrow="Contact" title="Contact AIRPRO SOLUTIONS for HVAC Service" lede="Tell us what you need and we will get back to you." />
       <section>
         <div className="wrap grid-2">
           <div>

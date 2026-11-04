@@ -501,6 +501,7 @@ const acRepairSource = (urlPart: string) => {
 // Full template content for /services/ac-repair/. Locked copy - see CLAUDE.md "Claims that must not ship"
 // before adding anything here: no pricing, timing, brand-list, or availability claims.
 const acRepairPage: ServicePage = {
+  metaServiceName: 'AC Repair Service',
   primaryKeyword: 'ac repair los angeles',
   metaDescription:
     'Get AC repair in Los Angeles for homes and businesses. AIRPRO SOLUTIONS diagnoses cooling, airflow, electrical, and drainage problems. Schedule service.',

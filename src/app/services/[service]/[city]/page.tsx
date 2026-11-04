@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ service: 
   const content = getMatrixContent(service, city);
   if (!s || !c || !content) return { robots: { index: false, follow: false } };
   return serviceLocationMetadata({
-    title: matrixTitle(s.name, c.name),
+    title: matrixTitle(s.name, c.name, 'Licensed'),
     description: content.metaDescription,
     path: `${serviceHref(s.slug)}${c.slug}/`,
   });

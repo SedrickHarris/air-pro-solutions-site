@@ -6,7 +6,7 @@ import { siteConfig } from '@/content/site-config';
 import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
-  title: utilityTitle('Terms of Service'),
+  title: utilityTitle('Terms of Service and Website Use'),
   description: 'The terms that apply when you use the AIRPRO SOLUTIONS website or request HVAC service, including estimates, text messages, and liability limits.',
   path: '/terms/',
 });
@@ -16,12 +16,12 @@ export const metadata = hubMetadata({
 export default function Page() {
   const crumbs = [{ name: 'Home', href: '/' }, { name: 'Terms of Service' }];
   const url = `${siteConfig.url}/terms/`;
-  const schema = [webPageSchema({ type: 'WebPage', name: 'Terms of Service', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
+  const schema = [webPageSchema({ type: 'WebPage', name: 'AIRPRO SOLUTIONS Terms of Service', url }), breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: c.href ? `${siteConfig.url}${c.href}` : url })))];
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
       <Breadcrumbs crumbs={crumbs} />
-      <PageHeader eyebrow="Legal" title="Terms of Service" />
+      <PageHeader eyebrow="Legal" title="AIRPRO SOLUTIONS Terms of Service" />
       <section>
         <div className="wrap prose">
           <h2>Using this website</h2>
