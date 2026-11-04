@@ -33,7 +33,18 @@ export default function Page() {
               Email: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
             </p>
             <p>We serve Los Angeles County, the South Bay, Orange County, and the Inland Empire.</p>
-            {/* TODO(data): add a map embed once the client confirms the business address or service-area map */}
+            {/* TODO(data): client to confirm this map image (Google Maps capture; it highlights Torrance and the Palos Verdes Peninsula, and two labels read "Fortooh" and "Cbarnige"). Do not add a street address until the client confirms one. */}
+            <figure className="contact-map">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/contact/airpro-solutions-hvac-services-contact-page.webp"
+                width={2752}
+                height={1536}
+                alt="Map of Southern California from Santa Monica to San Bernardino, showing Los Angeles, Torrance, Long Beach, Anaheim, Irvine and Riverside"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
           </div>
         </div>
       </section>
