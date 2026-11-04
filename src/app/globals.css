@@ -711,3 +711,9 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 :root[data-theme='dark'] .sources-details a { color: var(--sky-400); }
 @media (max-width: 920px) { .sources-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .sources-grid { grid-template-columns: 1fr; } }
+
+/* Contact form: field errors, honeypot, Turnstile box */
+.field-error { color: var(--eyebrow); font-weight: 600; font-size: 0.85rem; }
+.field input[aria-invalid='true'], .field select[aria-invalid='true'] { border-color: var(--amber-600); }
+.hp-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.turnstile-box { min-height: 65px; }
