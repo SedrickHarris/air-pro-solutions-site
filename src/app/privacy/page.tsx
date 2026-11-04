@@ -30,6 +30,13 @@ export default function Page() {
             When you contact us or request service, we collect the details you provide, such as your name, phone
             number, email address, service needed, and message.
           </p>
+          {/* TODO(legal): counsel to review this paragraph. It describes the current form wiring (Pages Function -> HighLevel). */}
+          <p>
+            When you submit our contact form, those details, your text message checkbox choices, the time you
+            submitted, and the page of this website you came from (if any) are sent to HighLevel, the platform we use
+            to receive and follow up on requests. Cloudflare hosts this website and provides Turnstile, the spam check
+            on the form.
+          </p>
 
           <h2>How we use it</h2>
           <p>
@@ -53,6 +60,7 @@ export default function Page() {
             and communication tools, or when required by law.
           </p>
 
+          {/* TODO(legal): the Turnstile sentence below is unchanged and still needs counsel review (cookies / browser data). */}
           <h2>Cookies</h2>
           <p>
             This website does not use analytics or advertising tools. Our contact form uses Cloudflare Turnstile to
