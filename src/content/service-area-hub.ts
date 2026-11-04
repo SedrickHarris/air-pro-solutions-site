@@ -123,11 +123,13 @@ export const hubFaqs: HubFaq[] = [
     q: 'Which regions does AIRPRO SOLUTIONS serve?',
     lead: 'AIRPRO SOLUTIONS serves four regions: Los Angeles County, the South Bay, Orange County, and the Inland Empire.',
     rest: ' Each region has its own page that lists eight cities and explains the local climate, electric utility, and permit rules.',
+    links: [{ text: 'Los Angeles County', href: '/service-areas/los-angeles-county/' }, { text: 'South Bay', href: '/service-areas/south-bay/' }, { text: 'Orange County', href: '/service-areas/orange-county/' }, { text: 'Inland Empire', href: '/service-areas/inland-empire/' }],
   },
   {
     q: 'Why is the South Bay separate from Los Angeles County?',
     lead: 'The South Bay has its own mix of beach cities and inland cities, so it has its own page.',
     rest: ' The Los Angeles County page covers the cities outside the South Bay, so the two pages never cover the same city.',
+    links: [{ text: 'Los Angeles County', href: '/service-areas/los-angeles-county/' }, { text: 'South Bay', href: '/service-areas/south-bay/' }],
   },
   {
     q: 'What if my city is not listed?',
@@ -139,6 +141,7 @@ export const hubFaqs: HubFaq[] = [
     q: 'Do permit rules differ between cities?',
     lead: 'Yes, each city runs its own permit process.',
     rest: ' Most HVAC replacements, new installations, duct changes, and gas or electrical changes need permits and inspections. We verify the applicable local permit path before work begins.',
+    links: [{ text: 'AC replacement', href: '/services/ac-installation/' }],
   },
   {
     q: 'Does the electric utility change by region?',
@@ -149,6 +152,7 @@ export const hubFaqs: HubFaq[] = [
     q: 'Is the climate the same across all four regions?',
     lead: 'No, and that is why we size equipment from a load calculation for your property.',
     rest: ' The ocean moderates the coast, while inland cities run hotter. Inland Empire summers are a cooling-load story: Riverside reached 115°F on September 6, 2024.',
+    links: [{ text: 'Inland Empire', href: '/service-areas/inland-empire/' }],
   },
   {
     q: 'Do you serve homes and commercial properties in every region?',

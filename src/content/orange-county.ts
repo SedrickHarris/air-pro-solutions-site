@@ -339,10 +339,12 @@ export const orangeCountyHub = {
     {
       q: 'Does AIRPRO SOLUTIONS handle commercial HVAC in Orange County?',
       a: "Yes, for offices, retail, restaurants, hotels, and other commercial properties. An example is the Anaheim Resort area. Irvine's permit rules describe a like-for-like rooftop heat pump change-out path for units of 20 tons or less, no more than 2,000 pounds each, on a roof with a slope of 2% or less and no curb change.",
+      links: [{ text: 'heat pump', href: '/services/heat-pump-services/' }],
     },
     {
       q: 'Do older homes in Orange County need different HVAC work?',
       a: 'Often, yes. Countywide, 60.4% of housing units were built before 1980. In Costa Mesa 49.6% of homes were built before 1970 (SCAG, 2017 American Community Survey). Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
+      links: [{ text: 'ductwork', href: '/services/ductwork/' }],
     },
     {
       q: 'How quickly can a technician reach me?',

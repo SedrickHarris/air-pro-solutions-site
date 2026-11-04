@@ -325,6 +325,7 @@ const emergencyHvacBase: ServicePage = {
       q: 'What should I do if I smell gas near my furnace?',
       boldLead: 'Leave the building, avoid ignition sources, and call 911 or the gas utility before arranging HVAC repair.',
       a: 'Leave the building, avoid ignition sources, and call 911 or the gas utility before arranging HVAC repair. Do not treat a suspected gas leak as a standard service call.',
+      links: [{ text: 'AC repair', href: '/services/ac-repair/' }],
     },
     {
       q: 'What if my carbon monoxide alarm goes off?',

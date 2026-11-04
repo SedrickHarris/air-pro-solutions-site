@@ -336,19 +336,22 @@ const furnaceBase: ServicePage = {
     {
       q: 'How long does it take to install a furnace?',
       a: 'A straightforward replacement may take about a day. Ductwork, venting, gas or electrical changes, difficult access, a new heat pump or AC system, permits, and inspections can extend the timeline. Local contractors publish one day for many standard installations and one to two days for some general installations. Ask for the expected installation and inspection schedule in writing.',
+      links: [{ text: 'heat pump', href: '/services/heat-pump-services/' }],
     },
     {
       q: 'Should I repair or replace my old furnace?',
       a: 'Decide after an on-site diagnosis, not by age alone. Consider reliability, repair history, safety and venting findings, airflow, energy goals, compatibility with your AC or a heat pump, and the cost of required repairs compared with replacement.',
+      links: [{ text: 'heat pump', href: '/services/heat-pump-services/' }],
     },
     {
       q: 'Can I replace a furnace without replacing my air conditioner?',
       a: 'Sometimes. The contractor should verify that the furnace blower, evaporator coil, controls, ducts, and existing AC equipment remain compatible. If the project includes a new split AC or heat pump, refrigerant and system-compliance requirements may affect the scope.',
+      links: [{ text: 'heat pump', href: '/services/heat-pump-services/' }],
     },
     {
       q: 'Can a heat pump replace my gas furnace?',
       a: 'Yes, a heat pump can provide both heating and cooling. Whether it is the right replacement depends on the building, existing ductwork, electrical capacity, comfort goals, equipment design, available incentives, and local permit and code requirements. LADWP offers heat-pump HVAC rebates to qualifying residential electric customers, while statewide single-family HEEHRA funding is currently fully reserved.',
-      links: [{ text: 'a heat pump can provide both heating and cooling', href: '/services/heat-pump-services/' }],
+      links: [{ text: 'a heat pump can provide both heating and cooling', href: '/services/heat-pump-services/' }, { text: 'ductwork', href: '/services/ductwork/' }],
     },
     {
       q: 'Are there rebates for a new gas furnace?',
@@ -365,6 +368,7 @@ const furnaceBase: ServicePage = {
     {
       q: 'Will a new furnace solve hot and cold rooms?',
       a: 'Not necessarily. Uneven comfort can be caused by duct design, return-air limitations, insulation, zoning, thermostat placement, room orientation, or equipment sizing. A replacement proposal should address whether airflow or ductwork changes are needed.',
+      links: [{ text: 'ductwork', href: '/services/ductwork/' }],
     },
   ],
   // TODO(copy): client review of every FAQ answer above before launch.

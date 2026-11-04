@@ -241,7 +241,7 @@ export const laCountyHub = {
     {
       q: 'Which cities does AIRPRO SOLUTIONS serve in Los Angeles County?',
       a: 'This page covers Los Angeles, Long Beach, Pasadena, Glendale, Burbank, Culver City, Santa Monica, and Inglewood. South Bay cities such as Torrance are covered separately. If your address is in unincorporated county territory, call us first, because permit and code rules differ there.',
-      links: [{ text: 'Torrance', href: '/service-areas/torrance/' }],
+      links: [{ text: 'Torrance', href: '/service-areas/torrance/' }, { text: 'South Bay', href: '/service-areas/south-bay/' }],
     },
     {
       q: 'Does HVAC sizing change between the coast and inland Los Angeles County?',
@@ -250,10 +250,12 @@ export const laCountyHub = {
     {
       q: 'Do I need a permit to replace my AC in Los Angeles County?',
       a: 'In all eight cities on this page, replacing HVAC equipment generally requires a mechanical permit. Requirements vary by address, equipment type, ductwork scope, and any electrical or gas work. The City of Los Angeles lists same-size and same-type AC replacement as an express permit category, which is a faster path and not a permit exemption. We verify the applicable local permit path before work begins.',
+      links: [{ text: 'AC replacement', href: '/services/ac-installation/' }],
     },
     {
       q: 'What is Title 24 and how does it affect an HVAC replacement?',
       a: 'Title 24 is California’s building energy code. Many HVAC replacements need compliance documentation and third-party field verification and diagnostic testing, and duct leakage testing can apply when components are installed in ducted systems. The exact tests depend on the project and are listed on the compliance forms for the job.',
+      links: [{ text: 'AC replacement', href: '/services/ac-installation/' }],
     },
     {
       q: 'Which utility serves my home, and are there HVAC rebates?',

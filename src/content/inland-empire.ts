@@ -341,6 +341,7 @@ export const inlandEmpireHub = {
     {
       q: 'Do older homes in the Inland Empire need different HVAC work?',
       a: 'Often, yes. Homes built before 1970 are 39.5% of Riverside (2018 data), and SCAG’s local profile for Upland says 1970 to 1979 is the decade with the highest share of its housing units. Age alone does not tell us about attic access, foundation type, or original ductwork, so those are confirmed at a site visit before recommending repair or replacement.',
+      links: [{ text: 'ductwork', href: '/services/ductwork/' }],
     },
     {
       q: 'How quickly can a technician reach me?',

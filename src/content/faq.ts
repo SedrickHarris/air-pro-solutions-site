@@ -41,6 +41,7 @@ export const generalFaqs: Faq[] = [
   {
     q: 'Can you service HVAC systems at commercial properties?',
     a: 'AIRPRO SOLUTIONS serves commercial HVAC customers. The equipment and work needed can vary by property, so share your building type, system concerns, and service location when you contact the team. They can help determine whether the requested service is a fit.',
+    links: [{ text: 'commercial HVAC', href: '/commercial-hvac/' }, { text: 'contact the team', href: '/contact/' }],
   },
   {
     q: 'How often should a commercial HVAC system be maintained?',
@@ -53,7 +54,7 @@ export const generalFaqs: Faq[] = [
   {
     q: 'What areas does AIRPRO SOLUTIONS serve?',
     a: 'AIRPRO SOLUTIONS serves customers across Los Angeles County, the South Bay, Orange County, and the Inland Empire. Visit the Service Areas page to explore coverage details or contact the team to ask about a specific location.',
-    links: [{ text: 'Service Areas page', href: '/service-areas/' }],
+    links: [{ text: 'Service Areas page', href: '/service-areas/' }, { text: 'Los Angeles County', href: '/service-areas/los-angeles-county/' }, { text: 'South Bay', href: '/service-areas/south-bay/' }, { text: 'Orange County', href: '/service-areas/orange-county/' }, { text: 'Inland Empire', href: '/service-areas/inland-empire/' }, { text: 'contact the team', href: '/contact/' }],
   },
   {
     q: 'How do I request an HVAC estimate?',

@@ -251,6 +251,7 @@ const acInstallationBase: ServicePage = {
     {
       q: 'Should I repair or replace my air conditioner?',
       a: 'Consider replacement when the equipment is more than 10 years old, repairs are frequent or costly, utility bills are rising, or comfort problems persist. ENERGY STAR recommends this test for AC and heat pump equipment, but it is not automatic. A technician should inspect the system before recommending repair or replacement.',
+      links: [{ text: 'heat pump', href: '/services/heat-pump-services/' }],
     },
     {
       q: 'How much does AC installation cost in Los Angeles?',
@@ -271,6 +272,7 @@ const acInstallationBase: ServicePage = {
     {
       q: 'Can I replace my central AC with a heat pump?',
       a: 'Often, yes. ENERGY STAR states that a central air conditioner can often be replaced with a heat pump, which provides both cooling and heating. Your property still needs an evaluation of load, ductwork, electrical capacity, existing heating equipment, and available incentives.',
+      links: [{ text: 'heat pump', href: '/services/heat-pump-services/' }, { text: 'ductwork', href: '/services/ductwork/' }],
     },
     {
       q: 'Can I still repair an R-410A system?',

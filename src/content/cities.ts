@@ -158,11 +158,12 @@ const torranceOverrides: Partial<City> = {
       {
         q: 'How do I schedule HVAC service in Torrance?',
         a: 'Call (323) 776-9047 or request service online and we will follow up with you. Availability varies, so call to ask about the next open appointment.',
-        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+        links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }, { text: 'request service online', href: '/contact/' }],
       },
       {
         q: 'Do older Torrance homes need different HVAC work?',
         a: "It can. Older systems and ductwork can limit airflow or call for different equipment sizing. SCAG's April 2021 pre-certified local housing data says the largest share of Torrance housing units were built from 1950 to 1959, and the City's Historic Preservation Plan says the Torrance Tract was primarily developed between 1912 and 1945. AIRPRO SOLUTIONS looks at the existing ducting and attic access at your address before recommending a repair or replacement approach.",
+        links: [{ text: 'ductwork', href: '/services/ductwork/' }],
       },
       {
         q: 'Does AIRPRO SOLUTIONS handle HOA and condo HVAC work in Torrance?',
@@ -171,6 +172,7 @@ const torranceOverrides: Partial<City> = {
       {
         q: 'What HVAC services are available in Torrance?',
         a: 'AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, heating repair, heat pump service, ductless mini-splits, routine maintenance, commercial HVAC, and urgent repair calls throughout Torrance, for both residential and commercial properties.',
+        links: [{ text: 'AC repair', href: '/services/ac-repair/torrance/' }, { text: 'AC installation', href: '/services/ac-installation/' }, { text: 'heating repair', href: '/services/heating-repair/' }, { text: 'heat pump service', href: '/services/heat-pump-services/' }, { text: 'ductless mini-splits', href: '/services/ductless-mini-split/' }, { text: 'commercial HVAC', href: '/commercial-hvac/' }],
       },
       {
         q: 'What should I do if my AC or heat stops working in Torrance?',
@@ -185,6 +187,7 @@ const torranceOverrides: Partial<City> = {
       {
         q: 'How much does HVAC service cost in Torrance?',
         a: 'Repair cost depends on the part, the age of the system, and how accessible the unit is. Replacement cost depends on system size and your home\'s ductwork. The most accurate answer comes from an on-site evaluation, so contact us to talk through your system.',
+        links: [{ text: 'contact us', href: '/contact/' }],
       },
       {
         q: 'Does AIRPRO SOLUTIONS service all HVAC brands in Torrance?',
@@ -338,10 +341,12 @@ const losAngelesOverrides: Partial<City> = {
       {
         q: 'Where can I check air quality before I decide on filtration or ventilation?',
         a: 'South Coast AQMD publishes current air quality data. Its readings, AQI categories, forecasts, and health recommendations are available at the neighborhood level across its jurisdiction, which includes major portions of Los Angeles County. If indoor air quality is a concern, AIRPRO SOLUTIONS can talk through your options.',
+        links: [{ text: 'indoor air quality', href: '/services/indoor-air-quality/' }],
       },
       {
         q: 'What HVAC services are available in Los Angeles?',
         a: 'AIRPRO SOLUTIONS provides AC repair, AC installation and replacement, AC maintenance, heating repair, furnace installation and replacement, heat pump services, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC throughout Los Angeles, for both residential and commercial properties.',
+        links: [{ text: 'AC repair', href: '/services/ac-repair/' }, { text: 'AC installation', href: '/services/ac-installation/' }, { text: 'AC maintenance', href: '/services/ac-maintenance/' }, { text: 'heating repair', href: '/services/heating-repair/' }, { text: 'furnace installation', href: '/services/furnace-installation/' }, { text: 'heat pump service', href: '/services/heat-pump-services/' }, { text: 'ductless mini-splits', href: '/services/ductless-mini-split/' }, { text: 'ductwork', href: '/services/ductwork/' }, { text: 'indoor air quality', href: '/services/indoor-air-quality/' }, { text: 'emergency HVAC', href: '/services/emergency-hvac/' }],
       },
       {
         q: 'Is emergency HVAC service available in Los Angeles?',
@@ -1450,6 +1455,7 @@ const gardenaOverrides: Partial<City> = {
       {
         q: "Does the age of Gardena homes matter for HVAC work?",
         a: "We confirm building age and construction on site. SCAG's 2019 profile, citing the 2017 American Community Survey, reports that 68% of Gardena's housing was built before 1970. Equipment, attic access, and original ductwork are property-specific, so we check them at a site visit before recommending repair or replacement.",
+        links: [{ text: "ductwork", href: "/services/ductwork/" }],
       },
       {
         q: "Which utilities serve Gardena, and are there HVAC rebates?",
@@ -1710,6 +1716,7 @@ const irvineOverrides: Partial<City> = {
       {
         q: "Does the age of Irvine homes matter for HVAC work?",
         a: "We confirm building age and construction on site. SCAG's 2019 profile, citing the 2017 American Community Survey, reports that 4.8% of Irvine's housing stock was built before 1970. Equipment, attic access, and ductwork are still property-specific, so we check them at a site visit before recommending repair or replacement.",
+        links: [{ text: "ductwork", href: "/services/ductwork/" }],
       },
       {
         q: "Which utilities serve Irvine, and are there HVAC rebates?",
@@ -1984,6 +1991,7 @@ const anaheimOverrides: Partial<City> = {
         q: "Does the age of Anaheim homes matter for HVAC work?",
         a: "It can, and we confirm it on site. SCAG's local profile, citing the 2017 American Community Survey, reports that 44.6% of Anaheim's housing stock was built before 1970. Older homes can mean older equipment, attic access, and ductwork, but those are still property-specific, so we check them at a site visit before recommending repair or replacement.",
         boldLead: "It can, and we confirm it on site.",
+        links: [{ text: "ductwork", href: "/services/ductwork/" }],
       },
       {
         q: "Who provides electricity in Anaheim, and are there HVAC rebates?",
@@ -2652,6 +2660,7 @@ const huntingtonBeachOverrides: Partial<City> = {
         q: "Does the age of Huntington Beach homes matter for HVAC work?",
         a: "It can, and we confirm it on site. SCAG's local profile, citing the 2017 American Community Survey, reports that 43.5% of Huntington Beach's housing stock was built before 1970. Older homes can mean older equipment, attic access, and ductwork, but those are still property-specific, so we check them at a site visit before recommending repair or replacement.",
         boldLead: "It can, and we confirm it on site.",
+        links: [{ text: "ductwork", href: "/services/ductwork/" }],
       },
       {
         q: "Do you service Huntington Harbour, Oak View, and Sunset Beach?",
@@ -3012,7 +3021,7 @@ const riversideOverrides: Partial<City> = {
         boldLead: "It can, and we confirm it on site.",
         links: [
           { text: "local profile", href: "https://www.scag.ca.gov/sites/default/files/2024-05/riverside_localprofile.pdf" },
-          { text: "General Plan", href: "https://riversideca.gov/cedd/sites/riversideca.gov.cedd/files/pdf/planning/general-plan/vol2/5-9_Land_Use_Planning.pdf" },
+          { text: "General Plan", href: "https://riversideca.gov/cedd/sites/riversideca.gov.cedd/files/pdf/planning/general-plan/vol2/5-9_Land_Use_Planning.pdf" }, { text: "ductwork", href: "/services/ductwork/" },
         ],
       },
       {
@@ -3375,7 +3384,7 @@ const ontarioOverrides: Partial<City> = {
         boldLead: "It can, and we confirm it on site.",
         links: [
           { text: "local profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/ontario_localprofile.pdf" },
-          { text: "Ontario Ranch", href: "https://www.ontariothinksbusiness.com/develop-ontario/district-information/ontario-ranch" },
+          { text: "Ontario Ranch", href: "https://www.ontariothinksbusiness.com/develop-ontario/district-information/ontario-ranch" }, { text: "ductwork", href: "/services/ductwork/" },
         ],
       },
       {
@@ -3752,7 +3761,7 @@ const coronaOverrides: Partial<City> = {
         a: "It can, and we confirm it on site. SCAG's local profile reports that 15.6% of Corona's housing stock was built before 1970, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. That is a citywide share, and age alone does not tell us about attic access, foundation type, or original ductwork, so we check them at a site visit before recommending repair or replacement.",
         boldLead: "It can, and we confirm it on site.",
         links: [
-          { text: "local profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/corona_localprofile.pdf" },
+          { text: "local profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/corona_localprofile.pdf" }, { text: "ductwork", href: "/services/ductwork/" },
         ],
       },
       {
@@ -4196,7 +4205,7 @@ const glendaleOverrides: Partial<City> = {
           {
             text: "local profile",
             href: "https://sp.scag.ca.gov/sites/default/files/2024-05/glendale_localprofile.pdf",
-          },
+          }, { text: "ductwork", href: "/services/ductwork/" },
         ],
       },
       {
@@ -4520,7 +4529,7 @@ const burbankOverrides: Partial<City> = {
         a: "The City lists HVAC replacement as permit work. Its Building Permits page includes HVAC changeouts among the single-family permits available through Burbank Online Permits, and it lists mechanical exemptions such as portable cooling units, portable evaporative coolers, and replacing a part that does not change the equipment's approval or make it unsafe. AIRPRO SOLUTIONS confirms the permit path with the City before work starts, and we do not quote fees.",
         boldLead: "The City lists HVAC replacement as permit work.",
         links: [
-          { text: "Building Permits page", href: "https://www.burbankca.gov/web/community-development/building-permits" },
+          { text: "Building Permits page", href: "https://www.burbankca.gov/web/community-development/building-permits" }, { text: "AC replacement", href: "/services/ac-installation/" },
         ],
       },
       {
@@ -4585,7 +4594,7 @@ const burbankOverrides: Partial<City> = {
         a: "Age is one factor we check. SCAG's 2019 Local Profile reports that 62.9% of Burbank housing was built before 1970, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. That is a citywide, dated figure, so we confirm the equipment, roof or attic access, and ductwork at your property.",
         boldLead: "Age is one factor we check.",
         links: [
-          { text: "SCAG's 2019 Local Profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/burbank_localprofile.pdf" },
+          { text: "SCAG's 2019 Local Profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/burbank_localprofile.pdf" }, { text: "ductwork", href: "/services/ductwork/" },
         ],
       },
       {
@@ -4994,7 +5003,7 @@ const santaMonicaOverrides: Partial<City> = {
         a: "Age is one factor we check. SCAG's 2019 Local Profile reports that 56.2% of Santa Monica housing was built before 1970, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. That is a citywide, dated figure, so we confirm the equipment, roof or attic access, and ductwork at your property.",
         boldLead: "Age is one factor we check.",
         links: [
-          { text: "SCAG's 2019 Local Profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/santamonica_localprofile.pdf" },
+          { text: "SCAG's 2019 Local Profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/santamonica_localprofile.pdf" }, { text: "ductwork", href: "/services/ductwork/" },
         ],
       },
       {
@@ -5285,7 +5294,7 @@ const inglewoodOverrides: Partial<City> = {
         a: "Start with the City's online portal. The City's permit portal menu lets applicants search applications and start a Building Permit, Planning/Zoning Permits, or Public Works Permits. The pages we read do not say which one an HVAC replacement uses, so AIRPRO SOLUTIONS confirms the application and the process for your job with the City.",
         boldLead: "Start with the City's online portal.",
         links: [
-          { text: "permit portal", href: "https://aca-prod.accela.com/inglewood/Default.aspx" },
+          { text: "permit portal", href: "https://aca-prod.accela.com/inglewood/Default.aspx" }, { text: "AC replacement", href: "/services/ac-installation/" },
         ],
       },
       {
@@ -5293,7 +5302,7 @@ const inglewoodOverrides: Partial<City> = {
         a: "Age is one factor we check. SCAG's 2019 Local Profile reports that 70 percent of Inglewood's housing stock was built before 1970, citing the U.S. Census American Community Survey, 2017, and Nielsen Co. That is a citywide, dated figure, so we confirm the equipment, roof or attic access, and ductwork at your property.",
         boldLead: "Age is one factor we check.",
         links: [
-          { text: "SCAG's 2019 Local Profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/inglewood_localprofile.pdf" },
+          { text: "SCAG's 2019 Local Profile", href: "https://sp.scag.ca.gov/sites/default/files/2024-05/inglewood_localprofile.pdf" }, { text: "ductwork", href: "/services/ductwork/" },
         ],
       },
       {
@@ -5660,7 +5669,7 @@ const manhattanBeachOverrides: Partial<City> = {
           {
             text: "Planning Division",
             href: "https://www.manhattanbeach.gov/departments/community-development/planning-zoning",
-          },
+          }, { text: "AC replacement", href: "/services/ac-installation/" },
         ],
       },
       {
@@ -5671,7 +5680,7 @@ const manhattanBeachOverrides: Partial<City> = {
           {
             text: "SCAG's 2019 Local Profile",
             href: "https://sp.scag.ca.gov/sites/default/files/2024-05/manhattanbeach_localprofile.pdf",
-          },
+          }, { text: "ductwork", href: "/services/ductwork/" },
         ],
       },
       {
@@ -6120,7 +6129,7 @@ const hermosaBeachOverrides: Partial<City> = {
           {
             text: "Mechanical Permit Application",
             href: "https://hermosabeach.gov/home/showpublisheddocument/19385/638598171245530000",
-          },
+          }, { text: "AC replacement", href: "/services/ac-installation/" },
         ],
       },
       {
@@ -6131,7 +6140,7 @@ const hermosaBeachOverrides: Partial<City> = {
           {
             text: "SCAG's 2019 Local Profile",
             href: "https://sp.scag.ca.gov/sites/default/files/2024-05/hermosabeach_localprofile.pdf",
-          },
+          }, { text: "ductwork", href: "/services/ductwork/" },
         ],
       },
       {
@@ -6485,7 +6494,7 @@ const ranchoCucamongaOverrides: Partial<City> = {
           { text: "Building & Safety page", href: "https://www.cityofrc.us/community-development/building-safety" },
           { text: "Online Permit Center guide", href: "https://www.cityofrc.us/sites/default/files/2020-10/How%20to%20Start%20an%20Application%20Using%20the%20Online%20Permit%20Center.pdf" },
           { text: "fee schedule", href: "https://www.cityofrc.us/sites/default/files/2026-01/Fee_Schedule_Comm_Develop_eff_1-1-26_0.pdf" },
-          { text: "SoCalGas", href: "https://www.socalgas.com/savings/rebates-and-incentives" },
+          { text: "SoCalGas", href: "https://www.socalgas.com/savings/rebates-and-incentives" }, { text: "AC replacement", href: "/services/ac-installation/" },
         ],
       },
       {
@@ -6535,7 +6544,7 @@ const ranchoCucamongaOverrides: Partial<City> = {
         a: "It can, and we confirm it on site. SCAG's housing data, citing the American Community Survey for 2014-2018, reports that 28.5% of Rancho Cucamonga's housing units were built from 1980 to 1989, the largest share, followed by 21.5% from 1970 to 1979 and 21.4% from 2000 to 2009, and 9.6% were built before 1970. Those figures are dated and citywide, and the year a home was built does not tell us its equipment age, ductwork condition, or whether it has air conditioning, so we check those at a site visit before recommending repair or replacement.",
         boldLead: "It can, and we confirm it on site.",
         links: [
-          { text: "housing data", href: "https://scag.ca.gov/sites/main/files/file-attachments/rancho-cucamonga-he-0421.pdf?1620770003" },
+          { text: "housing data", href: "https://scag.ca.gov/sites/main/files/file-attachments/rancho-cucamonga-he-0421.pdf?1620770003" }, { text: "ductwork", href: "/services/ductwork/" },
         ],
       },
       {
@@ -6871,7 +6880,7 @@ const hawthorneOverrides: Partial<City> = {
         a: "Yes, the City inspects a new business location. The City's Building & Safety Requirements page says an inspection is performed of the new business location and that the inspector lists violations of the City's Building, Electrical, Mechanical, and Plumbing codes that must be corrected. It says to call 24 hours in advance to request an inspection and that inspections are conducted between 9:00 a.m. and 5:00 p.m. AIRPRO SOLUTIONS services commercial HVAC equipment and confirms with the City which corrections need permits.",
         boldLead: "Yes, the City inspects a new business location.",
         links: [
-          { text: "Building & Safety Requirements page", href: "https://www.cityofhawthorne.org/departments/building-safety/building-safety-requirements" },
+          { text: "Building & Safety Requirements page", href: "https://www.cityofhawthorne.org/departments/building-safety/building-safety-requirements" }, { text: "commercial HVAC", href: "/commercial-hvac/" },
         ],
       },
       {
@@ -6884,7 +6893,7 @@ const hawthorneOverrides: Partial<City> = {
         a: "Age is one factor we check. SCAG's April 2021 housing data shows that 24.7 percent of Hawthorne's housing was built from 1950 to 1959, the largest share of any period. That is a citywide, dated figure, so we confirm the equipment, roof or attic access, and ductwork at your property.",
         boldLead: "Age is one factor we check.",
         links: [
-          { text: "SCAG's April 2021 housing data", href: "https://scag.ca.gov/sites/default/files/old/file-attachments/hawthorne-he-0421.pdf" },
+          { text: "SCAG's April 2021 housing data", href: "https://scag.ca.gov/sites/default/files/old/file-attachments/hawthorne-he-0421.pdf" }, { text: "ductwork", href: "/services/ductwork/" },
         ],
       },
       {
@@ -7202,6 +7211,7 @@ const carsonOverrides: Partial<City> = {
         q: "Does the age of my Carson home matter for HVAC?",
         a: "Age is one factor we check. We did not find a verified citywide figure for the age of Carson homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
         boldLead: "Age is one factor we check.",
+        links: [{ text: "ductwork", href: "/services/ductwork/" }],
       },
       {
         q: "Is the Carson zoning code changing?",
@@ -7527,6 +7537,7 @@ const santaAnaOverrides: Partial<City> = {
         q: "Does the age of my Santa Ana home matter for HVAC?",
         a: "Age is one factor we check. We did not find a verified citywide figure for the age of Santa Ana homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
         boldLead: "Age is one factor we check.",
+        links: [{ text: "ductwork", href: "/services/ductwork/" }],
       },
       {
         q: "Do you work on rental properties in Santa Ana?",
@@ -7936,6 +7947,7 @@ const newportBeachOverrides: Partial<City> = {
         q: "Does the age of my Newport Beach home matter for HVAC?",
         a: "Age is one factor we check. We did not find a verified citywide figure for the age of Newport Beach homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
         boldLead: "Age is one factor we check.",
+        links: [{ text: "ductwork", href: "/services/ductwork/" }],
       },
       {
         q: "Do you work on rental properties in Newport Beach?",
@@ -8420,6 +8432,7 @@ const fullertonOverrides: Partial<City> = {
           q: "Does the age of my Fullerton home matter for HVAC?",
           a: "Age is one factor we check. We did not find a verified citywide figure for the age of Fullerton homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
           boldLead: "Age is one factor we check.",
+          links: [{ text: "ductwork", href: "/services/ductwork/" }],
         },
         {
           q: "Do you work on rental properties in Fullerton?",
@@ -8474,7 +8487,7 @@ const fullertonOverrides: Partial<City> = {
             {
               text: "energy conservation page",
               href: "https://www.cityoffullerton.com/government/departments/public-works/environmental-services/energy-conservation",
-            },
+            }, { text: "Orange County", href: "/service-areas/orange-county/" },
           ],
         },
         {
@@ -8905,6 +8918,7 @@ const tustinOverrides: Partial<City> = {
           q: "Does the age of my Tustin home matter for HVAC?",
           a: "Age is one factor we check. We did not find a verified citywide figure for the age of Tustin homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
           boldLead: "Age is one factor we check.",
+          links: [{ text: "ductwork", href: "/services/ductwork/" }],
         },
         {
           q: "Do you work on rental properties in Tustin?",
@@ -9349,6 +9363,7 @@ const chinoOverrides: Partial<City> = {
           q: "Does the age of my Chino home matter for HVAC?",
           a: "Age is one factor we check. We did not find a verified citywide figure for the age of Chino homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
           boldLead: "Age is one factor we check.",
+          links: [{ text: "ductwork", href: "/services/ductwork/" }],
         },
         {
           q: "Do you work on rental properties in Chino?",
@@ -9808,6 +9823,7 @@ const fontanaOverrides: Partial<City> = {
         q: "Does the age of my Fontana home matter for HVAC?",
         a: "Age is one factor we check. We did not find a verified citywide figure for the age of Fontana homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
         boldLead: "Age is one factor we check.",
+        links: [{ text: "ductwork", href: "/services/ductwork/" }],
       },
       {
         q: "Do you work on rental properties in Fontana?",
@@ -10275,7 +10291,7 @@ const uplandOverrides: Partial<City> = {
           {
             text: "SCAG's local profile",
             href: "https://www.uplandca.gov/Documents/Development%20Services/Planning/2021%20to%202029%20Housing%20Element%20Updates/SCAG%20-%20Upland%20Profile%202021.pdf?t=202604011153020",
-          },
+          }, { text: "ductwork", href: "/services/ductwork/" },
         ],
       },
       {
@@ -10765,6 +10781,7 @@ const eastvaleOverrides: Partial<City> = {
         q: "Does the age of my Eastvale home matter for HVAC?",
         a: "Age is one factor we check. We did not find a verified citywide figure for the age of Eastvale homes, so AIRPRO SOLUTIONS confirms the equipment, roof or attic access, and ductwork at your property instead of assuming.",
         boldLead: "Age is one factor we check.",
+        links: [{ text: "ductwork", href: "/services/ductwork/" }],
       },
       {
         q: "Do you work on rental properties in Eastvale?",

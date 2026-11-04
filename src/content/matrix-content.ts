@@ -131,7 +131,7 @@ const acRepairTorrance: MatrixContent = {
     {
       q: 'How fast can I get AC repair in Torrance?',
       a: 'Call (323) 776-9047 or request service online and we will follow up with you. We prioritize no-cool calls and will confirm availability when you call, so tell us your AC is down when you reach us.',
-      links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }],
+      links: [{ text: '(323) 776-9047', href: 'tel:+13237769047' }, { text: 'request service online', href: '/contact/' }],
     },
     {
       q: 'Why is my AC not cooling well in Torrance?',
@@ -149,6 +149,7 @@ const acRepairTorrance: MatrixContent = {
     {
       q: 'How much does AC repair cost in Torrance?',
       a: 'Repair cost depends on the part, the age of the system, and how accessible the unit is. The most accurate answer comes from a technician looking at your system, so contact us to talk through your situation.',
+      links: [{ text: 'contact us', href: '/contact/' }],
     },
     {
       q: 'What AC brands does AIRPRO SOLUTIONS repair in Torrance?',

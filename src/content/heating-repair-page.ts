@@ -307,6 +307,7 @@ const heatingRepairBase: ServicePage = {
     {
       q: 'Does a heating repair require a permit in California?',
       a: 'Not every repair has the same permit requirement. HVAC installation and modification generally require permits, while the requirement for a specific repair depends on scope and the local building department. Confirm with the city or county that has jurisdiction.',
+      links: [{ text: 'AC installation', href: '/services/ac-installation/' }],
     },
     {
       q: 'Should I repair or replace my furnace?',

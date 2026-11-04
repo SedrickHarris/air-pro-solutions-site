@@ -233,6 +233,7 @@ export const southBayHub = {
     {
       q: 'What is Title 24 and how does it affect an HVAC replacement?',
       a: 'Title 24 is California’s building energy code. Many HVAC replacements need compliance documentation and third-party field verification and diagnostic testing, and duct sealing and testing can apply when an existing duct system is altered. Requirements can depend on climate zone, and the California Energy Commission provides an address-based lookup. The exact tests for a job are listed on its compliance forms.',
+      links: [{ text: 'AC replacement', href: '/services/ac-installation/' }],
     },
     {
       q: 'Which utility serves my home, and are there HVAC rebates?',

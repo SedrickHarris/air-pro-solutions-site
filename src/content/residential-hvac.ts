@@ -115,6 +115,7 @@ export const residentialHub = {
     {
       q: 'What rebates are available on a new home HVAC system?',
       a: 'Rebates vary by season and by utility provider. Qualifying high-efficiency air conditioners and heat pumps can be eligible for manufacturer or utility rebates. Ask about current eligibility when you request an estimate.',
+      links: [{ text: 'request an estimate', href: '/contact/' }],
     },
     {
       q: 'What should I ask about warranty before a repair or replacement?',
@@ -135,6 +136,7 @@ export const residentialHub = {
     {
       q: 'How long does a home AC installation take?',
       a: 'Most single-system residential installations take one to two days, depending on the equipment, access, and whether ductwork or electrical work is needed. AIRPRO SOLUTIONS can give you a timeline with your estimate.',
+      links: [{ text: 'ductwork', href: '/services/ductwork/' }],
     },
     {
       q: 'What should I do if my AC stops working during a heat wave?',
@@ -143,6 +145,7 @@ export const residentialHub = {
     {
       q: 'Is a heat pump a good choice for a Southern California home?',
       a: 'Often, yes. A heat pump both heats and cools using one system, and mild winters suit it well. Whether it fits your home depends on your existing equipment, ductwork, and comfort goals, so it is worth having a technician assess your home before deciding.',
+      links: [{ text: 'heat pump', href: '/services/heat-pump-services/' }, { text: 'ductwork', href: '/services/ductwork/' }],
     },
   ] satisfies Faq[],
   // TODO(copy): client review of every FAQ answer above before launch.

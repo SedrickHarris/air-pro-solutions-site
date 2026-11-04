@@ -6,6 +6,7 @@ export const servicesFaqs: Faq[] = [
   {
     q: 'What HVAC services does AIRPRO SOLUTIONS offer?',
     a: 'AIRPRO SOLUTIONS handles AC repair, AC installation, AC maintenance, heating repair, furnace installation, heat pump service, ductless mini-splits, ductwork, indoor air quality, and emergency HVAC dispatch for homes and businesses.',
+    links: [{ text: 'AC repair', href: '/services/ac-repair/' }, { text: 'AC installation', href: '/services/ac-installation/' }, { text: 'AC maintenance', href: '/services/ac-maintenance/' }, { text: 'heating repair', href: '/services/heating-repair/' }, { text: 'furnace installation', href: '/services/furnace-installation/' }, { text: 'heat pump service', href: '/services/heat-pump-services/' }, { text: 'ductless mini-splits', href: '/services/ductless-mini-split/' }, { text: 'ductwork', href: '/services/ductwork/' }, { text: 'indoor air quality', href: '/services/indoor-air-quality/' }, { text: 'emergency HVAC', href: '/services/emergency-hvac/' }],
   },
   {
     q: 'Do you work on both residential and commercial systems?',
@@ -14,6 +15,7 @@ export const servicesFaqs: Faq[] = [
   {
     q: "What's the difference between AC maintenance and AC repair?",
     a: "AC maintenance is a scheduled tune-up that checks refrigerant levels, electrical components, and airflow before problems start. AC repair addresses a system that's already having trouble, such as warm air, weak airflow, leaks, or unusual noises.",
+    links: [{ text: "AC repair", href: "/services/ac-repair/" }, { text: "AC maintenance", href: "/services/ac-maintenance/" }],
   },
   {
     q: 'How do I know if I need a repair or a replacement?',
@@ -34,6 +36,7 @@ export const servicesFaqs: Faq[] = [
   {
     q: 'Which areas does AIRPRO SOLUTIONS serve?',
     a: 'AIRPRO SOLUTIONS serves Los Angeles County, the South Bay, Orange County, and the Inland Empire. Call to confirm coverage for an address outside these regions.',
+    links: [{ text: 'Los Angeles County', href: '/service-areas/los-angeles-county/' }, { text: 'South Bay', href: '/service-areas/south-bay/' }, { text: 'Orange County', href: '/service-areas/orange-county/' }, { text: 'Inland Empire', href: '/service-areas/inland-empire/' }],
   },
   {
     q: 'Is AIRPRO SOLUTIONS licensed and insured?',
