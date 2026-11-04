@@ -47,6 +47,19 @@ export function ContactForm() {
   const [token, setToken] = useState('');
   const widgetRef = useRef<HTMLDivElement>(null);
   const widgetId = useRef<string | undefined>(undefined);
+  const [sourcePage, setSourcePage] = useState('');
+
+  // Referrer pathname only (no host, no query string), and only when the visitor came from this site.
+  useEffect(() => {
+    try {
+      if (document.referrer) {
+        const ref = new URL(document.referrer);
+        if (ref.origin === window.location.origin) setSourcePage(ref.pathname);
+      }
+    } catch {
+      /* ignore an unparseable referrer */
+    }
+  }, []);
 
   useEffect(() => {
     if (!TURNSTILE_SITE_KEY) return;
@@ -103,6 +116,8 @@ export function ContactForm() {
     setStatus('sending');
     try {
       fd.delete('company_website');
+      // The widget also injects this field itself; set (not append) so it is sent exactly once.
+      if (TURNSTILE_SITE_KEY) fd.set('cf-turnstile-response', token);
       const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
       if (!res.ok) throw new Error('bad response');
       router.push('/thank-you/');
@@ -148,6 +163,7 @@ export function ContactForm() {
       <label className="field">Message
         <textarea name="message" rows={4} />
       </label>
+      <input type="hidden" name="source_page" value={sourcePage} />
       {/* Honeypot, hidden from people and assistive tech. */}
       <div className="hp-field" aria-hidden="true">
         <label>Company website
