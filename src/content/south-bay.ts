@@ -180,7 +180,7 @@ export const southBayHub = {
       },
     ] satisfies RebateCard[],
     copy: [
-      'Electric delivery and generation are separate. SCE handles poles, wires, meters, billing, and outage response. In Redondo Beach, Manhattan Beach, Hermosa Beach, Hawthorne, and Carson, Clean Power Alliance supplies the electricity generation, and SCE programs are typically tied to an SCE delivery account. We do not list a Clean Power Alliance rebate on this page.',
+      'Electric delivery and generation are separate. SCE handles poles, wires, meters, billing, and outage response. In Redondo Beach, Hermosa Beach, Hawthorne, and Carson, Clean Power Alliance supplies the electricity generation, and SCE programs are typically tied to an SCE delivery account. We do not list a Clean Power Alliance rebate on this page.',
       "No-cost programs may exist for some households. SCE's Energy Savings Assistance program serves income-qualified households, and its Residential Direct Install program lists duct test and seal for eligible single-family homes with central AC. Business owners can look at SCE Express Solutions and SoCalGas business rebates, and fuel switching does not qualify for the SoCalGas business rebates.",
       'Rebates and eligibility vary by service address, utility account, equipment efficiency, income qualifications, and available funding. We can help identify potential programs, but confirm final eligibility, amount, and application requirements with your utility before installation.',
     ],
@@ -188,7 +188,7 @@ export const southBayHub = {
     utilities: [
       'Electric delivery: SCE',
       'Natural gas: SoCalGas',
-      'Generation: Clean Power Alliance in Redondo Beach, Manhattan Beach, Hermosa Beach, Hawthorne, and Carson',
+      'Generation: Clean Power Alliance in Redondo Beach, Hermosa Beach, Hawthorne, and Carson',
     ],
     note: 'Confirm by address: service territory and generation provider can vary by address, so verify your utility directly before relying on any program.',
   },
@@ -199,7 +199,7 @@ export const southBayHub = {
     items: [
       { name: 'Torrance', note: 'Office, retail, industrial, and condo settings, with a 290-acre industrial project area. Property-line noise and equipment screening rules apply.', href: '/service-areas/torrance/' },
       { name: 'Redondo Beach', note: 'Multiple-family zoning and a mixed-use overlay. Noise limits depend on the neighboring use. Clean Power Alliance supplies generation.', href: '/service-areas/redondo-beach/' },
-      { name: 'Manhattan Beach', note: 'Clean Power Alliance supplies generation. Mechanical system work needs a permit, and equipment placement is confirmed with the city.', href: '/service-areas/manhattan-beach/' },
+      { name: 'Manhattan Beach', note: 'Mechanical system work needs a permit, and equipment placement is confirmed with the city.', href: '/service-areas/manhattan-beach/' },
       { name: 'Hermosa Beach', note: 'Clean Power Alliance supplies generation. The city has a separate mechanical permit application and a combined application.', href: '/service-areas/hermosa-beach/' },
       { name: 'El Segundo', note: 'Aerospace and deep-tech businesses, per the City’s economic-development site. The 2025 California Mechanical Code applies with local amendments.', href: '/service-areas/el-segundo/' },
       { name: 'Gardena', note: 'HVAC and forced-air unit permits are over-the-counter types and need CF1R forms.', href: '/service-areas/gardena/' },
@@ -236,7 +236,7 @@ export const southBayHub = {
     },
     {
       q: 'Which utility serves my home, and are there HVAC rebates?',
-      a: 'In these cities, Southern California Edison (SCE) delivers electricity and Southern California Gas Company (SoCalGas) supplies natural gas. Clean Power Alliance supplies electricity generation in Redondo Beach, Manhattan Beach, Hermosa Beach, Hawthorne, and Carson, while SCE still handles delivery, billing, and outages. SoCalGas lists a 2026 rebate for qualifying ENERGY STAR gas furnaces purchased and installed in 2026, and SCE’s Summer Discount Plan offers up to $145 in bill credits per unit. Confirm your utility by address and confirm current eligibility before installation.',
+      a: 'In these cities, Southern California Edison (SCE) delivers electricity and Southern California Gas Company (SoCalGas) supplies natural gas. Clean Power Alliance supplies electricity generation in Redondo Beach, Hermosa Beach, Hawthorne, and Carson, while SCE still handles delivery, billing, and outages. SoCalGas lists a 2026 rebate for qualifying ENERGY STAR gas furnaces purchased and installed in 2026, and SCE’s Summer Discount Plan offers up to $145 in bill credits per unit. Confirm your utility by address and confirm current eligibility before installation.',
     },
     {
       q: 'Are there noise or screening rules for outdoor equipment?',

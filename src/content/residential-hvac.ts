@@ -86,7 +86,7 @@ export const residentialHub = {
     steps: [
       { title: 'Call or book', body: 'Tell us what is going on: a repair, a replacement, or a tune-up.' },
       { title: 'Diagnose', body: 'A technician evaluates your system and explains what is wrong.' },
-      { title: 'Confirm the plan', body: 'Pricing, scope, and scheduling are confirmed with you before work begins.' },
+      { title: 'Confirm the plan', body: 'Pricing, scope, and scheduling are discussed with you.' },
       { title: 'Service and follow-up', body: 'Your technician completes the work and reviews what was done.' },
     ],
   },
@@ -130,7 +130,7 @@ export const residentialHub = {
     },
     {
       q: 'What does an HVAC maintenance visit typically cover?',
-      a: 'A typical visit includes a seasonal inspection of your cooling and heating equipment, cleaning and checking key components, filter check and replacement guidance, and a written summary of what the technician found. Contact us to ask about maintenance plans.',
+      a: 'A typical visit includes a seasonal inspection of your cooling and heating equipment, cleaning and checking key components, filter check and replacement guidance, and a discussion of what the technician found.',
     },
     {
       q: 'How long does a home AC installation take?',

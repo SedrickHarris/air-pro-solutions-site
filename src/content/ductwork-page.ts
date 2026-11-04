@@ -1,7 +1,7 @@
 import type { ServicePage } from '@/content/services';
 import { siteConfig } from '@/content/site-config';
 
-// TODO(data): confirm process claims - inspect first, written scope before work begins, findings
+// TODO(data): confirm process claims - inspect first, findings
 // explained, visual check and operation check at close-out (hero proof, quick answer, process steps
 // 4 and 6, proof panel). Not yet confirmed as real Air Pro practice.
 // TODO(data): Air Pro diagnostic capability is not stated. Do not add static-pressure, airflow,
@@ -187,7 +187,7 @@ const ductworkBase: ServicePage = {
     },
     {
       q: 'How much does duct replacement cost in Southern California?',
-      a: 'There is no reliable one-price answer. Access, the number and length of runs, duct material, insulation, design changes, permits, and finish repairs can all move the total. Online price figures are planning references, not a quote. We inspect first and provide a written scope before work begins.',
+      a: 'There is no reliable one-price answer. Access, the number and length of runs, duct material, insulation, design changes, permits, and finish repairs can all move the total. Online price figures are planning references, not a quote. We inspect first and talk through the scope with you.',
     },
     {
       q: 'Will sealing ducts reduce my energy bill?',
@@ -199,7 +199,7 @@ const ductworkBase: ServicePage = {
   visitTitle: 'What is included and what can cost extra',
   visitIncludesTitle: 'A ductwork scope often includes',
   visitIncludes: [
-    'Inspection and a written scope of work',
+    'Inspection and a discussion of the scope of work',
     'Repair or replacement of the specified duct runs',
     'Connections, sealing, support, and specified insulation',
     'Specified registers, grilles, boots, plenums, or returns',
@@ -304,7 +304,7 @@ const ductworkBase: ServicePage = {
     { item: 'Commercial access', drivers: 'Tenant coordination, rooftop access, cranes, after-hours work, and business continuity change how a job is planned.' },
   ],
   pricingColumns: ['Factor', 'How it affects the job'],
-  pricingClosing: 'We inspect the system first and provide a written scope before work begins. Timing depends on the scope: a small accessible repair is different from a full replacement with permits or verification, so ask for the expected schedule with your written scope.',
+  pricingClosing: 'We inspect the system first and talk through the scope with you. Timing depends on the scope: a small accessible repair is different from a full replacement with permits or verification, so ask for the expected schedule when you discuss the scope.',
   // Visual-rhythm pass (matching the AC Maintenance build): alternates the paper/paper-dim background
   // so the callouts/pricing/rules run doesn't sit as three same-background plain sections in a row.
   pricingAlt: true,

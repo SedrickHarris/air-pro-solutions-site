@@ -312,7 +312,7 @@ export const orangeCountyHub = {
       { num: '8', label: 'Cities on this page' },
       { num: 'Licensed', label: `CA LIC #${siteConfig.licenses.join(', #')}` },
     ],
-    pending: 'City-tagged Orange County reviews and real photos will replace the placeholders once supplied. Business hours are also pending client confirmation.',
+    pending: '',
   },
 
   faqs: [

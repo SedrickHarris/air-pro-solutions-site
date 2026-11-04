@@ -3,9 +3,6 @@ import { siteConfig } from '@/content/site-config';
 
 // TODO(data): confirm the CSLB record for licenses 1126691 and 50251 shows C-20 before launch
 // (trust strip, proof block, footer).
-// TODO(data): "repair cost explained/given before any work begins" (hero lede, hero proof chip,
-// process steps 4-5, proof block, pricing lead, FAQ 1) is the same unconfirmed-process status as the
-// AC Repair and AC Maintenance pages - confirm with the client before launch.
 // TODO(data): the safety wording in the "Is this an emergency?" block needs Air Pro safety-policy
 // review before launch.
 // TODO(data): the diagnostic/service-call fee, any fee waiver, and which visit-scope "extras" Air Pro
@@ -78,7 +75,7 @@ const heatingRepairBase: ServicePage = {
   metaDescription:
     'Heating repair for homes and businesses across Los Angeles, the South Bay, Orange County, and the Inland Empire. Furnaces, heat pumps, and more. Call today.',
   lede:
-    'Furnace not heating, a heat pump blowing cool air, or a system that keeps shutting off? AIRPRO SOLUTIONS provides residential and commercial heating repair in Los Angeles and across the South Bay, Orange County, and the Inland Empire - with a repair cost explained before any work begins.',
+    'Furnace not heating, a heat pump blowing cool air, or a system that keeps shutting off? AIRPRO SOLUTIONS provides residential and commercial heating repair in Los Angeles and across the South Bay, Orange County, and the Inland Empire.',
   heroImage: {
     src: '/images/services/heating-repair/hero.webp',
     alt: 'Gas furnace in a home utility closet with the access panel removed and a multimeter resting nearby during a diagnostic check',
@@ -90,7 +87,7 @@ const heatingRepairBase: ServicePage = {
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
-    { icon: 'dollar', label: 'Repair cost before work begins' },
+    { icon: 'check', label: 'Background-checked technicians' },
     { icon: 'pin', label: '4 Southern California regions' },
   ],
   serviceType: 'Heating Repair',
@@ -152,7 +149,7 @@ const heatingRepairBase: ServicePage = {
     'Service call and diagnostic evaluation',
     'Symptom review and inspection of accessible equipment',
     'Basic safety evaluation suited to the equipment and complaint',
-    'A written repair recommendation or estimate',
+    'A repair recommendation',
     'Your approved repair',
     'Basic operational checks after the repair',
     'Confirmation that the system starts and heats',
@@ -267,10 +264,8 @@ const heatingRepairBase: ServicePage = {
   regionLinkLabels: {
     'los-angeles-county': 'Heating repair in LA County',
   },
-  // TODO(data): confirm that giving a repair cost before work begins is a real Air Pro process (hero
-  // lede, hero chip, process steps 4 and 5, proof block, FAQ 1, pricing lead).
   proofHeading: 'A technician who explains what is actually wrong',
-  proofBody: 'You get the diagnosis and the repair option explained before you approve any work, and a walkthrough of what was fixed and why.',
+  proofBody: 'The technician goes over the diagnosis and your repair options with you.',
   // RESOLVED (2026-10-20, confirmed by user): relabeled "AC maintenance". The target covers cooling-side maintenance only; heating-season maintenance is not covered there (its heat pump row says it is a separate visit).
   relatedLabels: {
     'ac-maintenance': 'AC maintenance',
@@ -291,7 +286,7 @@ const heatingRepairBase: ServicePage = {
   faqs: [
     {
       q: 'Why is my furnace blowing cold air?',
-      a: 'Cold air can have several causes, so a technician should diagnose it instead of replacing a part based on the symptom. Possible causes include the thermostat, airflow, ignition, flame sensing, gas supply, controls, and limit switches. AIRPRO SOLUTIONS gives you a repair cost before any work begins.',
+      a: 'Cold air can have several causes, so a technician should diagnose it instead of replacing a part based on the symptom. Possible causes include the thermostat, airflow, ignition, flame sensing, gas supply, controls, and limit switches.',
     },
     {
       q: 'What should I do if I smell gas near my furnace?',

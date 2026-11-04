@@ -3,7 +3,7 @@ import { siteConfig } from '@/content/site-config';
 
 export function FinalCta({
   title = 'Get AIRPRO SOLUTIONS on the job today',
-  body = 'Free in-home consultation on new or replacement systems. We answer the phone every day.',
+  body = 'Call or request service online and we will follow up with you.',
   primaryLabel,
   ghostLabel = 'Request a Quote',
   ghostHref = '/contact/',

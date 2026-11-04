@@ -1,9 +1,6 @@
 import type { ServicePage } from '@/content/services';
 import { siteConfig } from '@/content/site-config';
 
-// TODO(data): "Findings explained before repairs" (hero proof), plus the statements that repair work
-// is "explained and quoted separately" and approved before work begins (quick answer, process step 5
-// in services.ts, FAQ 2, cost note) are the same unconfirmed-process status as the AC Repair page.
 // RESOLVED (2026-10-19, confirmed by user): the CSLB record for licenses 1126691 and 50251 shows C-20 (announcement bar, hero proof, trust strip, proof block, footer).
 // TODO(data): the visit checklist under "A typical AC maintenance visit may include" follows the
 // ENERGY STAR professional checklist, not a confirmed Air Pro checklist.
@@ -66,7 +63,7 @@ const acMaintenanceBase: ServicePage = {
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
-    { icon: 'doc', label: 'Findings explained before repairs' },
+    { icon: 'check', label: 'Background-checked technicians' },
     { icon: 'pin', label: '4 Southern California regions' },
   ],
   serviceType: 'Air Conditioning Maintenance',
@@ -219,7 +216,7 @@ const acMaintenanceBase: ServicePage = {
     { item: 'System type and number of systems', drivers: 'Split, packaged, ductless, multi-zone, or rooftop equipment each take different time, and more indoor heads or units mean more to inspect.' },
     { item: 'Coil and drain condition', drivers: 'Routine cleaning is part of a visit where accessible. Heavy buildup or a clogged drain line can need extra labor.' },
     { item: 'Access', drivers: 'Roof access, lifts, attics, crawlspaces, gates, and HOA or property-management coordination can change the scope.' },
-    { item: 'Filters and parts', drivers: 'Replacement filters are usually separate, and any capacitor, contactor, motor, or board found failing is quoted before work.' },
+    { item: 'Filters and parts', drivers: 'Replacement filters are usually separate, and any capacitor, contactor, motor, or board found failing is a separate repair.' },
     { item: 'Refrigerant', drivers: 'Leak detection, recovery, and recharge are repair work and are approved separately.' },
     { item: 'After hours', drivers: 'Dispatch outside normal hours, if available, is priced differently. Ask when you call.' },
   ],
@@ -297,7 +294,7 @@ const acMaintenanceBase: ServicePage = {
     },
     {
       q: 'What is included in an AC tune-up?',
-      a: 'A typical professional checkup covers controls, electrical connections, coils, the condensate drain, refrigerant level, and airflow. The exact checklist for your visit depends on your system. Anything beyond routine maintenance is explained and quoted before work begins.',
+      a: 'A typical professional checkup covers controls, electrical connections, coils, the condensate drain, refrigerant level, and airflow. The exact checklist for your visit depends on your system. Anything beyond routine maintenance is a separate repair that the technician can discuss with you.',
     },
     {
       q: 'How much does AC maintenance cost in Los Angeles?',

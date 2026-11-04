@@ -164,7 +164,7 @@ const indoorAirQualityBase: ServicePage = {
   visitIncludesTitle: 'A typical visit may include',
   visitIncludes: [
     'Review of your complaint and your HVAC system',
-    'A written proposal with options',
+    'A discussion of your options',
     'Equipment selection and mounting where the system is compatible',
     'Basic control integration where the equipment supports it',
     'Startup and basic operating instructions',
@@ -183,7 +183,7 @@ const indoorAirQualityBase: ServicePage = {
     'Difficult attic, crawlspace, or roof access, or lift work',
     'After-hours work',
   ],
-  visitExtraNote: 'Ask which of these apply to your property before you approve work. Final scope and inclusions are confirmed in writing.',
+  visitExtraNote: 'Ask which of these apply to your property before you approve work. Ask for the final scope and inclusions in writing.',
   // "What we can recommend" - the equipment/filtration section. `systemsSectionId` keeps the "#filtration"
   // anchor the decision cards above link to.
   systemsSectionId: 'filtration',
@@ -289,7 +289,7 @@ const indoorAirQualityBase: ServicePage = {
     { item: 'Permits and code documents', drivers: 'Local permits, plan check, and Title 24 documentation apply to some projects.' },
     { item: 'Moisture or contamination', drivers: 'If the inspection finds it, that work is scoped and priced separately.' },
   ],
-  pricingClosing: 'After the inspection, ask for an itemized option for repair, filtration, purification, ventilation, or humidity control. We review the equipment manufacturer\'s coverage with you before work begins.',
+  pricingClosing: 'After the inspection, ask for the options for repair, filtration, purification, ventilation, or humidity control. Ask about the equipment manufacturer\'s coverage before work begins.',
   rulesEyebrow: 'The rules',
   rulesTitle: 'Licensing, permits, and energy-code basics',
   rules: [

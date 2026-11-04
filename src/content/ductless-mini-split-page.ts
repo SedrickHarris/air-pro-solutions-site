@@ -189,7 +189,6 @@ const ductlessMiniSplitBase: ServicePage = {
     'Standard line-set, communication wire, and condensate components',
     'An outdoor pad, wall bracket, or approved equipment support',
     'Start-up and functional verification',
-    'A basic walkthrough of the system for you',
   ],
   visitExtraTitle: 'What can add to the cost',
   visitExtra: [
@@ -199,7 +198,7 @@ const ductlessMiniSplitBase: ServicePage = {
     'Crane lifts, roof work, elevated platforms, seismic engineering, or specialty brackets',
     'Drywall, stucco, paint, cabinetry, or landscaping restoration',
     'HOA applications, architectural review, tenant coordination, or after-hours commercial work',
-    'Extended labor warranty, a maintenance plan, smart controls, or accessories',
+    'Extended labor warranty, smart controls, or accessories',
   ],
   visitExtraNote: 'Ask which of these apply to your project and get them in writing before you approve the work.',
   // "Single-zone, multi-zone, or concealed ducted?" layout comparison table, rendered right after the

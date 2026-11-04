@@ -84,16 +84,16 @@ const baseCities: City[] = regionCityNames.flatMap((r) =>
 // Locked copy for /service-areas/torrance/. See CLAUDE.md "Claims that must not ship" pattern:
 // no pricing, timing/same-day, brand-list, or unconfirmed licensing claims.
 const torranceOverrides: Partial<City> = {
-  neighborhoods: ['Old Torrance', 'North Torrance', 'West Torrance', 'Walteria', 'Hollywood Riviera', 'Del Amo', 'Torrance Gardens', 'South Torrance'],
+  neighborhoods: ['Old Torrance', 'North Torrance', 'West Torrance', 'Walteria', 'Del Amo', 'Torrance Gardens', 'South Torrance'],
   zips: ['90501', '90502', '90503', '90504', '90505'],
   housingNotes:
-    'Old Torrance and North Torrance: many homes built in the 1940s through 1960s with narrow attic space and older ductwork. Hollywood Riviera and West Torrance: newer construction with more attic clearance.',
+    'Old Torrance and North Torrance: many homes built in the 1940s through 1960s with narrow attic space and older ductwork. West Torrance: newer construction with more attic clearance.',
   // TODO(data): verify neighborhood names, ZIP list, and housing-stock statements against a local source before launch.
   page: {
     metaDescription:
       'AIRPRO SOLUTIONS provides AC repair, heating, installation, and maintenance for Torrance homes and businesses. Licensed HVAC contractor. Schedule service.',
     lede:
-      'AIRPRO SOLUTIONS provides AC repair, heating, installation, and maintenance across Torrance - from Old Torrance and North Torrance to Walteria and the Hollywood Riviera border.',
+      'AIRPRO SOLUTIONS provides AC repair, heating, installation, and maintenance across Torrance - from Old Torrance and North Torrance to Walteria.',
     heroImage: {
       src: '/images/service-location/hvac-services-torrance-ca/hero.webp',
       alt: 'Outdoor AC condenser beside a Torrance home with drought-tolerant landscaping',
@@ -118,7 +118,7 @@ const torranceOverrides: Partial<City> = {
     },
     localParagraphs: [
       "Torrance sits at the edge of the South Bay's marine layer, which means homes closer to PCH and the coast run several degrees cooler than homes inland near the 110 and 405 interchange. **AIRPRO SOLUTIONS sizes and services systems for the specific microclimate your address sits in**, rather than a one-size answer for the whole city.",
-      "Housing stock varies block to block. **Old Torrance and North Torrance** have a large share of homes built in the 1940s through 1960s, often with narrow attic space, older ductwork, and single-stage systems that were never sized for today's insulation and window upgrades. Newer construction near **Hollywood Riviera and West Torrance** typically has more attic clearance and can support higher-efficiency equipment without major duct rework.",
+      "Housing stock varies block to block. **Old Torrance and North Torrance** have a large share of homes built in the 1940s through 1960s, often with narrow attic space, older ductwork, and single-stage systems that were never sized for today's insulation and window upgrades. Newer construction near **West Torrance** typically has more attic clearance and can support higher-efficiency equipment without major duct rework.",
       'We also service Torrance\'s condo and townhome communities and can coordinate with property managers and HOA boards on scheduling and any building approvals.',
     ],
     serviceCards: [

@@ -10,9 +10,6 @@ import { siteConfig } from '@/content/site-config';
 // maintenance together to avoid cannibalizing three separate URLs.
 // RESOLVED (2026-10-19, confirmed by user): the CSLB record for licenses #1126691 and #50251 shows C-20
 // (hero proof, trust strip, proof block, rules section).
-// TODO(data): "Findings explained before repairs" (hero proof) and "repairs are quoted and approved
-// before work begins" (process step 5) are the same unconfirmed-process status as every other service
-// page built so far - confirm with the client before launch.
 // TODO(data): the visit checklist under "A heat pump service visit may include" is not a confirmed
 // Air Pro checklist; replace with Air Pro's own, and confirm what is included versus billed
 // separately.
@@ -104,7 +101,7 @@ const heatPumpServicesBase: ServicePage = {
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
     // TODO(data): confirm this is real Air Pro practice.
-    { icon: 'doc', label: 'Findings explained before repairs' },
+    { icon: 'check', label: 'Background-checked technicians' },
     { icon: 'pin', label: '4 Southern California regions' },
   ],
   serviceType: 'Heat Pump Services',

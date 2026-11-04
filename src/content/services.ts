@@ -505,7 +505,6 @@ const acRepairPage: ServicePage = {
   metaDescription:
     'Get AC repair in Los Angeles for homes and businesses. AIRPRO SOLUTIONS diagnoses cooling, airflow, electrical, and drainage problems. Schedule service.',
   lede:
-    // TODO(data): confirm with client that written pricing before authorization is real process
     "No cooling, weak airflow, strange noises, or water leaks? AIRPRO SOLUTIONS provides residential and commercial AC repair in Los Angeles and across the South Bay, Orange County, and the Inland Empire.",
   heroImage: {
     src: '/images/services/ac-repair/hero.webp',
@@ -516,7 +515,7 @@ const acRepairPage: ServicePage = {
   heroProof: [
     { icon: 'shield', label: 'Licensed HVAC contractor' },
     { icon: 'building', label: 'Residential and commercial' },
-    { icon: 'dollar', label: 'Written pricing before work' },
+    { icon: 'check', label: 'Background-checked technicians' },
     { icon: 'pin', label: '4 Southern California regions' },
   ],
   serviceType: 'Air Conditioning Repair',
@@ -561,7 +560,6 @@ const acRepairPage: ServicePage = {
     { notices: 'Buzzing, humming, clicking, or grinding', causes: 'Capacitor, contactor, fan motor, compressor, or a loose component. A noise does not identify a single failed part.' },
     { notices: 'Higher bills or uneven rooms', causes: 'System operation, ducts, coil condition, controls, and sizing. ENERGY STAR lists uneven cooling and rising bills among reasons to assess equipment condition.' },
   ],
-  // TODO(data): confirm written quote and post-repair verification are standard Air Pro practice
   visitTitle: 'What is included and what can cost extra',
   visitIncludesTitle: 'A typical AC repair visit may include',
   visitIncludes: [
@@ -573,7 +571,6 @@ const acRepairPage: ServicePage = {
     'An explanation of the diagnosis',
     'Your approved repair',
     'Functional verification after repair',
-    'Basic documentation of the work completed',
   ],
   visitExtraTitle: 'What can add to the cost',
   // TODO(data): diagnostic fee, fee waiver, and which items Air Pro bills separately are unconfirmed. Do not state them.
@@ -726,7 +723,7 @@ const acRepairPage: ServicePage = {
   faqs: [
     {
       q: 'Why is my AC running but not cooling?',
-      a: 'Warm air can result from airflow problems, coil fouling, refrigerant issues, electrical-control faults, or compressor-related problems. A technician should test the system rather than assume one cause from the symptom alone. AIRPRO SOLUTIONS gives you a repair cost before any work begins.',
+      a: 'Warm air can result from airflow problems, coil fouling, refrigerant issues, electrical-control faults, or compressor-related problems. A technician should test the system rather than assume one cause from the symptom alone.',
     },
     {
       q: 'Why is my AC blowing weak airflow?',
@@ -789,7 +786,7 @@ const baseServices: Service[] = [
       { title: 'Triage', body: 'We ask about the symptom, the equipment, and whether there are electrical or water-leak signs.' },
       { title: 'Diagnose', body: 'We test airflow, electrical components, coil condition, and refrigerant performance to find the cause, not just the symptom.' },
       { title: 'Explain', body: 'You get a plain-language explanation that separates the failed part from optional maintenance or upgrades.' },
-      { title: 'Quote', body: 'You get a written repair option with parts, labor, and any refrigerant, before you approve anything.' },
+      { title: 'Options', body: 'The repair options, including parts, labor, and any refrigerant, are discussed with you.' },
       { title: 'Repair and test', body: 'We complete the approved repair, then verify cooling, drainage, electrical operation, and airflow.' },
       { title: 'Close out', body: 'We explain what was repaired, what we observed, and whether a future replacement discussion makes sense.' },
     ],
@@ -883,10 +880,7 @@ const baseServices: Service[] = [
       { title: 'Identify', body: 'The technician confirms what you have: split system, heat pump, packaged unit, ductless, or commercial equipment.' },
       { title: 'Inspect and test', body: 'Thermostat and controls, electrical connections, motors and moving parts, filter, and airflow are checked for safe operation.' },
       { title: 'Cooling side', body: 'Indoor and outdoor coils, the condensate drain, and refrigerant level are inspected, and coils are cleaned where accessible.' },
-      // TODO(data): "explained and quoted separately" and approved before work begins - same
-      // unconfirmed-process status as the AC Repair page. See ac-maintenance-page.ts for the matching
-      // flags on the quick answer, FAQ, and cost note.
-      { title: 'Findings', body: 'Anything that needs repair is explained and quoted separately, and you approve it before work begins.' },
+      { title: 'Findings', body: 'Anything that needs repair is explained to you separately.' },
       { title: 'Close out', body: 'We summarize what was checked and completed, give filter guidance, and talk through timing for the next visit.' },
     ],
     related: ['ac-repair', 'ac-installation', 'emergency-hvac'],
@@ -955,7 +949,7 @@ const baseServices: Service[] = [
       { title: 'Intake', body: 'The contractor asks whether this is a no-heat problem, a safety concern, or a planned replacement, plus equipment age, fuel type, and whether the home has central ducts.' },
       { title: 'Assess on site', body: 'The technician inspects the furnace, airflow path, filter cabinet, controls, gas connection, venting, electrical disconnect, and access.' },
       { title: 'Size and select', body: 'Capacity and compatibility come from the home and its ducts, not only from the old furnace nameplate.' },
-      { title: 'Written proposal', body: 'Model or tier, AFUE, compatible equipment, permit handling, disposal, duct or venting changes, controls, and exclusions are spelled out.' },
+      { title: 'Scope', body: 'Model or tier, AFUE, compatible equipment, permit handling, disposal, duct or venting changes, controls, and exclusions are discussed with you.' },
       { title: 'Remove and install', body: 'The old unit comes out and the new one is set, then connected to ducts, gas, electrical, venting, drainage where needed, and controls.' },
       { title: 'Start up and close out', body: 'The installer commissions the equipment, checks airflow and heating operation, explains filters, and completes required inspection or verification.' },
     ],
@@ -980,7 +974,7 @@ const baseServices: Service[] = [
       { title: 'Identify', body: 'The technician confirms the system type, equipment model, refrigerant labeling, and whether the outdoor unit is running.' },
       { title: 'Airflow and electrical', body: 'Filter, blower, coils, ducts, contactors, capacitors, wiring, sensors, and thermostat communication are checked.' },
       { title: 'Heating and cooling test', body: 'Operation is tested in the relevant mode and, where safe, changeover between heating and cooling is confirmed.' },
-      { title: 'Findings', body: 'The fault, the repair options, and the condition of the equipment are explained. Repairs are quoted and approved before work begins.' },
+      { title: 'Findings', body: 'The fault, the repair options, and the condition of the equipment are explained.' },
       { title: 'Close out', body: 'Approved work is completed and tested, and any permit, compliance, and warranty paperwork that applies is passed on to you.' },
     ],
     // TODO(data): the build spec's repairVsReplace copy is a flat array of single-sentence rows (e.g.
@@ -1011,9 +1005,9 @@ const baseServices: Service[] = [
       { title: 'Request', body: 'You describe the room, the comfort problem, the existing HVAC, and whether this is new, replacement, or repair.' },
       { title: 'Assess', body: 'A technician looks at room size, insulation, glazing, sun exposure, head and outdoor-unit locations, condensate routing, line-set path, and electrical capacity.' },
       { title: 'Design and size', body: "The system type and capacity follow the property's load, not a square-footage rule of thumb." },
-      { title: 'Scope and permit', body: 'A written scope lists the equipment, zones, electrical work, condensate, penetrations, permit responsibility, and exclusions.' },
+      { title: 'Scope and permit', body: 'The equipment, zones, electrical work, condensate, penetrations, permit responsibility, and exclusions are discussed with you.' },
       { title: 'Install', body: 'Indoor heads and the outdoor unit are mounted, insulated lines and controls routed, drainage and power connected, then the system is tested, evacuated, and charged per the manufacturer.' },
-      { title: 'Commission and hand off', body: 'Heating, cooling, airflow, drainage, and controls are verified, and you get a walkthrough of filters, controls, and maintenance. Any required inspection follows.' },
+      { title: 'Commission and hand off', body: 'Heating, cooling, airflow, drainage, and controls are verified, and filters, controls, and maintenance are discussed with you. Any required inspection follows.' },
     ],
     repairVsReplace: {
       note: 'There is no fixed threshold. The decision depends on the diagnosis, equipment age, repair scope, refrigerant, and warranty status. We diagnose first, then explain the repair and replacement options.',

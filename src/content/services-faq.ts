@@ -21,7 +21,7 @@ export const servicesFaqs: Faq[] = [
   },
   {
     q: "What's included in a maintenance visit?",
-    a: 'A typical maintenance visit includes a seasonal inspection of your cooling and heating equipment, cleaning and checking key components, a filter check with replacement guidance, and a written summary of what the technician found.',
+    a: 'A typical maintenance visit includes a seasonal inspection of your cooling and heating equipment, cleaning and checking key components, a filter check with replacement guidance, and a discussion of what the technician found.',
   },
   {
     q: 'How much does HVAC service cost?',

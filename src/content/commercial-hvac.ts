@@ -55,7 +55,7 @@ export const propertyTypes: DecisionCard[] = [
   { icon: 'home', title: 'Multifamily & HOA', body: 'Coordinated scheduling with property managers and boards.' },
   // TODO(data): no industrial/warehouse audience page exists yet; repoint to one if it's added.
   { icon: 'buildings', title: 'Industrial & warehouse', body: 'Rooftop package units and large-space heating and cooling.', href: '/contact/', ctaLabel: 'See industrial HVAC' },
-  { icon: 'calendar-check', title: 'Preventive maintenance', body: 'Scheduled agreements that catch problems before they become outages.', href: '/services/ac-maintenance/', ctaLabel: 'See maintenance plans' },
+  { icon: 'calendar-check', title: 'Preventive maintenance', body: 'Scheduled agreements that catch problems before they become outages.', href: '/services/ac-maintenance/', ctaLabel: 'See maintenance' },
   // TODO(claims): 24/7 is unconfirmed.
   { icon: 'bolt', title: 'Emergency outage', body: '24/7 dispatch when a system goes down during business hours.', href: '/services/emergency-hvac/', ctaLabel: 'Get emergency help' },
 ];
@@ -144,7 +144,7 @@ export const commercialFaqs: Faq[] = [
   {
     // TODO(claims): billing structure and portfolio pricing are unconfirmed.
     q: 'How much does commercial HVAC maintenance cost?',
-    a: 'Cost depends on the number of units, system type, and visit frequency, so AIRPRO SOLUTIONS prices maintenance agreements after a property walkthrough rather than a flat rate. Most single-property agreements are billed per visit or per unit per year, with portfolio pricing available for multiple sites.',
+    a: 'Cost depends on the number of units, system type, and visit frequency, so AIRPRO SOLUTIONS prices maintenance agreements after looking at the property rather than a flat rate. Most single-property agreements are billed per visit or per unit per year, with portfolio pricing available for multiple sites.',
   },
   {
     // TODO(claims): the named brand list is unconfirmed; the About page tracks manufacturer

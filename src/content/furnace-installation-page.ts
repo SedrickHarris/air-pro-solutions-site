@@ -47,7 +47,7 @@ const furnaceBase: ServicePage = {
   metaDescription:
     'Furnace installation in Los Angeles, the South Bay, Orange County, and the Inland Empire. See what affects cost and timing, then request an estimate.',
   lede:
-    'AIRPRO SOLUTIONS provides furnace installation and replacement in Los Angeles and across the South Bay, Orange County, and the Inland Empire. Here is what the work involves, what affects the price, and what your written proposal should show.',
+    'AIRPRO SOLUTIONS provides furnace installation and replacement in Los Angeles and across the South Bay, Orange County, and the Inland Empire. Here is what the work involves, what affects the price, and what a written proposal should show.',
   heroImage: {
     src: '/images/services/furnace-installation/hero.webp',
     alt: 'Gas furnace installed in a home utility closet with finished vent, gas, and condensate connections and ductwork above',
@@ -117,7 +117,6 @@ const furnaceBase: ServicePage = {
     'Startup and operational testing',
     'Permit administration and inspection coordination, if included in the signed scope',
     'Manufacturer literature and equipment information',
-    'A customer walkthrough and basic operating instructions',
   ],
   visitExtraTitle: 'What can add to the cost',
   visitExtra: [
@@ -132,7 +131,7 @@ const furnaceBase: ServicePage = {
     'A separate AC condenser, coil, air handler, or heat pump',
     'Permit fees, third-party verification, and city-required corrections, if not in the scope',
   ],
-  visitExtraNote: 'Your written proposal should state whether permit fees, duct modifications, gas or electrical upgrades, thermostat work, and required verification are included or priced separately.',
+  visitExtraNote: 'A written proposal should state whether permit fees, duct modifications, gas or electrical upgrades, thermostat work, and required verification are included or priced separately.',
   systemsTitle: 'Furnace, heat pump, or something else?',
   systemsIntro: 'A furnace is not the only way to heat a home. This is how the common systems relate to a furnace installation.',
   // TODO(data): confirm Air Pro installs heat pumps, dual-fuel systems, and ducted/ductless mini-splits
@@ -207,7 +206,7 @@ const furnaceBase: ServicePage = {
   // visitIncludes/visitExtra scope pair above.
   checklist: {
     eyebrow: 'Before you sign',
-    title: 'What your written proposal should show',
+    title: 'What a written proposal should show',
     includesTitle: 'Put these in writing',
     includes: [
       'Equipment model and efficiency (AFUE for a gas furnace)',
@@ -421,7 +420,7 @@ export const furnaceInstallationPage: ServicePage = {
   // Service-specific, not a repeat of the trust strip (the AC Repair pilot repeated rating and reviews; this page does not).
   proofStats: [
     { num: String(siteConfig.licenses.length), label: 'license numbers on file' },
-    { num: count(furnaceBase.checklist?.includes), label: 'items your written proposal should show' },
+    { num: count(furnaceBase.checklist?.includes), label: 'items a written proposal should show' },
     { num: count(furnaceBase.systems), label: 'system types compared' },
     { num: count(furnaceBase.faqs), label: 'questions answered below' },
   ],

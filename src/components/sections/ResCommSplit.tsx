@@ -7,7 +7,7 @@ const cards = [
     body: 'AC repair, heating, maintenance, replacement, mini-splits, and indoor air quality for houses across Southern California.',
     href: '/residential-hvac/',
     cta: 'Home HVAC Services',
-    tags: ['AC & heating repair', 'System replacement', 'Ductless mini-splits', 'Maintenance plans'],
+    tags: ['AC & heating repair', 'System replacement', 'Ductless mini-splits', 'Maintenance'],
   },
   {
     title: 'Uptime and clarity for properties & businesses',
