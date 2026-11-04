@@ -1,0 +1,13 @@
+# Copy to .dev.vars for local `wrangler pages dev`. .dev.vars is git-ignored. Placeholders only.
+# For local testing use Cloudflare's published Turnstile TEST secret (see README "Contact form").
+TURNSTILE_SECRET_KEY=<turnstile-secret-key-or-cloudflare-test-secret>
+GHL_PRIVATE_INTEGRATION_TOKEN=<ghl-private-integration-token>
+GHL_LOCATION_ID=<ghl-location-id>
+GHL_FIELD_SERVICE_ID=<custom-field-id>
+GHL_FIELD_SMS_CONSENT_NONMARKETING_ID=<custom-field-id>
+GHL_FIELD_SMS_CONSENT_MARKETING_ID=<custom-field-id>
+GHL_FIELD_CONSENT_AT_ID=<custom-field-id>
+GHL_FIELD_SOURCE_PAGE_ID=<custom-field-id>
+# Optional
+# GHL_API_VERSION=v3
+# TURNSTILE_ALLOWED_HOSTNAMES=localhost,<production-hostname>

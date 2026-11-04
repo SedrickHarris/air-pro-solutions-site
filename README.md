@@ -36,14 +36,55 @@ src/
 
 ## Contact form
 
-The contact form (`/contact/`) posts to an endpoint set at build time. Static export has no server, so the values are inlined into the build.
+### Architecture
 
-| Variable | What it is |
-|---|---|
-| `NEXT_PUBLIC_FORM_ENDPOINT` | URL that receives the POST and delivers it to contact@airprosolutionsheatingandcooling.com |
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Cloudflare Turnstile **site** key (public). The secret key lives with the endpoint, which must verify the `cf-turnstile-response` field. |
+`/contact/` (static page, `src/components/sections/ContactForm.tsx`) posts multipart form data to `/api/contact`, a Cloudflare Pages Function in `functions/api/contact.js`. The Function, in order: checks its config, requires a same-origin request, checks content type and size, parses the form, silently accepts honeypot hits (`company_website`), validates fields, verifies the Turnstile token with Cloudflare, upserts the contact in HighLevel (GHL), then adds a note to that contact. It answers JSON `{"ok":true}` or `{"ok":false,"error":"<code>"}`. Logs hold codes and statuses only, never submitted data. `public/_routes.json` limits Function invocation to `/api/*` so static pages never run it.
 
-Copy `.env.example` to `.env.local` for local work, and set both under Cloudflare Pages > Settings > Environment variables (Production) for deploys. `npm run build` stops with a clear error if either is missing (`scripts/check-form-env.mjs`). For a local verification build only, set `ALLOW_MISSING_FORM_ENV=1`. The form also has a hidden honeypot field (`company_website`, removed before sending); the endpoint should still reject any submission that contains it.
+Facts about the design:
+- The form sends `name`, `phone`, `email`, `service` (a slug), `message`, `source_page` (same-origin referrer path only), `cf-turnstile-response`, and, only when ticked, `sms_consent_non_marketing` and `sms_consent_marketing` (value `yes`). Both consent boxes are optional and never a condition of submitting.
+- Consent custom fields are written to GHL only when their box is ticked (value `Yes`), so a returning contact's earlier consent is never overwritten. The consent timestamp is written only when at least one box is ticked. The Function never sends DND settings or tags; it only records consent.
+- Phones are normalized to `+1XXXXXXXXXX` (US numbers only; TODO(client) confirm).
+- TODO(legal): the consent wording and the TCPA design (two optional boxes, consent recorded in GHL custom fields and a note) need review by counsel before launch.
+
+### Build-time variables (public, inlined into the static export)
+
+| Variable | Production | Preview | What it is |
+|---|---|---|---|
+| `NEXT_PUBLIC_FORM_ENDPOINT` | `/api/contact` | `/api/contact` | Same-origin Function route |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | real site key | Cloudflare TEST site key, or a real key whose widget allows the preview hostname | Turnstile **site** key (public) |
+
+`npm run build` stops if either is missing (`scripts/check-form-env.mjs`). For a local verification build only, set `ALLOW_MISSING_FORM_ENV=1` (the form then shows a call fallback).
+
+### Server variables (Cloudflare Pages > Settings > Environment variables, set as Secrets; locally in `.dev.vars`)
+
+| Variable | Production | Preview | What it is |
+|---|---|---|---|
+| `TURNSTILE_SECRET_KEY` | real secret | Cloudflare TEST secret (only if you want automated replays to pass) or the real secret | Turnstile secret |
+| `GHL_PRIVATE_INTEGRATION_TOKEN` | token | token (a test sub-account is safer) | GHL Private Integration token |
+| `GHL_LOCATION_ID` | location id | location id | GHL sub-account |
+| `GHL_FIELD_SERVICE_ID` | field id | field id | Custom field: Service |
+| `GHL_FIELD_SMS_CONSENT_NONMARKETING_ID` | field id | field id | Custom field: SMS Consent Non-Marketing |
+| `GHL_FIELD_SMS_CONSENT_MARKETING_ID` | field id | field id | Custom field: SMS Consent Marketing |
+| `GHL_FIELD_CONSENT_AT_ID` | field id | field id | Custom field: Consent Timestamp |
+| `GHL_FIELD_SOURCE_PAGE_ID` | field id | field id | Custom field: Source Page |
+| `GHL_API_VERSION` (optional) | default `v3` | default `v3` | Value of the GHL `Version` header |
+| `TURNSTILE_ALLOWED_HOSTNAMES` (optional) | production hostname | preview hostname | Comma list; rejects tokens issued for other hostnames |
+
+Never put these in `.env.example`, `.env.local`, `NEXT_PUBLIC_*`, or the repo. Copy `.dev.vars.example` to `.dev.vars` (git-ignored) for local Function runs.
+
+### GHL custom fields to create (all Short Text)
+
+Service, SMS Consent Non-Marketing, SMS Consent Marketing, Consent Timestamp, Source Page. Copy each field's ID into the matching variable above.
+
+### GHL token rotation
+
+The Private Integration token should be rotated every 90 days. Create the new token in GHL, update `GHL_PRIVATE_INTEGRATION_TOKEN` in Cloudflare (Production and Preview), redeploy, send a test, then revoke the old token. Put the next rotation date in your calendar.
+
+### Local testing
+
+- Unit tests (no network, mocked fetch): `npm run test:contact`.
+- Replay fictional submissions to an endpoint: `npm run test:contact:replay -- <endpoint-url> --dry-run` (also `--only 1,2`, `--repeat N`). Data: `scripts/test-data/contact-submissions.json`. The replay sends a dummy Turnstile token, so it only succeeds where the server uses Cloudflare's TEST Turnstile secret. Every accepted replay against a real endpoint creates a real GHL contact and note and may trigger notification workflows: delete the test contacts afterward.
+- Cloudflare publishes Turnstile test site and secret keys that always pass or always fail: https://developers.cloudflare.com/turnstile/troubleshooting/testing/ (copy them from that page; they are not stored in this repo).
 
 ## Hero images and fonts (performance)
 
