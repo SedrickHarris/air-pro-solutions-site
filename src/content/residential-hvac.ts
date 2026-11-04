@@ -98,7 +98,7 @@ export const residentialHub = {
   },
 
   proof: {
-    eyebrow: 'Why Air Pro',
+    eyebrow: 'Why AIRPRO SOLUTIONS',
     heading: 'Rated by homeowners across Southern California',
     body: `Homeowners have rated AIRPRO SOLUTIONS ${siteConfig.rating.toFixed(1)} stars across ${siteConfig.reviewCount} Google reviews.`,
     stats: [

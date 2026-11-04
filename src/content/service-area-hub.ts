@@ -105,7 +105,7 @@ export const hubTableNote = 'Climate and housing figures come from the individua
 export const hubCityIndexNote = 'Individual city pages are coming. Torrance, Redondo Beach, Manhattan Beach, Hermosa Beach, El Segundo, Gardena, Hawthorne, Carson, Irvine, Anaheim, Santa Ana, Costa Mesa, Huntington Beach, Newport Beach, Fullerton, Tustin, Riverside, Ontario, Corona, Rancho Cucamonga, Chino, Fontana, Upland, Eastvale, Los Angeles, Long Beach, Pasadena, Glendale, Burbank, Culver City, Santa Monica, and Inglewood are live today, and each region page covers the rest.';
 
 export const hubProof = {
-  eyebrow: 'Why Air Pro',
+  eyebrow: 'Why AIRPRO SOLUTIONS',
   heading: 'Recommendations that start with your address',
   body: 'Climate, building type, electric utility, and city permit rules all change across Southern California. We check them for your property before recommending equipment, so the plan fits where you actually live or work.',
   stats: [

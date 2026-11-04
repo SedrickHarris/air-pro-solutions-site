@@ -259,7 +259,7 @@ export default async function Page({ params }: { params: Promise<{ city: string 
       )}
 
       <Proof
-        eyebrow="Why Air Pro"
+        eyebrow="Why AIRPRO SOLUTIONS"
         heading={page.proof.heading}
         body={page.proof.body}
         stats={page.proof.stats}

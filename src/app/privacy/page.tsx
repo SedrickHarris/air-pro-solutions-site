@@ -39,10 +39,12 @@ export default function Page() {
 
           <h2>Calls and text messages (SMS consent)</h2>
           <p>
-            If you check the consent box on our contact form, you agree to receive calls and text messages from Air
-            Pro Solutions about your service request. Message and data rates may apply. Message frequency varies.
-            Consent is not a condition of purchase. You can reply STOP at any time to opt out of text messages, or
-            HELP for help.
+            Our contact form has two separate, optional text message checkboxes. If you check the first, you consent
+            to receive non-marketing text messages from AIRPRO SOLUTIONS about appointments, service updates, and
+            account notifications. If you check the second, you consent to receive marketing text messages about
+            special offers, discounts, and promotions. You can choose either, both, or neither. Message frequency
+            may vary. Message and data rates may apply. Consent is not a condition of purchase. Reply STOP to opt
+            out. Reply HELP for help.
           </p>
 
           <h2>Sharing</h2>

@@ -97,7 +97,7 @@ export const regionCopy: Record<string, { cities: string; cta: string }> = {
 };
 
 export const proof = {
-  eyebrow: 'Why Air Pro',
+  eyebrow: 'Why AIRPRO SOLUTIONS',
   heading: 'Licensed, background-checked technicians for your property',
   body: 'Every technician is background-checked, and AIRPRO SOLUTIONS is licensed, bonded & insured in California.',
 };

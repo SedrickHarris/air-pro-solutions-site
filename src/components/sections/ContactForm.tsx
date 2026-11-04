@@ -13,10 +13,12 @@ const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT ?? '';
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '';
 
 // TODO(data): final SMS/TCPA consent wording must be approved by the client/counsel and match /privacy/.
-const CONSENT_TEXT =
-  'I agree to receive calls and text messages from AIRPRO SOLUTIONS about my service request. Message and data rates may apply. Consent is not a condition of purchase. See our Privacy Policy.';
+const CONSENT_NON_MARKETING =
+  'By checking this box, I consent to receive non-marketing text messages from AIRPRO SOLUTIONS about appointments, service updates, and account notifications. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out. Reply HELP for help.';
+const CONSENT_MARKETING =
+  'By checking this box, I consent to receive marketing text messages from AIRPRO SOLUTIONS about special offers, discounts, and promotions. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out. Reply HELP for help.';
 
-type Errors = Partial<Record<'name' | 'phone' | 'email' | 'service' | 'consent' | 'captcha', string>>;
+type Errors = Partial<Record<'name' | 'phone' | 'email' | 'service' | 'captcha', string>>;
 type Status = 'idle' | 'sending' | 'error' | 'unconfigured';
 
 declare global {
@@ -34,7 +36,6 @@ function validate(fd: FormData, hasCaptcha: boolean, token: string): Errors {
   if (String(fd.get('phone') ?? '').replace(/\D/g, '').length < 10) e.phone = 'Enter a phone number with area code.';
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(fd.get('email') ?? '').trim())) e.email = 'Enter a valid email address.';
   if (!String(fd.get('service') ?? '')) e.service = 'Choose a service.';
-  if (!fd.get('sms_consent')) e.consent = 'Check the box to agree before sending.';
   if (hasCaptcha && !token) e.captcha = 'Complete the verification before sending.';
   return e;
 }
@@ -153,11 +154,15 @@ export function ContactForm() {
           <input name="company_website" type="text" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
+      {/* Both boxes are optional and unchecked by default: SMS consent must not be a condition of submitting. */}
       <label className="consent">
-        <input name="sms_consent" type="checkbox" required {...err('consent')} />
-        <span>{CONSENT_TEXT}</span>
+        <input name="sms_consent_non_marketing" type="checkbox" value="yes" />
+        <span>{CONSENT_NON_MARKETING}</span>
       </label>
-      {msg('consent')}
+      <label className="consent">
+        <input name="sms_consent_marketing" type="checkbox" value="yes" />
+        <span>{CONSENT_MARKETING}</span>
+      </label>
       {TURNSTILE_SITE_KEY && <div ref={widgetRef} className="turnstile-box" />}
       {msg('captcha')}
       <button className="btn btn-primary" type="submit" disabled={status === 'sending'}>

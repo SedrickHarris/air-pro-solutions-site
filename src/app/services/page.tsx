@@ -256,7 +256,7 @@ export default function Page() {
 
       {/* client-approved */}
       <Proof
-        eyebrow="Why Air Pro"
+        eyebrow="Why AIRPRO SOLUTIONS"
         heading="One HVAC company, every service you'll ever need"
         body="Every technician is background-checked, and AIRPRO SOLUTIONS is licensed, bonded & insured in California."
         stats={proofStats}

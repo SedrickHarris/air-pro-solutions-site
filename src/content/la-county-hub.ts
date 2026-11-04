@@ -226,7 +226,7 @@ export const laCountyHub = {
   },
 
   proof: {
-    eyebrow: 'Why Air Pro',
+    eyebrow: 'Why AIRPRO SOLUTIONS',
     heading: 'Recommendations that start with your address',
     body: 'Climate, building type, electric utility, and city permit rules all change across Los Angeles County. We check them for your property before recommending equipment, so the plan fits where you actually live or work.',
     stats: [

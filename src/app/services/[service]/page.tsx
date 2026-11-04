@@ -859,7 +859,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       {!(page.regionBand && page.regionConditions) && <ServiceCityLinks serviceSlug={s.slug} />}
 
       <Proof
-        eyebrow="Why Air Pro"
+        eyebrow="Why AIRPRO SOLUTIONS"
         heading={page.proofHeading ?? 'Licensed, background-checked technicians'}
         body={page.proofBody ?? 'Every technician is background-checked, and AIRPRO SOLUTIONS is licensed, bonded & insured in California.'}
         stats={page.proofStats ?? [

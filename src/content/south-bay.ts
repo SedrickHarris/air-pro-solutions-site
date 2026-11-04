@@ -209,7 +209,7 @@ export const southBayHub = {
   },
 
   proof: {
-    eyebrow: 'Why Air Pro',
+    eyebrow: 'Why AIRPRO SOLUTIONS',
     heading: 'Recommendations that start with your address',
     body: 'Permit office, utility, noise rules, and building type all change across the South Bay. We check them for your property before recommending equipment, so the plan fits where you actually live or work.',
     stats: [

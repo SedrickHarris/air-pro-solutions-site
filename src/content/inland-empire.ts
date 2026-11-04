@@ -301,7 +301,7 @@ export const inlandEmpireHub = {
   },
 
   proof: {
-    eyebrow: 'Why Air Pro',
+    eyebrow: 'Why AIRPRO SOLUTIONS',
     heading: 'Recommendations that start with your address',
     body: 'Heat, permit path, utility, and building age all change across the Inland Empire. We check them for your property before recommending equipment, so the plan fits where you actually live or work.',
     stats: [

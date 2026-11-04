@@ -254,7 +254,7 @@ export default async function Page({ params }: { params: Promise<{ service: stri
       />
 
       <Proof
-        eyebrow="Why Air Pro"
+        eyebrow="Why AIRPRO SOLUTIONS"
         heading="Licensed technicians and a clear explanation of the work"
         body="AIRPRO SOLUTIONS is licensed in California (LIC #1126691, #50251) and rated 4.8 stars across 40 Google reviews. We explain what we find and what your options are before you decide."
         stats={[
