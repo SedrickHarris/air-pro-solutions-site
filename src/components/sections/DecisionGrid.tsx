@@ -6,10 +6,9 @@ export type DecisionCard = { icon: string; title: string; body: string; href?: s
 const defaultCards: DecisionCard[] = [
   { icon: 'alert', title: "My AC or heat isn't working", body: 'Fast diagnosis for no-cool or no-heat problems.', href: '/services/emergency-hvac/' },
   { icon: 'wrench', title: 'I need a repair', body: "Noises, leaks, weak airflow, or a system that won't turn on.", href: '/services/ac-repair/' },
-  { icon: 'snowflake', title: 'I need a new system', body: 'Replacement or new installation with a free estimate.', href: '/services/ac-installation/' },
-  { icon: 'calendar-check', title: 'I want a tune-up', body: 'Seasonal maintenance to catch problems early.', href: '/maintenance-plan/' },
+  { icon: 'snowflake', title: 'I need a new system', body: 'Replacement or new installation.', href: '/services/ac-installation/' },
+  { icon: 'calendar-check', title: 'I want a tune-up', body: 'Seasonal maintenance to catch problems early.', href: '/services/ac-maintenance/' },
   { icon: 'building', title: 'I manage a commercial property', body: 'Rooftop units, maintenance agreements, multi-site coverage.', href: '/commercial-hvac/' },
-  { icon: 'dollar', title: 'I want to ask about financing', body: 'Flexible options for qualifying replacements and installs.', href: '/financing/' },
 ];
 
 export function DecisionGrid({

@@ -6,7 +6,7 @@ import { Icon } from '@/components/ui/Icon';
 const proof = [
   { icon: 'shield', label: 'Licensed HVAC contractor', href: undefined },
   { icon: 'building', label: 'Residential & commercial', href: undefined },
-  { icon: 'dollar', label: 'Financing available', href: '/financing/' },
+  { icon: 'check', label: 'Background-checked technicians', href: undefined },
   { icon: 'pin', label: 'Serving all of SoCal', href: undefined },
 ];
 

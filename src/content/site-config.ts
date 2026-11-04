@@ -8,8 +8,7 @@ export const siteConfig = {
   licenses: ['1126691', '50251'],
   rating: 4.8,
   reviewCount: 40,
-  // Supplied in the homepage build brief.
-  hours: 'Mon-Fri 7a-7p · Sat 8a-4p',
+  // Business hours removed 2026-11-04: not on the client-approved claims list. Add back only with written client approval.
   // TODO(data): replace with a confirmed availability claim (for example 24/7 dispatch) once the client approves it.
   availabilityNote: 'Call for the next available appointment',
   orgId: 'https://airprosolutionsheatingandcooling.com/#organization',

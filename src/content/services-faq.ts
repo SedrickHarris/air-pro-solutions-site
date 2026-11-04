@@ -17,7 +17,7 @@ export const servicesFaqs: Faq[] = [
   },
   {
     q: 'How do I know if I need a repair or a replacement?',
-    a: "A technician diagnoses the system first and gives an itemized repair-versus-replace recommendation based on the equipment's age, repair history, and efficiency, so the decision is based on real numbers rather than a guess.",
+    a: "A technician diagnoses the system first and gives a repair-versus-replace recommendation based on the equipment's age, repair history, and efficiency, so the decision is based on real numbers rather than a guess.",
   },
   {
     q: "What's included in a maintenance visit?",
@@ -25,11 +25,7 @@ export const servicesFaqs: Faq[] = [
   },
   {
     q: 'How much does HVAC service cost?',
-    a: 'Cost depends on the service, the equipment involved, and the scope of the job, so AIRPRO SOLUTIONS provides an itemized estimate after diagnosing the issue or reviewing the work, rather than a flat rate over the phone.',
-  },
-  {
-    q: 'Can I get an estimate before work begins?',
-    a: "Yes. AIRPRO SOLUTIONS provides an itemized estimate before any work begins, whether it's a repair, a new installation, or a maintenance agreement.",
+    a: 'Cost depends on the service, the equipment involved, and the scope of the job, so AIRPRO SOLUTIONS gives a price after diagnosing the issue or reviewing the work, rather than a flat rate over the phone.',
   },
   {
     q: 'How fast can someone come out?',

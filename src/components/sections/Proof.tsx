@@ -3,8 +3,8 @@ import { siteConfig } from '@/content/site-config';
 
 export type ProofStat = { num: string; label: string };
 
-// TODO(data): "factory-trained" and "itemized before we touch a tool" are
-// claims supplied in the brief; confirm with the client that each is true before launch.
+// Claims here must stay on the client-approved list (see CLAUDE.md). "factory-trained", "itemized"
+// quotes and "walkthrough" promises were removed 2026-11-04 pending written client approval.
 const defaultStats: ProofStat[] = [
   { num: `${siteConfig.rating}★`, label: 'Google rating' },
   { num: String(siteConfig.reviewCount), label: 'Verified reviews' },
@@ -14,7 +14,7 @@ const defaultStats: ProofStat[] = [
 export function Proof({
   eyebrow,
   heading = 'HVAC service built around clear answers and reliable work',
-  body = 'Every technician is background-checked and factory-trained. Every quote is itemized before we touch a tool. Every job includes a walkthrough of exactly what was done and why.',
+  body = 'Every technician is background-checked, and AIRPRO SOLUTIONS is licensed, bonded & insured in California.',
   ctaLabel,
   ctaHref,
   stats = defaultStats,

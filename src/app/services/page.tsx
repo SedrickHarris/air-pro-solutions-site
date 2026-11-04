@@ -265,7 +265,7 @@ export default function Page() {
       <Proof
         eyebrow="Why Air Pro"
         heading="One HVAC company, every service you'll ever need"
-        body="Every technician is background-checked and factory-trained. Every job gets an itemized estimate before any work begins, and a written service record when it's done."
+        body="Every technician is background-checked, and AIRPRO SOLUTIONS is licensed, bonded & insured in California."
         ctaLabel="Read our reviews"
         ctaHref="/reviews/"
         stats={proofStats}

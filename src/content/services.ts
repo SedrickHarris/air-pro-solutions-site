@@ -506,7 +506,7 @@ const acRepairPage: ServicePage = {
     'Get AC repair in Los Angeles for homes and businesses. AIRPRO SOLUTIONS diagnoses cooling, airflow, electrical, and drainage problems. Schedule service.',
   lede:
     // TODO(data): confirm with client that written pricing before authorization is real process
-    "No cooling, weak airflow, strange noises, or water leaks? AIRPRO SOLUTIONS provides residential and commercial AC repair in Los Angeles and across the South Bay, Orange County, and the Inland Empire - with an itemized price before any work begins.",
+    "No cooling, weak airflow, strange noises, or water leaks? AIRPRO SOLUTIONS provides residential and commercial AC repair in Los Angeles and across the South Bay, Orange County, and the Inland Empire.",
   heroImage: {
     src: '/images/services/ac-repair/hero.webp',
     alt: 'Outdoor AC condenser unit beside a stucco home with palm and succulent landscaping',

@@ -12,7 +12,6 @@ export function RebateStrip() {
           </div>
           <div className="cta-row">
             <Link className="btn btn-primary" href="/contact/">Contact us</Link>
-            <Link className="btn btn-outline" href="/financing/">Financing</Link>
           </div>
         </div>
       </div>

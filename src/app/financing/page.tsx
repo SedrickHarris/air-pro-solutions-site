@@ -8,7 +8,7 @@ import { hubMetadata, utilityTitle } from '@/lib/seo';
 
 export const metadata = hubMetadata({
   title: utilityTitle('HVAC Financing'),
-  description: 'Learn about HVAC financing options from AIRPRO SOLUTIONS for qualifying repairs, replacements, and installations. Contact us to discuss what fits.', // TODO(copy): confirm once partner is set
+  description: 'Questions about paying for HVAC repair, replacement, or installation? Contact AIRPRO SOLUTIONS and we will talk through your project and next steps.', // TODO(copy)
   path: '/financing/',
 });
 
@@ -20,15 +20,15 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
       <Breadcrumbs crumbs={crumbs} />
-      <PageHeader eyebrow="Financing" title="HVAC Financing" lede="Flexible financing available." />
+      <PageHeader eyebrow="Financing" title="HVAC Financing" lede="Questions about paying for your project? Contact us." />
       <section>
         <div className="wrap prose">
           <p>
-            Flexible financing is available for qualifying HVAC projects. Contact us to talk through your options.
+            Contact us with questions about your project and how to move forward.
           </p>
           <PendingNote>financing partner name, logo, and terms. Do not state rates, terms, or approval claims until confirmed.</PendingNote>
           <div className="cta-row">
-            <Link className="btn btn-primary" href="/contact/">Contact us about financing</Link>
+            <Link className="btn btn-primary" href="/contact/">Contact us</Link>
           </div>
         </div>
       </section>

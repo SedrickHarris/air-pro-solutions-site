@@ -71,7 +71,7 @@ export const whyUs: DecisionCard[] = [
 export const commercialServices: { slug: string; name: string; body: string; icon: string; href: string; image?: { src: string; alt: string } }[] = [
   { slug: 'ac-repair', name: 'Rooftop Package Unit Service', body: 'Diagnosis, repair, and replacement of rooftop package units for offices, retail, and industrial buildings.', icon: 'snowflake', href: '/services/ac-repair/' },
   { slug: 'ac-maintenance', name: 'Preventive Maintenance Agreements', body: 'Scheduled tune-ups and inspections that extend equipment life and reduce emergency calls.', icon: 'calendar-check', href: '/services/ac-maintenance/' },
-  { slug: 'ac-installation', name: 'Commercial Installation & Replacement', body: 'Properly sized commercial systems with an itemized estimate before any work begins.', icon: 'wrench', href: '/services/ac-installation/' },
+  { slug: 'ac-installation', name: 'Commercial Installation & Replacement', body: 'Properly sized commercial systems for installation and replacement.', icon: 'wrench', href: '/services/ac-installation/' },
   // TODO(claims): 24/7 is unconfirmed.
   { slug: 'emergency-hvac', name: 'Emergency HVAC Repair', body: '24/7 dispatch for no-cool and no-heat outages that threaten business operations.', icon: 'alert', href: '/services/emergency-hvac/' },
   { slug: 'contact', name: 'Multi-Site & Portfolio Service', body: 'Consolidated scheduling, service history, and invoicing across every property you manage.', icon: 'buildings', href: '/contact/',
@@ -81,7 +81,7 @@ export const commercialServices: { slug: string; name: string; body: string; ico
 
 export const processSteps: { title: string; body: string }[] = [
   { title: 'Assess', body: 'We walk the property or review your portfolio and existing equipment.' },
-  { title: 'Propose', body: 'You get an itemized proposal - one-time service or an ongoing maintenance agreement.' },
+  { title: 'Propose', body: 'You get a proposal - one-time service or an ongoing maintenance agreement.' },
   { title: 'Schedule', body: 'Work is scheduled around your business hours, tenants, or operations.' },
   { title: 'Support', body: 'Ongoing service history and a single point of contact for every future call.' },
 ];
@@ -98,9 +98,8 @@ export const regionCopy: Record<string, { cities: string; cta: string }> = {
 
 export const proof = {
   eyebrow: 'Why Air Pro',
-  heading: 'Clear proposals and a crew that shows up on schedule',
-  // TODO(claims): factory-trained is unconfirmed.
-  body: 'Every technician is background-checked and factory-trained. Every proposal is itemized before we touch a tool. Every job includes a service record for your files, not just an invoice.',
+  heading: 'Licensed, background-checked technicians for your property',
+  body: 'Every technician is background-checked, and AIRPRO SOLUTIONS is licensed, bonded & insured in California.',
   ctaLabel: 'Read our reviews',
   ctaHref: '/reviews/',
 };
@@ -132,7 +131,7 @@ export const commercialFaqs: Faq[] = [
   },
   {
     q: 'Do you repair or replace rooftop package units?',
-    a: "Both. AIRPRO SOLUTIONS diagnoses rooftop package units and gives an itemized repair-versus-replace recommendation based on the unit's age, repair history, and efficiency, so property managers can budget with real numbers rather than guesswork.",
+    a: "Both. AIRPRO SOLUTIONS diagnoses rooftop package units and gives a repair-versus-replace recommendation based on the unit's age, repair history, and efficiency, so property managers can budget with real numbers rather than guesswork.",
   },
   {
     // TODO(claims): plan inclusions are pending client confirmation, same as /maintenance-plan/.
@@ -159,8 +158,7 @@ export const commercialFaqs: Faq[] = [
 
 export const finalCta = {
   title: 'Get a commercial HVAC quote today',
-  // TODO(claims): "free" assessment is unconfirmed.
-  body: 'Free property assessment and an itemized proposal - one property or a full portfolio.',
+  body: 'Request a proposal for one property or a full portfolio.',
   ghostLabel: 'Request a Commercial Quote',
   ghostHref: '/contact/',
 };

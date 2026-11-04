@@ -24,8 +24,6 @@ export const residentialHub = {
     proof: [
       { icon: 'check', text: 'Licensed HVAC contractor' },
       { icon: 'star', text: `${siteConfig.rating.toFixed(1)}-star Google rating` },
-      // TODO(data): keep only if client confirms financing partner. /financing/ stub already says financing is available.
-      { icon: 'dollar', text: 'Financing options available' },
       { icon: 'pin', text: 'Serving four Southern California regions' },
     ],
     photo: {
@@ -37,8 +35,6 @@ export const residentialHub = {
   },
 
   trust: [
-    // TODO(data): financing item held until partner confirmed.
-    { num: 'Financing', label: 'available on qualifying projects' },
     { num: `${siteConfig.rating.toFixed(1)}★`, label: `Google rating, ${siteConfig.reviewCount} reviews` },
     { num: '4', label: 'Southern California regions served' },
     { num: 'C-20', label: 'California licensed HVAC contractor' },
@@ -54,7 +50,6 @@ export const residentialHub = {
       { icon: 'plus', title: 'I need a new system', body: 'Replacement or new installation with an in-home estimate.', href: '/services/ac-installation/', ctaLabel: 'See AC installation' },
       { icon: 'calendar-check', title: 'I want a tune-up', body: 'Seasonal maintenance to catch small problems early.', href: '/services/ac-maintenance/', ctaLabel: 'See AC maintenance' },
       { icon: 'building', title: 'I live in a condo or HOA', body: 'Tell us about your building and access needs when you contact us.', href: '/contact/', ctaLabel: 'Contact us' },
-      { icon: 'dollar', title: 'I want to ask about financing', body: 'Flexible financing is available for qualifying HVAC projects.', href: '/financing/', ctaLabel: 'See financing' },
     ] satisfies DecisionCard[],
   },
 
@@ -126,10 +121,6 @@ export const residentialHub = {
   faqEyebrow: 'Direct answers',
   faqHeading: 'Home HVAC questions Southern California homeowners ask',
   faqs: [
-    {
-      q: 'Does AIRPRO SOLUTIONS offer financing for AC or heating replacement?',
-      a: 'Flexible financing is available for qualifying HVAC projects. Contact AIRPRO SOLUTIONS to talk through your options.',
-    },
     {
       q: 'What rebates are available on a new home HVAC system?',
       a: 'Rebates vary by season and by utility provider. Qualifying high-efficiency air conditioners and heat pumps can be eligible for manufacturer or utility rebates. Ask about current eligibility when you request an estimate.',

@@ -78,7 +78,6 @@ export function Footer() {
                 </a>
               </li>
               <li><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></li>
-              <li>{siteConfig.hours}</li>
               <li>{siteConfig.availabilityNote}</li>
               <li>CA License #{siteConfig.licenses.join(', #')}</li>
             </ul>

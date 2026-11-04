@@ -73,7 +73,7 @@ function HeroHeading({ h1, emphasis }: { h1: string; emphasis: string }) {
 const defaultHeroProof = [
   { icon: 'shield', label: 'Licensed C-20 contractor' },
   { icon: 'building', label: 'Residential and commercial' },
-  { icon: 'dollar', label: 'Upfront itemized pricing' },
+  { icon: 'check', label: 'Background-checked technicians' },
   { icon: 'pin', label: 'Serving 4 Southern California regions' },
 ];
 
@@ -869,8 +869,8 @@ export default async function Page({ params }: { params: Promise<{ service: stri
 
       <Proof
         eyebrow="Why Air Pro"
-        heading={page.proofHeading ?? "Clear pricing and a technician who explains what's actually wrong"}
-        body={page.proofBody ?? 'Every quote is itemized before we touch a tool. Every repair includes a walkthrough of exactly what was fixed and why.'}
+        heading={page.proofHeading ?? 'Licensed, background-checked technicians'}
+        body={page.proofBody ?? 'Every technician is background-checked, and AIRPRO SOLUTIONS is licensed, bonded & insured in California.'}
         ctaLabel="Read our reviews"
         ctaHref="/reviews/"
         stats={page.proofStats ?? [
