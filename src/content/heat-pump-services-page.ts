@@ -100,8 +100,7 @@ const heatPumpServicesBase: ServicePage = {
     // RESOLVED (2026-10-19, confirmed by user): CSLB record shows C-20 for both license numbers.
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
-    // TODO(data): confirm this is real Air Pro practice.
-    { icon: 'check', label: 'Background-checked technicians' },
+    { icon: 'dollar', label: 'Rebate programs vary by utility' },
     { icon: 'pin', label: '4 Southern California regions' },
   ],
   serviceType: 'Heat Pump Services',

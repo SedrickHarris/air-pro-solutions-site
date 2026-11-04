@@ -64,7 +64,7 @@ const acInstallationBase: ServicePage = {
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
-    { icon: 'check', label: 'Background-checked technicians' },
+    { icon: 'check', label: 'Services all major HVAC brands' },
     { icon: 'pin', label: '4 Southern California regions' },
   ],
   serviceType: 'Air Conditioning Installation',

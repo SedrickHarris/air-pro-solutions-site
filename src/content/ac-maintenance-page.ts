@@ -63,7 +63,7 @@ const acMaintenanceBase: ServicePage = {
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
-    { icon: 'check', label: 'Background-checked technicians' },
+    { icon: 'shield', label: 'Licensed, bonded & insured' },
     { icon: 'pin', label: '4 Southern California regions' },
   ],
   serviceType: 'Air Conditioning Maintenance',

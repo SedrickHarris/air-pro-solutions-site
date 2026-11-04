@@ -623,7 +623,7 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 
 /* City "at a glance" card (AnswerBlock aside): verified city facts beside the quick answer. */
 .glance { background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; color: var(--ink); }
-.glance h3 { margin: 0; font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy-800); }
+.glance h2 { margin: 0; font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy-800); }
 .glance-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .glance-stats > div { border-left: 2px solid var(--amber-500); padding-left: 12px; min-width: 0; }
 .glance-num { display: block; font-family: var(--font-display); font-weight: 800; font-size: 1.7rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
@@ -637,8 +637,8 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 }
 :root[data-theme='dark'] .glance-src a, :root[data-theme='dark'] .nbhd-card .lc-note a, :root[data-theme='dark'] .refrigerant-src a { color: var(--sky-400); }
 .local-knowledge-dark .nbhd-card .lc-note a { color: var(--sky-400); } /* band is forced dark regardless of theme */
-@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .glance h3 { color: var(--sky-400); } }
-:root[data-theme='dark'] .glance h3 { color: var(--sky-400); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .glance h2 { color: var(--sky-400); } }
+:root[data-theme='dark'] .glance h2 { color: var(--sky-400); }
 @media (max-width: 520px) { .glance-stats { grid-template-columns: 1fr; } }
 
 /* Collapsible ZIP groups inside a .nbhd-card (LocalKnowledge zipGroups). */
@@ -717,3 +717,8 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 .field input[aria-invalid='true'], .field select[aria-invalid='true'] { border-color: var(--amber-600); }
 .hp-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 .turnstile-box { min-height: 65px; }
+
+/* Long unbroken email addresses (about 372px wide) must wrap instead of widening the page at 360-390px.
+   min-width: 0 lets grid and flex children shrink below their content width. */
+a[href^='mailto:'] { overflow-wrap: anywhere; }
+.grid-2 > *, .form, .form .field { min-width: 0; }

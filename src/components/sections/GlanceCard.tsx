@@ -13,7 +13,7 @@ export function GlanceCard({
 }) {
   return (
     <aside className="glance" aria-label={title}>
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       <div className="glance-stats">
         {stats.map((st) => (
           <div key={st.num}>

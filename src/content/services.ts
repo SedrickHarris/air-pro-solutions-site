@@ -516,7 +516,7 @@ const acRepairPage: ServicePage = {
   heroProof: [
     { icon: 'shield', label: 'Licensed HVAC contractor' },
     { icon: 'building', label: 'Residential and commercial' },
-    { icon: 'check', label: 'Background-checked technicians' },
+    { icon: 'wrench', label: 'Existing R-410A systems can be repaired' },
     { icon: 'pin', label: '4 Southern California regions' },
   ],
   serviceType: 'Air Conditioning Repair',

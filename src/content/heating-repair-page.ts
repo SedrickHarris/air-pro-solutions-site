@@ -87,7 +87,7 @@ const heatingRepairBase: ServicePage = {
   heroProof: [
     { icon: 'check', label: 'Licensed HVAC contractor' },
     { icon: 'home', label: 'Residential and commercial' },
-    { icon: 'check', label: 'Background-checked technicians' },
+    { icon: 'clock', label: 'After-hours service' },
     { icon: 'pin', label: '4 Southern California regions' },
   ],
   serviceType: 'Heating Repair',
