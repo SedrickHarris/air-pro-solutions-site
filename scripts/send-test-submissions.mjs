@@ -20,6 +20,13 @@ if (!url) {
   console.error('Usage: node scripts/send-test-submissions.mjs <endpoint-url> [--dry-run] [--only 1,2] [--repeat N]');
   process.exit(2);
 }
+// Safety: never replay fictional data into the production site.
+const PRODUCTION_DOMAIN = 'airprosolutionsheatingandcooling.com';
+const host = new URL(url).hostname.toLowerCase();
+if (host === PRODUCTION_DOMAIN || host.endsWith('.' + PRODUCTION_DOMAIN)) {
+  console.error('Refusing to send test submissions to the production domain.');
+  process.exit(2);
+}
 const only = val('--only')?.split(',').map(Number);
 const repeat = Math.max(1, Number(val('--repeat') ?? 1));
 const dry = flag('--dry-run');
@@ -57,4 +64,5 @@ for (let r = 0; r < repeat; r++) {
   }
 }
 if (!dry) console.log(`accepted=${accepted} failed=${failed}`);
-process.exit(failed ? 1 : 0);
+// exitCode (not process.exit) lets pending handles close cleanly; process.exit after fetch crashes Node on Windows.
+process.exitCode = failed ? 1 : 0;

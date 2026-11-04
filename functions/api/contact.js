@@ -39,7 +39,11 @@ function normalizePhone(p) {
   return null; // US numbers only; TODO(client): confirm this assumption
 }
 
-export async function onRequest({ request, env }) {
+// Trim every env value so stray whitespace from pasted dashboard values cannot break auth or field ids.
+const trimEnv = (raw) => Object.fromEntries(Object.entries(raw || {}).map(([k, v]) => [k, typeof v === 'string' ? v.trim() : v]));
+
+export async function onRequest({ request, env: rawEnv }) {
+  const env = trimEnv(rawEnv);
   if (request.method !== 'POST') return fail(405, 'method_not_allowed');
   const rid = crypto.randomUUID().slice(0, 8);
   const log = (code, extra = {}) => console.log(JSON.stringify({ event: 'contact_form', code, rid, ...extra }));
@@ -159,6 +163,21 @@ export async function onRequest({ request, env }) {
     customFields,
   };
 
+  // TODO(launch): remove ghlMessage logging after launch testing. It is GHL's own error "message" only (never our
+  // request body), truncated, with any submitted value or secret scrubbed out in case GHL echoes it back.
+  const scrub = [name, email, phoneRaw, phone, token, message, ...Object.values(env)].filter((s) => typeof s === 'string' && s.length >= 3);
+  const ghlMessage = async (r) => {
+    try {
+      const j = await r.json();
+      let m = Array.isArray(j?.message) ? j.message.filter((x) => typeof x === 'string').join('; ') : j?.message;
+      if (typeof m !== 'string') return undefined;
+      for (const s of scrub) m = m.split(s).join('[redacted]');
+      return m.slice(0, 200);
+    } catch {
+      return undefined;
+    }
+  };
+
   let contactId;
   let isNew;
   try {
@@ -169,7 +188,7 @@ export async function onRequest({ request, env }) {
       signal: AbortSignal.timeout(8000),
     });
     if (!r.ok) {
-      log('GHL_UPSERT_FAILED', { status: r.status });
+      log('GHL_UPSERT_FAILED', { status: r.status, ghlMessage: await ghlMessage(r) });
       return fail(502, 'delivery_failed');
     }
     const d = await r.json();
@@ -202,7 +221,7 @@ export async function onRequest({ request, env }) {
       signal: AbortSignal.timeout(8000),
     });
     if (!r.ok) {
-      log('GHL_NOTE_FAILED', { status: r.status });
+      log('GHL_NOTE_FAILED', { status: r.status, ghlMessage: await ghlMessage(r) });
       return fail(502, 'delivery_failed');
     }
   } catch {

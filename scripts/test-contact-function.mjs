@@ -288,3 +288,58 @@ test('logs never contain submission data or secrets', async () => {
     assert.ok(out.includes('contact_form'));
   }
 });
+
+const ghlErr = (status, message) => () => new Response(JSON.stringify({ statusCode: status, message }), { status });
+
+test('ghlMessage appears in the log for a GHL 422 on upsert (string and array forms)', async () => {
+  const a = await run(makeRequest(), { upsert: ghlErr(422, 'customFields.0.id must be a valid custom field id') });
+  assert.equal(a.res.status, 502);
+  assert.match(a.logs.join('\n'), /"code":"GHL_UPSERT_FAILED","rid":"[^"]+","status":422,"ghlMessage":"customFields.0.id must be a valid custom field id"/);
+  const b = await run(makeRequest(), { upsert: ghlErr(422, ['locationId is invalid', 'Version header missing']) });
+  assert.match(b.logs.join('\n'), /"ghlMessage":"locationId is invalid; Version header missing"/);
+});
+
+test('ghlMessage appears for a GHL note failure and is truncated to 200 characters', async () => {
+  const { logs } = await run(makeRequest(), { note: ghlErr(422, 'n'.repeat(500)) });
+  const line = JSON.parse(logs.find((l) => l.includes('GHL_NOTE_FAILED')));
+  assert.equal(line.ghlMessage.length, 200);
+});
+
+test('ghlMessage is omitted when the GHL error body is not JSON with a message', async () => {
+  const { logs } = await run(makeRequest(), { upsert: () => new Response('<html>gateway</html>', { status: 502 }) });
+  const line = JSON.parse(logs.find((l) => l.includes('GHL_UPSERT_FAILED')));
+  assert.equal(line.status, 502);
+  assert.ok(!('ghlMessage' in line));
+});
+
+test('logs with ghlMessage never contain submitted data or secrets, even if GHL echoes them back', async () => {
+  const f = { ...GOOD, sms_consent_non_marketing: 'yes', 'cf-turnstile-response': 'tok-unique-123' };
+  const echo = 'Duplicate: Test Person test.person@example.com +13105550101 tok-unique-123 Fictional test message. test-ghl-token test-location';
+  for (const s of [{ upsert: ghlErr(422, echo) }, { note: ghlErr(422, [echo]) }]) {
+    const { logs } = await run(makeRequest(f), s);
+    const out = logs.join('\n');
+    assert.match(out, /ghlMessage/);
+    assert.match(out, /\[redacted\]/);
+    for (const bad of ['Test Person', '555-0101', '5550101', 'test.person@example.com', 'Fictional test message',
+      'tok-unique-123', ...Object.values(ENV)]) {
+      assert.ok(!out.includes(bad), `log leaked ${bad}`);
+    }
+  }
+});
+
+test('env values are trimmed before use', async () => {
+  const padded = Object.fromEntries(Object.entries(ENV).map(([k, v]) => [k, `  ${v}\n`]));
+  const { res, calls } = await run(makeRequest(), { env: padded });
+  assert.equal(res.status, 200);
+  assert.equal(calls[0].init.body.get('secret'), 'test-turnstile-secret');
+  const up = ghl(calls, '/contacts/upsert');
+  assert.equal(up.init.headers.Authorization, 'Bearer test-ghl-token');
+  const p = JSON.parse(up.init.body);
+  assert.equal(p.locationId, 'test-location');
+  assert.equal(p.customFields[0].id, 'fld-service');
+});
+
+test('whitespace-only env value counts as missing', async () => {
+  const { res } = await run(makeRequest(), { env: { ...ENV, GHL_LOCATION_ID: '   ' } });
+  assert.equal(res.status, 500);
+});
