@@ -110,6 +110,22 @@ section { padding-block: 56px; }
   :root:not([data-theme='light']) .btn-outline { color: var(--ink); border-color: var(--ink-soft); }
 }
 :root[data-theme='dark'] .btn-outline { color: var(--ink); border-color: var(--ink-soft); }
+/* Buttons keep their own text color in every state and inside every container. Descendant link rules
+   (.prose a, .rebate-card a, .nbhd-card ul.res a and many others) have higher specificity than .btn-*, and several
+   have dark-mode variants, so the colour is pinned with !important. Only color is pinned; hover changes background.
+   Contrast: btn-primary text #1a0e02 on amber-500 / amber-600 is well above 4.5:1. */
+a.btn-primary, a.btn-primary:visited, a.btn-primary:hover, a.btn-primary:focus-visible, a.btn-primary:active { color: #1a0e02 !important; }
+a.btn-ghost, a.btn-ghost:visited, a.btn-ghost:hover, a.btn-ghost:focus-visible, a.btn-ghost:active { color: #fff !important; }
+a.btn-outline, a.btn-outline:visited, a.btn-outline:hover, a.btn-outline:focus-visible, a.btn-outline:active { color: var(--navy-700) !important; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) a.btn-outline, :root:not([data-theme='light']) a.btn-outline:visited,
+  :root:not([data-theme='light']) a.btn-outline:hover, :root:not([data-theme='light']) a.btn-outline:focus-visible,
+  :root:not([data-theme='light']) a.btn-outline:active { color: var(--ink) !important; }
+}
+:root[data-theme='dark'] a.btn-outline, :root[data-theme='dark'] a.btn-outline:visited, :root[data-theme='dark'] a.btn-outline:hover,
+:root[data-theme='dark'] a.btn-outline:focus-visible, :root[data-theme='dark'] a.btn-outline:active { color: var(--ink) !important; }
+.prose a.btn { font-weight: 700; }
+.prose a.btn:focus-visible { border-radius: 6px; }
 
 /* Core-page primitives */
 .page-head { background: linear-gradient(135deg, var(--navy-900), var(--navy-800) 55%, var(--navy-700)); color: #fff; padding-block: 48px; }
