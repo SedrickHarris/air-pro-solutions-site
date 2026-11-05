@@ -93,10 +93,6 @@ export default function Page() {
             about today are:
           </p>
           <ul>
-            <li>
-              Some service pages have a comparison table that scrolls sideways on narrow screens. Keyboard users may not
-              be able to scroll it.
-            </li>
             <li>On small screens, the main menu is a row that scrolls sideways.</li>
             <li>Some placeholder images marked &quot;Photo pending&quot; are decorative and have no description.</li>
             <li>The map on the contact page is a still image, not an interactive map.</li>
