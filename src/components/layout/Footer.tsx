@@ -83,7 +83,7 @@ export function Footer() {
         <div className="foot-bottom">
           <span>&copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</span>
           <span>
-            <Link href="/privacy/">Privacy Policy</Link> · <Link href="/terms/">Terms</Link> · <Link href="/accessibility/">Accessibility</Link>
+            <Link href="/privacy/">Privacy Policy</Link> · <Link href="/terms/">Terms and Conditions</Link> · <Link href="/accessibility/">Accessibility</Link>
           </span>
         </div>
       </div>
