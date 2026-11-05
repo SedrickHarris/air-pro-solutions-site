@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { publishedServices } from '@/content/services';
 import { siteConfig } from '@/content/site-config';
+import { CONSENT_NON_MARKETING, CONSENT_MARKETING } from '@/content/sms-consent';
 
 // Both values are inlined at build time (static export). See README "Contact form" and .env.example.
 // The production build fails if either is missing (scripts/check-form-env.mjs). In local dev an empty
@@ -13,11 +14,8 @@ import { siteConfig } from '@/content/site-config';
 const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT ?? '';
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '';
 
-// TODO(data): final SMS/TCPA consent wording must be approved by the client/counsel and match /privacy/.
-const CONSENT_NON_MARKETING =
-  'By checking this box, I consent to receive non-marketing text messages from AIRPRO SOLUTIONS about appointments, service updates, and account notifications. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out. Reply HELP for help.';
-const CONSENT_MARKETING =
-  'By checking this box, I consent to receive marketing text messages from AIRPRO SOLUTIONS about special offers, discounts, and promotions. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out. Reply HELP for help.';
+// TODO(data): final SMS/TCPA consent wording must be approved by the client/counsel and match /privacy/ and /terms/.
+// The wording lives in src/content/sms-consent.ts so the Terms page quotes exactly the same strings.
 
 type Errors = Partial<Record<'name' | 'phone' | 'email' | 'service' | 'captcha', string>>;
 type Status = 'idle' | 'sending' | 'error' | 'unconfigured';
@@ -181,7 +179,7 @@ export function ContactForm() {
         <span>{CONSENT_MARKETING}</span>
       </label>
       <p className="consent-link">
-        See our <Link href="/privacy/">Privacy Policy</Link>.
+        See our <Link href="/privacy/">Privacy Policy</Link> and <Link href="/terms/">Terms and Conditions</Link>.
       </p>
       {TURNSTILE_SITE_KEY && <div ref={widgetRef} className="turnstile-box" />}
       {msg('captcha')}
