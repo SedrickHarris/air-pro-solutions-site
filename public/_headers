@@ -1,0 +1,28 @@
+# Cloudflare Pages response headers (copied to out/_headers by the build).
+# Docs: https://developers.cloudflare.com/pages/configuration/headers/
+# Notes: rules combine (a request inherits the headers of every matching rule), at most 100 rules and 2,000
+# characters per line. These headers are NOT applied to Pages Functions responses (/api/contact sets its own).
+# Redirects in _redirects are applied before headers.
+#
+# HTML pages, sitemap.xml and robots.txt get no Cache-Control here, so Pages keeps its default
+# "public, max-age=0, must-revalidate" and content updates show immediately.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+
+# Content-hashed build output (chunks, css and fonts carry a hash in the file name; the build id folder changes
+# on every build). Safe to cache for a year.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Unhashed files whose names are reused when an image is replaced: moderate cache, never immutable.
+/images/*
+  Cache-Control: public, max-age=86400
+/favicon.ico
+  Cache-Control: public, max-age=86400
+
+# TODO(launch): add HSTS only after the custom domain works over HTTPS (see audit report for the exact line).
+# TODO(launch): Content-Security-Policy is proposed in the audit report; test it as Report-Only first.
