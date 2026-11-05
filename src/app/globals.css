@@ -112,7 +112,10 @@ section { padding-block: 56px; }
 :root[data-theme='dark'] .btn-outline { color: var(--ink); border-color: var(--ink-soft); }
 /* Buttons keep their own text color in every state and inside every container. Descendant link rules
    (.prose a, .rebate-card a, .nbhd-card ul.res a and many others) have higher specificity than .btn-*, and several
-   have dark-mode variants, so the colour is pinned with !important. Only color is pinned; hover changes background.
+   have dark-mode variants, so they reach about four classes of specificity (e.g. :root[data-theme='dark'] .nbhd-card ul.res a).
+   A plain .btn-* or a.btn-* selector cannot beat them, so the colour is pinned with !important. DO NOT REMOVE the
+   !important: without it buttons inside content areas turn link-coloured and fail contrast (404, financing,
+   maintenance-plan did). Only color is pinned; hover changes background.
    Contrast: btn-primary text #1a0e02 on amber-500 / amber-600 is well above 4.5:1. */
 a.btn-primary, a.btn-primary:visited, a.btn-primary:hover, a.btn-primary:focus-visible, a.btn-primary:active { color: #1a0e02 !important; }
 a.btn-ghost, a.btn-ghost:visited, a.btn-ghost:hover, a.btn-ghost:focus-visible, a.btn-ghost:active { color: #fff !important; }
