@@ -41,7 +41,7 @@ export function Footer() {
             <p>Licensed HVAC contractor serving Los Angeles and Southern California.</p>
           </div>
           <div>
-            <h3>Services</h3>
+            <h2>Services</h2>
             <ul>
               {servicesCol.map((c) => (
                 <li key={c.href}><Link href={c.href}>{c.label}</Link></li>
@@ -49,7 +49,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3>Company</h3>
+            <h2>Company</h2>
             <ul>
               {company.map((c) => (
                 <li key={c.href}><Link href={c.href}>{c.label}</Link></li>
@@ -57,7 +57,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3>Areas We Serve</h3>
+            <h2>Areas We Serve</h2>
             <ul>
               {footerCities.map((slug) => (
                 <li key={`/service-areas/${slug}/`}><CityLink slug={slug} /></li>
@@ -66,7 +66,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3>Contact</h3>
+            <h2>Contact</h2>
             <ul>
               <li>
                 <a className="btn btn-ghost footer-phone-btn" href={siteConfig.phoneHref}>

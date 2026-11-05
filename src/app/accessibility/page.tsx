@@ -93,7 +93,6 @@ export default function Page() {
             about today are:
           </p>
           <ul>
-            <li>On the FAQ page, some question headings skip a heading level.</li>
             <li>
               Some service pages have a comparison table that scrolls sideways on narrow screens. Keyboard users may not
               be able to scroll it.
