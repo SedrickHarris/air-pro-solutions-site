@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { publishedServices } from '@/content/services';
 import { siteConfig } from '@/content/site-config';
@@ -179,6 +180,9 @@ export function ContactForm() {
         <input name="sms_consent_marketing" type="checkbox" value="yes" />
         <span>{CONSENT_MARKETING}</span>
       </label>
+      <p className="consent-link">
+        See our <Link href="/privacy/">Privacy Policy</Link>.
+      </p>
       {TURNSTILE_SITE_KEY && <div ref={widgetRef} className="turnstile-box" />}
       {msg('captcha')}
       <button className="btn btn-primary" type="submit" disabled={status === 'sending'}>
