@@ -84,7 +84,7 @@ export default function Page() {
             <li>Gives images text descriptions, or hides purely decorative graphics from assistive technology.</li>
             <li>Uses descriptive link text, and phone and email links that open your phone or mail app.</li>
             <li>Turns off its short hover animations if your device is set to reduce motion.</li>
-            <li>Fits small screens without sideways scrolling on the pages we checked, with the main menu shown as large, well-spaced buttons.</li>
+            <li>Fits small screens at normal text size without sideways scrolling on the pages we checked, with the main menu shown as large, well-spaced buttons.</li>
           </ul>
 
           <h2 id="known-limitations">Known limitations</h2>
@@ -94,6 +94,12 @@ export default function Page() {
             about today are:
           </p>
           <ul>
+            {/* TODO(data): measured 2026-11-04 at 320 px with text scaled to 150 and 200 percent: the main menu, the top section
+                (hero) and the row of trust badges push the page wider than the screen on most pages. Remove this item once fixed and re-scanned. */}
+            <li>
+              On small screens at larger text sizes (150 and 200 percent), many pages scroll sideways, including the main
+              menu and the top section of the page. We are working to fix this.
+            </li>
             <li>Some placeholder images marked &quot;Photo pending&quot; are decorative and have no description.</li>
             <li>The map on the contact page is a still image, not an interactive map.</li>
             <li>
