@@ -361,7 +361,8 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 
 @media (max-width: 920px) {
   .header-inner { flex-wrap: wrap; gap: 12px; }
-  .nav { order: 3; width: 100%; overflow-x: auto; margin: 0; gap: 16px; }
+  .nav { order: 3; width: 100%; margin: 0; gap: 8px 16px; flex-wrap: wrap; }
+  .nav a { display: flex; align-items: center; min-height: 44px; padding-inline: 12px; border-radius: 8px; background: rgba(255, 255, 255, 0.06); }
   .hero-grid, .split, .proof-grid { grid-template-columns: 1fr; }
   .proof-stats { flex-wrap: wrap; }
   .proof-stats > div { padding: 0 16px 12px; }
@@ -382,6 +383,8 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 @media (max-width: 520px) {
   .decision-grid, .services-grid, .region-grid, .foot-grid { grid-template-columns: 1fr; }
   .header-cta .btn { display: none; }
+  .nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .nav a { justify-content: center; text-align: center; }
   .symptom-grid, .applies-row, .process-list { grid-template-columns: 1fr; }
 }
 

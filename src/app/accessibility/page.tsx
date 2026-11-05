@@ -84,7 +84,7 @@ export default function Page() {
             <li>Gives images text descriptions, or hides purely decorative graphics from assistive technology.</li>
             <li>Uses descriptive link text, and phone and email links that open your phone or mail app.</li>
             <li>Turns off its short hover animations if your device is set to reduce motion.</li>
-            <li>Fits small screens without sideways scrolling on the pages we checked.</li>
+            <li>Fits small screens without sideways scrolling on the pages we checked, with the main menu shown as large, well-spaced buttons.</li>
           </ul>
 
           <h2 id="known-limitations">Known limitations</h2>
@@ -94,7 +94,6 @@ export default function Page() {
             about today are:
           </p>
           <ul>
-            <li>On small screens, the main menu is a row that scrolls sideways.</li>
             <li>Some placeholder images marked &quot;Photo pending&quot; are decorative and have no description.</li>
             <li>The map on the contact page is a still image, not an interactive map.</li>
             <li>
