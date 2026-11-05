@@ -395,9 +395,15 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
   .process-list { grid-template-columns: 1fr 1fr; }
   .compare-groups { grid-template-columns: 1fr; }
   .rebate-strip { grid-template-columns: 1fr; }
+  /* Bottom bar: fixed, one line. Call Now sizes to its label, Schedule Service takes the rest. min-height, not height,
+     so the bar grows if text wraps at large font sizes. The body padding and scroll-padding below are in rem so they
+     scale with text size and keep content (and focused links) clear of the bar. Keep them equal to the bar height. */
   .sticky-mobile { display: flex; gap: 10px; position: fixed; inset: auto 0 0 0; padding: 10px 12px; background: var(--navy-950); z-index: 50; }
-  .sticky-mobile .btn { flex: 1; text-align: center; }
-  body { padding-bottom: 66px; }
+  .sticky-mobile .btn { display: flex; align-items: center; justify-content: center; min-height: 44px; text-align: center; }
+  .sticky-mobile .btn-ghost { flex: 0 0 auto; }
+  .sticky-mobile .btn-primary { flex: 1 1 0; min-width: 0; }
+  body { padding-bottom: 4.5rem; }
+  html { scroll-padding-bottom: 4.5rem; }
 }
 @media (max-width: 520px) {
   .decision-grid, .services-grid, .region-grid, .foot-grid { grid-template-columns: 1fr; }
