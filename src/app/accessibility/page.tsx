@@ -99,7 +99,7 @@ export default function Page() {
             <li>
               The spam check on the contact form (Cloudflare Turnstile) is a third-party tool that we do not control.
             </li>
-            <li>We only reviewed a sample of pages, so other pages may have problems we have not found.</li>
+            <li>Automated checks have been run on every page, and a manual review covered a sample of pages, so other pages may have problems we have not found.</li>
           </ul>
           <p>We plan to keep improving the site.</p>
 
@@ -139,8 +139,8 @@ export default function Page() {
           <h2 id="assessment">Technical specifications and assessment approach</h2>
           {/* TODO(data): update this section if the client later commissions an independent audit or testing with assistive technology. */}
           <p>
-            AIRPRO SOLUTIONS checked this site during the website build with automated checks and a manual review of
-            sample pages. The site has not yet been independently audited, and we have not tested it with specific
+            AIRPRO SOLUTIONS checked this site during the website build with automated checks on every page and a
+            manual review of sample pages. The site has not yet been independently audited, and we have not tested it with specific
             screen readers.
           </p>
 
