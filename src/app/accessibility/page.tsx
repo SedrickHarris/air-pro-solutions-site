@@ -83,6 +83,7 @@ export default function Page() {
             <li>Labels contact form fields, uses autocomplete hints on the name, phone, and email fields, and shows error messages in text.</li>
             <li>Gives images text descriptions, or hides purely decorative graphics from assistive technology.</li>
             <li>Uses descriptive link text, and phone and email links that open your phone or mail app.</li>
+            <li>Turns off its short hover animations if your device is set to reduce motion.</li>
             <li>Fits small screens without sideways scrolling on the pages we checked.</li>
           </ul>
 

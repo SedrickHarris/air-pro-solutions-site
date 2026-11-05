@@ -745,3 +745,10 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
    min-width: 0 lets grid and flex children shrink below their content width. */
 a[href^='mailto:'] { overflow-wrap: anywhere; }
 .grid-2 > *, .form, .form .field { min-width: 0; }
+
+/* Reduced motion: the only motion on the site is short hover transitions (cards, pills, chips). People who ask their
+   system for less motion get none of it, and the card lift on hover is dropped too. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  .decision-card:hover, .svc-card:hover, .region-card:hover { transform: none !important; }
+}
