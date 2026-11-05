@@ -33,9 +33,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" data-theme="dark" className={`${barlow.variable} ${manrope.variable}`}>
       <body>
+        <a className="skip-link" href="#main-content">Skip to main content</a>
         <AnnouncementBar />
         <Header />
-        <main>{children}</main>
+        <main id="main-content" tabIndex={-1}>{children}</main>
         <Footer />
         <StickyMobileBar />
       </body>

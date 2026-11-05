@@ -78,6 +78,7 @@ export default function Page() {
             <li>Sets the page language and gives each page its own title.</li>
             <li>Uses page landmarks (header, navigation, main content, and footer) and one main heading per page.</li>
             <li>Can be used with a keyboard, with a visible outline on the item that has focus.</li>
+            <li>Starts every page with a &quot;Skip to main content&quot; link for keyboard users.</li>
             <li>Uses real links and buttons for navigation and actions.</li>
             <li>Labels contact form fields, uses autocomplete hints on the name, phone, and email fields, and shows error messages in text.</li>
             <li>Gives images text descriptions, or hides purely decorative graphics from assistive technology.</li>
@@ -92,7 +93,6 @@ export default function Page() {
             about today are:
           </p>
           <ul>
-            <li>There is no &quot;skip to main content&quot; link, so keyboard users move through the header links first.</li>
             <li>On the FAQ page, some question headings skip a heading level.</li>
             <li>
               Some service pages have a comparison table that scrolls sideways on narrow screens. Keyboard users may not
