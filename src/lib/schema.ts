@@ -89,12 +89,17 @@ export const breadcrumbSchema = (items: { name: string; url: string }[]) => ({
 
 // Generic page schema for core/utility pages. `name` must be the page's visible H1; no description is emitted
 // because these pages have no visible summary sentence to mirror. The organization is referenced by @id only.
-export const webPageSchema = (p: { type?: 'WebPage' | 'AboutPage' | 'ContactPage'; name: string; url: string }) => ({
+// Optional `description` and `dateModified` (ISO date) are emitted only when given; the description must be the
+// visible on-page summary sentence word for word, and dateModified must match the visible "Last updated" date.
+export const webPageSchema = (p: { type?: 'WebPage' | 'AboutPage' | 'ContactPage'; name: string; url: string; description?: string; dateModified?: string }) => ({
   '@context': 'https://schema.org',
   '@type': p.type ?? 'WebPage',
   name: p.name,
   url: p.url,
+  ...(p.description ? { description: p.description } : {}),
+  ...(p.dateModified ? { dateModified: p.dateModified } : {}),
   publisher: providerRef,
+  ...(p.dateModified ? { isPartOf: providerRef } : {}),
   ...(p.type === 'AboutPage' ? { about: providerRef } : {}),
 });
 
