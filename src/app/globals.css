@@ -112,6 +112,7 @@ section { padding-block: 56px; }
 .page-head .lede { font-size: 1.05rem; line-height: 1.55; max-width: 46ch; color: #cddaea; margin: 0.75rem 0 0; }
 .page-head .page-head-note { font-family: var(--font-body); font-size: 0.9rem; color: #cddaea; margin: 0.75rem 0 0; }
 .prose { max-width: 70ch; line-height: 1.65; }
+.prose blockquote { margin: 0.5rem 0 1rem; padding: 10px 16px; border-left: 3px solid var(--amber-500); background: var(--card-bg); color: var(--ink-soft); font-size: 0.95rem; border-radius: 0 8px 8px 0; }
 .prose h2[id] { scroll-margin-top: 96px; }
 .legal-toc { max-width: 70ch; background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 0 0 8px; }
 .legal-toc h2 { font-size: 1.1rem; margin: 0 0 0.5rem; }
