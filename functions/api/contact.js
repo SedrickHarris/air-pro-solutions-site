@@ -22,7 +22,8 @@ const REQUIRED_ENV = [
 const json = (status, body) =>
   new Response(JSON.stringify(body), {
     status,
-    headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' },
+    // _headers rules are not applied to Pages Functions responses, so the Function sets its own headers on every response.
+    headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' },
   });
 const fail = (status, code) => json(status, { ok: false, error: code });
 

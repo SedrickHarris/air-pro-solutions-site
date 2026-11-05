@@ -343,3 +343,23 @@ test('whitespace-only env value counts as missing', async () => {
   const { res } = await run(makeRequest(), { env: { ...ENV, GHL_LOCATION_ID: '   ' } });
   assert.equal(res.status, 500);
 });
+
+// Every response the Function returns (success and each error path) carries nosniff and keeps no-store.
+test('every response carries X-Content-Type-Options nosniff and Cache-Control no-store', async () => {
+  const cases = [
+    ['405 method', makeRequest(GOOD, { method: 'GET' }), {}],
+    ['500 not configured', makeRequest(), { env: {} }],
+    ['403 foreign origin', makeRequest(GOOD, { headers: { Origin: 'https://evil.example' } }), {}],
+    ['415 content type', makeRequest(GOOD, { raw: 'a=b', headers: { 'Content-Type': 'text/plain' } }), {}],
+    ['400 invalid', makeRequest({ ...GOOD, email: 'nope' }), {}],
+    ['200 honeypot', makeRequest({ ...GOOD, company_website: 'x' }), {}],
+    ['400 turnstile rejected', makeRequest(), { turnstile: () => Response.json({ success: false, 'error-codes': ['invalid-input-response'] }) }],
+    ['502 upsert failed', makeRequest(), { upsert: () => new Response('{}', { status: 500 }) }],
+    ['200 success', makeRequest(), {}],
+  ];
+  for (const [label, req, opts] of cases) {
+    const { res } = await run(req, opts);
+    assert.equal(res.headers.get('X-Content-Type-Options'), 'nosniff', label + ': nosniff');
+    assert.equal(res.headers.get('Cache-Control'), 'no-store', label + ': no-store');
+  }
+});
