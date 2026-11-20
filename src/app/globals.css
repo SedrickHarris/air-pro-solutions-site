@@ -780,3 +780,58 @@ a[href^='mailto:'] { overflow-wrap: anywhere; }
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
   .decision-card:hover, .svc-card:hover, .region-card:hover { transform: none !important; }
 }
+
+/* Reviews: scrolling carousel (homepage and /reviews/), full grid and summary card (/reviews/). Tokens only, so the
+   cards follow the theme with no per-theme overrides. The carousel is a <section>, so the global section padding is reset. */
+.review-carousel { padding-block: 0; }
+.review-carousel-heading { margin: 0 0 0.75rem; }
+.review-track-wrap { margin-inline: -20px; }
+.review-track {
+  display: flex; gap: 16px; align-items: stretch; overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-padding-inline: 20px; padding: 6px 20px 14px;
+  scrollbar-width: none; -ms-overflow-style: none;
+  /* Soft fade at both edges. Mask (not a colored overlay) so it works on any section background; the 20px padding keeps the first and last card fully opaque at rest. */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 20px, #000 calc(100% - 20px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 20px, #000 calc(100% - 20px), transparent);
+}
+.review-track::-webkit-scrollbar { display: none; }
+.review-track:focus-visible { outline: 2px solid var(--sky-500); outline-offset: -2px; border-radius: 12px; }
+.review-card {
+  display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 20px; background: var(--card-bg);
+  border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); color: var(--ink); scroll-margin-top: 96px;
+}
+.review-track .review-card { flex: 0 0 360px; scroll-snap-align: start; }
+.review-stars { color: var(--amber-500); display: block; max-width: 100%; height: auto; }
+.review-text { margin: 0; font-size: 0.95rem; line-height: 1.6; white-space: pre-line; overflow-wrap: break-word; }
+.review-card-clamp .review-text { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 6; line-clamp: 6; overflow: hidden; }
+.review-more { font-size: 0.88rem; margin-top: -4px; }
+.review-meta { margin: auto 0 0; display: flex; flex-wrap: wrap; gap: 2px 10px; align-items: baseline; font-size: 0.9rem; }
+.review-name { font-weight: 800; }
+.review-date { color: var(--ink-soft); }
+.review-source { margin: -6px 0 0; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; color: var(--ink-soft); }
+.review-chip { font-size: 0.74rem; padding: 3px 9px; letter-spacing: 0; }
+.review-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 4px; }
+.review-position { margin: 0; font-size: 0.88rem; font-weight: 600; color: var(--ink-soft); }
+.review-buttons { display: flex; gap: 10px; }
+.review-btn {
+  display: inline-grid; place-items: center; width: 44px; height: 44px; padding: 0; cursor: pointer;
+  background: var(--card-bg); color: var(--ink); border: 1px solid var(--ink-soft); border-radius: 999px;
+}
+.review-btn:hover:not(:disabled) { border-color: var(--amber-500); }
+.review-btn:disabled { opacity: 0.4; cursor: default; }
+.review-section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; margin-bottom: 1rem; }
+.review-section-head h2 { margin: 0; }
+
+.review-summary { display: flex; flex-wrap: wrap; gap: 16px 40px; padding: 20px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); }
+.review-summary > div { display: grid; min-width: 0; }
+.review-summary .trust-num { color: var(--ink); }
+.review-summary .trust-label { color: var(--ink-soft); }
+.review-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.review-ask { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding: 28px; background: var(--amber-100); border: 1px solid var(--amber-600); border-radius: 14px; color: var(--ink); }
+.review-ask h2 { margin: 0 0 0.25rem; }
+.review-ask p { margin: 0; color: var(--ink-soft); }
+@media (max-width: 919px) { .review-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 559px) {
+  .review-grid { grid-template-columns: minmax(0, 1fr); }
+  .review-track .review-card { flex-basis: 85vw; }
+}
