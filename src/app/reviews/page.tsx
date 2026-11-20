@@ -13,7 +13,7 @@ import { hubMetadata, utilityTitle } from '@/lib/seo';
 // Indexable and in sitemap.ts. Review text, names and dates come from src/content/reviews.ts only.
 export const metadata = hubMetadata({
   title: utilityTitle('Customer Reviews'),
-  description: 'Read what customers say about AIRPRO SOLUTIONS HVAC repair and installation. Call (323) 776-9047 to schedule service.', // TODO(copy): client approval of reviews page copy not confirmed
+  description: 'Read what customers say about AIRPRO SOLUTIONS HVAC repair and installation. Call (323) 776-9047 to schedule service.',
   path: '/reviews/',
 });
 

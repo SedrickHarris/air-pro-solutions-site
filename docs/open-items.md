@@ -1978,14 +1978,17 @@ Still open: /service-areas/torrance/ still uses the old unverified neighborhoods
 
 ## Reviews page (/reviews/) and review carousel
 
-Built 2026-11-19 on branch `reviews-carousel-page` (local, not pushed). The page was a noindex stub; it is now indexable and in `sitemap.ts`, with a "Reviews" link in the footer Company column and a carousel on the homepage above the final CTA. Review data lives in `src/content/reviews.ts` (21 reviews, all 5 stars, text verbatim from Google; the only edits are Tamalin P.'s three em dashes changed to " - " and the emoji dropped from Silvia S.'s review). The 4.8 stars / 40 Google reviews figure on the page comes from `siteConfig`, never from the list. `siteConfig.googleReviewUrl` (re-exported as `GOOGLE_REVIEW_URL`) feeds the "Leave a Review" buttons.
+Built 2026-11-19 and pushed to main (user said push to main). The page was a noindex stub; it is now indexable and in `sitemap.ts`, with a "Reviews" link in the footer Company column and a carousel on the homepage above the final CTA. Review data lives in `src/content/reviews.ts` (21 reviews, all 5 stars, text verbatim from Google; the only edits are Tamalin P.'s three em dashes changed to " - " and the emoji dropped from Silvia S.'s review; checked string by string against the supplied data). The 4.8 stars / 40 Google reviews figure on the page comes from `siteConfig`, never from the list. `siteConfig.googleReviewUrl` (re-exported as `GOOGLE_REVIEW_URL`) feeds the "Leave a Review" buttons.
 
-- TODO(copy) A&G Home Services: three reviews (Jonathan R., Robert G., Bob W.) name or abbreviate "A&G Home Services" ("AG services" in Bob W.'s), the name used in the owner's replies on the Google profile. Shown verbatim. Whether to explain the name change on the page is the owner's decision; no explanatory text is shown.
-- DECISION `INCLUDE_GENERAL_REVIEWS`: the 15 `service: "general"` reviews name no service, so we cannot confirm they were HVAC jobs. The flag in `reviews.ts` switches them off with one line.
-- TODO(copy) Robert G.'s review contains the word "crapped". Shown verbatim pending the owner's call.
+Decided 2026-11-19:
+- Copy approved by the client (2026-11-19): the page copy, description and homepage section. No `TODO(copy)` markers remain on the reviews page, the homepage carousel section or the footer link.
+- A&G reviews (Jonathan R., Robert G., Bob W.) name or abbreviate "A&G Home Services" ("AG services" in Bob W.'s), the name used in the owner's Google replies. They stay on the page verbatim, with no explanatory note.
+- The 15 `service: "general"` reviews stay. `INCLUDE_GENERAL_REVIEWS` remains `true` in `reviews.ts` and still switches them off with one line.
+- "same day" in Virginia D.'s review and "crapped" in Robert G.'s review are accepted as customer wording, shown verbatim. They are not site claims, and the metadata claim gate does not apply to them.
+
+Still open:
 - Peretz G. and Michelle A. have no date because Google only showed relative dates.
-- Virginia D.'s review says "same day". It is the customer's own words, shown verbatim, not a site claim, and the metadata claim gate does not apply to it.
-- TODO(copy) Client approval of the reviews page copy (lede, description, "Had a good experience?" card) is not confirmed.
+- Touch swipe on the carousel has not been tested on a real phone (scroll-snap is native; tested with keyboard, buttons and scripted scrolling in desktop Chromium).
 - Reviews deliberately left out: any review about a dryer, washer, refrigerator or stove, the 1-star review, the 4-star reviews and every star-only or emoji-only review. More reviews only when the owner pastes them.
 - Schema: `WebPage` plus `BreadcrumbList` only. No `Review` or `AggregateRating` markup for the self-hosted reviews, and the homepage organization rating markup is unchanged.
 - Description is 117 characters, under the 140-160 preferred range but inside the hard 70-180 gate; kept as the owner's suggested wording (utility-page rule: plain, human).

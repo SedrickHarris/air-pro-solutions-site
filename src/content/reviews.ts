@@ -59,7 +59,7 @@ export const reviews: Review[] = [
     date: 'May 2024',
     service: 'hvac',
     serviceSlug: 'ductwork',
-    // TODO(copy): names "A&G Home Services", the name in the owner's Google replies. Shown verbatim; see docs/open-items.md "Reviews page".
+    // Names "A&G Home Services", the name in the owner's Google replies. Decided: shown verbatim, no explanatory note.
     text: 'I recently hired A&G Home Services to replace the air ducts in my home , and I’m very happy with the results. The new ducts have made a noticeable difference in the air quality and efficiency of my HVAC system .',
   },
   {
@@ -69,7 +69,7 @@ export const reviews: Review[] = [
     date: 'May 2024',
     service: 'hvac',
     serviceSlug: 'ac-repair',
-    // TODO(copy): names "A &G" and uses the word "crapped". Shown verbatim pending the owner's call; see docs/open-items.md.
+    // Names "A &G" and uses the word "crapped". Decided: customer wording, shown verbatim.
     text: 'Had a great experience with David, Tim and Cristobal… my AC unit crapped and they came in and solve my issue at affordable prices!!! Very good business!! Love A &G',
   },
   {
@@ -92,7 +92,7 @@ export const reviews: Review[] = [
   { id: 'patty-s', name: 'Patty S.', rating: 5, date: 'May 2024', service: 'general', text: 'I was very pleased with the service. Both men arrived in a timely manner. Parts were ordered and repair completed in time promised.' },
   { id: 'silvia-s', name: 'Silvia S.', rating: 5, date: 'May 2024', service: 'general', text: 'Professional, timely, very knowledgeable, precise, courteous, clean work, very reasonable pricing!!' },
   { id: 'santiago-s', name: 'Santiago S.', rating: 5, date: 'May 2024', service: 'general', text: 'Quick service and trustworthy. I would definitely recommend!!!' },
-  // TODO(copy): "AG services" is the owner's reply name, "A&G Home Services". Shown verbatim.
+  // "AG services" is the owner's reply name, "A&G Home Services". Decided: shown verbatim, no explanatory note.
   { id: 'bob-w', name: 'Bob W.', rating: 5, date: 'May 2024', service: 'general', text: 'AG services were prompt and friendly. We work together to schedule my service. They explained in detail what was to be done and was done within the time allotted!' },
   { id: 'jamsline-m', name: 'Jamsline M.', rating: 5, date: 'May 2024', service: 'general', text: 'Very good work. Not pricey at all. Honest with integrity. Not going to rip you off! Shows you how to save money! Would definitely recommend.' },
   { id: 'gary-b', name: 'Gary B.', rating: 5, date: 'Apr 2024', service: 'general', text: 'Work was great, friendly, attentive and on time. Would have Them back if We had more work.' },
