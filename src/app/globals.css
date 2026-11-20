@@ -382,7 +382,7 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
   .header-inner { flex-wrap: wrap; gap: 12px; }
   .nav { order: 3; width: 100%; margin: 0; gap: 8px 16px; flex-wrap: wrap; }
   .nav a { display: flex; align-items: center; min-height: 44px; padding-inline: 12px; border-radius: 8px; background: rgba(255, 255, 255, 0.06); }
-  .hero-grid, .split, .proof-grid { grid-template-columns: 1fr; }
+  .hero-grid, .split, .proof-grid { grid-template-columns: minmax(0, 1fr); }
   .proof-stats { flex-wrap: wrap; }
   .proof-stats > div { padding: 0 16px 12px; }
   .proof-stats > div + div { border-left: 0; }
@@ -408,8 +408,9 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 @media (max-width: 520px) {
   .decision-grid, .services-grid, .region-grid, .foot-grid { grid-template-columns: 1fr; }
   .header-cta .btn { display: none; }
-  .nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .nav a { justify-content: center; text-align: center; }
+  /* Two columns at normal text size; the 7.5rem minimum drops it to one column as text grows, so a label never overflows its cell. */
+  .nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 7.5rem), 1fr)); gap: 8px; }
+  .nav a { justify-content: center; text-align: center; white-space: normal; }
   .symptom-grid, .applies-row, .process-list { grid-template-columns: 1fr; }
 }
 
@@ -507,7 +508,7 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 .local-knowledge-dark .nbhd-card dl.lc-rows dd, .local-knowledge-dark .nbhd-card .lc-note { color: #cddaea; }
 /* A fact card that is the only block in its .nbhd-card (service-page band) has no sibling below it to separate from. */
 .nbhd-card .lc:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: none; }
-@media (max-width: 520px) { .nbhd-card dl.lc-rows > div { grid-template-columns: 1fr; gap: 2px; } }
+@media (max-width: 520px) { .nbhd-card dl.lc-rows > div { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
 
 @media (max-width: 920px) {
   .local-grid { grid-template-columns: 1fr; }
@@ -661,7 +662,7 @@ table.compare tr td:first-child { color: var(--ink); font-weight: 600; white-spa
 :root[data-theme='dark'] .sources-list a { color: var(--sky-400); }
 
 @media (max-width: 920px) {
-  .visit-scope { grid-template-columns: 1fr; }
+  .visit-scope { grid-template-columns: minmax(0, 1fr); }
   .systems-grid, .rules-grid { grid-template-columns: 1fr 1fr; }
   .sources-list-2col { grid-template-columns: 1fr; }
   .callouts-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -781,6 +782,27 @@ a[href^='mailto:'] { overflow-wrap: anywhere; }
   .decision-card:hover, .svc-card:hover, .region-card:hover { transform: none !important; }
 }
 
+/* Text resize / reflow (WCAG 1.4.4, 1.4.10). Grid and flex children get min-width: 0 so long content can shrink
+   instead of stretching the track. Long words wrap with overflow-wrap: break-word (scoped to headings, hero text and
+   prose; not nav links or buttons). */
+.hero-grid > *, .split > *, .proof-grid > *, .visit-scope > *, .local-copy, .nbhd-card { min-width: 0; }
+h1, h2, h3, h4, .hero-lede, .trust-item, .proof-stats > div, .prose p, .prose li, .local-copy, .nbhd-card, .visit-scope-col { overflow-wrap: break-word; }
+.field { grid-template-columns: minmax(0, 1fr); }
+.field input, .field select, .field textarea { min-width: 0; }
+/* Trust bar: at normal text size the two 1fr columns grow to fit the longest word (as before). When text is scaled up
+   that floor is wider than the screen, so switch to minmax(0, 1fr) and let long words wrap. The container query is in
+   the bar's own font size (18em), so it only matches when text is scaled (about 150% and over at phone widths). */
+.trust-strip { container-type: inline-size; }
+@container (max-width: 18em) { .trust-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); } .trust-item { min-width: 0; grid-template-columns: minmax(0, 1fr); } }
+/* overflow-wrap: anywhere (not break-word) only here: the li is a flex row (icon + a bare text node). The text node is an
+   anonymous flex item whose min-content width is its longest word, and break-word does not lower min-content, so the
+   word pushed the li (and its auto grid track) wider than the screen. anywhere counts break points in min-content, so
+   the track can shrink. It is applied through a container query, because it also changes how the two columns share
+   space: 17em is measured in the list's own font size, so it only matches when text is scaled up (about 150% and
+   over at phone widths) and the layout at normal text size stays exactly as it was. */
+.hero-proof { container-type: inline-size; }
+@container (max-width: 17em) { .hero-proof li { overflow-wrap: anywhere; } }
+
 /* Reviews: scrolling carousel (homepage and /reviews/), full grid and summary card (/reviews/). Tokens only, so the
    cards follow the theme with no per-theme overrides. The carousel is a <section>, so the global section padding is reset. */
 .review-carousel { padding-block: 0; }
@@ -809,6 +831,9 @@ a[href^='mailto:'] { overflow-wrap: anywhere; }
 .review-name { font-weight: 800; }
 .review-date { color: var(--ink-soft); }
 .review-source { margin: -6px 0 0; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; color: var(--ink-soft); }
+/* Large text: long names and the source line wrap inside the card instead of poking past it. */
+.review-meta, .review-source { min-width: 0; }
+.review-name, .review-date, .review-source { overflow-wrap: anywhere; }
 .review-chip { font-size: 0.74rem; padding: 3px 9px; letter-spacing: 0; }
 .review-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 4px; }
 .review-position { margin: 0; font-size: 0.88rem; font-weight: 600; color: var(--ink-soft); }
