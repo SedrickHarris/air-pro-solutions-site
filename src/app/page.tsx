@@ -9,6 +9,9 @@ import { Proof } from '@/components/sections/Proof';
 import { RebateStrip } from '@/components/sections/RebateStrip';
 import { FaqList } from '@/components/sections/FaqList';
 import { FinalCta } from '@/components/sections/FinalCta';
+import { ReviewCarousel } from '@/components/sections/ReviewCarousel';
+import Link from 'next/link';
+import { getReviews } from '@/content/reviews';
 import { generalFaqs } from '@/content/faq';
 import { faqSchema, jsonLd, organizationSchema } from '@/lib/schema';
 import { homeMetadata, homeTitle } from '@/lib/seo';
@@ -50,6 +53,16 @@ export default function Page() {
       <Proof />
       <RebateStrip />
       <FaqList faqs={generalFaqs} title="HVAC Questions for Los Angeles Area Homes and Businesses" />
+      <section className="alt">
+        <div className="wrap">
+          <p className="eyebrow">Reviews</p>
+          <div className="review-section-head">
+            <h2>What customers say</h2>
+            <Link className="link" href="/reviews/">Read all reviews</Link>
+          </div>
+          <ReviewCarousel reviews={getReviews()} label="Customer reviews" />
+        </div>
+      </section>
       <FinalCta />
     </>
   );

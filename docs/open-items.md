@@ -1975,3 +1975,18 @@ Used on the matrix page (matrix-content.ts, not cities.ts):
 Held out: 90502 (sorting label and LA record only; Torrance excludes it from one program's residency), 90506 (college address only), 90277 (Redondo Beach postal ZIP also used by a Torrance library), West Torrance, Torrance Gardens, South Torrance (not researched or not found), Meadows (NOT FOUND), Del Amo as a residential neighborhood (business district only), standalone Seaside, Southwood and Seaside Ranchos (only in General Plan acknowledgments, name occurrence; client call), Riviera Village (Redondo Beach), neighborhood boundaries other than the Torrance Tract, housing age by neighborhood or ZIP (NOT FOUND except the Tract), USPS preferred-city designations.
 
 Still open: /service-areas/torrance/ still uses the old unverified neighborhoods, ZIP list (90501-90505, with 90502) and housing-stock paragraph in cities.ts; the "Hollywood Riviera border" wording is also in that page's lede. Torrance Tract Figure 7 (construction-date map) values were not extracted.
+
+## Reviews page (/reviews/) and review carousel
+
+Built 2026-11-19 on branch `reviews-carousel-page` (local, not pushed). The page was a noindex stub; it is now indexable and in `sitemap.ts`, with a "Reviews" link in the footer Company column and a carousel on the homepage above the final CTA. Review data lives in `src/content/reviews.ts` (21 reviews, all 5 stars, text verbatim from Google; the only edits are Tamalin P.'s three em dashes changed to " - " and the emoji dropped from Silvia S.'s review). The 4.8 stars / 40 Google reviews figure on the page comes from `siteConfig`, never from the list. `siteConfig.googleReviewUrl` (re-exported as `GOOGLE_REVIEW_URL`) feeds the "Leave a Review" buttons.
+
+- TODO(copy) A&G Home Services: three reviews (Jonathan R., Robert G., Bob W.) name or abbreviate "A&G Home Services" ("AG services" in Bob W.'s), the name used in the owner's replies on the Google profile. Shown verbatim. Whether to explain the name change on the page is the owner's decision; no explanatory text is shown.
+- DECISION `INCLUDE_GENERAL_REVIEWS`: the 15 `service: "general"` reviews name no service, so we cannot confirm they were HVAC jobs. The flag in `reviews.ts` switches them off with one line.
+- TODO(copy) Robert G.'s review contains the word "crapped". Shown verbatim pending the owner's call.
+- Peretz G. and Michelle A. have no date because Google only showed relative dates.
+- Virginia D.'s review says "same day". It is the customer's own words, shown verbatim, not a site claim, and the metadata claim gate does not apply to it.
+- TODO(copy) Client approval of the reviews page copy (lede, description, "Had a good experience?" card) is not confirmed.
+- Reviews deliberately left out: any review about a dryer, washer, refrigerator or stove, the 1-star review, the 4-star reviews and every star-only or emoji-only review. More reviews only when the owner pastes them.
+- Schema: `WebPage` plus `BreadcrumbList` only. No `Review` or `AggregateRating` markup for the self-hosted reviews, and the homepage organization rating markup is unchanged.
+- Description is 117 characters, under the 140-160 preferred range but inside the hard 70-180 gate; kept as the owner's suggested wording (utility-page rule: plain, human).
+- Not built here: the carousel on service and city pages, a service filter, `Review` schema.

@@ -24,6 +24,7 @@ const servicesCol = [
 const company = [
   { href: '/service-areas/', label: 'Service Areas' },
   { href: '/faq/', label: 'FAQ' },
+  { href: '/reviews/', label: 'Reviews' },
   { href: '/careers/', label: 'Careers' },
   { href: '/contact/', label: 'Contact' },
 ];
