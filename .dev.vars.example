@@ -8,6 +8,8 @@ GHL_FIELD_SMS_CONSENT_NONMARKETING_ID=<custom-field-id>
 GHL_FIELD_SMS_CONSENT_MARKETING_ID=<custom-field-id>
 GHL_FIELD_CONSENT_AT_ID=<custom-field-id>
 GHL_FIELD_SOURCE_PAGE_ID=<custom-field-id>
+# Optional: Inquiry Message (Large Text). If unset the message is skipped for that field.
+GHL_FIELD_INQUIRY_MESSAGE_ID=<custom-field-id>
 # Optional
 # GHL_API_VERSION=v3
 # TURNSTILE_ALLOWED_HOSTNAMES=localhost,<production-hostname>

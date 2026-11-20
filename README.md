@@ -67,6 +67,7 @@ Facts about the design:
 | `GHL_FIELD_SMS_CONSENT_MARKETING_ID` | field id | field id | Custom field: SMS Consent Marketing |
 | `GHL_FIELD_CONSENT_AT_ID` | field id | field id | Custom field: Consent Timestamp |
 | `GHL_FIELD_SOURCE_PAGE_ID` | field id | field id | Custom field: Source Page |
+| `GHL_FIELD_INQUIRY_MESSAGE_ID` (optional) | field id | field id | Custom field: Inquiry Message (Large Text). If unset, the message is not written to the field (the Note still has it) and `INQUIRY_FIELD_ID_MISSING` is logged |
 | `GHL_API_VERSION` (optional) | default `v3` | default `v3` | Value of the GHL `Version` header |
 | `TURNSTILE_ALLOWED_HOSTNAMES` (optional) | production hostname | preview hostname | Comma list; rejects tokens issued for other hostnames |
 
