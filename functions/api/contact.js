@@ -43,6 +43,36 @@ function normalizePhone(p) {
 // Trim every env value so stray whitespace from pasted dashboard values cannot break auth or field ids.
 const trimEnv = (raw) => Object.fromEntries(Object.entries(raw || {}).map(([k, v]) => [k, typeof v === 'string' ? v.trim() : v]));
 
+const INQUIRY_FIELD_NAME = 'Inquiry Message';
+
+// Look up a location custom field id by its display name (case-insensitive). Returns null on any failure.
+async function resolveFieldIdByName(fieldName, env, headers, log) {
+  try {
+    const r = await fetch(`${GHL_BASE}/locations/${encodeURIComponent(env.GHL_LOCATION_ID)}/customFields`, {
+      method: 'GET',
+      headers,
+      signal: AbortSignal.timeout(8000),
+    });
+    if (!r.ok) {
+      log('GHL_FIELD_LOOKUP_FAILED', { status: r.status });
+      return null;
+    }
+    const list = (await r.json())?.customFields;
+    const want = fieldName.toLowerCase();
+    const hit = Array.isArray(list)
+      ? list.find((f) => typeof f?.name === 'string' && f.name.trim().toLowerCase() === want && (!f.model || f.model === 'contact'))
+      : undefined;
+    if (!hit?.id) {
+      log('GHL_FIELD_NOT_FOUND', { field: fieldName });
+      return null;
+    }
+    return hit.id;
+  } catch {
+    log('GHL_FIELD_LOOKUP_ERROR');
+    return null;
+  }
+}
+
 export async function onRequest({ request, env: rawEnv }) {
   const env = trimEnv(rawEnv);
   if (request.method !== 'POST') return fail(405, 'method_not_allowed');
@@ -149,6 +179,11 @@ export async function onRequest({ request, env: rawEnv }) {
     { id: env.GHL_FIELD_SERVICE_ID, fieldValue: service },
     { id: env.GHL_FIELD_SOURCE_PAGE_ID, fieldValue: sourcePage || '(none)' },
   ];
+  // Inquiry Message is resolved by name at request time. Unlike the consent fields it is always written, so it
+  // reflects the latest submission. Fail closed: if the field cannot be resolved, log a code (never the message)
+  // and skip it, so the contact and Note are still created and the lead is never lost.
+  const inquiryFieldId = await resolveFieldIdByName(INQUIRY_FIELD_NAME, env, headers, log);
+  if (inquiryFieldId) customFields.push({ id: inquiryFieldId, fieldValue: message });
   if (consentNonMarketing) customFields.push({ id: env.GHL_FIELD_SMS_CONSENT_NONMARKETING_ID, fieldValue: 'Yes' });
   if (consentMarketing) customFields.push({ id: env.GHL_FIELD_SMS_CONSENT_MARKETING_ID, fieldValue: 'Yes' });
   if (consentNonMarketing || consentMarketing) customFields.push({ id: env.GHL_FIELD_CONSENT_AT_ID, fieldValue: iso });
