@@ -2,6 +2,8 @@
 // Counts unique source pages per city href, with the header, footer and scripts stripped. Footer-city links count
 // once in total (the footer is on every page). Source types: footer, nearby (other city pages), hub (region hubs),
 // index (/service-areas/), service (/services/<service>/), matrix (/services/<service>/<city>/), other.
+// A second table covers every indexable route (not only cities): unique source pages linking to it in the page body
+// (header and footer stripped) and in all markup. Report only.
 // Run: npm run build, then npm run report:inbound-links [path-to-out]
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { resolve, join, relative, sep } from 'node:path';
@@ -54,3 +56,26 @@ console.log(`${'city'.padEnd(18)}${types.map((t) => t.padStart(8)).join('')}${'t
 for (const r of rows) console.log(`${r.slug.padEnd(18)}${types.map((t) => String(r.t[t]).padStart(8)).join('')}${String(r.total).padStart(7)}`);
 console.log(`\nLowest 8:  ${rows.slice(0, 8).map((r) => `${r.slug} (${r.total})`).join(', ')}`);
 console.log(`Highest 8: ${rows.slice(-8).reverse().map((r) => `${r.slug} (${r.total})`).join(', ')}`);
+
+// All indexable routes (cities, services, matrix, hubs, core pages, /reviews/ and the rest), not only cities.
+const meta = new Map();
+const bodyLinks = new Map();
+const allLinks = new Map();
+for (const file of pages(out)) {
+  const src = '/' + relative(out, file).split(sep).slice(0, -1).join('/') + '/';
+  const raw = readFileSync(file, 'utf8').replace(/<script[\s\S]*?<\/script>/g, '');
+  const robots = (raw.match(/<meta name="robots" content="([^"]*)"/) || [])[1] ?? '';
+  meta.set(src === '//' ? '/' : src, !/noindex/i.test(robots));
+  const hrefs = (h) => new Set([...h.matchAll(/<a [^>]*href="(\/[^"#?]*)/g)].map((x) => x[1]));
+  bodyLinks.set(src === '//' ? '/' : src, hrefs(raw.replace(/<header[\s\S]*?<\/header>/g, '').replace(/<footer[\s\S]*?<\/footer>/g, '')));
+  allLinks.set(src === '//' ? '/' : src, hrefs(raw));
+}
+const count = (map, target) => [...map].filter(([src, set]) => src !== target && set.has(target)).length;
+const routes = [...meta].filter(([, idx]) => idx).map(([r]) => ({ r, body: count(bodyLinks, r), all: count(allLinks, r) }))
+  .sort((a, b) => a.body - b.body || a.all - b.all || a.r.localeCompare(b.r));
+console.log(`
+All indexable routes (${routes.length}): unique source pages linking in, body only / all markup. Lowest first.`);
+console.log(`${'route'.padEnd(46)}${'body'.padStart(6)}${'all'.padStart(6)}`);
+for (const x of routes) console.log(`${x.r.padEnd(46)}${String(x.body).padStart(6)}${String(x.all).padStart(6)}`);
+const orphans = routes.filter((x) => x.all === 0);
+console.log(orphans.length ? `\nORPHANS (no inbound link at all): ${orphans.map((x) => x.r).join(', ')}` : '\nNo orphans: every indexable route has at least one inbound link.');
