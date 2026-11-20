@@ -43,6 +43,42 @@ function normalizePhone(p) {
 // Trim every env value so stray whitespace from pasted dashboard values cannot break auth or field ids.
 const trimEnv = (raw) => Object.fromEntries(Object.entries(raw || {}).map(([k, v]) => [k, typeof v === 'string' ? v.trim() : v]));
 
+const INQUIRY_FIELD_NAME = 'Inquiry Message';
+
+// Look up a location custom field id by its display name (case-insensitive). Returns null on any failure.
+// Only a successful lookup is cached (per location), so the GHL call runs once per function instance. A failed or
+// not-found lookup is never cached and is retried on the next submission.
+let cachedInquiryField = null; // { locationId, id }
+
+async function resolveFieldIdByName(fieldName, env, headers, log) {
+  if (cachedInquiryField && cachedInquiryField.locationId === env.GHL_LOCATION_ID) return cachedInquiryField.id;
+  try {
+    const r = await fetch(`${GHL_BASE}/locations/${encodeURIComponent(env.GHL_LOCATION_ID)}/customFields`, {
+      method: 'GET',
+      headers,
+      signal: AbortSignal.timeout(8000),
+    });
+    if (!r.ok) {
+      log('GHL_FIELD_LOOKUP_FAILED', { status: r.status });
+      return null;
+    }
+    const list = (await r.json())?.customFields;
+    const want = fieldName.toLowerCase();
+    const hit = Array.isArray(list)
+      ? list.find((f) => typeof f?.name === 'string' && f.name.trim().toLowerCase() === want && (!f.model || f.model === 'contact'))
+      : undefined;
+    if (!hit?.id) {
+      log('GHL_FIELD_NOT_FOUND', { field: fieldName });
+      return null;
+    }
+    cachedInquiryField = { locationId: env.GHL_LOCATION_ID, id: hit.id };
+    return hit.id;
+  } catch {
+    log('GHL_FIELD_LOOKUP_ERROR');
+    return null;
+  }
+}
+
 export async function onRequest({ request, env: rawEnv }) {
   const env = trimEnv(rawEnv);
   if (request.method !== 'POST') return fail(405, 'method_not_allowed');
@@ -149,11 +185,15 @@ export async function onRequest({ request, env: rawEnv }) {
     { id: env.GHL_FIELD_SERVICE_ID, fieldValue: service },
     { id: env.GHL_FIELD_SOURCE_PAGE_ID, fieldValue: sourcePage || '(none)' },
   ];
-  // Inquiry Message is optional config (GHL_FIELD_INQUIRY_MESSAGE_ID), so it is not in REQUIRED_ENV and never blocks a
-  // lead. Unlike the consent fields it is written on every submission that has a message, so it reflects the latest one.
-  // Empty messages are omitted. CRLF is normalized to LF for this field only; the Note keeps the text as submitted.
-  if (!env.GHL_FIELD_INQUIRY_MESSAGE_ID) log('INQUIRY_FIELD_ID_MISSING');
-  else if (message) customFields.push({ id: env.GHL_FIELD_INQUIRY_MESSAGE_ID, fieldValue: message.replace(/\r\n/g, '\n') });
+  // Inquiry Message is resolved by name (cached after the first success). Unlike the consent fields it is written on
+  // every submission that has a message, so it reflects the latest one. An empty message omits the field (and skips
+  // the lookup). CRLF is normalized to LF for this field only; the Note keeps the text as submitted. Fail closed: if
+  // the field cannot be resolved, log a code (never the message) and skip it, so the contact and Note are still
+  // created and the lead is never lost.
+  if (message) {
+    const inquiryFieldId = await resolveFieldIdByName(INQUIRY_FIELD_NAME, env, headers, log);
+    if (inquiryFieldId) customFields.push({ id: inquiryFieldId, fieldValue: message.replace(/\r\n/g, '\n') });
+  }
   if (consentNonMarketing) customFields.push({ id: env.GHL_FIELD_SMS_CONSENT_NONMARKETING_ID, fieldValue: 'Yes' });
   if (consentMarketing) customFields.push({ id: env.GHL_FIELD_SMS_CONSENT_MARKETING_ID, fieldValue: 'Yes' });
   if (consentNonMarketing || consentMarketing) customFields.push({ id: env.GHL_FIELD_CONSENT_AT_ID, fieldValue: iso });

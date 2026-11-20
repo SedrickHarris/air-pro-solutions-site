@@ -2,7 +2,11 @@
 // Run: npm run test:contact
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { onRequest } from '../functions/api/contact.js';
+
+// The Function caches the resolved Inquiry Message field id at module level. Each test gets a fresh module instance
+// (cache-busting query string) so the cache is reset between cases. Pass the same `mod` to run() twice to test reuse.
+let moduleCounter = 0;
+const freshModule = () => import(`../functions/api/contact.js?instance=${++moduleCounter}`);
 
 const ENV = {
   TURNSTILE_SECRET_KEY: 'test-turnstile-secret',
@@ -13,7 +17,6 @@ const ENV = {
   GHL_FIELD_SMS_CONSENT_MARKETING_ID: 'fld-marketing',
   GHL_FIELD_CONSENT_AT_ID: 'fld-consent-at',
   GHL_FIELD_SOURCE_PAGE_ID: 'fld-source',
-  GHL_FIELD_INQUIRY_MESSAGE_ID: 'fld-inquiry',
 };
 const URL_ = 'https://example.test/api/contact';
 const GOOD = {
@@ -37,7 +40,8 @@ function makeRequest(fields = GOOD, { method = 'POST', headers = {}, raw } = {})
 }
 
 // Mock fetch + console capture. handlers override Turnstile / upsert / note behaviour.
-async function run(req, { env = ENV, turnstile, upsert, note } = {}) {
+async function run(req, { env = ENV, turnstile, upsert, note, fields, mod } = {}) {
+  const { onRequest } = mod || (await freshModule());
   const calls = [];
   const logs = [];
   const realFetch = globalThis.fetch;
@@ -45,8 +49,17 @@ async function run(req, { env = ENV, turnstile, upsert, note } = {}) {
   globalThis.fetch = async (url, init = {}) => {
     calls.push({ url: String(url), init });
     const u = String(url);
-    const h = u.includes('siteverify') ? turnstile : u.endsWith('/contacts/upsert') ? upsert : note;
+    const isLookup = u.endsWith('/customFields');
+    const h = u.includes('siteverify') ? turnstile : isLookup ? fields : u.endsWith('/contacts/upsert') ? upsert : note;
     if (h) return h();
+    if (isLookup) {
+      return Response.json({
+        customFields: [
+          { id: 'fld-other', name: 'Other Field', model: 'contact' },
+          { id: 'fld-inquiry', name: 'Inquiry Message', model: 'contact' },
+        ],
+      });
+    }
     if (u.includes('siteverify')) return Response.json({ success: true, hostname: 'example.test' });
     if (u.endsWith('/contacts/upsert')) return Response.json({ contact: { id: 'c1' }, new: true });
     return Response.json({ note: { id: 'n1' } }, { status: 201 });
@@ -201,54 +214,114 @@ test('success path with no consent boxes: exact payloads, no consent fields, no 
   assert.match(n.body, /Message:\nFictional test message\./);
 });
 
-test('env var present: message is written to the Inquiry Message field, trimmed and sanitized', async () => {
-  const { calls } = await run(makeRequest({ ...GOOD, message: '  Line one\u0000\u0007 here  ' }));
+test('message is sent in customFields under the resolved Inquiry Message id, trimmed and sanitized', async () => {
+  const { calls } = await run(makeRequest({ ...GOOD, message: '  Line one\nLine two\u0000\u0007  ' }));
   const f = upsertPayload(calls).customFields.find((x) => x.id === 'fld-inquiry');
-  assert.equal(f.fieldValue, 'Line one here');
-  assert.ok(!calls.some((c) => c.url.endsWith('/customFields')), 'no field lookup call is made');
-});
-
-test('newlines are normalized to LF in the Inquiry Message field only; the Note keeps CRLF', async () => {
-  const { calls } = await run(makeRequest({ ...GOOD, message: 'Line one\r\nLine two' }));
-  const f = upsertPayload(calls).customFields.find((x) => x.id === 'fld-inquiry');
-  assert.equal(f.fieldValue, 'Line one\nLine two');
+  assert.equal(f.fieldValue, 'Line one\nLine two'); // multipart encoding yields CRLF; the field is normalized to LF
+  const lookup = calls.find((c) => c.url.endsWith('/customFields'));
+  assert.equal(lookup.url, 'https://services.leadconnectorhq.com/locations/test-location/customFields');
+  assert.equal(lookup.init.method, 'GET');
+  assert.equal(lookup.init.headers.Authorization, 'Bearer test-ghl-token');
   const n = JSON.parse(ghl(calls, '/notes').init.body);
   assert.match(n.body, /Message:\nLine one\r\nLine two$/);
 });
 
-test('empty or whitespace-only message: Inquiry Message field is omitted, Note says (none)', async () => {
-  for (const message of ['', '   ', undefined]) {
-    const { res, calls, logs } = await run(makeRequest({ ...GOOD, message }));
-    assert.equal(res.status, 200);
-    assert.deepEqual(upsertPayload(calls).customFields.map((x) => x.id), ['fld-service', 'fld-source']);
-    assert.match(JSON.parse(ghl(calls, '/notes').init.body).body, /Message:\n\(none\)$/);
-    assert.ok(!logs.join('\n').includes('INQUIRY_FIELD_ID_MISSING'));
-  }
+test('message is written even when consent boxes are unticked, and with consent it sits alongside consent fields', async () => {
+  const a = await run(makeRequest());
+  assert.ok(upsertPayload(a.calls).customFields.some((x) => x.id === 'fld-inquiry'));
+  const b = await run(makeRequest({ ...GOOD, sms_consent_marketing: 'yes' }));
+  const ids = upsertPayload(b.calls).customFields.map((x) => x.id);
+  assert.deepEqual(ids, ['fld-service', 'fld-source', 'fld-inquiry', 'fld-marketing', 'fld-consent-at']);
 });
 
-test('env var missing: field skipped, one log code, still 200 with contact and Note created', async () => {
-  const env = { ...ENV };
-  delete env.GHL_FIELD_INQUIRY_MESSAGE_ID;
-  const { res, body, calls, logs } = await run(makeRequest(), { env });
+test('field name match is case-insensitive and ignores non-contact models', async () => {
+  const fields = () => Response.json({ customFields: [
+    { id: 'fld-opp', name: 'Inquiry Message', model: 'opportunity' },
+    { id: 'fld-c', name: ' inquiry message ', model: 'contact' },
+  ] });
+  const { calls } = await run(makeRequest(), { fields });
+  assert.deepEqual(upsertPayload(calls).customFields.map((x) => x.id), ['fld-service', 'fld-source', 'fld-c']);
+});
+
+test('Inquiry Message field not found: contact and Note still created, code logged without the message', async () => {
+  const fields = () => Response.json({ customFields: [{ id: 'fld-other', name: 'Other Field', model: 'contact' }] });
+  const { res, body, calls, logs } = await run(makeRequest(), { fields });
   assert.equal(res.status, 200);
   assert.deepEqual(body, { ok: true });
   assert.deepEqual(upsertPayload(calls).customFields.map((x) => x.id), ['fld-service', 'fld-source']);
-  assert.match(JSON.parse(ghl(calls, '/contacts/c1/notes').init.body).body, /Fictional test message\./);
+  assert.ok(ghl(calls, '/contacts/c1/notes'));
   const out = logs.join('\n');
-  assert.equal(out.split('INQUIRY_FIELD_ID_MISSING').length - 1, 1);
+  assert.match(out, /GHL_FIELD_NOT_FOUND/);
   assert.ok(!out.includes('Fictional test message'));
 });
 
-test('whitespace-only env var counts as missing', async () => {
-  const { res, calls } = await run(makeRequest(), { env: { ...ENV, GHL_FIELD_INQUIRY_MESSAGE_ID: '  ' } });
-  assert.equal(res.status, 200);
-  assert.ok(!upsertPayload(calls).customFields.some((x) => x.id === '  ' || x.id === ''));
+test('field lookup failure (non-OK, network error, bad JSON) never blocks contact or Note creation', async () => {
+  const cases = [
+    [() => new Response('{}', { status: 403 }), /GHL_FIELD_LOOKUP_FAILED/],
+    [() => Promise.reject(new Error('net')), /GHL_FIELD_LOOKUP_ERROR/],
+    [() => new Response('<html>', { status: 200 }), /GHL_FIELD_LOOKUP_ERROR/],
+    [() => Response.json({}), /GHL_FIELD_NOT_FOUND/],
+  ];
+  for (const [fields, re] of cases) {
+    const { res, calls, logs } = await run(makeRequest(), { fields });
+    assert.equal(res.status, 200);
+    assert.ok(!upsertPayload(calls).customFields.some((x) => x.id === 'fld-inquiry'));
+    assert.ok(ghl(calls, '/contacts/c1/notes'));
+    assert.match(logs.join('\n'), re);
+  }
 });
 
-test('message sits alongside consent fields without changing them', async () => {
-  const { calls } = await run(makeRequest({ ...GOOD, sms_consent_marketing: 'yes' }));
-  const ids = upsertPayload(calls).customFields.map((x) => x.id);
-  assert.deepEqual(ids, ['fld-service', 'fld-source', 'fld-inquiry', 'fld-marketing', 'fld-consent-at']);
+const lookupCount = (calls) => calls.filter((c) => c.url.endsWith('/customFields')).length;
+
+test('second submission reuses the cached field id with no second lookup call', async () => {
+  const mod = await freshModule();
+  const a = await run(makeRequest(), { mod });
+  const b = await run(makeRequest(), { mod });
+  assert.equal(lookupCount(a.calls), 1);
+  assert.equal(lookupCount(b.calls), 0);
+  assert.ok(upsertPayload(b.calls).customFields.some((x) => x.id === 'fld-inquiry' && x.fieldValue === 'Fictional test message.'));
+});
+
+test('a different location id is not served from the cache', async () => {
+  const mod = await freshModule();
+  await run(makeRequest(), { mod });
+  const b = await run(makeRequest(), { mod, env: { ...ENV, GHL_LOCATION_ID: 'other-location' } });
+  assert.equal(lookupCount(b.calls), 1);
+});
+
+test('failed lookups are not cached: each is retried on the next submission, and a later success is cached', async () => {
+  const failures = [
+    () => new Response('{}', { status: 403 }),
+    () => Promise.reject(new Error('net')),
+    () => Response.json({ customFields: [{ id: 'fld-other', name: 'Other Field', model: 'contact' }] }),
+  ];
+  const mod = await freshModule();
+  for (const fields of failures) {
+    const r = await run(makeRequest(), { mod, fields });
+    assert.equal(r.res.status, 200);
+    assert.equal(lookupCount(r.calls), 1);
+    assert.ok(!upsertPayload(r.calls).customFields.some((x) => x.id === 'fld-inquiry'));
+  }
+  const ok = await run(makeRequest(), { mod });
+  assert.equal(lookupCount(ok.calls), 1, 'retried after failures');
+  assert.ok(upsertPayload(ok.calls).customFields.some((x) => x.id === 'fld-inquiry'));
+  const again = await run(makeRequest(), { mod });
+  assert.equal(lookupCount(again.calls), 0, 'cached after success');
+});
+
+test('empty or whitespace-only message omits the Inquiry Message field', async () => {
+  for (const message of ['', '   ', undefined]) {
+    const { res, calls } = await run(makeRequest({ ...GOOD, message }));
+    assert.equal(res.status, 200);
+    assert.deepEqual(upsertPayload(calls).customFields.map((x) => x.id), ['fld-service', 'fld-source']);
+    assert.match(JSON.parse(ghl(calls, '/notes').init.body).body, /Message:\n\(none\)$/);
+  }
+});
+
+test('newlines are normalized to LF in the Inquiry Message field only; the Note keeps the submitted CRLF', async () => {
+  const { calls } = await run(makeRequest({ ...GOOD, message: 'Line one\r\nLine two' }));
+  assert.equal(upsertPayload(calls).customFields.find((x) => x.id === 'fld-inquiry').fieldValue, 'Line one\nLine two');
+  assert.match(JSON.parse(ghl(calls, '/notes').init.body).body, /Message:\nLine one\r\nLine two$/);
 });
 
 test('turnstile siteverify receives secret and token', async () => {
