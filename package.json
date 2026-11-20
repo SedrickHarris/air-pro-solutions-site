@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run check:form-env && npm run check:nearby && npm run check:featured-cities && npm run check:hub-links && next build && npm run postbuild:fonts && npm run check:hero-captions",
+    "build": "npm run check:form-env && npm run check:nearby && npm run check:featured-cities && npm run check:hub-links && next build && npm run check:sitemap && npm run postbuild:fonts && npm run check:hero-captions",
     "images:hero": "node scripts/make-hero-variants.mjs",
     "postbuild:fonts": "node scripts/preload-fonts.mjs",
     "check:form-env": "node scripts/check-form-env.mjs",
@@ -13,6 +13,7 @@
     "lint": "tsc --noEmit",
     "check:nearby": "node scripts/check-nearby.mjs",
     "report:inbound-links": "node scripts/report-inbound-links.mjs",
+    "check:sitemap": "node scripts/check-sitemap.mjs",
     "check:hub-links": "node scripts/check-hub-links.mjs",
     "propose:featured-cities": "node scripts/propose-featured-cities.mjs",
     "check:featured-cities": "node scripts/check-featured-cities.mjs",
