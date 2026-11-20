@@ -1993,3 +1993,17 @@ Still open:
 - Schema: `WebPage` plus `BreadcrumbList` only. No `Review` or `AggregateRating` markup for the self-hosted reviews, and the homepage organization rating markup is unchanged.
 - Description is 117 characters, under the 140-160 preferred range but inside the hard 70-180 gate; kept as the owner's suggested wording (utility-page rule: plain, human).
 - Not built here: the carousel on service and city pages, a service filter, `Review` schema.
+
+## Sitemap audit (2026-11-19, branch sitemap-audit)
+
+Full findings: `docs/sitemap-audit.md`. The sitemap matched the build exactly (59 indexable routes, 59 URLs), so no URL was added or removed. `sitemap.ts` now reads the `corePages` registry (`src/content/core-pages.ts`) plus the content-file filters, and `npm run check:sitemap` (in the build chain after `next build`) fails on drift. `lastModified` is deliberately off (a reliable per-page date is not available; all cities share `cities.ts`).
+
+Decided 2026-11-19: `/privacy/` and `/terms/` stay the legal URLs. No rename and no redirects; `/privacy-policy/` and `/terms-and-conditions/` do not exist.
+
+Still open (not fixed here):
+- 50 noindex stubs (level 2 service pages, unbuilt audiences, commercial sub-pages, blog, 404) build with the site default title "AIRPRO SOLUTIONS" and default description. Give each real metadata from `src/lib/seo.ts` before it is published.
+- `/careers/`, `/faq/` and `/accessibility/` have no in-body link, only the footer. `/reviews/` has one in-body link.
+- The noindex robots tags in the core and audience page files stay hard-coded. When a page is published, flip its `indexable` flag in `core-pages.ts` and remove the tag in its page file, or `check:sitemap` fails.
+- Publishing an audience page: add it to `builtAudiences` in `audiences.ts` and flip its `core-pages.ts` entry.
+- `/blog/placeholder-post/` is a build-only placeholder in `src/app/blog/[slug]/page.tsx`. Remove it when real posts exist; real posts will need a sitemap rule (the sitemap does not read blog data).
+- `/about/`, `/financing/` and `/maintenance-plan/` stay noindex until the client supplies content.
